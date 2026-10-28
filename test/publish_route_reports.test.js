@@ -81,6 +81,26 @@ test("已有 JSON/Markdown 产物分支可直接增加 HTML，保留旧报告历
   assert.match(git(f.remote, "show", "route-reports:reports/index.html"), /Route report/);
 });
 
+test("产物分支增加路由正文并删除本轮失效文件，空目录仍可发布", async t => {
+  const f = await fixture(t);
+  assert.equal(f.publish().status, 0);
+  const previous = git(f.remote, "rev-parse", "route-reports");
+  const directory = join(f.source, "reports/responses/rss/github/org/repo");
+  await mkdir(directory, { recursive: true });
+  await writeFile(join(directory, "release.xml"), "<rss>original body</rss>\n");
+  let result = f.publish();
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(git(f.remote, "rev-parse", "route-reports^"), previous);
+  assert.equal(git(f.remote, "ls-tree", "-r", "--name-only", "route-reports"),
+    "reports/index.html\nreports/responses/rss/github/org/repo/release.xml\nreports/routes.json\nreports/routes.md");
+  assert.equal(git(f.remote, "show", "route-reports:reports/responses/rss/github/org/repo/release.xml"), "<rss>original body</rss>");
+  await rm(join(directory, "release.xml"));
+  result = f.publish();
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(git(f.remote, "ls-tree", "-r", "--name-only", "route-reports"), "reports/index.html\nreports/routes.json\nreports/routes.md");
+  assert.equal(git(f.source, "rev-parse", "HEAD"), f.head);
+});
+
 test("缺少报告、远端读取失败或产物分支含其他文件时拒绝发布", async t => {
   const f = await fixture(t);
   await rm(join(f.source, "reports/routes.md"));

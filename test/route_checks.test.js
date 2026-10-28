@@ -1,11 +1,46 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { check_route, check_routes, check_output, parse_response } from "../scripts/route_checks.js";
 
 const entry = { file: "hot/example.js", path: "/api/hot/example", example: "/api/hot/example", format: "hot", route_index: 0, source_host: "example.com" };
 const value = { kind: "hot_rank", title: "Example", link: "https://example.com", entries: [{ id: "example:1", title: "Article", link: "https://example.com/1", rank: null, pinned: false, heat: { value: null, unit: "积分", text: "" } }] };
 const headers = { "Content-Type": "application/json", "X-FindRSS-Script": entry.file, "X-FindRSS-Route": "0" };
 const run = fetch_impl => check_route("https://scripts.example", entry, { fetch_impl });
+
+test("2xx 原始回包按实际路径单独保存，校验失败也保留，HTTP 失败不保存", async t => {
+  const output_dir = await mkdtemp(join(tmpdir(), "findrss-route-output-"));
+  t.after(() => rm(output_dir, { recursive: true, force: true }));
+  const cases = [
+    ["hot", "/api/hot/example", JSON.stringify(value), "application/json", "api/hot/example.json"],
+    ["rss", "/rss/github/org/repo/release", "<rss>invalid</rss>", "application/rss+xml", "rss/github/org/repo/release.xml"],
+    ["atom", "/atom/github/org/repo/release", "<feed/>", "application/atom+xml", "atom/github/org/repo/release.xml"],
+    ["html", "/chapter/123", "<p>正文</p>", "text/html", "chapter/123.html"],
+    ["image", "/img/apple?url=https%3A%2F%2Fexample.com%2Fsecret.webp", Buffer.from("89504e470d0a1a0a", "hex"), "image/png", "img/apple.png"],
+    ["hot", "/empty/", "", "application/json", "empty/index.json"],
+  ];
+  for (const [format, example, body, content_type, output_file] of cases) {
+    const report = await check_routes("https://scripts.example", [{ ...entry, format }], {
+      [format + " " + entry.path]: { example },
+    }, {
+      output_dir,
+      fetch_impl: async () => new Response(body, { headers: { ...headers, "Content-Type": content_type } }),
+    });
+    const result = report.results[0];
+    assert.equal(result.output_file, output_file);
+    assert.deepEqual(await readFile(join(output_dir, output_file)), Buffer.from(body));
+    if (format === "rss" || example === "/empty/") assert.equal(result.output_valid, false);
+  }
+  for (const status of [302, 403, 503]) {
+    const result = await check_route("https://scripts.example", { ...entry, example: "/failure/" + status }, {
+      output_dir, fetch_impl: async () => new Response("failure", { status }),
+    });
+    assert.equal(result.output_file, undefined);
+  }
+  assert.ok(!(await readdir(output_dir)).includes("failure"));
+});
 
 test("巡检逐级区分请求失败、空响应、错误格式和错误内容", async () => {
   const cases = [

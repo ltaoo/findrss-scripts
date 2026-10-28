@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { mkdir, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { XMLParser, XMLValidator } from "fast-xml-parser";
 
 const parser = new XMLParser({ ignoreAttributes: false, parseTagValue: false });
@@ -109,7 +111,7 @@ export function check_output(entry, value) {
   }
 }
 
-export async function check_route(base, entry, { fetch_impl = fetch, token = "", timeout_ms = 60000 } = {}) {
+export async function check_route(base, entry, { fetch_impl = fetch, token = "", timeout_ms = 60000, output_dir } = {}) {
   const result = { file: entry.file, path: entry.path, example: entry.example, format: entry.format,
     request: false, response: false, format_valid: false, output_valid: false };
   const started = Date.now();
@@ -142,6 +144,17 @@ export async function check_route(base, entry, { fetch_impl = fetch, token = "",
         throw new Error(`HTTP ${response.status}: ${problem.code}: ${problem.message}`);
       }
       throw new Error("HTTP " + response.status);
+    }
+    if (output_dir) {
+      const content_type = (response.headers.get("Content-Type") || "").split(";")[0].toLowerCase();
+      const extension = ["rss", "atom"].includes(entry.format) ? "xml" : entry.format === "html" ? "html"
+        : entry.format === "image" ? ({ "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp",
+          "image/gif": "gif", "image/x-icon": "ico", "image/vnd.microsoft.icon": "ico" }[content_type] || "bin") : "json";
+      const output_file = url.pathname.replace(/\/$/, "/index").slice(1) + "." + extension;
+      const destination = join(output_dir, output_file);
+      await mkdir(dirname(destination), { recursive: true });
+      await writeFile(destination, bytes);
+      result.output_file = output_file;
     }
     assert.ok(size > 0, "响应正文为空");
     result.response = true;

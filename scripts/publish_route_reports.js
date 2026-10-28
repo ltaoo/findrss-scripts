@@ -1,5 +1,5 @@
 import { execFileSync, spawnSync } from "node:child_process";
-import { mkdtempSync, rmSync, statSync } from "node:fs";
+import { existsSync, mkdtempSync, rmSync, statSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -9,6 +9,7 @@ const git = (args, options = {}) => execFileSync("git", args, { encoding: "utf8"
 for (const file of files) {
   if (!statSync(file).isFile()) throw new Error("缺少巡检报告：" + file);
 }
+if (existsSync("reports/responses")) files.push("reports/responses");
 
 const remote = spawnSync("git", ["ls-remote", "--exit-code", "--heads", "origin", branch], { encoding: "utf8" });
 if (remote.error) throw remote.error;
@@ -18,7 +19,7 @@ if (remote.status === 0) {
   git(["fetch", "--no-tags", "origin", branch]);
   parent = git(["rev-parse", "FETCH_HEAD"]);
   const existing = git(["ls-tree", "-r", "--name-only", parent]);
-  if (existing.split("\n").some(file => file && !files.includes(file))) throw new Error("产物分支包含其他文件，拒绝覆盖");
+  if (existing.split("\n").some(file => file && !files.includes(file) && !file.startsWith("reports/responses/"))) throw new Error("产物分支包含其他文件，拒绝覆盖");
 }
 
 const directory = mkdtempSync(join(tmpdir(), "findrss-route-reports-"));
