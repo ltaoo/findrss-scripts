@@ -29,20 +29,21 @@ async function fixture(t) {
   await mkdir(join(source, "reports"));
   await writeFile(join(source, "reports/routes.json"), '{"failed":0}\n');
   await writeFile(join(source, "reports/routes.md"), "All routes passed\n");
+  await writeFile(join(source, "reports/index.html"), "<!doctype html><title>Route report</title>\n");
   await writeFile(join(source, "reports/cookie-sync-setup.json"), '{"password":"must-not-publish"}\n');
   const head = git(source, "rev-parse", "HEAD");
   const publish = () => spawnSync(process.execPath, [script], { cwd: source, encoding: "utf8", env: { ...process.env, GITHUB_SHA: head } });
   return { source, remote, head, publish };
 }
 
-test("产物分支独立创建并保留历史，只发布两份报告且不改变源码索引", async t => {
+test("产物分支独立创建并保留历史，只发布三份报告且不改变源码索引", async t => {
   const f = await fixture(t);
   await writeFile(join(f.source, "source.txt"), "staged local changes\n");
   git(f.source, "add", "source.txt");
   let result = f.publish();
   assert.equal(result.status, 0, result.stderr);
   const first = git(f.remote, "rev-parse", "route-reports");
-  assert.equal(git(f.remote, "ls-tree", "-r", "--name-only", first), "reports/routes.json\nreports/routes.md");
+  assert.equal(git(f.remote, "ls-tree", "-r", "--name-only", first), "reports/index.html\nreports/routes.json\nreports/routes.md");
   assert.equal(git(f.remote, "rev-list", "--count", first), "1");
   assert.equal(git(f.remote, "show", first + ":reports/routes.json"), '{"failed":0}');
   assert.ok(git(f.remote, "log", "-1", "--format=%s", first).includes(f.head));
@@ -62,6 +63,22 @@ test("产物分支独立创建并保留历史，只发布两份报告且不改�
   assert.equal(git(f.remote, "rev-parse", next + "^"), first);
   assert.equal(git(f.remote, "show", next + ":reports/routes.json"), '{"failed":1}');
   assert.equal(git(f.source, "diff", "--cached", "--name-only"), "source.txt");
+});
+
+test("已有 JSON/Markdown 产物分支可直接增加 HTML，保留旧报告历史", async t => {
+  const f = await fixture(t);
+  git(f.source, "switch", "--orphan", "legacy-reports");
+  git(f.source, "add", "--force", "--", "reports/routes.json", "reports/routes.md");
+  git(f.source, "commit", "-m", "Legacy reports");
+  const previous = git(f.source, "rev-parse", "HEAD");
+  git(f.source, "push", "origin", "HEAD:refs/heads/route-reports");
+  git(f.source, "switch", "main");
+  await writeFile(join(f.source, "reports/routes.json"), '{"failed":0}\n');
+  await writeFile(join(f.source, "reports/routes.md"), "All routes passed\n");
+  const result = f.publish();
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(git(f.remote, "rev-parse", "route-reports^"), previous);
+  assert.match(git(f.remote, "show", "route-reports:reports/index.html"), /Route report/);
 });
 
 test("缺少报告、远端读取失败或产物分支含其他文件时拒绝发布", async t => {

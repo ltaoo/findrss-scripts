@@ -78,3 +78,35 @@ test("批量巡检遇错仍检查全部路由，不允许跳过或拼错覆盖�
   await assert.rejects(check_routes("https://scripts.example", cases, { "hot /unknown": {} }), /未知路由/);
   await assert.rejects(check_routes("https://scripts.example", cases, { ["hot " + cases[0].path]: { skip: true } }), /未知巡检配置/);
 });
+
+test("批量巡检最多并发 10 条，失败后仍完整检查且不重复请求", async () => {
+  const cases = Array.from({ length: 23 }, (_, index) => ({
+    ...entry, path: entry.path + index, example: entry.example + index,
+  }));
+  const requested = [];
+  const completed = [];
+  let active = 0;
+  let peak = 0;
+  const report = await check_routes("https://scripts.example", cases, {}, {
+    fetch_impl: async url => {
+      requested.push(url.pathname);
+      active++;
+      peak = Math.max(peak, active);
+      await new Promise(resolve => setImmediate(resolve));
+      active--;
+      return url.pathname === cases[0].example
+        ? new Response("Unavailable", { status: 503 })
+        : Response.json(value, { headers });
+    },
+    on_result: result => completed.push(result),
+  });
+  assert.equal(peak, 10);
+  assert.equal(active, 0);
+  assert.equal(requested.length, cases.length);
+  assert.deepEqual(new Set(requested), new Set(cases.map(item => item.example)));
+  assert.equal(report.total, cases.length);
+  assert.equal(report.passed, cases.length - 1);
+  assert.equal(report.failed, 1);
+  assert.equal(completed.length, cases.length);
+  assert.deepEqual(report.results.map(result => result.path), cases.map(item => item.path).sort());
+});

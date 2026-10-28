@@ -11,6 +11,7 @@ export async function notify_route_failures(report, env = process.env, fetch_imp
   const failed = report.results.filter(result => !result.output_valid);
   const lines = failed.slice(0, 10).map(result => `${result.format} ${result.path}：${String(result.error || "校验失败").slice(0, 200)}`);
   if (failed.length > 10) lines.push(`另有 ${failed.length - 10} 条失败，详见报告`);
+  if (env.REPORT_PAGE_URL) lines.push("报告页：" + env.REPORT_PAGE_URL);
   if (env.GITHUB_REPOSITORY && env.GITHUB_RUN_ID) lines.push(`报告：${env.GITHUB_SERVER_URL || "https://github.com"}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}`);
   const text = [`FindRSS 路由巡检失败：${report.failed}/${report.total}`, ...lines].join("\n");
   const response = await fetch_impl(url, {

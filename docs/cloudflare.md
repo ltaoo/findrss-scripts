@@ -104,15 +104,31 @@ RSS 读取仍需 `Authorization: Bearer <ACCESS_TOKEN>`，两个域名均适用�
 | Secret | `ROUTE_CHECK_CASES` | 可选的路由样本及预期覆盖 JSON，见下文 |
 | Secret | `NOTIFY_TOKEN` | 通知接口的 Bearer 令牌，仅填写令牌值，不包含 `Bearer ` 前缀 |
 
-检查从当前代码构建的本地清单出发，逐项请求，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 125 秒，并发 3，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`，展示于 Actions Summary，并上传 `route-check-report` artifact。
+检查从当前代码构建的本地清单出发，最多同时请求 10 条路由，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 60 秒，完成一条后立即继续下一条，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`，Markdown 展示于 Actions Summary，三份报告上传为 `route-check-report` artifact。
 
-定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，只提交上述两份报告。首次提交不包含源码历史；后续提交保留历次报告历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。可在该分支查看 [`reports/routes.md`](https://github.com/ltaoo/findrss-scripts/blob/route-reports/reports/routes.md) 和 [`reports/routes.json`](https://github.com/ltaoo/findrss-scripts/blob/route-reports/reports/routes.json)。源码工作区和分支不切换，`reports/` 中其他本机文件不会发布。
+定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，只提交上述三份报告。首次提交不包含源码历史；后续提交保留历次报告历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。原有仅包含 JSON/Markdown 的产物分支会自动增加 HTML，并保留旧提交。源码工作区和分支不切换，`reports/` 中其他本机文件不会发布。
 
 巡检有失败项时，已生成的报告仍会发布，任务保持失败状态；未生成完整报告或运行被取消时跳过分支发布。不同源码分支发起的巡检共用发布并发组，串行更新产物分支。发布使用当前仓库的 `GITHUB_TOKEN`，只对巡检任务授予 `contents: write`，PR 测试任务仍为只读。产物提交不会触发只监听默认分支 `master` 的推送 CI。
 
 分支发布不强推；远端冲突、权限不足或分支保护规则拒绝写入时任务会失败，但仍尝试保留 Actions artifact。若已有 `route-reports` 分支包含其他文件，脚本拒绝覆盖，需先调整该分支。部署这些工作流改动到默认分支并配置上表中的地址和访问令牌后，定时任务才会生效。
 
 只要有任一路由校验失败，任务会向工作流中配置的通知接口 POST `{"text":"..."}`，使用仓库 Secret `NOTIFY_TOKEN` 作为 Bearer 令牌。每轮只发送一条汇总，包含失败数、最多 10 条失败路由及原因、本次 Actions 报告链接；全部通过时不推送。令牌不会写入源码、报告、产物分支或消息正文。报告分支发布失败时仍会尝试通知；接口超时或非 2xx 会使通知步骤明确失败，不重试以避免重复消息。
+
+### HTML 报告与 GitHub Pages
+
+首次发布前，在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。无需新增 Secret，也不要选择从 `route-reports` 分支构建：使用 `GITHUB_TOKEN` 推送分支不会自动触发 Pages 构建，见 [GitHub 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
+
+定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。页面展示巡检时间、通过率、各类脚本、HTTP 状态、耗时、失败阶段和原因，并可下载 JSON/Markdown。分组支持原生折叠，全部结果可通过浏览器查找定位，无需 JavaScript 或访问令牌。
+
+`pages` 任务只授予 `pages: write` 和 `id-token: write`，使用 `github-pages` 环境。只要 Pages artifact 成功上传，即使 `routes` 因检查项失败或通知失败而变红，也会继续部署这份报告；取消运行或没有生成完整报告时跳过。源代码和本机凭据文件不会进入 Pages artifact。页面是最近一次成功部署的快照，通知同时附有页面入口和本次 Actions 链接；本轮 Pages 发布完成后页面才更新，发布失败时仍保留上次快照。
+
+对已有结果也可以在本地单独生成 HTML，无需重新访问上游：
+
+```sh
+node scripts/render_route_report.js
+```
+
+该命令读取 `reports/routes.json` 并写入 `reports/index.html`。页面只展示校验结果，不保存 RSS XML、热榜原始 JSON、剪藏正文或图片原始内容。
 
 | 阶段 | 校验 |
 | --- | --- |

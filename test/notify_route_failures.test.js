@@ -3,7 +3,8 @@ import test from "node:test";
 import { notify_route_failures } from "../scripts/notify_route_failures.js";
 
 const env = { NOTIFY_URL: "https://notify.example/api/notify/test", NOTIFY_TOKEN: "fixture-token",
-  GITHUB_REPOSITORY: "example/scripts", GITHUB_RUN_ID: "123", GITHUB_SERVER_URL: "https://github.com" };
+  GITHUB_REPOSITORY: "example/scripts", GITHUB_RUN_ID: "123", GITHUB_SERVER_URL: "https://github.com",
+  REPORT_PAGE_URL: "https://example.github.io/scripts/" };
 const report = { total: 3, failed: 2, results: [
   { format: "rss", path: "/rss/instagram/:username", error: "COOKIE_REQUIRED", output_valid: false },
   { format: "hot", path: "/api/hot/example", error: "HTTP 502", output_valid: false },
@@ -26,6 +27,7 @@ test("任何路由失败时仅推送一条带失败摘要和 Actions 链接的�
     assert.match(body.text, /COOKIE_REQUIRED/);
     assert.match(body.text, /HTTP 502/);
     assert.match(body.text, /https:\/\/github.com\/example\/scripts\/actions\/runs\/123/);
+    assert.match(body.text, /报告页：https:\/\/example.github.io\/scripts\//);
     assert.doesNotMatch(body.text, /fixture-token|\/rss\/passed/);
     return new Response("OK");
   });

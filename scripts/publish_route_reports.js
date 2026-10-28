@@ -3,7 +3,7 @@ import { mkdtempSync, rmSync, statSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-const files = ["reports/routes.json", "reports/routes.md"];
+const files = ["reports/routes.json", "reports/routes.md", "reports/index.html"];
 const branch = "refs/heads/route-reports";
 const git = (args, options = {}) => execFileSync("git", args, { encoding: "utf8", ...options }).trim();
 for (const file of files) {
@@ -23,7 +23,7 @@ if (remote.status === 0) {
 
 const directory = mkdtempSync(join(tmpdir(), "findrss-route-reports-"));
 try {
-  // 独立索引只暂存两份报告，不改变源码分支或带入 reports/ 中的其他文件。
+  // 独立索引只暂存报告，不改变源码分支或带入 reports/ 中的其他文件。
   const env = { ...process.env, GIT_INDEX_FILE: join(directory, "index") };
   git(["read-tree", "--empty"], { env });
   git(["add", "--force", "--", ...files], { env });

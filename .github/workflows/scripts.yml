@@ -38,6 +38,8 @@ jobs:
     concurrency:
       group: route-reports
       cancel-in-progress: false
+    outputs:
+      pages_ready: ${{ steps.pages_upload.outcome == 'success' }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -52,7 +54,7 @@ jobs:
           CHECK_ACCESS_TOKEN: ${{ secrets.CHECK_ACCESS_TOKEN }}
           ROUTE_CHECK_CASES: ${{ secrets.ROUTE_CHECK_CASES }}
       - name: Publish route reports
-        if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' && hashFiles('reports/routes.md') != '' }}
+        if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' && hashFiles('reports/routes.md') != '' && hashFiles('reports/index.html') != '' }}
         timeout-minutes: 5
         run: node scripts/publish_route_reports.js
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -62,10 +64,45 @@ jobs:
           path: |
             reports/routes.json
             reports/routes.md
+            reports/index.html
           if-no-files-found: warn
+      - name: Prepare report site
+        id: prepare_pages
+        if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' && hashFiles('reports/routes.md') != '' && hashFiles('reports/index.html') != '' }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/route-report-site"
+          cp reports/index.html reports/routes.json reports/routes.md "$RUNNER_TEMP/route-report-site/"
+      - name: Upload Pages site
+        id: pages_upload
+        if: ${{ !cancelled() && steps.prepare_pages.outcome == 'success' }}
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: ${{ runner.temp }}/route-report-site
       - name: Notify route failures
         if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' }}
         run: node scripts/notify_route_failures.js
         env:
           NOTIFY_URL: https://notify.funzm.com/api/notify/576b280f25494b399a46a252e9e92ca6/fbd60ffcce51
           NOTIFY_TOKEN: ${{ secrets.NOTIFY_TOKEN }}
+          REPORT_PAGE_URL: https://ltaoo.github.io/findrss-scripts/
+
+  pages:
+    needs: routes
+    if: ${{ !cancelled() && needs.routes.outputs.pages_ready == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Deploy report site
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

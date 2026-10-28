@@ -109,7 +109,7 @@ export function check_output(entry, value) {
   }
 }
 
-export async function check_route(base, entry, { fetch_impl = fetch, token = "", timeout_ms = 125000 } = {}) {
+export async function check_route(base, entry, { fetch_impl = fetch, token = "", timeout_ms = 60000 } = {}) {
   const result = { file: entry.file, path: entry.path, example: entry.example, format: entry.format,
     request: false, response: false, format_valid: false, output_valid: false };
   const started = Date.now();
@@ -170,7 +170,7 @@ export async function check_routes(base, cases, overrides = {}, { on_result = ()
   }
   const queue = cases.map(entry => ({ ...entry, ...overrides[entry.format + " " + entry.path] }));
   const results = [];
-  await Promise.all(Array.from({ length: 3 }, async () => {
+  await Promise.all(Array.from({ length: 10 }, async () => {
     for (let entry; (entry = queue.shift());) {
       const result = await check_route(base, entry, options);
       results.push(result);
