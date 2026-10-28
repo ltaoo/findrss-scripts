@@ -242,6 +242,7 @@ const app_route = {
   parameters: {
     country: "App Store 地区代码，例如 us、cn",
     id: "应用 ID，例如 id408709785，也可只填数字",
+    limit: "查询参数：版本记录数，默认 100，范围 1–1000",
     platform:
       "可选：all（默认）、ios、macos、tvos，或接口的平台标识；不支持的平台回退为全部平台",
   },

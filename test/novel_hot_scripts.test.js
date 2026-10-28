@@ -108,7 +108,8 @@ test("起点完整覆盖官网男频 9 榜和女频 8 榜，使用各自来源�
   const routes = sources.qidian.metadata.routes;
   assert.deepEqual(routes.map(route => route.path), Object.entries(catalog.qidian).flatMap(([gender, rows]) =>
     rows.map(({ type }) => "/qidian/rank/" + type + (gender === "female" ? "/female" : ""))));
-  assert.ok(routes.every(route => !route.path.includes(":") && route.example === route.path && Object.keys(route.parameters).length === 0));
+  assert.ok(routes.every(route => !route.path.includes(":") && route.example === route.path));
+  for (const route of routes) assert.deepEqual(Object.keys(route.parameters).sort(), ["category", "period"]);
   for (const path of ["/qidian/rank/unknown", "/qidian/rank/free", "/qidian/rank/sign/female", "/qidian/rank/yuepiao/unknown"]) {
     assert.ok(routes.every(route => !RssRoutePatternModel(route.path).match(path)), path);
   }

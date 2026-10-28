@@ -198,6 +198,8 @@ export class QidianHotRank extends HotRankScript {
 }
 
 const rank_metadata = {
+  parameters: { category: "查询参数：分类数字 ID，默认 -1（全部）",
+    period: "查询参数：月票榜使用 YYYYMM；推荐榜支持 week/month/all；书友榜支持 week/month；默认当前榜单" },
   url: "m.qidian.com",
   maintainers: ["findrss"],
   description:

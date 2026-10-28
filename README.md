@@ -17,6 +17,14 @@ npm run deploy
 
 GitHub Actions 每 6 小时访问部署后的全部路由，逐项验证请求、非空响应、响应格式和输出内容。JSON / Markdown / HTML 报告及 HTTP 2xx 路由的原始正文保存到独立的 `route-reports` 分支，并保留 Actions artifact；正文按实际请求路径分别存入 `reports/responses/`。HTML 报告还通过 [GitHub Pages](https://ltaoo.github.io/findrss-scripts/) 发布。巡检失败时也会保存、发布报告并推送失败汇总通知。需设置仓库变量 `CHECK_BASE_URL` 为 Worker 地址，以及 Secret `CHECK_ACCESS_TOKEN`（Worker 访问令牌）和 `NOTIFY_TOKEN`（通知接口令牌）。首次使用 Pages 时，在仓库 Settings → Pages 将 Source 设为 GitHub Actions。配置凭据、设备能力、检查样本及故障处理见 [部署与巡检说明](docs/cloudflare.md)。
 
+生成所有脚本的 OpenAPI 3.0.3 接口文档：
+
+```sh
+npm run openapi
+```
+
+输出为 `dist/openapi.json`，包含全部脚本路由的名称、说明、路径和查询参数、调用示例、响应格式及 Bearer 鉴权说明。接口通过 `tags` 和 `x-apifox-folder` 按 `Kind/类别` 分组，例如 `hot/小说`、`hot/新闻`、`rss/小说`、`rss/资讯`、`clip/网页`、`detect/科技`，便于客户端导入为两层文件夹。优先使用脚本的 `category`，其余脚本的分类维护在 `scripts/generate_openapi.js`；缺少分类的新增脚本归入对应 Kind 的“其他”目录。同一脚本的 RSS、Atom、正文和图片接口使用相同目录。可选路径参数展开为不同路径。普通构建也会自动生成文档；已有构建产物时，可直接运行 `node scripts/generate_openapi.js` 重新生成。服务地址使用客户端变量 `{{baseURL}}`，导入后将 `baseURL` 设置为实际 Worker 地址（如 `https://scripts.findrss.cloud`）；使用标准 OpenAPI 工具时需先替换该客户端变量。文档只读取脚本元数据，不请求上游，也不读取本机凭据。
+
 ## 使用
 
 1. 下方完整清单中的文件链接直接指向 `master` 分支的 Raw 源码，可复制链接或打开后复制源码。

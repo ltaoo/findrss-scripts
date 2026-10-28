@@ -329,6 +329,7 @@ export const route = {
   example: "/xiaohongshu/user/profile/5d2aec020000000012037401",
   parameters: {
     uid: "用户主页 /user/profile/ 后的 24 位十六进制 ID，不是小红书号",
+    full_content: "查询参数：true 或 1 时读取完整正文，默认仅首屏笔记和封面",
   },
   description:
     "默认读取用户主页首屏笔记和封面；添加 ?full_content=true（或 1）逐条请求详情，获取完整正文、图集和视频。Cookie 须由管理员确认后显式获取。",

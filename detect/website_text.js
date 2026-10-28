@@ -25,6 +25,7 @@ const script = new WebsiteTextDetect();
 export const route = {
   path: "/web/text/detect", name: "网页正文内容检测",
   example: "/web/text/detect?url=https%3A%2F%2Fexample.com%2F&selector=body",
+  parameters: { url: "必填：网页 HTTP(S) 地址", selector: "网页区域的 CSS 选择器，默认 body" },
   description: "普通 HTTP 读取静态 HTML，提取指定区域并忽略脚本、样式及空白差异；支持简单 CSS 选择器。",
   handler: ctx => script.run(ctx),
 };

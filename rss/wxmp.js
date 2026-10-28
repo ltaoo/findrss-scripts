@@ -341,6 +341,7 @@ export const routes = [
       account:
         "公众号微信号（如 wow36kr、zhihuribao）或原始 ID（如 gh_0a171c96fdbb、图集号 phacct_…）；也可继续用 ?username= 参数",
       offset: "分页游标，默认为空",
+      username: "查询参数：未提供路径 account 时使用的公众号标识",
     },
     description:
       "通过已连接设备调用 wxmp.biz.msg.list（设备原样回传公众号回包 JSON）生成公众号订阅源；同一 route 覆盖文章与图集（按每条是否带 PicUrls 映射），/rss 输出 RSS 2.0，/atom 输出 Atom 1.0。",

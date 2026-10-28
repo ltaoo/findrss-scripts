@@ -5,6 +5,7 @@
   "scripts": {
     "setup:runtime": "node scripts/prepare_runtime.js",
     "build": "npm run setup:runtime && node --import ./test/support/worker_runtime.js scripts/build.js",
+    "openapi": "npm run build",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "dry-run": "wrangler deploy --dry-run",

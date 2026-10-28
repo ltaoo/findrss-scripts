@@ -44,6 +44,9 @@ const script = new WebsiteClip();
 export const route = {
   path: "/web/region", name: "网页区域剪藏",
   example: "/web/region?url=https%3A%2F%2Fexample.com%2F&selector=body",
+  parameters: { url: "必填：网页 HTTP(S) 地址", selector: "网页区域的 CSS 选择器",
+    viewport_width: "视口宽度，默认 1440", viewport_height: "视口高度，默认 900",
+    wait_ms: "等待时间（毫秒），默认 1000", id_prefix: "元素 ID 前缀，默认空字符串" },
   description: "通过查询参数 url、selector 指定网页区域，可选 viewport_width、viewport_height、wait_ms。",
   handler: ctx => script.run(ctx),
 };
