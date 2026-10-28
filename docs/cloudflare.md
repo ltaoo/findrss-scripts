@@ -10,7 +10,7 @@ npx wrangler login
 npm run deploy
 ```
 
-`wrangler.jsonc` 的 Worker 名称默认为 `findrss-scripts`，可按需修改。也可使用 Cloudflare Workers 的 GitHub 集成：安装命令 `npm ci`，部署命令 `npm run deploy`，Wrangler 会自动执行构建。CI 只测试和打包，不自动发布。
+`wrangler.jsonc` 的 Worker 名称为 `findrss-scripts`，自定义域名为 `script.findrss.cloud` 和 `scripts.findrss.cloud`。部署时 Wrangler 自动创建域名绑定、DNS 记录和 HTTPS 证书，需要登录的 Cloudflare 账户有权管理 `findrss.cloud`。也可使用 Cloudflare Workers 的 GitHub 集成：安装命令 `npm ci`，部署命令 `npm run deploy`，Wrangler 会自动执行构建。CI 只测试和打包，不自动发布。
 
 构建从 `scripts/prepare_runtime.js` 指定的提交下载 FindRSS 运行时，在 `.runtime/findrss-worker/` 安装依赖。脚本在构建期通过生产 QuickJS 编译校验，生成 `dist/scripts.js` 和 `dist/routes.json`；新增 `.js` 文件或路由后会自动纳入部署和巡检。构建不请求脚本的上游站点。更新运行时提交后需要重新运行全部测试和打包检查。
 
@@ -27,6 +27,7 @@ npm run deploy
 | `/api/detect/<脚本路径>` | 检测 JSON，本次采样的初始快照 |
 | `/img/<平台>?url=...` | 经脚本白名单校验的图片 |
 | `/fanqienovel/chapter/...`、`/qidian/chapter/...` | 章节 HTML |
+| `POST /api/cookies/update` | dm Cookie 同步；其余入口使用 GET |
 
 所有脚本默认注册，不需要后台导入、发布或数据库。当前 106 个脚本生成 163 个检查项，其中 RSS 同时检查 RSS 和 Atom。Detect 为无状态采样，不保存历史基线。没有管理后台、订阅管理或周期快照存储。
 
@@ -43,6 +44,10 @@ npm run deploy
 | `ACCESS_TOKEN` | 访问令牌；设置后所有入口需 `Authorization: Bearer <令牌>` |
 | `SCRIPT_CONFIG` | 按脚本相对文件名索引的配置 JSON |
 | `SCRIPT_COOKIES` | 浏览器 Cookie 对象数组 JSON，含 `name/value/domain/path/secure/expirationDate` 等字段 |
+| `COOKIE_KV` | Wrangler KV 绑定，按脚本声明的站点保存加密 Cookie 快照 |
+| `COOKIE_STORAGE_KEY` | 64 位十六进制 AES-256-GCM 存储密钥，使用 Secret 配置 |
+| `COOKIE_PUSH_UUID` | 与 dm 配置相同的 UUID，使用 Secret 配置 |
+| `COOKIE_PUSH_KEY` | `MD5(UUID + "-" + 密码)` 十六进制结果前 16 位，使用 Secret 配置 |
 | `DEVICE_BRIDGE_URL` | 可选设备调用桥接 HTTPS 地址，接收 POST `{method,args,target_device_id}`，返回设备调用的原始 JSON |
 | `DEVICE_BRIDGE_TOKEN` | 可选设备桥接 Bearer 令牌 |
 
@@ -62,7 +67,29 @@ npx wrangler secret put SCRIPT_CONFIG
 npx wrangler secret put SCRIPT_COOKIES
 ```
 
-配置 Cookie、脚本配置或设备桥接时必须同时设置 `ACCESS_TOKEN`，否则入口返回 503，避免公开登录态采集结果。Cookie 仅发送给脚本声明的来源、路径和名称，明文不会进入沙箱。路由目录不会返回配置值。使用受保护的订阅和图片时，阅读器也需要支持发送访问令牌。
+绑定 Cookie KV 或配置 Cookie、脚本配置、设备桥接时必须同时设置 `ACCESS_TOKEN`，否则入口返回 503，避免公开登录态采集结果。Cookie 仅发送给脚本声明的来源、路径和名称，明文不会进入沙箱。路由目录不会返回配置值。使用受保护的订阅和图片时，阅读器也需要支持发送访问令牌。
+
+## dm Cookie 同步
+
+只使用 Workers KV，不创建或依赖 D1 / Durable Objects。兼容原版 dm 的 UUID 和密码加密上传，无需修改扩展或填写额外上传令牌：
+
+1. 打开「Cookie 同步」，接口填写 `https://scripts.findrss.cloud/api/cookies/update`。
+2. 选择 AES-128-CBC（固定 IV）或 AES-256-CBC（兼容模式），填写与服务端一致的 UUID 和密码。
+3. 勾选需要同步的域名，如 `*.instagram.com`；建议间隔设为 5 分钟，再点击「保存并同步当前」。
+
+本机部署凭据位于被 Git 忽略的 `.dev.vars`，供 Wrangler 本地运行及 `npm run deploy -- --secrets-file .dev.vars` 使用。dm 需要填写的 UUID、密码及 RSS 访问令牌保存在本机私有文件 `reports/cookie-sync-setup.json`；不要提交或公开此文件。
+
+上传字段与主项目 `/api/cookies/update` 一致：`uuid`、`data`、`crypto_type`、`update_time`。服务端校验 UUID，使用配置的派生密钥复用生产运行时解密，再校验 Cookie 数据；密码不上传。不要求 `signature`，也不限制上传时间窗口。`domains` 是可选的站点覆盖范围，缺省时从 Cookie 域名推导。请使用 HTTPS 同步地址。
+
+成功响应与主项目一致，包含 `code: 0`、`count`、`skipped`、`msg: "成功"`。无名 Cookie 会跳过；整批都不可用时拒绝覆盖旧数据。未改造的客户端也可使用 `Authorization: Bearer <ACCESS_TOKEN>` 提交原有明文或 AES 数据；明文匿名上传会被拒绝。
+
+同步返回 401 时，`COOKIE_SYNC_ENCRYPTION_REQUIRED` 表示需选择 AES，`COOKIE_SYNC_UUID_MISMATCH` 表示 UUID 与上述本机配置不一致。密码或密文无效时返回 400 和 `COOKIE_SYNC_DECRYPT_FAILED`。不再因缺少签名返回 401。无需发送 Cookie 或密码来排查。
+
+Cookie 按脚本声明的来源分别保存，每条快照均使用随机 IV 和独立存储密钥做 AES-256-GCM 加密，来源也参与完整性校验。更新选中站点时保留其他站点；显式空数组会清除所选站点快照。老客户端不提供 `domains` 时从 Cookie 域名推导范围，空数组必须补充域名范围。没有 Cookie 读取或明文导出接口。
+
+采集时优先使用 KV 的站点快照，尚未同步的站点使用 `SCRIPT_COOKIES` 回退；已清空的 KV 快照不会恢复静态旧值。KV 读取、解密失败会明确报错，不会偷偷退回旧 Cookie。更换存储密钥后需要重新同步所需站点。
+
+RSS 读取仍需 `Authorization: Bearer <ACCESS_TOKEN>`，两个域名均适用。KV 是最终一致存储，更新在其他节点可能延迟 60 秒以上，见 [Cloudflare KV 一致性说明](https://developers.cloudflare.com/kv/concepts/how-kv-works/)。同一站点应只使用一个同步配置，多个客户端并发上传时以最后完成的写入为准。
 
 ## GitHub Actions
 
@@ -75,8 +102,17 @@ npx wrangler secret put SCRIPT_COOKIES
 | Variable | `CHECK_BASE_URL` | 已部署的 Worker 完整地址，例如 `https://findrss-scripts.example.workers.dev` |
 | Secret | `CHECK_ACCESS_TOKEN` | Worker 的 `ACCESS_TOKEN`；未配置鉴权时留空 |
 | Secret | `ROUTE_CHECK_CASES` | 可选的路由样本及预期覆盖 JSON，见下文 |
+| Secret | `NOTIFY_TOKEN` | 通知接口的 Bearer 令牌，仅填写令牌值，不包含 `Bearer ` 前缀 |
 
 检查从当前代码构建的本地清单出发，逐项请求，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 125 秒，并发 3，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`，展示于 Actions Summary，并上传 `route-check-report` artifact。
+
+定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，只提交上述两份报告。首次提交不包含源码历史；后续提交保留历次报告历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。可在该分支查看 [`reports/routes.md`](https://github.com/ltaoo/findrss-scripts/blob/route-reports/reports/routes.md) 和 [`reports/routes.json`](https://github.com/ltaoo/findrss-scripts/blob/route-reports/reports/routes.json)。源码工作区和分支不切换，`reports/` 中其他本机文件不会发布。
+
+巡检有失败项时，已生成的报告仍会发布，任务保持失败状态；未生成完整报告或运行被取消时跳过分支发布。不同源码分支发起的巡检共用发布并发组，串行更新产物分支。发布使用当前仓库的 `GITHUB_TOKEN`，只对巡检任务授予 `contents: write`，PR 测试任务仍为只读。产物提交不会触发只监听默认分支 `master` 的推送 CI。
+
+分支发布不强推；远端冲突、权限不足或分支保护规则拒绝写入时任务会失败，但仍尝试保留 Actions artifact。若已有 `route-reports` 分支包含其他文件，脚本拒绝覆盖，需先调整该分支。部署这些工作流改动到默认分支并配置上表中的地址和访问令牌后，定时任务才会生效。
+
+只要有任一路由校验失败，任务会向工作流中配置的通知接口 POST `{"text":"..."}`，使用仓库 Secret `NOTIFY_TOKEN` 作为 Bearer 令牌。每轮只发送一条汇总，包含失败数、最多 10 条失败路由及原因、本次 Actions 报告链接；全部通过时不推送。令牌不会写入源码、报告、产物分支或消息正文。报告分支发布失败时仍会尝试通知；接口超时或非 2xx 会使通知步骤明确失败，不重试以避免重复消息。
 
 | 阶段 | 校验 |
 | --- | --- |
@@ -119,6 +155,25 @@ npm run build
 CHECK_BASE_URL=https://你的Worker地址 npm run check:routes
 ```
 
-需要鉴权时通过环境变量提供 `CHECK_ACCESS_TOKEN`。缺少地址会失败并提示配置；缺少上游 Cookie/API Key/设备、验证页或空内容会记录为失败，不会自动忽略。Worker 的 502 响应提供错误码和脚本文件名，详细上游问题可结合 Workers Logs 与对应脚本夹具定位。
+需要鉴权时通过环境变量提供 `CHECK_ACCESS_TOKEN`。缺少地址会失败并提示配置；缺少上游 Cookie/API Key/设备、验证页或空内容会记录为失败，不会自动忽略。巡检报告保留 Worker 返回的业务码和描述，详细上游问题可结合 Workers Logs 与对应脚本夹具定位。
+
+## 错误响应
+
+所有错误统一返回 `error`、`code`、`message`，匹配到脚本时还包含 `file`。`error` 保留原有错误码字段，`code` 与它相同，客户端应按 `code` 判断错误类型；描述可随排查建议更新。HTTP 状态按错误类型返回，不再全部使用 502。
+
+例如未配置可用于 Instagram 请求的 Cookie，返回 HTTP 503：
+
+```json
+{
+  "error": "COOKIE_REQUIRED",
+  "code": "COOKIE_REQUIRED",
+  "message": "缺少可用于当前请求的 Cookie，请配置该站点的有效登录 Cookie，并检查域名、路径和过期时间",
+  "file": "rss/instagram.js"
+}
+```
+
+错误码、公开描述和 HTTP 状态统一维护于 [`worker/errors.js`](../worker/errors.js)，复用固定生产运行时已有的业务码。包含 Cookie 缺失、上游登录失效、拒绝访问、限流、连接失败、超时、响应不匹配，以及参数、配置、访问鉴权、路由、采集能力、脚本输出和内部错误。
+
+Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前站点、路径且未过期的 Cookie 时返回 `COOKIE_REQUIRED`；声明权限但未使用 Cookie 的路由仍可匿名运行。已发送 Cookie 后被上游要求登录则返回 `UPSTREAM_AUTH_REQUIRED`，不能仅凭它判断 Cookie 一定过期。脚本已识别的响应错误使用 `UPSTREAM_INVALID_RESPONSE`；未知脚本异常保留 `SCRIPT_FAILED`。公开回包不透传原始异常、Cookie、令牌、上游正文或堆栈。
 
 Cloudflare 配置字段见 [Wrangler 官方配置文档](https://developers.cloudflare.com/workers/wrangler/configuration/)。实际发布前需有自己的 Cloudflare 账户授权；本地打包成功不代表所有第三方站点允许来自 Cloudflare IP 的请求。

@@ -4,49 +4,66 @@ import { RssRoutePatternModel } from "../.runtime/findrss-worker/server/domain/r
 import { FeedModel } from "../.runtime/findrss-worker/server/domain/feed_format.js";
 import { script_output } from "../.runtime/findrss-worker/server/lib/script_output.js";
 import { fetch_script_image } from "../.runtime/findrss-worker/server/infra/image_proxy.js";
-import { ScriptCookieAccess } from "../.runtime/findrss-worker/server/infra/script_cookie_access.js";
+import { script_config_value } from "../.runtime/findrss-worker/server/lib/script_config.js";
 import { create_puppeteer_navigate } from "../.runtime/findrss-worker/server/infra/script_puppeteer.js";
 import { route_cases } from "./catalog.js";
+import { WorkerCookieAccess } from "./cookies.js";
+import { error_code, error_response, script_error } from "./errors.js";
+import { load_cookies, update_cookies, validate_cookies } from "./cookie_sync.js";
 
 const cases = route_cases(scripts);
 const routes = cases.map(entry => ({ ...entry, pattern: RssRoutePatternModel(entry.path),
   script: scripts.find(script => script.file === entry.file) })).sort((a, b) => b.pattern.score - a.pattern.score);
 const headers = { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" };
+const cookie_origins = [...new Set(scripts.flatMap(script => (script.metadata.permissions?.cookies || []).map(permission => permission.origin)))];
 
 export default {
   async fetch(request, env) {
-    if (request.method !== "GET") return Response.json({ error: "METHOD_NOT_ALLOWED" }, { status: 405, headers: { ...headers, Allow: "GET" } });
-    // 配置凭据时必须同时设置令牌，避免将私人订阅或登录态采集开放给公网。
-    if ((env.SCRIPT_CONFIG || env.SCRIPT_COOKIES || env.DEVICE_BRIDGE_URL) && !env.ACCESS_TOKEN) {
-      return Response.json({ error: "ACCESS_TOKEN_REQUIRED" }, { status: 503, headers });
-    }
-    if (env.ACCESS_TOKEN && request.headers.get("Authorization") !== "Bearer " + env.ACCESS_TOKEN) {
-      return Response.json({ error: "UNAUTHORIZED" }, { status: 401, headers });
-    }
     const url = new URL(request.url);
+    const syncing = url.pathname === "/api/cookies/update";
+    const method = syncing ? "POST" : "GET";
+    if (request.method !== method) return error_response("METHOD_NOT_ALLOWED", { ...headers, Allow: method });
+    // 配置凭据时必须同时设置令牌，避免将私人订阅或登录态采集开放给公网。
+    if ((syncing || env.COOKIE_KV || env.SCRIPT_CONFIG || env.SCRIPT_COOKIES || env.DEVICE_BRIDGE_URL) && !env.ACCESS_TOKEN) {
+      return error_response("ACCESS_TOKEN_REQUIRED", headers);
+    }
+    if (syncing) return update_cookies(request, env, cookie_origins, headers);
+    if (env.ACCESS_TOKEN && request.headers.get("Authorization") !== "Bearer " + env.ACCESS_TOKEN) {
+      return error_response("UNAUTHORIZED", headers);
+    }
     if (url.pathname === "/health") return Response.json({ ok: true, scripts: scripts.length, routes: cases.length }, { headers });
     if (["/", "/api/routes"].includes(url.pathname)) return Response.json(cases, { headers });
     const entry = routes.find(route => route.pattern.match(url.pathname));
-    if (!entry) return Response.json({ error: "NOT_FOUND" }, { status: 404, headers });
+    if (!entry) return error_response("NOT_FOUND", headers);
     const response_headers = { ...headers, "X-FindRSS-Script": entry.file, "X-FindRSS-Route": String(entry.route_index) };
+    let stage = "config";
     try {
       const config = JSON.parse(env.SCRIPT_CONFIG || "{}");
-      const cookies = JSON.parse(env.SCRIPT_COOKIES || "[]");
-      const metadata = { ...entry.script.metadata, ...entry.script.metadata.routes[entry.route_index], config: config[entry.file] || {} };
+      const fallback = validate_cookies(JSON.parse(env.SCRIPT_COOKIES || "[]"));
+      if (!config || typeof config !== "object" || Array.isArray(config)) {
+        return error_response("CONFIG_INVALID", response_headers, entry.file);
+      }
+      const metadata = { ...entry.script.metadata, ...entry.script.metadata.routes[entry.route_index],
+        config: Object.hasOwn(config, entry.file) ? config[entry.file] : {} };
+      metadata.config = script_config_value(metadata.config_schema, metadata.config);
+      stage = "script";
+      const cookies = await load_cookies(env, metadata.permissions, fallback);
       const signal = AbortSignal.any([request.signal, AbortSignal.timeout(120000)]);
       const invoke = env.DEVICE_BRIDGE_URL ? async spec => {
         const response = await fetch(env.DEVICE_BRIDGE_URL, { method: "POST", signal,
           headers: { "Content-Type": "application/json", Authorization: "Bearer " + (env.DEVICE_BRIDGE_TOKEN || "") },
           body: JSON.stringify(spec) });
-        if (!response.ok) throw new Error("设备桥接请求失败：HTTP " + response.status);
+        if (!response.ok) throw script_error("DEVICE_UNAVAILABLE");
         return response.json();
       } : null;
-      const cookie_access = env.SCRIPT_COOKIES ? new ScriptCookieAccess({ permissions: metadata.permissions,
-        cookies: () => cookies, assert_grant: () => {} }) : null;
+      const cookie_access = new WorkerCookieAccess({ permissions: metadata.permissions,
+        cookies: () => cookies, assert_grant: () => {} });
+      const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER)
+        : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
       const result = await execute_script(entry.script.source, metadata, invoke, {
         method: request.method, pathname: url.pathname, params: entry.pattern.match(url.pathname).params,
         query: Object.fromEntries(url.searchParams), public_origin: new URL(env.FINDRSS_HOSTNAME || url.origin).origin,
-      }, [], "", cookie_access, signal, env.BROWSER ? create_puppeteer_navigate(env.BROWSER) : null);
+      }, [], "", cookie_access, signal, navigate);
       const value = JSON.parse(result.output);
       if (["rss", "atom"].includes(entry.format)) {
         return new Response(FeedModel(value).render(entry.format, { self_url: url.href }), {
@@ -61,8 +78,9 @@ export default {
       return new Response(output.body, { headers: { ...response_headers, "Content-Type": output.content_type,
         ...(output.content_type.startsWith("text/html") ? { "Content-Security-Policy": "sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src https: data:" } : {}) } });
     } catch (error) {
-      console.error(JSON.stringify({ file: entry.file, route: entry.path, code: error.problem?.code || error.name }));
-      return Response.json({ error: error.problem?.code || "SCRIPT_EXECUTION_FAILED", file: entry.file }, { status: 502, headers });
+      const code = stage === "config" ? "CONFIG_INVALID" : error_code(error);
+      console.error(JSON.stringify({ file: entry.file, route: entry.path, code }));
+      return error_response(code, response_headers, entry.file);
     }
   },
 };

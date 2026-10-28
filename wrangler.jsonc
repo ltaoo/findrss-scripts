@@ -1,11 +1,16 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "findrss-scripts",
+  "routes": [
+    { "pattern": "script.findrss.cloud", "custom_domain": true },
+    { "pattern": "scripts.findrss.cloud", "custom_domain": true }
+  ],
   "main": "worker/index.js",
   "compatibility_date": "2026-05-03",
   "compatibility_flags": ["nodejs_compat"],
   "build": { "command": "npm run build" },
   "browser": { "binding": "BROWSER" },
+  "kv_namespaces": [{ "binding": "COOKIE_KV", "id": "60fd0995c8524aeeb167cd57a2e3e099" }],
   "rules": [{ "type": "CompiledWasm", "globs": ["**/*.wasm"], "fallthrough": false }],
   "observability": { "enabled": true }
 }

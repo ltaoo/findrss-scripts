@@ -22,6 +22,16 @@ test("巡检逐级区分请求失败、空响应、错误格式和错误内容",
   }
 });
 
+test("巡检报告保留服务端业务码和描述", async () => {
+  const result = await run(async () => Response.json({
+    error: "COOKIE_REQUIRED", code: "COOKIE_REQUIRED", message: "缺少可用 Cookie", file: entry.file,
+  }, { status: 503 }));
+  assert.equal(result.request, false);
+  assert.equal(result.output_valid, false);
+  assert.equal(result.code, "COOKIE_REQUIRED");
+  assert.equal(result.error, "HTTP 503: COOKIE_REQUIRED: 缺少可用 Cookie");
+});
+
 test("巡检拒绝重复 ID、无效热度、错误来源及错误 handler", async () => {
   assert.throws(() => check_output(entry, { ...value, entries: [value.entries[0], value.entries[0]] }), /ID/);
   assert.throws(() => check_output(entry, { ...value, link: "https://other.example" }), /来源/);
@@ -49,6 +59,7 @@ test("巡检覆盖 URL 不得跨站发送令牌，重定向不会视为成功", 
     return Response.redirect("https://other.example", 302);
   });
   assert.equal(redirected.output_valid, false);
+  assert.equal(redirected.error, "HTTP 302");
 });
 
 test("批量巡检遇错仍检查全部路由，不允许跳过或拼错覆盖项", async () => {

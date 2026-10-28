@@ -119,10 +119,9 @@ export async function check_route(base, entry, { fetch_impl = fetch, token = "",
     const response = await fetch_impl(url, { redirect: "manual", signal: AbortSignal.timeout(timeout_ms),
       headers: token ? { Authorization: "Bearer " + token } : {} });
     result.status = response.status;
-    assert.ok(response.ok, "HTTP " + response.status);
-    result.request = true;
+    result.request = response.ok;
     const reader = response.body?.getReader();
-    assert.ok(reader, "响应没有正文流");
+    assert.ok(reader, response.ok ? "响应没有正文流" : "HTTP " + response.status);
     const chunks = [];
     let size = 0;
     try {
@@ -134,9 +133,19 @@ export async function check_route(base, entry, { fetch_impl = fetch, token = "",
         chunks.push(value);
       }
     } finally { await reader.cancel().catch(() => {}); }
+    const bytes = Buffer.concat(chunks);
+    if (!response.ok) {
+      let problem;
+      try { problem = JSON.parse(bytes.toString("utf8")); } catch {}
+      if (typeof problem?.code === "string" && typeof problem?.message === "string") {
+        result.code = problem.code;
+        throw new Error(`HTTP ${response.status}: ${problem.code}: ${problem.message}`);
+      }
+      throw new Error("HTTP " + response.status);
+    }
     assert.ok(size > 0, "响应正文为空");
     result.response = true;
-    const value = parse_response(entry, response.headers.get("Content-Type") || "", Buffer.concat(chunks));
+    const value = parse_response(entry, response.headers.get("Content-Type") || "", bytes);
     result.format_valid = true;
     assert.equal(response.headers.get("X-FindRSS-Script"), entry.file, "命中了错误的脚本");
     assert.equal(response.headers.get("X-FindRSS-Route"), String(entry.route_index), "命中了错误的 handler");

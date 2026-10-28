@@ -15,7 +15,7 @@ npm run deploy
 
 本地运行使用 `npm run dev`。Wrangler 在启动和部署前自动构建，扫描 `hot/`、`rss/`、`clip/`、`detect/` 全部脚本，无需手工导入。构建从 GitHub 下载固定版本的 FindRSS 生产运行时并安装其依赖，缓存于 `.runtime/`；不会构建管理后台，也不需要数据库。`/api/routes` 列出所有路由，`/health` 返回脚本和检查项数量。
 
-GitHub Actions 每 6 小时访问部署后的全部路由，逐项验证请求、非空响应、响应格式和输出内容，并提供 JSON / Markdown 报告。需设置仓库变量 `CHECK_BASE_URL` 为 Worker 地址；有访问令牌时还需设置 Secret `CHECK_ACCESS_TOKEN`。配置凭据、设备能力、检查样本及故障处理见 [部署与巡检说明](docs/cloudflare.md)。
+GitHub Actions 每 6 小时访问部署后的全部路由，逐项验证请求、非空响应、响应格式和输出内容。JSON / Markdown 报告保存到独立的 `route-reports` 分支，并保留 Actions artifact；巡检失败时也会保存已生成的报告并推送失败汇总通知。需设置仓库变量 `CHECK_BASE_URL` 为 Worker 地址，以及 Secret `CHECK_ACCESS_TOKEN`（Worker 访问令牌）和 `NOTIFY_TOKEN`（通知接口令牌）。配置凭据、设备能力、检查样本及故障处理见 [部署与巡检说明](docs/cloudflare.md)。
 
 ## 使用
 

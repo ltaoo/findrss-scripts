@@ -2,7 +2,7 @@ name: Scripts CI and route checks
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
   schedule:
     - cron: '23 */6 * * *'
@@ -33,6 +33,11 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    permissions:
+      contents: write
+    concurrency:
+      group: route-reports
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -46,9 +51,21 @@ jobs:
           CHECK_BASE_URL: ${{ vars.CHECK_BASE_URL }}
           CHECK_ACCESS_TOKEN: ${{ secrets.CHECK_ACCESS_TOKEN }}
           ROUTE_CHECK_CASES: ${{ secrets.ROUTE_CHECK_CASES }}
+      - name: Publish route reports
+        if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' && hashFiles('reports/routes.md') != '' }}
+        timeout-minutes: 5
+        run: node scripts/publish_route_reports.js
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: route-check-report
-          path: reports/
+          path: |
+            reports/routes.json
+            reports/routes.md
           if-no-files-found: warn
+      - name: Notify route failures
+        if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' }}
+        run: node scripts/notify_route_failures.js
+        env:
+          NOTIFY_URL: https://notify.funzm.com/api/notify/576b280f25494b399a46a252e9e92ca6/fbd60ffcce51
+          NOTIFY_TOKEN: ${{ secrets.NOTIFY_TOKEN }}
