@@ -18,6 +18,7 @@ const markdown = render_report(report);
 await mkdir(new URL("../reports/", import.meta.url), { recursive: true });
 await writeFile(new URL("../reports/routes.json", import.meta.url), JSON.stringify(report, null, 2) + "\n");
 await writeFile(new URL("../reports/routes.md", import.meta.url), markdown);
+await writeFile(new URL("../reports/README.md", import.meta.url), markdown);
 await writeFile(new URL("../reports/index.html", import.meta.url), render_report_html(report));
 if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, markdown);
 console.log(`路由巡检：${report.passed}/${report.total} 通过`);
