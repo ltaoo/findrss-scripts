@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { XMLParser, XMLValidator } from "fast-xml-parser";
@@ -150,7 +151,8 @@ export async function check_route(base, entry, { fetch_impl = fetch, token = "",
       const extension = ["rss", "atom"].includes(entry.format) ? "xml" : entry.format === "html" ? "html"
         : entry.format === "image" ? ({ "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp",
           "image/gif": "gif", "image/x-icon": "ico", "image/vnd.microsoft.icon": "ico" }[content_type] || "bin") : "json";
-      const output_file = url.pathname.replace(/\/$/, "/index").slice(1) + "." + extension;
+      const suffix = url.search ? "." + createHash("sha256").update(url.search).digest("hex").slice(0, 16) : "";
+      const output_file = url.pathname.replace(/\/$/, "/index").slice(1) + suffix + "." + extension;
       const destination = join(output_dir, output_file);
       await mkdir(dirname(destination), { recursive: true });
       await writeFile(destination, bytes);
@@ -170,18 +172,27 @@ export async function check_route(base, entry, { fetch_impl = fetch, token = "",
 }
 
 export async function check_routes(base, cases, overrides = {}, { on_result = () => {}, ...options } = {}) {
+  assert.ok(overrides && typeof overrides === "object" && !Array.isArray(overrides), "巡检配置必须是对象");
   const known = new Set(cases.map(entry => entry.format + " " + entry.path));
-  for (const [key, fields] of Object.entries(overrides)) {
+  for (const [key, samples] of Object.entries(overrides)) {
     assert.ok(known.has(key), "巡检覆盖配置引用了未知路由：" + key);
-    assert.ok(fields && typeof fields === "object" && !Array.isArray(fields), "巡检配置必须是对象");
-    for (const [field, value] of Object.entries(fields)) {
-      assert.ok(["example", "min_items", "min_text_length", "source_host", "title_includes"].includes(field), "未知巡检配置字段：" + field);
-      assert.ok(["min_items", "min_text_length"].includes(field)
-        ? Number.isSafeInteger(value) && value >= 0
-        : nonempty(value), "无效巡检配置：" + field);
+    assert.ok(!Array.isArray(samples) || samples.length > 0, "巡检样本数组不能为空：" + key);
+    for (const fields of array(samples)) {
+      assert.ok(fields && typeof fields === "object" && !Array.isArray(fields), "巡检样本必须是对象");
+      for (const [field, value] of Object.entries(fields)) {
+        assert.ok(["example", "min_items", "min_text_length", "source_host", "title_includes"].includes(field), "未知巡检配置字段：" + field);
+        assert.ok(["min_items", "min_text_length"].includes(field)
+          ? Number.isSafeInteger(value) && value >= 0
+          : nonempty(value), "无效巡检配置：" + field);
+      }
     }
   }
-  const queue = cases.map(entry => ({ ...entry, ...overrides[entry.format + " " + entry.path] }));
+  const queue = cases.flatMap(entry => array(overrides[entry.format + " " + entry.path] ?? {}).map(fields => ({ ...entry, ...fields })));
+  for (const entry of queue) {
+    const url = new URL(entry.example, base);
+    assert.equal(url.origin, new URL(base).origin, "检查地址必须位于部署站点，禁止跨站发送令牌");
+    assert.ok(!url.username && !url.password, "检查地址不得包含用户名或密码");
+  }
   const results = [];
   await Promise.all(Array.from({ length: 10 }, async () => {
     for (let entry; (entry = queue.shift());) {
@@ -190,7 +201,22 @@ export async function check_routes(base, cases, overrides = {}, { on_result = ()
       on_result(result);
     }
   }));
-  results.sort((a, b) => (a.file + a.path).localeCompare(b.file + b.path));
-  const failed = results.filter(result => !result.output_valid).length;
-  return { checked_at: new Date().toISOString(), total: results.length, passed: results.length - failed, failed, results };
+  results.sort((a, b) => (a.file + a.path + a.example).localeCompare(b.file + b.path + b.example));
+  const routes = new Map();
+  for (const result of results) {
+    const key = JSON.stringify([result.file, result.format, result.path]);
+    if (!routes.has(key)) routes.set(key, []);
+    routes.get(key).push(result);
+  }
+  const aggregated = [...routes.values()].map(samples => {
+    if (samples.length === 1) return samples[0];
+    const { file, format, path } = samples[0];
+    const result = { file, format, path, samples, duration_ms: samples.reduce((sum, sample) => sum + sample.duration_ms, 0) };
+    for (const phase of ["request", "response", "format_valid", "output_valid"]) result[phase] = samples.every(sample => sample[phase]);
+    if (!result.output_valid) result.error = samples.filter(sample => !sample.output_valid)
+      .map(sample => `${sample.example}: ${sample.error || sample.code || "校验未通过"}`).join("；");
+    return result;
+  });
+  const failed = aggregated.filter(result => !result.output_valid).length;
+  return { checked_at: new Date().toISOString(), total: aggregated.length, passed: aggregated.length - failed, failed, results: aggregated };
 }

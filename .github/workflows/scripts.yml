@@ -50,6 +50,7 @@ jobs:
       - run: npm run build
       - run: npm run check:routes
         env:
+          ROUTE_CHECK_CONFIG: .github/route-checks.json
           CHECK_BASE_URL: ${{ vars.CHECK_BASE_URL }}
           CHECK_ACCESS_TOKEN: ${{ secrets.CHECK_ACCESS_TOKEN }}
           ROUTE_CHECK_CASES: ${{ secrets.ROUTE_CHECK_CASES }}
@@ -66,6 +67,7 @@ jobs:
             reports/routes.md
             reports/index.html
             reports/README.md
+            reports/icons/
             reports/responses/
           if-no-files-found: warn
       - name: Prepare report site

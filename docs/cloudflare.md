@@ -108,11 +108,11 @@ RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKE
 | Secret | `ROUTE_CHECK_CASES` | 可选的路由样本及预期覆盖 JSON，见下文 |
 | Secret | `NOTIFY_TOKEN` | 通知接口的 Bearer 令牌，仅填写令牌值，不包含 `Bearer ` 前缀 |
 
-检查从当前代码构建的本地清单出发，最多同时请求 10 条路由，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 60 秒，完成一条后立即继续下一条，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文一起上传为 `route-check-report` artifact。
+检查从当前代码构建的本地清单出发，最多同时请求 10 条路由，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 60 秒，完成一条后立即继续下一条，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文、`reports/icons/` 中的脚本图标一起上传为 `route-check-report` artifact。
 
-HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存到 `reports/responses/`，即使后续格式或输出校验失败也保留。目录使用实际请求 URL 的路径（包含样本覆盖后的参数值），不包含查询串。例如 `/rss/github/ltaoo/wx_channels_download/release` 保存为 `reports/responses/rss/github/ltaoo/wx_channels_download/release.xml`，`/api/hot/baidu/hot` 保存为 `reports/responses/api/hot/baidu/hot.json`。RSS/Atom 使用 `.xml`，JSON 使用 `.json`，正文使用 `.html`，图片按响应类型使用扩展名；以 `/` 结尾的路径使用 `index` 文件名。JSON 报告的 `output_file` 记录相对于 `responses/` 的产物路径。每轮先清空正文目录，失败请求不会沿用上轮文件。
+HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存到 `reports/responses/`，即使后续格式或输出校验失败也保留。目录使用实际请求 URL 的路径（包含样本覆盖后的参数值），不包含查询串明文；有查询参数时，在扩展名前添加查询串的 SHA-256 前 16 位，避免多个样本相互覆盖。例如 `/rss/github/ltaoo/wx_channels_download/release` 保存为 `reports/responses/rss/github/ltaoo/wx_channels_download/release.xml`，`/api/hot/baidu/hot` 保存为 `reports/responses/api/hot/baidu/hot.json`。RSS/Atom 使用 `.xml`，JSON 使用 `.json`，正文使用 `.html`，图片按响应类型使用扩展名；以 `/` 结尾的路径使用 `index` 文件名。JSON 报告的 `output_file` 记录相对于 `responses/` 的产物路径；同一路由有多个样本时，详细结果和产物路径保存在该路由的 `samples` 中。每轮先清空正文目录，失败请求不会沿用上轮文件。
 
-定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，提交上述报告及 `reports/responses/` 中的正文。分支根目录同时提供 `README.md`、`index.html`、`routes.json`、`routes.md` 和禁用 Jekyll 的 `.nojekyll`，首页的 JSON/Markdown 下载链接可直接使用；原有 `reports/` 下的报告路径继续保留。打开分支即可看到 README 结果表格，按路由类型分组，显示通过／失败及各阶段状态；同一脚本的不同路由分别列出，点击脚本文件名直接打开 `master` 分支的 Raw 源码，方便复制复用。首次提交不包含源码历史；后续提交保留历次报告和正文历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。原有产物分支会自动增加这些根目录文件和本轮正文，并保留旧提交。源码工作区和分支不切换，源码 README 不会被生成报告覆盖，`reports/` 中其他本机文件不会发布。正文会随产物分支公开，包括使用登录态采集的内容。
+定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，提交上述报告、`reports/responses/` 中的正文及 `reports/icons/` 中的脚本图标。分支根目录同时提供 `README.md`、`index.html`、`routes.json`、`routes.md` 和禁用 Jekyll 的 `.nojekyll`，首页的 JSON/Markdown 下载链接可直接使用；原有 `reports/` 下的报告路径继续保留。打开分支即可看到 README 结果表格，按脚本聚合所有格式的路由，展示脚本版本及可用的平台图标，路由表仅保留路由、成功／失败和失败原因；失败项优先，点击脚本路径直接打开 `master` 分支的 Raw 源码，方便复制复用。首次提交不包含源码历史；后续提交保留历次报告和正文历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。原有产物分支会自动增加这些根目录文件和本轮正文，并保留旧提交。源码工作区和分支不切换，源码 README 不会被生成报告覆盖，`reports/` 中其他本机文件不会发布。正文会随产物分支公开，包括使用登录态采集的内容。
 
 巡检有失败项时，已生成的报告仍会发布，任务保持失败状态；未生成完整报告或运行被取消时跳过分支发布。不同源码分支发起的巡检共用发布并发组，串行更新产物分支。发布使用当前仓库的 `GITHUB_TOKEN`，只对巡检任务授予 `contents: write`，PR 测试任务仍为只读。产物提交不会触发只监听默认分支 `master` 的推送 CI。
 
@@ -126,7 +126,7 @@ HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存�
 
 如果使用分支发布，发布源应为 **Deploy from a branch → route-reports → /(root)**，分支根目录已包含入口和下载文件。但当前工作流的 `GITHUB_TOKEN` 推送仍不会触发这种发布模式的自动构建；需另行使用有权限用户的推送或合适的发布凭据触发，不能仅切换设置就保证每轮巡检后站点更新。现有工作流已包含完整的 Pages artifact 部署，建议保留 **GitHub Actions** 模式。
 
-定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。页面展示巡检时间、通过率、各类脚本、HTTP 状态、耗时、失败阶段和原因，并可下载 JSON/Markdown。分组支持原生折叠，全部结果可通过浏览器查找定位，无需 JavaScript 或访问令牌。
+定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。页面展示巡检时间和通过率，按脚本聚合路由；每个脚本展示路径、Raw 链接、版本号和可用的平台图标，每条路由只展示成功／失败和失败原因，并可下载 JSON/Markdown。HTML 将 SVG 作为内嵌图片显示，README 引用产物分支中的 SVG 文件。JSON 仍保留详细检查数据。分组支持原生折叠，全部结果可通过浏览器查找定位，无需 JavaScript 或访问令牌。
 
 `pages` 任务只授予 `pages: write` 和 `id-token: write`，使用 `github-pages` 环境。只要 Pages artifact 成功上传，即使 `routes` 因检查项失败或通知失败而变红，也会继续部署这份报告；取消运行或没有生成完整报告时跳过。源代码和本机凭据文件不会进入 Pages artifact。页面是最近一次成功部署的快照，通知同时附有页面入口和本次 Actions 链接；本轮 Pages 发布完成后页面才更新，发布失败时仍保留上次快照。
 
@@ -151,26 +151,27 @@ node scripts/render_route_report.js
 
 默认访问每条路由的 `example`，默认要求至少 1 个条目。部分示例的账号、章节可能失效，Apple/微博图片示例包含占位地址，需要用有效且在白名单内的图片 URL 覆盖。合法的空发布仓库可显式设 `min_items: 0`；仍会检查结构、标题、来源和 handler。
 
-`ROUTE_CHECK_CASES` 的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到。只允许覆盖 `example`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。
+GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-checks.json)，由 `scripts/check_routes.js` 在执行巡检时读取，工作流通过 `ROUTE_CHECK_CONFIG` 指定文件路径，本地未指定时也读取该文件。配置不参与构建，不写入 `dist/`，Worker 不读取或导入它，修改后无需重新部署 CF。
+
+配置的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到。每个键支持样本数组，也兼容原来的单个对象；有配置时替代该路由的默认样本，未配置的路由继续使用脚本 `example`。数组不能为空；未知路由、字段错误或跨站样本会在发请求前报错。GitHub Secret `ROUTE_CHECK_CASES` 使用相同格式，按配置键覆盖文件中的整组样本，不逐项合并。只允许覆盖 `example`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。
 
 ```json
 {
-  "rss /rss/github/:org/:pro/release": {
-    "example": "/rss/github/cloudflare/workers-sdk/release",
-    "title_includes": "cloudflare/workers-sdk",
-    "min_items": 1
-  },
-  "atom /atom/github/:org/:pro/release": {
-    "example": "/atom/github/cloudflare/workers-sdk/release",
-    "title_includes": "cloudflare/workers-sdk",
-    "min_items": 1
-  },
-  "clip /api/clip/web/region": {
-    "example": "/api/clip/web/region?url=https%3A%2F%2Fexample.com%2F&selector=body",
-    "source_host": "example.com"
-  }
+  "rss /rss/wxmp/:account?": [
+    { "example": "/rss/wxmp/wow36kr" },
+    { "example": "/rss/wxmp/zhihuribao" }
+  ],
+  "rss /rss/github/:org/:pro/release": [
+    {
+      "example": "/rss/github/cloudflare/workers-sdk/release",
+      "title_includes": "cloudflare/workers-sdk",
+      "min_items": 1
+    }
+  ]
 }
 ```
+
+当前仓库配置为 `rss/wxmp.js` 的 `wow36kr`、`zhihuribao` 和 `rss/wxchannels.js` 的两个视频号账号同时检查 RSS、Atom。实际请求地址需要带 `/rss` 或 `/atom` 前缀。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本地址，JSON 的 `samples` 保留逐样本详情。
 
 本地也可以运行同一巡检：
 

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { notify_route_failures } from "../scripts/notify_route_failures.js";
+import { check_routes } from "../scripts/route_checks.js";
 
 const env = { NOTIFY_URL: "https://notify.example/api/notify/test", NOTIFY_TOKEN: "fixture-token",
   GITHUB_REPOSITORY: "example/scripts", GITHUB_RUN_ID: "123", GITHUB_SERVER_URL: "https://github.com",
@@ -51,6 +52,20 @@ test("大量失败会汇总截断，保留完整报告入口", async () => {
     assert.match(text, /另有 2 条失败/);
     assert.doesNotMatch(text, /\/failure\/10/);
     assert.match(text, /actions\/runs\/123/);
+    return new Response("OK");
+  });
+});
+
+test("同一路由多个失败样本只计一条失败，通知保留样本地址和原因", async () => {
+  const entry = { file: "rss/example.js", format: "rss", path: "/rss/example/:account", example: "/rss/example/default" };
+  const report = await check_routes("https://scripts.example", [entry], {
+    "rss /rss/example/:account": [{ example: "/rss/example/a" }, { example: "/rss/example/b" }],
+  }, { fetch_impl: async () => new Response("Unavailable", { status: 503 }) });
+  await notify_route_failures(report, env, async (url, options) => {
+    const { text } = JSON.parse(options.body);
+    assert.match(text, /失败：1\/1/);
+    assert.match(text, /\/rss\/example\/a: HTTP 503/);
+    assert.match(text, /\/rss\/example\/b: HTTP 503/);
     return new Response("OK");
   });
 });

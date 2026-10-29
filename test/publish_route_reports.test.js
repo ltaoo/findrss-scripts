@@ -144,3 +144,17 @@ test("缺少报告、远端读取失败或产物分支含其他文件时拒绝�
   assert.match(result.stderr, /包含其他文件/);
   assert.equal(git(f.remote, "rev-parse", "route-reports"), f.head);
 });
+
+test("脚本图标随报告发布，无图标的下一轮清理旧文件", async t => {
+  const f = await fixture(t);
+  const directory = join(f.source, "reports/icons");
+  await mkdir(directory);
+  await writeFile(join(directory, "script-0.svg"), "<svg/>");
+  let result = f.publish();
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(git(f.remote, "show", "route-reports:reports/icons/script-0.svg"), "<svg/>");
+  await rm(directory, { recursive: true });
+  result = f.publish();
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(git(f.remote, "ls-tree", "-r", "--name-only", "route-reports"), report_files.join("\n"));
+});
