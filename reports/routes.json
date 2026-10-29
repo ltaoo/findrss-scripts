@@ -1,9 +1,22 @@
 {
-  "checked_at": "2026-10-29T06:04:37.863Z",
-  "total": 169,
-  "passed": 69,
-  "failed": 100,
+  "checked_at": "2026-10-29T13:23:56.867Z",
+  "total": 170,
+  "passed": 47,
+  "failed": 123,
   "results": [
+    {
+      "file": "clip/baidu_weather.js",
+      "path": "/api/clip/baidu/weather/:city?",
+      "example": "/api/clip/baidu/weather/上海",
+      "format": "clip",
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 63
+    },
     {
       "file": "clip/github.js",
       "path": "/api/clip/github/:owner/:repo/readme",
@@ -15,20 +28,20 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 29
+      "duration_ms": 99
     },
     {
       "file": "clip/website.js",
       "path": "/api/clip/web/region",
       "example": "/api/clip/web/region?url=https%3A%2F%2Fexample.com%2F&selector=body",
       "format": "clip",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/clip/web/region.5204cf87dc2a69fc.json",
-      "duration_ms": 6086
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 64
     },
     {
       "file": "detect/github_releases.js",
@@ -41,23 +54,23 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 31
+      "duration_ms": 64
     },
     {
       "file": "detect/website_text.js",
       "path": "/api/detect/web/text/detect",
       "example": "/api/detect/web/text/detect?url=https%3A%2F%2Fexample.com%2F&selector=body",
       "format": "detect",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/detect/web/text/detect.5204cf87dc2a69fc.json",
-      "duration_ms": 62
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 70
     },
     {
-      "file": "hot/36kr_quick.js",
+      "file": "hot/36kr.js",
       "path": "/api/hot/36kr/quick",
       "example": "/api/hot/36kr/quick",
       "format": "hot",
@@ -68,10 +81,10 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1435
+      "duration_ms": 1764
     },
     {
-      "file": "hot/36kr_renqi.js",
+      "file": "hot/36kr.js",
       "path": "/api/hot/36kr/renqi",
       "example": "/api/hot/36kr/renqi",
       "format": "hot",
@@ -82,7 +95,7 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 1961
+      "duration_ms": 2557
     },
     {
       "file": "hot/aihot.js",
@@ -95,7 +108,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/aihot.json",
-      "duration_ms": 1868
+      "duration_ms": 2092
     },
     {
       "file": "hot/anilist.js",
@@ -109,7 +122,7 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 388
+      "duration_ms": 584
     },
     {
       "file": "hot/apple_charts.js",
@@ -123,7 +136,7 @@
       "status": 200,
       "output_file": "api/hot/apple-charts/us/podcasts.json",
       "error": "来源应为 rss.marketingtools.apple.com，实际为 podcasts.apple.com",
-      "duration_ms": 1375
+      "duration_ms": 2252
     },
     {
       "file": "hot/arstechnica.js",
@@ -136,7 +149,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/arstechnica/headlines.json",
-      "duration_ms": 649
+      "duration_ms": 1474
     },
     {
       "file": "hot/baidu_hot.js",
@@ -149,23 +162,24 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/baidu/hot.json",
-      "duration_ms": 1642
+      "duration_ms": 8623
     },
     {
-      "file": "hot/bilibili_hot_search.js",
+      "file": "hot/bilibili.js",
       "path": "/api/hot/bilibili/hot/search",
       "example": "/api/hot/bilibili/hot/search",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/bilibili/hot/search.json",
-      "duration_ms": 1250
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/bilibili_hot_search.js'\n- 'hot/bilibili.js'\n               ^\n",
+      "duration_ms": 1188
     },
     {
-      "file": "hot/bilibili_hot_video.js",
+      "file": "hot/bilibili.js",
       "path": "/api/hot/bilibili/hot/video",
       "example": "/api/hot/bilibili/hot/video",
       "format": "hot",
@@ -176,10 +190,10 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 648
+      "duration_ms": 1234
     },
     {
-      "file": "hot/bilibili_ranking.js",
+      "file": "hot/bilibili.js",
       "path": "/api/hot/bilibili/ranking",
       "example": "/api/hot/bilibili/ranking",
       "format": "hot",
@@ -190,7 +204,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1122
+      "duration_ms": 596
     },
     {
       "file": "hot/bluesky.js",
@@ -204,7 +218,7 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 393
+      "duration_ms": 474
     },
     {
       "file": "hot/cankaoxiaoxi.js",
@@ -217,72 +231,77 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cankaoxiaoxi.json",
-      "duration_ms": 3954
+      "duration_ms": 2727
     },
     {
-      "file": "hot/chongbuluo_hot.js",
+      "file": "hot/chongbuluo.js",
       "path": "/api/hot/chongbuluo/hot",
       "example": "/api/hot/chongbuluo/hot",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/chongbuluo/hot.json",
-      "duration_ms": 458
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/chongbuluo_hot.js'\n- 'hot/chongbuluo.js'\n                 ^\n",
+      "duration_ms": 778
     },
     {
-      "file": "hot/chongbuluo_latest.js",
+      "file": "hot/chongbuluo.js",
       "path": "/api/hot/chongbuluo/latest",
       "example": "/api/hot/chongbuluo/latest",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/chongbuluo/latest.json",
-      "duration_ms": 386
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/chongbuluo_latest.js'\n- 'hot/chongbuluo.js'\n                 ^\n",
+      "duration_ms": 1180
     },
     {
-      "file": "hot/cls_depth.js",
+      "file": "hot/cls.js",
       "path": "/api/hot/cls/depth",
       "example": "/api/hot/cls/depth",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/cls/depth.json",
-      "duration_ms": 1242
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/cls_depth.js'\n- 'hot/cls.js'\n          ^\n",
+      "duration_ms": 1377
     },
     {
-      "file": "hot/cls_hot.js",
+      "file": "hot/cls.js",
       "path": "/api/hot/cls/hot",
       "example": "/api/hot/cls/hot",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/cls/hot.json",
-      "duration_ms": 918
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/cls_hot.js'\n- 'hot/cls.js'\n          ^\n",
+      "duration_ms": 4044
     },
     {
-      "file": "hot/cls_telegraph.js",
+      "file": "hot/cls.js",
       "path": "/api/hot/cls/telegraph",
       "example": "/api/hot/cls/telegraph",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/cls/telegraph.json",
-      "duration_ms": 1409
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/cls_telegraph.js'\n- 'hot/cls.js'\n          ^\n",
+      "duration_ms": 1713
     },
     {
       "file": "hot/dailymotion.js",
@@ -295,7 +314,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/dailymotion/hot/us.json",
-      "duration_ms": 488
+      "duration_ms": 369
     },
     {
       "file": "hot/deezer.js",
@@ -308,7 +327,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/deezer/chart.json",
-      "duration_ms": 354
+      "duration_ms": 403
     },
     {
       "file": "hot/devto.js",
@@ -321,7 +340,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/devto/top/week.json",
-      "duration_ms": 172
+      "duration_ms": 202
     },
     {
       "file": "hot/dongqiudi.js",
@@ -334,7 +353,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/dongqiudi.json",
-      "duration_ms": 1291
+      "duration_ms": 2000
     },
     {
       "file": "hot/douban_hot.js",
@@ -347,7 +366,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/douban/hot.json",
-      "duration_ms": 1368
+      "duration_ms": 1501
     },
     {
       "file": "hot/douyin_hot.js",
@@ -360,7 +379,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/douyin/hot.json",
-      "duration_ms": 1619
+      "duration_ms": 698
     },
     {
       "file": "hot/fanqienovel.js",
@@ -373,33 +392,35 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/fanqienovel/rank/1_2_1141.json",
-      "duration_ms": 2106
+      "duration_ms": 2707
     },
     {
-      "file": "hot/fastbull_express.js",
+      "file": "hot/fastbull.js",
       "path": "/api/hot/fastbull/express",
       "example": "/api/hot/fastbull/express",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/fastbull/express.json",
-      "duration_ms": 3311
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/fastbull_express.js'\n- 'hot/fastbull.js'\n               ^\n",
+      "duration_ms": 1778
     },
     {
-      "file": "hot/fastbull_news.js",
+      "file": "hot/fastbull.js",
       "path": "/api/hot/fastbull/news",
       "example": "/api/hot/fastbull/news",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/fastbull/news.json",
-      "duration_ms": 2312
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/fastbull_news.js'\n- 'hot/fastbull.js'\n               ^\n",
+      "duration_ms": 3266
     },
     {
       "file": "hot/freebuf.js",
@@ -413,7 +434,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1504
+      "duration_ms": 1636
     },
     {
       "file": "hot/gelonghui.js",
@@ -426,7 +447,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/gelonghui.json",
-      "duration_ms": 1802
+      "duration_ms": 2592
     },
     {
       "file": "hot/github_trending.js",
@@ -439,21 +460,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/github/trending.json",
-      "duration_ms": 2469
+      "duration_ms": 4392
     },
     {
       "file": "hot/google_news.js",
       "path": "/api/hot/google-news/:edition?/:topic?",
       "example": "/api/hot/google-news/us/top",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_FETCH_FAILED",
-      "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 7388
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/google-news/us/top.json",
+      "duration_ms": 619
     },
     {
       "file": "hot/gutenberg.js",
@@ -466,20 +486,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/gutenberg/top/day.json",
-      "duration_ms": 491
+      "duration_ms": 1032
     },
     {
       "file": "hot/hackernews.js",
       "path": "/api/hot/hackernews",
       "example": "/api/hot/hackernews",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/hackernews.json",
-      "duration_ms": 1220
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 895
     },
     {
       "file": "hot/hatena.js",
@@ -492,7 +512,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/hatena/hot/all.json",
-      "duration_ms": 995
+      "duration_ms": 1292
     },
     {
       "file": "hot/hupu_hot.js",
@@ -506,7 +526,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1411
+      "duration_ms": 2943
     },
     {
       "file": "hot/ifeng_hot.js",
@@ -519,7 +539,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/ifeng/hot.json",
-      "duration_ms": 1047
+      "duration_ms": 848
     },
     {
       "file": "hot/iqiyi_hot.js",
@@ -532,20 +552,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/iqiyi/hot.json",
-      "duration_ms": 1352
+      "duration_ms": 1484
     },
     {
       "file": "hot/ithome.js",
       "path": "/api/hot/ithome",
       "example": "/api/hot/ithome",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/ithome.json",
-      "duration_ms": 1491
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 1847
     },
     {
       "file": "hot/itmedia.js",
@@ -558,7 +578,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/itmedia/headlines.json",
-      "duration_ms": 779
+      "duration_ms": 1626
     },
     {
       "file": "hot/jin10.js",
@@ -571,7 +591,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/jin10.json",
-      "duration_ms": 2636
+      "duration_ms": 2369
     },
     {
       "file": "hot/juejin_hot.js",
@@ -584,7 +604,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/juejin/hot.json",
-      "duration_ms": 2113
+      "duration_ms": 3683
     },
     {
       "file": "hot/kakuyomu.js",
@@ -598,7 +618,7 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 322
+      "duration_ms": 408
     },
     {
       "file": "hot/kaopu.js",
@@ -612,7 +632,7 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 688
+      "duration_ms": 752
     },
     {
       "file": "hot/kuaishou_hot.js",
@@ -625,20 +645,20 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 3717
+      "duration_ms": 118
     },
     {
       "file": "hot/kuan.js",
       "path": "/api/hot/kuan",
       "example": "/api/hot/kuan",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/kuan.json",
-      "duration_ms": 2044
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 2030
     },
     {
       "file": "hot/lobsters.js",
@@ -651,20 +671,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/lobsters/hot.json",
-      "duration_ms": 406
+      "duration_ms": 631
     },
     {
       "file": "hot/mastodon.js",
       "path": "/api/hot/mastodon/trending/:type?",
       "example": "/api/hot/mastodon/trending/links",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/mastodon/trending/links.json",
-      "duration_ms": 495
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 107
     },
     {
       "file": "hot/mktnews_flash.js",
@@ -677,33 +697,33 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/mktnews/flash.json",
-      "duration_ms": 211
+      "duration_ms": 240
     },
     {
       "file": "hot/myanimelist.js",
       "path": "/api/hot/myanimelist/top/:type?",
       "example": "/api/hot/myanimelist/top/anime",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/myanimelist/top/anime.json",
-      "duration_ms": 1077
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 108
     },
     {
       "file": "hot/narou.js",
       "path": "/api/hot/narou/top/:period?",
       "example": "/api/hot/narou/top/daily",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/narou/top/daily.json",
-      "duration_ms": 557
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 102
     },
     {
       "file": "hot/nhk.js",
@@ -716,7 +736,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/nhk/headlines.json",
-      "duration_ms": 681
+      "duration_ms": 430
     },
     {
       "file": "hot/niconico.js",
@@ -729,20 +749,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/niconico/rank.json",
-      "duration_ms": 1012
+      "duration_ms": 2016
     },
     {
       "file": "hot/nowcoder_hot.js",
       "path": "/api/hot/nowcoder/hot",
       "example": "/api/hot/nowcoder/hot",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/nowcoder/hot.json",
-      "duration_ms": 1909
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 96
     },
     {
       "file": "hot/npr.js",
@@ -755,7 +775,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/npr/headlines.json",
-      "duration_ms": 121
+      "duration_ms": 255
     },
     {
       "file": "hot/pcbeta_windows11.js",
@@ -766,10 +786,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 2843
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 111
     },
     {
       "file": "hot/producthunt.js",
@@ -782,7 +801,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 271
+      "duration_ms": 94
     },
     {
       "file": "hot/qidian.js",
@@ -793,10 +812,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1288
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 89
     },
     {
       "file": "hot/qidian.js",
@@ -809,20 +827,20 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 47
+      "duration_ms": 107
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/hotsales",
       "example": "/api/hot/qidian/rank/hotsales",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 48
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/qidian/rank/hotsales.json",
+      "duration_ms": 1877
     },
     {
       "file": "hot/qidian.js",
@@ -833,10 +851,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1652
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 88
     },
     {
       "file": "hot/qidian.js",
@@ -849,33 +866,33 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qidian/rank/newauthor.json",
-      "duration_ms": 518
+      "duration_ms": 1879
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/newbook",
       "example": "/api/hot/qidian/rank/newbook",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/newbook.json",
-      "duration_ms": 1401
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 84
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/newfans",
       "example": "/api/hot/qidian/rank/newfans",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/newfans.json",
-      "duration_ms": 1774
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 86
     },
     {
       "file": "hot/qidian.js",
@@ -888,7 +905,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 42
+      "duration_ms": 93
     },
     {
       "file": "hot/qidian.js",
@@ -901,7 +918,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qidian/rank/readindex.json",
-      "duration_ms": 1318
+      "duration_ms": 1379
     },
     {
       "file": "hot/qidian.js",
@@ -912,10 +929,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1442
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 113
     },
     {
       "file": "hot/qidian.js",
@@ -928,7 +944,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 35
+      "duration_ms": 79
     },
     {
       "file": "hot/qidian.js",
@@ -942,20 +958,20 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1359
+      "duration_ms": 2703
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/sign",
       "example": "/api/hot/qidian/rank/sign",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/sign.json",
-      "duration_ms": 1295
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 109
     },
     {
       "file": "hot/qidian.js",
@@ -968,7 +984,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qidian/rank/update.json",
-      "duration_ms": 1308
+      "duration_ms": 2088
     },
     {
       "file": "hot/qidian.js",
@@ -979,23 +995,22 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 2726
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 86
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/yuepiao",
       "example": "/api/hot/qidian/rank/yuepiao",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/yuepiao.json",
-      "duration_ms": 1237
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 72
     },
     {
       "file": "hot/qidian.js",
@@ -1008,20 +1023,20 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 44
+      "duration_ms": 99
     },
     {
       "file": "hot/qiita.js",
       "path": "/api/hot/qiita/hot",
       "example": "/api/hot/qiita/hot",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qiita/hot.json",
-      "duration_ms": 475
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 77
     },
     {
       "file": "hot/qimao.js",
@@ -1033,9 +1048,8 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "COOKIE_REQUIRED",
-      "error": "HTTP 503: COOKIE_REQUIRED: 缺少可用于当前请求的 Cookie，请配置该站点的有效登录 Cookie，并检查域名、路径和过期时间",
-      "duration_ms": 209
+      "error": "HTTP 503",
+      "duration_ms": 213
     },
     {
       "file": "hot/qqvideo_hot.js",
@@ -1048,7 +1062,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 30
+      "duration_ms": 98
     },
     {
       "file": "hot/reddit.js",
@@ -1061,20 +1075,20 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 47
+      "duration_ms": 96
     },
     {
       "file": "hot/slashdot.js",
       "path": "/api/hot/slashdot/headlines",
       "example": "/api/hot/slashdot/headlines",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 46
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/slashdot/headlines.json",
+      "duration_ms": 263
     },
     {
       "file": "hot/solidot.js",
@@ -1087,7 +1101,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 1696
+      "duration_ms": 84
     },
     {
       "file": "hot/sputniknewscn.js",
@@ -1100,7 +1114,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 43
+      "duration_ms": 80
     },
     {
       "file": "hot/sspai_hot.js",
@@ -1113,7 +1127,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 29
+      "duration_ms": 66
     },
     {
       "file": "hot/steam.js",
@@ -1126,7 +1140,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 48
+      "duration_ms": 86
     },
     {
       "file": "hot/techmeme.js",
@@ -1139,25 +1153,12 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/techmeme/hot.json",
-      "duration_ms": 343
+      "duration_ms": 1034
     },
     {
       "file": "hot/tencent_hot.js",
       "path": "/api/hot/tencent/hot",
       "example": "/api/hot/tencent/hot",
-      "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/tencent/hot.json",
-      "duration_ms": 1839
-    },
-    {
-      "file": "hot/thepaper_hot.js",
-      "path": "/api/hot/thepaper/hot",
-      "example": "/api/hot/thepaper/hot",
       "format": "hot",
       "request": false,
       "response": false,
@@ -1165,7 +1166,20 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 57
+      "duration_ms": 68
+    },
+    {
+      "file": "hot/thepaper_hot.js",
+      "path": "/api/hot/thepaper/hot",
+      "example": "/api/hot/thepaper/hot",
+      "format": "hot",
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/thepaper/hot.json",
+      "duration_ms": 652
     },
     {
       "file": "hot/theverge.js",
@@ -1178,7 +1192,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/theverge/headlines.json",
-      "duration_ms": 143
+      "duration_ms": 314
     },
     {
       "file": "hot/tieba_hot.js",
@@ -1189,9 +1203,8 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 30
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001
     },
     {
       "file": "hot/tiktok.js",
@@ -1202,9 +1215,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 51
+      "status": 400,
+      "code": "INVALID_PARAMETER",
+      "error": "HTTP 400: INVALID_PARAMETER: 请求参数无效，请检查路径参数和查询参数",
+      "duration_ms": 175
     },
     {
       "file": "hot/toutiao_hot.js",
@@ -1217,7 +1231,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/toutiao/hot.json",
-      "duration_ms": 1937
+      "duration_ms": 830
     },
     {
       "file": "hot/v2ex_share.js",
@@ -1228,59 +1242,64 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "The operation was aborted due to timeout",
-      "duration_ms": 60002
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 87
     },
     {
       "file": "hot/vimeo.js",
       "path": "/api/hot/vimeo/staff-picks",
       "example": "/api/hot/vimeo/staff-picks",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "error": "The operation was aborted due to timeout",
-      "duration_ms": 60000
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/vimeo/staff-picks.json",
+      "duration_ms": 698
     },
     {
-      "file": "hot/wallstreetcn_hot.js",
+      "file": "hot/wallstreetcn.js",
       "path": "/api/hot/wallstreetcn/hot",
       "example": "/api/hot/wallstreetcn/hot",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/wallstreetcn/hot.json",
-      "duration_ms": 943
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/wallstreetcn_hot.js'\n- 'hot/wallstreetcn.js'\n                   ^\n",
+      "duration_ms": 2940
     },
     {
-      "file": "hot/wallstreetcn_news.js",
+      "file": "hot/wallstreetcn.js",
       "path": "/api/hot/wallstreetcn/news",
       "example": "/api/hot/wallstreetcn/news",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/wallstreetcn/news.json",
-      "duration_ms": 2064
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/wallstreetcn_news.js'\n- 'hot/wallstreetcn.js'\n                   ^\n",
+      "duration_ms": 2431
     },
     {
-      "file": "hot/wallstreetcn_quick.js",
+      "file": "hot/wallstreetcn.js",
       "path": "/api/hot/wallstreetcn/quick",
       "example": "/api/hot/wallstreetcn/quick",
       "format": "hot",
       "request": true,
       "response": true,
       "format_valid": true,
-      "output_valid": true,
+      "output_valid": false,
       "status": 200,
       "output_file": "api/hot/wallstreetcn/quick.json",
-      "duration_ms": 1178
+      "error": "命中了错误的脚本\n+ actual - expected\n\n+ 'hot/wallstreetcn_quick.js'\n- 'hot/wallstreetcn.js'\n                   ^\n",
+      "duration_ms": 868
     },
     {
       "file": "hot/weibo_hot.js",
@@ -1294,7 +1313,7 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1840
+      "duration_ms": 2013
     },
     {
       "file": "hot/xueqiu_hotstock.js",
@@ -1305,23 +1324,20 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "code": "COOKIE_REQUIRED",
-      "error": "HTTP 503: COOKIE_REQUIRED: 缺少可用于当前请求的 Cookie，请配置该站点的有效登录 Cookie，并检查域名、路径和过期时间",
-      "duration_ms": 134
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60000
     },
     {
       "file": "hot/yahoo_japan.js",
       "path": "/api/hot/yahoo-japan/headlines",
       "example": "/api/hot/yahoo-japan/headlines",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/yahoo-japan/headlines.json",
-      "duration_ms": 955
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001
     },
     {
       "file": "hot/youtube_hot.js",
@@ -1332,9 +1348,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 63
+      "status": 400,
+      "code": "INVALID_PARAMETER",
+      "error": "HTTP 400: INVALID_PARAMETER: 请求参数无效，请检查路径参数和查询参数",
+      "duration_ms": 99
     },
     {
       "file": "hot/zaobao.js",
@@ -1347,20 +1364,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/zaobao.json",
-      "duration_ms": 598
+      "duration_ms": 718
     },
     {
       "file": "hot/zenn.js",
       "path": "/api/hot/zenn/trending",
       "example": "/api/hot/zenn/trending",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 69
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/zenn/trending.json",
+      "duration_ms": 452
     },
     {
       "file": "hot/zhihu_hot.js",
@@ -1373,7 +1390,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/zhihu/hot.json",
-      "duration_ms": 1183
+      "duration_ms": 1840
     },
     {
       "file": "rss/69shuba.js",
@@ -1384,9 +1401,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 65
+      "status": 502,
+      "code": "UPSTREAM_ACCESS_DENIED",
+      "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
+      "duration_ms": 179
     },
     {
       "file": "rss/69shuba.js",
@@ -1400,7 +1418,7 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 98
+      "duration_ms": 108
     },
     {
       "file": "rss/apple.js",
@@ -1412,8 +1430,9 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 60
+      "code": "UPSTREAM_RATE_LIMITED",
+      "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
+      "duration_ms": 242
     },
     {
       "file": "rss/apple.js",
@@ -1427,7 +1446,7 @@
       "status": 500,
       "code": "INTERNAL_ERROR",
       "error": "HTTP 500: INTERNAL_ERROR: 服务内部错误，请结合 Worker 日志排查",
-      "duration_ms": 183
+      "duration_ms": 190
     },
     {
       "file": "rss/apple.js",
@@ -1441,7 +1460,7 @@
       "status": 503,
       "code": "UPSTREAM_RATE_LIMITED",
       "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
-      "duration_ms": 268
+      "duration_ms": 217
     },
     {
       "file": "rss/avmoo.js",
@@ -1452,9 +1471,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 55
+      "status": 502,
+      "code": "UPSTREAM_ACCESS_DENIED",
+      "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
+      "duration_ms": 198
     },
     {
       "file": "rss/avmoo.js",
@@ -1468,7 +1488,7 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 174
+      "duration_ms": 230
     },
     {
       "file": "rss/bilibili.js",
@@ -1481,7 +1501,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "atom/bilibili/650898515/dynamic.xml",
-      "duration_ms": 615
+      "duration_ms": 668
     },
     {
       "file": "rss/bilibili.js",
@@ -1492,9 +1512,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 73
+      "status": 502,
+      "code": "UPSTREAM_INVALID_RESPONSE",
+      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+      "duration_ms": 815
     },
     {
       "file": "rss/bilibili.js",
@@ -1507,20 +1528,21 @@
       "output_valid": true,
       "status": 200,
       "output_file": "rss/bilibili/650898515/dynamic.xml",
-      "duration_ms": 706
+      "duration_ms": 845
     },
     {
       "file": "rss/bilibili.js",
       "path": "/rss/bilibili/:userid/upload/video",
       "example": "/rss/bilibili/650898515/upload/video",
       "format": "rss",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "rss/bilibili/650898515/upload/video.xml",
-      "duration_ms": 7414
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 502,
+      "code": "UPSTREAM_INVALID_RESPONSE",
+      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+      "duration_ms": 845
     },
     {
       "file": "rss/douyin.js",
@@ -1531,9 +1553,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 1506
+      "status": 502,
+      "code": "UPSTREAM_INVALID_RESPONSE",
+      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+      "duration_ms": 3760
     },
     {
       "file": "rss/douyin.js",
@@ -1547,7 +1570,7 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 3754
+      "duration_ms": 3768
     },
     {
       "file": "rss/fanqienovel.js",
@@ -1560,7 +1583,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 2241
+      "duration_ms": 97
     },
     {
       "file": "rss/fanqienovel.js",
@@ -1571,9 +1594,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 44
+      "status": 502,
+      "code": "UPSTREAM_FETCH_FAILED",
+      "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+      "duration_ms": 562
     },
     {
       "file": "rss/fanqienovel.js",
@@ -1586,7 +1610,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 35
+      "duration_ms": 2765
     },
     {
       "file": "rss/github.js",
@@ -1599,7 +1623,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "atom/github/ltaoo/wx_channels_download/release.xml",
-      "duration_ms": 537
+      "duration_ms": 887
     },
     {
       "file": "rss/github.js",
@@ -1612,7 +1636,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "rss/github/ltaoo/wx_channels_download/release.xml",
-      "duration_ms": 527
+      "duration_ms": 634
     },
     {
       "file": "rss/instagram.js",
@@ -1623,9 +1647,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 127
+      "status": 502,
+      "code": "UPSTREAM_INVALID_RESPONSE",
+      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+      "duration_ms": 1615
     },
     {
       "file": "rss/instagram.js",
@@ -1638,33 +1663,33 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 114
+      "duration_ms": 188
     },
     {
       "file": "rss/javbus.js",
       "path": "/atom/javbus/star/:id",
       "example": "/atom/javbus/star/2jv",
       "format": "atom",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 92
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "atom/javbus/star/2jv.xml",
+      "duration_ms": 684
     },
     {
       "file": "rss/javbus.js",
       "path": "/rss/javbus/star/:id",
       "example": "/rss/javbus/star/2jv",
       "format": "rss",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "rss/javbus/star/2jv.xml",
-      "duration_ms": 386
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 208
     },
     {
       "file": "rss/javlibrary.js",
@@ -1677,7 +1702,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 40
+      "duration_ms": 98
     },
     {
       "file": "rss/javlibrary.js",
@@ -1688,9 +1713,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 123
+      "status": 502,
+      "code": "UPSTREAM_ACCESS_DENIED",
+      "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
+      "duration_ms": 228
     },
     {
       "file": "rss/kuaishou.js",
@@ -1701,9 +1727,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 163
+      "status": 502,
+      "code": "UPSTREAM_INVALID_RESPONSE",
+      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+      "duration_ms": 3328
     },
     {
       "file": "rss/kuaishou.js",
@@ -1714,9 +1741,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 177
+      "status": 502,
+      "code": "UPSTREAM_INVALID_RESPONSE",
+      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+      "duration_ms": 12678
     },
     {
       "file": "rss/qidian.js",
@@ -1729,7 +1757,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 1138
+      "duration_ms": 74
     },
     {
       "file": "rss/qidian.js",
@@ -1742,20 +1770,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "qidian/chapter/1036526469/745825165.html",
-      "duration_ms": 1625
+      "duration_ms": 822
     },
     {
       "file": "rss/qidian.js",
       "path": "/rss/qidian/book/:book_id",
       "example": "/rss/qidian/book/1036526469",
       "format": "rss",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "rss/qidian/book/1036526469.xml",
-      "duration_ms": 2134
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 1392
     },
     {
       "file": "rss/telegram.js",
@@ -1768,7 +1796,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 69
+      "duration_ms": 79
     },
     {
       "file": "rss/telegram.js",
@@ -1781,7 +1809,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 37
+      "duration_ms": 107
     },
     {
       "file": "rss/ttk.js",
@@ -1794,7 +1822,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 53
+      "duration_ms": 128
     },
     {
       "file": "rss/ttk.js",
@@ -1807,7 +1835,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 46
+      "duration_ms": 82
     },
     {
       "file": "rss/weibo.js",
@@ -1820,7 +1848,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 76
+      "duration_ms": 100
     },
     {
       "file": "rss/weibo.js",
@@ -1833,7 +1861,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 68
+      "duration_ms": 160
     },
     {
       "file": "rss/weibo.js",
@@ -1846,7 +1874,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 216
+      "duration_ms": 199
     },
     {
       "file": "rss/wxchannels.js",
@@ -1864,7 +1892,7 @@
           "output_valid": false,
           "status": 503,
           "error": "HTTP 503",
-          "duration_ms": 47
+          "duration_ms": 69
         },
         {
           "file": "rss/wxchannels.js",
@@ -1877,10 +1905,10 @@
           "output_valid": false,
           "status": 503,
           "error": "HTTP 503",
-          "duration_ms": 64
+          "duration_ms": 73
         }
       ],
-      "duration_ms": 111,
+      "duration_ms": 142,
       "request": false,
       "response": false,
       "format_valid": false,
@@ -1897,34 +1925,35 @@
           "path": "/rss/wxchannels/:account",
           "example": "/rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder",
           "format": "rss",
-          "request": false,
-          "response": false,
-          "format_valid": false,
+          "request": true,
+          "response": true,
+          "format_valid": true,
           "output_valid": false,
-          "error": "The operation was aborted due to timeout",
-          "duration_ms": 60000
+          "status": 200,
+          "output_file": "rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder.xml",
+          "error": "来源应为 mp.weixin.qq.com，实际为 channels.weixin.qq.com",
+          "duration_ms": 3347
         },
         {
           "file": "rss/wxchannels.js",
           "path": "/rss/wxchannels/:account",
           "example": "/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder",
           "format": "rss",
-          "request": true,
-          "response": true,
-          "format_valid": true,
+          "request": false,
+          "response": false,
+          "format_valid": false,
           "output_valid": false,
-          "status": 200,
-          "output_file": "rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder.xml",
-          "error": "来源应为 mp.weixin.qq.com，实际为 channels.weixin.qq.com",
-          "duration_ms": 6004
+          "status": 503,
+          "error": "HTTP 503",
+          "duration_ms": 102
         }
       ],
-      "duration_ms": 66004,
+      "duration_ms": 3449,
       "request": false,
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "/rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder: The operation was aborted due to timeout；/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder: 来源应为 mp.weixin.qq.com，实际为 channels.weixin.qq.com"
+      "error": "/rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder: 来源应为 mp.weixin.qq.com，实际为 channels.weixin.qq.com；/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder: HTTP 503"
     },
     {
       "file": "rss/wxmp.js",
@@ -1942,7 +1971,7 @@
           "output_valid": false,
           "status": 503,
           "error": "HTTP 503",
-          "duration_ms": 41
+          "duration_ms": 55
         },
         {
           "file": "rss/wxmp.js",
@@ -1955,10 +1984,10 @@
           "output_valid": false,
           "status": 503,
           "error": "HTTP 503",
-          "duration_ms": 43
+          "duration_ms": 61
         }
       ],
-      "duration_ms": 84,
+      "duration_ms": 116,
       "request": false,
       "response": false,
       "format_valid": false,
@@ -1976,7 +2005,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 30
+      "duration_ms": 94
     },
     {
       "file": "rss/wxmp.js",
@@ -1994,7 +2023,7 @@
           "output_valid": false,
           "status": 503,
           "error": "HTTP 503",
-          "duration_ms": 63
+          "duration_ms": 58
         },
         {
           "file": "rss/wxmp.js",
@@ -2007,10 +2036,10 @@
           "output_valid": false,
           "status": 503,
           "error": "HTTP 503",
-          "duration_ms": 48
+          "duration_ms": 73
         }
       ],
-      "duration_ms": 111,
+      "duration_ms": 131,
       "request": false,
       "response": false,
       "format_valid": false,
@@ -2028,7 +2057,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 171
+      "duration_ms": 161
     },
     {
       "file": "rss/x.js",
@@ -2041,7 +2070,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 201
+      "duration_ms": 162
     },
     {
       "file": "rss/xiaohongshu.js",
@@ -2054,7 +2083,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 113
+      "duration_ms": 183
     },
     {
       "file": "rss/xiaohongshu.js",
@@ -2067,7 +2096,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 120
+      "duration_ms": 203
     },
     {
       "file": "rss/youtube.js",
@@ -2080,7 +2109,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "atom/youtube/@goldfishbrain.xml",
-      "duration_ms": 896
+      "duration_ms": 1399
     },
     {
       "file": "rss/youtube.js",
@@ -2093,20 +2122,20 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 34
+      "duration_ms": 74
     },
     {
       "file": "rss/youtube.js",
       "path": "/rss/youtube/:handle",
       "example": "/rss/youtube/@goldfishbrain",
       "format": "rss",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 109
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "rss/youtube/@goldfishbrain.xml",
+      "duration_ms": 1118
     },
     {
       "file": "rss/youtube.js",
@@ -2119,7 +2148,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 86
+      "duration_ms": 155
     },
     {
       "file": "rss/zhihu.js",
@@ -2132,7 +2161,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 48
+      "duration_ms": 105
     },
     {
       "file": "rss/zhihu.js",
@@ -2143,8 +2172,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "The operation was aborted due to timeout",
-      "duration_ms": 60001
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 67
     },
     {
       "file": "rss/zhihu.js",
@@ -2157,7 +2187,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 51
+      "duration_ms": 112
     },
     {
       "file": "rss/zhihu.js",
@@ -2170,7 +2200,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 41
+      "duration_ms": 76
     },
     {
       "file": "rss/zhihu.js",
@@ -2183,7 +2213,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 123
+      "duration_ms": 136
     },
     {
       "file": "rss/zhihu.js",
@@ -2196,7 +2226,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 44
+      "duration_ms": 116
     },
     {
       "file": "rss/zhihu.js",
@@ -2207,9 +2237,8 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 56
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60000
     },
     {
       "file": "rss/zhihu.js",
@@ -2220,10 +2249,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_ACCESS_DENIED",
-      "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 1275
+      "status": 503,
+      "error": "HTTP 503",
+      "duration_ms": 113
     },
     {
       "file": "rss/zhihu.js",
@@ -2236,7 +2264,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 52
+      "duration_ms": 106
     },
     {
       "file": "rss/zhihu.js",
@@ -2249,7 +2277,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 39
+      "duration_ms": 107
     },
     {
       "file": "rss/zhihu.js",
@@ -2262,7 +2290,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 43
+      "duration_ms": 107
     },
     {
       "file": "rss/zhihu.js",
@@ -2275,20 +2303,21 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 51
+      "duration_ms": 103
     },
     {
       "file": "rss/zhihu.js",
       "path": "/rss/zhihu/people/:user/pins",
       "example": "/rss/zhihu/people/zhihu/pins",
       "format": "rss",
-      "request": false,
-      "response": false,
-      "format_valid": false,
+      "request": true,
+      "response": true,
+      "format_valid": true,
       "output_valid": false,
-      "status": 503,
-      "error": "HTTP 503",
-      "duration_ms": 40
+      "status": 200,
+      "output_file": "rss/zhihu/people/zhihu/pins.xml",
+      "error": "条目数须 >= 1",
+      "duration_ms": 446
     },
     {
       "file": "rss/zhihu.js",
@@ -2301,7 +2330,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 51
+      "duration_ms": 103
     },
     {
       "file": "rss/zhihu.js",
@@ -2314,7 +2343,7 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 169
+      "duration_ms": 213
     },
     {
       "file": "rss/zhihu.js",
@@ -2327,21 +2356,13 @@
       "output_valid": false,
       "status": 503,
       "error": "HTTP 503",
-      "duration_ms": 85
+      "duration_ms": 104
     }
   ],
   "scripts": [
     {
-      "file": "hot/36kr_quick.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "36氪",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"36kr-quick-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAyVBMVEUAAAAwhf0whv0vhf3///8whf0vhf0whv0whv0whf0xhv1Alf8whv0whv0zjP8vhv0whv1Jkv8vhv0vhvw1jf8vhv0vhv1Vqv8vhf0xh/8zhv8whv0whfwvhfwwhf8xif8whvwvh/8whvwwhf0whvwxhv8vh/0vhf0yh/8vhv01h/8whfwwhf0whv0wiP8vhv0whvwyh/8xhv8vhf01iv8vhv0vhf0whf0whvwxhv8whf07if8vhf0xh/wwhf0wiP8whv0whvwvhfxuG9jBAAAAQnRSTlMAhvriAZv53/BrfgzqcBTy4QeNYR341wOdUyj8y6xFNL5Gte+7OWz9QugiyZmeOs7AMxX3GN3YlatU6w1xYtZPmsrwc20MAAAA9ElEQVQ4y72TaVvCMAyAyyEoGyAgoG4iiCIglwd4IKD5/z+KpGxpd+Tr8mF5m7591q2pUllELg9QCLh4VgIoxwQswXnAF8hQiQlgBMdFdh1ZqBBXlSjU6oiXDVloEraUKFy1kTpdWbgmulGicOsh+EoW7gh6snBPuW/Kg4ch1G3hkfITz4+eaWwJY0oTnp/SAUSEF0ouCzM9n2fBm+sCLEJhiYPV6xsLYfAm33HRh/UVHD1TXKs0wTfFTVz4/KLntyj8bO3DShF+g+PeCUKhEWmYpNCKtlxC2OtXm6a1Bf3XDyfmtrcFvDjeX8B8cXA3/yqjOAJzWVJ58cAFyAAAAABJRU5ErkJggg==\" data-n=\"36kr-quick-favicon\"/></svg>"
-      }
-    },
-    {
-      "file": "hot/36kr_renqi.js",
-      "version": "1.0.1",
+      "file": "hot/36kr.js",
+      "version": "1.0.3",
       "platform": {
         "name": "36氪",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"36kr-quick-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAyVBMVEUAAAAwhf0whv0vhf3///8whf0vhf0whv0whv0whf0xhv1Alf8whv0whv0zjP8vhv0whv1Jkv8vhv0vhvw1jf8vhv0vhv1Vqv8vhf0xh/8zhv8whv0whfwvhfwwhf8xif8whvwvh/8whvwwhf0whvwxhv8vh/0vhf0yh/8vhv01h/8whfwwhf0whv0wiP8vhv0whvwyh/8xhv8vhf01iv8vhv0vhf0whf0whvwxhv8whf07if8vhf0xh/wwhf0wiP8whv0whvwvhfxuG9jBAAAAQnRSTlMAhvriAZv53/BrfgzqcBTy4QeNYR341wOdUyj8y6xFNL5Gte+7OWz9QugiyZmeOs7AMxX3GN3YlatU6w1xYtZPmsrwc20MAAAA9ElEQVQ4y72TaVvCMAyAyyEoGyAgoG4iiCIglwd4IKD5/z+KpGxpd+Tr8mF5m7591q2pUllELg9QCLh4VgIoxwQswXnAF8hQiQlgBMdFdh1ZqBBXlSjU6oiXDVloEraUKFy1kTpdWbgmulGicOsh+EoW7gh6snBPuW/Kg4ch1G3hkfITz4+eaWwJY0oTnp/SAUSEF0ouCzM9n2fBm+sCLEJhiYPV6xsLYfAm33HRh/UVHD1TXKs0wTfFTVz4/KLntyj8bO3DShF+g+PeCUKhEWmYpNCKtlxC2OtXm6a1Bf3XDyfmtrcFvDjeX8B8cXA3/yqjOAJzWVJ58cAFyAAAAABJRU5ErkJggg==\" data-n=\"36kr-quick-favicon\"/></svg>"
@@ -2388,24 +2409,8 @@
       }
     },
     {
-      "file": "hot/bilibili_hot_search.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "哔哩哔哩",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"bilibili-platform-icon\"><path fill=\"none\" stroke=\"#00a1d6\" stroke-linecap=\"round\" stroke-width=\"3\" d=\"m8 7-3-5m16 5 3-5\" data-n=\"bilibili-icon-path-1\" /><path fill=\"#00a1d6\" d=\"M7 6h18a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7Z\" data-n=\"bilibili-icon-path-2\" /><path fill=\"#fff\" d=\"M6 10h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z\" data-n=\"bilibili-icon-path-3\" /><rect x=\"8\" y=\"14\" width=\"4\" height=\"6\" rx=\"2\" fill=\"#00a1d6\" data-n=\"bilibili-icon-rect-4\" /><rect x=\"20\" y=\"14\" width=\"4\" height=\"6\" rx=\"2\" fill=\"#00a1d6\" data-n=\"bilibili-icon-rect-5\" /></svg>"
-      }
-    },
-    {
-      "file": "hot/bilibili_hot_video.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "哔哩哔哩",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"bilibili-platform-icon\"><path fill=\"none\" stroke=\"#00a1d6\" stroke-linecap=\"round\" stroke-width=\"3\" d=\"m8 7-3-5m16 5 3-5\" data-n=\"bilibili-icon-path-1\" /><path fill=\"#00a1d6\" d=\"M7 6h18a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7Z\" data-n=\"bilibili-icon-path-2\" /><path fill=\"#fff\" d=\"M6 10h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z\" data-n=\"bilibili-icon-path-3\" /><rect x=\"8\" y=\"14\" width=\"4\" height=\"6\" rx=\"2\" fill=\"#00a1d6\" data-n=\"bilibili-icon-rect-4\" /><rect x=\"20\" y=\"14\" width=\"4\" height=\"6\" rx=\"2\" fill=\"#00a1d6\" data-n=\"bilibili-icon-rect-5\" /></svg>"
-      }
-    },
-    {
-      "file": "hot/bilibili_ranking.js",
-      "version": "1.0.1",
+      "file": "hot/bilibili.js",
+      "version": "1.0.2",
       "platform": {
         "name": "哔哩哔哩",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"bilibili-platform-icon\"><path fill=\"none\" stroke=\"#00a1d6\" stroke-linecap=\"round\" stroke-width=\"3\" d=\"m8 7-3-5m16 5 3-5\" data-n=\"bilibili-icon-path-1\" /><path fill=\"#00a1d6\" d=\"M7 6h18a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7Z\" data-n=\"bilibili-icon-path-2\" /><path fill=\"#fff\" d=\"M6 10h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z\" data-n=\"bilibili-icon-path-3\" /><rect x=\"8\" y=\"14\" width=\"4\" height=\"6\" rx=\"2\" fill=\"#00a1d6\" data-n=\"bilibili-icon-rect-4\" /><rect x=\"20\" y=\"14\" width=\"4\" height=\"6\" rx=\"2\" fill=\"#00a1d6\" data-n=\"bilibili-icon-rect-5\" /></svg>"
@@ -2428,40 +2433,16 @@
       }
     },
     {
-      "file": "hot/chongbuluo_hot.js",
-      "version": "1.0.1",
+      "file": "hot/chongbuluo.js",
+      "version": "1.0.2",
       "platform": {
         "name": "虫部落",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"chongbuluo-hot-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFCklEQVRYw63XW4zdVRUG8N/3nzNTWnoJFSRYrLQVCS0XCREDFhus2kYSieIYEUvQRMGER2hDfDHESGggYqMPhGIkIfGhyi0GmICXCE1IigjRUkgaxWKJGC30SqEz/+XDOVPb0nNmaviS9XLOt/e3/mvttdde0QfrxkZpW5KugZpHPqGspK6QnIdS9Rc8Jfkd9RzZ0+OTom3csXrTcXXSV3wI47RNNFXzsRJX4zIsQHPMsgnsxGY8iN+0E/VmhqJthjTthPWrNg12YN0TX+l5HSpwCrVKXE8uwxzTw15qs/LzSsZS9VYlh8XuOMKRww6sGxulJsXbEZpPiRupVcq8aQofi92Sx3FPsTkcmuiFbjIaWTc2qqp63oT4CG5Qri/O+D+Fjw5zvI6f4d6UHXVE3JtJ8apqxArcV1U3lzqD8n5YVX2oqtYV91ZcniMi3+jSOkmuVTZWWUmGu5z31YaVz2NjcY3uMdepKkmuwu2lFkwjooW9SXZhV2/3+VX1AcyecnH5GG5PcqCqHu40TbNA+S4WHL8oj8Jf8Wgxpuplsb/3+xzJhWE1rtQt00FYiBuTPNuhLpKcP8WC8VKP4s5UtiTmSBbjfLT4R6OeaiuP4VeJtfgMAz/pAuXCDlmK+QOIE3ggciu1r9R1yjeSLMOsXkr2tTwv7q9qH4lmO36ELw7Y91SxtIPF6AwgPoPbSo1Hfpj4Fk4+hjMnciUuTZpzcVeV74ezxAV99h3G4maKfO0r9ZPIa5GbcONxxI/EfNyC6zpNXhQb8c4A/oKGOnUA4SX8vrRLqet6Xk+F2fj2RNWHq+rXuv2hr8ONyqwBhC1J3qrKCnLmNMQncTYulryBPw/gzW1kYEh3ZqIZTyya5tdPYgbOwqEpItA0umXUD52ZIw28ewLidCvjUKpi8AHXUfaX6vf/4v3j4yPUNuVtzJyOejggeaWSEWWRPvsnJjpiX/rfF5/E6eQP4mVcNM0IbMEfwxJx3oD76K1G+XdV6WNL8KVqmr9jQ1XtGsDttvWqHbi7kt1VdU1VfXAAd1dHvDYgAiO4IW27pfhFkpm4WffyOl7etyo/0GQsbX1Bcq1e1+uDHZ2q2q57yEb6kJYmuT3cnGruqbQvKFdXXE6d1svm6+G31EOVvJi2Po3bqmpQ6R7E9k6SrfgXBpFX4L42ExvII2ncqmo2mUe12FPJvlSNU7PId/DxZGB7fQPbhpavWban1MXKuVMcrNPFSnJJWBgZ6T5dMydcGK4hZ6XN82JmVa3UvQ/64ckkGzvKf5LcLc7GeVM4cTI+p9tq3+6lLr30zcJOjW3UQ0k+izV99nlB+bHy5tDyNcsMy44JXsESVQtNjaYnOrNnIz1H5iaZRR7Dq7iiujPFJIpsTqw9Zcbw0wfb1tDyNcu0GKr6WyXPhJOTLEkyI4kTNSzqiT+Ok5KsSDKUZHeSBxK3jPOndye6F3Bg7djoYRfDPIxWuYk633snoCmR5Dl8DQeq3E+dlmSD8iB2T1b9Has2HTOY9LD7pGFzDx46J3wTX+191YmgcCe+hzOrqvbV/lfnZPbkqPi/weTYlWvHRsXh23tYuSR8vdRVuoPKVBFp8U/x08hdeKf38lZV1q/+5dHR6rfL2idGSXe4rZiR7gP0y7pVcI73zol7sQ1P6g6nLw1VHTyQuHvVpn4ygx/ik2cjqCqRIfFRXIrlytIedat4Gs9Wsl3btkkO98D1Axz4LwVwM9pZtPJaAAAAAElFTkSuQmCC\" data-n=\"chongbuluo-hot-favicon\"/></svg>"
       }
     },
     {
-      "file": "hot/chongbuluo_latest.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "虫部落",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"chongbuluo-hot-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFCklEQVRYw63XW4zdVRUG8N/3nzNTWnoJFSRYrLQVCS0XCREDFhus2kYSieIYEUvQRMGER2hDfDHESGggYqMPhGIkIfGhyi0GmICXCE1IigjRUkgaxWKJGC30SqEz/+XDOVPb0nNmaviS9XLOt/e3/mvttdde0QfrxkZpW5KugZpHPqGspK6QnIdS9Rc8Jfkd9RzZ0+OTom3csXrTcXXSV3wI47RNNFXzsRJX4zIsQHPMsgnsxGY8iN+0E/VmhqJthjTthPWrNg12YN0TX+l5HSpwCrVKXE8uwxzTw15qs/LzSsZS9VYlh8XuOMKRww6sGxulJsXbEZpPiRupVcq8aQofi92Sx3FPsTkcmuiFbjIaWTc2qqp63oT4CG5Qri/O+D+Fjw5zvI6f4d6UHXVE3JtJ8apqxArcV1U3lzqD8n5YVX2oqtYV91ZcniMi3+jSOkmuVTZWWUmGu5z31YaVz2NjcY3uMdepKkmuwu2lFkwjooW9SXZhV2/3+VX1AcyecnH5GG5PcqCqHu40TbNA+S4WHL8oj8Jf8Wgxpuplsb/3+xzJhWE1rtQt00FYiBuTPNuhLpKcP8WC8VKP4s5UtiTmSBbjfLT4R6OeaiuP4VeJtfgMAz/pAuXCDlmK+QOIE3ggciu1r9R1yjeSLMOsXkr2tTwv7q9qH4lmO36ELw7Y91SxtIPF6AwgPoPbSo1Hfpj4Fk4+hjMnciUuTZpzcVeV74ezxAV99h3G4maKfO0r9ZPIa5GbcONxxI/EfNyC6zpNXhQb8c4A/oKGOnUA4SX8vrRLqet6Xk+F2fj2RNWHq+rXuv2hr8ONyqwBhC1J3qrKCnLmNMQncTYulryBPw/gzW1kYEh3ZqIZTyya5tdPYgbOwqEpItA0umXUD52ZIw28ewLidCvjUKpi8AHXUfaX6vf/4v3j4yPUNuVtzJyOejggeaWSEWWRPvsnJjpiX/rfF5/E6eQP4mVcNM0IbMEfwxJx3oD76K1G+XdV6WNL8KVqmr9jQ1XtGsDttvWqHbi7kt1VdU1VfXAAd1dHvDYgAiO4IW27pfhFkpm4WffyOl7etyo/0GQsbX1Bcq1e1+uDHZ2q2q57yEb6kJYmuT3cnGruqbQvKFdXXE6d1svm6+G31EOVvJi2Po3bqmpQ6R7E9k6SrfgXBpFX4L42ExvII2ncqmo2mUe12FPJvlSNU7PId/DxZGB7fQPbhpavWban1MXKuVMcrNPFSnJJWBgZ6T5dMydcGK4hZ6XN82JmVa3UvQ/64ckkGzvKf5LcLc7GeVM4cTI+p9tq3+6lLr30zcJOjW3UQ0k+izV99nlB+bHy5tDyNcsMy44JXsESVQtNjaYnOrNnIz1H5iaZRR7Dq7iiujPFJIpsTqw9Zcbw0wfb1tDyNcu0GKr6WyXPhJOTLEkyI4kTNSzqiT+Ok5KsSDKUZHeSBxK3jPOndye6F3Bg7djoYRfDPIxWuYk633snoCmR5Dl8DQeq3E+dlmSD8iB2T1b9Has2HTOY9LD7pGFzDx46J3wTX+191YmgcCe+hzOrqvbV/lfnZPbkqPi/weTYlWvHRsXh23tYuSR8vdRVuoPKVBFp8U/x08hdeKf38lZV1q/+5dHR6rfL2idGSXe4rZiR7gP0y7pVcI73zol7sQ1P6g6nLw1VHTyQuHvVpn4ygx/ik2cjqCqRIfFRXIrlytIedat4Gs9Wsl3btkkO98D1Axz4LwVwM9pZtPJaAAAAAElFTkSuQmCC\" data-n=\"chongbuluo-hot-favicon\"/></svg>"
-      }
-    },
-    {
-      "file": "hot/cls_depth.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "财联社",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"cls-depth-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACzVBMVEXfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBSLfBCLfBCHfAyHfAiDeAh/fAyDfBSPfCCXgES3iHznkKkPkMEjlM0rkMUnkLUXjJ0DiHjnhFDDfByTkLUbqWWzueYjwi5jxlKDwjZrvgZDsb4DpVmrlNk7hEi7eAR7gCyfiGjTkL0joS2HtcIHym6f2u8P5zdP61tv50NX3w8r1sbrymKXtdYXnSF3jJj/gESzhGTToSV7ufYz1srv51Nn74eX86u398fL+9PX+9Pb98vT97vD86Ov74OT4y9H0p7HtcYHfCSbgDyvlOE/vgI73vsb97/H//////v7++vv+9vf++Pn++vr74+b1r7jrYHPgECzrZ3j//f398/X85ur62t7++fr++fn629/0prDsZ3njIz3eAiDqWGz74ub++/v98fP2usPzoq3xlqLzoKv3v8b63OD73eHynanmPlTxkJ3509j5z9XlNEzlMUnmPVPpV2r61tr//f73xMvqXG/iHTfgDCjnRlv2tr/+9fbzoKzqXXDiHTjeABzeAB3hGTP3vcX3wsn4xs34yM7pUWXiHjjgDSngCyjiHDb50NbsaXrgDCniGjXmQFbnQljnQ1nnRFrgDirgECvjKUHsa3z50db//Pz2vMTnRlzeAB7eAR/kLkf50tj86ez0p7LmOlHtc4T73+PynajlNU3hEy7hEy/iHzrkK0TlMkrkKULgCibiIDrqX3LsbX7tdoblNEvhFzLoSl/ymaX4x8762N30rbbpWGviITv61dr4xsz85unnQVfgCif73uL1sLntcYLrY3Xufo32tb7619zpVWjueYnznqr2usLiGzXlN07ueIjhFC/UhwlYAAAAIXRSTlMHLHW36SsGT5LK75RVNPv60aWP9t798vXd1KaeWO3EgjDuUVoUAAACT0lEQVQ4y2NgYGRiZlHECliYmVjZGBjZOTi5IAJKyiqqQKCioqwE5nNxcvPwMjAB5fmgClTV1IFATUNVGczn5xIQFGJghujXVFbS0tbR1dPXNzA0MjbRUgUbIiwiwMAC0a+kaqptZm5haWVlbWNrZ+/gqAISFRUWY4Da7uTs4urm7uHp5eXt4+vnHxAYBHUpRIGKWnBIaFh4RGRUdExsXHxCYlKyWQqyAq3UtPSMzKysrOyc3DwglV9QWKRbrKIEVaCkpG1Y4hFXCpQvK69IqASqqKquqa2rV4EqUNHQaXBvzMpqaq5uaW1r7+iMzsqq7OrucYJZoeFo0NsHFIzqdzefMHHSZMspQDOmTps+Y6aSJsSKlFmz50zNymqcO2/+goVai0KsFi9Zuqx9+YqVYAWaSqtWT18G1JO1Zm3gOnU1Jaf1+hs2btqctmKLFtgKJaWt27bvAMrv3LXbFORuJRX1PUCwF+wJsALtfW77gV47cPCQmio0ToBAQ0kRpsBh4uG+rKzcI0ePOWpAow0EFHEr0FRCqMBihZJiyrri48eLZ2qZYnWkplLKiZOnTp8+Ewz1BYY3z57bfP6C/8Xzly47aSpiDagrV6+t8bp+4+atlUB3YA3q29lA8+4gghpbZO28W3PvviKe6H7w8JGRugqeBPPwsZk2PMFAktyTp88akZKcIUqSAyXa089fvHyFSLTFsEQLS/Ya91+/mf4WPdmLi8EyjpKy4qp359AzjriEAFLWU1JGy3p8YpJSQvgyr5iktAwvA57sLysnr8AGAMRjKYKpuDR9AAAAAElFTkSuQmCC\" data-n=\"cls-depth-favicon\"/></svg>"
-      }
-    },
-    {
-      "file": "hot/cls_hot.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "财联社",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"cls-depth-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACzVBMVEXfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBSLfBCLfBCHfAyHfAiDeAh/fAyDfBSPfCCXgES3iHznkKkPkMEjlM0rkMUnkLUXjJ0DiHjnhFDDfByTkLUbqWWzueYjwi5jxlKDwjZrvgZDsb4DpVmrlNk7hEi7eAR7gCyfiGjTkL0joS2HtcIHym6f2u8P5zdP61tv50NX3w8r1sbrymKXtdYXnSF3jJj/gESzhGTToSV7ufYz1srv51Nn74eX86u398fL+9PX+9Pb98vT97vD86Ov74OT4y9H0p7HtcYHfCSbgDyvlOE/vgI73vsb97/H//////v7++vv+9vf++Pn++vr74+b1r7jrYHPgECzrZ3j//f398/X85ur62t7++fr++fn629/0prDsZ3njIz3eAiDqWGz74ub++/v98fP2usPzoq3xlqLzoKv3v8b63OD73eHynanmPlTxkJ3509j5z9XlNEzlMUnmPVPpV2r61tr//f73xMvqXG/iHTfgDCjnRlv2tr/+9fbzoKzqXXDiHTjeABzeAB3hGTP3vcX3wsn4xs34yM7pUWXiHjjgDSngCyjiHDb50NbsaXrgDCniGjXmQFbnQljnQ1nnRFrgDirgECvjKUHsa3z50db//Pz2vMTnRlzeAB7eAR/kLkf50tj86ez0p7LmOlHtc4T73+PynajlNU3hEy7hEy/iHzrkK0TlMkrkKULgCibiIDrqX3LsbX7tdoblNEvhFzLoSl/ymaX4x8762N30rbbpWGviITv61dr4xsz85unnQVfgCif73uL1sLntcYLrY3Xufo32tb7619zpVWjueYnznqr2usLiGzXlN07ueIjhFC/UhwlYAAAAIXRSTlMHLHW36SsGT5LK75RVNPv60aWP9t798vXd1KaeWO3EgjDuUVoUAAACT0lEQVQ4y2NgYGRiZlHECliYmVjZGBjZOTi5IAJKyiqqQKCioqwE5nNxcvPwMjAB5fmgClTV1IFATUNVGczn5xIQFGJghujXVFbS0tbR1dPXNzA0MjbRUgUbIiwiwMAC0a+kaqptZm5haWVlbWNrZ+/gqAISFRUWY4Da7uTs4urm7uHp5eXt4+vnHxAYBHUpRIGKWnBIaFh4RGRUdExsXHxCYlKyWQqyAq3UtPSMzKysrOyc3DwglV9QWKRbrKIEVaCkpG1Y4hFXCpQvK69IqASqqKquqa2rV4EqUNHQaXBvzMpqaq5uaW1r7+iMzsqq7OrucYJZoeFo0NsHFIzqdzefMHHSZMspQDOmTps+Y6aSJsSKlFmz50zNymqcO2/+goVai0KsFi9Zuqx9+YqVYAWaSqtWT18G1JO1Zm3gOnU1Jaf1+hs2btqctmKLFtgKJaWt27bvAMrv3LXbFORuJRX1PUCwF+wJsALtfW77gV47cPCQmio0ToBAQ0kRpsBh4uG+rKzcI0ePOWpAow0EFHEr0FRCqMBihZJiyrri48eLZ2qZYnWkplLKiZOnTp8+Ewz1BYY3z57bfP6C/8Xzly47aSpiDagrV6+t8bp+4+atlUB3YA3q29lA8+4gghpbZO28W3PvviKe6H7w8JGRugqeBPPwsZk2PMFAktyTp88akZKcIUqSAyXa089fvHyFSLTFsEQLS/Ya91+/mf4WPdmLi8EyjpKy4qp359AzjriEAFLWU1JGy3p8YpJSQvgyr5iktAwvA57sLysnr8AGAMRjKYKpuDR9AAAAAElFTkSuQmCC\" data-n=\"cls-depth-favicon\"/></svg>"
-      }
-    },
-    {
-      "file": "hot/cls_telegraph.js",
-      "version": "1.0.1",
+      "file": "hot/cls.js",
+      "version": "1.0.2",
       "platform": {
         "name": "财联社",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"cls-depth-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACzVBMVEXfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBiPfBSLfBCLfBCHfAyHfAiDeAh/fAyDfBSPfCCXgES3iHznkKkPkMEjlM0rkMUnkLUXjJ0DiHjnhFDDfByTkLUbqWWzueYjwi5jxlKDwjZrvgZDsb4DpVmrlNk7hEi7eAR7gCyfiGjTkL0joS2HtcIHym6f2u8P5zdP61tv50NX3w8r1sbrymKXtdYXnSF3jJj/gESzhGTToSV7ufYz1srv51Nn74eX86u398fL+9PX+9Pb98vT97vD86Ov74OT4y9H0p7HtcYHfCSbgDyvlOE/vgI73vsb97/H//////v7++vv+9vf++Pn++vr74+b1r7jrYHPgECzrZ3j//f398/X85ur62t7++fr++fn629/0prDsZ3njIz3eAiDqWGz74ub++/v98fP2usPzoq3xlqLzoKv3v8b63OD73eHynanmPlTxkJ3509j5z9XlNEzlMUnmPVPpV2r61tr//f73xMvqXG/iHTfgDCjnRlv2tr/+9fbzoKzqXXDiHTjeABzeAB3hGTP3vcX3wsn4xs34yM7pUWXiHjjgDSngCyjiHDb50NbsaXrgDCniGjXmQFbnQljnQ1nnRFrgDirgECvjKUHsa3z50db//Pz2vMTnRlzeAB7eAR/kLkf50tj86ez0p7LmOlHtc4T73+PynajlNU3hEy7hEy/iHzrkK0TlMkrkKULgCibiIDrqX3LsbX7tdoblNEvhFzLoSl/ymaX4x8762N30rbbpWGviITv61dr4xsz85unnQVfgCif73uL1sLntcYLrY3Xufo32tb7619zpVWjueYnznqr2usLiGzXlN07ueIjhFC/UhwlYAAAAIXRSTlMHLHW36SsGT5LK75RVNPv60aWP9t798vXd1KaeWO3EgjDuUVoUAAACT0lEQVQ4y2NgYGRiZlHECliYmVjZGBjZOTi5IAJKyiqqQKCioqwE5nNxcvPwMjAB5fmgClTV1IFATUNVGczn5xIQFGJghujXVFbS0tbR1dPXNzA0MjbRUgUbIiwiwMAC0a+kaqptZm5haWVlbWNrZ+/gqAISFRUWY4Da7uTs4urm7uHp5eXt4+vnHxAYBHUpRIGKWnBIaFh4RGRUdExsXHxCYlKyWQqyAq3UtPSMzKysrOyc3DwglV9QWKRbrKIEVaCkpG1Y4hFXCpQvK69IqASqqKquqa2rV4EqUNHQaXBvzMpqaq5uaW1r7+iMzsqq7OrucYJZoeFo0NsHFIzqdzefMHHSZMspQDOmTps+Y6aSJsSKlFmz50zNymqcO2/+goVai0KsFi9Zuqx9+YqVYAWaSqtWT18G1JO1Zm3gOnU1Jaf1+hs2btqctmKLFtgKJaWt27bvAMrv3LXbFORuJRX1PUCwF+wJsALtfW77gV47cPCQmio0ToBAQ0kRpsBh4uG+rKzcI0ePOWpAow0EFHEr0FRCqMBihZJiyrri48eLZ2qZYnWkplLKiZOnTp8+Ewz1BYY3z57bfP6C/8Xzly47aSpiDagrV6+t8bp+4+atlUB3YA3q29lA8+4gghpbZO28W3PvviKe6H7w8JGRugqeBPPwsZk2PMFAktyTp88akZKcIUqSAyXa089fvHyFSLTFsEQLS/Ya91+/mf4WPdmLi8EyjpKy4qp359AzjriEAFLWU1JGy3p8YpJSQvgyr5iktAwvA57sLysnr8AGAMRjKYKpuDR9AAAAAElFTkSuQmCC\" data-n=\"cls-depth-favicon\"/></svg>"
@@ -2524,16 +2505,8 @@
       }
     },
     {
-      "file": "hot/fastbull_express.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "法布财经",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"fastbull-express-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAClFBMVEUAAAAA6qoA37AC4K0C4a8C4K8A4rEB4K8B4K8B4K8A4a8B4K8A0bkB4K8A5rMA36wB4K8A4a0A4K0AzJkA3a0B4K8B4rEB47IB4bAC26sJn34MhWsGt5AB47EC3a0LlXYPdF0HsYsB5bIB4a8C2aoD0qUFvZUOfGMMi28Ey58D0aQD06UB3q0B3a0QalYbExURZVIDzqEHq4cJnn0VPzYaExURZFIIqIUD1acNhmsVQTcWODAaGBkZIR8VQjgTUUQEyZ4Km3sYLCcUST0MiGwYJyQZHx4aHBsaGhoZHR0XMCsGvJQC2KkSXUwZJyQaGxsYKycYLCgYLSgWPjUFxpsB4rAB3KwIpoMOemIJnn4QaVYQZlMXMSsVRToQa1cEyp4B364Dz6IMim8ZHh0VPjUHs40PdF4TV0gJo4EEzaAB3awC2qsaIB4Od2AFwJYGtpAaFxgPc10FwpgFv5YD0qQC16gSV0gGs40VQzkZHBwMhmsFwJcFvpUEyZ0Mim4ZHhwURToQbFcYKiYaGBgZIiALkXMA5bMZIyEZJCEYKSURYlEOeWAPdV4RY1AWPTQZIB4VRDkUSj4TTD8TSz8NfmUaGRkXNS4YJiMWOzITVkcC16kWODEWOzMHtI4MjHATT0IGuJEOfWQKlHYQZlQaFhcNgGcEzKAUST4Kl3gJpIIXNC0Fv5cTVEYMjXEA57QGvZUEyp8B368QbFgbFhcMh2wTTUAJoH8IroobFRYZJiMZJSILknQIpIIB3q4Jn38IrokZIyASVUYC1acTTEAbERMQZ1QQaFUaFRYaGxoOeWEbExQTSj4ZGhoSWkoC1qgMiG0PcVsPclwPcVwPcFsKmXkJoH4PcFoHr4oC26wLj3IPdl8HsIu1JYWxAAAAFXRSTlMADEeDj4M0re7+M9ALrApH7URLCkS4EVaUAAAB3klEQVQ4y2NgYGBgZGJmwQJYmRgZwICNnYNTFAvg5GBnA8lzcYviBNxcDAw8vKJ4AC8fA78APgUCggysongBKwMLfgUsVFIgJi4BJCUkwEISCABTICklLSMmKyevoKgkqyyqoqqmrqGpBQTaOlAFunr6BoZGxiamZuZGFqKWVtY2tiZ2dnZW9g4SEAWyjk7OLq5u7h6ebl7ePr5+Hv4BTgGBQU7BIaEQBWHhEZHGUdExNrFxCvEJiUnJKalp6RmZmplZECuUsw1ychPz8p0LCouKS0JLywqiyysqq6prahOgbhCrq29obHJya24JCGhtk2r36OhM9uho6uzyUYYokCjq7untc++fMHHSZGOdKYFTpzlP958RPHXmLKgjxRRnz5k7z3++5oKFi0pFtRcvWbpsefKKlS0zS2G+aPVYtXqNx9p16wNmbAjduGnzFpWtydu2IxSIFu6YL7Vz1+7UPda2e2T3Nm7e4rM1ed/+AwehCiQOHT5y9NhxmwMd7SeOn5TYq3dK2uf0GSmpE2dVII6UOHc+N1zjwsVLly5dvHxFd+PVa9dv3LyldvvCNpg3RUPFJNAiERRRyspUTA94FTATSrRC+JO9EKGMw0M46xHOvAwMwiKsWLO/oDBQEgA2ybatSpWMAwAAAABJRU5ErkJggg==\" data-n=\"fastbull-express-favicon\"/></svg>"
-      }
-    },
-    {
-      "file": "hot/fastbull_news.js",
-      "version": "1.0.1",
+      "file": "hot/fastbull.js",
+      "version": "1.0.2",
       "platform": {
         "name": "法布财经",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"fastbull-express-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAClFBMVEUAAAAA6qoA37AC4K0C4a8C4K8A4rEB4K8B4K8B4K8A4a8B4K8A0bkB4K8A5rMA36wB4K8A4a0A4K0AzJkA3a0B4K8B4rEB47IB4bAC26sJn34MhWsGt5AB47EC3a0LlXYPdF0HsYsB5bIB4a8C2aoD0qUFvZUOfGMMi28Ey58D0aQD06UB3q0B3a0QalYbExURZVIDzqEHq4cJnn0VPzYaExURZFIIqIUD1acNhmsVQTcWODAaGBkZIR8VQjgTUUQEyZ4Km3sYLCcUST0MiGwYJyQZHx4aHBsaGhoZHR0XMCsGvJQC2KkSXUwZJyQaGxsYKycYLCgYLSgWPjUFxpsB4rAB3KwIpoMOemIJnn4QaVYQZlMXMSsVRToQa1cEyp4B364Dz6IMim8ZHh0VPjUHs40PdF4TV0gJo4EEzaAB3awC2qsaIB4Od2AFwJYGtpAaFxgPc10FwpgFv5YD0qQC16gSV0gGs40VQzkZHBwMhmsFwJcFvpUEyZ0Mim4ZHhwURToQbFcYKiYaGBgZIiALkXMA5bMZIyEZJCEYKSURYlEOeWAPdV4RY1AWPTQZIB4VRDkUSj4TTD8TSz8NfmUaGRkXNS4YJiMWOzITVkcC16kWODEWOzMHtI4MjHATT0IGuJEOfWQKlHYQZlQaFhcNgGcEzKAUST4Kl3gJpIIXNC0Fv5cTVEYMjXEA57QGvZUEyp8B368QbFgbFhcMh2wTTUAJoH8IroobFRYZJiMZJSILknQIpIIB3q4Jn38IrokZIyASVUYC1acTTEAbERMQZ1QQaFUaFRYaGxoOeWEbExQTSj4ZGhoSWkoC1qgMiG0PcVsPclwPcVwPcFsKmXkJoH4PcFoHr4oC26wLj3IPdl8HsIu1JYWxAAAAFXRSTlMADEeDj4M0re7+M9ALrApH7URLCkS4EVaUAAAB3klEQVQ4y2NgYGBgZGJmwQJYmRgZwICNnYNTFAvg5GBnA8lzcYviBNxcDAw8vKJ4AC8fA78APgUCggysongBKwMLfgUsVFIgJi4BJCUkwEISCABTICklLSMmKyevoKgkqyyqoqqmrqGpBQTaOlAFunr6BoZGxiamZuZGFqKWVtY2tiZ2dnZW9g4SEAWyjk7OLq5u7h6ebl7ePr5+Hv4BTgGBQU7BIaEQBWHhEZHGUdExNrFxCvEJiUnJKalp6RmZmplZECuUsw1ychPz8p0LCouKS0JLywqiyysqq6prahOgbhCrq29obHJya24JCGhtk2r36OhM9uho6uzyUYYokCjq7untc++fMHHSZGOdKYFTpzlP958RPHXmLKgjxRRnz5k7z3++5oKFi0pFtRcvWbpsefKKlS0zS2G+aPVYtXqNx9p16wNmbAjduGnzFpWtydu2IxSIFu6YL7Vz1+7UPda2e2T3Nm7e4rM1ed/+AwehCiQOHT5y9NhxmwMd7SeOn5TYq3dK2uf0GSmpE2dVII6UOHc+N1zjwsVLly5dvHxFd+PVa9dv3LyldvvCNpg3RUPFJNAiERRRyspUTA94FTATSrRC+JO9EKGMw0M46xHOvAwMwiKsWLO/oDBQEgA2ybatSpWMAwAAAABJRU5ErkJggg==\" data-n=\"fastbull-express-favicon\"/></svg>"
@@ -2924,24 +2897,8 @@
       }
     },
     {
-      "file": "hot/wallstreetcn_hot.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "华尔街见闻",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"wallstreetcn-hot-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACAVBMVEUAAAAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePATd/ARdvASd/Aog/FNmfRQm/Q5jfIWefATePAlgvG31frp8v5Rm/QYe/BXn/SOvviPvvhoqPW61/uw0voYevAwiPLD3fv////4+/9WnvRHlfPn8f1bofUigPEng/EmgvEXevAPdfBVnfT0+f7w9v5Ck/OUwvjL4fzH3/vZ6f1/tfcZe/AffvEdffEcffAgf/HA2/v+/v+fyPna6v18tPcafPDj7/01i/KGuffF3vvE3fuBt/dvrPb9/v/7/f/f7f3U5vyXw/g2i/LY6PyLvPgth/KcxvkQdvBjpfXq8/5JlvN/tvchf/GQv/jx9/5aoPQVefAae/C21fq82PsbfPA3jPL2+v5XnvQOdPBDk/Ps9P692fuMvfhGlfMOdfBFlPNrqvanzPmv0fqIu/fc6/2SwPiTwfgrhfFPmvTy+P48j/NkpvXN4vyKvPj+///X6PyRwPi82fuEuPcphPF6svZpqfXB2/v5/P9ElPP8/f/O4/yAtvfJ4PxaoPWz1PrV5/zv9v4/kfPl8P1lpvX6/P9fo/Wly/nT5vwRd/A+kPOpzfmBtvfI4Pzu9f5AkfNYn/R9tPet0PqmzPk0ivJEk/OjWvxIAAAAFXRSTlMAAAQvc7Pe9gM8nuP9HZHtO8hHLpBNmdCMAAACOElEQVQ4y4VT518TQRC9lEsuuSTU3dsgXETsMkBMJFZiQCkKGntFFBEsYEXEgoUoiooFGzbs9a909vY2BOUn78u2t1PezCgKhwPhdLlVj5cQr0d1u5z8RskCD5rPrweIjYDu92k5DNwGQ3lkGvJCwSwDN/kF5B8U5NsMXAo9ZAZ4Ci0G/z/9nRoGEwzLBvr/y364ZE5pmfAS5AQtJF9Mg4NF5pbPo+ImpCHBJ+OvmL8AsXBRePGSpRTBc/E5FKc/a3tZJQBUVddEl7NYOL6iFq/8TsWlW9Y5EitXAaxes3ZdjJTUJden8F53KW6uX6q+AbFhYyNAU3PLJsPc3NjaxlMJuBWV/49s2ZpO120j23cA7NzVxmh89x4Rp6pYGrC9+9D9/sSBJC4HCWk/1HHYEFooXms1juBLupMdBeg61m32HD9x0rQevIpIgJ1qBejtO33mLJw7f6H/YsdAu52aTSDdzWjiUlnFYNPlK1fZteQQkwThghjXbwBEb/bfGs7cvlPTMmJLiS7sQpkNd9HEvdH7Dx7CWGX0kSFLaqVpmRh4DPDk6fizLiQ+75HqqkIoXuShFwBjLwdfTaAUr2WIKFSRbu9ZBr++eUvfAbwflSGg1NliTX4oBxiOJPp6ISNT4MWaKnftR4BPkzT2+ctXGSIvt0MrlmF+q5ooZcT4/iMlDVgNk2052jn+E1uNxn/JCETLTTUtrf7NnVMZgWja3LZn8mtu288+OGL0iv8zerMPrz3+RTOO/x8JlYBlSoQRsgAAAABJRU5ErkJggg==\" data-n=\"wallstreetcn-hot-favicon\"/></svg>"
-      }
-    },
-    {
-      "file": "hot/wallstreetcn_news.js",
-      "version": "1.0.1",
-      "platform": {
-        "name": "华尔街见闻",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"wallstreetcn-hot-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACAVBMVEUAAAAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePATd/ARdvASd/Aog/FNmfRQm/Q5jfIWefATePAlgvG31frp8v5Rm/QYe/BXn/SOvviPvvhoqPW61/uw0voYevAwiPLD3fv////4+/9WnvRHlfPn8f1bofUigPEng/EmgvEXevAPdfBVnfT0+f7w9v5Ck/OUwvjL4fzH3/vZ6f1/tfcZe/AffvEdffEcffAgf/HA2/v+/v+fyPna6v18tPcafPDj7/01i/KGuffF3vvE3fuBt/dvrPb9/v/7/f/f7f3U5vyXw/g2i/LY6PyLvPgth/KcxvkQdvBjpfXq8/5JlvN/tvchf/GQv/jx9/5aoPQVefAae/C21fq82PsbfPA3jPL2+v5XnvQOdPBDk/Ps9P692fuMvfhGlfMOdfBFlPNrqvanzPmv0fqIu/fc6/2SwPiTwfgrhfFPmvTy+P48j/NkpvXN4vyKvPj+///X6PyRwPi82fuEuPcphPF6svZpqfXB2/v5/P9ElPP8/f/O4/yAtvfJ4PxaoPWz1PrV5/zv9v4/kfPl8P1lpvX6/P9fo/Wly/nT5vwRd/A+kPOpzfmBtvfI4Pzu9f5AkfNYn/R9tPet0PqmzPk0ivJEk/OjWvxIAAAAFXRSTlMAAAQvc7Pe9gM8nuP9HZHtO8hHLpBNmdCMAAACOElEQVQ4y4VT518TQRC9lEsuuSTU3dsgXETsMkBMJFZiQCkKGntFFBEsYEXEgoUoiooFGzbs9a909vY2BOUn78u2t1PezCgKhwPhdLlVj5cQr0d1u5z8RskCD5rPrweIjYDu92k5DNwGQ3lkGvJCwSwDN/kF5B8U5NsMXAo9ZAZ4Ci0G/z/9nRoGEwzLBvr/y364ZE5pmfAS5AQtJF9Mg4NF5pbPo+ImpCHBJ+OvmL8AsXBRePGSpRTBc/E5FKc/a3tZJQBUVddEl7NYOL6iFq/8TsWlW9Y5EitXAaxes3ZdjJTUJden8F53KW6uX6q+AbFhYyNAU3PLJsPc3NjaxlMJuBWV/49s2ZpO120j23cA7NzVxmh89x4Rp6pYGrC9+9D9/sSBJC4HCWk/1HHYEFooXms1juBLupMdBeg61m32HD9x0rQevIpIgJ1qBejtO33mLJw7f6H/YsdAu52aTSDdzWjiUlnFYNPlK1fZteQQkwThghjXbwBEb/bfGs7cvlPTMmJLiS7sQpkNd9HEvdH7Dx7CWGX0kSFLaqVpmRh4DPDk6fizLiQ+75HqqkIoXuShFwBjLwdfTaAUr2WIKFSRbu9ZBr++eUvfAbwflSGg1NliTX4oBxiOJPp6ISNT4MWaKnftR4BPkzT2+ctXGSIvt0MrlmF+q5ooZcT4/iMlDVgNk2052jn+E1uNxn/JCETLTTUtrf7NnVMZgWja3LZn8mtu288+OGL0iv8zerMPrz3+RTOO/x8JlYBlSoQRsgAAAABJRU5ErkJggg==\" data-n=\"wallstreetcn-hot-favicon\"/></svg>"
-      }
-    },
-    {
-      "file": "hot/wallstreetcn_quick.js",
-      "version": "1.0.1",
+      "file": "hot/wallstreetcn.js",
+      "version": "1.0.2",
       "platform": {
         "name": "华尔街见闻",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"wallstreetcn-hot-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACAVBMVEUAAAAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePAUePATd/ARdvASd/Aog/FNmfRQm/Q5jfIWefATePAlgvG31frp8v5Rm/QYe/BXn/SOvviPvvhoqPW61/uw0voYevAwiPLD3fv////4+/9WnvRHlfPn8f1bofUigPEng/EmgvEXevAPdfBVnfT0+f7w9v5Ck/OUwvjL4fzH3/vZ6f1/tfcZe/AffvEdffEcffAgf/HA2/v+/v+fyPna6v18tPcafPDj7/01i/KGuffF3vvE3fuBt/dvrPb9/v/7/f/f7f3U5vyXw/g2i/LY6PyLvPgth/KcxvkQdvBjpfXq8/5JlvN/tvchf/GQv/jx9/5aoPQVefAae/C21fq82PsbfPA3jPL2+v5XnvQOdPBDk/Ps9P692fuMvfhGlfMOdfBFlPNrqvanzPmv0fqIu/fc6/2SwPiTwfgrhfFPmvTy+P48j/NkpvXN4vyKvPj+///X6PyRwPi82fuEuPcphPF6svZpqfXB2/v5/P9ElPP8/f/O4/yAtvfJ4PxaoPWz1PrV5/zv9v4/kfPl8P1lpvX6/P9fo/Wly/nT5vwRd/A+kPOpzfmBtvfI4Pzu9f5AkfNYn/R9tPet0PqmzPk0ivJEk/OjWvxIAAAAFXRSTlMAAAQvc7Pe9gM8nuP9HZHtO8hHLpBNmdCMAAACOElEQVQ4y4VT518TQRC9lEsuuSTU3dsgXETsMkBMJFZiQCkKGntFFBEsYEXEgoUoiooFGzbs9a909vY2BOUn78u2t1PezCgKhwPhdLlVj5cQr0d1u5z8RskCD5rPrweIjYDu92k5DNwGQ3lkGvJCwSwDN/kF5B8U5NsMXAo9ZAZ4Ci0G/z/9nRoGEwzLBvr/y364ZE5pmfAS5AQtJF9Mg4NF5pbPo+ImpCHBJ+OvmL8AsXBRePGSpRTBc/E5FKc/a3tZJQBUVddEl7NYOL6iFq/8TsWlW9Y5EitXAaxes3ZdjJTUJden8F53KW6uX6q+AbFhYyNAU3PLJsPc3NjaxlMJuBWV/49s2ZpO120j23cA7NzVxmh89x4Rp6pYGrC9+9D9/sSBJC4HCWk/1HHYEFooXms1juBLupMdBeg61m32HD9x0rQevIpIgJ1qBejtO33mLJw7f6H/YsdAu52aTSDdzWjiUlnFYNPlK1fZteQQkwThghjXbwBEb/bfGs7cvlPTMmJLiS7sQpkNd9HEvdH7Dx7CWGX0kSFLaqVpmRh4DPDk6fizLiQ+75HqqkIoXuShFwBjLwdfTaAUr2WIKFSRbu9ZBr++eUvfAbwflSGg1NliTX4oBxiOJPp6ISNT4MWaKnftR4BPkzT2+ctXGSIvt0MrlmF+q5ooZcT4/iMlDVgNk2052jn+E1uNxn/JCETLTTUtrf7NnVMZgWja3LZn8mtu288+OGL0iv8zerMPrz3+RTOO/x8JlYBlSoQRsgAAAABJRU5ErkJggg==\" data-n=\"wallstreetcn-hot-favicon\"/></svg>"
@@ -3172,35 +3129,43 @@
       }
     },
     {
-      "file": "clip/github.js",
+      "file": "clip/baidu_weather.js",
       "version": "1.0.0",
       "platform": {
+        "name": "百度",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"baidu-hot-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAG60lEQVRYw8WXbXBUZxXHf8+9dzfZtyRNgEA2kCLQ8m5rxwKWkmJbahmoOPrBqR1Ga9VxiuPUjk5nOqUWcVAcTTtCx5fWl7HTF6lWbXkRHFHElwqtVQoESIAkpMhukt3Nvu+99zl+uEvIkg3hg9rzbZ9z93n+zzn/8z/nQUQQkXYR2Skiw/K/t+HyWe0iwsXD3/4/HHy5vS0i7UpEdgKruYKJwLHOEofeKBIMKG69JcC0qeaIv2QLhw4XOX6iRLTFYvmyWiIRg6uwXVxN2PcfyMmda/tl7o09Mv+mHvnMgzH59wXHc2qRF3akZeltfXL9DT3y3qW98timQUln3KtKhwFErgRxKKF59qfD9PQ6KAVaw5//lmfPvhwA/ecdnn8pzVBCYxhQLAq/2ZVl/x8LVxOBieN09HiJzhM2RvlLpcBx4K1/FbFtoeu0Tf95p8KfzwsHDuYplmRCBBMCiA+4FEuCUqMWFSRTGtuBZFLj2N7aaH98wKVU/C8AiIQNLNMj4ogJhEPeejhsYFreWoU/bGBZaqLtxwIQgURSMzDo4rqwYJ6P1qiF1pf8hgEL5/vx+xVzZvmY3GRW+C0L3n9TDYGAYjiticddCgWZGECxKLywI8MDD8ZY/0CMJ7cnCQUNPnt/PdEWr+wMA953Qw133REEINpi8dF1YerqDLSGmhrFh+4MsebuIAf/WmDDl+J84tMX2Lh5iK7T9hgA1ugf+w/k6fhukuG0Rino/ZlNfb3Bp+6ro22GxT/+WcTvUyxbWkvbdO+vpgnr740wZ7aP02dspk3zdGBoSLP1Owk6T5YwDEVPr0M+L2x5opFw2BgLIF8Qdu3NMZzWmGWNcRx4bXeOdWtCLFrgZ9ECf9Uw1tYqVq4IsHJFYGTt5VeydJ22R3ggAq8fLnDkaIllS2rHAshlNWfO2hVsVwpiMYd3zrtMarqkfNmccLyzRN85h1BQMX+en9bopWDattDVXcJ1GbmMUpDNas70OCxbUiUFArju2NuJgKsvEair2+bpH6b4y+sFcjnBNKE1arH+3gjr1oTw+RQCOOPt5VaScSQZkbDBgnn+inITgYYGg+bJ3jX633H42jcT7NyTI5XSOI5QKAgnu2y2diT51atZAPw+xYzpVkU0tYZrGgzmXe+vDqCmRvHxj4WZMd3CccBxBMuCu+4IMrXZolAQfvCjYf5+uDAmTaYB6bTme88O8+ZbRQBW3hpg5rUWjiM4rrfX2tUhFi+sBKBELt1ZBA69WWTP3hzpjGbxQj8fXhMiEjZ47sU0HduS2LZQX2fiuEI6rSsipjUsvbmWzRsbaY1aHHqjyO69WdIZYfFCP2tXh2ioN8YHcNFc18uV369wXfjFrzN0bEsyNKS5braPzY83cqrLZsu3E+Ryl8k08MH2AI88fA2tUatir2pmVVs0TTBNRT4vPPdimmd+MkwypRERfH54z0wf2ZxgGF7ULqrjxSju258nmxW+8lAD8+b6Mc3xJXncXhCLu2ztSLDt+ynSGc3kSQbRFospZUJqLRhK0TLNZNZMy2O/eES7bpaPY50lHtk4yB/+lEeu1JOqTQnnLzjyhYfjMvfGHlnS3idPbk/IiZMlicUdSSS9QePAwZysWHVOXtudka7ukqy6p19mLzorT2wZlPiAI49+dUBmLzrrfbMnO+5EMiYCJVt45sfD7Pt9DtOET94XYcPnGmhoMDjTY9N3zvYaj/IqoL7OoKnR9DomEAgYTGoyCQQUylBciLk8tT3JkaOlq0tB5wmb3/4uh9Ywtdlizd0h4gMuX350gM9/Mc7WjiSZrB5p/yKgZVQ3FhnhBXjc6OlzeHVXtqrQjQFw7HiJRNJFKQiHFZGIwbl+h6PHS6RSmmy2svQ8JOVDNVXzrYAjR0tkMnpiAPmCjCBNJLxePme2j9tvCxJtsWhqMisYrzX4/Yq26T6am00i4eq8Lozad7SNKcPmKSY1NYpiURgYdPn5LzM8tKGBTY81kkhoLMuTbaWgWBL6+hzalwf4xqYmsjlNXZ3nG60NIjBlsklNrZoYwOKFXmc71W2Dhh2vZEimXFbdHmRSk4lS3iTcddouDzBpLJ83GVkWxAddtAuxAXeEJ6YJS2+uIRQcC6CqEr70coZvPZUkXR5MAIIBhe+imolXLbmcoLWncqGg4aWm/EkhLxTKQ+nyD9Ty9cebaJ5ijgFgAWkuext85B6vrT6/I01vr4PtiFd2QCRi0DbDojVqURcxsG0hFnc52+NwIeZSKAqO46nk1GaTFbcEuH99XdXDgfQVn2bxAZdT3TaplMbvVzQ1GjRPMamLGNQGDMwy34pFIZsTBodcYjGXdMabqtqm+7i2zRq3D1B+mr2rj1PkXX6e/wfPc7D0MbrjyQAAAABJRU5ErkJggg==\" data-n=\"baidu-hot-favicon\"/></svg>"
+      }
+    },
+    {
+      "file": "clip/github.js",
+      "version": "1.0.1",
+      "platform": {
         "name": "GitHub",
-        "icon": ""
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" data-n=\"github-platform-icon\"><path data-n=\"github-icon-mark\" d=\"M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.4 4.9 18.4 5.2 18.4 5.2c.7 1.7.3 2.9.2 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z\"/></svg>"
       }
     },
     {
       "file": "clip/website.js",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "platform": {
         "name": "网页",
-        "icon": ""
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#98a0ae\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-n=\"website-platform-icon\"><circle cx=\"12\" cy=\"12\" r=\"8.5\" data-n=\"website-icon-circle-1\" /><ellipse cx=\"12\" cy=\"12\" rx=\"3.6\" ry=\"8.5\" data-n=\"website-icon-ellipse-2\" /><path d=\"M3.7 9.4h16.6M3.7 14.6h16.6\" data-n=\"website-icon-path-3\" /></svg>"
       }
     },
     {
       "file": "detect/github_releases.js",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "platform": {
         "name": "GitHub",
-        "icon": ""
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" data-n=\"github-platform-icon\"><path data-n=\"github-icon-mark\" d=\"M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.4 4.9 18.4 5.2 18.4 5.2c.7 1.7.3 2.9.2 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z\"/></svg>"
       }
     },
     {
       "file": "detect/website_text.js",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "platform": {
         "name": "网页",
-        "icon": ""
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#98a0ae\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-n=\"website-platform-icon\"><circle cx=\"12\" cy=\"12\" r=\"8.5\" data-n=\"website-icon-circle-1\" /><ellipse cx=\"12\" cy=\"12\" rx=\"3.6\" ry=\"8.5\" data-n=\"website-icon-ellipse-2\" /><path d=\"M3.7 9.4h16.6M3.7 14.6h16.6\" data-n=\"website-icon-path-3\" /></svg>"
       }
     }
   ]
