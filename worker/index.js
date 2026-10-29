@@ -11,6 +11,7 @@ import { debug_response } from "./debug.js";
 import { WorkerCookieAccess } from "./cookies.js";
 import { error_code, error_response, script_error } from "./errors.js";
 import { load_cookies, update_cookies, validate_cookies } from "./cookie_sync.js";
+import { request_authenticated } from "./auth.js";
 
 const cases = route_cases(scripts);
 const routes = cases.map(entry => ({ ...entry, pattern: RssRoutePatternModel(entry.path),
@@ -24,7 +25,8 @@ export default {
   async fetch(request, env) {
     const started_at = Date.now();
     const url = new URL(request.url);
-    const authenticated = Boolean(env.ACCESS_TOKEN) && request.headers.get("Authorization") === "Bearer " + env.ACCESS_TOKEN;
+    const query_credential_present = url.searchParams.has("token");
+    const authenticated = request_authenticated(request, env.ACCESS_TOKEN);
     url.searchParams.delete("token");
     const debugging = url.pathname === "/debug" || url.pathname.startsWith("/debug/");
     let entry, result;
@@ -36,7 +38,7 @@ export default {
       headers: Object.fromEntries(["Accept", "Content-Type", "User-Agent", "CF-Ray"].flatMap(name =>
         request.headers.has(name) ? [[name, request.headers.get(name)]] : [])),
       authentication: { required: Boolean(env.ACCESS_TOKEN),
-        credential_present: request.headers.has("Authorization"), authenticated } };
+        credential_present: request.headers.has("Authorization") || query_credential_present, authenticated } };
     const fail = (code, failure) => debugging
       ? debug_response({ entry, context, stage, started_at, code, failure, result, invoked }, response_headers)
       : error_response(code, response_headers, entry?.file);

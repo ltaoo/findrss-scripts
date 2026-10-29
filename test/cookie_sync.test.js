@@ -153,7 +153,7 @@ test("对齐主项目：跳过浏览器无名 Cookie，全为无名 Cookie 不�
   assert.deepEqual([...env.COOKIE_KV.values], snapshot);
 });
 
-test("同步入口限制方法、JSON 类型、请求大小，明文上传须 Bearer 鉴权", async () => {
+test("同步入口限制方法、JSON 类型、请求大小，明文上传须访问令牌鉴权", async () => {
   const env = environment();
   const plain = { crypto_type: "none", data: JSON.stringify(instagram), update_time: new Date().toISOString() };
   assert.equal((await upload(plain, env)).status, 401);
@@ -170,4 +170,24 @@ test("同步入口限制方法、JSON 类型、请求大小，明文上传须 Be
     const response = await worker.fetch(new Request(origin + "/api/cookies/update", { method: "POST", headers, body }), env);
     assert.equal(response.status, status);
   }
+});
+
+test("Cookie 同步的明文上传同样支持查询令牌，并保持请求头优先", async () => {
+  const env = environment();
+  const body = JSON.stringify({ crypto_type: "none", data: JSON.stringify(instagram) });
+  for (const [query, authorization, status] of [
+    ["private-access-token", undefined, 200],
+    ["wrong-token", undefined, 401],
+    ["", undefined, 401],
+    ["private-access-token", "Bearer wrong-token", 401],
+    ["wrong-token", "Bearer private-access-token", 200],
+  ]) {
+    const headers = { "Content-Type": "application/json", ...(authorization === undefined ? {} : { Authorization: authorization }) };
+    const response = await worker.fetch(new Request(origin + "/api/cookies/update?token=" + query, {
+      method: "POST", headers, body,
+    }), env);
+    assert.equal(response.status, status);
+    assert.doesNotMatch(await response.text(), /private-access-token|wrong-token/);
+  }
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), instagram);
 });

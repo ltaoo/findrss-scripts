@@ -42,7 +42,7 @@ npm run deploy
 
 | 配置 | 内容 |
 | --- | --- |
-| `ACCESS_TOKEN` | 访问令牌；设置后所有入口需 `Authorization: Bearer <令牌>` |
+| `ACCESS_TOKEN` | 访问令牌；设置后所有入口需 `Authorization: Bearer <令牌>` 或 `?token=<令牌>`，同时提供时请求头优先 |
 | `SCRIPT_CONFIG` | 按脚本相对文件名索引的配置 JSON |
 | `SCRIPT_COOKIES` | 浏览器 Cookie 对象数组 JSON，含 `name/value/domain/path/secure/expirationDate` 等字段 |
 | `COOKIE_KV` | Wrangler KV 绑定，按脚本声明的站点保存加密 Cookie 快照 |
@@ -71,7 +71,7 @@ npx wrangler secret put SCRIPT_COOKIES
 
 微信脚本将 `api_url` 作为完整接口地址直接 POST，不拼接或修改路径。视频号填写 `https://dhub.funzm.com/api/wxchannels/contact/feed/list`，公众号填写 `https://dhub.funzm.com/api/wxmp/biz/msg/list`。请求体为 `{username,offset}`，`auth_token` 仅通过 `Authorization: Bearer` 请求头发送。FindRSS 后台导入脚本时可通过脚本「配置」填写相同字段。
 
-绑定 Cookie KV 或配置 Cookie、脚本配置、设备桥接时必须同时设置 `ACCESS_TOKEN`，否则入口返回 503，避免公开登录态采集结果。Cookie 仅发送给脚本声明的来源、路径和名称，明文不会进入沙箱。路由目录不会返回配置值。使用受保护的订阅和图片时，阅读器也需要支持发送访问令牌。
+绑定 Cookie KV 或配置 Cookie、脚本配置、设备桥接时必须同时设置 `ACCESS_TOKEN`，否则入口返回 503，避免公开登录态采集结果。Cookie 仅发送给脚本声明的来源、路径和名称，明文不会进入沙箱。路由目录不会返回配置值。所有入口均支持请求头或查询参数传递访问令牌；例如 `http://127.0.0.1:8801/debug/wxmp/wow36kr?token=<ACCESS_TOKEN>`，已有查询参数时用 `&token=`。令牌包含特殊字符时需 URL 编码。请求头存在时优先验证请求头，即使无效也不回退查询令牌。鉴权后移除 `token`，不会将其传入脚本、诊断上下文或 RSS/Atom 的 self URL。URL 仍可能保存在浏览器历史和访问日志中。
 
 ## dm Cookie 同步
 
@@ -85,7 +85,7 @@ npx wrangler secret put SCRIPT_COOKIES
 
 上传字段与主项目 `/api/cookies/update` 一致：`uuid`、`data`、`crypto_type`、`update_time`。服务端校验 UUID，使用配置的派生密钥复用生产运行时解密，再校验 Cookie 数据；密码不上传。不要求 `signature`，也不限制上传时间窗口。`domains` 是可选的站点覆盖范围，缺省时从 Cookie 域名推导。请使用 HTTPS 同步地址。
 
-成功响应与主项目一致，包含 `code: 0`、`count`、`skipped`、`msg: "成功"`。无名 Cookie 会跳过；整批都不可用时拒绝覆盖旧数据。未改造的客户端也可使用 `Authorization: Bearer <ACCESS_TOKEN>` 提交原有明文或 AES 数据；明文匿名上传会被拒绝。
+成功响应与主项目一致，包含 `code: 0`、`count`、`skipped`、`msg: "成功"`。无名 Cookie 会跳过；整批都不可用时拒绝覆盖旧数据。未改造的客户端也可使用 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKEN>` 提交原有明文或 AES 数据；明文匿名上传会被拒绝。
 
 同步返回 401 时，`COOKIE_SYNC_ENCRYPTION_REQUIRED` 表示需选择 AES，`COOKIE_SYNC_UUID_MISMATCH` 表示 UUID 与上述本机配置不一致。密码或密文无效时返回 400 和 `COOKIE_SYNC_DECRYPT_FAILED`。不再因缺少签名返回 401。无需发送 Cookie 或密码来排查。
 
@@ -93,7 +93,7 @@ Cookie 按脚本声明的来源分别保存，每条快照均使用随机 IV 和
 
 采集时优先使用 KV 的站点快照，尚未同步的站点使用 `SCRIPT_COOKIES` 回退；已清空的 KV 快照不会恢复静态旧值。KV 读取、解密失败会明确报错，不会偷偷退回旧 Cookie。更换存储密钥后需要重新同步所需站点。
 
-RSS 读取仍需 `Authorization: Bearer <ACCESS_TOKEN>`，两个域名均适用。KV 是最终一致存储，更新在其他节点可能延迟 60 秒以上，见 [Cloudflare KV 一致性说明](https://developers.cloudflare.com/kv/concepts/how-kv-works/)。同一站点应只使用一个同步配置，多个客户端并发上传时以最后完成的写入为准。
+RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKEN>`，两个域名均适用。KV 是最终一致存储，更新在其他节点可能延迟 60 秒以上，见 [Cloudflare KV 一致性说明](https://developers.cloudflare.com/kv/concepts/how-kv-works/)。同一站点应只使用一个同步配置，多个客户端并发上传时以最后完成的写入为准。
 
 ## GitHub Actions
 
@@ -217,6 +217,6 @@ Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前�
 
 Debug 成功、失败均返回 HTML，失败保留对应业务码的 HTTP 状态，无需设置 `Accept`。页面展示脚本文件、版本、路由与 handler 索引，请求路径、路径参数、查询参数、部分请求头和鉴权状态，执行阶段、总耗时、失败详情与沙箱堆栈、执行日志，以及上游请求的方法、主机、路径、状态、传输方式和凭据发送情况。成功时显示脚本原始返回值，不转换 RSS/Atom XML，也不额外抓取图片描述指向的二进制。每次重新执行并返回 `Cache-Control: no-store`。
 
-Debug 沿用 `ACCESS_TOKEN` 鉴权及凭据配置保护，通过请求头提供令牌。鉴权、配置或路由匹配失败同样返回诊断 HTML，脚本尚未执行时不会有上游记录。查询参数 `token` 在执行脚本前移除；请求上下文对 Cookie、Authorization、secret、password 和 API Key 等敏感字段脱敏，不显示环境变量配置值；上游记录只展示是否发送凭据。日志、错误文本与脚本原始输出保留实际内容，可能包含上游正文或脚本自行记录的信息，分享诊断页前请检查内容。页面将内容转义为文本，并禁止脚本执行及外部资源加载。
+Debug 沿用 `ACCESS_TOKEN` 鉴权及凭据配置保护，支持请求头或 `?token=`。鉴权、配置或路由匹配失败同样返回诊断 HTML，脚本尚未执行时不会有上游记录。查询参数 `token` 在执行脚本前移除；请求上下文对 Cookie、Authorization、secret、password 和 API Key 等敏感字段脱敏，不显示环境变量配置值；上游记录只展示是否发送凭据。日志、错误文本与脚本原始输出保留实际内容，可能包含上游正文或脚本自行记录的信息，分享诊断页前请检查内容。页面将内容转义为文本，并禁止脚本执行及外部资源加载。
 
 Cloudflare 配置字段见 [Wrangler 官方配置文档](https://developers.cloudflare.com/workers/wrangler/configuration/)。实际发布前需有自己的 Cloudflare 账户授权；本地打包成功不代表所有第三方站点允许来自 Cloudflare IP 的请求。

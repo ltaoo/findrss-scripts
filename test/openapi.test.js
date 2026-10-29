@@ -38,7 +38,10 @@ test("构建生成的 OpenAPI 覆盖全部脚本和路由，参数、操作 ID �
     else assert.equal(get.responses.default.content["application/json"].schema.$ref, "#/components/schemas/Error");
   }
   assert.equal(document.components.securitySchemes.bearerAuth.scheme, "bearer");
-  assert.deepEqual(document.security, [{}, { bearerAuth: [] }]);
+  assert.deepEqual(document.components.securitySchemes.queryToken, {
+    type: "apiKey", in: "query", name: "token", description: "部署时设置的 ACCESS_TOKEN，仅填写令牌本身",
+  });
+  assert.deepEqual(document.security, [{}, { bearerAuth: [] }, { queryToken: [] }]);
 });
 
 test("每个 Kind 下按内容类别分组，同一脚本的 RSS、Atom、正文和图片保留所属目录", () => {

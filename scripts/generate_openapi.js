@@ -86,12 +86,15 @@ export function generate_openapi(scripts) {
   return {
     openapi: "3.0.3",
     info: { title: "FindRSS 脚本接口", version: "1.0.0",
-      description: "从全部脚本元数据生成。配置 ACCESS_TOKEN 时，各接口需要 Authorization: Bearer <令牌>；Cookie、API Key 和设备能力由服务端配置。查询参数说明来自 route.parameters 和路由示例。" },
+      description: "从全部脚本元数据生成。配置 ACCESS_TOKEN 时，各接口支持 Authorization: Bearer <令牌> 或 ?token=<令牌>，同时提供时请求头优先；Cookie、API Key 和设备能力由服务端配置。查询参数说明来自 route.parameters 和路由示例。" },
     servers: [{ url: "{{baseURL}}" }],
-    security: [{}, { bearerAuth: [] }],
+    security: [{}, { bearerAuth: [] }, { queryToken: [] }],
     paths,
     components: {
-      securitySchemes: { bearerAuth: { type: "http", scheme: "bearer", description: "部署时设置的 ACCESS_TOKEN" } },
+      securitySchemes: {
+        bearerAuth: { type: "http", scheme: "bearer", description: "部署时设置的 ACCESS_TOKEN；请求头优先于查询参数" },
+        queryToken: { type: "apiKey", in: "query", name: "token", description: "部署时设置的 ACCESS_TOKEN，仅填写令牌本身" },
+      },
       schemas: { Error: { type: "object", required: ["error", "code", "message"],
         properties: { error: string, code: string, message: string, file: string } } },
     },

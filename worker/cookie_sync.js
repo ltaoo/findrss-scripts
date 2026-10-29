@@ -1,6 +1,7 @@
 import { Buffer } from "node:buffer";
 import { decrypt_cookie_push } from "../.runtime/findrss-worker/server/infra/cookie_push.js";
 import { error_code, error_response, script_error } from "./errors.js";
+import { request_authenticated } from "./auth.js";
 
 const max_bytes = 2 * 1024 * 1024;
 const encoder = new TextEncoder();
@@ -74,8 +75,7 @@ export async function update_cookies(request, env, origins, headers) {
     const body = await read_body(request);
     const crypto_type = body?.crypto_type === undefined ? "none" : typeof body.crypto_type === "string" ? body.crypto_type.trim().toLowerCase() : "";
     if (!body || !["none", "legacy", "aes-128-cbc-fixed", "aes-256-cbc"].includes(crypto_type)) throw script_error("COOKIE_SYNC_INVALID");
-    const bearer = env.ACCESS_TOKEN && request.headers.get("Authorization") === "Bearer " + env.ACCESS_TOKEN;
-    if (crypto_type === "none" && !bearer) throw script_error("COOKIE_SYNC_ENCRYPTION_REQUIRED");
+    if (crypto_type === "none" && !request_authenticated(request, env.ACCESS_TOKEN)) throw script_error("COOKIE_SYNC_ENCRYPTION_REQUIRED");
     if (crypto_type !== "none") {
       if (!env.COOKIE_PUSH_UUID || !/^[0-9a-f]{16}$/i.test(env.COOKIE_PUSH_KEY || "")) throw script_error("CONFIG_INVALID");
       if (typeof body.uuid !== "string" || body.uuid.trim() !== env.COOKIE_PUSH_UUID) throw script_error("COOKIE_SYNC_UUID_MISMATCH");
