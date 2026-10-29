@@ -60,6 +60,7 @@ test("每个 Kind 下按内容类别分组，同一脚本的 RSS、Atom、正文
     "/rss/javlibrary/star/{id}": "rss/影视",
     "/api/clip/github/{owner}/{repo}/readme": "clip/科技",
     "/api/clip/web/region": "clip/网页",
+    "/api/clip/baidu/weather/{city}": "clip/天气",
     "/api/detect/github/{owner}/{repo}/releases/detect": "detect/科技",
     "/api/detect/web/text/detect": "detect/网页",
   };
@@ -124,4 +125,23 @@ test("中段可选参数和正则参数正确转换，等价路由模板冲突�
     { path: "/example/:id", example: "/example/123" },
     { path: "/example/:name", example: "/example/abc" },
   ])), /路径冲突/);
+});
+
+test("脚本路由同时提供 POST JSON 请求体与 Bearer 授权，Debug 保留 GET", () => {
+  const { paths } = generate_openapi(scripts);
+  const ids = [];
+  for (const [path, { get, post }] of Object.entries(paths)) {
+    ids.push(get.operationId);
+    if (path.startsWith("/debug/")) { assert.equal(post, undefined); continue; }
+    ids.push(post.operationId);
+    assert.deepEqual(post.parameters, get.parameters.filter(parameter => parameter.in === "path"));
+    assert.deepEqual(post.security, [{}, { bearerAuth: [] }]);
+    assert.deepEqual(post.responses, get.responses);
+    assert.equal(post.requestBody.content["application/json"].schema.type, "object");
+  }
+  assert.equal(new Set(ids).size, ids.length);
+  const clip = paths["/api/clip/web/region"].post.requestBody;
+  assert.equal(clip.required, true);
+  assert.deepEqual(clip.content["application/json"].schema.required, ["url"]);
+  assert.equal(clip.content["application/json"].schema.properties.url.example, "https://example.com/");
 });

@@ -1,0 +1,32 @@
+--- a/server/infra/script_sandbox.js
++++ b/server/infra/script_sandbox.js
+@@ -468,7 +468,8 @@
+       if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+         throw new Error("脚本只允许请求 HTTP(S) 地址");
+       }
+-      if (headers.cookie !== undefined) throw new Error("请使用 ctx.cookies.get 和 fetchText 的 cookies 参数，禁止直接填写 Cookie 请求头");
++      const inline_cookie = headers.cookie || "";
++      delete headers.cookie;
+       const cookie_handle = fetch_options?.cookies;
+       if (cookie_handle && (!cookie_access || !cookie_access.allows(cookie_handle, parsed))) throw new Error("Cookie 句柄无效或请求地址超出授权范围");
+       if (fetch_options?.cookie_headers && !cookie_handle) throw new Error("cookie_headers 需要显式的 Cookie 句柄");
+@@ -476,8 +477,8 @@
+       let signal;
+       let credentials_allowed = true;
+       for (let redirects = 0; ; redirects += 1) {
+-      const request_cookie = credentials_allowed && cookie_handle
+-        ? cookie_access.header(cookie_handle, parsed, fetch_options?.cookie_headers) : "";
++      const request_cookie = credentials_allowed
++        ? inline_cookie || (cookie_handle ? cookie_access.header(cookie_handle, parsed, fetch_options?.cookie_headers) : "") : "";
+       let signed_headers = {};
+       let outgoing_url = parsed.toString();
+       if (fetch_options?.kuaishou_sign) {
+@@ -503,7 +504,7 @@
+         method, host: parsed.host, pathname: parsed.pathname.slice(0, 1024), status: null,
+         transport,
+         credentials: {
+-          source: request_cookie ? "script_grant" : "none",
++          source: request_cookie ? (inline_cookie ? "script_inline" : "script_grant") : "none",
+           headers_sent: [
+             ...(request_cookie ? ["Cookie"] : []),
+             ...RSS_FETCH_CREDENTIAL_HEADERS.filter(name => headers[name] || signed_headers[name] || derived_headers[name]),

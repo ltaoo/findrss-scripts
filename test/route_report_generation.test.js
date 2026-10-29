@@ -9,7 +9,10 @@ test("巡检入口读取独立配置并支持 Secret 覆盖，聚合样本且失
   const root = await mkdtemp(join(tmpdir(), "findrss-report-generation-"));
   t.after(() => rm(root, { recursive: true, force: true }));
   await cp(new URL("../scripts/", import.meta.url), join(root, "scripts"), { recursive: true });
+  await cp(new URL("../assets/", import.meta.url), join(root, "assets"), { recursive: true });
   await symlink(new URL("../node_modules/", import.meta.url), join(root, "node_modules"));
+  await symlink(new URL("../.runtime/", import.meta.url), join(root, ".runtime"));
+  await symlink(new URL("../worker/", import.meta.url), join(root, "worker"));
   await mkdir(join(root, "dist"));
   await mkdir(join(root, ".github"));
   await writeFile(join(root, ".github/route-checks.json"), JSON.stringify({
@@ -53,6 +56,11 @@ test("巡检入口读取独立配置并支持 Secret 覆盖，聚合样本且失
   const html = await readFile(join(root, "reports/index.html"), "utf8");
   assert.match(html, /版本：2\.3\.4/);
   assert.match(html, /data:image\/svg\+xml;base64,/);
-  assert.equal([...html.matchAll(/<details\b/g)].length, 1);
+  assert.match(html, /脚本市场 \(Script Market\)/);
+  assert.doesNotMatch(html, /private-source/);
+  assert.doesNotMatch(html, /private-config/);
+  assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 2);
+  assert.match(html, /responses\/configured\/one.json/);
+  assert.equal([...html.matchAll(/<button data-n="inspect-script"/g)].length, 1);
   assert.equal([...html.matchAll(/<tr data-n="route-result"/g)].length, 2);
 });

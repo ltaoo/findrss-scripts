@@ -99,7 +99,7 @@ npm run deploy
 
 ## 完整脚本清单
 
-每个文件只列一次。没有明确数字排名的内容保留上游顺序，`rank` 为 `null`；新闻、最新资讯及精选源按实际用途命名。热榜详细字段见 [hot/README.md](hot/README.md)。
+Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在一个文件，通过 `routes` 导出。每个文件只列一次。没有明确数字排名的内容保留上游顺序，`rank` 为 `null`；新闻、最新资讯及精选源按实际用途命名。热榜详细字段见 [hot/README.md](hot/README.md)。
 
 ### RSS（21 个）
 
@@ -127,27 +127,21 @@ npm run deploy
 | YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.0 | Cookie 授权 |
 | 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.0 | Cookie 授权 |
 
-### Hot（84 个）
+### Hot（75 个）
 
 | 脚本 | 文件 | 路由示例 | 版本 | 使用要求 |
 | --- | --- | --- | --- | --- |
-| 36氪 · 快讯 | [hot/36kr_quick.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/36kr_quick.js) | `/36kr/quick` | 1.0.1 | 公开来源 |
-| 36氪 · 人气榜 | [hot/36kr_renqi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/36kr_renqi.js) | `/36kr/renqi` | 1.0.1 | 公开来源 |
+| 36氪 · 快讯 / 人气榜 | [hot/36kr.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/36kr.js) | `/36kr/quick`、`/36kr/renqi` | 1.0.3 | 人气榜需授权并同步 36kr.com 验证 Cookie |
 | AIHOT | [hot/aihot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/aihot.js) | `/aihot` | 1.0.1 | 公开来源 |
 | AniList · 动漫趋势榜 | [hot/anilist.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/anilist.js) | `/anilist/trending/anime` | 1.0.0 | 公开来源 |
 | Apple · 播客/音乐榜 | [hot/apple_charts.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/apple_charts.js) | `/apple-charts/us/podcasts` | 1.0.0 | 公开来源 |
 | Ars Technica · 最新资讯 | [hot/arstechnica.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/arstechnica.js) | `/arstechnica/headlines` | 1.0.0 | 公开来源 |
 | 百度热搜 | [hot/baidu_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/baidu_hot.js) | `/baidu/hot` | 1.0.2 | 公开来源 |
-| 哔哩哔哩 · 热搜 | [hot/bilibili_hot_search.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/bilibili_hot_search.js) | `/bilibili/hot/search` | 1.0.1 | 公开来源 |
-| 哔哩哔哩 · 热门视频 | [hot/bilibili_hot_video.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/bilibili_hot_video.js) | `/bilibili/hot/video` | 1.0.1 | 公开来源 |
-| 哔哩哔哩 · 排行榜 | [hot/bilibili_ranking.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/bilibili_ranking.js) | `/bilibili/ranking` | 1.0.1 | 公开来源 |
+| 哔哩哔哩 · 热搜 / 热门视频 / 排行榜 | [hot/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/bilibili.js) | `/bilibili/hot/search`、`/bilibili/hot/video`、`/bilibili/ranking` | 1.0.2 | 公开来源 |
 | Bluesky · 趋势话题 | [hot/bluesky.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/bluesky.js) | `/bluesky/trending` | 1.0.0 | 公开来源 |
 | 参考消息 | [hot/cankaoxiaoxi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cankaoxiaoxi.js) | `/cankaoxiaoxi` | 1.0.1 | 公开来源 |
-| 虫部落 · 最热 | [hot/chongbuluo_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/chongbuluo_hot.js) | `/chongbuluo/hot` | 1.0.1 | 公开来源 |
-| 虫部落 · 最新 | [hot/chongbuluo_latest.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/chongbuluo_latest.js) | `/chongbuluo/latest` | 1.0.1 | 公开来源 |
-| 财联社 · 深度 | [hot/cls_depth.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls_depth.js) | `/cls/depth` | 1.0.1 | 公开来源 |
-| 财联社 · 热门 | [hot/cls_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls_hot.js) | `/cls/hot` | 1.0.1 | 公开来源 |
-| 财联社 · 电报 | [hot/cls_telegraph.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls_telegraph.js) | `/cls/telegraph` | 1.0.1 | 公开来源 |
+| 虫部落 · 最热 / 最新 | [hot/chongbuluo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/chongbuluo.js) | `/chongbuluo/hot`、`/chongbuluo/latest` | 1.0.2 | 公开来源 |
+| 财联社 · 深度 / 热门 / 电报 | [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) | `/cls/depth`、`/cls/hot`、`/cls/telegraph` | 1.0.2 | 公开来源 |
 | Dailymotion · 热门视频 | [hot/dailymotion.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/dailymotion.js) | `/dailymotion/hot/us` | 1.0.0 | 公开来源 |
 | Deezer · 热门歌曲 | [hot/deezer.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/deezer.js) | `/deezer/chart` | 1.0.0 | 公开来源 |
 | DEV Community · 热门文章 | [hot/devto.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/devto.js) | `/devto/top/week` | 1.0.0 | 公开来源 |
@@ -155,8 +149,7 @@ npm run deploy
 | 豆瓣 · 热门电影 | [hot/douban_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/douban_hot.js) | `/douban/hot` | 1.0.1 | 公开来源 |
 | 抖音 | [hot/douyin_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/douyin_hot.js) | `/douyin/hot` | 1.1.1 | Cookie 授权 |
 | 番茄小说排行榜 | [hot/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/fanqienovel.js) | `/fanqienovel/rank/1_2_1141` | 1.0.1 | 公开来源 |
-| 法布财经 · 快讯 | [hot/fastbull_express.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/fastbull_express.js) | `/fastbull/express` | 1.0.1 | 公开来源 |
-| 法布财经 · 头条 | [hot/fastbull_news.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/fastbull_news.js) | `/fastbull/news` | 1.0.1 | 公开来源 |
+| 法布财经 · 快讯 / 头条 | [hot/fastbull.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/fastbull.js) | `/fastbull/express`、`/fastbull/news` | 1.0.2 | 公开来源 |
 | Freebuf · 网络安全 | [hot/freebuf.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/freebuf.js) | `/freebuf` | 1.0.1 | 公开来源 |
 | 格隆汇 · 事件 | [hot/gelonghui.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/gelonghui.js) | `/gelonghui` | 1.0.1 | 公开来源 |
 | Github · Today | [hot/github_trending.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/github_trending.js) | `/github/trending` | 1.0.1 | 公开来源 |
@@ -205,9 +198,7 @@ npm run deploy
 | 今日头条 | [hot/toutiao_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/toutiao_hot.js) | `/toutiao/hot` | 1.0.1 | 公开来源 |
 | V2EX · 最新分享 | [hot/v2ex_share.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/v2ex_share.js) | `/v2ex/share` | 1.0.1 | 公开来源 |
 | Vimeo · Staff Picks 精选 | [hot/vimeo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/vimeo.js) | `/vimeo/staff-picks` | 1.0.0 | 公开来源 |
-| 华尔街见闻 · 最热 | [hot/wallstreetcn_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/wallstreetcn_hot.js) | `/wallstreetcn/hot` | 1.0.1 | 公开来源 |
-| 华尔街见闻 · 最新 | [hot/wallstreetcn_news.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/wallstreetcn_news.js) | `/wallstreetcn/news` | 1.0.1 | 公开来源 |
-| 华尔街见闻 · 快讯 | [hot/wallstreetcn_quick.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/wallstreetcn_quick.js) | `/wallstreetcn/quick` | 1.0.1 | 公开来源 |
+| 华尔街见闻 · 最热 / 最新 / 快讯 | [hot/wallstreetcn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/wallstreetcn.js) | `/wallstreetcn/hot`、`/wallstreetcn/news`、`/wallstreetcn/quick` | 1.0.2 | 公开来源 |
 | 微博 · 实时热搜 | [hot/weibo_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/weibo_hot.js) | `/weibo/hot` | 1.0.1 | Cookie 授权 |
 | 雪球 · 热门股票 | [hot/xueqiu_hotstock.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/xueqiu_hotstock.js) | `/xueqiu/hotstock` | 1.0.1 | Cookie 授权 |
 | Yahoo! JAPAN · 主要话题 | [hot/yahoo_japan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/yahoo_japan.js) | `/yahoo-japan/headlines` | 1.0.0 | 公开来源 |

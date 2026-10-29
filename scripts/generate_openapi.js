@@ -16,6 +16,7 @@ const script_categories = new Map([
   ["社区", ["rss/zhihu.js"]],
   ["资讯", ["rss/wxmp.js"]],
   ["网页", ["clip/website.js", "detect/website_text.js"]],
+  ["天气", ["clip/baidu_weather.js"]],
 ].flatMap(([category, files]) => files.map(file => [file, category])));
 const string = { type: "string" };
 const object = { type: "object" };
@@ -81,6 +82,21 @@ export function generate_openapi(scripts) {
         },
         "x-script-file": entry.file, "x-route-path": entry.path, "x-example": entry.example,
       } };
+      if (entry.format !== "debug") {
+        const operation = paths[path].get;
+        const fields = parameters.filter(parameter => parameter.in === "query" && parameter.name !== "token");
+        const required = fields.filter(field => field.required).map(field => field.name);
+        paths[path].post = { ...operation, operationId: "post_" + operation.operationId,
+          description: "与 GET 返回相同内容；查询参数通过 JSON 请求体提供，token 使用 Authorization: Bearer 请求头。\n\n" + operation.description,
+          parameters: parameters.filter(parameter => parameter.in === "path"),
+          security: [{}, { bearerAuth: [] }],
+          requestBody: { required: required.length > 0, content: { "application/json": { schema: { type: "object",
+            properties: Object.fromEntries(fields.map(field => [field.name, { ...field.schema, description: field.description,
+              ...(field.example !== undefined ? { example: field.example } : {}) }])),
+            ...(required.length ? { required } : {}),
+          } } } },
+        };
+      }
     }
   }
   return {

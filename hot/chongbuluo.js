@@ -1,7 +1,7 @@
 /** HOT */
-export const version = "1.0.1";
+export const version = "1.0.2";
 export const category = "社区";
-export const order = 100;
+export const order = 90;
 // Favicon: https://www.chongbuluo.com/favicon.ico
 export const platform = {
   name: "虫部落",
@@ -33,7 +33,72 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 */
-const source = {
+const hot_source = {
+  "id": "chongbuluo-hot",
+  "name": "虫部落 · 最热",
+  "home": "https://www.chongbuluo.com/forum.php?mod=guide&view=hot"
+};
+export class ChongbuluoHotRank extends HotRankScript {
+  async fetch(ctx) {
+    try {
+      const request_options = {};
+      request_options.headers = {
+        Referer: hot_source.home,
+        ...request_options.headers
+      };
+      const fetched = await utils.request_text(ctx, "https://www.chongbuluo.com/forum.php?mod=guide&view=hot", request_options);
+      if (fetched.error) return fetched;
+      const parsed = utils.document_nodes(fetched.data);
+      if (parsed.error) return parsed;
+      const list = utils.rows(parsed.data, ".bmw table tr");
+      if (list.error) return list;
+      const rows = list.data;
+      const entries = [],
+        seen = new Set();
+      for (const row of rows) {
+        if (!utils.first(row, '.common .xst')) continue;
+        const id = utils.identity(utils.attribute(row, ".common .xst", "href") || utils.attribute(row, ".common a", "href"));
+        if (id.error) return id;
+        if (seen.has(id.data)) continue;
+        seen.add(id.data);
+        const link = utils.absolute_url(utils.attribute(row, ".common .xst", "href") || utils.attribute(row, ".common a", "href"), hot_source.home);
+        if (link.error) return link;
+        const pinned = false;
+        const raw_rank = null;
+        const rank = pinned ? null : raw_rank === undefined || raw_rank === null || raw_rank === '' ? null : Number(raw_rank);
+        const heat_text = String('' ?? '').trim();
+        const heat_number = heat_text === '' ? NaN : Number(heat_text.replace(/,/g, ''));
+        entries.push({
+          id: hot_source.id + ':' + id.data,
+          title: utils.plain_text(utils.field(row, ".common .xst")),
+          link: link.data,
+          rank,
+          pinned,
+          heat: {
+            value: Number.isFinite(heat_number) && heat_number >= 0 ? heat_number : null,
+            unit: "热度",
+            text: heat_text
+          }
+        });
+      }
+      ctx.log('榜单解析完成', {
+        source: hot_source.id,
+        count: entries.length,
+        missing_rank: entries.filter(entry => entry.rank === null && !entry.pinned).length
+      });
+      return Result.Ok({
+        title: hot_source.name,
+        category,
+        link: hot_source.home,
+        entries
+      });
+    } catch (error) {
+      return Result.Err(error, error?.code ?? 'UPSTREAM_INVALID_RESPONSE');
+    }
+  }
+}
+
+const latest_source = {
   "id": "chongbuluo-latest",
   "name": "虫部落 · 最新",
   "home": "https://www.chongbuluo.com/forum.php?mod=guide&view=newthread"
@@ -43,7 +108,7 @@ export class ChongbuluoLatestHotRank extends HotRankScript {
     try {
       const request_options = {};
       request_options.headers = {
-        Referer: source.home,
+        Referer: latest_source.home,
         ...request_options.headers
       };
       const fetched = await utils.request_text(ctx, "https://www.chongbuluo.com/forum.php?mod=rss&view=newthread", request_options);
@@ -58,7 +123,7 @@ export class ChongbuluoLatestHotRank extends HotRankScript {
         if (id.error) return id;
         if (seen.has(id.data)) continue;
         seen.add(id.data);
-        const link = utils.absolute_url(row.link, source.home);
+        const link = utils.absolute_url(row.link, latest_source.home);
         if (link.error) return link;
         const pinned = false;
         const raw_rank = null;
@@ -66,7 +131,7 @@ export class ChongbuluoLatestHotRank extends HotRankScript {
         const heat_text = String('' ?? '').trim();
         const heat_number = heat_text === '' ? NaN : Number(heat_text.replace(/,/g, ''));
         entries.push({
-          id: source.id + ':' + id.data,
+          id: latest_source.id + ':' + id.data,
           title: utils.plain_text(row.title),
           link: link.data,
           rank,
@@ -79,14 +144,14 @@ export class ChongbuluoLatestHotRank extends HotRankScript {
         });
       }
       ctx.log('榜单解析完成', {
-        source: source.id,
+        source: latest_source.id,
         count: entries.length,
         missing_rank: entries.filter(entry => entry.rank === null && !entry.pinned).length
       });
       return Result.Ok({
-        title: source.name,
+        title: latest_source.name,
         category,
-        link: source.home,
+        link: latest_source.home,
         entries
       });
     } catch (error) {
@@ -94,14 +159,28 @@ export class ChongbuluoLatestHotRank extends HotRankScript {
     }
   }
 }
-const script = new ChongbuluoLatestHotRank();
-export const route = {
-  "name": "虫部落 · 最新",
-  "path": "/chongbuluo/latest",
-  "url": "www.chongbuluo.com",
-  "maintainers": ["findrss"],
-  "example": "/chongbuluo/latest",
-  "parameters": {},
-  "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
-  handler: ctx => script.run(ctx),
-};
+
+const hot_script = new ChongbuluoHotRank();
+const latest_script = new ChongbuluoLatestHotRank();
+export const routes = [
+  {
+    "name": "虫部落 · 最热",
+    "path": "/chongbuluo/hot",
+    "url": "www.chongbuluo.com",
+    "maintainers": ["findrss"],
+    "example": "/chongbuluo/hot",
+    "parameters": {},
+    "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
+    handler: ctx => hot_script.run(ctx),
+  },
+  {
+    "name": "虫部落 · 最新",
+    "path": "/chongbuluo/latest",
+    "url": "www.chongbuluo.com",
+    "maintainers": ["findrss"],
+    "example": "/chongbuluo/latest",
+    "parameters": {},
+    "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
+    handler: ctx => latest_script.run(ctx),
+  }
+];

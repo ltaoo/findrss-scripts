@@ -14,6 +14,7 @@ test("Markdown 按脚本聚合，展示图标、版本、Raw 链接和单个路�
     { ...passed, format: "atom", path: "/atom/github/org/repo/release" },
   ] });
   assert.match(markdown, /^# 脚本路由巡检：2\/3 通过/);
+  assert.match(markdown, /<img data-n="project-logo" src="https:\/\/raw.githubusercontent.com\/ltaoo\/findrss-scripts\/refs\/heads\/master\/assets\/brand\/logo.svg" alt="FindRSS"/);
   assert.match(markdown, /巡检时间：2026-10-28T06:00:00.000Z/);
   assert.match(markdown, /## rss\/github.js（2\/3 通过）/);
   assert.equal([...markdown.matchAll(/^## /gm)].length, 1);
@@ -34,7 +35,7 @@ test("Markdown 转义表格内容与链接，空报告有明确提示", () => {
   assert.match(markdown, /\/a&#124;b &lt;script&gt;/);
   assert.ok(markdown.includes("\\[link\\](bad)&#124;&lt;img&gt;  next"));
   assert.doesNotMatch(markdown, /<script>|<img>/);
-  assert.doesNotMatch(markdown, /<img\b/);
+  assert.doesNotMatch(markdown, /<img data-n="script-icon"/);
   assert.match(markdown, /版本：—/);
   const empty = render_report({ results: [] });
   assert.match(empty, /0\/0 通过/);

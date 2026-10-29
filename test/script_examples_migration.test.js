@@ -23,7 +23,7 @@ const read = read_script;
 const hash = (kind, value) => createHash(kind).update(value).digest('hex');
 
 test('源码目录包含完整 Hot/RSS 脚本，分类与路由经生产 QuickJS 校验', async () => {
-  assert.equal(script_names('hot').length, 84);
+  assert.equal(script_names('hot').length, 75);
   assert.equal(script_names('rss').length, 21);
   for (const kind of ['hot', 'rss']) for (const name of script_names(kind)) {
     const source = read(kind + '/' + name);
@@ -99,9 +99,11 @@ test('52 个源重写为列表快照，生产 QuickJS 正常执行、去重并�
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   for (const entry of manifest.sources) {
-    const script = await read('hot/' + entry.file);
+    const file = entry.file.replace(/^(36kr|bilibili|chongbuluo|cls|fastbull|wallstreetcn)_.+\.js$/, '$1.js');
+    const script = await read('hot/' + file);
     const compiled = await compile_script_module(script);
     assert.equal(compiled.error, '', entry.file);
+    const metadata = { ...compiled.metadata, ...compiled.metadata.routes.find(route => route.path === '/' + entry.source.replace(/-/g, '/')) };
     const fixture = fixtures[entry.source];
     const calls = [];
     globalThis.fetch = async (url, options) => {
@@ -120,7 +122,7 @@ test('52 个源重写为列表快照，生产 QuickJS 正常执行、去重并�
     };
     const permissions = compiled.metadata.permissions;
     const access = permissions.cookies.length ? new ScriptCookieAccess({ permissions, assert_grant: () => {}, cookies: () => [] }) : null;
-    const result = await execute_script(script, compiled.metadata, null, undefined, [], '', access).catch(error => {
+    const result = await execute_script(script, metadata, null, undefined, [], '', access).catch(error => {
       error.message = entry.file + ': ' + error.message;
       throw error;
     });
@@ -154,13 +156,14 @@ for (const test_route of test_routes) {
 }`;
     const compiled = await compile_script_module(script);
     assert.equal(compiled.error, '', name);
-    const route = compiled.metadata.routes[0];
-    const url = new URL(route.example, 'https://fixture.invalid');
-    const params = fixture?.params || RssRoutePatternModel(route.path).match(url.pathname).params;
-    await assert.rejects(execute_script(script, { ...compiled.metadata, config: fixture?.config || {} }, null, { method: 'GET', pathname: url.pathname, params, query: Object.fromEntries(url.searchParams) }), error => {
-      assert.ok(error.message, name);
-      assert.match(error.message, /请求失败|设备不可用/, name);
-      return true;
-    }, name);
+    for (const route of kind === 'hot' ? compiled.metadata.routes : compiled.metadata.routes.slice(0, 1)) {
+      const url = new URL(route.example, 'https://fixture.invalid');
+      const params = fixture?.params || RssRoutePatternModel(route.path).match(url.pathname).params;
+      await assert.rejects(execute_script(script, { ...compiled.metadata, ...route, config: fixture?.config || {} }, null, { method: 'GET', pathname: url.pathname, params, query: Object.fromEntries(url.searchParams) }), error => {
+        assert.ok(error.message, name);
+        assert.match(error.message, /请求失败|设备不可用/, name);
+        return true;
+      }, name);
+    }
   }
 });

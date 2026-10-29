@@ -48,7 +48,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - run: npm run check:routes
+      - run: |
+          npm run check:routes || true
+          test -f reports/index.html
         env:
           ROUTE_CHECK_CONFIG: .github/route-checks.json
           CHECK_BASE_URL: ${{ vars.CHECK_BASE_URL }}

@@ -1,7 +1,7 @@
 /** HOT */
-export const version = "1.0.1";
+export const version = "1.0.2";
 export const category = "财经";
-export const order = 190;
+export const order = 180;
 // Favicon: https://img.fastbull.cn/static/cn/images/favicon.ico
 export const platform = {
   name: "法布财经",
@@ -33,7 +33,71 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 */
-const source = {
+const express_source = {
+  "id": "fastbull-express",
+  "name": "法布财经 · 快讯",
+  "home": "https://www.fastbull.cn"
+};
+export class FastbullExpressHotRank extends HotRankScript {
+  async fetch(ctx) {
+    try {
+      const request_options = {};
+      request_options.headers = {
+        Referer: express_source.home,
+        ...request_options.headers
+      };
+      const fetched = await utils.request_text(ctx, "https://www.fastbull.com/cn/express-news", request_options);
+      if (fetched.error) return fetched;
+      const parsed = utils.document_nodes(fetched.data);
+      if (parsed.error) return parsed;
+      const list = utils.rows(parsed.data, ".content-list.news-list");
+      if (list.error) return list;
+      const rows = list.data;
+      const entries = [],
+        seen = new Set();
+      for (const row of rows) {
+        const id = utils.identity(utils.attribute(row, "[data-href]", "data-href") || utils.attribute(row, "[data-id]", "data-id"));
+        if (id.error) return id;
+        if (seen.has(id.data)) continue;
+        seen.add(id.data);
+        const link = utils.absolute_url(id.data.startsWith('/') ? id.data : '/cn/fastshort/' + encodeURIComponent(id.data), "https://www.fastbull.com/");
+        if (link.error) return link;
+        const pinned = false;
+        const raw_rank = null;
+        const rank = pinned ? null : raw_rank === undefined || raw_rank === null || raw_rank === '' ? null : Number(raw_rank);
+        const heat_text = String('' ?? '').trim();
+        const heat_number = heat_text === '' ? NaN : Number(heat_text.replace(/,/g, ''));
+        entries.push({
+          id: express_source.id + ':' + id.data,
+          title: utils.plain_text(utils.plain_text(utils.field(row, ".title_name")).match(/【([^】]+)】/)?.[1] || utils.field(row, ".title_name")),
+          link: link.data,
+          rank,
+          pinned,
+          heat: {
+            value: Number.isFinite(heat_number) && heat_number >= 0 ? heat_number : null,
+            unit: "热度",
+            text: heat_text
+          }
+        });
+      }
+      ctx.log('榜单解析完成', {
+        source: express_source.id,
+        count: entries.length,
+        missing_rank: entries.filter(entry => entry.rank === null && !entry.pinned).length
+      });
+      return Result.Ok({
+        title: express_source.name,
+        category,
+        link: express_source.home,
+        entries
+      });
+    } catch (error) {
+      return Result.Err(error, error?.code ?? 'UPSTREAM_INVALID_RESPONSE');
+    }
+  }
+}
+
+const news_source = {
   "id": "fastbull-news",
   "name": "法布财经 · 头条",
   "home": "https://www.fastbull.cn"
@@ -43,7 +107,7 @@ export class FastbullNewsHotRank extends HotRankScript {
     try {
       const request_options = {};
       request_options.headers = {
-        Referer: source.home,
+        Referer: news_source.home,
         ...request_options.headers
       };
       const fetched = await utils.request_text(ctx, "https://www.fastbull.com/cn/news", request_options);
@@ -68,7 +132,7 @@ export class FastbullNewsHotRank extends HotRankScript {
         const heat_text = String('' ?? '').trim();
         const heat_number = heat_text === '' ? NaN : Number(heat_text.replace(/,/g, ''));
         entries.push({
-          id: source.id + ':' + id.data,
+          id: news_source.id + ':' + id.data,
           title: utils.plain_text(utils.field(row, ".title")),
           link: link.data,
           rank,
@@ -81,14 +145,14 @@ export class FastbullNewsHotRank extends HotRankScript {
         });
       }
       ctx.log('榜单解析完成', {
-        source: source.id,
+        source: news_source.id,
         count: entries.length,
         missing_rank: entries.filter(entry => entry.rank === null && !entry.pinned).length
       });
       return Result.Ok({
-        title: source.name,
+        title: news_source.name,
         category,
-        link: source.home,
+        link: news_source.home,
         entries
       });
     } catch (error) {
@@ -96,14 +160,28 @@ export class FastbullNewsHotRank extends HotRankScript {
     }
   }
 }
-const script = new FastbullNewsHotRank();
-export const route = {
-  "name": "法布财经 · 头条",
-  "path": "/fastbull/news",
-  "url": "www.fastbull.cn",
-  "maintainers": ["findrss"],
-  "example": "/fastbull/news",
-  "parameters": {},
-  "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
-  handler: ctx => script.run(ctx),
-};
+
+const express_script = new FastbullExpressHotRank();
+const news_script = new FastbullNewsHotRank();
+export const routes = [
+  {
+    "name": "法布财经 · 快讯",
+    "path": "/fastbull/express",
+    "url": "www.fastbull.cn",
+    "maintainers": ["findrss"],
+    "example": "/fastbull/express",
+    "parameters": {},
+    "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
+    handler: ctx => express_script.run(ctx),
+  },
+  {
+    "name": "法布财经 · 头条",
+    "path": "/fastbull/news",
+    "url": "www.fastbull.cn",
+    "maintainers": ["findrss"],
+    "example": "/fastbull/news",
+    "parameters": {},
+    "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
+    handler: ctx => news_script.run(ctx),
+  }
+];

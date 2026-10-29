@@ -50,11 +50,11 @@ async function open(key, origin, record) {
   return validate_cookies(JSON.parse(new TextDecoder().decode(plaintext)).cookies);
 }
 
-async function read_body(request) {
+export async function read_json_body(request, invalid_code = "INVALID_PARAMETER") {
   if (request.headers.get("Content-Type")?.split(";")[0].trim().toLowerCase() !== "application/json") throw script_error("UNSUPPORTED_MEDIA_TYPE");
   if (Number(request.headers.get("Content-Length")) > max_bytes) throw script_error("PAYLOAD_TOO_LARGE");
   const reader = request.body?.getReader();
-  if (!reader) throw script_error("COOKIE_SYNC_INVALID");
+  if (!reader) throw script_error(invalid_code);
   const chunks = [];
   let size = 0;
   try {
@@ -67,12 +67,12 @@ async function read_body(request) {
     }
   } finally { await reader.cancel().catch(() => {}); }
   try { return JSON.parse(Buffer.concat(chunks).toString("utf8")); }
-  catch { throw script_error("COOKIE_SYNC_INVALID"); }
+  catch { throw script_error(invalid_code); }
 }
 
 export async function update_cookies(request, env, origins, headers) {
   try {
-    const body = await read_body(request);
+    const body = await read_json_body(request, "COOKIE_SYNC_INVALID");
     const crypto_type = body?.crypto_type === undefined ? "none" : typeof body.crypto_type === "string" ? body.crypto_type.trim().toLowerCase() : "";
     if (!body || !["none", "legacy", "aes-128-cbc-fixed", "aes-256-cbc"].includes(crypto_type)) throw script_error("COOKIE_SYNC_INVALID");
     if (crypto_type === "none" && !request_authenticated(request, env.ACCESS_TOKEN)) throw script_error("COOKIE_SYNC_ENCRYPTION_REQUIRED");

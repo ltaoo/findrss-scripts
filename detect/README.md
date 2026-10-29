@@ -2,6 +2,8 @@
 
 检测网站内容。平台脚本导出 `kind="detect"`、`version`、`platform` 和 `route/routes`，可选 `config_schema`、`permissions`。脚本通过 `DetectScript.fetch(ctx)` 抓取，`normalize(data,ctx)` 提取业务数据，`compare(previous,current,ctx)` 判断变化，`run(ctx)` 统一返回检测结果。
 
+`platform` 与 RSS / Hot 脚本格式一致，例如 `export const platform = { name: "GitHub", icon: "https://github.githubassets.com/favicons/favicon.svg" };`。`name` 为 1–64 字符的平台名称；`icon` 支持 SVG 源码、无凭据的 HTTP(S) 地址或站内图片路径，留空使用默认图标。示例内嵌 SVG，无需额外请求图标。所有路由默认继承此配置，也可在单条 `route.platform` 中覆盖。
+
 所有方法返回 `Result`。默认 `normalize` 原样返回抓取数据；数据须为 `{title,link,snapshot}`。默认 `compare` 调用 `ctx.detect.compare(previous,current)`，返回 `{status,changes,matches,issues}`。平台可覆盖比较方法，返回 `Result.Ok({changes,matches?})`，筛选标准变化事件或条目中的变化字段。宿主核对事件与真实快照，不接受伪造的前后值。
 
 ## 内容快照

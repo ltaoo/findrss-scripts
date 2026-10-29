@@ -10,7 +10,7 @@ import { route_cases, debug_route_cases } from "./catalog.js";
 import { debug_response } from "./debug.js";
 import { WorkerCookieAccess } from "./cookies.js";
 import { error_code, error_response, script_error } from "./errors.js";
-import { load_cookies, update_cookies, validate_cookies } from "./cookie_sync.js";
+import { load_cookies, read_json_body, update_cookies, validate_cookies } from "./cookie_sync.js";
 import { request_authenticated } from "./auth.js";
 
 const cases = route_cases(scripts);
@@ -43,9 +43,9 @@ export default {
       ? debug_response({ entry, context, stage, started_at, code, failure, result, invoked }, response_headers)
       : error_response(code, response_headers, entry?.file);
     const syncing = url.pathname === "/api/cookies/update";
-    const method = syncing ? "POST" : "GET";
-    if (request.method !== method) {
-      response_headers = { ...headers, Allow: method };
+    const methods = syncing ? ["POST"] : debugging || ["/", "/health", "/api/routes"].includes(url.pathname) ? ["GET"] : ["GET", "POST"];
+    if (!methods.includes(request.method)) {
+      response_headers = { ...headers, Allow: methods.join(", ") };
       return fail("METHOD_NOT_ALLOWED");
     }
     // 配置凭据时必须同时设置令牌，避免将私人订阅或登录态采集开放给公网。
@@ -65,8 +65,18 @@ export default {
     if (!entry) return fail("NOT_FOUND");
     context.params = entry.pattern.match(entry.format === "debug" ? url.pathname : pathname).params;
     response_headers = { ...headers, "X-FindRSS-Script": entry.file, "X-FindRSS-Route": String(entry.route_index) };
-    stage = "config";
+    stage = "parameters";
     try {
+      if (request.method === "POST") {
+        const body = await read_json_body(request);
+        if (!body || typeof body !== "object" || Array.isArray(body) || Object.values(body).some(value =>
+          value !== null && (!["string", "number", "boolean"].includes(typeof value)
+            || typeof value === "number" && !Number.isFinite(value)))) throw script_error("INVALID_PARAMETER");
+        context.query = { ...context.query, ...Object.fromEntries(Object.entries(body)
+          .filter(([name, value]) => name !== "token" && value !== null).map(([name, value]) => [name, String(value)])) };
+        url.search = new URLSearchParams(context.query).toString();
+      }
+      stage = "config";
       const config = JSON.parse(env.SCRIPT_CONFIG || "{}");
       const fallback = validate_cookies(JSON.parse(env.SCRIPT_COOKIES || "[]"));
       if (!config || typeof config !== "object" || Array.isArray(config)) {
