@@ -1,0 +1,12 @@
+diff --git a/server/infra/script_debug.js b/server/infra/script_debug.js
+index 493dd05..ea6f10b 100644
+--- a/server/infra/script_debug.js
++++ b/server/infra/script_debug.js
+@@ -15,6 +15,7 @@ export function script_debug_html(debug, status) {
+ ${status >= 400 ? '<svg data-n="debug-error-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle data-n="debug-icon-circle" cx="12" cy="12" r="10"/><path data-n="debug-icon-mark" d="M12 7v6m0 4h.01"/></svg>' : ""}
+ <p data-n="debug-brand" class="meta">FindRSS · 脚本 Debug</p><h1 data-n="debug-heading">${heading}</h1>
+ <p data-n="debug-script">${escape_html(debug.script.name || debug.script.path)}</p>
++${debug.script.version ? `<p data-n="debug-version" class="meta">脚本版本：${escape_html(debug.script.version)}</p>` : ""}
+ <p data-n="debug-status" class="meta">HTTP ${escape_html(status)} · ${escape_html(debug.phase)} · ${escape_html(debug.elapsed_ms)} ms${debug.invoked ? " · 已调用设备" : ""}</p>
+ <p data-n="debug-upstream">${escape_html(debug.upstream_error)}</p></header>
+ <div data-n="debug-layout" class="layout"><div data-n="debug-context-column" class="column context" tabindex="0" role="region" aria-label="上下文与执行日志">

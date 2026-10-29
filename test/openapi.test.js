@@ -3,7 +3,7 @@ import test from "node:test";
 import { readFile } from "node:fs/promises";
 import scripts from "../dist/scripts.js";
 import { generate_openapi } from "../scripts/generate_openapi.js";
-import { route_cases } from "../worker/catalog.js";
+import { route_cases, debug_route_cases } from "../worker/catalog.js";
 
 test("构建生成的 OpenAPI 覆盖全部脚本和路由，参数、操作 ID 和响应引用有效", async () => {
   const document = JSON.parse(await readFile(new URL("../dist/openapi.json", import.meta.url), "utf8"));
@@ -12,7 +12,7 @@ test("构建生成的 OpenAPI 覆盖全部脚本和路由，参数、操作 ID �
   assert.deepEqual(document.servers, [{ url: "{{baseURL}}" }]);
   const operations = Object.values(document.paths).map(path => path.get);
   assert.deepEqual(new Set(operations.map(operation => operation["x-script-file"])), new Set(scripts.map(script => script.file)));
-  assert.deepEqual(new Set(operations.map(operation => operation["x-route-path"])), new Set(route_cases(scripts).map(entry => entry.path)));
+  assert.deepEqual(new Set(operations.map(operation => operation["x-route-path"])), new Set([...route_cases(scripts), ...debug_route_cases(scripts)].map(entry => entry.path)));
   assert.equal(new Set(operations.map(operation => operation.operationId)).size, operations.length);
   const signatures = new Set();
   const script_kinds = new Map(scripts.map(script => [script.file, script.metadata.kind]));
@@ -34,7 +34,8 @@ test("构建生成的 OpenAPI 覆盖全部脚本和路由，参数、操作 ID �
       if (parameter.in === "path") assert.equal(parameter.required, true);
     }
     assert.ok(Object.keys(get.responses["200"].content).length);
-    assert.equal(get.responses.default.content["application/json"].schema.$ref, "#/components/schemas/Error");
+    if (path.startsWith("/debug/")) assert.equal(get.responses.default.content["text/html"].schema.type, "string");
+    else assert.equal(get.responses.default.content["application/json"].schema.$ref, "#/components/schemas/Error");
   }
   assert.equal(document.components.securitySchemes.bearerAuth.scheme, "bearer");
   assert.deepEqual(document.security, [{}, { bearerAuth: [] }]);
@@ -111,7 +112,8 @@ test("查询参数、脚本说明、示例和各类响应格式进入文档", ()
 test("中段可选参数和正则参数正确转换，等价路由模板冲突时拒绝覆盖", () => {
   const fixture = routes => [{ file: "hot/example.js", metadata: { kind: "hot", routes: routes.map((route, route_index) => ({ name: "Example", ...route, route_index })) } }];
   const document = generate_openapi(fixture([{ path: "/example/:id{[0-9]+}?/detail", example: "/example/123/detail" }]));
-  assert.deepEqual(Object.keys(document.paths), ["/api/hot/example/{id}/detail", "/api/hot/example/detail"]);
+  assert.deepEqual(Object.keys(document.paths), ["/api/hot/example/{id}/detail", "/api/hot/example/detail",
+    "/debug/example/{id}/detail", "/debug/example/detail"]);
   const parameter = document.paths["/api/hot/example/{id}/detail"].get.parameters[0];
   assert.equal(parameter.schema.pattern, "^(?:[0-9]+)$");
   assert.equal(parameter.example, "123");

@@ -11,3 +11,10 @@ export function route_cases(scripts) {
     });
   }));
 }
+
+export function debug_route_cases(scripts) {
+  return scripts.flatMap(({ file, metadata }) => metadata.routes.map(route => ({
+    file, kind: metadata.kind, path: "/debug" + route.path, example: "/debug" + route.example,
+    format: "debug", source_host: route.url || "", name: route.name, route_index: route.route_index,
+  })));
+}

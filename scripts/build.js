@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { compile_script_module } from "findrss-worker/server/infra/script_sandbox.js";
 import { read_script, script_names } from "../test/support/script_sources.js";
-import { route_cases } from "../worker/catalog.js";
+import { route_cases, debug_route_cases } from "../worker/catalog.js";
 import { generate_openapi } from "./generate_openapi.js";
 
 const scripts = [];
@@ -17,7 +17,7 @@ for (const kind of ["hot", "rss", "clip", "detect"]) {
 }
 const cases = route_cases(scripts);
 const addresses = new Set();
-for (const entry of cases) {
+for (const entry of [...cases, ...debug_route_cases(scripts)]) {
   const key = entry.format + ":" + entry.path;
   if (addresses.has(key)) throw new Error("重复路由：" + key);
   addresses.add(key);

@@ -12,7 +12,7 @@ npm run deploy
 
 `wrangler.jsonc` 的 Worker 名称为 `findrss-scripts`，自定义域名为 `script.findrss.cloud` 和 `scripts.findrss.cloud`。部署时 Wrangler 自动创建域名绑定、DNS 记录和 HTTPS 证书，需要登录的 Cloudflare 账户有权管理 `findrss.cloud`。也可使用 Cloudflare Workers 的 GitHub 集成：安装命令 `npm ci`，部署命令 `npm run deploy`，Wrangler 会自动执行构建。CI 只测试和打包，不自动发布。
 
-构建从 `scripts/prepare_runtime.js` 指定的提交下载 FindRSS 运行时，应用 `scripts/patches/` 中的抖音签名补丁，再在 `.runtime/findrss-worker/` 安装依赖。脚本在构建期通过生产 QuickJS 编译校验，生成 `dist/scripts.js` 和 `dist/routes.json`；新增 `.js` 文件或路由后会自动纳入部署和巡检。构建不请求脚本的上游站点。更新运行时提交后需要重新运行全部测试和打包检查。
+构建从 `scripts/prepare_runtime.js` 指定的提交下载 FindRSS 运行时，应用 `scripts/patches/` 中的抖音签名和 Debug 版本展示补丁，再在 `.runtime/findrss-worker/` 安装依赖。脚本在构建期通过生产 QuickJS 编译校验，生成 `dist/scripts.js` 和 `dist/routes.json`；新增 `.js` 文件或路由后会自动纳入部署和巡检。构建不请求脚本的上游站点。更新运行时提交后需要重新运行全部测试和打包检查。
 
 ## 默认入口
 
@@ -27,6 +27,7 @@ npm run deploy
 | `/api/detect/<脚本路径>` | 检测 JSON，本次采样的初始快照 |
 | `/img/<平台>?url=...` | 经脚本白名单校验的图片 |
 | `/fanqienovel/chapter/...`、`/qidian/chapter/...` | 章节 HTML |
+| `/debug/<脚本声明路径>` | 脚本诊断 HTML，支持全部脚本及附加路由 |
 | `POST /api/cookies/update` | dm Cookie 同步；其余入口使用 GET |
 
 所有脚本默认注册，不需要后台导入、发布或数据库。当前 106 个脚本生成 163 个检查项，其中 RSS 同时检查 RSS 和 Atom。Detect 为无状态采样，不保存历史基线。没有管理后台、订阅管理或周期快照存储。
@@ -182,7 +183,7 @@ CHECK_BASE_URL=https://你的Worker地址 npm run check:routes
 
 ## 错误响应
 
-所有错误统一返回 `error`、`code`、`message`，匹配到脚本时还包含 `file`。`error` 保留原有错误码字段，`code` 与它相同，客户端应按 `code` 判断错误类型；描述可随排查建议更新。HTTP 状态按错误类型返回，不再全部使用 502。
+普通路由的错误统一返回 `error`、`code`、`message`，匹配到脚本时还包含 `file`。`error` 保留原有错误码字段，`code` 与它相同，客户端应按 `code` 判断错误类型；描述可随排查建议更新。HTTP 状态按错误类型返回，不再全部使用 502。
 
 例如未配置可用于 Instagram 请求的 Cookie，返回 HTTP 503：
 
@@ -197,6 +198,25 @@ CHECK_BASE_URL=https://你的Worker地址 npm run check:routes
 
 错误码、公开描述和 HTTP 状态统一维护于 [`worker/errors.js`](../worker/errors.js)，复用固定生产运行时已有的业务码。包含 Cookie 缺失、上游登录失效、拒绝访问、限流、连接失败、超时、响应不匹配，以及参数、配置、访问鉴权、路由、采集能力、脚本输出和内部错误。
 
-Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前站点、路径且未过期的 Cookie 时返回 `COOKIE_REQUIRED`；声明权限但未使用 Cookie 的路由仍可匿名运行。已发送 Cookie 后被上游要求登录则返回 `UPSTREAM_AUTH_REQUIRED`，不能仅凭它判断 Cookie 一定过期。脚本已识别的响应错误使用 `UPSTREAM_INVALID_RESPONSE`；未知脚本异常保留 `SCRIPT_FAILED`。公开回包不透传原始异常、Cookie、令牌、上游正文或堆栈。
+Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前站点、路径且未过期的 Cookie 时返回 `COOKIE_REQUIRED`；声明权限但未使用 Cookie 的路由仍可匿名运行。已发送 Cookie 后被上游要求登录则返回 `UPSTREAM_AUTH_REQUIRED`，不能仅凭它判断 Cookie 一定过期。脚本已识别的响应错误使用 `UPSTREAM_INVALID_RESPONSE`；未知脚本异常保留 `SCRIPT_FAILED`。普通错误回包不透传原始异常、Cookie、令牌、上游正文或堆栈。
+
+### Debug 诊断页
+
+参考 FindRSS Worker 的 `/debug`，对脚本声明的路径加 `/debug` 即可调试；也可直接在现有完整路由前加 `/debug`，查询参数保持不变：
+
+| 普通路由 | Debug 路由 |
+| --- | --- |
+| `/rss/github/ltaoo/wx_channels_download/release` | `/debug/github/ltaoo/wx_channels_download/release` |
+| `/api/hot/hackernews` | `/debug/hackernews` |
+| `/api/clip/github/ltaoo/findrss-worker/readme` | `/debug/github/ltaoo/findrss-worker/readme` |
+| `/api/detect/github/ltaoo/findrss-worker/releases/detect` | `/debug/github/ltaoo/findrss-worker/releases/detect` |
+| `/fanqienovel/chapter/123` | `/debug/fanqienovel/chapter/123` |
+| `/img/apple?url=...` | `/debug/img/apple?url=...` |
+
+例如 `/debug/rss/github/ltaoo/wx_channels_download/release` 和 `/debug/api/hot/hackernews` 也可访问。`dist/openapi.json` 包含所有脚本声明路径对应的 Debug 接口；`/api/routes` 和巡检仍列出普通路由。
+
+Debug 成功、失败均返回 HTML，失败保留对应业务码的 HTTP 状态，无需设置 `Accept`。页面展示脚本文件、版本、路由与 handler 索引，请求路径、路径参数、查询参数、部分请求头和鉴权状态，执行阶段、总耗时、失败详情与沙箱堆栈、执行日志，以及上游请求的方法、主机、路径、状态、传输方式和凭据发送情况。成功时显示脚本原始返回值，不转换 RSS/Atom XML，也不额外抓取图片描述指向的二进制。每次重新执行并返回 `Cache-Control: no-store`。
+
+Debug 沿用 `ACCESS_TOKEN` 鉴权及凭据配置保护，通过请求头提供令牌。鉴权、配置或路由匹配失败同样返回诊断 HTML，脚本尚未执行时不会有上游记录。查询参数 `token` 在执行脚本前移除；请求上下文对 Cookie、Authorization、secret、password 和 API Key 等敏感字段脱敏，不显示环境变量配置值；上游记录只展示是否发送凭据。日志、错误文本与脚本原始输出保留实际内容，可能包含上游正文或脚本自行记录的信息，分享诊断页前请检查内容。页面将内容转义为文本，并禁止脚本执行及外部资源加载。
 
 Cloudflare 配置字段见 [Wrangler 官方配置文档](https://developers.cloudflare.com/workers/wrangler/configuration/)。实际发布前需有自己的 Cloudflare 账户授权；本地打包成功不代表所有第三方站点允许来自 Cloudflare IP 的请求。

@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { writeFile } from "node:fs/promises";
-import { route_cases } from "../worker/catalog.js";
+import { route_cases, debug_route_cases } from "../worker/catalog.js";
 import { RssRoutePatternModel } from "../.runtime/findrss-worker/server/domain/rss_route.js";
 
 const parameter_pattern = /^:([A-Za-z_][A-Za-z0-9_]*)(?:\{([\s\S]+)\})?(\?)?$/;
 const media_types = { rss: "application/rss+xml", atom: "application/atom+xml", html: "text/html", image: "image/*",
-  hot: "application/json", clip: "application/json", detect: "application/json" };
+  hot: "application/json", clip: "application/json", detect: "application/json", debug: "text/html" };
 // 当前运行时只保留 Hot 的 category，其余脚本在文档中补充分组。
 const script_categories = new Map([
   ["小说", ["rss/69shuba.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/ttk.js"]],
@@ -31,7 +31,7 @@ export function generate_openapi(scripts) {
   const paths = {};
   const signatures = new Set();
   const metadata = new Map(scripts.map(script => [script.file, script.metadata]));
-  for (const entry of route_cases(scripts)) {
+  for (const entry of [...route_cases(scripts), ...debug_route_cases(scripts)]) {
     const script_metadata = metadata.get(entry.file);
     const route = script_metadata.routes[entry.route_index];
     const category = script_metadata.category?.trim() || script_categories.get(entry.file) || "其他";
@@ -70,12 +70,14 @@ export function generate_openapi(scripts) {
         : entry.format === "image" ? { type: "string", format: "binary" } : string;
       paths[path] = { get: {
         operationId: entry.format + "_" + entry.file.replace(/[^A-Za-z0-9_]/g, "_") + "_" + entry.route_index + "_" + seen.size,
-        tags: [folder], "x-apifox-folder": folder, summary: entry.name, description: route.description || entry.name,
+        tags: [folder], "x-apifox-folder": folder, summary: (entry.format === "debug" ? "调试 · " : "") + entry.name,
+        description: entry.format === "debug" ? "每次重新执行脚本，成功或失败均返回 HTML，展示请求上下文、执行日志、错误堆栈、上游请求、总耗时和原始输出。" : route.description || entry.name,
         parameters,
         responses: {
           "200": { description: "成功响应", content: { [media_types[entry.format]]: { schema } } },
           default: { description: "请求参数、访问令牌、脚本配置或上游采集错误；HTTP 状态见响应，code 为业务错误码。",
-            content: { "application/json": { schema: { $ref: "#/components/schemas/Error" } } } },
+            content: entry.format === "debug" ? { "text/html": { schema: string } }
+              : { "application/json": { schema: { $ref: "#/components/schemas/Error" } } } },
         },
         "x-script-file": entry.file, "x-route-path": entry.path, "x-example": entry.example,
       } };
