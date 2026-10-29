@@ -1,6 +1,6 @@
 import { utils } from "@findrss/util";
 
-export const version = "1.1.0";
+export const version = "1.1.1";
 export const platform = {
   name: "抖音",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512" data-n="douyin-platform-icon"><rect width="512" height="512" rx="15%" data-n="douyin-icon-rect-1" /><defs data-n="douyin-icon-defs-2"><path id="douyin-note" d="M219 200a117 117 0 1 0 101 115v-128a150 150 0 0 0 88 28v-63a88 88 0 0 1-88-88h-64v252a54 54 0 1 1-37-51z" data-n="douyin-icon-path-3" /></defs><use href="#douyin-note" fill="#ff0050" x="18" y="15" data-n="douyin-icon-use-4" /><use href="#douyin-note" fill="#00faf0" x="-10" data-n="douyin-icon-use-5" /><use href="#douyin-note" fill="#fff" x="4" y="7" data-n="douyin-icon-use-6" /></svg>',
@@ -10,8 +10,8 @@ export const permissions = {
   cookies: [
     {
       id: "account_0",
-      origin: "https://www.douyin.com",
-      path_prefix: "/",
+      origin: "https://www-hj.douyin.com",
+      path_prefix: "/aweme/v1/web/aweme/post/",
       names: [
         "UIFID",
         "sessionid",
@@ -28,7 +28,7 @@ export const permissions = {
 };
 export class DouyinUserRSS extends RSSScript {
   static USER_AGENT =
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36";
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36";
   async fetch(ctx) {
     try {
       const uid = String(ctx.params?.sec_uid || "");
@@ -79,10 +79,10 @@ export class DouyinUserRSS extends RSSScript {
         browser_language: "zh-CN",
         browser_platform: "MacIntel",
         browser_name: "Chrome",
-        browser_version: "154.0.0.0",
+        browser_version: "156.0.0.0",
         browser_online: "true",
         engine_name: "Blink",
-        engine_version: "154.0.0.0",
+        engine_version: "156.0.0.0",
         os_name: "Mac OS",
         os_version: "10.15.7",
         device_memory: "32",
@@ -104,9 +104,9 @@ export class DouyinUserRSS extends RSSScript {
       try {
         const result_1 = await DouyinUserRSS.request_text(
           ctx,
-          "https://www.douyin.com/aweme/v1/web/aweme/post/?" + query,
+          "https://www-hj.douyin.com/aweme/v1/web/aweme/post/?" + query,
           {
-            headers: DouyinUserRSS.request_headers(link),
+            headers: DouyinUserRSS.request_headers(),
             douyin_sign: true,
           },
         );
@@ -243,21 +243,22 @@ export class DouyinUserRSS extends RSSScript {
       return Result.Err(error, error?.code ?? "UPSTREAM_INVALID_RESPONSE");
     }
   }
-  static request_headers(link) {
+  static request_headers() {
     return {
       Accept: "application/json, text/plain, */*",
       "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
       "User-Agent": DouyinUserRSS.USER_AGENT,
-      Referer: link,
+      Referer: "https://www.douyin.com/",
+      Origin: "https://www.douyin.com",
       "Cache-Control": "no-cache",
       Pragma: "no-cache",
       "sec-ch-ua":
-        '"Chromium";v="154", "Google Chrome";v="154", "Not A(Brand";v="99"',
+        '"Not:A-Brand";v="8", "Chromium";v="156", "Google Chrome";v="156"',
       "sec-ch-ua-mobile": "?0",
       "sec-ch-ua-platform": '"macOS"',
       "sec-fetch-dest": "empty",
       "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-origin",
+      "sec-fetch-site": "same-site",
     };
   }
   static first_url(value) {

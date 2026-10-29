@@ -3,4 +3,6 @@
 - `bdms.js.gz`：https://p-pc-weboff.byteimg.com/tos-cn-i-9r5gewecjs/bdms_1.0.1.19_fix.js
 - `security.js.gz`：https://lf-security.bytegoofy.com/obj/security-secsdk-gray/runtime_bundler_34.js
 
+安全 SDK 已同步至 2026-10-29 的 v1.0.42；对应运行时哈希由 `scripts/patches/douyin-hj.patch` 更新。
+
 更新 SDK 时同步更新生产哈希和这些 fixture。gzip 使用 `mtime=0`，保留下载字节原样；作品列表响应另用测试内的合成数据。
