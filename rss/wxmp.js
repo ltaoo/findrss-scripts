@@ -1,6 +1,27 @@
 import { utils } from "@findrss/util";
 
-export const version = "1.1.0";
+export const version = "1.2.0";
+export const config_schema = {
+  type: "object",
+  additionalProperties: false,
+  required: ["api_url", "auth_token"],
+  properties: {
+    api_url: {
+      type: "string",
+      title: "完整接口地址",
+      description:
+        "完整 HTTPS 接口地址，例如 https://dhub.funzm.com/api/wxmp/biz/msg/list",
+      pattern: "^https://[^\\s?#@]+$",
+    },
+    auth_token: {
+      type: "string",
+      title: "Auth Token",
+      description: "接口 Bearer 令牌，仅填写令牌本身",
+      pattern: "^\\S+$",
+      writeOnly: true,
+    },
+  },
+};
 export const platform = {
   name: "公众号",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" data-n="wxmp-platform-icon"><path fill="#1aad19" d="M16 2C7.7 2 1 7.8 1 15.5S7.7 29 16 29s15-5.8 15-13.5S24.3 2 16 2ZM6 24l-1 7 7-5C9.4 25.5 7.3 24.8 6 24Z" data-n="wxmp-icon-path-1" /><ellipse cx="9" cy="11.5" rx="1.5" ry="2" fill="#fff" data-n="wxmp-icon-ellipse-2" /><ellipse cx="23" cy="11.5" rx="1.5" ry="2" fill="#fff" data-n="wxmp-icon-ellipse-3" /></svg>',
@@ -148,9 +169,13 @@ export class WechatOfficialRSS extends RSSScript {
           "INVALID_PARAMETER",
         );
       }
-      const result_1 = await ctx.invoke("wxmp.biz.msg.list", {
-        username,
-        offset,
+      const result_1 = await utils.request_json(ctx, ctx.config.api_url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + ctx.config.auth_token,
+        },
+        body: JSON.stringify({ username, offset }),
       });
       if (result_1.error) return result_1;
       const data = result_1.data;
@@ -158,13 +183,10 @@ export class WechatOfficialRSS extends RSSScript {
         data?.BaseResponse?.Ret !== undefined &&
         Number(data.BaseResponse.Ret) !== 0
       )
-        return Result.Err(
-          "公众号设备接口拒绝请求",
-          "UPSTREAM_INVALID_RESPONSE",
-        );
+        return Result.Err("公众号接口拒绝请求", "UPSTREAM_INVALID_RESPONSE");
       if (data === null || typeof data !== "object" || Array.isArray(data)) {
         return Result.Err(
-          "设备返回了无效的公众号数据",
+          "接口返回了无效的公众号数据",
           "UPSTREAM_INVALID_RESPONSE",
         );
       }
@@ -344,7 +366,7 @@ export const routes = [
       username: "查询参数：未提供路径 account 时使用的公众号标识",
     },
     description:
-      "通过已连接设备调用 wxmp.biz.msg.list（设备原样回传公众号回包 JSON）生成公众号订阅源；同一 route 覆盖文章与图集（按每条是否带 PicUrls 映射），/rss 输出 RSS 2.0，/atom 输出 Atom 1.0。",
+      "通过配置的 HTTP 接口获取公众号回包 JSON；同一 route 覆盖文章与图集（按每条是否带 PicUrls 映射），/rss 输出 RSS 2.0，/atom 输出 Atom 1.0。",
     handler: (ctx) => script.run(ctx),
   },
   {

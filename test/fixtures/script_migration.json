@@ -193,113 +193,39 @@
     "params": {
       "account": "v2_abc@finder"
     },
-    "responses": [],
-    "invoke": {
-      "method": "wxchannels.contact.feed.list",
-      "body": {
-        "BaseResponse": {
-          "Ret": 0
-        },
-        "contact": {
-          "nickname": "视频号"
-        },
-        "object": [
-          {
-            "id": "1497",
-            "createtime": 1700000000,
-            "object_desc": {
-              "description": "视频文案",
-              "media": [
-                {
-                  "media_type": 4,
-                  "url": "https://finder.video.qq.com/video",
-                  "token": "?token=test",
-                  "decode_key": "key-1",
-                  "cover_url": "https://finder.video.qq.com/cover.jpg"
-                }
-              ]
-            }
-          },
-          {
-            "id": "1498",
-            "createtime": 1700000001,
-            "object_desc": {
-              "description": "图集",
-              "media": [
-                {
-                  "media_type": 2,
-                  "url": "https://cdn.example/image.jpg",
-                  "livephoto": {
-                    "url": "https://cdn.example/photo.mp4",
-                    "decode_key": "photo-key"
-                  }
-                }
-              ]
-            }
-          }
-        ]
+    "responses": [
+      {
+        "contains": "/api/wxchannels/contact/feed/list",
+        "body": "{\"BaseResponse\":{\"Ret\":0},\"contact\":{\"nickname\":\"视频号\"},\"object\":[{\"id\":\"1497\",\"createtime\":1700000000,\"object_desc\":{\"description\":\"视频文案\",\"media\":[{\"media_type\":4,\"url\":\"https://finder.video.qq.com/video\",\"token\":\"?token=test\",\"decode_key\":\"key-1\",\"cover_url\":\"https://finder.video.qq.com/cover.jpg\"}]}},{\"id\":\"1498\",\"createtime\":1700000001,\"object_desc\":{\"description\":\"图集\",\"media\":[{\"media_type\":2,\"url\":\"https://cdn.example/image.jpg\",\"livephoto\":{\"url\":\"https://cdn.example/photo.mp4\",\"decode_key\":\"photo-key\"}}]}}]}"
       }
-    },
+    ],
     "expected_ids": [
       "1498",
       "1497"
-    ]
+    ],
+    "config": {
+      "api_url": "https://api.example.test/api/wxchannels/contact/feed/list",
+      "auth_token": "wechat-private-fixture"
+    }
   },
   {
     "file": "wxmp",
     "params": {
       "account": "gh_example"
     },
-    "responses": [],
-    "invoke": {
-      "method": "wxmp.biz.msg.list",
-      "body": {
-        "BaseResponse": {
-          "Ret": 0
-        },
-        "AccountInfo": {
-          "UserName": "gh_example",
-          "NickName": "公众号"
-        },
-        "MsgList": {
-          "Msg": [
-            {
-              "BaseInfo": {
-                "MsgId": 1,
-                "DateTime": 1700000000
-              },
-              "AppMsg": {
-                "BaseInfo": {
-                  "AppMsgId": 1,
-                  "CreateTime": 1700000000
-                },
-                "DetailInfo": [
-                  {
-                    "Title": "图集",
-                    "Digest": "摘要 <正文>",
-                    "ContentUrl": "https://example.com/gallery?a=1&b=2",
-                    "PicUrls": {
-                      "PicInfoList": [
-                        {
-                          "PicUrl": "https://cdn.example/a.jpg",
-                          "livephoto": {
-                            "url": "https://cdn.example/a.mp4",
-                            "decode_key": "live-key"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
+    "responses": [
+      {
+        "contains": "/api/wxmp/biz/msg/list",
+        "body": "{\"BaseResponse\":{\"Ret\":0},\"AccountInfo\":{\"UserName\":\"gh_example\",\"NickName\":\"公众号\"},\"MsgList\":{\"Msg\":[{\"BaseInfo\":{\"MsgId\":1,\"DateTime\":1700000000},\"AppMsg\":{\"BaseInfo\":{\"AppMsgId\":1,\"CreateTime\":1700000000},\"DetailInfo\":[{\"Title\":\"图集\",\"Digest\":\"摘要 <正文>\",\"ContentUrl\":\"https://example.com/gallery?a=1&b=2\",\"PicUrls\":{\"PicInfoList\":[{\"PicUrl\":\"https://cdn.example/a.jpg\",\"livephoto\":{\"url\":\"https://cdn.example/a.mp4\",\"decode_key\":\"live-key\"}}]}}]}}]}}"
       }
-    },
+    ],
     "expected_ids": [
       "https://example.com/gallery?a=1&b=2"
-    ]
+    ],
+    "config": {
+      "api_url": "https://api.example.test/api/wxmp/biz/msg/list",
+      "auth_token": "wechat-private-fixture"
+    }
   },
   {
     "file": "x",

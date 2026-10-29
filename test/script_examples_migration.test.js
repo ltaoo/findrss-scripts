@@ -44,7 +44,7 @@ for (const fixture of content_cases) test('迁移脚本保留内容与媒体：'
   const source = await read(kind + '/' + fixture.file + '.js');
   const compiled = await compile_script_module(source);
   assert.equal(compiled.error, '');
-  const metadata = { ...compiled.metadata, ...compiled.metadata.routes[fixture.route_index || 0] };
+  const metadata = { ...compiled.metadata, ...compiled.metadata.routes[fixture.route_index || 0], config: fixture.config || {} };
   const calls = [];
   globalThis.fetch = async (url, options) => {
     if (url === KUAISHOU_SDK_FILE.url) return new Response(gunzipSync(await readFile(new URL('./fixtures/kuaishou/web-sdk.js.gz', import.meta.url))));
@@ -146,7 +146,7 @@ test('迁移脚本透传请求失败 Result，不把错误当作空列表成功�
 const test_routes = typeof routes === 'undefined' ? [route] : routes;
 for (const test_route of test_routes) {
   const handler = test_route.handler;
-  test_route.handler = ctx => handler({ ...ctx, config: { api_key: 'fixture', advertiser_id: 'fixture', access_token: 'fixture' },
+  test_route.handler = ctx => handler({ ...ctx, config: { api_key: 'fixture', advertiser_id: 'fixture', access_token: 'fixture', api_url: 'https://api.example.test', auth_token: 'fixture' },
     fetchText: async () => Result.Err('请求失败', 'UPSTREAM_TIMEOUT'),
     invoke: async () => Result.Err('设备不可用', 'DEVICE_UNAVAILABLE'),
     cookies: { get: async () => Result.Ok({ id: 'fixture-cookie' }) },
@@ -157,7 +157,7 @@ for (const test_route of test_routes) {
     const route = compiled.metadata.routes[0];
     const url = new URL(route.example, 'https://fixture.invalid');
     const params = fixture?.params || RssRoutePatternModel(route.path).match(url.pathname).params;
-    await assert.rejects(execute_script(script, compiled.metadata, null, { method: 'GET', pathname: url.pathname, params, query: Object.fromEntries(url.searchParams) }), error => {
+    await assert.rejects(execute_script(script, { ...compiled.metadata, config: fixture?.config || {} }, null, { method: 'GET', pathname: url.pathname, params, query: Object.fromEntries(url.searchParams) }), error => {
       assert.ok(error.message, name);
       assert.match(error.message, /请求失败|设备不可用/, name);
       return true;

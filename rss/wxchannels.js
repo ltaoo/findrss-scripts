@@ -1,10 +1,25 @@
 import { utils } from "@findrss/util";
 
-export const version = "1.1.0";
+export const version = "1.2.0";
 export const config_schema = {
   type: "object",
   additionalProperties: false,
+  required: ["api_url", "auth_token"],
   properties: {
+    api_url: {
+      type: "string",
+      title: "完整接口地址",
+      description:
+        "完整 HTTPS 接口地址，例如 https://dhub.funzm.com/api/wxchannels/contact/feed/list",
+      pattern: "^https://[^\\s?#@]+$",
+    },
+    auth_token: {
+      type: "string",
+      title: "Auth Token",
+      description: "接口 Bearer 令牌，仅填写令牌本身",
+      pattern: "^\\S+$",
+      writeOnly: true,
+    },
     PlayerHostname: {
       type: "string",
       title: "视频播放地址",
@@ -234,15 +249,19 @@ export class WechatChannelsRSS extends RSSScript {
       const username = requested_username.endsWith("@finder")
         ? requested_username
         : requested_username + "@finder";
-      const result_1 = await ctx.invoke("wxchannels.contact.feed.list", {
-        username,
-        offset,
+      const result_1 = await utils.request_json(ctx, ctx.config.api_url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + ctx.config.auth_token,
+        },
+        body: JSON.stringify({ username, offset }),
       });
       if (result_1.error) return result_1;
       const data = result_1.data;
       if (data === null || typeof data !== "object" || Array.isArray(data)) {
         return Result.Err(
-          "设备返回了无效的视频号数据",
+          "接口返回了无效的视频号数据",
           "UPSTREAM_INVALID_RESPONSE",
         );
       }
@@ -250,10 +269,7 @@ export class WechatChannelsRSS extends RSSScript {
         data.BaseResponse?.Ret !== undefined &&
         Number(data.BaseResponse.Ret) !== 0
       )
-        return Result.Err(
-          "视频号设备接口拒绝请求",
-          "UPSTREAM_INVALID_RESPONSE",
-        );
+        return Result.Err("视频号接口拒绝请求", "UPSTREAM_INVALID_RESPONSE");
       if (!Array.isArray(data.object))
         return Result.Err(
           "视频号回包缺少 object 列表",

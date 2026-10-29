@@ -36,8 +36,8 @@
 | [快手](../rss/kuaishou.js) | `/kuaishou/profile/:user_id` | 作者最新一页作品；使用主页 `/profile/` 后的 ID，需授权完整登录与验证 Cookie |
 | [小红书](../rss/xiaohongshu.js) | `/xiaohongshu/user/profile/:uid` | 默认读取首屏笔记和封面；加 `?full_content=true`（或 `1`）逐条请求详情获取完整正文、图集和视频；`uid` 为 24 位十六进制 ID，需授权 Cookie |
 | [Telegram](../rss/telegram.js) | `/telegram/channel/:username` | 公开频道文本、照片与视频；用户名的 `@` 可省略，无需 Bot Token |
-| [微信公众号](../rss/wxmp.js) | `/wxmp/:account?` | 文章与图集；使用公众号微信号或原始 ID，需设备支持 `wxmp.biz.msg.list` |
-| [微信视频号](../rss/wxchannels.js) | `/wxchannels/:account` | 视频、图集、Live Photo 与直播；使用视频号 `username`，需设备支持 `wxchannels.contact.feed.list` |
+| [微信公众号](../rss/wxmp.js) | `/wxmp/:account?` | 文章与图集；使用公众号微信号或原始 ID，配置完整 `api_url=https://dhub.funzm.com/api/wxmp/biz/msg/list` 及 `auth_token`，直接 POST 到该地址 |
+| [微信视频号](../rss/wxchannels.js) | `/wxchannels/:account` | 视频、图集、Live Photo 与直播；使用视频号 `username`，配置完整 `api_url=https://dhub.funzm.com/api/wxchannels/contact/feed/list` 及 `auth_token`，直接 POST 到该地址 |
 | [番茄小说](../rss/fanqienovel.js) | `/fanqienovel/book/:book_id` | 完整章节目录与正文代理；ID 来自详情页 `/page/` 后的数字 |
 | [起点中文网](../rss/qidian.js) | `/qidian/book/:book_id` | 完整跨卷目录与正文代理；需授权 Cookie，付费章节需有效阅读权限 |
 | [69 书吧](../rss/69shuba.js) | `/69shuba/book/:book_id` | 完整章节目录，不抓取正文；ID 来自 `/book/<ID>.htm` |

@@ -35,7 +35,7 @@ npm run deploy
 
 ## 凭据与设备
 
-公开脚本部署后可直接访问。需要登录的脚本仍需有效 Cookie，YouTube/TikTok Hot 仍需 API 凭据，微信脚本仍需设备能力。注册路由不代表上游允许匿名访问。
+公开脚本部署后可直接访问。需要登录的脚本仍需有效 Cookie，YouTube/TikTok Hot 仍需 API 凭据，微信脚本需配置接口服务地址及 Bearer 令牌。注册路由不代表上游允许匿名访问。
 
 通过 Wrangler Secret 配置，或本地使用被 Git 忽略的 `.dev.vars`：
 
@@ -57,7 +57,8 @@ npm run deploy
 {
   "hot/youtube_hot.js": { "api_key": "你的 YouTube Data API Key" },
   "hot/tiktok.js": { "advertiser_id": "你的广告账户", "access_token": "你的令牌" },
-  "rss/wxchannels.js": { "PlayerHostname": "https://你的播放器域名" }
+  "rss/wxmp.js": { "api_url": "https://dhub.funzm.com/api/wxmp/biz/msg/list", "auth_token": "你的接口令牌" },
+  "rss/wxchannels.js": { "api_url": "https://dhub.funzm.com/api/wxchannels/contact/feed/list", "auth_token": "你的接口令牌", "PlayerHostname": "https://你的播放器域名" }
 }
 ```
 
@@ -66,6 +67,8 @@ npx wrangler secret put ACCESS_TOKEN
 npx wrangler secret put SCRIPT_CONFIG
 npx wrangler secret put SCRIPT_COOKIES
 ```
+
+微信脚本将 `api_url` 作为完整接口地址直接 POST，不拼接或修改路径。视频号填写 `https://dhub.funzm.com/api/wxchannels/contact/feed/list`，公众号填写 `https://dhub.funzm.com/api/wxmp/biz/msg/list`。请求体为 `{username,offset}`，`auth_token` 仅通过 `Authorization: Bearer` 请求头发送。FindRSS 后台导入脚本时可通过脚本「配置」填写相同字段。
 
 绑定 Cookie KV 或配置 Cookie、脚本配置、设备桥接时必须同时设置 `ACCESS_TOKEN`，否则入口返回 503，避免公开登录态采集结果。Cookie 仅发送给脚本声明的来源、路径和名称，明文不会进入沙箱。路由目录不会返回配置值。使用受保护的订阅和图片时，阅读器也需要支持发送访问令牌。
 
