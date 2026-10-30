@@ -47,7 +47,12 @@ test("脚本市场用文件路径链接 Raw，图标复制地址，右上角版�
   assert.match(html, /data-n="script-search"/);
   assert.equal([...html.matchAll(/<button data-n="script-tab"/g)].length, 4);
   assert.match(html, /role="tablist"/);
-  assert.match(html, /id="tab-rss"[^>]*aria-selected="true"[^>]*>RSS<\/button>/);
+  assert.match(html, /data-n="market-toolbar"[\s\S]*?data-n="project-brand"[\s\S]*?<\/h1>\s*<div data-n="market-navigation"[\s\S]*?data-n="script-tabs"/);
+  assert.match(html, /data-n="header-actions"[^>]*>\s*<span data-n="check-time">[\s\S]*?<\/time><\/span>\s*<button data-n="open-settings"/);
+  assert.doesNotMatch(html, /data-n="market-header"|data-n="search-count"|\.header\s*\{/);
+  assert.doesNotMatch(html, /data-n="search-metadata"|data-n="market-footer"|\.footer\s*\{|文件路径指向 master 分支的 Raw 脚本|产物来自最近一次巡检/);
+  assert.match(html, /id="tab-rss"[^>]*aria-selected="true"[^>]*><span data-n="script-tab-label">RSS<\/span><span data-n="script-tab-count"[^>]*>1<\/span><\/button>/);
+  assert.deepEqual([...html.matchAll(/<span data-n="script-tab-count"[^>]*>(\d+)<\/span>/g)].map(match => Number(match[1])), [1, 2, 0, 0]);
   assert.match(html, /data-n="script-panel"[^>]*role="tabpanel"[^>]*aria-labelledby="tab-rss"/);
   assert.equal([...html.matchAll(/<article data-n="script-card"/g)].length, 3);
   assert.equal([...html.matchAll(/<button data-n="copy-raw-url"/g)].length, 3);
@@ -68,6 +73,10 @@ test("脚本市场用文件路径链接 Raw，图标复制地址，右上角版�
   assert.equal([...html.matchAll(/<details\b/g)].length, 0);
   assert.equal([...html.matchAll(/<img data-n="script-icon"/g)].length, 1);
   assert.equal([...html.matchAll(/<tr data-n="route-result"/g)].length, 8);
+  assert.match(html, /<tr data-n="column-headings"><th data-n="title-heading"[^>]*>标题<\/th><th data-n="route-heading"/);
+  for (const [row] of html.matchAll(/<tr data-n="route-result">[\s\S]*?<\/tr>/g)) {
+    assert.match(row, /<tr[^>]*>\s*<th data-n="route-title" scope="row">[\s\S]*?<\/th>\s*<td data-n="route-identity"/);
+  }
   for (const [, name, attributes] of html.matchAll(/<([a-z][a-z0-9-]*)\b([^>]*)>/g)) {
     assert.match(attributes, /\bdata-n="[a-z][a-z0-9_-]*"/, "缺少语义标识：" + name);
   }
@@ -85,6 +94,25 @@ test("图标在 img 中隔离显示，元数据版本转义，无图标时不生
   assert.match(html, /&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/);
   assert.match(html, /img-src data:/);
   assert.equal([...html.matchAll(/<img data-n="script-icon"/g)].length, 1);
+});
+
+test("卡片优先显示 platform.name，巡检标题列显示路由名称并安全转义，包含未巡检路由", () => {
+  const html = render_report_html({ results: ["rss", "atom"].map(format => ({
+    ...passed, file: "rss/example.js", path: `/${format}/example/:id`, format,
+  })) }, [
+    { file: "rss/example.js", metadata: { name: "首条路由名称", kind: "rss", platform: { name: "平台 <名称>" }, routes: [
+      { route_index: 0, path: "/example/:id", name: "发布 <列表> & 更新", example: "/example/42" },
+    ] } },
+    { file: "hot/untested.js", metadata: { kind: "hot", platform: { name: "未巡检平台" }, routes: [
+      { route_index: 0, path: "/untested", name: "热榜排行", example: "/untested" },
+    ] } },
+  ]);
+  assert.match(html, /<h2 data-n="script-title"[^>]*>平台 &lt;名称&gt;<\/h2>/);
+  assert.doesNotMatch(html, /首条路由名称|<名称>|<列表>/);
+  assert.match(html, /<th data-n="title-heading" scope="col">标题<\/th>/);
+  assert.deepEqual([...html.matchAll(/<th data-n="route-title" scope="row">([^<]*)<\/th>/g)].map(match => match[1]),
+    ["热榜排行", "发布 &lt;列表&gt; &amp; 更新", "发布 &lt;列表&gt; &amp; 更新"]);
+  assert.match(render_report_html(report), /<th data-n="route-title" scope="row">\/rss\/example<\/th>/);
 });
 
 test("上游错误、文件名、路由和未知类型均转义，页面不嵌入整份原始数据", () => {

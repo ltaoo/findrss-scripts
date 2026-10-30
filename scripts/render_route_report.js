@@ -43,7 +43,8 @@ try { storage = localStorage; } catch {}
 mount_market_view(create_market_model(${data}, value => navigator.clipboard.writeText(value), storage), document);`;
   const script_hash = createHash("sha256").update(client).digest("base64");
   const rows = group => group.inspection_rows.map(row => `<tr data-n="route-result">
-    <th data-n="route-identity" scope="row"><code data-n="route-path">${escape(row.path)}</code>${row.request ? `<div data-n="route-actions" class="route-actions"><div data-n="route-examples" class="route-examples" data-route="${escape(row.request.key)}"></div><button data-n="configure-route" class="copy-icon add-example" type="button" data-route="${escape(row.request.key)}" aria-label="添加示例：${escape(row.path)}" title="添加示例"><svg data-n="add-example-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path data-n="add-example-icon-lines" d="M12 5v14M5 12h14"/></svg></button></div>` : ""}</th>
+    <th data-n="route-title" scope="row">${escape(row.request?.name || row.path)}</th>
+    <td data-n="route-identity"><code data-n="route-path">${escape(row.path)}</code>${row.request ? `<div data-n="route-actions" class="route-actions"><div data-n="route-examples" class="route-examples" data-route="${escape(row.request.key)}"></div><button data-n="configure-route" class="copy-icon add-example" type="button" data-route="${escape(row.request.key)}" aria-label="添加示例：${escape(row.path)}" title="添加示例"><svg data-n="add-example-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path data-n="add-example-icon-lines" d="M12 5v14M5 12h14"/></svg></button></div>` : ""}</td>
     <td data-n="route-status"><span data-n="status-label" class="status ${row.ok === null ? "unknown" : row.ok ? "passed" : "failed"}">${row.ok === null ? "未巡检" : row.ok ? "成功" : "失败"}</span></td>
     <td data-n="route-output">${(row.artifacts || []).map(artifact => `<a data-n="artifact-link" href="${escape(artifact.url)}" target="_blank" rel="noopener noreferrer">${escape(artifact.label)}</a>`).join(" ")}${escape(row.reason)}</td>
   </tr>`).join("\n");
@@ -57,107 +58,131 @@ mount_market_view(create_market_model(${data}, value => navigator.clipboard.writ
   <title data-n="document-title">脚本市场 (Script Market) · FindRSS</title>
   <link data-n="site-favicon" rel="icon" type="image/svg+xml" href="${favicon_data_url}">
   <style data-n="market-styles">
-    :root { color-scheme: light; --ink: #202c3c; --muted: #59687a; --blue: #245ac6; --line: #dce2eb; --red: #a22c39; --green: #24674b; }
+    :root {
+      color-scheme: light dark;
+      --ink: #202c3c; --muted: #59687a; --blue: #245ac6; --line: #dce2eb; --red: #a22c39; --green: #24674b;
+      --background: #f5f7fa; --surface: #fff; --tint: #edf2fb; --tint-hover: #dce7fa; --kind-ink: #304c77;
+      --input-line: #aab7ca; --button-line: #a8b8d2; --example-line: #c6d5ec;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #e3eaf4; --muted: #a6b4c7; --blue: #91b7ff; --line: #344155; --red: #ff9ca8; --green: #83d6ab;
+        --background: #111823; --surface: #1b2533; --tint: #263650; --tint-hover: #32486b; --kind-ink: #b7cdf0;
+        --input-line: #63758d; --button-line: #607593; --example-line: #4a6080;
+      }
+    }
     * { box-sizing: border-box; }
     [hidden] { display: none !important; }
     html { scrollbar-width: none; }
     html::-webkit-scrollbar { display: none; }
-    body { margin: 0; color: var(--ink); background: #f5f7fa; font: 15px/1.6 "Avenir Next", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    body { margin: 0; color: var(--ink); background: var(--background); font: 15px/1.6 "Avenir Next", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
     a { color: var(--blue); text-underline-offset: .2em; }
     button, input { font: inherit; }
     button, a, input { -webkit-tap-highlight-color: transparent; }
     :focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
     button { cursor: pointer; }
     button:disabled { cursor: not-allowed; opacity: .5; }
-    .skip { position: absolute; top: -80px; left: 20px; padding: 8px 16px; background: white; z-index: 5; }
+    .skip { position: absolute; top: -80px; left: 20px; padding: 8px 16px; background: var(--surface); z-index: 5; }
     .skip:focus { top: 12px; }
     .page { max-width: 1440px; padding: 40px 32px 24px; margin: auto; }
-    .header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+    .toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
     .brand { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 18px; font-weight: 750; color: var(--blue); }
     .settings-button { width: 40px; height: 40px; }
-    .tabs { display: flex; gap: 8px; margin-top: 24px; border-bottom: 1px solid var(--line); }
-    .tab { min-height: 48px; padding: 10px 20px; border: 0; border-bottom: 3px solid transparent; color: var(--muted); background: transparent; font-weight: 650; }
+    .navigation { display: flex; align-items: center; gap: 12px; margin-right: auto; }
+    .tabs { display: flex; gap: 8px; }
+    .tab-count { font-size: 12px; }
+    .header-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; max-width: 100%; color: var(--muted); font-size: 13px; }
+    .tab { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; padding: 10px 20px; border: 0; border-bottom: 3px solid transparent; color: var(--muted); background: transparent; font-weight: 650; }
     .tab:hover { color: var(--blue); }
     .tab[aria-selected="true"] { color: var(--blue); border-bottom-color: var(--blue); }
     .search-area { margin: 20px 0; }
-    .search { width: 100%; min-height: 52px; padding: 12px 16px; color: var(--ink); background: white; border: 1px solid #aab7ca; border-radius: 8px; font-size: 16px; }
+    .search { width: 100%; min-height: 52px; padding: 12px 16px; color: var(--ink); background: var(--surface); border: 1px solid var(--input-line); border-radius: 8px; font-size: 16px; }
     .search::placeholder { color: var(--muted); }
-    .search-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; margin-top: 10px; color: var(--muted); font-size: 13px; }
     .catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; align-items: start; }
-    .card { min-width: 0; background: white; border: 1px solid var(--line); border-radius: 12px; }
+    .card { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
     .card-body { padding: 18px; }
     .script-heading { display: flex; gap: 10px; align-items: flex-start; }
-    .icon { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; background: #f5f7fa; border-radius: 10px; }
+    .icon { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; background: var(--background); border-radius: 10px; }
     .script-icon { width: 32px; height: 32px; object-fit: contain; }
     .icon-fallback { font-size: 24px; font-weight: 650; color: var(--muted); }
     .script-identity { min-width: 0; flex: 1; }
     h2 { margin: 0; font-size: 17px; font-weight: 650; overflow-wrap: anywhere; }
     .metadata { display: flex; gap: 8px; align-items: center; margin-top: 10px; font-size: 12px; }
-    .kind { display: inline-block; flex-shrink: 0; padding: 2px 8px; border-radius: 4px; color: #304c77; background: #edf2fb; }
+    .kind { display: inline-block; flex-shrink: 0; padding: 2px 8px; border-radius: 4px; color: var(--kind-ink); background: var(--tint); }
     .script-status-stack { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; gap: 3px; }
     .script-version { font-size: 12px; line-height: 26px; color: var(--muted); }
     .inspection-trigger { padding: 3px 0 3px 6px; border: 0; background: transparent; font-size: 12px; white-space: nowrap; }
     .inspection-trigger:hover { text-decoration: underline; text-underline-offset: .2em; }
     .raw-link { min-width: 0; overflow-wrap: anywhere; font-size: 13px; }
     .copy-icon { display: inline-grid; place-items: center; flex-shrink: 0; width: 32px; height: 32px; padding: 6px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); }
-    .copy-icon:hover { color: var(--blue); background: #edf2fb; }
-    .button { min-height: 42px; padding: 8px 16px; border: 1px solid #a8b8d2; border-radius: 6px; color: var(--blue); background: white; font-weight: 600; }
-    .button:hover { background: #edf2fb; }
+    .copy-icon:hover { color: var(--blue); background: var(--tint); }
+    .button { min-height: 42px; padding: 8px 16px; border: 1px solid var(--button-line); border-radius: 6px; color: var(--blue); background: var(--surface); font-weight: 600; }
+    .button:hover { background: var(--tint); }
     .status.passed { color: var(--green); }
     .status.failed { color: var(--red); }
     .status.unknown { color: var(--muted); }
     .route-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
     .route-examples { display: contents; }
-    .add-example { border: 1px dashed #a8b8d2; color: var(--blue); }
-    .saved-example { display: inline-flex; align-items: center; max-width: 100%; border: 1px solid #c6d5ec; border-radius: 6px; background: #edf2fb; }
+    .add-example { border: 1px dashed var(--button-line); color: var(--blue); }
+    .saved-example { display: inline-flex; align-items: center; max-width: 100%; border: 1px solid var(--example-line); border-radius: 6px; background: var(--tint); }
     .saved-example button { min-height: 32px; padding: 4px 8px; border: 0; background: transparent; color: var(--blue); font-size: 12px; }
     .saved-example button:first-child { min-width: 0; max-width: 220px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-    .saved-example button:last-child { flex-shrink: 0; border-left: 1px solid #c6d5ec; font-size: 18px; line-height: 1; }
-    .saved-example button:hover { background: #dce7fa; }
-    .table-scroll { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
-    th, td { padding: 10px 16px; border-top: 1px solid var(--line); vertical-align: top; }
-    thead th { color: var(--muted); font-weight: 500; background: #f5f7fa; }
+    .saved-example button:last-child { flex-shrink: 0; border-left: 1px solid var(--example-line); font-size: 18px; line-height: 1; }
+    .saved-example button:hover { background: var(--tint-hover); }
+    .table-scroll { flex: 1; min-height: 0; overflow: auto; }
+    .table-scroll:focus-visible { outline-offset: -3px; }
+    table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px; text-align: left; }
+    th, td { padding: 10px 16px; border: 1px solid var(--line); vertical-align: top; }
+    thead th { position: sticky; top: 0; z-index: 1; box-shadow: 0 1px var(--line); color: var(--muted); font-weight: 500; background: var(--background); }
     tbody th { font-weight: 400; min-width: 170px; overflow-wrap: anywhere; }
     td { overflow-wrap: anywhere; }
     td[data-n="route-status"] { white-space: nowrap; }
     a[data-n="artifact-link"] { display: inline-block; margin: 0 8px 4px 0; white-space: nowrap; }
     code { font: 12px/1.7 ui-monospace, "SFMono-Regular", Consolas, monospace; }
     .empty-state { padding: 32px 0; color: var(--muted); }
-    .feedback { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); max-width: calc(100% - 32px); margin: 0; padding: 10px 18px; border-radius: 8px; color: white; background: var(--ink); box-shadow: 0 4px 18px #202c3c26; z-index: 2; }
+    .feedback { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); max-width: calc(100% - 32px); margin: 0; padding: 10px 18px; border-radius: 8px; color: var(--surface); background: var(--ink); box-shadow: 0 4px 18px #202c3c26; z-index: 2; }
     .feedback:empty { display: none; }
-    .footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-    dialog { width: min(1000px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: 24px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); }
+    dialog { width: min(1000px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: 24px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--surface); }
     dialog::backdrop { background: #202c3c80; }
+    .inspection-dialog { height: min(720px, calc(100dvh - 48px)); padding: 0; overflow: hidden; }
+    .inspection-dialog[open] { display: flex; flex-direction: column; }
+    .inspection-dialog > .inspection-header { flex-shrink: 0; margin: 0; padding: 24px; }
+    .inspection-dialog > .form-status { flex-shrink: 0; margin: 0; padding: 0 24px 16px; }
+    [data-n="inspection-results"] { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+    [data-n="empty-inspection"] { margin: 0; padding: 24px; }
     .inspection-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 16px; }
     .inspection-header > .button { flex-shrink: 0; white-space: nowrap; }
     .inspection-title { font-size: 18px; }
     .settings-dialog { max-width: 520px; }
     .form-field { display: grid; gap: 6px; margin: 0 0 18px; }
     .form-label { font-weight: 600; overflow-wrap: anywhere; }
-    .form-input { width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px; border: 1px solid #aab7ca; border-radius: 6px; color: var(--ink); background: white; }
+    .form-input { width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px; border: 1px solid var(--input-line); border-radius: 6px; color: var(--ink); background: var(--surface); }
     .form-help, .form-status { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
     .form-status:empty { display: none; }
     .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 16px; }
     .request-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 0 18px; }
     .request-output { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
     .request-output h3 { margin: 0 0 8px; font-size: 15px; }
-    .command { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: 14px; border-radius: 6px; background: #f5f7fa; font: 13px/1.65 ui-monospace, "SFMono-Regular", Consolas, monospace; }
-    @media (max-width: 760px) { .page { padding: 24px 16px; } .tab { flex: 1; padding: 10px 8px; } .catalog { grid-template-columns: 1fr; } .card-body { padding: 20px; } }
+    .command { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: 14px; border-radius: 6px; background: var(--background); font: 13px/1.65 ui-monospace, "SFMono-Regular", Consolas, monospace; }
+    @media (max-width: 760px) { .page { padding: 24px 16px; } .navigation { order: 1; width: 100%; flex-wrap: wrap; } .tabs { flex: 1; gap: 4px; } .tab { flex: 1; padding: 10px 6px; } .catalog { grid-template-columns: 1fr; } .card-body { padding: 20px; } }
     @media (prefers-reduced-motion: no-preference) { button { transition: background-color .12s ease; } }
   </style>
 </head>
 <body data-n="market-body">
   <a data-n="skip-to-scripts" class="skip" href="#scripts">跳转到脚本列表</a>
   <div data-n="market-page" class="page">
-    <header data-n="market-header" class="header">
+    <div data-n="market-toolbar" class="toolbar">
       <h1 data-n="project-brand" class="brand"><img data-n="project-logo" src="${logo_data_url}" alt="" width="36" height="36"><span data-n="project-name">FindRSS</span></h1>
+      <div data-n="market-navigation" class="navigation">
+      <div data-n="script-tabs" class="tabs" role="tablist" aria-label="脚本类型">${[["rss", "RSS"], ["hot", "Hot"], ["clip", "Clip"], ["detect", "Detect"]].map(([kind, label]) => `<button data-n="script-tab" class="tab" id="tab-${kind}" type="button" role="tab" data-kind="${kind}" aria-selected="${kind === "rss"}" aria-controls="script-panel" tabindex="${kind === "rss" ? 0 : -1}"><span data-n="script-tab-label">${label}</span><span data-n="script-tab-count" class="kind tab-count">${groups.filter(group => group.kind === kind).length}</span></button>`).join("")}</div>
+      </div>
+      <div data-n="header-actions" class="header-actions">
+      <span data-n="check-time">最近巡检：<time data-n="checked-at" datetime="${escape(model.checked_at || "")}">${escape(checked)}</time></span>
       <button data-n="open-settings" class="copy-icon settings-button" type="button" aria-label="设置" title="设置"><svg data-n="settings-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true" focusable="false"><path data-n="settings-icon-gear" d="m9 3-.6 2.3-1.5.9-2.3-.6-3 5.2 1.7 1.7v1.8L1.6 16l3 5.2 2.3-.6 1.5.9L9 24h6l.6-2.5 1.5-.9 2.3.6 3-5.2-1.7-1.7v-1.8l1.7-1.7-3-5.2-2.3.6-1.5-.9L15 3Z" transform="translate(1 0) scale(.92 .85)"></path><circle data-n="settings-icon-center" cx="12" cy="11.5" r="3"></circle></svg></button>
-    </header>
-    <div data-n="script-tabs" class="tabs" role="tablist" aria-label="脚本类型">${[["rss", "RSS"], ["hot", "Hot"], ["clip", "Clip"], ["detect", "Detect"]].map(([kind, label]) => `<button data-n="script-tab" class="tab" id="tab-${kind}" type="button" role="tab" data-kind="${kind}" aria-selected="${kind === "rss"}" aria-controls="script-panel" tabindex="${kind === "rss" ? 0 : -1}">${label}</button>`).join("")}</div>
+      </div>
+    </div>
     <section data-n="market-search" class="search-area" aria-label="搜索脚本">
       <input data-n="script-search" class="search" id="script-search" type="search" aria-label="搜索脚本" placeholder="搜索名称、文件路径、类型或路由，例如 GitHub、热榜、rss" autocomplete="off" aria-controls="scripts">
-      <div data-n="search-metadata" class="search-meta"><span data-n="search-count" role="status">显示 ${groups.filter(group => group.kind === "rss").length} / ${groups.filter(group => group.kind === "rss").length} 个脚本</span><span data-n="check-time">最近巡检：<time data-n="checked-at" datetime="${escape(model.checked_at || "")}">${escape(checked)}</time></span></div>
     </section>
     <main data-n="script-catalog" id="scripts">
       <div data-n="script-panel" id="script-panel" role="tabpanel" aria-labelledby="tab-rss" tabindex="0">
@@ -174,12 +199,11 @@ mount_market_view(create_market_model(${data}, value => navigator.clipboard.writ
       <noscript data-n="javascript-notice"><p data-n="javascript-help">启用 JavaScript 后可搜索、复制脚本地址并查看巡检结果；也可直接打开文件路径。</p></noscript>
     </main>
     <p data-n="copy-feedback" class="feedback" role="status" aria-live="polite"></p>
-    <footer data-n="market-footer" class="footer">文件路径指向 master 分支的 Raw 脚本；点击右侧图标复制地址。产物来自最近一次巡检。</footer>
   </div>
-  <dialog data-n="inspection-dialog" aria-labelledby="inspection-title">
+  <dialog data-n="inspection-dialog" class="inspection-dialog" aria-labelledby="inspection-title">
     <div data-n="inspection-header" class="inspection-header"><h2 data-n="inspection-title" class="inspection-title" id="inspection-title">巡检结果</h2><button data-n="close-inspection" class="button" type="button">关闭</button></div>
     <p data-n="inspection-status" class="form-status" role="alert"></p>
-    ${groups.map(group => `<section data-n="inspection-results" data-script="${group.id}" hidden>${group.inspection_rows.length ? `<div data-n="table-scroll-container" class="table-scroll" role="region" aria-label="${escape(group.title)} 巡检详情" tabindex="0"><table data-n="results-table"><thead data-n="results-head"><tr data-n="column-headings"><th data-n="route-heading" scope="col">路由</th><th data-n="status-heading" scope="col">结果</th><th data-n="output-heading" scope="col">产物 / 失败原因</th></tr></thead><tbody data-n="results-rows">${rows(group)}</tbody></table></div>` : '<p data-n="empty-inspection">暂无巡检结果。</p>'}</section>`).join("\n")}
+    ${groups.map(group => `<section data-n="inspection-results" data-script="${group.id}" hidden>${group.inspection_rows.length ? `<div data-n="table-scroll-container" class="table-scroll" role="region" aria-label="${escape(group.title)} 巡检详情" tabindex="0"><table data-n="results-table"><thead data-n="results-head"><tr data-n="column-headings"><th data-n="title-heading" scope="col">标题</th><th data-n="route-heading" scope="col">路由</th><th data-n="status-heading" scope="col">结果</th><th data-n="output-heading" scope="col">产物 / 失败原因</th></tr></thead><tbody data-n="results-rows">${rows(group)}</tbody></table></div>` : '<p data-n="empty-inspection">暂无巡检结果。</p>'}</section>`).join("\n")}
   </dialog>
   <dialog data-n="request-dialog" aria-labelledby="request-title">
     <div data-n="request-header" class="inspection-header"><h2 data-n="request-title" class="inspection-title" id="request-title">添加示例</h2><button data-n="close-request" class="button" type="button">关闭</button></div>

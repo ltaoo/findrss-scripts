@@ -229,7 +229,6 @@ export function mount_market_view(model, document) {
   const render = () => {
     const visible = new Set(model.visible_ids);
     for (const card of cards) card.hidden = !visible.has(card.id);
-    node("search-count").textContent = `显示 ${visible.size} / ${model.kind_scripts.length} 个脚本`;
     for (const tab of tabs) {
       tab.setAttribute("aria-selected", String(tab.dataset.kind === model.kind));
       tab.tabIndex = tab.dataset.kind === model.kind ? 0 : -1;

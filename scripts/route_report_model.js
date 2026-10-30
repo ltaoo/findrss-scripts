@@ -33,7 +33,7 @@ export function route_report_model(report, catalog) {
       const id = "script-" + index;
       const icon_file = `icons/${id}.svg`;
       const rows = results.sort((a, b) => Number(a.ok) - Number(b.ok));
-      return { id, name: file, file, title: script?.name || script?.platform?.name || file,
+      return { id, name: file, file, title: script?.platform?.name || script?.name || file,
         kind: script?.kind || String(file).split("/")[0],
         raw_url: raw_url("master", file), version: script?.version || "—", icon, icon_file,
         icon_data_url: icon ? "data:image/svg+xml;base64," + Buffer.from(icon).toString("base64") : "",
