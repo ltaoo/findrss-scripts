@@ -137,6 +137,8 @@ HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存�
 
 `pages` 任务只授予 `pages: write` 和 `id-token: write`，使用 `github-pages` 环境。只要 Pages artifact 成功上传，即使 `routes` 因发布或通知失败而变红，也会继续部署这份页面；取消运行或没有生成完整报告时跳过。HTML 只包含脚本目录元数据和巡检摘要，Pages artifact 包含 HTML 以及 JSON/Markdown 报告，本机凭据文件不会进入其中。页面是最近一次成功部署的快照，通知同时附有页面入口和本次 Actions 链接；本轮 Pages 发布完成后页面才更新，发布失败时仍保留上次快照。
 
+页面使用 Timeless 0.34.2：`scripts/script_market_view.js` 是 Node SSR 与浏览器 hydration 共用的 View，`scripts/script_market.js` 维护业务 Model，`scripts/script_market.css` 保留原有样式。`scripts/render_route_report.js` 先生成完整页面，再内嵌同版本运行时、交互代码及公开目录数据；浏览器复用 SSR 节点后才读取 localStorage 中的设置与示例。Timeless 资源来自构建时固定的 FindRSS 运行时，原有单文件 HTML 和发布流程保持一致。
+
 对已有结果也可以在本地单独生成 HTML，无需重新访问上游：
 
 ```sh

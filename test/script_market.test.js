@@ -108,6 +108,21 @@ const request_routes = [
 ];
 const request_scripts = request_routes.map((route, index) => ({ ...scripts[0], id: String(index), routes: [route] }));
 
+test("hydration 后加载浏览器存储，恢复设置与旧示例，后续保存使用同一存储", () => {
+  const storage = memory_storage();
+  storage.setItem("findrss.script-market.settings", JSON.stringify({ baseURL: "https://worker.example", token: "private-token" }));
+  storage.setItem("findrss.script-market.parameters", JSON.stringify({ [request_routes[0].key]: { id: "999" } }));
+  const model = create_market_model(request_scripts);
+  assert.equal(model.settings.token, "");
+  assert.deepEqual(model.saved_parameters, {});
+  model.load_storage(storage);
+  assert.equal(model.settings.token, "private-token");
+  model.open_request(request_routes[0].key, "legacy");
+  assert.equal(model.route_values.id, "999");
+  assert.equal(model.save_request(), true);
+  assert.equal(create_market_model(request_scripts, null, storage).saved_parameters[request_routes[0].key][0].values.id, "999");
+});
+
 test("设置保存到 localStorage，取消不修改配置，校验地址及 token 并处理存储不可用", () => {
   const storage = memory_storage();
   const model = create_market_model(request_scripts, null, storage);
@@ -169,6 +184,31 @@ test("示例按脚本和路由分别保存，刷新回填，未保存修改不�
   assert.match(unavailable.request_status, /localStorage/);
 });
 
+test("默认 example 始终显示且不可删除，修改后另存为自定义示例", () => {
+  const storage = memory_storage();
+  const model = create_market_model(request_scripts, null, storage);
+  for (const route of request_routes) {
+    const [example] = model.route_examples(route.key);
+    assert.equal(example.deletable, false);
+    const saved = storage.getItem("findrss.script-market.parameters");
+    assert.equal(model.delete_example(route.key, example.id), false);
+    assert.equal(storage.getItem("findrss.script-market.parameters"), saved);
+    model.open_request(route.key, example.id);
+    assert.deepEqual(model.route_values, example.values);
+    model.set_route_value("id", "999");
+    assert.equal(model.save_request(), true);
+    const examples = model.route_examples(route.key);
+    assert.deepEqual(examples[0], example);
+    assert.equal(examples[1].deletable, true);
+    assert.equal(examples[1].values.id, "999");
+    assert.equal(model.delete_example(route.key, examples[1].id), true);
+    assert.deepEqual(create_market_model(request_scripts, null, storage).route_examples(route.key), [example]);
+  }
+  const route = route_request_model("hot/example.js", "/api/hot/example");
+  assert.equal(create_market_model([{ routes: [route] }]).route_examples(route.key)[0].label, "默认示例");
+  assert.deepEqual(model.route_examples("missing"), []);
+});
+
 test("Plus 新建多个示例，打开后修改原示例，删除持久化且保留其他脚本和路由", () => {
   const storage = memory_storage();
   const same_path = { ...request_routes[0], file: "rss/other.js", key: JSON.stringify(["rss/other.js", request_routes[0].path]) };
@@ -182,12 +222,12 @@ test("Plus 新建多个示例，打开后修改原示例，删除持久化且保
     assert.equal(model.save_request(), true);
     assert.equal(model.save_request(), true, "同一表单重复保存更新当前示例");
   }
-  assert.equal(model.route_examples(key).length, 2);
-  const [first, second] = model.route_examples(key);
+  assert.equal(model.route_examples(key).length, 3);
+  const [default_example, first, second] = model.route_examples(key);
   model.open_request(key, first.id);
   model.set_route_value("id", "333");
   model.save_request();
-  assert.match(model.route_examples(key)[0].label, /^333/);
+  assert.match(model.route_examples(key)[1].label, /^333/);
   model.open_request(same_path.key);
   model.save_request();
   model.open_request(request_routes[1].key);
@@ -200,9 +240,9 @@ test("Plus 新建多个示例，打开后修改原示例，删除持久化且保
   assert.equal(model.delete_example(key, first.id), false);
   assert.equal(model.delete_example(key, second.id), true);
   model = create_market_model(scripts, null, storage);
-  assert.deepEqual(model.route_examples(key), []);
-  assert.equal(model.route_examples(same_path.key).length, 1);
-  assert.equal(model.route_examples(request_routes[1].key).length, 1);
+  assert.deepEqual(model.route_examples(key), [default_example]);
+  assert.equal(model.route_examples(same_path.key).length, 2);
+  assert.equal(model.route_examples(request_routes[1].key).length, 2);
   model.open_request(key, "deleted");
   assert.equal(model.request, null);
 });
@@ -212,21 +252,21 @@ test("兼容旧单组参数，不丢失历史值；保存或删除失败时保�
   const key = request_routes[0].key;
   storage.setItem("findrss.script-market.parameters", JSON.stringify({ [key]: { id: "999", city: "杭州" }, bad: null }));
   const model = create_market_model(request_scripts, null, storage);
-  assert.equal(model.route_examples(key).length, 1);
-  model.open_request(key, model.route_examples(key)[0].id);
+  assert.equal(model.route_examples(key).length, 2);
+  model.open_request(key, model.route_examples(key)[1].id);
   assert.equal(model.route_values.id, "999");
   assert.equal(model.route_values.city, "杭州");
   model.set_route_value("id", "888");
   model.save_request();
-  assert.equal(model.route_examples(key).length, 1);
-  assert.equal(create_market_model(request_scripts, null, storage).route_examples(key)[0].values.id, "888");
+  assert.equal(model.route_examples(key).length, 2);
+  assert.equal(create_market_model(request_scripts, null, storage).route_examples(key)[1].values.id, "888");
   storage.setItem = () => { throw Error("QuotaExceededError"); };
   model.set_route_value("id", "777");
   assert.equal(model.save_request(), false);
-  assert.equal(model.route_examples(key)[0].values.id, "888");
-  assert.equal(model.delete_example(key, model.route_examples(key)[0].id), false);
+  assert.equal(model.route_examples(key)[1].values.id, "888");
+  assert.equal(model.delete_example(key, model.route_examples(key)[1].id), false);
   assert.match(model.inspection_status, /无法删除/);
-  assert.equal(model.route_examples(key).length, 1);
+  assert.equal(model.route_examples(key).length, 2);
 });
 
 test("动态字段解析路径、可选参数、查询参数、RSS/Atom 前缀，忽略示例 token", () => {

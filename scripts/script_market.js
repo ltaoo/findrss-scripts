@@ -7,12 +7,6 @@ export function create_market_model(scripts, write_clipboard, storage) {
   };
   const settings_key = "findrss.script-market.settings";
   const parameters_key = "findrss.script-market.parameters";
-  const saved = read_saved(settings_key);
-  const settings = { baseURL: typeof saved.baseURL === "string" ? saved.baseURL : "", token: typeof saved.token === "string" ? saved.token : "" };
-  const saved_parameters = Object.fromEntries(Object.entries(read_saved(parameters_key)).map(([key, value]) => [key,
-    Array.isArray(value) ? value.filter(example => typeof example?.id === "string" && example.values && typeof example.values === "object" && !Array.isArray(example.values))
-      : value && typeof value === "object" ? [{ id: "legacy", values: value }] : [],
-  ]));
   const validate_settings = value => {
     let url;
     try { url = new URL(value.baseURL.trim()); } catch { throw new Error("请在设置中填写有效的 baseURL"); }
@@ -22,11 +16,22 @@ export function create_market_model(scripts, write_clipboard, storage) {
     if (/[\r\n\0]/.test(value.token)) throw new Error("token 不能包含换行或空字符");
     return { baseURL: url.href.replace(/\/+$/, ""), token: value.token.trim() };
   };
-  return {
+  const model = {
     scripts, kinds: ["rss", "hot", "clip", "detect"], kind: "rss", query: "", message: "", message_timer: null, copying: false, inspection: null,
-    settings, settings_draft: { ...settings }, settings_open: false, settings_error: "",
-    saved_parameters, request: null, example_id: null, route_values: {}, request_status: "", inspection_status: "",
+    settings: { baseURL: "", token: "" }, settings_draft: { baseURL: "", token: "" }, settings_open: false, settings_error: "",
+    saved_parameters: {}, request: null, example_id: null, route_values: {}, request_status: "", inspection_status: "",
     on_change() {},
+    load_storage(next_storage = storage) {
+      storage = next_storage;
+      const saved = read_saved(settings_key);
+      this.settings = { baseURL: typeof saved.baseURL === "string" ? saved.baseURL : "", token: typeof saved.token === "string" ? saved.token : "" };
+      this.settings_draft = { ...this.settings };
+      this.saved_parameters = Object.fromEntries(Object.entries(read_saved(parameters_key)).map(([key, value]) => [key,
+        Array.isArray(value) ? value.filter(example => typeof example?.id === "string" && example.values && typeof example.values === "object" && !Array.isArray(example.values))
+          : value && typeof value === "object" ? [{ id: "legacy", values: value }] : [],
+      ]));
+      this.on_change();
+    },
     open_settings() {
       this.settings_draft = { ...this.settings };
       this.settings_error = "";
@@ -55,9 +60,16 @@ export function create_market_model(scripts, write_clipboard, storage) {
       return true;
     },
     route_examples(key) {
-      return (this.saved_parameters[key] || []).map((example, index) => ({ ...example,
+      const route = this.scripts.flatMap(script => script.routes || []).find(route => route.key === key);
+      const examples = (this.saved_parameters[key] || []).map((example, index) => ({ ...example, deletable: true,
         label: Object.values(example.values).filter(value => typeof value === "string" && value).join(" · ") || "示例 " + (index + 1),
       }));
+      if (route) {
+        const values = Object.fromEntries(route.fields.map(field => [field.name, field.value || ""]));
+        examples.unshift({ id: null, values, deletable: false,
+          label: Object.values(values).filter(Boolean).join(" · ") || "默认示例" });
+      }
+      return examples;
     },
     open_request(key, example_id = null) {
       const example = (this.saved_parameters[key] || []).find(example => example.id === example_id);
@@ -214,146 +226,6 @@ export function create_market_model(scripts, write_clipboard, storage) {
       }, 2500);
     },
   };
-}
-
-export function mount_market_view(model, document) {
-  const node = name => document.querySelector(`[data-n="${name}"]`);
-  const cards = [...document.querySelectorAll('[data-n="script-card"]')];
-  const buttons = [...document.querySelectorAll('[data-n="copy-raw-url"]')];
-  const tabs = [...document.querySelectorAll('[data-n="script-tab"]')];
-  const inspections = [...document.querySelectorAll('[data-n="inspection-results"]')];
-  const inspection_dialog = node("inspection-dialog");
-  const request_dialog = node("request-dialog");
-  const settings_dialog = node("settings-dialog");
-  const rendered_examples = new WeakMap();
-  const render = () => {
-    const visible = new Set(model.visible_ids);
-    for (const card of cards) card.hidden = !visible.has(card.id);
-    for (const tab of tabs) {
-      tab.setAttribute("aria-selected", String(tab.dataset.kind === model.kind));
-      tab.tabIndex = tab.dataset.kind === model.kind ? 0 : -1;
-    }
-    node("script-panel").setAttribute("aria-labelledby", "tab-" + model.kind);
-    node("empty-search").hidden = visible.size > 0;
-    node("copy-feedback").textContent = model.message;
-    for (const button of buttons) button.disabled = model.copying;
-    node("inspection-title").textContent = model.inspection ? model.inspection.title + " · 巡检结果" : "巡检结果";
-    node("inspection-status").textContent = model.inspection_status;
-    for (const section of inspections) {
-      section.hidden = section.dataset.script !== model.inspection?.id;
-      if (section.hidden) continue;
-      for (const list of section.querySelectorAll('[data-n="route-examples"]')) {
-        const examples = model.saved_parameters[list.dataset.route];
-        if (rendered_examples.has(list) && rendered_examples.get(list) === examples) continue;
-        rendered_examples.set(list, examples);
-        list.replaceChildren();
-        for (const example of model.route_examples(list.dataset.route)) {
-          const item = document.createElement("span");
-          item.setAttribute("data-n", "saved-example");
-          item.className = "saved-example";
-          const open = document.createElement("button");
-          open.setAttribute("data-n", "open-example");
-          open.type = "button";
-          open.textContent = example.label;
-          open.title = example.label;
-          open.addEventListener("click", () => model.open_request(list.dataset.route, example.id));
-          const remove = document.createElement("button");
-          remove.setAttribute("data-n", "delete-example");
-          remove.type = "button";
-          remove.textContent = "×";
-          remove.setAttribute("aria-label", "删除示例：" + example.label);
-          remove.title = "删除示例";
-          remove.addEventListener("click", () => {
-            if (model.delete_example(list.dataset.route, example.id)) list.nextElementSibling.focus();
-          });
-          item.append(open, remove);
-          list.append(item);
-        }
-      }
-    }
-    if (model.inspection && !inspection_dialog.open) inspection_dialog.showModal();
-    if (!model.inspection && inspection_dialog.open) inspection_dialog.close();
-    const fields = node("request-fields");
-    if (model.request && fields.dataset.route !== model.request.key) {
-      fields.replaceChildren();
-      fields.dataset.route = model.request.key;
-      for (const [index, field] of model.request.fields.entries()) {
-        const label = document.createElement("label");
-        label.setAttribute("data-n", "route-parameter-field");
-        label.className = "form-field";
-        label.htmlFor = "route-parameter-" + index;
-        const title = document.createElement("span");
-        title.setAttribute("data-n", "route-parameter-label");
-        title.className = "form-label";
-        title.textContent = field.name + (field.required ? " *" : "");
-        const input = document.createElement("input");
-        input.setAttribute("data-n", "route-parameter-input");
-        input.className = "form-input";
-        input.id = label.htmlFor;
-        input.dataset.parameter = field.name;
-        input.required = field.required;
-        input.autocomplete = "off";
-        input.addEventListener("input", event => model.set_route_value(field.name, event.target.value));
-        label.append(title, input);
-        fields.append(label);
-      }
-    }
-    for (const input of fields.querySelectorAll("input")) {
-      const value = model.route_values[input.dataset.parameter] || "";
-      if (input.value !== value) input.value = value;
-    }
-    node("request-title").textContent = (model.example_id ? "编辑示例" : "添加示例") + (model.request ? " · " + model.request.path : "");
-    node("save-request").textContent = model.example_id ? "保存修改" : "保存示例";
-    const output = model.request_output;
-    node("request-url").textContent = output.url;
-    node("request-curl").textContent = output.curl;
-    node("request-status").textContent = model.message || model.request_status || (model.request ? output.error : "");
-    const open_url = node("open-request-url");
-    open_url.hidden = !output.url;
-    if (output.url) open_url.setAttribute("href", output.url); else open_url.removeAttribute("href");
-    for (const button of document.querySelectorAll("[data-request-copy]")) button.disabled = model.copying || !output.url;
-    if (model.request && !request_dialog.open) request_dialog.showModal();
-    if (!model.request && request_dialog.open) request_dialog.close();
-    for (const [name, input] of [["baseURL", node("settings-base-url")], ["token", node("settings-token")]]) {
-      if (input.value !== model.settings_draft[name]) input.value = model.settings_draft[name];
-    }
-    node("settings-error").textContent = model.settings_error;
-    if (model.settings_open && !settings_dialog.open) settings_dialog.showModal();
-    if (!model.settings_open && settings_dialog.open) settings_dialog.close();
-  };
-  node("script-search").addEventListener("input", event => model.search(event.target.value));
-  for (const tab of tabs) {
-    tab.addEventListener("click", () => model.select_kind(tab.dataset.kind));
-    tab.addEventListener("keydown", event => {
-      if (model.move_tab(event.key)) {
-        event.preventDefault();
-        tabs.find(tab => tab.dataset.kind === model.kind).focus();
-      }
-    });
-  }
-  for (const button of buttons) button.addEventListener("click", () => model.copy(button.dataset.script));
-  for (const button of document.querySelectorAll('[data-n="inspect-script"]')) button.addEventListener("click", () => model.inspect(button.dataset.script));
-  for (const button of document.querySelectorAll('[data-n="configure-route"]')) button.addEventListener("click", () => model.open_request(button.dataset.route));
-  for (const button of document.querySelectorAll("[data-request-copy]")) button.addEventListener("click", () => model.copy_request(button.dataset.requestCopy));
-  for (const name of ["open-settings", "request-settings"]) node(name).addEventListener("click", () => model.open_settings());
-  node("settings-base-url").addEventListener("input", event => model.set_setting("baseURL", event.target.value));
-  node("settings-token").addEventListener("input", event => model.set_setting("token", event.target.value));
-  node("settings-form").addEventListener("submit", event => {
-    event.preventDefault(); model.save_settings();
-  });
-  node("request-form").addEventListener("submit", event => {
-    event.preventDefault(); model.save_request();
-  });
-  for (const [name, dialog, close] of [["inspection", inspection_dialog, () => model.close_inspection()],
-    ["request", request_dialog, () => model.close_request()], ["settings", settings_dialog, () => model.close_settings()]]) {
-    node("close-" + name).addEventListener("click", close);
-    dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
-    dialog.addEventListener("click", event => {
-      const bounds = dialog.getBoundingClientRect();
-      if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right
-        || event.clientY < bounds.top || event.clientY > bounds.bottom)) close();
-    });
-  }
-  model.on_change = render;
-  render();
+  model.load_storage();
+  return model;
 }

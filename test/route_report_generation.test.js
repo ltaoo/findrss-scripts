@@ -69,7 +69,7 @@ for (const { mode, base, args } of [
   assert.equal([...html.matchAll(/<button data-n="inspect-script"/g)].length, 1);
   assert.equal([...html.matchAll(/<tr data-n="route-result"/g)].length, 2);
   const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
-  const artifact = html.match(/<a data-n="artifact-link" href="([^"]+)"/)[1];
+  const artifact = html.match(/<a data-n="artifact-link"[^>]*href="([^"]+)"/)[1];
   assert.equal(artifact, prefix + "responses/configured/one.json");
   assert.ok(markdown.includes('src="' + prefix + 'icons/script-0.svg"'));
   if (mode === "dev") assert.ok(await readFile(join(root, "reports", artifact), "utf8"));
