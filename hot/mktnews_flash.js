@@ -107,10 +107,10 @@ export class MktnewsFlashHotRank extends HotRankScript {
 const script = new MktnewsFlashHotRank();
 export const route = {
   "name": "MKTNews · 快讯",
-  "path": "/mktnews/flash",
+  "path": "/mktnews/api/flash",
   "url": "mktnews.net",
   "maintainers": ["findrss"],
-  "example": "/mktnews/flash",
+  "example": "/mktnews/api/flash",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

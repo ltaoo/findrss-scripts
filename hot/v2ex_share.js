@@ -100,10 +100,10 @@ export class V2exShareHotRank extends HotRankScript {
 const script = new V2exShareHotRank();
 export const route = {
   "name": "V2EX · 最新分享",
-  "path": "/v2ex/share",
+  "path": "/v2ex/feed",
   "url": "v2ex.com",
   "maintainers": ["findrss"],
-  "example": "/v2ex/share",
+  "example": "/v2ex/feed",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

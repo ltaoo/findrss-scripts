@@ -46,8 +46,8 @@ export class GoogleNewsHotRank extends HotRankScript {
 
 const script = new GoogleNewsHotRank();
 export const route = {
-  name: "Google News · 英语/日语头条", path: "/google-news/:edition?/:topic?", url: "news.google.com",
-  maintainers: ["findrss"], example: "/google-news/us/top",
+  name: "Google News · 英语/日语头条", path: "/google-news/rss/:edition?/:topic?", url: "news.google.com",
+  maintainers: ["findrss"], example: "/google-news/rss/us/top",
   parameters: { edition: "us 美国英语（默认）、gb 英国英语、jp 日本日语", topic: "top 头条（默认）、world、nation、business、technology、entertainment、sports、science、health" },
   description: "官方新闻聚合 RSS，保留上游头条顺序和跳转链接；没有显式排名及热度，均为 null。",
   handler: ctx => script.run(ctx),

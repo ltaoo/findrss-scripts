@@ -39,6 +39,6 @@ export class NiconicoHotRank extends HotRankScript {
   }
 }
 const script = new NiconicoHotRank();
-export const route = { name: "ニコニコ動画 · 综合排行榜", path: "/niconico/rank", url: "www.nicovideo.jp",
-  maintainers: ["findrss"], example: "/niconico/rank", parameters: {},
+export const route = { name: "ニコニコ動画 · 综合排行榜", path: "/niconico/ranking", url: "www.nicovideo.jp",
+  maintainers: ["findrss"], example: "/niconico/ranking", parameters: {},
   description: "读取官网 server-response 中的综合 Teiban 榜，保留上游顺序和播放数；数据无显式数字排名字段，rank 为 null。", handler: ctx => script.run(ctx) };

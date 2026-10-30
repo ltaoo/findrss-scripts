@@ -31,8 +31,8 @@ export class ArstechnicaHotRank extends HotRankScript {
 
 const script = new ArstechnicaHotRank();
 export const route = {
-  name: "Ars Technica · 最新资讯", path: "/arstechnica/headlines", url: "arstechnica.com",
-  maintainers: ["findrss"], example: "/arstechnica/headlines", parameters: {},
+  name: "Ars Technica · 最新资讯", path: "/arstechnica/arstechnica/index", url: "arstechnica.com",
+  maintainers: ["findrss"], example: "/arstechnica/arstechnica/index", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

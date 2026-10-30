@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
 import { writeFile } from "node:fs/promises";
-import { route_cases, debug_route_cases } from "../worker/catalog.js";
+import { api_route_cases } from "../worker/catalog.js";
 import { RssRoutePatternModel } from "../.runtime/findrss-worker/server/domain/rss_route.js";
 
 const parameter_pattern = /^:([A-Za-z_][A-Za-z0-9_]*)(?:\{([\s\S]+)\})?(\?)?$/;
 const media_types = { rss: "application/rss+xml", atom: "application/atom+xml", html: "text/html", image: "image/*",
-  hot: "application/json", clip: "application/json", detect: "application/json", debug: "text/html" };
+  rss_json: "application/json", hot: "application/json", clip: "application/json", detect: "application/json",
+  debug: "text/html" };
 // 当前运行时只保留 Hot 的 category，其余脚本在文档中补充分组。
 const script_categories = new Map([
   ["小说", ["rss/69shuba.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/ttk.js"]],
@@ -22,6 +23,8 @@ const string = { type: "string" };
 const object = { type: "object" };
 const objects = { type: "array", items: object };
 const json_properties = {
+  rss_json: { kind: { type: "string", enum: ["rss"] }, title: string, link: { type: "string", format: "uri" },
+    description: string, language: string, items: objects },
   hot: { kind: { type: "string", enum: ["hot_rank"] }, title: string, link: { type: "string", format: "uri" }, entries: objects },
   clip: { kind: { type: "string", enum: ["clip"] }, title: string, link: { type: "string", format: "uri" }, html: string, stats: object },
   detect: { kind: { type: "string", enum: ["detect"] }, title: string, link: { type: "string", format: "uri" },
@@ -32,7 +35,7 @@ export function generate_openapi(scripts) {
   const paths = {};
   const signatures = new Set();
   const metadata = new Map(scripts.map(script => [script.file, script.metadata]));
-  for (const entry of [...route_cases(scripts), ...debug_route_cases(scripts)]) {
+  for (const entry of api_route_cases(scripts)) {
     const script_metadata = metadata.get(entry.file);
     const route = script_metadata.routes[entry.route_index];
     const category = script_metadata.category?.trim() || script_categories.get(entry.file) || "其他";

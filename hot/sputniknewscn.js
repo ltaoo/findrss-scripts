@@ -100,10 +100,10 @@ export class SputniknewscnHotRank extends HotRankScript {
 const script = new SputniknewscnHotRank();
 export const route = {
   "name": "卫星通讯社",
-  "path": "/sputniknewscn",
+  "path": "/sputniknewscn/services/widget/lenta",
   "url": "sputniknews.cn",
   "maintainers": ["findrss"],
-  "example": "/sputniknewscn",
+  "example": "/sputniknewscn/services/widget/lenta",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

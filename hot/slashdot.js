@@ -31,8 +31,8 @@ export class SlashdotHotRank extends HotRankScript {
 
 const script = new SlashdotHotRank();
 export const route = {
-  name: "Slashdot · 科技资讯", path: "/slashdot/headlines", url: "slashdot.org",
-  maintainers: ["findrss"], example: "/slashdot/headlines", parameters: {},
+  name: "Slashdot · 科技资讯", path: "/slashdot/Slashdot/slashdotMain", url: "slashdot.org",
+  maintainers: ["findrss"], example: "/slashdot/Slashdot/slashdotMain", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

@@ -115,10 +115,10 @@ export class XueqiuHotstockHotRank extends HotRankScript {
 const script = new XueqiuHotstockHotRank();
 export const route = {
   "name": "雪球 · 热门股票",
-  "path": "/xueqiu/hotstock",
+  "path": "/xueqiu/v5/stock/hot_stock/list.json",
   "url": "xueqiu.com",
   "maintainers": ["findrss"],
-  "example": "/xueqiu/hotstock",
+  "example": "/xueqiu/v5/stock/hot_stock/list.json",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

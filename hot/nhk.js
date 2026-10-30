@@ -31,8 +31,8 @@ export class NhkHotRank extends HotRankScript {
 
 const script = new NhkHotRank();
 export const route = {
-  name: "NHK · 主要新闻", path: "/nhk/headlines", url: "news.web.nhk",
-  maintainers: ["findrss"], example: "/nhk/headlines", parameters: {},
+  name: "NHK · 主要新闻", path: "/nhk/rss/news/cat0.xml", url: "news.web.nhk",
+  maintainers: ["findrss"], example: "/nhk/rss/news/cat0.xml", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

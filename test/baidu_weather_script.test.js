@@ -9,7 +9,7 @@ const source = read_script("clip/baidu_weather.js");
 const compiled = await compile_script_module(source);
 const fixture = await readFile(new URL("./fixtures/baidu_weather.html", import.meta.url), "utf8");
 const cookie = JSON.parse(source.match(/const baidu_cookie = ("[^"]*");/)[1]);
-const context = { method: "GET", pathname: "/baidu/weather/上海", params: { city: "上海" }, query: {} };
+const context = { method: "GET", pathname: "/baidu/s/weather/上海", params: { city: "上海" }, query: {} };
 const run = async (params = context.params) => JSON.parse((await execute_script(source, compiled.metadata, null, { ...context, params })).output);
 const page = value => "<!--s-data:" + JSON.stringify(value) + "--><div></div>";
 
@@ -17,7 +17,7 @@ test("百度天气 Clip 元数据完整，Cookie 保留在源码中，不进入�
   assert.equal(compiled.error, "");
   assert.equal(compiled.metadata.kind, "clip");
   assert.equal(compiled.metadata.version, "1.0.0");
-  assert.equal(compiled.metadata.path, "/baidu/weather/:city?");
+  assert.equal(compiled.metadata.path, "/baidu/s/weather/:city?");
   assert.match(compiled.metadata.platform.icon, /^<svg/);
   assert.ok(cookie.includes("BDUSS=") && cookie.includes("BAIDUID="));
   assert.ok(cookie.length <= 4096);
@@ -58,7 +58,7 @@ test("Worker 天气路由接收中文城市及省略城市，不依赖 BROWSER �
     return new Response(fixture);
   });
   for (const suffix of ["/" + encodeURIComponent("上海"), ""]) {
-    const response = await worker.fetch(new Request("https://scripts.example/api/clip/baidu/weather" + suffix), {});
+    const response = await worker.fetch(new Request("https://scripts.example/api/clip/baidu/s/weather" + suffix), {});
     assert.equal(response.status, 200);
     const result = await response.json();
     assert.equal(result.title, "上海天气");

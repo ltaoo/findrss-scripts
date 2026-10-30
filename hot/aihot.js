@@ -98,10 +98,10 @@ export class AihotHotRank extends HotRankScript {
 const script = new AihotHotRank();
 export const route = {
   "name": "AIHOT",
-  "path": "/aihot",
+  "path": "/aihot/feed/all.xml",
   "url": "aihot.virxact.com",
   "maintainers": ["findrss"],
-  "example": "/aihot",
+  "example": "/aihot/feed/all.xml",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

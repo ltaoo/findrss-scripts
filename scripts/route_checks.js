@@ -48,6 +48,14 @@ export function parse_response(entry, content_type, bytes) {
       id: text(item.id), title: text(item.title), link: link(item), published: text(item.published), updated: text(item.updated),
     })) };
   }
+  if (entry.format === "rss_json") {
+    assert.match(content_type, /^application\/json\b/i, "JSON Content-Type 错误");
+    const value = JSON.parse(body);
+    assert.ok(value && typeof value === "object" && !Array.isArray(value) && !value.error, "须为成功的 JSON 对象");
+    return { title: value.title, link: value.link, items: array(value.items).map(item => ({
+      id: item.id, title: item.title, link: item.link, published: item.published, updated: item.updated,
+    })) };
+  }
   if (entry.format === "image") {
     assert.match(content_type, /^image\/(png|jpeg|webp|gif|x-icon|vnd.microsoft.icon)\b/i, "图片 Content-Type 错误");
     const buffer = Buffer.from(bytes);
@@ -89,7 +97,7 @@ export function check_output(entry, value) {
     assert.ok(actual === host || actual.endsWith("." + host), `来源应为 ${host}，实际为 ${link.hostname}`);
   }
   if (entry.title_includes) assert.ok(value.title.includes(entry.title_includes), "标题不含预期来源文字");
-  if (["rss", "atom"].includes(entry.format)) items_check(value.items, entry.min_items ?? 1);
+  if (["rss", "atom", "rss_json"].includes(entry.format)) items_check(value.items, entry.min_items ?? 1);
   if (entry.format === "hot") {
     items_check(value.entries, entry.min_items ?? 1);
     for (const item of value.entries) {

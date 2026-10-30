@@ -34,8 +34,8 @@ export class LobstersHotRank extends HotRankScript {
 
 const script = new LobstersHotRank();
 export const route = {
-  name: "Lobsters · 热门讨论", path: "/lobsters/hot", url: "lobste.rs",
-  maintainers: ["findrss"], example: "/lobsters/hot", parameters: {},
+  name: "Lobsters · 热门讨论", path: "/lobsters/hottest.json", url: "lobste.rs",
+  maintainers: ["findrss"], example: "/lobsters/hottest.json", parameters: {},
   description: "读取官方 hottest JSON 第一页，链接到讨论页，保留得分和原顺序；无显式排名，rank 为 null。",
   handler: ctx => script.run(ctx),
 };

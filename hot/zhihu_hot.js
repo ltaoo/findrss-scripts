@@ -98,10 +98,10 @@ export class ZhihuHotRank extends HotRankScript {
 const script = new ZhihuHotRank();
 export const route = {
   "name": "知乎",
-  "path": "/zhihu/hot",
+  "path": "/zhihu/api/v3/feed/topstory/hot-list-web",
   "url": "www.zhihu.com",
   "maintainers": ["findrss"],
-  "example": "/zhihu/hot",
+  "example": "/zhihu/api/v3/feed/topstory/hot-list-web",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

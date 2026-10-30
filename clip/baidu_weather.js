@@ -164,8 +164,8 @@ class BaiduWeatherClip extends ClipScript {
 
 const script = new BaiduWeatherClip();
 export const route = {
-  path: "/baidu/weather/:city?", name: "百度天气", url: "www.baidu.com",
-  example: "/baidu/weather/上海", parameters: { city: "城市或区县名称，省略时使用百度定位" },
+  path: "/baidu/s/weather/:city?", name: "百度天气", url: "www.baidu.com",
+  example: "/baidu/s/weather/上海", parameters: { city: "城市或区县名称，省略时使用百度定位" },
   description: "参考 wizm 天气 App，剪藏百度当前天气、体感、湿度、风力及未来三天预报；Cookie 内置于脚本，无需浏览器绑定。",
   handler: ctx => script.run(ctx),
 };

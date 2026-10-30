@@ -31,8 +31,8 @@ export class YahooJapanHotRank extends HotRankScript {
 
 const script = new YahooJapanHotRank();
 export const route = {
-  name: "Yahoo! JAPAN · 主要话题", path: "/yahoo-japan/headlines", url: "news.yahoo.co.jp",
-  maintainers: ["findrss"], example: "/yahoo-japan/headlines", parameters: {},
+  name: "Yahoo! JAPAN · 主要话题", path: "/yahoo-japan/rss/topics/top-picks.xml", url: "news.yahoo.co.jp",
+  maintainers: ["findrss"], example: "/yahoo-japan/rss/topics/top-picks.xml", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

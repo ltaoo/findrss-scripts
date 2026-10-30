@@ -98,10 +98,10 @@ export class FreebufHotRank extends HotRankScript {
 const script = new FreebufHotRank();
 export const route = {
   "name": "Freebuf · 网络安全",
-  "path": "/freebuf",
+  "path": "/freebuf/feed",
   "url": "www.freebuf.com",
   "maintainers": ["findrss"],
-  "example": "/freebuf",
+  "example": "/freebuf/feed",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

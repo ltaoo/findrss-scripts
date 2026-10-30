@@ -50,8 +50,8 @@ export class NarouHotRank extends HotRankScript {
 
 const script = new NarouHotRank();
 export const route = {
-  name: "小説家になろう · 小说积分榜", path: "/narou/top/:period?", url: "syosetu.com",
-  maintainers: ["findrss"], example: "/narou/top/daily", parameters: { period: "daily（默认）、weekly、monthly、quarter、yearly、total" },
+  name: "小説家になろう · 小说积分榜", path: "/narou/novelapi/api/:period?", url: "syosetu.com",
+  maintainers: ["findrss"], example: "/narou/novelapi/api/daily", parameters: { period: "daily（默认）、weekly、monthly、quarter、yearly、total" },
   description: "官方小说 API 按对应周期积分降序返回前 30 部作品，非历史排名 API；保留积分与顺序，接口没有排名字段，rank 为 null。",
   handler: ctx => script.run(ctx),
 };

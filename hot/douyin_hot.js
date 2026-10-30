@@ -154,10 +154,10 @@ export class DouyinHotRank extends HotRankScript {
 const script = new DouyinHotRank();
 export const route = {
   name: "抖音",
-  path: "/douyin/hot",
+  path: "/douyin/aweme/v1/web/hot/search/list",
   url: "www.douyin.com",
   maintainers: ["findrss"],
-  example: "/douyin/hot",
+  example: "/douyin/aweme/v1/web/hot/search/list",
   parameters: {},
   description:
     "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",

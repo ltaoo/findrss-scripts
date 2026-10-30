@@ -20,7 +20,7 @@ test("平台示例可编译，静态正文去噪、GitHub 发布窗口真实提�
   await assert.rejects(execute_script(script, compiled.metadata, null, context), /缺少检测区域/);
   const github = read_script("detect/github_releases.js"), metadata = (await compile_script_module(github)).metadata;
   globalThis.fetch = async () => new Response('<feed xmlns="http://www.w3.org/2005/Atom"><entry><id>tag:release/1</id><title>v1</title><link href="https://github.com/a/b/releases/tag/v1"/><content>&lt;pre&gt;line 1\n  line 2&lt;/pre&gt;</content></entry></feed>');
-  const release = JSON.parse((await execute_script(github, metadata, null, { method: "GET", pathname: "/github/a/b/releases/detect", params: { owner: "a", repo: "b" }, query: {} })).output);
+  const release = JSON.parse((await execute_script(github, metadata, null, { method: "GET", pathname: "/github/a/b/releases.atom", params: { owner: "a", repo: "b" }, query: {} })).output);
   assert.equal(release.snapshot.releases.coverage, "window"); assert.equal(release.snapshot.releases.items[0].id, "tag:release/1");
   assert.match(release.snapshot.releases.items[0].data.content, /\n  line 2/);
 });

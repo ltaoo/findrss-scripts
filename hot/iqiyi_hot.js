@@ -102,10 +102,10 @@ export class IqiyiHotRank extends HotRankScript {
 const script = new IqiyiHotRank();
 export const route = {
   "name": "爱奇艺 · 热播榜",
-  "path": "/iqiyi/hot",
+  "path": "/iqiyi/portal/lw/v7/channel/card/videoTab",
   "url": "www.iqiyi.com",
   "maintainers": ["findrss"],
-  "example": "/iqiyi/hot",
+  "example": "/iqiyi/portal/lw/v7/channel/card/videoTab",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

@@ -110,9 +110,11 @@ test("上游失败保留 HTTP 业务码、堆栈、失败前日志和上游状�
   const traces = JSON.parse(section(html, "upstream-requests"));
   assert.deepEqual(traces.map(trace => trace.host), ["news.ycombinator.com", "hnrss.org"]);
   assert.ok(traces.every(trace => trace.status === 403));
-  response = await request("/api/hot/hackernews");
-  assert.match(response.headers.get("Content-Type"), /application\/json/);
-  assert.equal((await response.json()).code, "UPSTREAM_ACCESS_DENIED");
+  for (const path of ["/api/hot/hackernews", "/hot/hackernews"]) {
+    response = await request(path);
+    assert.match(response.headers.get("Content-Type"), /application\/json/, path);
+    assert.equal((await response.json()).code, "UPSTREAM_ACCESS_DENIED", path);
+  }
 });
 
 test("Cookie、浏览器能力、参数和网络失败均展示对应阶段与诊断信息", async t => {
@@ -121,7 +123,7 @@ test("Cookie、浏览器能力、参数和网络失败均展示对应阶段与�
   globalThis.fetch = async () => { throw new Error("network offline"); };
   for (const [path, code, status] of [
     ["/debug/instagram/katarinabluu", "COOKIE_REQUIRED", 503],
-    ["/debug/github/example/repo/readme", "SOURCE_UNAVAILABLE", 503],
+    ["/debug/github/example/repo", "SOURCE_UNAVAILABLE", 503],
     ["/debug/fanqienovel/chapter/bad", "INVALID_PARAMETER", 400],
     ["/debug/github/example/repo/release", "UPSTREAM_FETCH_FAILED", 502],
   ]) {
@@ -142,7 +144,7 @@ test("Detect、正文及图片路由同样展示原始输出，Debug 图片描�
     assert.equal(url, "https://fanqienovel.com/reader/9007199254740993?enter_from=page");
     return new Response('<h1 class="muye-reader-title">标题</h1><div class="muye-reader-content"><p>正文</p></div>');
   };
-  for (const path of ["/debug/github/example/repo/releases/detect", "/debug/fanqienovel/chapter/9007199254740993"]) {
+  for (const path of ["/debug/github/example/repo/releases.atom", "/debug/fanqienovel/chapter/9007199254740993"]) {
     const response = await request(path);
     assert.equal(response.status, 200);
     assert.ok(JSON.parse(section(await response.text(), "output")));

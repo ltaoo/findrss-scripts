@@ -31,8 +31,8 @@ export class QiitaHotRank extends HotRankScript {
 
 const script = new QiitaHotRank();
 export const route = {
-  name: "Qiita · 热门文章", path: "/qiita/hot", url: "qiita.com",
-  maintainers: ["findrss"], example: "/qiita/hot", parameters: {},
+  name: "Qiita · 热门文章", path: "/qiita/popular-items/feed", url: "qiita.com",
+  maintainers: ["findrss"], example: "/qiita/popular-items/feed", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

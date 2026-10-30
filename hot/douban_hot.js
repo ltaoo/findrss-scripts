@@ -139,10 +139,10 @@ export class DoubanHotRank extends HotRankScript {
 const script = new DoubanHotRank();
 export const route = {
   name: "豆瓣 · 热门电影",
-  path: "/douban/hot",
+  path: "/douban/rexxar/api/v2/subject/recent_hot/movie",
   url: "www.douban.com",
   maintainers: ["findrss"],
-  example: "/douban/hot",
+  example: "/douban/rexxar/api/v2/subject/recent_hot/movie",
   parameters: {},
   description:
     "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",

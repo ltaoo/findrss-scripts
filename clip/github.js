@@ -45,8 +45,8 @@ class GitHubReadmeClip extends ClipScript {
 }
 const script = new GitHubReadmeClip();
 export const route = {
-  path: "/github/:owner/:repo/readme", name: "GitHub README 剪藏",
-  example: "/github/ltaoo/findrss-worker/readme", parameters: { owner: "所有者", repo: "仓库名" },
+  path: "/github/:owner/:repo", name: "GitHub README 剪藏",
+  example: "/github/ltaoo/findrss-worker", parameters: { owner: "所有者", repo: "仓库名" },
   description: "保存仓库首页 README，包含正文样式和可读取的图片。",
   handler: ctx => script.run(ctx),
 };

@@ -102,10 +102,10 @@ export class DongqiudiHotRank extends HotRankScript {
 const script = new DongqiudiHotRank();
 export const route = {
   "name": "懂球帝 · 头条",
-  "path": "/dongqiudi",
+  "path": "/dongqiudi/app/tabs/web/1.json",
   "url": "www.dongqiudi.com",
   "maintainers": ["findrss"],
-  "example": "/dongqiudi",
+  "example": "/dongqiudi/app/tabs/web/1.json",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

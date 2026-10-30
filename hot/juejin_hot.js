@@ -102,10 +102,10 @@ export class JuejinHotRank extends HotRankScript {
 const script = new JuejinHotRank();
 export const route = {
   "name": "稀土掘金",
-  "path": "/juejin/hot",
+  "path": "/juejin/content_api/v1/content/article_rank",
   "url": "juejin.cn",
   "maintainers": ["findrss"],
-  "example": "/juejin/hot",
+  "example": "/juejin/content_api/v1/content/article_rank",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

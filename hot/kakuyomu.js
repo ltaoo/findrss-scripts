@@ -48,8 +48,8 @@ export class KakuyomuHotRank extends HotRankScript {
 
 const script = new KakuyomuHotRank();
 export const route = {
-  name: "カクヨム · 小说排行榜", path: "/kakuyomu/rank/:period?/:genre?", url: "kakuyomu.jp",
-  maintainers: ["findrss"], example: "/kakuyomu/rank/daily/all",
+  name: "カクヨム · 小说排行榜", path: "/kakuyomu/rankings/:genre?/:period?", url: "kakuyomu.jp",
+  maintainers: ["findrss"], example: "/kakuyomu/rankings/all/daily",
   parameters: { period: "daily（默认）、weekly、monthly、yearly、entire", genre: "all（默认）、fantasy、action、sf、love_story、romance、drama、horror、mystery、nonfiction、history、criticism、others", length: "查询参数：long 长篇（默认）、short 短篇、all 全部" },
   description: "读取官网第一页榜单，保留作品大整数 ID、明确排名及总星标数；星标不是榜单计算得分。",
   handler: ctx => script.run(ctx),

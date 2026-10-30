@@ -85,10 +85,10 @@ export class QimaoHotRank extends HotRankScript {
 const script = new QimaoHotRank();
 export const route = {
   name: "七猫小说排行榜",
-  path: "/qimao/rank/:gender?/:type?/:period?",
+  path: "/qimao/paihang/:gender?/:type?/:period?",
   url: "www.qimao.com",
   maintainers: ["findrss"],
-  example: "/qimao/rank/boy/hot",
+  example: "/qimao/paihang/boy/hot",
   parameters: { gender: "boy（男频，默认）、girl（女频）", type: "hot 大热榜（默认）、new 新书榜、over 完结榜、collect 收藏榜、update 更新榜", period: "date（默认）、month；大热/新书/完结支持日榜和月榜，收藏按总收藏数、更新按近 30 天更新字数排行，仅支持 date" },
   description: "覆盖官网男女频全部 5 类榜单及可用周期，读取第一页并返回封面；保留上游排名与热度，未提供的数据为 null。需授权七猫访问验证 Cookie；遇到验证页请手动完成官网验证后同步 Cookie。",
   handler: ctx => script.run(ctx),

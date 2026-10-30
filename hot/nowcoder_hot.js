@@ -103,10 +103,10 @@ export class NowcoderHotRank extends HotRankScript {
 const script = new NowcoderHotRank();
 export const route = {
   "name": "牛客",
-  "path": "/nowcoder/hot",
+  "path": "/nowcoder/api/sparta/hot-search/top-hot-pc",
   "url": "www.nowcoder.com",
   "maintainers": ["findrss"],
-  "example": "/nowcoder/hot",
+  "example": "/nowcoder/api/sparta/hot-search/top-hot-pc",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

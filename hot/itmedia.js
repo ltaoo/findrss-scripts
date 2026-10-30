@@ -31,8 +31,8 @@ export class ItmediaHotRank extends HotRankScript {
 
 const script = new ItmediaHotRank();
 export const route = {
-  name: "ITmedia NEWS · 最新资讯", path: "/itmedia/headlines", url: "www.itmedia.co.jp",
-  maintainers: ["findrss"], example: "/itmedia/headlines", parameters: {},
+  name: "ITmedia NEWS · 最新资讯", path: "/itmedia/rss/2.0/news_bursts.xml", url: "www.itmedia.co.jp",
+  maintainers: ["findrss"], example: "/itmedia/rss/2.0/news_bursts.xml", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

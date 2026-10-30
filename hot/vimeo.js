@@ -31,8 +31,8 @@ export class VimeoHotRank extends HotRankScript {
 
 const script = new VimeoHotRank();
 export const route = {
-  name: "Vimeo · Staff Picks 精选", path: "/vimeo/staff-picks", url: "vimeo.com",
-  maintainers: ["findrss"], example: "/vimeo/staff-picks", parameters: {},
+  name: "Vimeo · Staff Picks 精选", path: "/vimeo/channels/staffpicks/videos/rss", url: "vimeo.com",
+  maintainers: ["findrss"], example: "/vimeo/channels/staffpicks/videos/rss", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

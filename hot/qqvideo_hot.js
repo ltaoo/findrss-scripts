@@ -154,10 +154,10 @@ export class QqvideoHotRank extends HotRankScript {
 const script = new QqvideoHotRank();
 export const route = {
   "name": "腾讯视频 · 热搜榜",
-  "path": "/qqvideo/hot",
+  "path": "/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
   "url": "v.qq.com",
   "maintainers": ["findrss"],
-  "example": "/qqvideo/hot",
+  "example": "/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

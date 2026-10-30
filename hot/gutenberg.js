@@ -46,8 +46,8 @@ export class GutenbergHotRank extends HotRankScript {
 
 const script = new GutenbergHotRank();
 export const route = {
-  name: "Project Gutenberg · 热门图书", path: "/gutenberg/top/:period?", url: "www.gutenberg.org",
-  maintainers: ["findrss"], example: "/gutenberg/top/day", parameters: { period: "day 昨日（默认）、week 近 7 天、month 近 30 天" },
+  name: "Project Gutenberg · 热门图书", path: "/gutenberg/browse/scores/top/:period?", url: "www.gutenberg.org",
+  maintainers: ["findrss"], example: "/gutenberg/browse/scores/top/day", parameters: { period: "day 昨日（默认）、week 近 7 天、month 近 30 天" },
   description: "官方 Top 100 EBooks，涵盖英语经典小说及其他公版图书；仅选指定周期图书列表，排除作者榜。保留下载数和顺序，无显式数字排名字段，rank 为 null。",
   handler: ctx => script.run(ctx),
 };

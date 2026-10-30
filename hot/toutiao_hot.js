@@ -102,10 +102,10 @@ export class ToutiaoHotRank extends HotRankScript {
 const script = new ToutiaoHotRank();
 export const route = {
   "name": "今日头条",
-  "path": "/toutiao/hot",
+  "path": "/toutiao/hot-event/hot-board",
   "url": "www.toutiao.com",
   "maintainers": ["findrss"],
-  "example": "/toutiao/hot",
+  "example": "/toutiao/hot-event/hot-board",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

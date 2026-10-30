@@ -98,10 +98,10 @@ export class SolidotHotRank extends HotRankScript {
 const script = new SolidotHotRank();
 export const route = {
   "name": "Solidot",
-  "path": "/solidot",
+  "path": "/solidot/index.rss",
   "url": "solidot.org",
   "maintainers": ["findrss"],
-  "example": "/solidot",
+  "example": "/solidot/index.rss",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

@@ -196,10 +196,10 @@ export class KuanHotRank extends HotRankScript {
 const script = new KuanHotRank();
 export const route = {
   "name": "酷安 · 今日最热",
-  "path": "/kuan",
+  "path": "/kuan/v6/page/dataList",
   "url": "coolapk.com",
   "maintainers": ["findrss"],
-  "example": "/kuan",
+  "example": "/kuan/v6/page/dataList",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

@@ -31,8 +31,8 @@ export class ThevergeHotRank extends HotRankScript {
 
 const script = new ThevergeHotRank();
 export const route = {
-  name: "The Verge · 最新资讯", path: "/theverge/headlines", url: "www.theverge.com",
-  maintainers: ["findrss"], example: "/theverge/headlines", parameters: {},
+  name: "The Verge · 最新资讯", path: "/theverge/rss/index.xml", url: "www.theverge.com",
+  maintainers: ["findrss"], example: "/theverge/rss/index.xml", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

@@ -100,10 +100,10 @@ export class SteamHotRank extends HotRankScript {
 const script = new SteamHotRank();
 export const route = {
   "name": "Steam · 在线人数",
-  "path": "/steam",
+  "path": "/steam/stats/stats",
   "url": "store.steampowered.com",
   "maintainers": ["findrss"],
-  "example": "/steam",
+  "example": "/steam/stats/stats",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

@@ -98,10 +98,10 @@ export class PcbetaWindows11HotRank extends HotRankScript {
 const script = new PcbetaWindows11HotRank();
 export const route = {
   "name": "远景论坛 · Win11",
-  "path": "/pcbeta/windows11",
+  "path": "/pcbeta/forum.php",
   "url": "bbs.pcbeta.com",
   "maintainers": ["findrss"],
-  "example": "/pcbeta/windows11",
+  "example": "/pcbeta/forum.php",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

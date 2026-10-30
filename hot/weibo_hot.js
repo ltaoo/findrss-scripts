@@ -109,10 +109,10 @@ export class WeiboHotRank extends HotRankScript {
 const script = new WeiboHotRank();
 export const route = {
   "name": "微博 · 实时热搜",
-  "path": "/weibo/hot",
+  "path": "/weibo/top/summary",
   "url": "weibo.com",
   "maintainers": ["findrss"],
-  "example": "/weibo/hot",
+  "example": "/weibo/top/summary",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

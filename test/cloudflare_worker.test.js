@@ -2,8 +2,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 import worker from "../worker/index.js";
+import scripts from "../dist/scripts.js";
 import { script_names } from "./support/script_sources.js";
 import { check_route } from "../scripts/route_checks.js";
+import { api_route_cases, route_cases } from "../worker/catalog.js";
 import { ERRORS } from "../worker/errors.js";
 
 const origin = "https://scripts.example";
@@ -14,8 +16,9 @@ test("构建目录覆盖所有脚本和全部路由，包含 RSS/Atom、正文�
   const response = await request("/api/routes");
   const cases = await response.json();
   assert.deepEqual([...new Set(cases.map(entry => entry.file))].sort(), ["hot", "rss", "clip", "detect"].flatMap(kind => script_names(kind).map(name => kind + "/" + name)).sort());
-  assert.deepEqual(cases, JSON.parse(await readFile(new URL("../dist/routes.json", import.meta.url), "utf8")));
-  assert.deepEqual([...new Set(cases.map(entry => entry.format))].sort(), ["atom", "clip", "detect", "hot", "html", "image", "rss"]);
+  assert.deepEqual(cases, route_cases(scripts));
+  assert.deepEqual(JSON.parse(await readFile(new URL("../dist/routes.json", import.meta.url), "utf8")), api_route_cases(scripts));
+  assert.deepEqual([...new Set(cases.map(entry => entry.format))].sort(), ["atom", "clip", "detect", "hot", "html", "image", "rss", "rss_json"]);
   assert.equal((await request("/rss/missing")).status, 404);
   assert.equal((await request("/rss/hackernews")).status, 404);
   assert.equal((await worker.fetch(new Request(origin, { method: "POST" }), {})).status, 405);

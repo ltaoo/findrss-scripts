@@ -100,10 +100,10 @@ export class HupuHotRank extends HotRankScript {
 const script = new HupuHotRank();
 export const route = {
   "name": "虎扑 · 主干道热帖",
-  "path": "/hupu/hot",
+  "path": "/hupu/topic-daily-hot",
   "url": "hupu.com",
   "maintainers": ["findrss"],
-  "example": "/hupu/hot",
+  "example": "/hupu/topic-daily-hot",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

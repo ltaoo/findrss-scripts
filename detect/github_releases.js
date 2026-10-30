@@ -36,8 +36,8 @@ class GitHubReleasesDetect extends DetectScript {
 }
 const script = new GitHubReleasesDetect();
 export const route = {
-  path: "/github/:owner/:repo/releases/detect", name: "GitHub Releases 内容检测",
-  example: "/github/ltaoo/findrss-worker/releases/detect", parameters: { owner: "所有者", repo: "仓库名" },
+  path: "/github/:owner/:repo/releases.atom", name: "GitHub Releases 内容检测",
+  example: "/github/ltaoo/findrss-worker/releases.atom", parameters: { owner: "所有者", repo: "仓库名" },
   description: "比较 Releases Atom 窗口中的发布标题和说明；窗口移出不代表上游删除。",
   handler: ctx => script.run(ctx),
 };

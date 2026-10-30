@@ -31,8 +31,8 @@ export class NprHotRank extends HotRankScript {
 
 const script = new NprHotRank();
 export const route = {
-  name: "NPR · Top Stories", path: "/npr/headlines", url: "www.npr.org",
-  maintainers: ["findrss"], example: "/npr/headlines", parameters: {},
+  name: "NPR · Top Stories", path: "/npr/1001/rss.xml", url: "www.npr.org",
+  maintainers: ["findrss"], example: "/npr/1001/rss.xml", parameters: {},
   description: "官方 RSS/Atom 内容列表，保留上游选择和顺序。新闻及精选列表不冒充热度排名，未知排名与热度均为 null。",
   handler: ctx => script.run(ctx),
 };

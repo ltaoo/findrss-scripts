@@ -31,8 +31,8 @@ export class TechmemeHotRank extends HotRankScript {
 
 const script = new TechmemeHotRank();
 export const route = {
-  name: "Techmeme · 科技头条", path: "/techmeme/hot", url: "www.techmeme.com",
-  maintainers: ["findrss"], example: "/techmeme/hot", parameters: {},
+  name: "Techmeme · 科技头条", path: "/techmeme/feed.xml", url: "www.techmeme.com",
+  maintainers: ["findrss"], example: "/techmeme/feed.xml", parameters: {},
   description: "读取官方 Top news RSS，保留上游顺序；排名与热度未知时为 null。",
   handler: ctx => script.run(ctx),
 };

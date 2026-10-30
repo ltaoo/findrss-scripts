@@ -8,7 +8,7 @@ const { compile_script_module, execute_script } = await import("findrss-worker/s
 const source = read_script("hot/36kr.js");
 const compiled = await compile_script_module(source);
 assert.equal(compiled.error, "");
-const metadata = { ...compiled.metadata, ...compiled.metadata.routes.find(route => route.path === "/36kr/renqi") };
+const metadata = { ...compiled.metadata, ...compiled.metadata.routes.find(route => route.path === "/36kr/hot-list/renqi") };
 // 从 2026-10-29 hot_list_renqi.html 提取榜单字段，省略页面脚本及无关内容。
 const fixture = await readFile(new URL("./fixtures/36kr_renqi.html", import.meta.url), "utf8");
 const page = rows => '<script>window.initialState = ' + JSON.stringify({ hotListDetail: { articleList: { itemList: rows } } }) + ';</script>';

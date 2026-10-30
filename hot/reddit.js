@@ -39,6 +39,6 @@ export class RedditHotRank extends HotRankScript {
   }
 }
 const script = new RedditHotRank();
-export const route = { name: "Reddit · 社区热门", path: "/reddit/:subreddit?/:sort?", url: "www.reddit.com",
-  maintainers: ["findrss"], example: "/reddit/popular/hot", parameters: { subreddit: "popular（默认）、news、worldnews 等版块", sort: "hot（默认）、top、rising", period: "查询参数，仅 top 使用：day（默认）、week、month、year、all" },
+export const route = { name: "Reddit · 社区热门", path: "/reddit/r/:subreddit?/:sort?", url: "www.reddit.com",
+  maintainers: ["findrss"], example: "/reddit/r/popular/hot", parameters: { subreddit: "popular（默认）、news、worldnews 等版块", sort: "hot（默认）、top、rising", period: "查询参数，仅 top 使用：day（默认）、week、month、year、all" },
   description: "公开 Listing JSON，服务端 IP 可能被 Reddit 拒绝，未提供 OAuth 流程；只在允许访问的环境使用，403 会报错而不输出空榜单。", handler: ctx => script.run(ctx) };

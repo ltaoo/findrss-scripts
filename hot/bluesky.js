@@ -29,6 +29,6 @@ export class BlueskyHotRank extends HotRankScript {
   }
 }
 const script = new BlueskyHotRank();
-export const route = { name: "Bluesky · 趋势话题", path: "/bluesky/trending", url: "bsky.app",
-  maintainers: ["findrss"], example: "/bluesky/trending", parameters: {},
+export const route = { name: "Bluesky · 趋势话题", path: "/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics", url: "bsky.app",
+  maintainers: ["findrss"], example: "/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics", parameters: {},
   description: "官方 AppView 公开 getTrendingTopics；只展示 topics，不混入 suggested。接口属于 unspecced，结构可能变化；不补造排名或热度。", handler: ctx => script.run(ctx) };

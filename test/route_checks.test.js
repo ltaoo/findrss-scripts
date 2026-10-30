@@ -101,11 +101,11 @@ test("多个样本仅查询参数不同时正文分别保存，不覆盖或暴�
   }
 });
 
-test("仓库配置为公众号、视频号的 RSS 和 Atom 路由提供指定账号", async () => {
+test("仓库配置为公众号、视频号的 /api/rss 路由提供指定账号", async () => {
   const config = JSON.parse(await readFile(new URL("../.github/route-checks.json", import.meta.url), "utf8"));
   const cases = JSON.parse(await readFile(new URL("../dist/routes.json", import.meta.url), "utf8"));
   const configured = cases.filter(entry => Object.hasOwn(config, entry.format + " " + entry.path));
-  assert.equal(configured.length, 4);
+  assert.equal(configured.length, 2);
   assert.deepEqual(new Set(configured.map(entry => entry.file)), new Set(["rss/wxmp.js", "rss/wxchannels.js"]));
   const requested = [];
   const report = await check_routes("https://scripts.example", configured, config, {
@@ -114,9 +114,9 @@ test("仓库配置为公众号、视频号的 RSS 和 Atom 路由提供指定账
   const accounts = ["wow36kr", "zhihuribao",
     "v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder",
     "v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder"];
-  assert.deepEqual(requested.sort(), ["rss", "atom"].flatMap(format => accounts.map((account, index) =>
-    `/${format}/${index < 2 ? "wxmp" : "wxchannels"}/${account}`)).sort());
-  assert.deepEqual([report.total, report.failed], [4, 4]);
+  assert.deepEqual(requested.sort(), accounts.map((account, index) =>
+    `/api/rss/${index < 2 ? "wxmp" : "wxchannels"}/${account}`).sort());
+  assert.deepEqual([report.total, report.failed], [2, 2]);
   assert.ok(report.results.every(result => result.samples.length === 2));
 });
 

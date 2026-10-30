@@ -13,7 +13,7 @@ test("Clip 基类、分类推断、导出版本与参数、共享采集和错误
     assert.equal(ScriptModel.fromRow({ script }).kind, "clip");
   }
   const script = read_script("clip/github.js"), compiled = await compile_script_module(script);
-  const context = { method: "GET", pathname: "/github/owner/repo/readme", params: { owner: "owner", repo: "repo" }, query: {} };
+  const context = { method: "GET", pathname: "/github/owner/repo", params: { owner: "owner", repo: "repo" }, query: {} };
   const output = await execute_script(script, compiled.metadata, null, context, [], `({ clip: { capture(url, options) {
     if (url !== 'https://github.com/owner/repo' || options.selector !== 'article.markdown-body') throw new Error('参数丢失');
     return { html: '<article style="color:red">README</article>', stats: { width: 1280 } };
@@ -24,7 +24,7 @@ test("Clip 基类、分类推断、导出版本与参数、共享采集和错误
   await assert.rejects(execute_script(script, compiled.metadata, null, context, [],
     `({ clip: { capture() { return Result.Err('上游失败', 'UPSTREAM_TIMEOUT'); } } })`), /上游失败/);
   await assert.rejects(execute_script(script, compiled.metadata, null, { ...context, params: { owner: "../evil", repo: "repo" } }), /无效的 GitHub/);
-  const selected = ScriptDebugRequestModel({ request_url: "/api/clip/github/owner/repo/readme" }).resolve(compiled.metadata.routes);
+  const selected = ScriptDebugRequestModel({ request_url: "/api/clip/github/owner/repo" }).resolve(compiled.metadata.routes);
   assert.equal(selected.ok, true); assert.deepEqual({ ...selected.context.params }, context.params);
 });
 

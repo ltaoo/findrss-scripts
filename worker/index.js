@@ -59,6 +59,7 @@ export default {
     if (url.pathname === "/health") return Response.json({ ok: true, scripts: scripts.length, routes: cases.length }, { headers });
     if (["/", "/api/routes"].includes(url.pathname)) return Response.json(cases, { headers });
     stage = "route";
+    // /debug 之后可以跟脚本声明路径，也可以跟 /rss、/api/hot 等任一命名空间。
     const pathname = debugging ? url.pathname.slice("/debug".length) : url.pathname;
     entry = debugging ? debug_routes.find(route => route.pattern.match(url.pathname)) : null;
     entry ||= routes.find(route => route.pattern.match(pathname));

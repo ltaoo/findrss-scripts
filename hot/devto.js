@@ -44,8 +44,8 @@ export class DevtoHotRank extends HotRankScript {
 
 const script = new DevtoHotRank();
 export const route = {
-  name: "DEV Community · 热门文章", path: "/devto/top/:period?", url: "dev.to",
-  maintainers: ["findrss"], example: "/devto/top/week", parameters: { period: "day、week（默认）、month、year" },
+  name: "DEV Community · 热门文章", path: "/devto/api/articles/:period?", url: "dev.to",
+  maintainers: ["findrss"], example: "/devto/api/articles/week", parameters: { period: "day、week（默认）、month、year" },
   description: "官方 Forem API，读取按受欢迎程度排序的前 30 篇文章；热度为 public_reactions_count，排名为 null。",
   handler: ctx => script.run(ctx),
 };

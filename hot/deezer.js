@@ -34,6 +34,6 @@ export class DeezerHotRank extends HotRankScript {
   }
 }
 const script = new DeezerHotRank();
-export const route = { name: "Deezer · 热门歌曲", path: "/deezer/chart", url: "www.deezer.com",
-  maintainers: ["findrss"], example: "/deezer/chart", parameters: {},
+export const route = { name: "Deezer · 热门歌曲", path: "/deezer/chart/0/tracks", url: "www.deezer.com",
+  maintainers: ["findrss"], example: "/deezer/chart/0/tracks", parameters: {},
   description: "官方歌曲榜前 30 条：position 为名次，rank 是流行度评分，不是播放量或名次。", handler: ctx => script.run(ctx) };

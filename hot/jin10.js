@@ -105,10 +105,10 @@ export class Jin10HotRank extends HotRankScript {
 const script = new Jin10HotRank();
 export const route = {
   "name": "金十数据",
-  "path": "/jin10",
+  "path": "/jin10/flash_newest.js",
   "url": "www.jin10.com",
   "maintainers": ["findrss"],
-  "example": "/jin10",
+  "example": "/jin10/flash_newest.js",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

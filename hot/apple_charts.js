@@ -39,6 +39,6 @@ export class AppleChartsHotRank extends HotRankScript {
   }
 }
 const script = new AppleChartsHotRank();
-export const route = { name: "Apple · 播客/音乐榜", path: "/apple-charts/:country?/:type?", url: "rss.marketingtools.apple.com",
-  maintainers: ["findrss"], example: "/apple-charts/us/podcasts", parameters: { country: "us（默认）、jp、gb 等地区代码", type: "podcasts（默认）、songs、albums" },
+export const route = { name: "Apple · 播客/音乐榜", path: "/apple-charts/api/v2/:country?/:type?", url: "rss.marketingtools.apple.com",
+  maintainers: ["findrss"], example: "/apple-charts/api/v2/us/podcasts", parameters: { country: "us（默认）、jp、gb 等地区代码", type: "podcasts（默认）、songs、albums" },
   description: "官方 Marketing Tools Top/Most Played JSON 前 50 条；无显式排名和播放量字段，保留上游顺序，rank 和热度为 null。", handler: ctx => script.run(ctx) };

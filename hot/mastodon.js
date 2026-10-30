@@ -49,8 +49,8 @@ export class MastodonHotRank extends HotRankScript {
 
 const script = new MastodonHotRank();
 export const route = {
-  name: "Mastodon · 社媒趋势", path: "/mastodon/trending/:type?", url: "mastodon.social",
-  maintainers: ["findrss"], example: "/mastodon/trending/links", parameters: { type: "links 热门链接（默认）、tags 话题、statuses 动态" },
+  name: "Mastodon · 社媒趋势", path: "/mastodon/api/v1/trends/:type?", url: "mastodon.social",
+  maintainers: ["findrss"], example: "/mastodon/api/v1/trends/links", parameters: { type: "links 热门链接（默认）、tags 话题、statuses 动态" },
   description: "固定读取 mastodon.social 公开趋势，范围为该实例可见及审核的内容，并非全网排名；保留顺序，rank 为 null。链接/话题热度为 history 首日 uses，动态为点赞数。",
   handler: ctx => script.run(ctx),
 };

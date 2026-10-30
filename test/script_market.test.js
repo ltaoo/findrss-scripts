@@ -237,7 +237,7 @@ test("动态字段解析路径、可选参数、查询参数、RSS/Atom 前缀�
   const entries = route_request_models([{ file: "rss/example.js", metadata: { kind: "rss", routes: [
     { path: "/example/:id", example: "/example/42?token=secret&q=hello", parameters: { token: "凭据", q: "关键词" } },
   ] } }]);
-  assert.deepEqual(entries.map(entry => entry.path), ["/rss/example/:id", "/atom/example/:id"]);
+  assert.deepEqual(entries.map(entry => entry.path), ["/rss/example/:id", "/atom/example/:id", "/api/rss/example/:id"]);
   assert.ok(entries.every(entry => entry.fields.every(field => field.name !== "token")));
   assert.equal(route_request_model("bad", "</script>"), null);
 });

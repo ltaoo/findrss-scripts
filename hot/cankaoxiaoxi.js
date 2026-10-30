@@ -100,10 +100,10 @@ export class CankaoxiaoxiHotRank extends HotRankScript {
 const script = new CankaoxiaoxiHotRank();
 export const route = {
   "name": "参考消息",
-  "path": "/cankaoxiaoxi",
+  "path": "/cankaoxiaoxi/json/channel",
   "url": "china.cankaoxiaoxi.com",
   "maintainers": ["findrss"],
-  "example": "/cankaoxiaoxi",
+  "example": "/cankaoxiaoxi/json/channel",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

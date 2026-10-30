@@ -48,8 +48,8 @@ export class TiktokHotRank extends HotRankScript {
 
 const script = new TiktokHotRank();
 export const route = {
-  name: "TikTok · 热门话题", path: "/tiktok/hot/:country?/:days?", url: "www.tiktok.com",
-  maintainers: ["findrss"], example: "/tiktok/hot/US/7", parameters: { country: "US（默认）、JP、GB 等官方支持地区", days: "1、7（默认）、30、120" },
+  name: "TikTok · 热门话题", path: "/tiktok/open_api/v1.3/discovery/trending_list/:country?/:days?", url: "www.tiktok.com",
+  maintainers: ["findrss"], example: "/tiktok/open_api/v1.3/discovery/trending_list/US/7", parameters: { country: "US（默认）、JP、GB 等官方支持地区", days: "1、7（默认）、30、120" },
   description: "官方 TikTok Business Discovery 热门话题榜，需广告账户和获批的 Discovery API 令牌；保留 rank_position 与周期内投稿数，未知为 null。非个性化 For You 推荐流。",
   handler: ctx => script.run(ctx),
 };

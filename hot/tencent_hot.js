@@ -102,10 +102,10 @@ export class TencentHotRank extends HotRankScript {
 const script = new TencentHotRank();
 export const route = {
   "name": "腾讯新闻 · 综合早报",
-  "path": "/tencent/hot",
+  "path": "/tencent/web_backend/v2/getTagInfo",
   "url": "news.qq.com",
   "maintainers": ["findrss"],
-  "example": "/tencent/hot",
+  "example": "/tencent/web_backend/v2/getTagInfo",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

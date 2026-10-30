@@ -1,4 +1,4 @@
-import { route_cases } from "../worker/catalog.js";
+import { display_route_cases } from "../worker/catalog.js";
 import { RssRoutePatternModel } from "../.runtime/findrss-worker/server/domain/rss_route.js";
 
 export function route_request_model(file, path, route = {}) {
@@ -27,6 +27,6 @@ export function route_request_model(file, path, route = {}) {
 export function route_request_models(catalog) {
   const scripts = catalog.filter(script => Array.isArray(script.metadata?.routes));
   const metadata = new Map(scripts.map(script => [script.file, script.metadata]));
-  return route_cases(scripts).map(entry => route_request_model(entry.file, entry.path,
+  return display_route_cases(scripts).map(entry => route_request_model(entry.file, entry.path,
     { ...metadata.get(entry.file).routes[entry.route_index], example: entry.example })).filter(Boolean);
 }

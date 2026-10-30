@@ -35,6 +35,6 @@ export class DailymotionHotRank extends HotRankScript {
   }
 }
 const script = new DailymotionHotRank();
-export const route = { name: "Dailymotion · 热门视频", path: "/dailymotion/hot/:country?", url: "www.dailymotion.com",
-  maintainers: ["findrss"], example: "/dailymotion/hot/us", parameters: { country: "us（默认）、jp、gb 等地区代码" },
+export const route = { name: "Dailymotion · 热门视频", path: "/dailymotion/videos/:country?", url: "www.dailymotion.com",
+  maintainers: ["findrss"], example: "/dailymotion/videos/us", parameters: { country: "us（默认）、jp、gb 等地区代码" },
   description: "官方 API trending 前 30 条，保留累计播放量及顺序，无显式排名，rank 为 null。", handler: ctx => script.run(ctx) };

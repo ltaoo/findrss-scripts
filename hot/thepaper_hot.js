@@ -102,10 +102,10 @@ export class ThepaperHotRank extends HotRankScript {
 const script = new ThepaperHotRank();
 export const route = {
   "name": "澎湃新闻 · 热榜",
-  "path": "/thepaper/hot",
+  "path": "/thepaper/contentapi/wwwIndex/rightSidebar",
   "url": "www.thepaper.cn",
   "maintainers": ["findrss"],
-  "example": "/thepaper/hot",
+  "example": "/thepaper/contentapi/wwwIndex/rightSidebar",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

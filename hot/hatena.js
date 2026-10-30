@@ -41,8 +41,8 @@ export class HatenaHotRank extends HotRankScript {
 
 const script = new HatenaHotRank();
 export const route = {
-  name: "Hatena · 热门书签", path: "/hatena/hot/:topic?", url: "b.hatena.ne.jp",
-  maintainers: ["findrss"], example: "/hatena/hot/all",
+  name: "Hatena · 热门书签", path: "/hatena/hotentry/:topic?", url: "b.hatena.ne.jp",
+  maintainers: ["findrss"], example: "/hatena/hotentry/all",
   parameters: { topic: "all（默认）、general、social、economics、life、knowledge、it、fun、entertainment、game" },
   description: "官方热门条目 RSS 1.0，热度为原始书签数；保留列表顺序，rank 为 null。",
   handler: ctx => script.run(ctx),

@@ -3,6 +3,8 @@ import test from "node:test";
 import { readFile } from "node:fs/promises";
 import { read_script } from "./support/script_sources.js";
 import { compile_script_module, execute_script } from "findrss-worker/server/infra/script_sandbox.js";
+import { api_route_cases } from "../worker/catalog.js";
+import { check_output, parse_response } from "../scripts/route_checks.js";
 
 const fixtures = JSON.parse(await readFile(new URL("./fixtures/script_migration.json", import.meta.url)));
 const scripts = [];
@@ -44,6 +46,9 @@ test("微信脚本原样请求完整接口地址，发送 Bearer、账号及分�
     const feed = JSON.parse(result.output);
     assert.ok(feed.items.length);
     if (script.file === "wxchannels") {
+      const [entry] = api_route_cases([script]);
+      assert.equal(entry.source_host, "channels.weixin.qq.com");
+      check_output(entry, parse_response(entry, "application/json", result.output));
       assert.ok(feed.items.find(item => item.type === "video").content.includes("https://player.example/video.html?"));
     }
   }

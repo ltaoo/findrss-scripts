@@ -32,6 +32,6 @@ export class ZennHotRank extends HotRankScript {
   }
 }
 const script = new ZennHotRank();
-export const route = { name: "Zenn · 趋势文章", path: "/zenn/trending", url: "zenn.dev",
-  maintainers: ["findrss"], example: "/zenn/trending", parameters: {},
+export const route = { name: "Zenn · 趋势文章", path: "/zenn/api/articles", url: "zenn.dev",
+  maintainers: ["findrss"], example: "/zenn/api/articles", parameters: {},
   description: "官网 API 趋势文章第一页，保留点赞数和原顺序，rank 为 null。", handler: ctx => script.run(ctx) };

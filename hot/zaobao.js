@@ -100,10 +100,10 @@ export class ZaobaoHotRank extends HotRankScript {
 const script = new ZaobaoHotRank();
 export const route = {
   "name": "联合早报",
-  "path": "/zaobao",
+  "path": "/zaobao/realtime",
   "url": "www.zaobao.com",
   "maintainers": ["findrss"],
-  "example": "/zaobao",
+  "example": "/zaobao/realtime",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),

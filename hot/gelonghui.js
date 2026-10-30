@@ -100,10 +100,10 @@ export class GelonghuiHotRank extends HotRankScript {
 const script = new GelonghuiHotRank();
 export const route = {
   "name": "格隆汇 · 事件",
-  "path": "/gelonghui",
+  "path": "/gelonghui/news",
   "url": "www.gelonghui.com",
   "maintainers": ["findrss"],
-  "example": "/gelonghui",
+  "example": "/gelonghui/news",
   "parameters": {},
   "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
   handler: ctx => script.run(ctx),
