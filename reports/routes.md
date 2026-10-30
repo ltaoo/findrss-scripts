@@ -1,8 +1,8 @@
-# 脚本路由巡检：53/138 通过
+# 脚本路由巡检：67/138 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-10-30T13:16:55.596Z
+巡检时间：2026-10-30T22:31:30.918Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -13,14 +13,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/clip/baidu/s/weather/:city? | ❌ 失败 | HTTP 503 |
-
-## clip/github.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-1.svg" alt="" width="24" height="24"> [clip/github.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/clip/github.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/clip/github/:owner/:repo | ❌ 失败 | HTTP 503 |
 
 ## clip/website.js（0/1 通过）
 
@@ -44,7 +36,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/detect/web/text/detect | ❌ 失败 | HTTP 503 |
+| /api/detect/web/text/detect | ❌ 失败 | The operation was aborted due to timeout |
 
 ## hot/36kr.js（0/2 通过）
 
@@ -52,7 +44,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/36kr/hot-list/renqi | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-10-30/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
+| /api/hot/36kr/hot-list/renqi | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-10-31/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/36kr/newsflashes | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
 ## hot/anilist.js（0/1 通过）
@@ -70,14 +62,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/apple-charts/api/v2/:country?/:type? | ❌ 失败 | 来源应为 rss.marketingtools.apple.com，实际为 podcasts.apple.com |
-
-## hot/baidu\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-10.svg" alt="" width="24" height="24"> [hot/baidu\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/baidu_hot.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/baidu/board | ❌ 失败 | HTTP 503 |
 
 ## hot/bilibili.js（0/3 通过）
 
@@ -97,31 +81,13 @@
 | --- | --- | --- |
 | /api/hot/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
-## hot/cls.js（2/3 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/cls/v1/roll/get\_roll\_list | ❌ 失败 | HTTP 503 |
-| /api/hot/cls/v2/article/hot/list | ✅ 成功 |  |
-| /api/hot/cls/v3/depth/home/assembled/1000 | ✅ 成功 |  |
-
-## hot/dongqiudi.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-19.svg" alt="" width="24" height="24"> [hot/dongqiudi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/dongqiudi.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/dongqiudi/app/tabs/web/1.json | ❌ 失败 | HTTP 503 |
-
 ## hot/fanqienovel.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-22.svg" alt="" width="24" height="24"> [hot/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/fanqienovel.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/fanqienovel/rank/:rank\_id? | ❌ 失败 | HTTP 503 |
+| /api/hot/fanqienovel/rank/:rank\_id? | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
 ## hot/freebuf.js（0/1 通过）
 
@@ -129,23 +95,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/freebuf/feed | ❌ 失败 | HTTP 503 |
-
-## hot/gelonghui.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-25.svg" alt="" width="24" height="24"> [hot/gelonghui.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/gelonghui.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/gelonghui/news | ❌ 失败 | HTTP 503 |
-
-## hot/github\_trending.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-26.svg" alt="" width="24" height="24"> [hot/github\_trending.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/github_trending.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/github/trending | ❌ 失败 | HTTP 503 |
+| /api/hot/freebuf/feed | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
 ## hot/google\_news.js（0/1 通过）
 
@@ -155,53 +105,13 @@
 | --- | --- | --- |
 | /api/hot/google-news/rss/:edition?/:topic? | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
-## hot/gutenberg.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-28.svg" alt="" width="24" height="24"> [hot/gutenberg.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/gutenberg.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/gutenberg/browse/scores/top/:period? | ❌ 失败 | HTTP 503 |
-
-## hot/hackernews.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-29.svg" alt="" width="24" height="24"> [hot/hackernews.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hackernews.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/hackernews | ❌ 失败 | HTTP 503 |
-
-## hot/hatena.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-30.svg" alt="" width="24" height="24"> [hot/hatena.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hatena.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/hatena/hotentry/:topic? | ❌ 失败 | HTTP 503 |
-
 ## hot/hupu\_hot.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-31.svg" alt="" width="24" height="24"> [hot/hupu\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hupu_hot.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/hupu/topic-daily-hot | ❌ 失败 | HTTP 503 |
-
-## hot/ithome.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-34.svg" alt="" width="24" height="24"> [hot/ithome.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/ithome.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/ithome/list | ❌ 失败 | HTTP 503 |
-
-## hot/kakuyomu.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-38.svg" alt="" width="24" height="24"> [hot/kakuyomu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kakuyomu.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/kakuyomu/rankings/:genre?/:period? | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/hot/hupu/topic-daily-hot | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
 ## hot/kaopu.js（0/1 通过）
 
@@ -209,71 +119,15 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/kaopu | ❌ 失败 | HTTP 503 |
+| /api/hot/kaopu | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
-## hot/kuaishou\_hot.js（0/1 通过）
+## hot/narou.js（0/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-40.svg" alt="" width="24" height="24"> [hot/kuaishou\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuaishou_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/kuaishou/hot | ❌ 失败 | HTTP 503 |
-
-## hot/kuan.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-41.svg" alt="" width="24" height="24"> [hot/kuan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuan.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-46.svg" alt="" width="24" height="24"> [hot/narou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/narou.js) · 版本：1.0.0
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/kuan/v6/page/dataList | ❌ 失败 | HTTP 503 |
-
-## hot/mastodon.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-43.svg" alt="" width="24" height="24"> [hot/mastodon.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/mastodon.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/mastodon/api/v1/trends/:type? | ❌ 失败 | HTTP 503 |
-
-## hot/myanimelist.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-45.svg" alt="" width="24" height="24"> [hot/myanimelist.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/myanimelist.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/myanimelist/top/:type? | ❌ 失败 | The operation was aborted due to timeout |
-
-## hot/nhk.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-47.svg" alt="" width="24" height="24"> [hot/nhk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/nhk.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/nhk/rss/news/cat0.xml | ❌ 失败 | The operation was aborted due to timeout |
-
-## hot/niconico.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-48.svg" alt="" width="24" height="24"> [hot/niconico.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/niconico.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/niconico/ranking | ❌ 失败 | The operation was aborted due to timeout |
-
-## hot/nowcoder\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-49.svg" alt="" width="24" height="24"> [hot/nowcoder\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/nowcoder_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/nowcoder/api/sparta/hot-search/top-hot-pc | ❌ 失败 | The operation was aborted due to timeout |
-
-## hot/npr.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-50.svg" alt="" width="24" height="24"> [hot/npr.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/npr.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/npr/1001/rss.xml | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/narou/novelapi/api/:period? | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
 ## hot/pcbeta\_windows11.js（0/1 通过）
 
@@ -281,7 +135,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/pcbeta/forum.php | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/pcbeta/forum.php | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
 ## hot/qdmm.js（0/8 通过）
 
@@ -289,30 +143,14 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/qidian/rank/collect/female | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/free/female | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/hotsales/female | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/newfans/female | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/readindex/female | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/rec/female | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/qidian/rank/collect/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/hot/qidian/rank/free/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/hot/qidian/rank/hotsales/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/hot/qidian/rank/newfans/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/hot/qidian/rank/readindex/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/hot/qidian/rank/rec/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 | /api/hot/qidian/rank/update/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 | /api/hot/qidian/rank/yuepiao/female | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
-
-## hot/qidian.js（3/9 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-54.svg" alt="" width="24" height="24"> [hot/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qidian.js) · 版本：1.2.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/qidian/rank/newbook | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/newfans | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/rec | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/sign | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/update | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/yuepiao | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qidian/rank/hotsales | ✅ 成功 |  |
-| /api/hot/qidian/rank/newauthor | ✅ 成功 |  |
-| /api/hot/qidian/rank/readindex | ✅ 成功 |  |
 
 ## hot/qimao.js（0/1 通过）
 
@@ -320,15 +158,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/qimao/paihang/:gender?/:type?/:period? | ❌ 失败 | The operation was aborted due to timeout |
-
-## hot/qqvideo\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-57.svg" alt="" width="24" height="24"> [hot/qqvideo\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qqvideo_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/qqvideo/trpc.vector\_layout.page\_view.PageService/getCard | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/qimao/paihang/:gender?/:type?/:period? | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qimao.com 已同步的 Cookie 无法用于 https://www.qimao.com/paihang/boy/hot/date/（权限 qimao，路径范围 /paihang/）：acw\_tc（已过期）。请检查 Cookie 同步中的域名、路径、Secure 与过期时间 |
 
 ## hot/reddit.js（0/1 通过）
 
@@ -338,29 +168,37 @@
 | --- | --- | --- |
 | /api/hot/reddit/r/:subreddit?/:sort? | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
-## hot/sspai\_hot.js（0/1 通过）
+## hot/solidot.js（0/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-62.svg" alt="" width="24" height="24"> [hot/sspai\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/sspai_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/sspai/api/v1/article/tag/page/get | ❌ 失败 | The operation was aborted due to timeout |
-
-## hot/tencent\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-65.svg" alt="" width="24" height="24"> [hot/tencent\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tencent_hot.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-60.svg" alt="" width="24" height="24"> [hot/solidot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/solidot.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/tencent/web\_backend/v2/getTagInfo | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/solidot/index.rss | ❌ 失败 | HTTP 503 |
 
-## hot/theverge.js（0/1 通过）
+## hot/steam.js（0/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-67.svg" alt="" width="24" height="24"> [hot/theverge.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/theverge.js) · 版本：1.0.0
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-63.svg" alt="" width="24" height="24"> [hot/steam.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/steam.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/theverge/rss/index.xml | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/steam/stats/stats | ❌ 失败 | HTTP 503 |
+
+## hot/thepaper\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-66.svg" alt="" width="24" height="24"> [hot/thepaper\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/thepaper_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/thepaper/contentapi/wwwIndex/rightSidebar | ❌ 失败 | HTTP 503 |
+
+## hot/tieba\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-68.svg" alt="" width="24" height="24"> [hot/tieba\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tieba_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/tieba/hottopic/browse/topicList | ❌ 失败 | HTTP 503 |
 
 ## hot/tiktok.js（0/1 通过）
 
@@ -370,13 +208,47 @@
 | --- | --- | --- |
 | /api/hot/tiktok/open\_api/v1.3/discovery/trending\_list/:country?/:days? | ❌ 失败 | INVALID\_PARAMETER: HTTP 400: INVALID\_PARAMETER: 请求参数无效，请检查路径参数和查询参数 |
 
+## hot/toutiao\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-70.svg" alt="" width="24" height="24"> [hot/toutiao\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/toutiao_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/toutiao/hot-event/hot-board | ❌ 失败 | HTTP 503 |
+
+## hot/v2ex\_share.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-71.svg" alt="" width="24" height="24"> [hot/v2ex\_share.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/v2ex_share.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/v2ex/feed | ❌ 失败 | HTTP 503 |
+
+## hot/vimeo.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-72.svg" alt="" width="24" height="24"> [hot/vimeo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/vimeo.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/vimeo/channels/staffpicks/videos/rss | ❌ 失败 | HTTP 503 |
+
+## hot/wallstreetcn.js（2/3 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-73.svg" alt="" width="24" height="24"> [hot/wallstreetcn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/wallstreetcn.js) · 版本：1.0.2
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/wallstreetcn/apiv1/content/information-flow | ❌ 失败 | HTTP 503 |
+| /api/hot/wallstreetcn/apiv1/content/articles/hot | ✅ 成功 |  |
+| /api/hot/wallstreetcn/apiv1/content/lives | ✅ 成功 |  |
+
 ## hot/weibo\_hot.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-74.svg" alt="" width="24" height="24"> [hot/weibo\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/weibo_hot.js) · 版本：1.0.2
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/weibo/top/summary | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/hot/weibo/top/summary | ❌ 失败 | HTTP 503 |
 
 ## hot/youtube\_hot.js（0/1 通过）
 
@@ -384,15 +256,15 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/youtube/hot/:region?/:category? | ❌ 失败 | INVALID\_PARAMETER: HTTP 400: INVALID\_PARAMETER: 请求参数无效，请检查路径参数和查询参数 |
+| /api/hot/youtube/hot/:region?/:category? | ❌ 失败 | HTTP 503 |
 
-## hot/zhihu\_hot.js（0/1 通过）
+## hot/zenn.js（0/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-80.svg" alt="" width="24" height="24"> [hot/zhihu\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zhihu_hot.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-79.svg" alt="" width="24" height="24"> [hot/zenn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zenn.js) · 版本：1.0.0
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/zhihu/api/v3/feed/topstory/hot-list-web | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/hot/zenn/api/articles | ❌ 失败 | HTTP 503 |
 
 ## rss/69shuba.js（0/1 通过）
 
@@ -400,7 +272,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/69shuba/book/:book\_id | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/rss/69shuba/book/:book\_id | ❌ 失败 | HTTP 503 |
 
 ## rss/apple.js（0/1 通过）
 
@@ -408,7 +280,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/apple/apps/update/:country/:id/:platform? | ❌ 失败 | UPSTREAM\_RATE\_LIMITED: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
+| /api/rss/apple/apps/update/:country/:id/:platform? | ❌ 失败 | HTTP 503 |
 
 ## rss/avmoo.js（0/1 通过）
 
@@ -418,6 +290,15 @@
 | --- | --- | --- |
 | /api/rss/avmoo/star/:id | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
+## rss/bilibili.js（1/2 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-84.svg" alt="" width="24" height="24"> [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/bilibili/:userid/dynamic | ❌ 失败 | HTTP 503 |
+| /api/rss/bilibili/:userid/upload/video | ✅ 成功 |  |
+
 ## rss/douyin.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-85.svg" alt="" width="24" height="24"> [rss/douyin.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/douyin.js) · 版本：1.1.1
@@ -425,6 +306,47 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/douyin/user/:sec\_uid | ❌ 失败 | HTTP 503 |
+
+## rss/fanqienovel.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-86.svg" alt="" width="24" height="24"> [rss/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fanqienovel.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/fanqienovel/book/:book\_id | ❌ 失败 | HTTP 503 |
+
+## rss/github.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-87.svg" alt="" width="24" height="24"> [rss/github.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/github.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/github/:org/:pro/release | ❌ 失败 | HTTP 503 |
+
+## rss/hongguo.js（1/2 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-88.svg" alt="" width="24" height="24"> [rss/hongguo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/hongguo.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/hongguo/series/:series\_id | ❌ 失败 | HTTP 503 |
+| /api/rss/hongguo/search/:keyword | ✅ 成功 |  |
+
+## rss/instagram.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-89.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/instagram/:username | ❌ 失败 | HTTP 503 |
+
+## rss/javbus.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-90.svg" alt="" width="24" height="24"> [rss/javbus.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javbus.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/javbus/star/:id | ❌ 失败 | HTTP 503 |
 
 ## rss/javlibrary.js（0/1 通过）
 
@@ -480,7 +402,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/wxchannels/:account | ❌ 失败 | /api/rss/wxchannels/v2\_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder: The operation was aborted due to timeout |
+| /api/rss/wxchannels/:account | ❌ 失败 | /api/rss/wxchannels/v2\_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder: HTTP 503；/api/rss/wxchannels/v2\_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder: HTTP 503 |
 
 ## rss/wxmp.js（0/1 通过）
 
@@ -528,7 +450,15 @@
 | /api/rss/zhihu/people/:user/asks | ❌ 失败 | HTTP 503 |
 | /api/rss/zhihu/people/:user/pins | ❌ 失败 | HTTP 503 |
 | /api/rss/zhihu/people/:user/posts | ❌ 失败 | HTTP 503 |
-| /api/rss/zhihu/people/:user/zvideos | ❌ 失败 | HTTP 503 |
+| /api/rss/zhihu/people/:user/zvideos | ❌ 失败 | 条目数须 &gt;= 1 |
+
+## clip/github.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-1.svg" alt="" width="24" height="24"> [clip/github.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/clip/github.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/clip/github/:owner/:repo | ✅ 成功 |  |
 
 ## hot/aihot.js（1/1 通过）
 
@@ -546,6 +476,14 @@
 | --- | --- | --- |
 | /api/hot/arstechnica/arstechnica/index | ✅ 成功 |  |
 
+## hot/baidu\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-10.svg" alt="" width="24" height="24"> [hot/baidu\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/baidu_hot.js) · 版本：1.0.2
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/baidu/board | ✅ 成功 |  |
+
 ## hot/cankaoxiaoxi.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-13.svg" alt="" width="24" height="24"> [hot/cankaoxiaoxi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cankaoxiaoxi.js) · 版本：1.0.1
@@ -562,6 +500,16 @@
 | --- | --- | --- |
 | /api/hot/chongbuluo/forum.php/hot | ✅ 成功 |  |
 | /api/hot/chongbuluo/forum.php/latest | ✅ 成功 |  |
+
+## hot/cls.js（3/3 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/cls/v1/roll/get\_roll\_list | ✅ 成功 |  |
+| /api/hot/cls/v2/article/hot/list | ✅ 成功 |  |
+| /api/hot/cls/v3/depth/home/assembled/1000 | ✅ 成功 |  |
 
 ## hot/dailymotion.js（1/1 通过）
 
@@ -586,6 +534,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/devto/api/articles/:period? | ✅ 成功 |  |
+
+## hot/dongqiudi.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-19.svg" alt="" width="24" height="24"> [hot/dongqiudi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/dongqiudi.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/dongqiudi/app/tabs/web/1.json | ✅ 成功 |  |
 
 ## hot/douban\_hot.js（1/1 通过）
 
@@ -612,6 +568,46 @@
 | /api/hot/fastbull/cn/express-news | ✅ 成功 |  |
 | /api/hot/fastbull/cn/news | ✅ 成功 |  |
 
+## hot/gelonghui.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-25.svg" alt="" width="24" height="24"> [hot/gelonghui.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/gelonghui.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/gelonghui/news | ✅ 成功 |  |
+
+## hot/github\_trending.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-26.svg" alt="" width="24" height="24"> [hot/github\_trending.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/github_trending.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/github/trending | ✅ 成功 |  |
+
+## hot/gutenberg.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-28.svg" alt="" width="24" height="24"> [hot/gutenberg.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/gutenberg.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/gutenberg/browse/scores/top/:period? | ✅ 成功 |  |
+
+## hot/hackernews.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-29.svg" alt="" width="24" height="24"> [hot/hackernews.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hackernews.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/hackernews | ✅ 成功 |  |
+
+## hot/hatena.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-30.svg" alt="" width="24" height="24"> [hot/hatena.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hatena.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/hatena/hotentry/:topic? | ✅ 成功 |  |
+
 ## hot/ifeng\_hot.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-32.svg" alt="" width="24" height="24"> [hot/ifeng\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/ifeng_hot.js) · 版本：1.0.1
@@ -627,6 +623,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/iqiyi/portal/lw/v7/channel/card/videoTab | ✅ 成功 |  |
+
+## hot/ithome.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-34.svg" alt="" width="24" height="24"> [hot/ithome.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/ithome.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/ithome/list | ✅ 成功 |  |
 
 ## hot/itmedia.js（1/1 通过）
 
@@ -652,6 +656,30 @@
 | --- | --- | --- |
 | /api/hot/juejin/content\_api/v1/content/article\_rank | ✅ 成功 |  |
 
+## hot/kakuyomu.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-38.svg" alt="" width="24" height="24"> [hot/kakuyomu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kakuyomu.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/kakuyomu/rankings/:genre?/:period? | ✅ 成功 |  |
+
+## hot/kuaishou\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-40.svg" alt="" width="24" height="24"> [hot/kuaishou\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuaishou_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/kuaishou/hot | ✅ 成功 |  |
+
+## hot/kuan.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-41.svg" alt="" width="24" height="24"> [hot/kuan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuan.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/kuan/v6/page/dataList | ✅ 成功 |  |
+
 ## hot/lobsters.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-42.svg" alt="" width="24" height="24"> [hot/lobsters.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/lobsters.js) · 版本：1.0.0
@@ -659,6 +687,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/lobsters/hottest.json | ✅ 成功 |  |
+
+## hot/mastodon.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-43.svg" alt="" width="24" height="24"> [hot/mastodon.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/mastodon.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/mastodon/api/v1/trends/:type? | ✅ 成功 |  |
 
 ## hot/mktnews\_flash.js（1/1 通过）
 
@@ -668,13 +704,45 @@
 | --- | --- | --- |
 | /api/hot/mktnews/api/flash | ✅ 成功 |  |
 
-## hot/narou.js（1/1 通过）
+## hot/myanimelist.js（1/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-46.svg" alt="" width="24" height="24"> [hot/narou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/narou.js) · 版本：1.0.0
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-45.svg" alt="" width="24" height="24"> [hot/myanimelist.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/myanimelist.js) · 版本：1.0.0
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/narou/novelapi/api/:period? | ✅ 成功 |  |
+| /api/hot/myanimelist/top/:type? | ✅ 成功 |  |
+
+## hot/nhk.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-47.svg" alt="" width="24" height="24"> [hot/nhk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/nhk.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/nhk/rss/news/cat0.xml | ✅ 成功 |  |
+
+## hot/niconico.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-48.svg" alt="" width="24" height="24"> [hot/niconico.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/niconico.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/niconico/ranking | ✅ 成功 |  |
+
+## hot/nowcoder\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-49.svg" alt="" width="24" height="24"> [hot/nowcoder\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/nowcoder_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/nowcoder/api/sparta/hot-search/top-hot-pc | ✅ 成功 |  |
+
+## hot/npr.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-50.svg" alt="" width="24" height="24"> [hot/npr.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/npr.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/npr/1001/rss.xml | ✅ 成功 |  |
 
 ## hot/producthunt.js（1/1 通过）
 
@@ -684,6 +752,22 @@
 | --- | --- | --- |
 | /api/hot/producthunt/feed | ✅ 成功 |  |
 
+## hot/qidian.js（9/9 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-54.svg" alt="" width="24" height="24"> [hot/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qidian.js) · 版本：1.2.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/qidian/rank/hotsales | ✅ 成功 |  |
+| /api/hot/qidian/rank/newauthor | ✅ 成功 |  |
+| /api/hot/qidian/rank/newbook | ✅ 成功 |  |
+| /api/hot/qidian/rank/newfans | ✅ 成功 |  |
+| /api/hot/qidian/rank/readindex | ✅ 成功 |  |
+| /api/hot/qidian/rank/rec | ✅ 成功 |  |
+| /api/hot/qidian/rank/sign | ✅ 成功 |  |
+| /api/hot/qidian/rank/update | ✅ 成功 |  |
+| /api/hot/qidian/rank/yuepiao | ✅ 成功 |  |
+
 ## hot/qiita.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-55.svg" alt="" width="24" height="24"> [hot/qiita.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qiita.js) · 版本：1.0.0
@@ -691,6 +775,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/qiita/popular-items/feed | ✅ 成功 |  |
+
+## hot/qqvideo\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-57.svg" alt="" width="24" height="24"> [hot/qqvideo\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qqvideo_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/qqvideo/trpc.vector\_layout.page\_view.PageService/getCard | ✅ 成功 |  |
 
 ## hot/slashdot.js（1/1 通过）
 
@@ -700,14 +792,6 @@
 | --- | --- | --- |
 | /api/hot/slashdot/Slashdot/slashdotMain | ✅ 成功 |  |
 
-## hot/solidot.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-60.svg" alt="" width="24" height="24"> [hot/solidot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/solidot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/solidot/index.rss | ✅ 成功 |  |
-
 ## hot/sputniknewscn.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-61.svg" alt="" width="24" height="24"> [hot/sputniknewscn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/sputniknewscn.js) · 版本：1.0.1
@@ -716,13 +800,13 @@
 | --- | --- | --- |
 | /api/hot/sputniknewscn/services/widget/lenta | ✅ 成功 |  |
 
-## hot/steam.js（1/1 通过）
+## hot/sspai\_hot.js（1/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-63.svg" alt="" width="24" height="24"> [hot/steam.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/steam.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-62.svg" alt="" width="24" height="24"> [hot/sspai\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/sspai_hot.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/steam/stats/stats | ✅ 成功 |  |
+| /api/hot/sspai/api/v1/article/tag/page/get | ✅ 成功 |  |
 
 ## hot/techmeme.js（1/1 通过）
 
@@ -732,55 +816,21 @@
 | --- | --- | --- |
 | /api/hot/techmeme/feed.xml | ✅ 成功 |  |
 
-## hot/thepaper\_hot.js（1/1 通过）
+## hot/tencent\_hot.js（1/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-66.svg" alt="" width="24" height="24"> [hot/thepaper\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/thepaper_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/thepaper/contentapi/wwwIndex/rightSidebar | ✅ 成功 |  |
-
-## hot/tieba\_hot.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-68.svg" alt="" width="24" height="24"> [hot/tieba\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tieba_hot.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-65.svg" alt="" width="24" height="24"> [hot/tencent\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tencent_hot.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/tieba/hottopic/browse/topicList | ✅ 成功 |  |
+| /api/hot/tencent/web\_backend/v2/getTagInfo | ✅ 成功 |  |
 
-## hot/toutiao\_hot.js（1/1 通过）
+## hot/theverge.js（1/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-70.svg" alt="" width="24" height="24"> [hot/toutiao\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/toutiao_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/toutiao/hot-event/hot-board | ✅ 成功 |  |
-
-## hot/v2ex\_share.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-71.svg" alt="" width="24" height="24"> [hot/v2ex\_share.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/v2ex_share.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-67.svg" alt="" width="24" height="24"> [hot/theverge.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/theverge.js) · 版本：1.0.0
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/v2ex/feed | ✅ 成功 |  |
-
-## hot/vimeo.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-72.svg" alt="" width="24" height="24"> [hot/vimeo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/vimeo.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/vimeo/channels/staffpicks/videos/rss | ✅ 成功 |  |
-
-## hot/wallstreetcn.js（3/3 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-73.svg" alt="" width="24" height="24"> [hot/wallstreetcn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/wallstreetcn.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/wallstreetcn/apiv1/content/articles/hot | ✅ 成功 |  |
-| /api/hot/wallstreetcn/apiv1/content/information-flow | ✅ 成功 |  |
-| /api/hot/wallstreetcn/apiv1/content/lives | ✅ 成功 |  |
+| /api/hot/theverge/rss/index.xml | ✅ 成功 |  |
 
 ## hot/xueqiu\_hotstock.js（1/1 通过）
 
@@ -806,63 +856,13 @@
 | --- | --- | --- |
 | /api/hot/zaobao/realtime | ✅ 成功 |  |
 
-## hot/zenn.js（1/1 通过）
+## hot/zhihu\_hot.js（1/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-79.svg" alt="" width="24" height="24"> [hot/zenn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zenn.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/zenn/api/articles | ✅ 成功 |  |
-
-## rss/bilibili.js（2/2 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-84.svg" alt="" width="24" height="24"> [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) · 版本：1.1.0
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-80.svg" alt="" width="24" height="24"> [hot/zhihu\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zhihu_hot.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/bilibili/:userid/dynamic | ✅ 成功 |  |
-| /api/rss/bilibili/:userid/upload/video | ✅ 成功 |  |
-
-## rss/fanqienovel.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-86.svg" alt="" width="24" height="24"> [rss/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fanqienovel.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/fanqienovel/book/:book\_id | ✅ 成功 |  |
-
-## rss/github.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-87.svg" alt="" width="24" height="24"> [rss/github.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/github.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/github/:org/:pro/release | ✅ 成功 |  |
-
-## rss/hongguo.js（2/2 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-88.svg" alt="" width="24" height="24"> [rss/hongguo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/hongguo.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/hongguo/search/:keyword | ✅ 成功 |  |
-| /api/rss/hongguo/series/:series\_id | ✅ 成功 |  |
-
-## rss/instagram.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-89.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/instagram/:username | ✅ 成功 |  |
-
-## rss/javbus.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-90.svg" alt="" width="24" height="24"> [rss/javbus.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javbus.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/javbus/star/:id | ✅ 成功 |  |
+| /api/hot/zhihu/api/v3/feed/topstory/hot-list-web | ✅ 成功 |  |
 
 ## rss/telegram.js（1/1 通过）
 
