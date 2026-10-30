@@ -1,8 +1,8 @@
 # Hot 脚本示例
 
-75 个脚本使用全局 `HotRankScript` 和 `import { utils } from '@findrss/util'`，接口请求、JSON 解析和校验返回 `Result`。包含原有 52 个热榜示例（按来源合并为 43 个文件）、3 个中文小说平台榜单与 29 个英语/日语等国际平台脚本。同一来源的榜单集中在一个文件，通过 `routes` 导出各入口，原路由地址保持不变。
+75 个脚本从 `@findrss/core` 导入 `HotRankScript` 和 `Result`，从 `@findrss/util` 导入 `utils`；接口请求、JSON 解析和校验返回 `Result`。包含原有 52 个热榜示例（按来源合并为 43 个文件）、3 个中文小说平台榜单与 29 个英语/日语等国际平台脚本。同一来源的榜单集中在一个文件，通过 `routes` 导出各入口，路由路径与上游实际请求路径一致；同一上游路径按查询参数区分时，在路径后追加语义段。
 
-复制单个 `.js` 到管理后台 `/admin/scripts` 的 Hot Tab，可保存草稿、运行 Debug，确认后发布。模块可显式声明 `export const kind = 'hot'`，也兼容顶部 `/** HOT */` 或 `HotRankScript` 基类推断。访问 `/api/hot` 加注册路径得到 `{ kind: 'hot_rank', observed_at, entries }`，例如 `/api/hot/douyin/hot`；原路由直达和 Debug 保留。`/rss` 或 `/atom` 仅匹配 RSS 脚本。
+复制单个 `.js` 到管理后台 `/admin/scripts` 的 Hot Tab，可保存草稿、运行 Debug，确认后发布。模块可显式声明 `export const kind = 'hot'`，也兼容顶部 `/** HOT */` 或 `HotRankScript` 基类推断。访问 `/api/hot` 或 `/hot` 加注册路径得到 `{ kind: 'hot_rank', observed_at, entries }`，注册路径本身也可直接访问，例如 `/api/hot/douyin/aweme/v1/web/hot/search/list`、`/hot/douyin/aweme/v1/web/hot/search/list` 与 `/douyin/aweme/v1/web/hot/search/list`；`/debug` 加注册路径返回诊断 HTML。`/rss`、`/atom` 和 `/api/rss` 仅匹配 RSS 脚本。
 
 稳定 ID 不随排名变化。上游提供排名时保留正整数，未知为 `null`；置顶在前，其余排名全部已知时按排名排序，有未知排名时保留上游次序。热度只保留上游值，缺失为 `null`；`observed_at` 记录采集时间，不冒充发布时间。按标记归类的最新消息和 XML 源也使用快照结构，不捏造排名。
 
@@ -30,33 +30,33 @@ return Result.Ok({ title: "示例榜单", link: "https://example.com/", category
 
 | 平台 | 内容 | 默认路由 |
 | --- | --- | --- |
-| [Google News](google_news.js) | 美国/英国英语、日本日语头条，9 个新闻主题 | `/google-news/us/top` |
-| [Techmeme](techmeme.js) | 英语科技头条 | `/techmeme/hot` |
-| [Lobsters](lobsters.js) | 英语技术社区热门讨论 | `/lobsters/hot` |
-| [DEV Community](devto.js) | 英语开发者社区热门文章，日/周/月/年 | `/devto/top/week` |
-| [Hatena](hatena.js) | 日语热门书签，综合及分类 | `/hatena/hot/all` |
-| [Mastodon](mastodon.js) | mastodon.social 热门链接、话题、动态 | `/mastodon/trending/links` |
-| [Project Gutenberg](gutenberg.js) | 英语经典小说等公版图书下载 Top 100 | `/gutenberg/top/day` |
-| [カクヨム](kakuyomu.js) | 日语小说分类榜，日/周/月/年/总榜 | `/kakuyomu/rank/daily/all` |
-| [小説家になろう](narou.js) | 日语小说日/周/月/季/年/总积分前 30 | `/narou/top/daily` |
+| [Google News](google_news.js) | 美国/英国英语、日本日语头条，9 个新闻主题 | `/google-news/rss/us/top` |
+| [Techmeme](techmeme.js) | 英语科技头条 | `/techmeme/feed.xml` |
+| [Lobsters](lobsters.js) | 英语技术社区热门讨论 | `/lobsters/hottest.json` |
+| [DEV Community](devto.js) | 英语开发者社区热门文章，日/周/月/年 | `/devto/api/articles/week` |
+| [Hatena](hatena.js) | 日语热门书签，综合及分类 | `/hatena/hotentry/all` |
+| [Mastodon](mastodon.js) | mastodon.social 热门链接、话题、动态 | `/mastodon/api/v1/trends/links` |
+| [Project Gutenberg](gutenberg.js) | 英语经典小说等公版图书下载 Top 100 | `/gutenberg/browse/scores/top/day` |
+| [カクヨム](kakuyomu.js) | 日语小说分类榜，日/周/月/年/总榜 | `/kakuyomu/rankings/all/daily` |
+| [小説家になろう](narou.js) | 日语小说日/周/月/季/年/总积分前 30 | `/narou/novelapi/api/daily` |
 | [YouTube](youtube_hot.js) | 官方热门视频，支持地区/分类，需 API Key | `/youtube/hot/US/0` |
-| [TikTok](tiktok.js) | 官方 Discovery 热门话题，需广告账户及令牌 | `/tiktok/hot/US/7` |
-| [Dailymotion](dailymotion.js) | 分地区热门视频 | `/dailymotion/hot/us` |
-| [Niconico](niconico.js) | 日语综合视频榜 | `/niconico/rank` |
-| [Vimeo](vimeo.js) | Staff Picks 精选视频 | `/vimeo/staff-picks` |
-| [Reddit](reddit.js) | 社区 hot/top/rising，受服务端 IP 限制 | `/reddit/popular/hot` |
-| [Bluesky](bluesky.js) | 官方趋势话题 | `/bluesky/trending` |
-| [Zenn](zenn.js) | 日语开发者趋势文章 | `/zenn/trending` |
-| [Qiita](qiita.js) | 日语技术热门文章 | `/qiita/hot` |
-| [Slashdot](slashdot.js) | 英语科技社区资讯 | `/slashdot/headlines` |
-| [Ars Technica](arstechnica.js) | 英语最新科技资讯 | `/arstechnica/headlines` |
-| [The Verge](theverge.js) | 英语最新科技资讯 | `/theverge/headlines` |
-| [NPR](npr.js) | 英语 Top Stories | `/npr/headlines` |
-| [NHK](nhk.js) | 日语主要新闻 | `/nhk/headlines` |
-| [Yahoo! JAPAN](yahoo_japan.js) | 日语主要新闻话题 | `/yahoo-japan/headlines` |
-| [ITmedia](itmedia.js) | 日语最新科技资讯 | `/itmedia/headlines` |
-| [Apple Charts](apple_charts.js) | 地区播客、歌曲、专辑榜 | `/apple-charts/us/podcasts` |
-| [Deezer](deezer.js) | 歌曲榜，保留名次和流行度评分 | `/deezer/chart` |
+| [TikTok](tiktok.js) | 官方 Discovery 热门话题，需广告账户及令牌 | `/tiktok/open_api/v1.3/discovery/trending_list/US/7` |
+| [Dailymotion](dailymotion.js) | 分地区热门视频 | `/dailymotion/videos/us` |
+| [Niconico](niconico.js) | 日语综合视频榜 | `/niconico/ranking` |
+| [Vimeo](vimeo.js) | Staff Picks 精选视频 | `/vimeo/channels/staffpicks/videos/rss` |
+| [Reddit](reddit.js) | 社区 hot/top/rising，受服务端 IP 限制 | `/reddit/r/popular/hot` |
+| [Bluesky](bluesky.js) | 官方趋势话题 | `/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics` |
+| [Zenn](zenn.js) | 日语开发者趋势文章 | `/zenn/api/articles` |
+| [Qiita](qiita.js) | 日语技术热门文章 | `/qiita/popular-items/feed` |
+| [Slashdot](slashdot.js) | 英语科技社区资讯 | `/slashdot/Slashdot/slashdotMain` |
+| [Ars Technica](arstechnica.js) | 英语最新科技资讯 | `/arstechnica/arstechnica/index` |
+| [The Verge](theverge.js) | 英语最新科技资讯 | `/theverge/rss/index.xml` |
+| [NPR](npr.js) | 英语 Top Stories | `/npr/1001/rss.xml` |
+| [NHK](nhk.js) | 日语主要新闻 | `/nhk/rss/news/cat0.xml` |
+| [Yahoo! JAPAN](yahoo_japan.js) | 日语主要新闻话题 | `/yahoo-japan/rss/topics/top-picks.xml` |
+| [ITmedia](itmedia.js) | 日语最新科技资讯 | `/itmedia/rss/2.0/news_bursts.xml` |
+| [Apple Charts](apple_charts.js) | 地区播客、歌曲、专辑榜 | `/apple-charts/api/v2/us/podcasts` |
+| [Deezer](deezer.js) | 歌曲榜，保留名次和流行度评分 | `/deezer/chart/0/tracks` |
 | [AniList](anilist.js) | 动画/漫画趋势榜 | `/anilist/trending/anime` |
 | [MyAnimeList](myanimelist.js) | 动画/漫画/轻小说评分榜 | `/myanimelist/top/anime` |
 

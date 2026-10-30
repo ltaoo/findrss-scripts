@@ -10,13 +10,13 @@
 
 | 脚本 | 示例路由 | 用途 |
 | --- | --- | --- |
-| [GitHub README](github.js) | `/github/ltaoo/findrss-worker/readme` | 平台脚本自动选择 README 区域 |
-| [百度天气](baidu_weather.js) | `/baidu/weather/上海` | 当前天气、体感、湿度、风及未来三天预报，无需浏览器绑定 |
+| [GitHub README](github.js) | `/github/ltaoo/findrss-worker` | 平台脚本自动选择 README 区域 |
+| [百度天气](baidu_weather.js) | `/baidu/s/weather/上海` | 当前天气、体感、湿度、风及未来三天预报，无需浏览器绑定 |
 | [通用网页](website.js) | `/web/region?url=https%3A%2F%2Fexample.com%2F&selector=body` | 自定义网页及旧手动剪藏记录的兼容入口 |
 
-路由前加 `/api/clip` 获取剪藏 JSON。后台「剪藏」中保存脚本、具体路由与刷新策略，公开链接保持固定；上游错误不会替换旧快照。尚未发布、停用或已删除的脚本不会用于刷新。修改平台规则后在后台发布新版本即可更新已有剪藏。
+路由本身可直接访问，路由前加 `/api/clip` 或 `/clip` 也可获取相同的剪藏 JSON。后台「剪藏」中保存脚本、具体路由与刷新策略，公开链接保持固定；上游错误不会替换旧快照。尚未发布、停用或已删除的脚本不会用于刷新。修改平台规则后在后台发布新版本即可更新已有剪藏。
 
-百度天气参考 wizm 天气 App，从百度搜索结果的 `s-data` 提取天气并生成静态卡片。例如 `/api/clip/baidu/weather/上海`；省略城市使用百度定位。优先读取实时观测，缺失时使用小时数据和当天预报；未来三天从选中日期开始，不包含昨天。无预报时明确显示「暂无预报」，验证码、缺失天气数据和 HTTP 错误会直接报错。
+百度天气参考 wizm 天气 App，从百度搜索结果的 `s-data` 提取天气并生成静态卡片。例如 `/api/clip/baidu/s/weather/上海`；省略城市使用百度定位。优先读取实时观测，缺失时使用小时数据和当天预报；未来三天从选中日期开始，不包含昨天。无预报时明确显示「暂无预报」，验证码、缺失天气数据和 HTTP 错误会直接报错。
 
 此脚本按要求将个人百度 Cookie 明文写入 `baidu_weather.js`，不会读取 `SCRIPT_COOKIES` 或使用 Browser Rendering。分享源码会同时分享这些登录凭据；Cookie 失效时需修改源码并重新发布。仓库固定运行时通过 `inline-cookies` 补丁支持直接填写 Cookie 请求头，同站重定向保留，跨站后移除且不会恢复；导入其他 FindRSS 部署时，需要运行时也支持此能力。
 

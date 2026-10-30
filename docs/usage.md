@@ -10,19 +10,19 @@
 
 ## RSS 与热榜
 
-本目录的 RSS 脚本使用全局 `RSSScript` 和 `import { utils } from '@findrss/util'`，接口请求、JSON 解析和校验返回 `Result`。
+本目录的 RSS 脚本从 `@findrss/core` 导入 `RSSScript` 和 `Result`，从 `@findrss/util` 导入 `utils`；接口请求、JSON 解析和校验返回 `Result`。
 
-两类脚本都通过 `export const route = { path, handler, ... }` 或 `routes` 注册路径，模块级 `export const kind = "rss"` / `"hot"` 区分脚本类型；未声明时兼容文件头 `/** RSS */` / `/** HOT */` 和基类推断。`/rss/<path>`、`/atom/<path>` 仅匹配 RSS 脚本；`/api/hot/<path>` 仅匹配 Hot 脚本，返回排行榜 JSON。例如 Hot 脚本注册 `/douyin/hot`，访问 `/api/hot/douyin/hot`。路径参数和查询参数保留，仍需满足路由公开性、访问凭证及 Cookie 授权要求。
+两类脚本都通过 `export const route = { path, handler, ... }` 或 `routes` 注册路径，模块级 `export const kind = "rss"` / `"hot"` 区分脚本类型；未声明时兼容文件头 `/** RSS */` / `/** HOT */` 和基类推断。脚本声明的 `route.path` 始终可以直接访问，访问前缀由 `kind` 决定：RSS 可使用 `/rss`、`/atom`（XML）和 `/api/rss`（JSON 快照），Hot 可使用 `/api/hot` 或 `/hot`（JSON）；Clip 和 Detect 分别使用 `/api/clip`/`/clip`、`/api/detect`/`/detect`。`/debug/<path>` 返回诊断 HTML。例如 Hot 脚本注册 `/douyin/aweme/v1/web/hot/search/list`，可访问 `/douyin/aweme/v1/web/hot/search/list`、`/api/hot/douyin/aweme/v1/web/hot/search/list` 或 `/hot/douyin/aweme/v1/web/hot/search/list`。路径参数和查询参数保留，仍需满足路由公开性、访问凭证及 Cookie 授权要求。
 
 每个脚本通过 `export const platform = { name, icon }` 声明来源，`icon` 已直接内嵌对应的 SVG 源码；多路由共用此对象，也可用 `route.platform` 覆盖。正式版本发布成功后才收集来源到数据库，供订阅广场与后台来源筛选 Select 使用，保存草稿和 Debug 不注册来源。
 
 可用 `export const tags = ['科技', '文章']` 声明共用标签，或用 `route.tags` 逐条覆盖（`[]` 表示无标签）。每条路由最多 13 个不同标签，每个为去除首尾空白后的 1–32 字符且不含控制字符。正式发布后聚合为 discover 和后台的可选标签，新建自有源时按匹配路由预填，可手动修改；草稿和 Debug 不注册标签。标签属于脚本元数据，不是 handler 返回的 feed 字段。
 
-复制单个 `.js` 到管理后台 `/admin/scripts` 的 RSS Tab，可保存草稿、运行 Debug，确认后发布。同一主路由可用 `/rss/<path>` 或 `/atom/<path>` 获取订阅。章节正文等附加路由仍返回 HTML。
+复制单个 `.js` 到管理后台 `/admin/scripts` 的 RSS Tab，可保存草稿、运行 Debug，确认后发布。同一主路由可用 `/rss/<path>`、`/atom/<path>` 获取订阅，或 `/api/rss/<path>` 获取 JSON 快照。章节正文等附加路由没有命名空间，直接按声明路径返回 HTML。
 
 ## 选择脚本
 
-以下路径为脚本声明的主路由，订阅时在前面加 `/rss` 或 `/atom`，并将 `:参数` 替换为实际值。标注 Cookie 的脚本需先同步对应站点的 Cookie，并在后台确认脚本权限；微信公众号和视频号需连接支持对应能力的设备。
+以下路径为脚本声明的主路由，订阅时在前面加 `/rss`、`/atom`（XML）或 `/api/rss`（JSON 快照），也可直接访问声明路径，并将 `:参数` 替换为实际值。标注 Cookie 的脚本需先同步对应站点的 Cookie，并在后台确认脚本权限；微信公众号和视频号需连接支持对应能力的设备。
 
 | 脚本 | 主路由 | 采集内容与使用要求 |
 | --- | --- | --- |
@@ -44,6 +44,7 @@
 | [天天看书](../rss/ttk.js) | `/ttk/book/:book_id` | 完整章节目录，不抓取正文；标识来自 `/novel/` 后的路径，不含 `.html` |
 | [Apple App Store](../rss/apple.js) | `/apple/apps/update/:country/:id/:platform?` | 应用版本更新；使用 App Store 链接中的地区与应用 ID |
 | [GitHub](../rss/github.js) | `/github/:org/:pro/release` | 公开仓库最近的发布列表、版本标题与更新说明；无需 Cookie 或 API Token |
+| [红果短剧](../rss/hongguo.js) | `/hongguo/series/:series_id`、`/hongguo/search/:keyword` | 按集数倒序的分集订阅与剧集搜索；`series_id` 来自官网详情页 `/detail?series_id=` 或播放页。条目附件指向 `/hongguo/video/:series_id/:vid` 媒体代理，转发官网公开的 360p MP4 并附带 Referer；付费/加密集官网只提供预览或不提供直链，播放会返回明确错误 |
 
 抖音支持 `?count=18&max_cursor=0`（每页最多 30 条），Telegram 支持 `?before=<消息 ID>`，微信公众号和视频号支持 `?offset=<游标>`。微信公众号也可使用 `/rss/wxmp?username=wow36kr`，与 `/rss/wxmp/wow36kr` 等价；图片代理需配置 `FINDRSS_HOSTNAME`。
 
@@ -88,50 +89,50 @@ YouTube 普通视频根据页面中英文相对时间估算发布时间，月、
 
 | 平台与来源 | 路由 | 内容和热度 |
 | --- | --- | --- |
-| [Google News](https://news.google.com/) · [脚本](../hot/google_news.js) | `/google-news/:edition?/:topic?` | 美国/英国英语、日本日语新闻聚合；没有热度数值 |
-| [Techmeme](https://www.techmeme.com/feed.xml) · [脚本](../hot/techmeme.js) | `/techmeme/hot` | 官方科技头条 RSS；没有热度数值 |
-| [Lobsters](https://lobste.rs/hottest.json) · [脚本](../hot/lobsters.js) | `/lobsters/hot` | 官方热门讨论第一页，链接到讨论页；热度为帖子得分 |
-| [DEV Community](https://developers.forem.com/api/v1#tag/articles/operation/getArticles) · [脚本](../hot/devto.js) | `/devto/top/:period?` | 官方热门文章 API 前 30 篇；热度为 `public_reactions_count` |
-| [Hatena](https://b.hatena.ne.jp/hotentry/all) · [脚本](../hot/hatena.js) | `/hatena/hot/:topic?` | 官方热门书签 RSS 1.0；热度为 `hatena:bookmarkcount` |
-| [Mastodon](https://docs.joinmastodon.org/methods/trends/) · [脚本](../hot/mastodon.js) | `/mastodon/trending/:type?` | mastodon.social 前 20 个热门链接/话题/动态；前两者取 `history[0].uses`，动态取点赞数 |
-| [Project Gutenberg](https://www.gutenberg.org/browse/scores/top) · [脚本](../hot/gutenberg.js) | `/gutenberg/top/:period?` | 指定周期的图书下载 Top 100，包括英语小说及其他公版图书；热度为下载量 |
-| [カクヨム](https://kakuyomu.jp/rankings/all/daily?work_variation=long) · [脚本](../hot/kakuyomu.js) | `/kakuyomu/rank/:period?/:genre?` | 官网第一页，保留明确排名；热度为作品总星标，非榜单计算得分 |
-| [小説家になろう](https://dev.syosetu.com/man/api/) · [脚本](../hot/narou.js) | `/narou/top/:period?` | 官方小说 API 按周期积分降序取前 30 部作品；非历史排名 API，接口没有排名字段 |
+| [Google News](https://news.google.com/) · [脚本](../hot/google_news.js) | `/google-news/rss/:edition?/:topic?` | 美国/英国英语、日本日语新闻聚合；没有热度数值 |
+| [Techmeme](https://www.techmeme.com/feed.xml) · [脚本](../hot/techmeme.js) | `/techmeme/feed.xml` | 官方科技头条 RSS；没有热度数值 |
+| [Lobsters](https://lobste.rs/hottest.json) · [脚本](../hot/lobsters.js) | `/lobsters/hottest.json` | 官方热门讨论第一页，链接到讨论页；热度为帖子得分 |
+| [DEV Community](https://developers.forem.com/api/v1#tag/articles/operation/getArticles) · [脚本](../hot/devto.js) | `/devto/api/articles/:period?` | 官方热门文章 API 前 30 篇；热度为 `public_reactions_count` |
+| [Hatena](https://b.hatena.ne.jp/hotentry/all) · [脚本](../hot/hatena.js) | `/hatena/hotentry/:topic?` | 官方热门书签 RSS 1.0；热度为 `hatena:bookmarkcount` |
+| [Mastodon](https://docs.joinmastodon.org/methods/trends/) · [脚本](../hot/mastodon.js) | `/mastodon/api/v1/trends/:type?` | mastodon.social 前 20 个热门链接/话题/动态；前两者取 `history[0].uses`，动态取点赞数 |
+| [Project Gutenberg](https://www.gutenberg.org/browse/scores/top) · [脚本](../hot/gutenberg.js) | `/gutenberg/browse/scores/top/:period?` | 指定周期的图书下载 Top 100，包括英语小说及其他公版图书；热度为下载量 |
+| [カクヨム](https://kakuyomu.jp/rankings/all/daily?work_variation=long) · [脚本](../hot/kakuyomu.js) | `/kakuyomu/rankings/:genre?/:period?` | 官网第一页，保留明确排名；热度为作品总星标，非榜单计算得分 |
+| [小説家になろう](https://dev.syosetu.com/man/api/) · [脚本](../hot/narou.js) | `/narou/novelapi/api/:period?` | 官方小说 API 按周期积分降序取前 30 部作品；非历史排名 API，接口没有排名字段 |
 | [YouTube API](https://developers.google.com/youtube/data/docs/videos/list) · [脚本](../hot/youtube_hot.js) | `/youtube/hot/:region?/:category?` | 官方 `mostPopular` 前 50 条；热度为累计播放数，无数字名次 |
-| [TikTok Discovery](https://github.com/tiktok/tiktok-business-api-sdk/blob/main/python_sdk/docs/CreativeManagementApi.md#discovery_trending_list) · [脚本](../hot/tiktok.js) | `/tiktok/hot/:country?/:days?` | 官方热门话题；`rank_position` 为名次，`posts` 为指定地区及周期投稿数 |
-| [Dailymotion](https://api.dailymotion.com/videos?sort=trending&limit=30) · [脚本](../hot/dailymotion.js) | `/dailymotion/hot/:country?` | 分地区 trending 前 30 条，热度为累计播放数 |
-| [Niconico](https://www.nicovideo.jp/ranking) · [脚本](../hot/niconico.js) | `/niconico/rank` | 页面 server-response 中的综合 Teiban 榜及播放数 |
-| [Vimeo](https://vimeo.com/channels/staffpicks/videos/rss) · [脚本](../hot/vimeo.js) | `/vimeo/staff-picks` | 官方 Staff Picks 精选，非热度排行榜 |
-| [Reddit](https://www.reddit.com/r/popular/) · [脚本](../hot/reddit.js) | `/reddit/:subreddit?/:sort?` | Listing JSON hot/top/rising，保留置顶和得分 |
-| [Bluesky](https://endpoints.bsky.app/) · [脚本](../hot/bluesky.js) | `/bluesky/trending` | 官方公开 `getTrendingTopics`，不混入 suggested，无热度数值 |
-| [Zenn](https://zenn.dev/api/articles?order=trend) · [脚本](../hot/zenn.js) | `/zenn/trending` | 日语趋势文章第一页，热度为点赞数 |
-| [Qiita](https://qiita.com/popular-items/feed) · [脚本](../hot/qiita.js) | `/qiita/hot` | 官方热门文章 Atom，无热度数值 |
-| [Slashdot](https://rss.slashdot.org/Slashdot/slashdotMain) · [脚本](../hot/slashdot.js) | `/slashdot/headlines` | 英语科技社区资讯 RSS 1.0，无热度数值 |
-| [Ars Technica](https://feeds.arstechnica.com/arstechnica/index) · [脚本](../hot/arstechnica.js) | `/arstechnica/headlines` | 英语最新科技资讯，无热度数值 |
-| [The Verge](https://www.theverge.com/rss/index.xml) · [脚本](../hot/theverge.js) | `/theverge/headlines` | 英语最新科技资讯 Atom，无热度数值 |
-| [NPR](https://feeds.npr.org/1001/rss.xml) · [脚本](../hot/npr.js) | `/npr/headlines` | 英语 Top Stories，无热度数值 |
-| [NHK](https://www.nhk.or.jp/rss/news/cat0.xml) · [脚本](../hot/nhk.js) | `/nhk/headlines` | 日语主要新闻，无热度数值 |
-| [Yahoo! JAPAN](https://news.yahoo.co.jp/rss/topics/top-picks.xml) · [脚本](../hot/yahoo_japan.js) | `/yahoo-japan/headlines` | 日语主要新闻话题，无热度数值 |
-| [ITmedia](https://rss.itmedia.co.jp/rss/2.0/news_bursts.xml) · [脚本](../hot/itmedia.js) | `/itmedia/headlines` | 日语最新科技资讯，无热度数值 |
-| [Apple Charts](https://rss.marketingtools.apple.com/) · [脚本](../hot/apple_charts.js) | `/apple-charts/:country?/:type?` | 官方 Top/Most Played 前 50 条，无显式名次或播放量 |
-| [Deezer](https://api.deezer.com/chart/0/tracks?limit=30) · [脚本](../hot/deezer.js) | `/deezer/chart` | 歌曲榜；`position` 是名次，`rank` 是流行度评分 |
+| [TikTok Discovery](https://github.com/tiktok/tiktok-business-api-sdk/blob/main/python_sdk/docs/CreativeManagementApi.md#discovery_trending_list) · [脚本](../hot/tiktok.js) | `/tiktok/open_api/v1.3/discovery/trending_list/:country?/:days?` | 官方热门话题；`rank_position` 为名次，`posts` 为指定地区及周期投稿数 |
+| [Dailymotion](https://api.dailymotion.com/videos?sort=trending&limit=30) · [脚本](../hot/dailymotion.js) | `/dailymotion/videos/:country?` | 分地区 trending 前 30 条，热度为累计播放数 |
+| [Niconico](https://www.nicovideo.jp/ranking) · [脚本](../hot/niconico.js) | `/niconico/ranking` | 页面 server-response 中的综合 Teiban 榜及播放数 |
+| [Vimeo](https://vimeo.com/channels/staffpicks/videos/rss) · [脚本](../hot/vimeo.js) | `/vimeo/channels/staffpicks/videos/rss` | 官方 Staff Picks 精选，非热度排行榜 |
+| [Reddit](https://www.reddit.com/r/popular/) · [脚本](../hot/reddit.js) | `/reddit/r/:subreddit?/:sort?` | Listing JSON hot/top/rising，保留置顶和得分 |
+| [Bluesky](https://endpoints.bsky.app/) · [脚本](../hot/bluesky.js) | `/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics` | 官方公开 `getTrendingTopics`，不混入 suggested，无热度数值 |
+| [Zenn](https://zenn.dev/api/articles?order=trend) · [脚本](../hot/zenn.js) | `/zenn/api/articles` | 日语趋势文章第一页，热度为点赞数 |
+| [Qiita](https://qiita.com/popular-items/feed) · [脚本](../hot/qiita.js) | `/qiita/popular-items/feed` | 官方热门文章 Atom，无热度数值 |
+| [Slashdot](https://rss.slashdot.org/Slashdot/slashdotMain) · [脚本](../hot/slashdot.js) | `/slashdot/Slashdot/slashdotMain` | 英语科技社区资讯 RSS 1.0，无热度数值 |
+| [Ars Technica](https://feeds.arstechnica.com/arstechnica/index) · [脚本](../hot/arstechnica.js) | `/arstechnica/arstechnica/index` | 英语最新科技资讯，无热度数值 |
+| [The Verge](https://www.theverge.com/rss/index.xml) · [脚本](../hot/theverge.js) | `/theverge/rss/index.xml` | 英语最新科技资讯 Atom，无热度数值 |
+| [NPR](https://feeds.npr.org/1001/rss.xml) · [脚本](../hot/npr.js) | `/npr/1001/rss.xml` | 英语 Top Stories，无热度数值 |
+| [NHK](https://www.nhk.or.jp/rss/news/cat0.xml) · [脚本](../hot/nhk.js) | `/nhk/rss/news/cat0.xml` | 日语主要新闻，无热度数值 |
+| [Yahoo! JAPAN](https://news.yahoo.co.jp/rss/topics/top-picks.xml) · [脚本](../hot/yahoo_japan.js) | `/yahoo-japan/rss/topics/top-picks.xml` | 日语主要新闻话题，无热度数值 |
+| [ITmedia](https://rss.itmedia.co.jp/rss/2.0/news_bursts.xml) · [脚本](../hot/itmedia.js) | `/itmedia/rss/2.0/news_bursts.xml` | 日语最新科技资讯，无热度数值 |
+| [Apple Charts](https://rss.marketingtools.apple.com/) · [脚本](../hot/apple_charts.js) | `/apple-charts/api/v2/:country?/:type?` | 官方 Top/Most Played 前 50 条，无显式名次或播放量 |
+| [Deezer](https://api.deezer.com/chart/0/tracks?limit=30) · [脚本](../hot/deezer.js) | `/deezer/chart/0/tracks` | 歌曲榜；`position` 是名次，`rank` 是流行度评分 |
 | [AniList](https://docs.anilist.co/) · [脚本](../hot/anilist.js) | `/anilist/trending/:type?` | 动画/漫画官方 GraphQL 趋势榜，热度为 trending 活跃度 |
 | [MyAnimeList](https://myanimelist.net/topanime.php) · [脚本](../hot/myanimelist.js) | `/myanimelist/top/:type?` | 动画/漫画/轻小说评分榜第一页，保留明确名次和评分 |
 
 参数与示例：
 
-- Google News：`edition=us`（默认）、`gb`、`jp`；`topic=top`（默认）、`world`、`nation`、`business`、`technology`、`entertainment`、`sports`、`science`、`health`。例如 `/google-news/jp/top`、`/google-news/gb/technology`。
-- DEV：`period=day`、`week`（默认）、`month`、`year`；对应 API `top=1/7/30/365`，例如 `/devto/top/month`。
-- Hatena：`topic=all`（默认）、`general`、`social`、`economics`、`life`、`knowledge`、`it`、`fun`、`entertainment`、`game`。例如 `/hatena/hot/it`。
-- Mastodon：`type=links`（默认）、`tags`、`statuses`，例如 `/mastodon/trending/statuses`。来源固定为 mastodon.social，覆盖该实例可见并审核的趋势，内容可能有多种语言，不代表整个联邦宇宙。
-- Gutenberg：`period=day`（昨日，默认）、`week`（近 7 天）、`month`（近 30 天）。例如 `/gutenberg/top/week`；只读取指定周期的图书榜，不混入作者榜。
-- カクヨム：`period=daily`（默认）、`weekly`、`monthly`、`yearly`、`entire`；`genre=all`（默认）、`fantasy`、`action`、`sf`、`love_story`、`romance`、`drama`、`horror`、`mystery`、`nonfiction`、`history`、`criticism`、`others`。查询参数 `length=long`（默认）、`short`、`all`。例如 `/kakuyomu/rank/weekly/fantasy?length=short`。
-- なろう：`period=daily`（默认）、`weekly`、`monthly`、`quarter`、`yearly`、`total`。例如 `/narou/top/monthly`；积分来自官方 `daily_point` 等对应字段，N 代码统一为小写，未知积分为 `null`。
+- Google News：`edition=us`（默认）、`gb`、`jp`；`topic=top`（默认）、`world`、`nation`、`business`、`technology`、`entertainment`、`sports`、`science`、`health`。例如 `/google-news/rss/jp/top`、`/google-news/rss/gb/technology`。
+- DEV：`period=day`、`week`（默认）、`month`、`year`；对应 API `top=1/7/30/365`，例如 `/devto/api/articles/month`。
+- Hatena：`topic=all`（默认）、`general`、`social`、`economics`、`life`、`knowledge`、`it`、`fun`、`entertainment`、`game`。例如 `/hatena/hotentry/it`。
+- Mastodon：`type=links`（默认）、`tags`、`statuses`，例如 `/mastodon/api/v1/trends/statuses`。来源固定为 mastodon.social，覆盖该实例可见并审核的趋势，内容可能有多种语言，不代表整个联邦宇宙。
+- Gutenberg：`period=day`（昨日，默认）、`week`（近 7 天）、`month`（近 30 天）。例如 `/gutenberg/browse/scores/top/week`；只读取指定周期的图书榜，不混入作者榜。
+- カクヨム：`period=daily`（默认）、`weekly`、`monthly`、`yearly`、`entire`；`genre=all`（默认）、`fantasy`、`action`、`sf`、`love_story`、`romance`、`drama`、`horror`、`mystery`、`nonfiction`、`history`、`criticism`、`others`。查询参数 `length=long`（默认）、`short`、`all`。例如 `/kakuyomu/rankings/fantasy/weekly?length=short`。
+- なろう：`period=daily`（默认）、`weekly`、`monthly`、`quarter`、`yearly`、`total`。例如 `/narou/novelapi/api/monthly`；积分来自官方 `daily_point` 等对应字段，N 代码统一为小写，未知积分为 `null`。
 - YouTube：`region=US`（默认）、`JP`、`GB` 等官方支持地区；`category=0`（默认全部），也支持官方数字分类，如 `10` 音乐、`20` 游戏。例如 `/youtube/hot/JP/10`。当前 `mostPopular` 内容侧重音乐、电影和游戏，不是已下线的旧全站 Trending 页面。
-- TikTok：`country=US`（默认）、`JP`、`GB` 等官方支持地区；`days=1`、`7`（默认）、`30`、`120`。例如 `/tiktok/hot/JP/7`。展示官方 Discovery 热门话题，不是 For You 个性化推荐流。
-- Dailymotion：`country=us`（默认）、`jp`、`gb` 等地区代码，例如 `/dailymotion/hot/jp`。
-- Reddit：`subreddit=popular`（默认）、`news`、`worldnews` 等；`sort=hot`（默认）、`top`、`rising`。仅 `top` 支持查询参数 `period=day`（默认）、`week`、`month`、`year`、`all`，如 `/reddit/news/top?period=week`。没有集成 OAuth，需上游允许公开访问。
-- Apple Charts：`country=us`（默认）、`jp`、`gb` 等地区；`type=podcasts`（默认）、`songs`、`albums`。例如 `/apple-charts/jp/songs`，播客使用 `top`，音乐使用 `most-played`。
+- TikTok：`country=US`（默认）、`JP`、`GB` 等官方支持地区；`days=1`、`7`（默认）、`30`、`120`。例如 `/tiktok/open_api/v1.3/discovery/trending_list/JP/7`。展示官方 Discovery 热门话题，不是 For You 个性化推荐流。
+- Dailymotion：`country=us`（默认）、`jp`、`gb` 等地区代码，例如 `/dailymotion/videos/jp`。
+- Reddit：`subreddit=popular`（默认）、`news`、`worldnews` 等；`sort=hot`（默认）、`top`、`rising`。仅 `top` 支持查询参数 `period=day`（默认）、`week`、`month`、`year`、`all`，如 `/reddit/r/news/top?period=week`。没有集成 OAuth，需上游允许公开访问。
+- Apple Charts：`country=us`（默认）、`jp`、`gb` 等地区；`type=podcasts`（默认）、`songs`、`albums`。例如 `/apple-charts/api/v2/jp/songs`，播客使用 `top`，音乐使用 `most-played`。
 - AniList：`type=anime`（默认）、`manga`，例如 `/anilist/trending/manga`，优先日文标题；MyAnimeList：`type=anime`（默认）、`manga`、`novels`，例如 `/myanimelist/top/novels`。
 
 YouTube 和 TikTok 需要先在后台导入脚本、填写配置并发布启用：
@@ -141,7 +142,7 @@ YouTube 和 TikTok 需要先在后台导入脚本、填写配置并发布启用�
 
 凭据只放在 `X-Goog-Api-Key` / `Access-Token` 请求头，跨 origin 重定向时移除且返回原站后不恢复，调试日志仅记录头名称。不要把真实密钥写进脚本源码、默认值、URL 或日志。配置表单的 `writeOnly` 只遮挡输入，配置按脚本元数据保存，不是独立加密密钥库，应仅由受信管理员维护。
 
-这些脚本已加入构建时的 `rank/scripts.js` 清单；在后台单独使用时仍需复制脚本、Debug 并发布。JSON 访问地址在上表路由前加 `/api/hot`，例如 `/api/hot/google-news/jp/top`。更新采集源码后运行 `node scripts/sync_hot_scripts.js /path/to/findrss-scripts` 同步清单及内容版本，再构建部署；已部署实例需重新生成热榜快照。
+这些脚本已加入构建时的 `rank/scripts.js` 清单；在后台单独使用时仍需复制脚本、Debug 并发布。JSON 访问地址在上表路由前加 `/api/hot` 或 `/hot`，例如 `/api/hot/google-news/rss/jp/top` 或 `/hot/google-news/rss/jp/top`。更新采集源码后运行 `node scripts/sync_hot_scripts.js /path/to/findrss-scripts` 同步清单及内容版本，再构建部署；已部署实例需重新生成热榜快照。
 
 非浏览器测试：`mise exec node@22.19.0 -- node --test test/expanded_hot_scripts.test.js test/international_hot_scripts.test.js test/script_util.test.js test/rss_fetch_headers.test.js rank/test/loader.test.js rank/test/runtime.test.js`。覆盖参数、解析、稳定 ID、去重、缺失热度、非法数据、请求失败、凭据边界和跨站重定向。当前通过 HTTP 获取的 Google News、Techmeme、Lobsters、DEV、Mastodon、Gutenberg、カクヨム，以及 Dailymotion、Niconico、Vimeo、Zenn、Qiita、Slashdot、Ars Technica、The Verge、NPR、NHK、Yahoo! JAPAN、ITmedia、Apple、Deezer、AniList、MyAnimeList 真实默认回包用于复核解析。
 
@@ -154,7 +155,7 @@ YouTube、TikTok 没有使用真实凭据执行官方 API，完成文档核对�
 | 脚本 | 路由 | 覆盖范围 |
 | --- | --- | --- |
 | [起点](../hot/qidian.js) | 明确导出 17 条固定路由，见下表 | 官方移动端男频 9 榜、女频 8 榜；分类及适用的周期筛选 |
-| [七猫小说](../hot/qimao.js) | `/qimao/rank/:gender?/:type?/:period?` | 男女频全部 5 类榜单及可用的日/月周期，共 16 个入口 |
+| [七猫小说](../hot/qimao.js) | `/qimao/paihang/:gender?/:type?/:period?` | 男女频全部 5 类榜单及可用的日/月周期，共 16 个入口 |
 | [番茄小说](../hot/fanqienovel.js) | `/fanqienovel/rank/:rank_id?` | 巅峰榜、男频 19 类与女频 18 类各自的阅读/新书榜，共 75 个入口 |
 
 ### 起点
@@ -199,7 +200,7 @@ YouTube、TikTok 没有使用真实凭据执行官方 API，完成文档核对�
 | `collect` | 收藏榜 | 仅 `date` 路径，按总收藏数排序 |
 | `update` | 更新榜 | 仅 `date` 路径，按近 30 天更新总字数排序 |
 
-示例：`/qimao/rank/girl/new/month`（女频新书月榜）、`/qimao/rank/boy/collect`（男频收藏榜）、`/qimao/rank/girl/update`（女频更新榜）。收藏和更新榜没有日/月切换，显式传入 `month` 会报参数错误。只读取第一页，封面来自官方 HTML；收藏/更新榜未展示计数时保留未知，不把它们标为热度。
+示例：`/qimao/paihang/girl/new/month`（女频新书月榜）、`/qimao/paihang/boy/collect`（男频收藏榜）、`/qimao/paihang/girl/update`（女频更新榜）。收藏和更新榜没有日/月切换，显式传入 `month` 会报参数错误。只读取第一页，封面来自官方 HTML；收藏/更新榜未展示计数时保留未知，不把它们标为热度。
 
 七猫可能以 HTTP 200 返回阿里云滑动验证页。脚本声明并携带 `acw_tc`、`acw_sc__v2`、`acw_sc__v3` 验证 Cookie，仅用于 `https://www.qimao.com/paihang/`。请手动完成官网验证，在后台同步有效的 `qimao.com` Cookie，并确认新版脚本的 Cookie 授权后发布。验证仍失败时脚本会明确报错；Cookie 可能失效或受上游 IP 限制，需在部署环境手动 Debug 验证。
 

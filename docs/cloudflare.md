@@ -12,17 +12,18 @@ npm run deploy
 
 `wrangler.jsonc` 的 Worker 名称为 `findrss-scripts`，自定义域名为 `script.findrss.cloud` 和 `scripts.findrss.cloud`。部署时 Wrangler 自动创建域名绑定、DNS 记录和 HTTPS 证书，需要登录的 Cloudflare 账户有权管理 `findrss.cloud`。也可使用 Cloudflare Workers 的 GitHub 集成：安装命令 `npm ci`，部署命令 `npm run deploy`，Wrangler 会自动执行构建。CI 只测试和打包，不自动发布。
 
-构建从 `scripts/prepare_runtime.js` 指定的提交下载 FindRSS 运行时，应用 `scripts/patches/` 中的抖音签名、Debug 版本展示和脚本内置 Cookie 补丁，再在 `.runtime/findrss-worker/` 安装依赖。脚本在构建期通过生产 QuickJS 编译校验，生成 `dist/scripts.js` 和 `dist/routes.json`；新增 `.js` 文件或路由后会自动纳入部署和巡检。构建不请求脚本的上游站点。更新运行时提交后需要重新运行全部测试和打包检查。
+构建从 `scripts/prepare_runtime.js` 指定的提交下载 FindRSS 运行时，应用 `scripts/patches/` 中的抖音签名、Debug 版本展示、脚本内置 Cookie 和 `@findrss/core` 基类模块补丁，再在 `.runtime/findrss-worker/` 安装依赖。脚本在构建期通过生产 QuickJS 编译校验，生成 `dist/scripts.js` 和仅含 `/api` 前缀的巡检清单 `dist/routes.json`；新增 `.js` 文件或路由后会自动纳入部署和巡检。构建不请求脚本的上游站点。更新运行时提交后需要重新运行全部测试和打包检查。
 
 ## 默认入口
 
 | 地址 | 返回内容 |
 | --- | --- |
-| `/health` | 已加载脚本数和检查项数 |
-| `/api/routes` 或 `/` | 所有脚本路由、示例、类型及来源 |
+| `/health` | 已加载脚本数和已注册路由数（含别名） |
+| `/api/routes` 或 `/` | 全部已注册路由（含别名）、示例、类型及来源 |
 | `/api/hot/<脚本路径>` | 热榜 JSON |
 | `/rss/<脚本路径>` | RSS 2.0 |
 | `/atom/<脚本路径>` | Atom 1.0 |
+| `/api/rss/<脚本路径>` | 订阅 JSON 快照 |
 | `/api/clip/<脚本路径>` | 剪藏 JSON，包含静态 HTML |
 | `/api/detect/<脚本路径>` | 检测 JSON，本次采样的初始快照 |
 | `/img/<平台>?url=...` | 经脚本白名单校验的图片 |
@@ -30,11 +31,13 @@ npm run deploy
 | `/debug/<脚本声明路径>` | 脚本诊断 HTML，支持全部脚本及附加路由 |
 | `POST /api/cookies/update` | dm Cookie 同步 |
 
+脚本声明的路径本身也可直接访问；上述 `/rss`、`/api/hot` 等是根据脚本 `kind` 增加的命名空间。章节正文、图片代理等附加路由没有命名空间，直接按声明路径访问。
+
 脚本路由同时支持 GET 和 POST。POST 使用 `Content-Type: application/json`，JSON 对象中的字符串、数字或布尔值作为查询参数传入脚本（覆盖同名 query；null 忽略），路径参数仍写在 URL 中。请求体最多 2MB，不接受嵌套对象或数组；请求体中的 `token` 不用于授权，也不会传入脚本。建议 POST 使用 `Authorization: Bearer <token>`；管理入口与 Debug 仍仅支持 GET。
 
-所有脚本默认注册，不需要后台导入、发布或数据库。当前 110 个脚本生成 170 个检查项，其中 RSS 同时检查 RSS 和 Atom。Detect 为无状态采样，不保存历史基线。没有管理后台、订阅管理或周期快照存储。
+所有脚本默认注册，不需要后台导入、发布或数据库。当前 102 个脚本生成 137 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。Detect 为无状态采样，不保存历史基线。没有管理后台、订阅管理或周期快照存储。
 
-`npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，配置已声明 `BROWSER` 绑定；本地模拟不能替代实际浏览器绑定验证。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
+`npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，配置已声明 `BROWSER` 绑定；本地模拟不能替代实际浏览器绑定验证。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/s/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
 
 ## 凭据与设备
 
@@ -112,7 +115,7 @@ RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKE
 
 检查从当前代码构建的本地清单出发，最多同时请求 10 条路由，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 60 秒，完成一条后立即继续下一条，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文、`reports/icons/` 中的脚本图标一起上传为 `route-check-report` artifact。
 
-HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存到 `reports/responses/`，即使后续格式或输出校验失败也保留。目录使用实际请求 URL 的路径（包含样本覆盖后的参数值），不包含查询串明文；有查询参数时，在扩展名前添加查询串的 SHA-256 前 16 位，避免多个样本相互覆盖。例如 `/rss/github/ltaoo/wx_channels_download/release` 保存为 `reports/responses/rss/github/ltaoo/wx_channels_download/release.xml`，`/api/hot/baidu/hot` 保存为 `reports/responses/api/hot/baidu/hot.json`。RSS/Atom 使用 `.xml`，JSON 使用 `.json`，正文使用 `.html`，图片按响应类型使用扩展名；以 `/` 结尾的路径使用 `index` 文件名。JSON 报告的 `output_file` 记录相对于 `responses/` 的产物路径；同一路由有多个样本时，详细结果和产物路径保存在该路由的 `samples` 中。每轮先清空正文目录，失败请求不会沿用上轮文件。
+HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存到 `reports/responses/`，即使后续格式或输出校验失败也保留。目录使用实际请求 URL 的路径（包含样本覆盖后的参数值），不包含查询串明文；有查询参数时，在扩展名前添加查询串的 SHA-256 前 16 位，避免多个样本相互覆盖。例如 `/rss/github/ltaoo/wx_channels_download/release` 保存为 `reports/responses/rss/github/ltaoo/wx_channels_download/release.xml`，`/api/hot/baidu/board` 保存为 `reports/responses/api/hot/baidu/hot.json`。RSS/Atom 使用 `.xml`，JSON 使用 `.json`，正文使用 `.html`，图片按响应类型使用扩展名；以 `/` 结尾的路径使用 `index` 文件名。JSON 报告的 `output_file` 记录相对于 `responses/` 的产物路径；同一路由有多个样本时，详细结果和产物路径保存在该路由的 `samples` 中。每轮先清空正文目录，失败请求不会沿用上轮文件。
 
 定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，提交上述报告、`reports/responses/` 中的正文及 `reports/icons/` 中的脚本图标。分支根目录同时提供 `README.md`、`index.html`、`routes.json`、`routes.md` 和禁用 Jekyll 的 `.nojekyll`，JSON/Markdown 报告可通过文件路径访问；原有 `reports/` 下的报告路径继续保留。打开分支即可看到 README 结果表格，按脚本聚合所有格式的路由，展示脚本版本及可用的平台图标，路由表仅保留路由、成功／失败和失败原因；失败项优先，点击脚本路径直接打开 `master` 分支的 Raw 源码，方便复制复用。首次提交不包含源码历史；后续提交保留历次报告和正文历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。原有产物分支会自动增加这些根目录文件和本轮正文，并保留旧提交。源码工作区和分支不切换，源码 README 不会被生成报告覆盖，`reports/` 中其他本机文件不会发布。正文会随产物分支公开，包括使用登录态采集的内容。
 
@@ -140,13 +143,13 @@ HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存�
 node scripts/render_route_report.js
 ```
 
-该命令读取 `reports/routes.json` 和已构建的 `dist/scripts.js`，写入 `reports/index.html`。产物入口直接打开产物分支的 Raw URL，本地不需要额外加载响应正文。
+该命令读取 `reports/routes.json` 和已构建的 `dist/scripts.js`，写入 `reports/index.html`，并沿用报告中的 `mode`：本地巡检（`--local` 或回环地址）记录为 `dev`，产物使用相对当前报告目录的 `./responses/` prefix，可直接打开本地文件；其他巡检记录为 `release`，使用产物分支的 GitHub Raw prefix。未记录 `mode` 的旧报告按 `release` 处理。本地查看时需保留报告旁的 `responses/` 目录。
 
 | 阶段 | 校验 |
 | --- | --- |
 | 请求 | 请求完成且 HTTP 为 2xx，连接错误、超时、重定向、4xx/5xx 失败 |
 | 响应 | 正文读取完成、非空、不超过 24MB |
-| 格式 | Content-Type、XML/JSON 结构、RSS 2.0 / Atom 1.0、图片文件签名、HTML 节点 |
+| 格式 | Content-Type、JSON 结构（`/api/rss` 还检查标题、来源链接与条目）、图片文件签名、HTML 节点 |
 | 输出 | 命中预期脚本和 handler；标题及来源链接、条目数、稳定且唯一的 ID、条目链接与日期；热榜排名和热度；剪藏非空正文；检测结果成功且快照完整 |
 
 上游内容随时间变化，在线检查使用内容约束；脚本特定的解析、排序、媒体及错误行为由 `npm test` 的固定回包夹具验证。真实巡检失败不会被空数组、假数据或预期错误码当作成功。
@@ -157,17 +160,17 @@ node scripts/render_route_report.js
 
 GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-checks.json)，由 `scripts/check_routes.js` 在执行巡检时读取，工作流通过 `ROUTE_CHECK_CONFIG` 指定文件路径，本地未指定时也读取该文件。配置不参与构建，不写入 `dist/`，Worker 不读取或导入它，修改后无需重新部署 CF。
 
-配置的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到。每个键支持样本数组，也兼容原来的单个对象；有配置时替代该路由的默认样本，未配置的路由继续使用脚本 `example`。数组不能为空；未知路由、字段错误或跨站样本会在发请求前报错。GitHub Secret `ROUTE_CHECK_CASES` 使用相同格式，按配置键覆盖文件中的整组样本，不逐项合并。只允许覆盖 `example`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。
+配置的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到；其中格式为 `rss_json`、`hot`、`clip` 或 `detect`，路径均以 `/api` 开头。每个键支持样本数组，也兼容原来的单个对象；有配置时替代该路由的默认样本，未配置的路由继续使用脚本 `example`。数组不能为空；未知路由、字段错误或跨站样本会在发请求前报错。GitHub Secret `ROUTE_CHECK_CASES` 使用相同格式，按配置键覆盖文件中的整组样本，不逐项合并。只允许覆盖 `example`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。
 
 ```json
 {
-  "rss /rss/wxmp/:account?": [
-    { "example": "/rss/wxmp/wow36kr" },
-    { "example": "/rss/wxmp/zhihuribao" }
+  "rss_json /api/rss/wxmp/:account?": [
+    { "example": "/api/rss/wxmp/wow36kr" },
+    { "example": "/api/rss/wxmp/zhihuribao" }
   ],
-  "rss /rss/github/:org/:pro/release": [
+  "rss_json /api/rss/github/:org/:pro/release": [
     {
-      "example": "/rss/github/cloudflare/workers-sdk/release",
+      "example": "/api/rss/github/cloudflare/workers-sdk/release",
       "title_includes": "cloudflare/workers-sdk",
       "min_items": 1
     }
@@ -175,35 +178,39 @@ GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-chec
 }
 ```
 
-当前仓库配置为 `rss/wxmp.js` 的 `wow36kr`、`zhihuribao` 和 `rss/wxchannels.js` 的两个视频号账号同时检查 RSS、Atom。实际请求地址需要带 `/rss` 或 `/atom` 前缀。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本地址，JSON 的 `samples` 保留逐样本详情。
+巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。当前仓库配置为 `rss/wxmp.js` 的 `wow36kr`、`zhihuribao` 和 `rss/wxchannels.js` 的两个视频号账号检查 `/api/rss` JSON 快照。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本地址，JSON 的 `samples` 保留逐样本详情。
 
 本地也可以运行同一巡检：
 
 ```sh
 npm run build
+npm run check:local                            # 连接 npm run dev，默认 http://127.0.0.1:8801
+CHECK_BASE_URL=http://127.0.0.1:8081 npm run check:local   # 其他本地端口
 CHECK_BASE_URL=https://你的Worker地址 npm run check:routes
 ```
 
-需要鉴权时通过环境变量提供 `CHECK_ACCESS_TOKEN`。缺少地址会失败并提示配置；缺少上游 Cookie/API Key/设备、验证页或空内容会记录为失败，不会自动忽略。巡检报告保留 Worker 返回的业务码和描述，详细上游问题可结合 Workers Logs 与对应脚本夹具定位。
+`--local` 未指定 `CHECK_BASE_URL` 时使用 Wrangler 的开发地址 `http://127.0.0.1:8801`；连接回环地址时若未设置 `CHECK_ACCESS_TOKEN`，会自动读取被 Git 忽略的 `.dev.vars` 中的 `ACCESS_TOKEN`，不会把本地令牌发送到远端站点。需要鉴权时也可通过 `CHECK_ACCESS_TOKEN` 提供。缺少地址会失败并提示配置；缺少上游 Cookie/API Key/设备、验证页或空内容会记录为失败，不会自动忽略。巡检报告保留 Worker 返回的业务码和描述，详细上游问题可结合 Workers Logs 与对应脚本夹具定位。
 
 ## 错误响应
 
 普通路由的错误统一返回 `error`、`code`、`message`，匹配到脚本时还包含 `file`。`error` 保留原有错误码字段，`code` 与它相同，客户端应按 `code` 判断错误类型；描述可随排查建议更新。HTTP 状态按错误类型返回，不再全部使用 502。
 
-例如未配置可用于 Instagram 请求的 Cookie，返回 HTTP 503：
+例如未配置可用于 Instagram 请求的 Cookie，返回 HTTP 503。诊断信息只列出来源站点、权限标识、声明的 Cookie 名称和筛选原因，不包含 Cookie 值：
 
 ```json
 {
   "error": "COOKIE_REQUIRED",
   "code": "COOKIE_REQUIRED",
-  "message": "缺少可用于当前请求的 Cookie，请配置该站点的有效登录 Cookie，并检查域名、路径和过期时间",
+  "message": "站点 https://www.instagram.com 的 Cookie 同步数据中没有权限 account_0 允许的名称（csrftoken、datr、ds_user_id、ig_did、mid、rur 等 7 个），请求 https://www.instagram.com/katarinabluu/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
   "file": "rss/instagram.js"
 }
 ```
 
+已同步但被域名、路径、Secure 或过期时间过滤时，`message` 会改为列出对应 Cookie 名称和不可用原因。
+
 错误码、公开描述和 HTTP 状态统一维护于 [`worker/errors.js`](../worker/errors.js)，复用固定生产运行时已有的业务码。包含 Cookie 缺失、上游登录失效、拒绝访问、限流、连接失败、超时、响应不匹配，以及参数、配置、访问鉴权、路由、采集能力、脚本输出和内部错误。
 
-Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前站点、路径且未过期的 Cookie 时返回 `COOKIE_REQUIRED`；声明权限但未使用 Cookie 的路由仍可匿名运行。已发送 Cookie 后被上游要求登录则返回 `UPSTREAM_AUTH_REQUIRED`，不能仅凭它判断 Cookie 一定过期。脚本已识别的响应错误使用 `UPSTREAM_INVALID_RESPONSE`；未知脚本异常保留 `SCRIPT_FAILED`。普通错误回包不透传原始异常、Cookie、令牌、上游正文或堆栈。
+Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前站点、路径且未过期的 Cookie 时返回 `COOKIE_REQUIRED`，`message` 指出缺失的名称或过滤原因；声明权限但未使用 Cookie 的路由仍可匿名运行。已发送 Cookie 后被上游要求登录则返回 `UPSTREAM_AUTH_REQUIRED`，不能仅凭它判断 Cookie 一定过期。脚本已识别的响应错误使用 `UPSTREAM_INVALID_RESPONSE`；未知脚本异常保留 `SCRIPT_FAILED`。普通错误回包不透传原始异常、Cookie、令牌、上游正文或堆栈。
 
 ### Debug 诊断页
 
@@ -213,12 +220,12 @@ Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前�
 | --- | --- |
 | `/rss/github/ltaoo/wx_channels_download/release` | `/debug/github/ltaoo/wx_channels_download/release` |
 | `/api/hot/hackernews` | `/debug/hackernews` |
-| `/api/clip/github/ltaoo/findrss-worker/readme` | `/debug/github/ltaoo/findrss-worker/readme` |
-| `/api/detect/github/ltaoo/findrss-worker/releases/detect` | `/debug/github/ltaoo/findrss-worker/releases/detect` |
+| `/api/clip/github/ltaoo/findrss-worker` | `/debug/github/ltaoo/findrss-worker` |
+| `/api/detect/github/ltaoo/findrss-worker/releases.atom` | `/debug/github/ltaoo/findrss-worker/releases.atom` |
 | `/fanqienovel/chapter/123` | `/debug/fanqienovel/chapter/123` |
 | `/img/apple?url=...` | `/debug/img/apple?url=...` |
 
-例如 `/debug/rss/github/ltaoo/wx_channels_download/release` 和 `/debug/api/hot/hackernews` 也可访问。`dist/openapi.json` 包含所有脚本声明路径对应的 Debug 接口；`/api/routes` 和巡检仍列出普通路由。
+例如 `/debug/rss/github/ltaoo/wx_channels_download/release`、`/debug/api/hot/hackernews` 和 `/debug/hot/hackernews` 也可访问。`dist/openapi.json` 只包含四个 `/api` 前缀接口，不包含 Debug；`/api/routes` 仍列出全部普通路由及别名。
 
 Debug 成功、失败均返回 HTML，失败保留对应业务码的 HTTP 状态，无需设置 `Accept`。页面展示脚本文件、版本、路由与 handler 索引，请求路径、路径参数、查询参数、部分请求头和鉴权状态，执行阶段、总耗时、失败详情与沙箱堆栈、执行日志，以及上游请求的方法、主机、路径、状态、传输方式和凭据发送情况。成功时显示脚本原始返回值，不转换 RSS/Atom XML，也不额外抓取图片描述指向的二进制。每次重新执行并返回 `Cache-Control: no-store`。
 

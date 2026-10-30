@@ -49,11 +49,11 @@ matches 是规则命中数组，每项包含唯一 id、label，可选 change_in
 
 历史仅管理员可读，每条任务保留最近 20 次执行及当前基线；大于 64KB 的结果需要 API_STORAGE 对象存储。脚本停用、权限撤销、任务编辑、重置或删除后，迟到结果不会发布。
 
-Debug 可在「上次内容快照 JSON」中粘贴旧 snapshot 或完整历史结果，重复验证比较规则，不修改正式任务基线。脚本只读访问 `ctx.previous`，其包含 id、snapshot。HTTP `GET /api/detect/<脚本路由>` 是无状态试采样，遵循路由访问权限，只返回 initialized/inconclusive，不推进任务基线；任务运行、重置和历史通过管理员 API 操作。
+Debug 可在「上次内容快照 JSON」中粘贴旧 snapshot 或完整历史结果，重复验证比较规则，不修改正式任务基线。脚本只读访问 `ctx.previous`，其包含 id、snapshot。HTTP `GET /api/detect/<脚本路由>` 或 `/detect/<脚本路由>` 是无状态试采样，遵循路由访问权限，只返回 initialized/inconclusive，不推进任务基线；任务运行、重置和历史通过管理员 API 操作。
 
 | 文件 | 示例路由 | 用途 |
 | --- | --- | --- |
-| [github_releases.js](github_releases.js) | `/github/ltaoo/findrss-worker/releases/detect` | GitHub 发布窗口的新增、移出和说明更新 |
+| [github_releases.js](github_releases.js) | `/github/ltaoo/findrss-worker/releases.atom` | GitHub 发布窗口的新增、移出和说明更新 |
 | [website_text.js](website_text.js) | `/web/text/detect?url=https%3A%2F%2Fexample.com%2F&selector=body` | 静态网页指定区域的正文变化 |
 
 示例使用普通 HTTP，不启动浏览器。通用网页示例支持有限的简单 CSS 选择器，动态渲染页面可自行使用 ctx.puppeteer.navigate，再提取可靠业务数据。测试在 findrss-worker 根目录运行 `node --test test/detect.test.js test/detection_scripts.test.js admin/__tests__/detections.test.mjs`。
