@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
 import { read_script, script_names } from './support/script_sources.js';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
@@ -14,10 +13,8 @@ import { mock_tcp_http } from 'findrss-worker/test/support/tcp_socket_fixture.js
 
 const { compile_script_module, execute_script } = await import('findrss-worker/server/infra/script_sandbox.js');
 const fixture_directory = new URL('./fixtures/', import.meta.url);
-// shortcut: 历史 NewsNow 回包未随旧仓库提供，补齐夹具后恢复该项真实解析回归。
-const has_newsnow_fixtures = ['newsnow_sources.json', 'newsnow_responses.json'].every(name => existsSync(new URL(name, fixture_directory)));
-const manifest = has_newsnow_fixtures ? JSON.parse(await readFile(new URL('newsnow_sources.json', fixture_directory))) : null;
-const fixtures = has_newsnow_fixtures ? JSON.parse(await readFile(new URL('newsnow_responses.json', fixture_directory))) : null;
+const manifest = JSON.parse(await readFile(new URL('newsnow_sources.json', fixture_directory)));
+const fixtures = JSON.parse(await readFile(new URL('newsnow_responses.json', fixture_directory)));
 const content_cases = JSON.parse(await readFile(new URL('./fixtures/script_migration.json', import.meta.url)));
 const read = read_script;
 const hash = (kind, value) => createHash(kind).update(value).digest('hex');
@@ -95,7 +92,7 @@ for (const fixture of content_cases) test('迁移脚本保留内容与媒体：'
   if (fixture.file === 'weibo') { assert.ok(items[0].images[0].includes('/img/weibo?')); assert.doesNotMatch(items[0].content, /\[object Object\]/); }
 });
 
-test('52 个源重写为列表快照，生产 QuickJS 正常执行、去重并保留稳定 ID 和链接', { skip: !has_newsnow_fixtures && '旧仓库缺少 NewsNow 回包夹具' }, async t => {
+test('52 个源重写为列表快照，生产 QuickJS 正常执行、去重并保留稳定 ID 和链接', async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   for (const entry of manifest.sources) {
@@ -103,7 +100,9 @@ test('52 个源重写为列表快照，生产 QuickJS 正常执行、去重并�
     const script = await read('hot/' + file);
     const compiled = await compile_script_module(script);
     assert.equal(compiled.error, '', entry.file);
-    const metadata = { ...compiled.metadata, ...compiled.metadata.routes.find(route => route.path === '/' + entry.source.replace(/-/g, '/')) };
+    const route = compiled.metadata.routes.find(route => route.name === entry.name);
+    assert.ok(route, entry.source + ': 未找到同名路由');
+    const metadata = { ...compiled.metadata, ...route };
     const fixture = fixtures[entry.source];
     const calls = [];
     globalThis.fetch = async (url, options) => {
