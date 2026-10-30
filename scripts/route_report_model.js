@@ -1,8 +1,9 @@
-const raw_url = (branch, file) => `https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/${branch}/`
-  + String(file).split("/").map(part => encodeURIComponent(part).replace(/[!'()*]/g, char => "%" + char.charCodeAt(0).toString(16).toUpperCase())).join("/");
+const encode_path = file => String(file).split("/").map(part => encodeURIComponent(part).replace(/[!'()*]/g, char => "%" + char.charCodeAt(0).toString(16).toUpperCase())).join("/");
+const raw_url = (branch, file) => `https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/${branch}/` + encode_path(file);
 
 export function route_report_model(report, catalog) {
   if (!report || !Array.isArray(report.results)) throw new Error("巡检报告缺少 results 数组");
+  const report_prefix = report.mode === "dev" ? "./" : raw_url("route-reports", "reports/");
   const scripts = new Map((catalog || report.scripts || []).map(script => [script.file, script]));
   const groups = new Map();
   for (const result of report.results) {
@@ -14,7 +15,7 @@ export function route_report_model(report, catalog) {
       const file = sample.output_file;
       if (!sample.output_valid || typeof file !== "string" || /[\\?#\u0000-\u001f]/.test(file)
         || file.split("/").some(part => !part || part === "." || part === "..")) return [];
-      return [{ url: raw_url("route-reports", "reports/responses/" + file),
+      return [{ url: report_prefix + encode_path("responses/" + file),
         label: samples.length > 1 ? `查看产物 ${index + 1}` : "查看产物" }];
     });
     if (artifacts.length) row.artifacts = artifacts;
@@ -36,7 +37,7 @@ export function route_report_model(report, catalog) {
         kind: script?.kind || String(file).split("/")[0],
         raw_url: raw_url("master", file), version: script?.version || "—", icon, icon_file,
         icon_data_url: icon ? "data:image/svg+xml;base64," + Buffer.from(icon).toString("base64") : "",
-        icon_url: icon ? raw_url("route-reports", "reports/" + icon_file) : "", rows,
+        icon_url: icon ? report_prefix + encode_path(icon_file) : "", rows,
         total: rows.length, failed: rows.filter(row => !row.ok).length };
     }).sort((a, b) => Number(b.failed > 0) - Number(a.failed > 0)),
   };

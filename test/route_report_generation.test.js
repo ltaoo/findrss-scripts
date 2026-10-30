@@ -5,7 +5,11 @@ import { cp, mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from "n
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-test("巡检入口读取独立配置并支持 Secret 覆盖，聚合样本且失败仍保存报告", async t => {
+for (const { mode, base, args } of [
+  { mode: "release", base: "https://scripts.example", args: [] },
+  { mode: "dev", base: "", args: ["--local"] },
+  { mode: "dev", base: "http://localhost:8081", args: [] },
+]) test(`巡检入口读取配置、保存失败报告及环境，重新渲染沿用产物 prefix：${mode} ${base}`, async t => {
   const root = await mkdtemp(join(tmpdir(), "findrss-report-generation-"));
   t.after(() => rm(root, { recursive: true, force: true }));
   await cp(new URL("../scripts/", import.meta.url), join(root, "scripts"), { recursive: true });
@@ -36,12 +40,13 @@ test("巡检入口读取独立配置并支持 Secret 覆盖，聚合样本且失
     : Response.json({ kind: "hot_rank", title: "Example", link: "https://example.com", entries: [
       { id: "1", title: "Article", link: "https://example.com/1", rank: null, pinned: false, heat: { value: null, unit: "", text: "" } }
     ] }, { headers: { "X-FindRSS-Script": "hot/example.js", "X-FindRSS-Route": "0" } });`);
-  assert.throws(() => execFileSync(process.execPath, ["--import", "./fetch.js", "scripts/check_routes.js"], {
-    cwd: root, env: { ...process.env, CHECK_BASE_URL: "https://scripts.example", ROUTE_CHECK_CONFIG: ".github/route-checks.json",
+  assert.throws(() => execFileSync(process.execPath, ["--import", "./fetch.js", "scripts/check_routes.js", ...args], {
+    cwd: root, env: { ...process.env, CHECK_BASE_URL: base, ROUTE_CHECK_CONFIG: ".github/route-checks.json",
       ROUTE_CHECK_CASES: JSON.stringify({ "hot /api/hot/failed": { example: "/configured/failed" } }), GITHUB_STEP_SUMMARY: "" },
     stdio: "pipe",
   }), error => error.status === 1);
   const report = JSON.parse(await readFile(join(root, "reports/routes.json"), "utf8"));
+  assert.equal(report.mode, mode);
   assert.deepEqual([report.total, report.passed, report.failed], [2, 1, 1]);
   const passed = report.results.find(result => result.output_valid);
   assert.deepEqual(passed.samples.map(sample => sample.example), ["/configured/one", "/configured/two"]);
@@ -63,4 +68,11 @@ test("巡检入口读取独立配置并支持 Secret 覆盖，聚合样本且失
   assert.match(html, /responses\/configured\/one.json/);
   assert.equal([...html.matchAll(/<button data-n="inspect-script"/g)].length, 1);
   assert.equal([...html.matchAll(/<tr data-n="route-result"/g)].length, 2);
+  const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
+  const artifact = html.match(/<a data-n="artifact-link" href="([^"]+)"/)[1];
+  assert.equal(artifact, prefix + "responses/configured/one.json");
+  assert.ok(markdown.includes('src="' + prefix + 'icons/script-0.svg"'));
+  if (mode === "dev") assert.ok(await readFile(join(root, "reports", artifact), "utf8"));
+  execFileSync(process.execPath, ["scripts/render_route_report.js"], { cwd: root, stdio: "pipe" });
+  assert.equal(await readFile(join(root, "reports/index.html"), "utf8"), html);
 });

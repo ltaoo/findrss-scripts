@@ -143,6 +143,21 @@ test("通过样本在新窗口打开产物 Raw 链接，失败样本和不安全
   assert.doesNotMatch(html, /<iframe|artifact-dialog|open_artifact/);
 });
 
+test("dev 产物使用本地 prefix，release 和旧报告使用 Raw prefix，路径均安全编码", () => {
+  for (const mode of ["dev", "release", undefined]) {
+    const html = render_report_html({ mode, results: [{ ...passed, file: "rss/example.js", path: "/example", samples: [
+      { ...passed, output_file: "rss/测试 a %20(1).xml" },
+      { ...passed, output_file: "../private.json" },
+      { ...passed, output_valid: false, output_file: "failed.json" },
+    ] }] });
+    const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
+    assert.equal(html.match(/<a data-n="artifact-link" href="([^"]+)"/)[1],
+      prefix + "responses/rss/%E6%B5%8B%E8%AF%95%20a%20%2520%281%29.xml");
+    assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 1);
+    assert.doesNotMatch(html, /private.json|failed.json/);
+  }
+});
+
 test("页头设置、动态路由配置与保存入口，未巡检路由仍可配置，私有样本不进入表单", () => {
   const html = render_report_html({ results: [{ ...passed, file: "clip/example.js", path: "/api/clip/example/:id",
     example: "/api/clip/example/private-id?token=private-token" }] }, [
