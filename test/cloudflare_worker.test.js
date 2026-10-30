@@ -62,13 +62,22 @@ test("Instagram 缺少、过期或不匹配的 Cookie 在出网前返回明确�
   t.after(() => { globalThis.fetch = original; });
   globalThis.fetch = () => assert.fail("Cookie 不可用时不得出网");
   const cookie = { name: "sessionid", value: "private-cookie", domain: ".instagram.com", path: "/", secure: true };
-  for (const cookies of [undefined, [], [{ ...cookie, expirationDate: 1 }], [{ ...cookie, domain: ".example.com" }], [{ ...cookie, path: "/other" }]]) {
+  for (const [cookies, pattern] of [
+    [undefined, /没有权限 account_0 允许的名称/],
+    [[], /没有权限 account_0 允许的名称/],
+    [[{ ...cookie, expirationDate: 1 }], /sessionid（已过期）/],
+    [[{ ...cookie, domain: ".example.com" }], /sessionid（域名不匹配）/],
+    [[{ ...cookie, path: "/other" }], /sessionid（路径不匹配）/],
+  ]) {
     const env = cookies === undefined ? {} : { ACCESS_TOKEN: "private-token", SCRIPT_COOKIES: JSON.stringify(cookies) };
     const response = await request("/rss/instagram/katarinabluu", env, { Authorization: "Bearer private-token" });
     assert.equal(response.status, 503);
-    assert.deepEqual(await response.json(), {
-      error: "COOKIE_REQUIRED", code: "COOKIE_REQUIRED", message: ERRORS.COOKIE_REQUIRED[1], file: "rss/instagram.js",
-    });
+    const body = await response.json();
+    assert.equal(body.error, "COOKIE_REQUIRED");
+    assert.equal(body.code, "COOKIE_REQUIRED");
+    assert.equal(body.file, "rss/instagram.js");
+    assert.match(body.message, pattern);
+    assert.doesNotMatch(body.message, /private-cookie/);
     assert.equal(response.headers.get("X-FindRSS-Script"), "rss/instagram.js");
   }
 });

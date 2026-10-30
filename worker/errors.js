@@ -30,8 +30,8 @@ export const ERRORS = Object.freeze({
   INTERNAL_ERROR: [500, "服务内部错误，请结合 Worker 日志排查"],
 });
 
-export function script_error(code) {
-  return Object.assign(new Error(ERRORS[code][1]), { name: "FeedError", code });
+export function script_error(code, message = ERRORS[code][1]) {
+  return Object.assign(new Error(message), { name: "FeedError", code });
 }
 
 export function error_code(failure) {
@@ -45,8 +45,10 @@ export function error_code(failure) {
   return failure?.name === "ScriptError" ? "SCRIPT_FAILED" : "INTERNAL_ERROR";
 }
 
-export function error_response(code, headers, file) {
+export function error_response(code, headers, file, failure) {
   if (!Object.hasOwn(ERRORS, code)) code = "INTERNAL_ERROR";
   const [status, message] = ERRORS[code];
-  return Response.json({ error: code, code, message, ...(file ? { file } : {}) }, { status, headers });
+  // 缺失 Cookie 时保留沙箱给出的站点/名称诊断；其余码继续使用固定描述。
+  const detail = code === "COOKIE_REQUIRED" && typeof failure?.problem?.error === "string" ? failure.problem.error : "";
+  return Response.json({ error: code, code, message: detail || message, ...(file ? { file } : {}) }, { status, headers });
 }

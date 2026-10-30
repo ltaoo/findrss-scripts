@@ -29,3 +29,13 @@ test("错误回包统一包含码和描述，不透传原始错误或凭据", as
   assert.equal(unknown.status, 500);
   assert.equal((await unknown.json()).code, "INTERNAL_ERROR");
 });
+
+test("仅 Cookie 缺失回包保留沙箱诊断，其他错误继续使用固定描述", async () => {
+  const failure = { problem: { code: "SCRIPT_COOKIE_PERMISSION_REQUIRED", error: "站点 https://www.qimao.com 已同步的 Cookie 无法用于当前请求（权限 acw）：acw_tc（已过期）" } };
+  const response = error_response(error_code(failure), {}, "hot/qimao.js", failure);
+  assert.deepEqual(await response.json(), {
+    error: "COOKIE_REQUIRED", code: "COOKIE_REQUIRED", message: failure.problem.error, file: "hot/qimao.js",
+  });
+  const other = error_response("UPSTREAM_TIMEOUT", {}, "hot/qimao.js", { problem: { error: "上游自定义" } });
+  assert.equal((await other.json()).message, ERRORS.UPSTREAM_TIMEOUT[1]);
+});

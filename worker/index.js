@@ -41,7 +41,7 @@ export default {
         credential_present: request.headers.has("Authorization") || query_credential_present, authenticated } };
     const fail = (code, failure) => debugging
       ? debug_response({ entry, context, stage, started_at, code, failure, result, invoked }, response_headers)
-      : error_response(code, response_headers, entry?.file);
+      : error_response(code, response_headers, entry?.file, failure);
     const syncing = url.pathname === "/api/cookies/update";
     const methods = syncing ? ["POST"] : debugging || ["/", "/health", "/api/routes"].includes(url.pathname) ? ["GET"] : ["GET", "POST"];
     if (!methods.includes(request.method)) {
