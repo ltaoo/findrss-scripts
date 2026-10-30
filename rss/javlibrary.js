@@ -1,4 +1,5 @@
 import { utils } from "@findrss/util";
+import { RSSScript, Result } from "@findrss/core";
 
 // 更换镜像时修改此处；Cookie 权限随之更新，需要重新确认授权。
 const origin = "https://www.javlibrary.com";

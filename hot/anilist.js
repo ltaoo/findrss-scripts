@@ -1,5 +1,6 @@
 /** HOT */
 import { utils } from "@findrss/util";
+import { HotRankScript, Result } from "@findrss/core";
 export const version = "1.0.0";
 export const category = "动漫";
 export const order = 880;

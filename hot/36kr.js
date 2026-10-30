@@ -8,6 +8,7 @@ export const platform = {
   icon: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"36kr-quick-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAyVBMVEUAAAAwhf0whv0vhf3///8whf0vhf0whv0whv0whf0xhv1Alf8whv0whv0zjP8vhv0whv1Jkv8vhv0vhvw1jf8vhv0vhv1Vqv8vhf0xh/8zhv8whv0whfwvhfwwhf8xif8whvwvh/8whvwwhf0whvwxhv8vh/0vhf0yh/8vhv01h/8whfwwhf0whv0wiP8vhv0whvwyh/8xhv8vhf01iv8vhv0vhf0whf0whvwxhv8whf07if8vhf0xh/wwhf0wiP8whv0whvwvhfxuG9jBAAAAQnRSTlMAhvriAZv53/BrfgzqcBTy4QeNYR341wOdUyj8y6xFNL5Gte+7OWz9QugiyZmeOs7AMxX3GN3YlatU6w1xYtZPmsrwc20MAAAA9ElEQVQ4y72TaVvCMAyAyyEoGyAgoG4iiCIglwd4IKD5/z+KpGxpd+Tr8mF5m7591q2pUllELg9QCLh4VgIoxwQswXnAF8hQiQlgBMdFdh1ZqBBXlSjU6oiXDVloEraUKFy1kTpdWbgmulGicOsh+EoW7gh6snBPuW/Kg4ch1G3hkfITz4+eaWwJY0oTnp/SAUSEF0ouCzM9n2fBm+sCLEJhiYPV6xsLYfAm33HRh/UVHD1TXKs0wTfFTVz4/KLntyj8bO3DShF+g+PeCUKhEWmYpNCKtlxC2OtXm6a1Bf3XDyfmtrcFvDjeX8B8cXA3/yqjOAJzWVJ58cAFyAAAAABJRU5ErkJggg==\" data-n=\"36kr-quick-favicon\"/></svg>",
 };
 import { utils } from '@findrss/util';
+import { HotRankScript, Result } from "@findrss/core";
 export const permissions = {
   cookies: [{
     id: "kr36",

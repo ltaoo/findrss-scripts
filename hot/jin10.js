@@ -8,6 +8,7 @@ export const platform = {
   icon: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"jin10-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABHVBMVEUAAABYg+Rbg+RbguZaguZaguZaguZaguZaguZageZaguZaguZaguZaguZcgeNaguZaguVaguZaguZaguVaguZaguZhh+d9nOuMqO54mevD0vb19/39/v////9eheexxPP8/f6xw/PF0/b+/v/h6Pqvw/OWsO+ww/PE0/bx9f2XsO9dheb8/P54merC0faOqe5ojej09/1gh+f+//+8zPVsj+l8nOuNqO6Wr+/w9P2Kpu36+/6bs/B6mutfhufe5vqtwfLa4/nv8/17m+vz9v2gt/BkiuhdhOZ/nuxnhteLkK50isjeqU/5sTDyrziFj7XSpV34sTF1isfY4vmFj7TSpVy2nX3D0fbv8/xghufjq0ljhduMqO18m+tkhdqiHhTNAAAAFXRSTlMAAAAlisXj8voCa/TzagL9JfiJavlW7eyWAAABiElEQVQ4y4VT+0PBUBS+HkMiwjXMQW2MIY9Q3ioUmqLSQ/X//xndyTbD5vvlnnPudx/nnO8ghEwWK2WzO7AGDruNslpMiODIeYx14HKfkPNOD9aFx21CFhc2gMuLrNgQVkQZEyhk23SDdChEBzcjNmRXnXCEiQJEmUhYjdmRkn8snoA1EmcxOXqKlP1zAJZLplI8xwKkFYZCiANkhKxkZYUMAL9NCCcgQ8tBOgO5/BYhAqygfk1g4UJLCDLAkfvpQnHlZjkolTUEOgpJshQumUpV8nmI1jSEK4BrshQZgHqDGCmA0D4CrpAqNFvtjrBNWD+Bq/VVpbq9m9u7fZ/EuNEE6A+GJHKvk2YL+g+j8UTJeKdQbRiMHsXpk26pO93hWBTF5x1CLC01i08JPTyZiuJsLhPUdvO5VQYvGL++zcSF3O4NweTfS0QwH5/EnC++lmvBaCRXrn2Hfv7zW/6uJUdhQ1CHZO9D3kODYzYcPb9ZGl7dO1z+E2m8zV5p/APavQAZf5+XnP8DP0tlpi9Jo+oAAAAASUVORK5CYII=\" data-n=\"jin10-favicon\"/></svg>",
 };
 import { utils } from '@findrss/util';
+import { HotRankScript, Result } from "@findrss/core";
 /*
 Adapted from https://github.com/newsnext/newsnow/tree/0f95b2c998dffbfd2ddbc51b47b5809887dc6b97/server/sources
 MIT License

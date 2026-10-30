@@ -1,0 +1,23 @@
+diff --git a/server/infra/script_sandbox.js b/server/infra/script_sandbox.js
+index 4e1a1df..b711858 100644
+--- a/server/infra/script_sandbox.js
++++ b/server/infra/script_sandbox.js
+@@ -56,9 +56,17 @@ import quickjs_wasm_module from "./quickjs.wasm";
+ // QuickJS 的 wasm 变体在模块加载期定下来，每次执行再由 get_quickjs_module() 实例化。
+ const quickjs_variant = newVariant(RELEASE_ASYNCIFY, { wasmModule: quickjs_wasm_module });
+ 
++// 基类与 Result 以模块形式提供给新脚本，全局绑定继续兼容旧脚本。
++function script_core_source() {
++  return ["RSSScript", "HotRankScript", "ClipScript", "DetectScript", "Result"]
++    .map(name => "export const " + name + " = globalThis." + name + ";").join("\n");
++}
++
+ function inject_script_globals(vm) {
+   vm.runtime.setModuleLoader(name => name === "@findrss/util"
+-    ? script_util_source() : { error: new Error("脚本不支持导入模块：" + name) });
++    ? script_util_source()
++    : name === "@findrss/core"
++      ? script_core_source() : { error: new Error("脚本不支持导入模块：" + name) });
+   const result = vm.evalCode(script_result_helpers_source() + "\n" + script_classes_source(), "script-globals.js");
+   if (result.error) {
+     const message = sandbox_error_text(vm, result.error);

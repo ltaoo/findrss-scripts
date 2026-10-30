@@ -8,6 +8,7 @@ export const platform = {
   icon: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"ithome-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAP1BMVEX////SIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiLSIiL///98UY6AAAAAE3RSTlMAAJj89fZm7vJzavtFJtoRuwSViAzMggAAAF5JREFUOMtjYCAEGAkAwgqYmIXxAGYmBrzyQBUMwgQAsQpEQABGw8BgVYDOHlVAdQUEEwweBSz45VkZ2NjxyXNwYsk4XNwgKXw5i4edgAJGXj4CChj5BQgoYBQUgrEAweQ7K+Q4xvEAAAAASUVORK5CYII=\" data-n=\"ithome-favicon\"/></svg>",
 };
 import { utils } from '@findrss/util';
+import { HotRankScript, Result } from "@findrss/core";
 /*
 Adapted from https://github.com/newsnext/newsnow/tree/0f95b2c998dffbfd2ddbc51b47b5809887dc6b97/server/sources
 MIT License

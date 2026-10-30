@@ -1,5 +1,6 @@
 // 改编自 https://github.com/DIYgod/RSSHub/blob/master/lib/routes/apple/apps.ts
 import { utils } from "@findrss/util";
+import { RSSScript, Result } from "@findrss/core";
 
 export const version = "1.1.0";
 export const platform = {

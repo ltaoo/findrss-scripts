@@ -10,6 +10,7 @@ export const platform = {
 import {
   utils
 } from '@findrss/util';
+import { HotRankScript, Result } from "@findrss/core";
 /*
 Adapted from https://github.com/newsnext/newsnow/tree/0f95b2c998dffbfd2ddbc51b47b5809887dc6b97/server/sources
 MIT License

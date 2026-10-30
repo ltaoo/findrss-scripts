@@ -1,4 +1,5 @@
 import { utils } from "@findrss/util";
+import { DetectScript, Result } from "@findrss/core";
 export const kind = "detect";
 export const version = "1.0.1";
 export const platform = {

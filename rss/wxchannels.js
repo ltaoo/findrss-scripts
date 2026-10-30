@@ -1,4 +1,5 @@
 import { utils } from "@findrss/util";
+import { RSSScript, Result } from "@findrss/core";
 
 export const version = "1.2.0";
 export const config_schema = {
