@@ -27,11 +27,11 @@ for (const [key, site] of Object.entries(sites)) {
   const source = read_script("rss/" + key + ".js");
   const compiled = await compile_script_module(source);
   assert.equal(compiled.error, "", key);
-  const run = async ({ id = "abc123", query = {}, use_cookies = false, access = null, user_agent } = {}) => {
+  const run = async ({ id = "abc123", query = {}, use_cookies = false, access = null, user_agent, navigate = null } = {}) => {
     const config = { use_cookies, ...(user_agent ? { user_agent } : {}) };
     const result = await execute_script(source, { ...compiled.metadata, config }, null, {
       method: "GET", pathname: "/" + key + "/star/" + id, params: { id }, query,
-    }, [], "", access);
+    }, [], "", access, undefined, navigate);
     return JSON.parse(result.output);
   };
   const mock = (t, fetch) => {
@@ -98,13 +98,16 @@ for (const [key, site] of Object.entries(sites)) {
   });
 
   test(key + "：HTTP 错误、验证页和结构变化不会伪装成空列表", async t => {
-    for (const [status, code] of [[403, "UPSTREAM_ACCESS_DENIED"], [429, "UPSTREAM_RATE_LIMITED"], [404, "UPSTREAM_FETCH_FAILED"]]) {
+    const errors = [[429, "UPSTREAM_RATE_LIMITED"], [404, "UPSTREAM_FETCH_FAILED"]];
+    if (key !== "javlibrary") errors.push([403, "UPSTREAM_ACCESS_DENIED"]);
+    for (const [status, code] of errors) {
       mock(t, async () => new Response("Unavailable", { status }));
       await assert.rejects(run(), error => error.problem?.code === code);
     }
     for (const title of ["Just a moment...", "Age Verification", "Attention Required"]) {
-      mock(t, async () => new Response("<html><title>" + title + "</title></html>"));
-      await assert.rejects(run(), error => error.problem?.code === "UPSTREAM_AUTH_REQUIRED");
+      const html = "<html><title>" + title + "</title></html>";
+      mock(t, async () => new Response(html));
+      await assert.rejects(run({ navigate: async () => ({ html }) }), error => error.problem?.code === "UPSTREAM_AUTH_REQUIRED");
     }
     for (const html of ["<html><title>Sign in</title></html>", page(key, card(key, { code: "" }))]) {
       mock(t, async () => new Response(html));
@@ -162,6 +165,51 @@ for (const [key, site] of Object.entries(sites)) {
   }
 
   if (key === "javlibrary") {
+    test("javlibrary：HTTP 拒绝或验证页通过浏览器恢复，并保留页码与作品解析", async t => {
+      for (const [status, html] of [[401, "Unavailable"], [403, "Unavailable"],
+        [200, "<title>Just a moment...</title>"], [200, '<form id="challenge-form"></form>']]) {
+        let requests = 0, navigations = 0;
+        mock(t, async () => {
+          requests++;
+          return new Response(html, { status });
+        });
+        const feed = await run({ query: { page: "2" }, navigate: async (url, options, evaluate) => {
+          navigations++;
+          assert.equal(url, site.origin + site.actor_path.replace("page=1", "page=2"));
+          assert.deepEqual(options, { selector: ".videothumblist, .videotextlist", wait_ms: 0 });
+          assert.equal(evaluate, undefined);
+          return { html: page(key, card(key)) };
+        } });
+        assert.equal(requests, 1);
+        assert.equal(navigations, 1);
+        assert.equal(feed.title, "演员甲 - JAVLibrary 作品");
+        assert.equal(feed.items.length, 1);
+        assert.equal(feed.items[0].id, "javlibrary:movie:movie1");
+        assert.equal(feed.items[0].title, "ABC-123 作品 & 测试");
+      }
+    });
+
+    test("javlibrary：浏览器不可用、调用失败或无有效 HTML 时返回错误", async t => {
+      mock(t, async () => new Response("Unavailable", { status: 403 }));
+      await assert.rejects(run(), /BROWSER/);
+      await assert.rejects(run({ navigate: async () => {
+        throw Object.assign(new Error("浏览器超时"), { code: "UPSTREAM_TIMEOUT" });
+      } }), error => error.problem?.code === "UPSTREAM_TIMEOUT");
+      for (const html of [undefined, "", " ", 123, "<html>未知页面</html>"]) {
+        await assert.rejects(run({ navigate: async () => ({ html }) }), invalid_response);
+      }
+    });
+
+    test("javlibrary：兼容官网 .html 作品链接和当前演员标题，保留稳定 ID", async t => {
+      const html = page(key, card(key)).replace("演员甲的影片", "演员甲 所演出的影片")
+        .replace("./?v=movie1", "./movie1.html");
+      mock(t, async () => new Response(html));
+      const feed = await run();
+      assert.equal(feed.author.name, "演员甲");
+      assert.equal(feed.items[0].id, "javlibrary:movie:movie1");
+      assert.equal(feed.items[0].link, site.origin + "/cn/movie1.html");
+    });
+
     test("javlibrary：请求携带 Cookie 对应的浏览器 User-Agent", async t => {
       const access = new ScriptCookieAccess({
         permissions: compiled.metadata.permissions, assert_grant() {},

@@ -101,10 +101,11 @@ const memory_storage = () => {
 };
 const request_routes = [
   route_request_model("rss/example.js", "/rss/example/:id{[0-9]+}/:city?", {
+    path: "/example/:id{[0-9]+}/:city?",
     example: "/rss/example/123/%E4%B8%8A%E6%B5%B7?limit=10", parameters: { id: "编号", city: "城市", limit: "条数", search: "搜索词" },
   }),
-  route_request_model("rss/example.js", "/atom/example/:id", { example: "/atom/example/456" }),
-  route_request_model("clip/example.js", "/api/clip/example/:id", { example: "/api/clip/example/789" }),
+  route_request_model("rss/example.js", "/atom/example/:id", { path: "/example/:id", example: "/atom/example/456" }),
+  route_request_model("clip/example.js", "/api/clip/example/:id", { path: "/example/:id", example: "/api/clip/example/789" }),
 ];
 const request_scripts = request_routes.map((route, index) => ({ ...scripts[0], id: String(index), routes: [route] }));
 
@@ -182,6 +183,30 @@ test("示例按脚本和路由分别保存，刷新回填，未保存修改不�
   unavailable.open_request(request_routes[0].key);
   assert.equal(unavailable.save_request(), false);
   assert.match(unavailable.request_status, /localStorage/);
+});
+
+test("普通 HTTP 页面缺少 randomUUID 时仍能新建、更新和恢复示例，并显示保存反馈", t => {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, "crypto");
+  const browser_crypto = { getRandomValues: crypto.getRandomValues.bind(crypto) };
+  Object.defineProperty(globalThis, "crypto", { configurable: true, value: browser_crypto });
+  t.after(() => Object.defineProperty(globalThis, "crypto", descriptor));
+  const storage = memory_storage();
+  const model = create_market_model(request_scripts, null, storage);
+  const key = request_routes[0].key;
+  for (const id of ["111", "222"]) {
+    model.open_request(key);
+    model.set_route_value("id", id);
+    assert.equal(model.save_request(), true);
+    assert.equal(model.request_status, "示例已保存");
+  }
+  const saved = model.saved_parameters[key];
+  assert.equal(new Set(saved.map(example => example.id)).size, 2);
+  model.open_request(key, saved[0].id);
+  model.set_route_value("id", "333");
+  assert.equal(model.save_request(), true);
+  assert.equal(model.example_id, saved[0].id);
+  const restored = create_market_model(request_scripts, null, storage);
+  assert.deepEqual(restored.saved_parameters[key].map(example => example.values.id), ["333", "222"]);
 });
 
 test("默认 example 始终显示且不可删除，修改后另存为自定义示例", () => {
@@ -275,9 +300,10 @@ test("动态字段解析路径、可选参数、查询参数、RSS/Atom 前缀�
     ["id", "path", true, "123"], ["city", "path", false, "上海"], ["limit", "query", false, "10"], ["search", "query", false, ""],
   ]);
   const entries = route_request_models([{ file: "rss/example.js", metadata: { kind: "rss", routes: [
-    { path: "/example/:id", example: "/example/42?token=secret&q=hello", parameters: { token: "凭据", q: "关键词" } },
+    { route_index: 0, path: "/example/:id", example: "/example/42?token=secret&q=hello", parameters: { token: "凭据", q: "关键词" } },
   ] } }]);
   assert.deepEqual(entries.map(entry => entry.path), ["/rss/example/:id", "/atom/example/:id", "/api/rss/example/:id"]);
+  assert.deepEqual(entries.map(entry => entry.prefix), ["/rss", "/atom", "/api/rss"]);
   assert.ok(entries.every(entry => entry.fields.every(field => field.name !== "token")));
   assert.equal(route_request_model("bad", "</script>"), null);
 });
@@ -299,21 +325,76 @@ test("生成 GET URL 和可执行的 POST curl，编码参数，安全引用 she
   assert.equal(url.pathname, "/prefix/rss/example/123/%E4%B8%8A%E6%B5%B7");
   assert.equal(url.searchParams.get("token"), model.settings.token);
   assert.equal(url.searchParams.get("search"), search);
+  const debug_url = new URL(output.debug_url);
+  assert.equal(debug_url.pathname, "/prefix/debug/example/123/%E4%B8%8A%E6%B5%B7");
+  assert.equal(debug_url.search, url.search);
   const args = execFileSync("/bin/sh", ["-c", 'curl() { printf "%s\\0" "$@"; }; ' + output.curl]).toString().split("\0").slice(0, -1);
   assert.deepEqual(args, ["--request", "POST", "https://worker.example/prefix/rss/example/123/%E4%B8%8A%E6%B5%B7", "--header",
     "Authorization: Bearer " + model.settings.token, "--header", "Content-Type: application/json", "--data-raw", JSON.stringify({ limit: "10", search })]);
   await model.copy_request("curl");
   assert.equal(copied, output.curl);
+  await model.copy_request("url");
+  assert.equal(copied, output.url);
+  await model.copy_request("debug_url");
+  assert.equal(copied, output.debug_url);
+  assert.equal(model.message, "已复制Debug 链接");
+  for (const kind of ["missing", "constructor", "__proto__"]) {
+    await model.copy_request(kind);
+    assert.equal(copied, output.debug_url);
+  }
   t.mock.timers.tick(2500);
   assert.equal(model.message, "");
   model.set_route_value("city", "");
   assert.equal(new URL(model.request_output.url).pathname, "/prefix/rss/example/123");
+  assert.equal(new URL(model.request_output.debug_url).pathname, "/prefix/debug/example/123");
   for (const invalid of ["../private", ".", "..", "a\\b", "a/b", "\n"]) {
     model.set_route_value("city", invalid);
     assert.ok(model.request_output.error, invalid);
   }
   model.set_route_value("id", "");
   assert.match(model.request_output.error, /请填写 id/);
+  assert.equal(model.request_output.debug_url, "");
+});
+
+test("Debug 链接使用脚本声明路由，全部访问别名保持同一 Debug 地址，保留声明中的同名前缀", async t => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  for (const kind of ["rss", "hot", "clip", "detect"]) {
+    const paths = ["/bilibili/:id/dynamic", "/rss/example/:id", "/img/example/:id"];
+    const routes = route_request_models([{ file: kind + "/example.js", metadata: { kind, routes: paths.map((path, route_index) => ({
+      path, route_index, example: path.replace(":id", "42") + "?q=%E4%B8%8A%E6%B5%B7",
+      ...(path.startsWith("/img/") ? { allowed_hosts: ["example.com"] } : {}),
+    })) } }]);
+    for (const route of routes) {
+      let copied;
+      const model = create_market_model([{ routes: [route] }], async value => { copied = value; }, memory_storage());
+      model.set_setting("baseURL", "https://worker.example");
+      model.save_settings();
+      model.open_request(route.key);
+      await model.copy_request("debug_url");
+      const declared_path = paths.find(path => route.path === route.prefix + path);
+      assert.equal(copied, "https://worker.example/debug" + declared_path.replace(":id", "42") + "?q=%E4%B8%8A%E6%B5%B7");
+      model.set_route_value("id", "");
+      await model.copy_request("debug_url");
+      assert.equal(model.request_output.debug_url, "");
+    }
+  }
+});
+
+test("复制反馈跟随最上层弹窗，关闭后回到下层或页面", () => {
+  const model = create_market_model(request_scripts);
+  assert.equal(model.feedback_target, "page");
+  model.inspect("0");
+  assert.equal(model.feedback_target, "inspection");
+  model.open_request(request_routes[0].key);
+  assert.equal(model.feedback_target, "request");
+  model.open_settings();
+  assert.equal(model.feedback_target, "settings");
+  model.close_settings();
+  assert.equal(model.feedback_target, "request");
+  model.close_request();
+  assert.equal(model.feedback_target, "inspection");
+  model.close_inspection();
+  assert.equal(model.feedback_target, "page");
 });
 
 test("相邻可选路径参数不能跳过前面的参数", () => {

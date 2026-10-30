@@ -12,6 +12,7 @@ import { WorkerCookieAccess } from "./cookies.js";
 import { error_code, error_response, script_error } from "./errors.js";
 import { load_cookies, read_json_body, update_cookies, validate_cookies } from "./cookie_sync.js";
 import { request_authenticated } from "./auth.js";
+import { create_browser_session } from "./browser_session.js";
 
 const cases = route_cases(scripts);
 const routes = cases.map(entry => ({ ...entry, pattern: RssRoutePatternModel(entry.path),
@@ -29,7 +30,7 @@ export default {
     const authenticated = request_authenticated(request, env.ACCESS_TOKEN);
     url.searchParams.delete("token");
     const debugging = url.pathname === "/debug" || url.pathname.startsWith("/debug/");
-    let entry, result;
+    let entry, result, browser_session;
     let invoked = false;
     let stage = "auth";
     let response_headers = headers;
@@ -90,6 +91,7 @@ export default {
       context.public_origin = new URL(env.FINDRSS_HOSTNAME || url.origin).origin;
       stage = "cookies";
       const cookies = await load_cookies(env, metadata.permissions, fallback);
+      browser_session = await create_browser_session(env, metadata, cookies);
       const signal = AbortSignal.any([request.signal, AbortSignal.timeout(120000)]);
       const invoke = env.DEVICE_BRIDGE_URL ? async spec => {
         invoked = true;
@@ -100,14 +102,16 @@ export default {
         return response.json();
       } : null;
       const cookie_access = new WorkerCookieAccess({ permissions: metadata.permissions,
-        cookies: () => cookies, assert_grant: () => {} });
-      const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER)
+        cookies: () => browser_session.cookies, assert_grant: () => {} });
+      const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
         : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
       stage = "script";
       result = await execute_script(entry.script.source, metadata, invoke, {
         method: context.method, pathname: context.pathname, params: context.params,
         query: context.query, public_origin: context.public_origin,
       }, [], "", cookie_access, signal, navigate);
+      await browser_session.commit(signal);
+      if (debugging && browser_session.navigation) result.lines.push({ level: "info", text: "浏览器验证缓存：" + JSON.stringify(browser_session.stats) });
       if (debugging) return debug_response({ entry, context, stage: "ok", started_at, result, invoked }, response_headers);
       stage = "output";
       const value = JSON.parse(result.output);
@@ -124,6 +128,7 @@ export default {
       return new Response(output.body, { headers: { ...response_headers, "Content-Type": output.content_type,
         ...(output.content_type.startsWith("text/html") ? { "Content-Security-Policy": "sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src https: data:" } : {}) } });
     } catch (error) {
+      await browser_session?.discard();
       const code = stage === "config" ? "CONFIG_INVALID" : error_code(error);
       console.error(JSON.stringify({ file: entry.file, route: entry.path, code }));
       return fail(code, error);

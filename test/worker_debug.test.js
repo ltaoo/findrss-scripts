@@ -56,6 +56,47 @@ test("鉴权、方法、未知路由和配置失败也返回 HTML，拒绝时不
   assert.equal((await request("/debugging/github/example/repo/release")).status, 404);
 });
 
+test("YouTube 缺少或空白 API Key 显示配置错误，保留有效路径参数且不出网", async t => {
+  t.mock.method(globalThis, "fetch", () => assert.fail("缺少 API Key 时不得出网"));
+  for (const config of [{}, { api_key: "" }, { api_key: " \t " }]) {
+    const env = { ACCESS_TOKEN: "test-token", SCRIPT_CONFIG: JSON.stringify({ "hot/youtube_hot.js": config }) };
+    const response = await request("/debug/youtube/hot/US/0?token=test-token", env);
+    assert.equal(response.status, 503);
+    const html = await response.text();
+    assert.match(html, /CONFIG_INVALID/);
+    assert.doesNotMatch(html, /INVALID_PARAMETER/);
+    assert.match(section(html, "error"), /api_key/);
+    assert.deepEqual(JSON.parse(section(html, "request")).params, { region: "US", category: "0" });
+    assert.deepEqual(JSON.parse(section(html, "upstream-requests")), []);
+  }
+});
+
+test("YouTube 配置有效时 US/0 发起并记录官方 API 请求，非法地区仍在出网前拒绝", async t => {
+  const calls = [];
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    calls.push(url);
+    assert.equal(new Headers(options.headers).get("X-Goog-Api-Key"), "youtube-test-key");
+    return Response.json({ items: [{ id: "abcdefghijk", snippet: { title: "热门视频" }, statistics: { viewCount: "123" } }] });
+  });
+  const env = { ACCESS_TOKEN: "test-token", SCRIPT_CONFIG: JSON.stringify({ "hot/youtube_hot.js": { api_key: " youtube-test-key " } }) };
+  const response = await request("/debug/youtube/hot/US/0?token=test-token", env);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  const traces = JSON.parse(section(html, "upstream-requests"));
+  assert.equal(traces.length, 1);
+  assert.equal(traces[0].url, calls[0]);
+  const target = new URL(calls[0]);
+  assert.equal(target.origin + target.pathname, "https://www.googleapis.com/youtube/v3/videos");
+  assert.equal(target.searchParams.get("regionCode"), "US");
+  assert.equal(target.searchParams.get("videoCategoryId"), "0");
+  assert.doesNotMatch(html, /youtube-test-key|test-token/);
+  assert.equal(JSON.parse(section(html, "output")).entries[0].title, "热门视频");
+  const invalid = await request("/debug/youtube/hot/USA/0?token=test-token", env);
+  assert.equal(invalid.status, 400);
+  assert.match(await invalid.text(), /INVALID_PARAMETER/);
+  assert.equal(calls.length, 1);
+});
+
 test("Debug 使用真实沙箱，每次执行并显示原始输出、长日志、上游请求及耗时", async t => {
   const original_fetch = globalThis.fetch;
   const script = scripts.find(script => script.file === "rss/github.js");
@@ -88,6 +129,7 @@ routes[0].handler = async ctx => {
     assert.equal(value.title, "example/repo Releases");
     assert.equal(value.items[0].title, "v1");
     const [trace] = JSON.parse(section(html, "upstream-requests"));
+    assert.equal(trace.url, "https://github.com/example/repo/releases.atom");
     assert.equal(trace.host, "github.com");
     assert.equal(trace.pathname, "/example/repo/releases.atom");
     assert.equal(trace.status, 200);
@@ -109,12 +151,33 @@ test("上游失败保留 HTTP 业务码、堆栈、失败前日志和上游状�
   assert.match(section(html, "error"), /HTTP 403/);
   const traces = JSON.parse(section(html, "upstream-requests"));
   assert.deepEqual(traces.map(trace => trace.host), ["news.ycombinator.com", "hnrss.org"]);
+  assert.deepEqual(traces.map(trace => trace.url), ["https://news.ycombinator.com/", "https://hnrss.org/frontpage?count=30"]);
   assert.ok(traces.every(trace => trace.status === 403));
   for (const path of ["/api/hot/hackernews", "/hot/hackernews"]) {
     response = await request(path);
     assert.match(response.headers.get("Content-Type"), /application\/json/, path);
     assert.equal((await response.json()).code, "UPSTREAM_ACCESS_DENIED", path);
   }
+});
+
+test("Debug 上游 URL 保留完整查询参数并记录每次重定向", async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  const target = "https://github.com/example/repo/releases.atom?page=2&filter=" + "x".repeat(1200) + "&title=%3Cscript%3E";
+  const urls = [];
+  globalThis.fetch = async url => {
+    urls.push(url);
+    return urls.length === 1
+      ? new Response(null, { status: 302, headers: { Location: target } })
+      : new Response(feed);
+  };
+  const response = await request("/debug/github/example/repo/release");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  const traces = JSON.parse(section(html, "upstream-requests"));
+  assert.deepEqual(traces.map(trace => trace.url), urls);
+  assert.equal(traces[1].url, target);
+  assert.deepEqual(traces.map(trace => trace.status), [302, 200]);
 });
 
 test("Cookie、浏览器能力、参数和网络失败均展示对应阶段与诊断信息", async t => {

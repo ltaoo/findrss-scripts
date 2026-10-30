@@ -126,19 +126,28 @@ function inspection_results(vm, script) {
   ] : [element("p", "empty-inspection", {}, ["暂无巡检结果。"])]);
 }
 
-function dialog(name, class_name, title, open, close, children) {
+function feedback(vm, target) {
+  return element("p", target === "page" ? "copy-feedback" : target + "-copy-feedback", {
+    class: "feedback", role: "status", "aria-live": "polite", hidden: vm.watch(() => vm.model.feedback_target !== target),
+  }, [vm.watch(() => vm.model.message)]);
+}
+
+function dialog(vm, name, class_name, title, open, close, children) {
   return Modal({ attributes: { "data-n": name + "-dialog", n: name + "-dialog", class: class_name, "aria-labelledby": name + "-title" }, open, onClose: close }, [
     element("div", name === "inspection" ? "inspection-header" : name + "-header", { class: "inspection-header" }, [
       element("h2", name + "-title", { class: "inspection-title", id: name + "-title" }, [title]),
-      element("button", "close-" + name, { class: "button" }, ["关闭"], { onClick: close }),
-    ]), ...children,
+      element("div", name + "-header-actions", { class: "dialog-actions" }, [
+        ...(name === "request" ? [element("button", "request-settings", { class: "button" }, ["设置 baseURL / token"], { onClick: () => vm.model.open_settings() })] : []),
+        element("button", "close-" + name, { class: "button" }, ["关闭"], { onClick: close }),
+      ]),
+    ]), ...children, feedback(vm, name),
   ]);
 }
 
 function request_dialog(vm) {
   const { model, watch } = vm;
   const output = watch(() => model.request_output);
-  return dialog("request", "", watch(() => (model.example_id ? "编辑示例" : "添加示例") + (model.request ? " · " + model.request.path : "")),
+  return dialog(vm, "request", "", watch(() => (model.example_id ? "编辑示例" : "添加示例") + (model.request ? " · " + model.request.path : "")),
     watch(() => Boolean(model.request)), () => model.close_request(), [
       element("form", "request-form", { novalidate: true }, [
         element("div", "request-fields", { class: "request-fields" }, [For({ each: watch(() => model.request?.fields || empty_fields), render: (field, index) =>
@@ -149,9 +158,8 @@ function request_dialog(vm) {
           ]) })]),
         element("div", "request-actions", { class: "form-actions" }, [
           element("button", "save-request", { class: "button", type: "submit" }, [watch(() => model.example_id ? "保存修改" : "保存示例")]),
-          element("button", "request-settings", { class: "button" }, ["设置 baseURL / token"], { onClick: () => model.open_settings() }),
+          element("span", "request-status", { class: "form-status", role: "status" }, [watch(() => model.request_status || (model.request ? model.request_output.error : ""))]),
         ]),
-        element("p", "request-status", { class: "form-status", role: "status" }, [watch(() => model.message || model.request_status || (model.request ? model.request_output.error : ""))]),
       ], { onSubmit(event) { event.preventDefault(); model.save_request(); } }),
       ...[["url", "GET URL", "复制 URL"], ["curl", "POST curl", "复制 curl"]].map(([kind, title, copy_label]) =>
         element("section", "request-" + kind + "-section", { class: "request-output" }, [
@@ -159,6 +167,7 @@ function request_dialog(vm) {
           element("pre", "request-" + kind, { class: "command" }, [computed(output, value => value[kind])]),
           element("div", "request-" + kind + "-actions", { class: "form-actions" }, [
             element("button", "copy-request-" + kind, { class: "button", "data-request-copy": kind, disabled: watch(() => model.copying || !model.request_output.url) }, [copy_label], { onClick: () => model.copy_request(kind) }),
+            ...(kind === "url" ? [element("button", "copy-request-debug-url", { class: "button", "data-request-copy": "debug_url", disabled: watch(() => model.copying || !model.request_output.debug_url) }, ["复制 Debug 链接"], { onClick: () => model.copy_request("debug_url") })] : []),
             ...(kind === "url" ? [element("a", "open-request-url", { target: "_blank", rel: "noopener noreferrer", href: computed(output, value => value.url || undefined), hidden: computed(output, value => !value.url) }, ["打开 URL"])] : []),
           ]),
         ])),
@@ -167,7 +176,7 @@ function request_dialog(vm) {
 
 function settings_dialog(vm) {
   const { model, watch } = vm;
-  return dialog("settings", "settings-dialog", "设置", watch(() => model.settings_open), () => model.close_settings(), [
+  return dialog(vm, "settings", "settings-dialog", "设置", watch(() => model.settings_open), () => model.close_settings(), [
     element("form", "settings-form", { novalidate: true }, [
       ...[["baseURL", "base-url", "url"], ["token", "token", "password"]].map(([key, name, type]) =>
         element("label", "settings-" + name + "-field", { class: "form-field", for: "settings-" + name }, [
@@ -199,9 +208,9 @@ export function MarketPage(vm) {
           element("p", "empty-search", { class: "empty-state", hidden: computed(visible, ids => ids.length > 0) }, ["当前分类没有匹配的脚本，请切换分类、尝试其他关键词或清空搜索。"]),
         ]),
       ]),
-      element("p", "copy-feedback", { class: "feedback", role: "status", "aria-live": "polite" }, [watch(() => model.message)]),
+      feedback(vm, "page"),
     ]),
-    dialog("inspection", "inspection-dialog", watch(() => model.inspection ? model.inspection.title + " · 巡检结果" : "巡检结果"),
+    dialog(vm, "inspection", "inspection-dialog", watch(() => model.inspection ? model.inspection.title + " · 巡检结果" : "巡检结果"),
       watch(() => Boolean(model.inspection)), () => model.close_inspection(), [
         element("p", "inspection-status", { class: "form-status", role: "alert" }, [watch(() => model.inspection_status)]),
         ...model.scripts.map(script => inspection_results(vm, script)),

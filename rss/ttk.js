@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.0";
+export const version = "1.1.1";
 // Favicon: https://ttks.tw/favicon.ico
 // 保留原图像素网格，确保颜色、透明度和轮廓与上游一致。
 export const platform = {
@@ -14,7 +14,7 @@ export class TtkChaptersRSS extends RSSScript {
     try {
       const result_1 = TtkChaptersRSS.book_id(ctx, /^[A-Za-z0-9_-]{1,128}$/);
       if (result_1.error) return result_1;
-      const link = "https://ttks.tw/novel/" + result_1.data + ".html";
+      const link = "https://ttks.tw/novel/chapters/" + result_1.data + "/index.html";
       const result_2 = await TtkChaptersRSS.fetch_document(
         ctx,
         link,
@@ -252,9 +252,9 @@ export const route = {
   path: "/ttk/book/:book_id",
   url: "ttks.tw",
   maintainers: ["findrss"],
-  example: "/ttk/book/daofeng",
+  example: "/ttk/book/congzhanyaochumokaishichangshengbusi",
   parameters: {
-    book_id: "小说主页 /novel/ 后的标识（不含 .html）",
+    book_id: "目录页 /novel/chapters/<ID>/index.html 中的 <ID>",
   },
   description:
     "读取小说全部章节区，排除最新章节重复区，按目录倒序输出；不抓取正文。",

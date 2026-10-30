@@ -1,7 +1,8 @@
 import { MarketPage, create_market_view_model } from "./script_market_view.js";
+import { write_clipboard } from "./market_clipboard.js";
 
 const data = JSON.parse(document.querySelector('[data-n="market-data"]').textContent);
-const vm = create_market_view_model(data, value => navigator.clipboard.writeText(value));
+const vm = create_market_view_model(data, write_clipboard);
 globalThis.Timeless.DOM.hydrate(MarketPage(vm), document.querySelector('[data-n="market-root"]'));
 let storage;
 try { storage = localStorage; } catch {}

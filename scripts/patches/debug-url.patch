@@ -1,0 +1,21 @@
+--- a/server/infra/script_sandbox.js
++++ b/server/infra/script_sandbox.js
+@@ -508,6 +508,7 @@
+       const derived_headers = rss_cookie_headers(fetch_options, request_cookie);
+       if (!credentials_allowed) for (const name of RSS_FETCH_CREDENTIAL_HEADERS) delete derived_headers[name];
+       const trace = route_metadata.debug === true ? {
++        url: outgoing_url,
+         method, host: parsed.host, pathname: parsed.pathname.slice(0, 1024), status: null,
+         transport,
+         credentials: {
+--- a/server/infra/script_debug.js
++++ b/server/infra/script_debug.js
+@@ -22,7 +22,7 @@
+ ${debug.error_text ? block("error", "错误详情与堆栈", debug.error_text) : ""}
+ ${block("route", "脚本路由", JSON.stringify(debug.script, null, 2))}
+ ${block("request", "请求上下文", JSON.stringify(request, null, 2))}
+-${block("upstream-requests", "上游请求（只显示凭证是否发送，不含凭证值）", JSON.stringify(redact_log_value(debug.upstream_requests || []), null, 2))}
++${block("upstream-requests", "上游请求（凭据请求头只显示是否发送）", JSON.stringify(redact_log_value(debug.upstream_requests || []), null, 2))}
+ ${block("logs", "执行日志", (debug.lines || []).map(line => `[${line.level}] ${line.text}`).join("\n") || "无执行日志")}
+ </div><section data-n="debug-output" class="column xml"><h2 data-n="debug-output-title">路由输出</h2><pre data-n="debug-output-content" tabindex="0" role="region" aria-label="路由输出">${escape_html(debug.output ?? "执行失败，未生成输出")}</pre></section></div>
+ </main></body></html>`;

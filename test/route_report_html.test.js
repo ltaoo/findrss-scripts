@@ -215,7 +215,11 @@ test("页头设置、动态路由配置与保存入口，未巡检路由仍可�
     { file: "hot/new.js", metadata: { kind: "hot", routes: [{ path: "/new/:city?", example: "/new/上海" }] } },
   ]);
   for (const name of ["open-settings", "settings-dialog", "settings-base-url", "settings-token", "request-dialog", "request-form",
-    "request-fields", "request-url", "request-curl"]) assert.match(html, new RegExp('data-n="' + name + '"'));
+    "request-fields", "request-url", "request-curl", "copy-request-debug-url"]) assert.match(html, new RegExp('data-n="' + name + '"'));
+  assert.match(html, /data-request-copy="debug_url"[^>]*>复制 Debug 链接/);
+  for (const name of ["inspection", "request", "settings"]) {
+    assert.match(html, new RegExp('<dialog[^>]*data-n="' + name + '-dialog"(?:(?!</dialog>)[\\s\\S])*data-n="' + name + '-copy-feedback"'));
+  }
   assert.match(html, /保存示例/);
   assert.doesNotMatch(html, /调用配置|保存参数/);
   assert.equal([...html.matchAll(/<div data-n="route-examples"/g)].length, 2);

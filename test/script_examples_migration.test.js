@@ -20,8 +20,8 @@ const read = read_script;
 const hash = (kind, value) => createHash(kind).update(value).digest('hex');
 
 test('源码目录包含完整 Hot/RSS 脚本，分类与路由经生产 QuickJS 校验', async () => {
-  assert.equal(script_names('hot').length, 75);
-  assert.equal(script_names('rss').length, 22);
+  assert.equal(script_names('hot').length, 76);
+  assert.equal(script_names('rss').length, 23);
   for (const kind of ['hot', 'rss']) for (const name of script_names(kind)) {
     const source = read(kind + '/' + name);
     assert.match(source, kind === 'rss' ? /extends RSSScript/ : /extends HotRankScript/);
@@ -158,7 +158,7 @@ for (const test_route of test_routes) {
     for (const route of kind === 'hot' ? compiled.metadata.routes : compiled.metadata.routes.slice(0, 1)) {
       const url = new URL(route.example, 'https://fixture.invalid');
       const params = fixture?.params || RssRoutePatternModel(route.path).match(url.pathname).params;
-      await assert.rejects(execute_script(script, { ...compiled.metadata, ...route, config: fixture?.config || {} }, null, { method: 'GET', pathname: url.pathname, params, query: Object.fromEntries(url.searchParams) }), error => {
+      await assert.rejects(execute_script(script, { ...compiled.metadata, ...route, config: name === 'youtube_hot.js' ? { api_key: 'fixture' } : fixture?.config || {} }, null, { method: 'GET', pathname: url.pathname, params, query: Object.fromEntries(url.searchParams) }), error => {
         assert.ok(error.message, name);
         assert.match(error.message, /请求失败|设备不可用/, name);
         return true;

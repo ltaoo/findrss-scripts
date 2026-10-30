@@ -1,7 +1,27 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.0";
+export const version = "1.2.0";
+export const config_schema = {
+  type: "object",
+  properties: {
+    use_cookies: {
+      type: "boolean", title: "使用已授权的站点 Cookie", default: false,
+      description: "可手动启用已同步 Cookie；浏览器验证成功后，宿主自动保存并复用验证状态。",
+    },
+    user_agent: {
+      type: "string", title: "Cookie 对应浏览器的 User-Agent", minLength: 1, maxLength: 4096,
+      default: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    },
+  },
+};
+export const permissions = {
+  cookies: [{
+    id: "site", origin: "https://www.69shuba.com", path_prefix: "/",
+    names: ["cf_clearance", "__cf_bm", "shuba", "zh_choose"],
+    purpose: "复用已通过访问验证的小说目录会话",
+  }],
+};
 // Favicon: https://cdn.cdnshu.com/favicon.ico
 // 保留原图像素网格，确保颜色、透明度和轮廓与上游一致。
 export const platform = {
@@ -52,15 +72,13 @@ export class Source69shubaChaptersRSS extends RSSScript {
       if (result_4.error) return result_4;
       const directory_root = result_4.data;
       const directory =
+        utils.first(directory_root, "#catalog") ||
         Source69shubaChaptersRSS.first_class(directory_root, "mu_contain") ||
         Source69shubaChaptersRSS.nodes(directory_root, function (node) {
           return node.attrs.id === "chapterlist";
         })[0] ||
         Source69shubaChaptersRSS.first_class(directory_root, "mulu_list") ||
-        Source69shubaChaptersRSS.first_class(directory_root, "catalog") ||
-        Source69shubaChaptersRSS.nodes(directory_root, function (node) {
-          return node.attrs.id === "catalog";
-        })[0];
+        Source69shubaChaptersRSS.first_class(directory_root, "catalog");
       if (!directory) {
         return Result.Err(
           "69书吧页面缺少章节目录",
@@ -75,10 +93,9 @@ export class Source69shubaChaptersRSS extends RSSScript {
           })[0],
         );
       const name = Source69shubaChaptersRSS.meta(root, "og:novel:author");
+      const rows = utils.select(directory, "li");
       const result_5 = Source69shubaChaptersRSS.chapter_items(
-        Source69shubaChaptersRSS.nodes(directory, function (node) {
-          return node.tag === "a";
-        }),
+        rows.length ? rows : utils.select(directory, "a[href]"),
         "69shuba",
         directory_url,
         {
@@ -156,16 +173,35 @@ export class Source69shubaChaptersRSS extends RSSScript {
   }
   static async fetch_document(ctx, url, referer) {
     try {
-      const result_7 = await Source69shubaChaptersRSS.request_text(ctx, url, {
+      let result_7 = await Source69shubaChaptersRSS.request_text(ctx, url, {
         headers: {
           Referer: referer,
           Accept: "text/html,application/xhtml+xml",
           "Accept-Language": "zh-CN,zh;q=0.9",
           "User-Agent":
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            ctx.config?.user_agent || config_schema.properties.user_agent.default,
         },
       });
+      const challenge = /<title>\s*(?:Just a moment|Attention Required)|_cf_chl_opt|id=["']challenge-form["']/i;
+      if (
+        ["UPSTREAM_ACCESS_DENIED", "UPSTREAM_AUTH_REQUIRED", "SCRIPT_COOKIE_PERMISSION_REQUIRED", "COOKIE_REQUIRED"].includes(result_7.code) ||
+        (!result_7.error && challenge.test(result_7.data))
+      ) {
+        ctx.log("69书吧访问验证，改用浏览器读取", { url });
+        const rendered = await ctx.puppeteer.navigate(url, {
+          selector: url.endsWith(".htm") ? ".bookbox" : "#catalog, .mu_contain, #chapterlist, .mulu_list",
+          wait_ms: 0,
+        });
+        if (rendered.error) return rendered;
+        if (typeof rendered.data?.html !== "string" || !rendered.data.html.trim()) {
+          return Result.Err("69书吧浏览器未返回页面", "UPSTREAM_INVALID_RESPONSE");
+        }
+        result_7 = Result.Ok(rendered.data.html);
+      }
       if (result_7.error) return result_7;
+      if (challenge.test(result_7.data)) {
+        return Result.Err("69书吧浏览器仍被访问验证拦截，请稍后重试", "UPSTREAM_AUTH_REQUIRED");
+      }
       const result_8 = utils.document_nodes(result_7.data);
       if (result_8.error) return result_8;
       return Result.Ok(result_8.data);
@@ -173,11 +209,13 @@ export class Source69shubaChaptersRSS extends RSSScript {
       return Result.Err(error, error?.code ?? "UPSTREAM_INVALID_RESPONSE");
     }
   }
-  static chapter_items(links, platform, base, author) {
+  static chapter_items(rows, platform, base, author) {
     try {
       const seen = new Set();
       const items = [];
-      for (const node of links) {
+      for (const row of rows) {
+        const node = row.tag === "a" ? row : utils.first(row, "a[href]");
+        if (!node) continue;
         const result_9 = utils.absolute_url(node.attrs.href, base);
         if (result_9.error) return result_9;
         const link = result_9.data;
@@ -186,14 +224,15 @@ export class Source69shubaChaptersRSS extends RSSScript {
           continue;
         }
         seen.add(link);
+        const number = row.attrs["data-num"] || node.attrs["data-num"] || "";
         items.push({
           id: platform + ":chapter:" + link,
           title,
           link,
           description: "",
           author,
-          index: /^\d+$/.test(node.attrs["data-num"] || "")
-            ? Number(node.attrs["data-num"])
+          index: /^\d+$/.test(number)
+            ? Number(number)
             : items.length + 1,
         });
       }
@@ -264,6 +303,11 @@ export class Source69shubaChaptersRSS extends RSSScript {
     }
   }
   static async request_text(ctx, url, options = {}) {
+    if (ctx.config?.use_cookies) {
+      const acquired = await ctx.cookies.get("site");
+      if (acquired.error) return acquired;
+      return utils.request_text(ctx, url, { ...options, cookies: acquired.data });
+    }
     return utils.request_text(ctx, url, options);
   }
 }
@@ -278,6 +322,6 @@ export const route = {
     book_id: "小说详情页 /book/<ID>.htm 中的数字 ID",
   },
   description:
-    "从详情页进入完整目录，按 data-num 或目录顺序倒序输出；不抓取正文。",
+    "从详情页进入完整目录，按 data-num 或目录顺序倒序输出；不抓取正文。优先复用宿主加密保存的验证 Cookie 和 User-Agent，失效时使用 BROWSER 刷新。",
   handler: (ctx) => script.run(ctx),
 };

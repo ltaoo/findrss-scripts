@@ -39,8 +39,10 @@ function upstream(t, handler) {
 
 test("抖音新域名使用实时 SDK 签名及已授权 Cookie，保留视频、图集和分页", async t => {
   let calls = 0;
+  const urls = [];
   upstream(t, (url, options) => {
     calls++;
+    urls.push(url.href);
     assert.equal(url.origin + url.pathname, "https://www-hj.douyin.com/aweme/v1/web/aweme/post/");
     assert.equal(url.searchParams.get("sec_user_id"), sec_uid);
     assert.equal(url.searchParams.get("count"), calls === 1 ? "18" : "2");
@@ -64,7 +66,8 @@ test("抖音新域名使用实时 SDK 签名及已授权 Cookie，保留视频�
   assert.equal(feed.items[0].enclosure.url, "https://cdn.example/video.mp4");
   assert.equal(feed.items[1].images.length, 2);
   assert.equal(feed.link, "https://www.douyin.com/user/" + sec_uid);
-  assert.doesNotMatch(JSON.stringify(result), /fixture-(UIFID|sessionid|msToken)/);
+  assert.equal(result.upstream_requests[0].url, urls[0]);
+  assert.doesNotMatch(JSON.stringify(result), /fixture-(sessionid|msToken)/);
   await run({ count: "2", max_cursor: "1720000000000" });
   assert.equal(calls, 2);
 });

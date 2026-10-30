@@ -35,7 +35,7 @@ const qimao_body = '<ul class="rank-list">' +
   qimao_row("123", "未知排名", "") + qimao_row("195958", "重复", "3") + "</ul>";
 
 const sources = {};
-for (const name of ["qidian", "fanqienovel", "qimao"]) {
+for (const name of ["qidian", "qdmm", "fanqienovel", "qimao"]) {
   const source = read_script(`hot/${name}.js`);
   const compiled = await compile_script_module(source);
   assert.equal(compiled.error, "", name);
@@ -47,8 +47,8 @@ for (const name of ["qidian", "fanqienovel", "qimao"]) {
 
 function route_metadata(name, params = {}) {
   const metadata = sources[name].metadata;
-  if (name !== "qidian") return metadata;
-  const path = "/qidian/rank/" + (params.type || "yuepiao") + (params.gender === "female" ? "/female" : "");
+  if (!["qidian", "qdmm"].includes(name)) return metadata;
+  const path = "/qidian/rank/" + (params.type || "yuepiao") + (name === "qdmm" ? "/female" : "");
   const route = metadata.routes.find(route => route.path === path);
   assert.ok(route, path);
   return { ...metadata, ...route };
@@ -103,9 +103,13 @@ test("起点畅销榜不补造上游未提供的热度和排名", async t => {
   assert.equal(requests[0].url, "https://m.qidian.com/rank/hotsales/");
 });
 
-test("起点完整覆盖官网男频 9 榜和女频 8 榜，使用各自来源与名称", async t => {
+test("起点男频 9 榜与独立起点女生网 8 榜保留原路由、来源、书籍 ID 和名称", async t => {
   assert.deepEqual(Object.values(catalog.qidian).map(rows => rows.length), [9, 8]);
-  const routes = sources.qidian.metadata.routes;
+  assert.equal(sources.qidian.metadata.routes.length, 9);
+  assert.equal(sources.qdmm.metadata.routes.length, 8);
+  assert.equal(sources.qidian.metadata.platform.name, "起点");
+  assert.equal(sources.qdmm.metadata.platform.name, "起点女生网");
+  const routes = [...sources.qidian.metadata.routes, ...sources.qdmm.metadata.routes];
   assert.deepEqual(routes.map(route => route.path), Object.entries(catalog.qidian).flatMap(([gender, rows]) =>
     rows.map(({ type }) => "/qidian/rank/" + type + (gender === "female" ? "/female" : ""))));
   assert.ok(routes.every(route => !route.path.includes(":") && route.example === route.path));
@@ -114,11 +118,12 @@ test("起点完整覆盖官网男频 9 榜和女频 8 榜，使用各自来源�
     assert.ok(routes.every(route => !RssRoutePatternModel(route.path).match(path)), path);
   }
   for (const [gender, rows] of Object.entries(catalog.qidian)) {
+    const name = gender === "female" ? "qdmm" : "qidian";
     for (const { type, title } of rows) {
-      const route = route_metadata("qidian", { type, gender });
+      const route = route_metadata(name, { type });
       assert.equal(route.name, "起点 · " + (gender === "female" ? "女频" : "") + title);
       assert.ok(RssRoutePatternModel(route.path).match(route.example));
-      const { snapshot, requests } = await run(t, "qidian", qidian_body, { type, gender });
+      const { snapshot, requests } = await run(t, name, qidian_body, { type });
       assert.equal(snapshot.title, "起点 · " + (gender === "female" ? "女频" : "") + title);
       const home = gender === "female" ? "https://m.qdmm.com" : "https://m.qidian.com";
       assert.equal(route.url, new URL(home).hostname);
@@ -127,6 +132,7 @@ test("起点完整覆盖官网男频 9 榜和女频 8 榜，使用各自来源�
       assert.equal(snapshot.entries.length, 2);
       assert.ok(snapshot.entries.every(row => row.link.startsWith(home + "/book/")));
       assert.ok(snapshot.entries.every(row => row.thumbnail));
+      assert.ok(snapshot.entries.every(row => row.id.startsWith("qidian:book:")));
     }
   }
 });
@@ -138,8 +144,8 @@ test("起点固定路由的榜单及频道不会被请求参数覆盖", async t 
     assert.equal(url, "https://m.qdmm.com/rank/free/");
     return new Response(qidian_body);
   };
-  const metadata = route_metadata("qidian", { type: "free", gender: "female" });
-  const result = await execute_script(sources.qidian.source, metadata, null, undefined, [],
+  const metadata = route_metadata("qdmm", { type: "free" });
+  const result = await execute_script(sources.qdmm.source, metadata, null, undefined, [],
     '({params:{type:"../book",gender:"male"},query:{type:"hotsales",gender:"unknown"}})');
   assert.equal(JSON.parse(result.output).title, "起点 · 女频免费榜");
 });
@@ -154,11 +160,13 @@ test("起点分类、月票历史月份、推荐周月总榜和书友周月榜�
     ["newfans", { period: "week" }, "catid-1/3/"],
     ["newfans", { period: "month" }, "catid-1/2/"],
   ]) {
-    const { requests } = await run(t, "qidian", qidian_body, { type }, query);
-    assert.equal(requests[0].url, "https://m.qidian.com/rank/" + type + "/" + suffix);
+    for (const name of ["qidian", "qdmm"]) {
+      const { requests } = await run(t, name, qidian_body, { type }, query);
+      assert.equal(requests[0].url, "https://m." + name + ".com/rank/" + type + "/" + suffix);
+    }
   }
   for (const [type, value, unit] of [["newfans", "900", "书友"], ["rec", "1.1万推荐", "推荐"], ["update", "0月更字", "更新字数"], ["collect", "1000", "收藏"]]) {
-    const { snapshot } = await run(t, "qidian", qidian_page([{ bid: "123", bName: "小说", rankNum: 1, rankCnt: value }]), { type, gender: type === "collect" ? "female" : "male" });
+    const { snapshot } = await run(t, type === "collect" ? "qdmm" : "qidian", qidian_page([{ bid: "123", bName: "小说", rankNum: 1, rankCnt: value }]), { type });
     assert.equal(snapshot.entries[0].heat.unit, unit);
     assert.equal(snapshot.entries[0].heat.value, type === "update" ? 0 : type === "rec" ? 11000 : Number(value));
   }
@@ -295,6 +303,9 @@ test("小说榜单拒绝验证码、空列表、损坏数据、无效链接与�
     ["qidian", qidian_body.replace('"rankNum":2', '"rankNum":0')],
     ["qidian", qidian_body.replace('"records":[', '"records":{')],
     ["qidian", qidian_body.replace('"pageData":{', '"pageData":{"gender":"female",')],
+    ...[qidian_page([]), qidian_page([{ bid: "bad", bName: "小说" }]),
+      qidian_body.replace('"rankNum":2', '"rankNum":0'),
+      qidian_body.replace('"pageData":{', '"pageData":{"gender":"male",')].map(body => ["qdmm", body]),
     ["fanqienovel", fanqie_body.replace('"bookId":"9007199254740993"', '"bookId":"bad"')],
     ["fanqienovel", fanqie_body.replace("诡异", "\uE000未知编码")],
     ["fanqienovel", fanqie_body.replace("/rank/1_2_1141", "/rank/0_1_1139")],
@@ -317,6 +328,10 @@ test("小说榜单在请求前拒绝非法参数，并原样透传请求失败 R
     ["qidian", {}, { period: "202613" }],
     ["qidian", { type: "hotsales" }, { period: "week" }],
     ["qidian", { type: "newfans" }, { period: "all" }],
+    ["qdmm", {}, { category: "../21" }],
+    ["qdmm", {}, { period: "202613" }],
+    ["qdmm", { type: "free" }, { period: "week" }],
+    ["qdmm", { type: "newfans" }, { period: "all" }],
     ["fanqienovel", { rank_id: "1_2_1141?redirect=evil" }],
     ["qimao", { gender: "unknown" }],
     ["qimao", { type: "unknown" }],

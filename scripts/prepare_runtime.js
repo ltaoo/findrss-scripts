@@ -13,7 +13,7 @@ if (!existsSync(runtime + "/.git")) {
 }
 run("git", ["checkout", "--detach", revision]);
 // 固定运行时的补丁随构建应用并允许重复运行。
-for (const name of ["douyin-hj", "debug-version", "inline-cookies", "core-module"]) {
+for (const name of ["douyin-hj", "debug-version", "inline-cookies", "core-module", "debug-url", "browser-session"]) {
   const patch = fileURLToPath(new URL("./patches/" + name + ".patch", import.meta.url));
   if (spawnSync("git", ["apply", "--reverse", "--check", patch], { cwd: runtime, stdio: "ignore" }).status !== 0) {
     run("git", ["apply", patch]);

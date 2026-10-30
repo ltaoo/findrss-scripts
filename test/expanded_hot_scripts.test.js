@@ -120,7 +120,8 @@ test("缺少 YouTube/TikTok 配置时在发请求前明确报错", async t => {
   t.mock.method(globalThis, "fetch", () => { requests++; assert.fail("不应请求上游"); });
   for (const name of ["youtube_hot", "tiktok"]) {
     const { source, metadata } = sources[name];
-    await assert.rejects(execute_script(source, metadata), error => error.problem?.code === "INVALID_PARAMETER" && /脚本配置/.test(error.message), name);
+    await assert.rejects(execute_script(source, metadata), error => /脚本配置/.test(error.message) &&
+      (name === "youtube_hot" ? /api_key.*必填/.test(error.message) : error.problem?.code === "INVALID_PARAMETER"), name);
     assert.equal(requests, 0);
   }
 });

@@ -35,6 +35,15 @@ test("示例脚本保留品牌 SVG，Hot 来源内嵌 favicon 且在 QuickJS 中
         assert.equal(XMLValidator.validate(svg), true, name);
         assert.match(svg, /^<svg\b/);
         assert.ok(svg.length <= 131072, name);
+        if (name === "qdmm.js") {
+          assert.equal(platform_name, "起点女生网");
+          assert.match(svg, /viewBox="0 0 32 32"/);
+          assert.match(svg, /fill="#ff6169"/);
+          assert.match(svg, /<path\b/);
+          assert.doesNotMatch(svg, /<(?:image|text|script|foreignObject)\b|\bhref=|data:image\//i);
+          for (const node of svg.matchAll(/<[a-z]+\b[^>]*>/gi)) assert.match(node[0], /data-n="qdmm-[a-z0-9-]+"/);
+          assert.match(source, /\/\/ Favicon: https:\/\/imgservices-1252317822\.image\.myqcloud\.com\//);
+        }
         if (hot_icons.has(platform_name)) assert.equal(svg, hot_icons.get(platform_name), name);
         hot_icons.set(platform_name, svg);
         const embedded_png = svg.match(/href="data:image\/png;base64,([A-Za-z0-9+/=]+)"/);
@@ -47,6 +56,11 @@ test("示例脚本保留品牌 SVG，Hot 来源内嵌 favicon 且在 QuickJS 中
         continue;
       }
       const stem = name.replace(/\.js$/, "");
+      if (kind === "rss" && stem === "qimao") {
+        const hot = await compile_script_module(read_script("hot/qimao.js"));
+        assert.deepEqual(compiled.metadata.platform, hot.metadata.platform);
+        continue;
+      }
       const favicon_platforms = { avmoo: "Avmoo", javbus: "JavBus", javlibrary: "JAVLibrary", "69shuba": "69书吧", ttk: "天天看书", hongguo: "红果短剧" };
       if (kind === "rss" && Object.hasOwn(favicon_platforms, stem)) {
         const svg = compiled.metadata.platform.icon;

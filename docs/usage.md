@@ -40,8 +40,9 @@
 | [微信视频号](../rss/wxchannels.js) | `/wxchannels/:account` | 视频、图集、Live Photo 与直播；使用视频号 `username`，配置完整 `api_url=https://dhub.funzm.com/api/wxchannels/contact/feed/list` 及 `auth_token`，直接 POST 到该地址 |
 | [番茄小说](../rss/fanqienovel.js) | `/fanqienovel/book/:book_id` | 完整章节目录与正文代理；ID 来自详情页 `/page/` 后的数字 |
 | [起点中文网](../rss/qidian.js) | `/qidian/book/:book_id` | 完整跨卷目录与正文代理；需授权 Cookie，付费章节需有效阅读权限 |
-| [69 书吧](../rss/69shuba.js) | `/69shuba/book/:book_id` | 完整章节目录，不抓取正文；ID 来自 `/book/<ID>.htm` |
-| [天天看书](../rss/ttk.js) | `/ttk/book/:book_id` | 完整章节目录，不抓取正文；标识来自 `/novel/` 后的路径，不含 `.html` |
+| [七猫小说](../rss/qimao.js) | `/qimao/book/:book_id` | 完整章节目录，按更新时间倒序输出，不抓取正文；ID 来自 `/shuku/<ID>/`，需授权验证 Cookie |
+| [69 书吧](../rss/69shuba.js) | `/69shuba/book/:book_id` | 完整章节目录，不抓取正文；ID 来自 `/book/<ID>.htm`；访问验证时通过 BROWSER 绑定读取页面 |
+| [天天看书](../rss/ttk.js) | `/ttk/book/:book_id` | 完整章节目录，不抓取正文；标识来自目录页 `/novel/chapters/<ID>/index.html` 中的 `<ID>` |
 | [Apple App Store](../rss/apple.js) | `/apple/apps/update/:country/:id/:platform?` | 应用版本更新；使用 App Store 链接中的地区与应用 ID |
 | [GitHub](../rss/github.js) | `/github/:org/:pro/release` | 公开仓库最近的发布列表、版本标题与更新说明；无需 Cookie 或 API Token |
 | [红果短剧](../rss/hongguo.js) | `/hongguo/series/:series_id`、`/hongguo/search/:keyword` | 按集数倒序的分集订阅与剧集搜索；`series_id` 来自官网详情页 `/detail?series_id=` 或播放页。条目附件指向 `/hongguo/video/:series_id/:vid` 媒体代理，转发官网公开的 360p MP4 并附带 Referer；付费/加密集官网只提供预览或不提供直链，播放会返回明确错误 |
@@ -150,17 +151,18 @@ YouTube、TikTok 没有使用真实凭据执行官方 API，完成文档核对�
 
 ## 小说排行榜
 
-三个脚本覆盖当前官网公开榜单入口，复制到后台「脚本 → 热榜」中调试、发布。返回 `HotRankScript` 列表快照 JSON，稳定书籍 ID、上游排名、热度和可选封面 `thumbnail`；未知排名或热度为 `null`，没有封面时省略字段。
+四个脚本覆盖当前官网公开榜单入口，复制到后台「脚本 → 热榜」中调试、发布。返回 `HotRankScript` 列表快照 JSON，稳定书籍 ID、上游排名、热度和可选封面 `thumbnail`；未知排名或热度为 `null`，没有封面时省略字段。
 
 | 脚本 | 路由 | 覆盖范围 |
 | --- | --- | --- |
-| [起点](../hot/qidian.js) | 明确导出 17 条固定路由，见下表 | 官方移动端男频 9 榜、女频 8 榜；分类及适用的周期筛选 |
+| [起点](../hot/qidian.js) | 明确导出男频 9 条固定路由，见下表 | 官方移动端男频榜单；分类及适用的周期筛选 |
+| [起点女生网](../hot/qdmm.js) | 明确导出女频 8 条固定路由，见下表 | 官方移动端女频榜单；保留原路由、书籍 ID 和查询参数 |
 | [七猫小说](../hot/qimao.js) | `/qimao/paihang/:gender?/:type?/:period?` | 男女频全部 5 类榜单及可用的日/月周期，共 16 个入口 |
 | [番茄小说](../hot/fanqienovel.js) | `/fanqienovel/rank/:rank_id?` | 巅峰榜、男频 19 类与女频 18 类各自的阅读/新书榜，共 75 个入口 |
 
-### 起点
+### 起点与起点女生网
 
-脚本通过 `export const routes` 明确列出男频 9 条、女频 8 条固定路由，不再使用 `:type`、`:gender` 动态参数。男频读取 `m.qidian.com`，女频读取 `m.qdmm.com`，使用与 RSS 示例相同的移动端 User-Agent 和 Referer。
+`hot/qidian.js` 通过 `export const routes` 列出男频 9 条固定路由；`hot/qdmm.js` 独立列出女频 8 条固定路由，并使用起点女生网图标。两者均不使用 `:type`、`:gender` 动态参数。男频读取 `m.qidian.com`，女频读取 `m.qdmm.com`，使用与 RSS 示例相同的移动端 User-Agent 和 Referer。
 
 | 榜单 | 男频路由 | 女频路由 | 可选 period |
 | --- | --- | --- | --- |
@@ -176,7 +178,7 @@ YouTube、TikTok 没有使用真实凭据执行官方 API，完成文档核对�
 | 收藏榜 | — | `/qidian/rank/collect/female` | — |
 | 免费榜 | — | `/qidian/rank/free/female` | — |
 
-第一条路由为男频月票榜。原 `/qidian/rank` 请改用 `/qidian/rank/yuepiao`，原男频地址的 `/male` 后缀请去掉；其余表内地址保持不变。更新后台已发布的脚本后，固定路由才会替换旧的动态路由。
+两个脚本的第一条路由分别为男频和女频月票榜。原 `/qidian/rank` 请改用 `/qidian/rank/yuepiao`，原男频地址的 `/male` 后缀请去掉；其余表内地址保持不变。更新后台的 `qidian.js` 后，女频需另外导入、发布 `qdmm.js`；已有女频调用地址和书籍 ID 无需修改。
 
 查询参数 `category` 为[官网移动榜单](https://m.qidian.com/rank/)分类链接中 `catid` 后的数字，默认 `-1` 全站；`period` 仅适用于表中列出的榜单。示例：
 

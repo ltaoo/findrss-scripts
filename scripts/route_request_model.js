@@ -21,7 +21,8 @@ export function route_request_model(file, path, route = {}) {
     fields.push({ name, in: "query", description: descriptions[name] || name,
       required: name === "url" || /必填/.test(descriptions[name] || ""), value: example.searchParams.get(name) || "" });
   }
-  return { key: JSON.stringify([file, path]), file, path, name: route.name || path, segments, fields };
+  return { key: JSON.stringify([file, path]), file, path, prefix: path.slice(0, path.length - (route.path || path).length),
+    name: route.name || path, segments, fields };
 }
 
 export function route_request_models(catalog) {

@@ -2,7 +2,7 @@
 import { utils } from "@findrss/util";
 import { HotRankScript, Result } from "@findrss/core";
 
-export const version = "1.1.1";
+export const version = "1.2.0";
 export const category = "小说";
 export const order = 370;
 export const platform = {
@@ -21,49 +21,20 @@ const rank_names = {
   sign: "签约榜",
   newbook: "新书榜",
   newauthor: "新人榜",
-  collect: "收藏榜",
-  free: "免费榜",
-};
-const gender_types = {
-  male: [
-    "yuepiao",
-    "hotsales",
-    "readindex",
-    "newfans",
-    "rec",
-    "update",
-    "sign",
-    "newbook",
-    "newauthor",
-  ],
-  female: [
-    "yuepiao",
-    "hotsales",
-    "readindex",
-    "newfans",
-    "rec",
-    "update",
-    "collect",
-    "free",
-  ],
 };
 
 export class QidianHotRank extends HotRankScript {
-  constructor(type, gender) {
+  constructor(type) {
     super();
     this.type = type;
-    this.gender = gender;
   }
 
   async fetch(ctx) {
     try {
-      const { type, gender } = this;
-      if (
-        !["male", "female"].includes(gender) ||
-        !gender_types[gender].includes(type)
-      ) {
+      const type = this.type;
+      if (!Object.keys(rank_names).includes(type)) {
         return Result.Err(
-          "gender 仅支持 male、female；type 必须为对应频道的官网榜单类型",
+          "type 必须为男频官网榜单类型",
           "INVALID_PARAMETER",
         );
       }
@@ -87,8 +58,7 @@ export class QidianHotRank extends HotRankScript {
           "INVALID_PARAMETER",
         );
       }
-      const home =
-        gender === "female" ? "https://m.qdmm.com" : "https://m.qidian.com";
+      const home = "https://m.qidian.com";
       const link =
         home +
         "/rank/" +
@@ -111,7 +81,7 @@ export class QidianHotRank extends HotRankScript {
       );
       if (context.error) return context;
       const page = context.data.pageContext?.pageProps?.pageData;
-      if (page?.gender && page.gender !== gender)
+      if (page?.gender && page.gender !== "male")
         return Result.Err(
           "起点返回了其他频道榜单",
           "UPSTREAM_INVALID_RESPONSE",
@@ -159,7 +129,6 @@ export class QidianHotRank extends HotRankScript {
                 newfans: "书友",
                 rec: "推荐",
                 update: "更新字数",
-                collect: "收藏",
               }[type] || "热度",
             text,
           },
@@ -167,7 +136,7 @@ export class QidianHotRank extends HotRankScript {
       }
       ctx.log("起点榜单解析完成", {
         type,
-        gender,
+        gender: "male",
         category: category_id,
         period,
         count: entries.length,
@@ -176,7 +145,6 @@ export class QidianHotRank extends HotRankScript {
         category,
         title:
           "起点 · " +
-          (gender === "female" ? "女频" : "") +
           rank_names[type] +
           (category_id !== "-1"
             ? " · " +
@@ -212,110 +180,54 @@ export const routes = [
     ...rank_metadata,
     name: "起点 · 月票榜",
     path: "/qidian/rank/yuepiao",
-    handler: (ctx) => new QidianHotRank("yuepiao", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("yuepiao").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 畅销榜",
     path: "/qidian/rank/hotsales",
-    handler: (ctx) => new QidianHotRank("hotsales", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("hotsales").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 阅读榜",
     path: "/qidian/rank/readindex",
-    handler: (ctx) => new QidianHotRank("readindex", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("readindex").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 书友榜",
     path: "/qidian/rank/newfans",
-    handler: (ctx) => new QidianHotRank("newfans", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("newfans").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 推荐榜",
     path: "/qidian/rank/rec",
-    handler: (ctx) => new QidianHotRank("rec", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("rec").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 更新榜",
     path: "/qidian/rank/update",
-    handler: (ctx) => new QidianHotRank("update", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("update").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 签约榜",
     path: "/qidian/rank/sign",
-    handler: (ctx) => new QidianHotRank("sign", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("sign").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 新书榜",
     path: "/qidian/rank/newbook",
-    handler: (ctx) => new QidianHotRank("newbook", "male").run(ctx),
+    handler: (ctx) => new QidianHotRank("newbook").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 新人榜",
     path: "/qidian/rank/newauthor",
-    handler: (ctx) => new QidianHotRank("newauthor", "male").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频月票榜",
-    path: "/qidian/rank/yuepiao/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("yuepiao", "female").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频畅销榜",
-    path: "/qidian/rank/hotsales/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("hotsales", "female").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频阅读榜",
-    path: "/qidian/rank/readindex/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("readindex", "female").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频书友榜",
-    path: "/qidian/rank/newfans/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("newfans", "female").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频推荐榜",
-    path: "/qidian/rank/rec/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("rec", "female").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频更新榜",
-    path: "/qidian/rank/update/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("update", "female").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频收藏榜",
-    path: "/qidian/rank/collect/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("collect", "female").run(ctx),
-  },
-  {
-    ...rank_metadata,
-    name: "起点 · 女频免费榜",
-    path: "/qidian/rank/free/female",
-    url: "m.qdmm.com",
-    handler: (ctx) => new QidianHotRank("free", "female").run(ctx),
+    handler: (ctx) => new QidianHotRank("newauthor").run(ctx),
   },
 ];

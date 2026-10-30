@@ -12,7 +12,7 @@ npm run deploy
 
 `wrangler.jsonc` 的 Worker 名称为 `findrss-scripts`，自定义域名为 `script.findrss.cloud` 和 `scripts.findrss.cloud`。部署时 Wrangler 自动创建域名绑定、DNS 记录和 HTTPS 证书，需要登录的 Cloudflare 账户有权管理 `findrss.cloud`。也可使用 Cloudflare Workers 的 GitHub 集成：安装命令 `npm ci`，部署命令 `npm run deploy`，Wrangler 会自动执行构建。CI 只测试和打包，不自动发布。
 
-构建从 `scripts/prepare_runtime.js` 指定的提交下载 FindRSS 运行时，应用 `scripts/patches/` 中的抖音签名、Debug 版本展示、脚本内置 Cookie 和 `@findrss/core` 基类模块补丁，再在 `.runtime/findrss-worker/` 安装依赖。脚本在构建期通过生产 QuickJS 编译校验，生成 `dist/scripts.js` 和仅含 `/api` 前缀的巡检清单 `dist/routes.json`；新增 `.js` 文件或路由后会自动纳入部署和巡检。构建不请求脚本的上游站点。更新运行时提交后需要重新运行全部测试和打包检查。
+构建从 `scripts/prepare_runtime.js` 指定的提交下载 FindRSS 运行时，应用 `scripts/patches/` 中的抖音签名、Debug 版本与上游 URL 展示、脚本内置 Cookie 和 `@findrss/core` 基类模块补丁，再在 `.runtime/findrss-worker/` 安装依赖。脚本在构建期通过生产 QuickJS 编译校验，生成 `dist/scripts.js` 和仅含 `/api` 前缀的巡检清单 `dist/routes.json`；新增 `.js` 文件或路由后会自动纳入部署和巡检。构建不请求脚本的上游站点。更新运行时提交后需要重新运行全部测试和打包检查。
 
 ## 默认入口
 
@@ -35,13 +35,21 @@ npm run deploy
 
 脚本路由同时支持 GET 和 POST。POST 使用 `Content-Type: application/json`，JSON 对象中的字符串、数字或布尔值作为查询参数传入脚本（覆盖同名 query；null 忽略），路径参数仍写在 URL 中。请求体最多 2MB，不接受嵌套对象或数组；请求体中的 `token` 不用于授权，也不会传入脚本。建议 POST 使用 `Authorization: Bearer <token>`；管理入口与 Debug 仍仅支持 GET。
 
-所有脚本默认注册，不需要后台导入、发布或数据库。当前 102 个脚本生成 137 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。Detect 为无状态采样，不保存历史基线。没有管理后台、订阅管理或周期快照存储。
+所有脚本默认注册，不需要后台导入、发布或数据库。当前 104 个脚本生成 138 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。Detect 为无状态采样，不保存历史基线。没有管理后台、订阅管理或周期快照存储。
 
-`npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，配置已声明 `BROWSER` 绑定；本地模拟不能替代实际浏览器绑定验证。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/s/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
+`npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，69书吧和 JAVLibrary 优先复用已保存的验证状态，失效时通过浏览器兜底，配置已声明 `BROWSER` 绑定。Wrangler 本地开发通过 Miniflare 启动本机 Chrome，首次调用可能需要下载浏览器；使用 `X_BROWSER_HEADFUL=true npm run dev` 可显示浏览器窗口。若要让本地服务调用云端浏览器，可在 `browser` 配置中添加 `"remote": true`，这会使用 Cloudflare 账号的浏览器额度。只有声明 Cookie 权限的站点会恢复已授权 Cookie 和匹配的 User-Agent，其他页面仍为匿名会话；本地浏览器的网络环境和风控结果可能与云端不同。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/s/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
 
 ## 凭据与设备
 
+69书吧和 JAVLibrary 的浏览器验证状态按站点保存到 `COOKIE_KV` 的独立 `browser-session:<origin>` 记录，使用 `COOKIE_STORAGE_KEY` 进行 AES-GCM 加密，同时保存 Cookie 的域名、路径、Secure、HttpOnly、过期时间和对应 User-Agent。只保存脚本 Cookie 权限允许的名称，凭据不返回脚本、Debug 或巡检报告。只有整条脚本成功返回有效内容后才提交记录，失败或取消不覆盖旧状态；普通 Cookie 同步不会覆盖浏览器记录。
+
+后续请求（包括本地服务重启后）自动读取验证状态，优先用普通 HTTP 请求；Cookie 过期、缺失、被拒绝或返回验证页时再使用浏览器。部分站点不向浏览器下发可供 HTTP 复用的清关 Cookie，此时连接同站点已验证的浏览器会话，不重新启动。会话保活 10 分钟，关闭、过期或不可连接时重建；云端保活期间仍计入浏览器使用时长。本地开发服务重启会关闭本机浏览器，UA 和 Cookie 的加密记录仍保留。Debug 日志中的 `cached_state`、`browser_launches`、`browser_reuses` 可区分状态复用、启动和重连，不显示凭据或会话 ID。[Cloudflare 会话复用说明](https://developers.cloudflare.com/browser-run/features/reuse-sessions/)。
+
+本地首次验证或刷新可使用 `X_BROWSER_HEADFUL=true npm run dev`。若站点仍要求人工验证，可在普通浏览器完成后同步 Cookie，并在 `SCRIPT_CONFIG["rss/javlibrary.js"]` 设置 `use_cookies: true` 和对应 `user_agent`。浏览器渲染不保证通过上游风控，不能将验证页当作成功内容。
+
 公开脚本部署后可直接访问。需要登录的脚本仍需有效 Cookie，YouTube/TikTok Hot 仍需 API 凭据，微信脚本需配置接口服务地址及 Bearer 令牌。注册路由不代表上游允许匿名访问。
+
+YouTube 热门视频的 `/youtube/hot/US/0` 是有效路径；`hot/youtube_hot.js` 缺少或填写空白 `api_key` 时，会在配置校验阶段返回 `CONFIG_INVALID`，不会发出上游请求。本地需在 `.dev.vars` 的 `SCRIPT_CONFIG` 中填写下方示例所示配置；`token` 仅用于访问本站，不能代替 YouTube API Key。
 
 通过 Wrangler Secret 配置，或本地使用被 Git 忽略的 `.dev.vars`：
 
@@ -115,25 +123,27 @@ RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKE
 
 检查从当前代码构建的本地清单出发，最多同时请求 10 条路由，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 60 秒，完成一条后立即继续下一条，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文、`reports/icons/` 中的脚本图标一起上传为 `route-check-report` artifact。
 
+每次启动巡检时，先删除上述四份旧报告并清空 `reports/responses/`、`reports/icons/`，再读取配置并发起检查。巡检期间或配置错误、中断导致未生成新报告时，不保留旧结果；`reports/cookie-sync-setup.json` 等其他本机文件不受影响。
+
 HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存到 `reports/responses/`，即使后续格式或输出校验失败也保留。目录使用实际请求 URL 的路径（包含样本覆盖后的参数值），不包含查询串明文；有查询参数时，在扩展名前添加查询串的 SHA-256 前 16 位，避免多个样本相互覆盖。例如 `/rss/github/ltaoo/wx_channels_download/release` 保存为 `reports/responses/rss/github/ltaoo/wx_channels_download/release.xml`，`/api/hot/baidu/board` 保存为 `reports/responses/api/hot/baidu/hot.json`。RSS/Atom 使用 `.xml`，JSON 使用 `.json`，正文使用 `.html`，图片按响应类型使用扩展名；以 `/` 结尾的路径使用 `index` 文件名。JSON 报告的 `output_file` 记录相对于 `responses/` 的产物路径；同一路由有多个样本时，详细结果和产物路径保存在该路由的 `samples` 中。每轮先清空正文目录，失败请求不会沿用上轮文件。
 
 定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，提交上述报告、`reports/responses/` 中的正文及 `reports/icons/` 中的脚本图标。分支根目录同时提供 `README.md`、`index.html`、`routes.json`、`routes.md` 和禁用 Jekyll 的 `.nojekyll`，JSON/Markdown 报告可通过文件路径访问；原有 `reports/` 下的报告路径继续保留。打开分支即可看到 README 结果表格，按脚本聚合所有格式的路由，展示脚本版本及可用的平台图标，路由表仅保留路由、成功／失败和失败原因；失败项优先，点击脚本路径直接打开 `master` 分支的 Raw 源码，方便复制复用。首次提交不包含源码历史；后续提交保留历次报告和正文历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。原有产物分支会自动增加这些根目录文件和本轮正文，并保留旧提交。源码工作区和分支不切换，源码 README 不会被生成报告覆盖，`reports/` 中其他本机文件不会发布。正文会随产物分支公开，包括使用登录态采集的内容。
 
-巡检有失败项时，已生成的报告仍会发布。巡检脚本保留非零退出码，workflow 的巡检步骤以生成 `reports/index.html` 为成功条件，路由失败不会使该步骤失败；发布或通知自身出错仍会使任务失败。未生成完整报告或运行被取消时跳过分支发布。不同源码分支发起的巡检共用发布并发组，串行更新产物分支。发布使用当前仓库的 `GITHUB_TOKEN`，只对巡检任务授予 `contents: write`，PR 测试任务仍为只读。产物提交不会触发只监听默认分支 `master` 的推送 CI。
+巡检有失败项时，已生成的报告仍会发布。巡检脚本保留非零退出码，workflow 的巡检步骤以生成 `reports/index.html` 为成功条件，路由失败不会使该步骤失败；通知推送失败也不会影响 workflow 成功状态，发布自身出错仍会使任务失败。未生成完整报告或运行被取消时跳过分支发布。不同源码分支发起的巡检共用发布并发组，串行更新产物分支。发布使用当前仓库的 `GITHUB_TOKEN`，只对巡检任务授予 `contents: write`，PR 测试任务仍为只读。产物提交不会触发只监听默认分支 `master` 的推送 CI。
 
 分支发布不强推；远端冲突、权限不足或分支保护规则拒绝写入时任务会失败，但仍尝试保留 Actions artifact。若已有 `route-reports` 分支包含其他文件，脚本拒绝覆盖，需先调整该分支。部署这些工作流改动到默认分支并配置上表中的地址和访问令牌后，定时任务才会生效。
 
-只要有任一路由校验失败，任务会向工作流中配置的通知接口 POST `{"text":"..."}`，使用仓库 Secret `NOTIFY_TOKEN` 作为 Bearer 令牌。每轮只发送一条汇总，包含失败数、最多 10 条失败路由及原因、本次 Actions 报告链接；全部通过时不推送。令牌不会写入源码、报告、产物分支或消息正文。报告分支发布失败时仍会尝试通知；接口超时或非 2xx 会使通知步骤明确失败，不重试以避免重复消息。
+只要有任一路由校验失败，任务会向工作流中配置的通知接口 POST `{"text":"..."}`，使用仓库 Secret `NOTIFY_TOKEN` 作为 Bearer 令牌。每轮只发送一条汇总，包含失败数、最多 10 条失败路由及原因、本次 Actions 报告链接；全部通过时不推送。令牌不会写入源码、报告、产物分支或消息正文。报告分支发布失败时仍会尝试通知；接口超时或非 2xx 会记录通知步骤失败，但允许 workflow 继续成功，不重试以避免重复消息。
 
 ### 脚本市场与 GitHub Pages
 
-页头齿轮按钮打开设置弹窗，保存 Worker 的 `baseURL` 和 `token`。巡检结果的路由下方提供 Plus 图标（添加示例），按脚本的路径参数、查询参数说明及公开示例动态显示表单，生成 GET URL 和 POST curl，支持复制。GET 的 token 位于 query，POST 的 token 位于 Authorization 请求头，查询参数通过 JSON 请求体发送。点击「保存示例」会按脚本文件和完整路由分别保存多个参数示例，显示在 Plus 图标左侧。点击示例打开并修改，点击 × 删除；刷新后仍保留。旧版单组参数自动兼容为一个示例；设置及参数仅存当前站点的 localStorage，其中 token 为明文，不会上传到报告。浏览器禁用存储时会显示保存失败。
+页头齿轮按钮打开设置弹窗，保存 Worker 的 `baseURL` 和 `token`。巡检结果的路由下方提供 Plus 图标（添加示例），按脚本的路径参数、查询参数说明及公开示例动态显示表单，生成 GET URL 和 POST curl，支持复制。「复制 Debug 链接」使用 `/debug` 加脚本声明的原始路由，不包含访问别名添加的 `/rss`、`/atom`、`/api/rss` 等前缀，保留 baseURL 的路径前缀、全部参数及 token。GET 和 Debug 的 token 位于 query，POST 的 token 位于 Authorization 请求头，查询参数通过 JSON 请求体发送。点击「保存示例」会按脚本文件和完整路由分别保存多个参数示例，显示在 Plus 图标左侧。点击示例打开并修改，点击 × 删除；刷新后仍保留。旧版单组参数自动兼容为一个示例；设置及参数仅存当前站点的 localStorage，其中 token 为明文，不会上传到报告。浏览器禁用存储时会显示保存失败。
 
 首次发布前，在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。无需新增 Secret，也不要选择从 `route-reports` 分支构建：使用 `GITHUB_TOKEN` 推送分支不会自动触发 Pages 构建，见 [GitHub 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
 
 如果使用分支发布，发布源应为 **Deploy from a branch → route-reports → /(root)**，分支根目录已包含入口和下载文件。但当前工作流的 `GITHUB_TOKEN` 推送仍不会触发这种发布模式的自动构建；需另行使用有权限用户的推送或合适的发布凭据触发，不能仅切换设置就保证每轮巡检后站点更新。现有工作流已包含完整的 Pages artifact 部署，建议保留 **GitHub Actions** 模式。
 
-定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。首页是「脚本市场（Script Market）」，按脚本展示名称、类型、路径、版本及脚本自身的内嵌图标，提供 RSS、Hot、Clip、Detect 分类，支持按名称、文件路径或路由搜索。文件路径直接打开 `master` 分支 Raw 源码，旁边图标复制 Raw 地址。版本号和巡检通过数量位于卡片右上角，点击巡检状态打开结果弹窗，可点击遮罩或关闭按钮关闭。通过样本提供「查看产物」，在新窗口打开 `route-reports` 分支中对应响应文件的 GitHub Raw URL，多样本分别提供入口。复制结果的 Toast 在 2.5 秒后自动关闭，连续复制会重新计时。README 和 JSON 保留原有巡检用途。搜索、复制和巡检弹窗需要 JavaScript，复制需要浏览器允许剪贴板写入。
+定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。首页是「脚本市场（Script Market）」，按脚本展示名称、类型、路径、版本及脚本自身的内嵌图标，提供 RSS、Hot、Clip、Detect 分类，支持按名称、文件路径或路由搜索。文件路径直接打开 `master` 分支 Raw 源码，旁边图标复制 Raw 地址。版本号和巡检通过数量位于卡片右上角，点击巡检状态打开结果弹窗，可点击遮罩或关闭按钮关闭。通过样本提供「查看产物」，在新窗口打开 `route-reports` 分支中对应响应文件的 GitHub Raw URL，多样本分别提供入口。复制结果的 Toast 显示在当前最上层弹窗内或页面上，在 2.5 秒后自动关闭，连续复制会重新计时。README 和 JSON 保留原有巡检用途。搜索、复制和巡检弹窗需要 JavaScript；Clipboard API 不可用或拒绝时会尝试选中文本复制，两种方式均失败则提示手动选择文本复制。
 
 `pages` 任务只授予 `pages: write` 和 `id-token: write`，使用 `github-pages` 环境。只要 Pages artifact 成功上传，即使 `routes` 因发布或通知失败而变红，也会继续部署这份页面；取消运行或没有生成完整报告时跳过。HTML 只包含脚本目录元数据和巡检摘要，Pages artifact 包含 HTML 以及 JSON/Markdown 报告，本机凭据文件不会进入其中。页面是最近一次成功部署的快照，通知同时附有页面入口和本次 Actions 链接；本轮 Pages 发布完成后页面才更新，发布失败时仍保留上次快照。
 
@@ -229,8 +239,8 @@ Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前�
 
 例如 `/debug/rss/github/ltaoo/wx_channels_download/release`、`/debug/api/hot/hackernews` 和 `/debug/hot/hackernews` 也可访问。`dist/openapi.json` 只包含四个 `/api` 前缀接口，不包含 Debug；`/api/routes` 仍列出全部普通路由及别名。
 
-Debug 成功、失败均返回 HTML，失败保留对应业务码的 HTTP 状态，无需设置 `Accept`。页面展示脚本文件、版本、路由与 handler 索引，请求路径、路径参数、查询参数、部分请求头和鉴权状态，执行阶段、总耗时、失败详情与沙箱堆栈、执行日志，以及上游请求的方法、主机、路径、状态、传输方式和凭据发送情况。成功时显示脚本原始返回值，不转换 RSS/Atom XML，也不额外抓取图片描述指向的二进制。每次重新执行并返回 `Cache-Control: no-store`。
+Debug 成功、失败均返回 HTML，失败保留对应业务码的 HTTP 状态，无需设置 `Accept`。页面展示脚本文件、版本、路由与 handler 索引，请求路径、路径参数、查询参数、部分请求头和鉴权状态，执行阶段、总耗时、失败详情与沙箱堆栈、执行日志，以及上游请求的完整 `url`（包含查询参数及签名参数，每次重定向分别记录）、方法、主机、路径、状态、传输方式和凭据发送情况。成功时显示脚本原始返回值，不转换 RSS/Atom XML，也不额外抓取图片描述指向的二进制。每次重新执行并返回 `Cache-Control: no-store`。
 
-Debug 沿用 `ACCESS_TOKEN` 鉴权及凭据配置保护，支持请求头或 `?token=`。鉴权、配置或路由匹配失败同样返回诊断 HTML，脚本尚未执行时不会有上游记录。查询参数 `token` 在执行脚本前移除；请求上下文对 Cookie、Authorization、secret、password 和 API Key 等敏感字段脱敏，不显示环境变量配置值；上游记录只展示是否发送凭据。日志、错误文本与脚本原始输出保留实际内容，可能包含上游正文或脚本自行记录的信息，分享诊断页前请检查内容。页面将内容转义为文本，并禁止脚本执行及外部资源加载。
+Debug 沿用 `ACCESS_TOKEN` 鉴权及凭据配置保护，支持请求头或 `?token=`。鉴权、配置或路由匹配失败同样返回诊断 HTML，脚本尚未执行时不会有上游记录。查询参数 `token` 在执行脚本前移除；请求上下文对 Cookie、Authorization、secret、password 和 API Key 等敏感字段脱敏，不显示环境变量配置值；上游记录不显示凭据请求头的值，但完整 `url` 保留实际查询参数，可能包含令牌或签名。日志、错误文本与脚本原始输出保留实际内容，可能包含上游正文或脚本自行记录的信息，分享诊断页前请检查内容。页面将内容转义为文本，并禁止脚本执行及外部资源加载。
 
 Cloudflare 配置字段见 [Wrangler 官方配置文档](https://developers.cloudflare.com/workers/wrangler/configuration/)。实际发布前需有自己的 Cloudflare 账户授权；本地打包成功不代表所有第三方站点允许来自 Cloudflare IP 的请求。

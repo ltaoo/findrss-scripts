@@ -123,18 +123,19 @@ export function create_market_model(scripts, write_clipboard, storage) {
         const url = new URL(post_url);
         for (const [name, value] of Object.entries(request.query)) url.searchParams.set(name, value);
         if (token) url.searchParams.set("token", token);
+        const debug_url = new URL(baseURL + "/debug" + request.path.slice(this.request.prefix.length) + url.search);
         const quote = value => "'" + value.replace(/'/g, "'\"'\"'") + "'";
         const curl = ["curl --request POST " + quote(post_url.href),
           ...(token ? ["--header " + quote("Authorization: Bearer " + token)] : []),
           "--header 'Content-Type: application/json'", "--data-raw " + quote(JSON.stringify(request.query))].join(" \\\n  ");
-        return { url: url.href, curl, error: "" };
-      } catch (error) { return { url: "", curl: "", error: error.message }; }
+        return { url: url.href, debug_url: debug_url.href, curl, error: "" };
+      } catch (error) { return { url: "", debug_url: "", curl: "", error: error.message }; }
     },
     save_request() {
       this.message = "";
       try { this.resolved_request; }
       catch (error) { this.request_status = error.message; this.on_change(); return false; }
-      const id = this.example_id || crypto.randomUUID();
+      const id = this.example_id || crypto.getRandomValues(new Uint32Array(4)).join("-");
       const example = { id, values: { ...this.route_values } };
       const examples = this.saved_parameters[this.request.key] || [];
       const saved = { ...this.saved_parameters, [this.request.key]: this.example_id
@@ -162,8 +163,9 @@ export function create_market_model(scripts, write_clipboard, storage) {
     },
     copy_request(kind) {
       const output = this.request_output;
-      if (!["url", "curl"].includes(kind) || output.error) return;
-      return this.copy_text(output[kind], kind === "curl" ? "curl 命令" : "GET URL");
+      const labels = { url: "GET URL", debug_url: "Debug 链接", curl: "curl 命令" };
+      if (!Object.hasOwn(labels, kind) || output.error) return;
+      return this.copy_text(output[kind], labels[kind]);
     },
     get kind_scripts() {
       return this.scripts.filter(script => script.kind === this.kind);
@@ -205,14 +207,18 @@ export function create_market_model(scripts, write_clipboard, storage) {
       const script = this.scripts.find(script => script.id === id);
       return this.copy_text(script?.raw_url, "脚本地址");
     },
+    get feedback_target() {
+      return this.settings_open ? "settings" : this.request ? "request" : this.inspection ? "inspection" : "page";
+    },
     async copy_text(value, label) {
       if (!value || this.copying) return;
       clearTimeout(this.message_timer);
       this.copying = true;
       this.message = "正在复制…";
-      this.on_change();
       try {
-        await write_clipboard(value);
+        const pending = write_clipboard(value);
+        this.on_change();
+        await pending;
         this.message = "已复制" + label;
       } catch {
         this.message = "复制失败，请手动选择文本复制。";

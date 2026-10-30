@@ -1,6 +1,6 @@
 # Hot 脚本示例
 
-75 个脚本从 `@findrss/core` 导入 `HotRankScript` 和 `Result`，从 `@findrss/util` 导入 `utils`；接口请求、JSON 解析和校验返回 `Result`。包含原有 52 个热榜示例（按来源合并为 43 个文件）、3 个中文小说平台榜单与 29 个英语/日语等国际平台脚本。同一来源的榜单集中在一个文件，通过 `routes` 导出各入口，路由路径与上游实际请求路径一致；同一上游路径按查询参数区分时，在路径后追加语义段。
+76 个脚本从 `@findrss/core` 导入 `HotRankScript` 和 `Result`，从 `@findrss/util` 导入 `utils`；接口请求、JSON 解析和校验返回 `Result`。包含原有 52 个热榜示例（按来源合并为 43 个文件）、4 个中文小说平台榜单与 29 个英语/日语等国际平台脚本。同一来源的榜单集中在一个文件，通过 `routes` 导出各入口，路由路径与上游实际请求路径一致；同一上游路径按查询参数区分时，在路径后追加语义段。
 
 复制单个 `.js` 到管理后台 `/admin/scripts` 的 Hot Tab，可保存草稿、运行 Debug，确认后发布。模块可显式声明 `export const kind = 'hot'`，也兼容顶部 `/** HOT */` 或 `HotRankScript` 基类推断。访问 `/api/hot` 或 `/hot` 加注册路径得到 `{ kind: 'hot_rank', observed_at, entries }`，注册路径本身也可直接访问，例如 `/api/hot/douyin/aweme/v1/web/hot/search/list`、`/hot/douyin/aweme/v1/web/hot/search/list` 与 `/douyin/aweme/v1/web/hot/search/list`；`/debug` 加注册路径返回诊断 HTML。`/rss`、`/atom` 和 `/api/rss` 仅匹配 RSS 脚本。
 
@@ -20,11 +20,11 @@ return Result.Ok({ title: "示例榜单", link: "https://example.com/", category
 
 快照的可选 `category` 是去除首尾空格后最多 32 字符、不能含控制字符的字符串；省略、`null` 或空字符串不输出。页面优先使用快照分类，缺失时使用模块导出的 `category`，再回退到「其他」；导出的分类也用于加载失败的卡片。来源使用 `platform.name`。
 
-75 个脚本均通过 `platform = { name, icon }` 内嵌来源图标：保留已有品牌 SVG，缺失图标从来源网站 favicon 获取，转为最多 32×32 的 PNG 并嵌入 SVG，不依赖外部图片请求。同一来源的脚本共用相同图标；新增图标旁的 `Favicon` 注释记录下载地址。参考消息、远景论坛、靠谱新闻使用上游 NewsNow 仓库备份，七猫使用网站 favicon 缓存；更新图标时可优先重新获取官方版本。
+76 个脚本均通过 `platform = { name, icon }` 内嵌来源图标：保留已有品牌 SVG，缺失图标从来源网站 favicon 获取，转为最多 32×32 的 PNG 并嵌入 SVG，不依赖外部图片请求。起点女生网按官方 32×32 favicon 等比复刻为纯路径 SVG，保留颜色和透明边缘。同一来源的脚本共用相同图标；新增图标旁的 `Favicon` 注释记录下载地址。参考消息、远景论坛、靠谱新闻使用上游 NewsNow 仓库备份，七猫使用网站 favicon 缓存；更新图标时可优先重新获取官方版本。
 
 模块导出的 `order` 必须是安全整数，数值越小，榜单卡片越靠前；可以使用负数，省略按 `0`，同值保持脚本清单原顺序。它只影响 `/rank/` 的榜单卡片顺序，不改变条目 `rank`。同源合并文件沿用原有的最小 `order`，调整对应脚本并重新构建即可生效。
 
-小说榜单：[起点](qidian.js)（明确导出移动端男频 9 条、女频 8 条固定路由）、[七猫](qimao.js)（男女频 5 类榜单及可用日/月周期，共 16 个入口）、[番茄](fanqienovel.js)（巅峰榜及 74 个分类阅读/新书榜）。均支持封面；完整入口、分类代码及验证限制见[小说排行榜说明](../docs/usage.md#小说排行榜)。
+小说榜单：[起点](qidian.js)（男频 9 条固定路由）、[起点女生网](qdmm.js)（女频 8 条固定路由，保留原 `/qidian/rank/<榜单>/female` 地址）、[七猫](qimao.js)（男女频 5 类榜单及可用日/月周期，共 16 个入口）、[番茄](fanqienovel.js)（巅峰榜及 74 个分类阅读/新书榜）。均支持封面；完整入口、分类代码及验证限制见[小说排行榜说明](../docs/usage.md#小说排行榜)。
 
 英语/日语平台新增：
 

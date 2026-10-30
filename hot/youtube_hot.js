@@ -2,13 +2,13 @@
 import { utils } from "@findrss/util";
 import { HotRankScript, Result } from "@findrss/core";
 
-export const version = "1.0.0";
+export const version = "1.0.1";
 export const category = "视频";
 export const order = 700;
 export const platform = { name: "YouTube", icon: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"youtube-platform-icon\"><rect width=\"32\" height=\"22\" y=\"5\" rx=\"5\" fill=\"#ff0033\" data-n=\"youtube-icon-rect-1\" /><path fill=\"#fff\" d=\"m13 12 8 4-8 5z\" data-n=\"youtube-icon-path-2\" /></svg>" };
 export const tags = ["视频", "英语", "日语"];
-export const config_schema = { type: "object", additionalProperties: false, properties: {
-  api_key: { type: "string", title: "YouTube Data API Key", description: "需启用 YouTube Data API v3；密钥仅放请求头，不放 URL。", writeOnly: true, default: "", maxLength: 256 },
+export const config_schema = { type: "object", additionalProperties: false, required: ["api_key"], properties: {
+  api_key: { type: "string", title: "YouTube Data API Key", description: "必填，需启用 YouTube Data API v3；密钥仅放请求头，不放 URL。", writeOnly: true, minLength: 1, maxLength: 256, pattern: "\\S" },
 } };
 
 // Source: https://developers.google.com/youtube/data/docs/videos/list
@@ -18,7 +18,6 @@ export class YoutubeHotRank extends HotRankScript {
       const region = String(ctx.params.region || "US").toUpperCase(), category_id = ctx.params.category || "0";
       if (!/^[A-Z]{2}$/.test(region) || !/^\d{1,3}$/.test(category_id)) return Result.Err("region 使用 US、JP 等两位地区代码；category 使用 YouTube 数字分类 ID，0 为全部", "INVALID_PARAMETER");
       const api_key = ctx.config.api_key.trim();
-      if (!api_key) return Result.Err("请在脚本配置中填写已启用 YouTube Data API v3 的 api_key", "INVALID_PARAMETER");
       const fetched = await utils.request_json(ctx, "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&maxResults=50&regionCode=" + region + "&videoCategoryId=" + category_id,
         { headers: { "X-Goog-Api-Key": api_key } });
       if (fetched.error) return fetched;

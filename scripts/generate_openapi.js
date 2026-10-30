@@ -9,7 +9,7 @@ const media_types = { rss: "application/rss+xml", atom: "application/atom+xml", 
   debug: "text/html" };
 // 当前运行时只保留 Hot 的 category，其余脚本在文档中补充分组。
 const script_categories = new Map([
-  ["小说", ["rss/69shuba.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/ttk.js"]],
+  ["小说", ["rss/69shuba.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/qimao.js", "rss/ttk.js"]],
   ["科技", ["rss/apple.js", "rss/github.js", "clip/github.js", "detect/github_releases.js"]],
   ["视频", ["rss/bilibili.js", "rss/douyin.js", "rss/hongguo.js", "rss/kuaishou.js", "rss/wxchannels.js", "rss/youtube.js"]],
   ["影视", ["rss/avmoo.js", "rss/javbus.js", "rss/javlibrary.js"]],

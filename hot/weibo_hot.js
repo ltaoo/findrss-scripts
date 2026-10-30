@@ -1,5 +1,5 @@
 /** HOT */
-export const version = "1.0.1";
+export const version = "1.0.2";
 export const category = "综合";
 export const order = 520;
 export const platform = {"name": "微博", "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"weibo-platform-icon\"><path fill=\"red\" d=\"M1 18c-1-5 3-9 9-10 1-3 4-5 7-4 3 1 3 4 2 6 5 1 9 4 9 8 0 6-8 11-16 11C5 29 1 25 1 18Z\" data-n=\"weibo-icon-path-1\" /><path fill=\"#fff\" d=\"M5 21c0-4 4-6 9-6s9 2 9 6-4 6-9 6-9-2-9-6Z\" data-n=\"weibo-icon-path-2\" /><circle cx=\"13\" cy=\"21\" r=\"3.2\" data-n=\"weibo-icon-circle-3\" /><circle cx=\"12\" cy=\"20\" r=\".8\" fill=\"#fff\" data-n=\"weibo-icon-circle-4\" /><path fill=\"none\" stroke=\"#ff0\" stroke-linecap=\"round\" stroke-width=\"1.6\" d=\"M22 9c3 1 5 3 6 6M23 6c4 1 7 4 8 8\" data-n=\"weibo-icon-path-5\" /></svg>"};
@@ -50,6 +50,8 @@ export class WeiboHotRank extends HotRankScript {
       const request_options = {};
       request_options.headers = {
         Referer: source.home,
+        Accept: "text/html,application/xhtml+xml",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
         ...request_options.headers
       };
       const acquired = await ctx.cookies.get("weibo");
@@ -57,6 +59,9 @@ export class WeiboHotRank extends HotRankScript {
       request_options.cookies = acquired.data;
       const fetched = await utils.request_text(ctx, "https://s.weibo.com/top/summary?cate=realtimehot", request_options);
       if (fetched.error) return fetched;
+      if (/<title>\s*Sina Visitor System\s*<\/title>/i.test(fetched.data)) {
+        return Result.Err("微博返回游客验证页，请在浏览器完成 s.weibo.com 访问验证后同步有效 Cookie，并确认脚本 Cookie 授权", "UPSTREAM_AUTH_REQUIRED");
+      }
       const parsed = utils.document_nodes(fetched.data);
       if (parsed.error) return parsed;
       const list = utils.rows(parsed.data, "#pl_top_realtimehot table tbody tr");
@@ -66,6 +71,7 @@ export class WeiboHotRank extends HotRankScript {
         seen = new Set();
       for (const row of rows) {
         if (!utils.first(row, 'td.td-02 a')) continue;
+        if (utils.first(row, 'td.td-02 a[action-type="realtimehot_ad"]')) continue;
         const id = utils.identity(utils.field(row, "td.td-02 a"));
         if (id.error) return id;
         if (seen.has(id.data)) continue;
@@ -76,7 +82,8 @@ export class WeiboHotRank extends HotRankScript {
         const raw_rank = utils.field(row, "td.td-01");
         const rank = pinned ? null : raw_rank === undefined || raw_rank === null || raw_rank === '' ? null : Number(raw_rank);
         const heat_text = String(utils.field(row, "td.td-02 span") ?? '').trim();
-        const heat_number = heat_text === '' ? NaN : Number(heat_text.replace(/,/g, ''));
+        const heat_match = /^(?:[^\d\s]+\s+)?([\d,]+)$/.exec(heat_text);
+        const heat_number = heat_match ? Number(heat_match[1].replace(/,/g, '')) : NaN;
         entries.push({
           id: source.id + ':' + id.data,
           title: utils.plain_text(utils.field(row, "td.td-02 a")),
@@ -114,6 +121,6 @@ export const route = {
   "maintainers": ["findrss"],
   "example": "/weibo/top/summary",
   "parameters": {},
-  "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
+  "description": "实时热搜快照 JSON，跳过广告，保留上游顺序、置顶、排名与热度（含带分类的热度）；未知排名和热度为 null。需授权 Cookie；遇到游客验证页请先在官网完成验证并同步有效 Cookie。",
   handler: ctx => script.run(ctx),
 };

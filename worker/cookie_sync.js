@@ -42,12 +42,28 @@ async function seal(key, origin, record) {
   return JSON.stringify({ version: 1, iv: Buffer.from(iv).toString("base64"), data: Buffer.from(data).toString("base64") });
 }
 
-async function open(key, origin, record) {
+async function open_record(key, origin, record) {
   if (record?.version !== 1 || typeof record.iv !== "string" || typeof record.data !== "string") throw script_error("COOKIE_STORAGE_UNAVAILABLE");
   const iv = Buffer.from(record.iv, "base64");
   if (iv.length !== 12) throw script_error("COOKIE_STORAGE_UNAVAILABLE");
   const plaintext = await crypto.subtle.decrypt({ name: "AES-GCM", iv, additionalData: encoder.encode(origin) }, key, Buffer.from(record.data, "base64"));
-  return validate_cookies(JSON.parse(new TextDecoder().decode(plaintext)).cookies);
+  const value = JSON.parse(new TextDecoder().decode(plaintext));
+  value.cookies = validate_cookies(value.cookies);
+  return value;
+}
+
+export async function load_browser_session(env, origin) {
+  if (!env.COOKIE_KV) return null;
+  try {
+    const record = await env.COOKIE_KV.get("browser-session:" + origin, { type: "json" });
+    return record === null ? null : await open_record(await storage_key(env), origin, record);
+  } catch { throw script_error("COOKIE_STORAGE_UNAVAILABLE"); }
+}
+
+export async function save_browser_session(env, origin, session) {
+  try {
+    await env.COOKIE_KV.put("browser-session:" + origin, await seal(await storage_key(env), origin, session));
+  } catch { throw script_error("COOKIE_STORAGE_UNAVAILABLE"); }
 }
 
 export async function read_json_body(request, invalid_code = "INVALID_PARAMETER") {
@@ -116,7 +132,7 @@ export async function load_cookies(env, permissions, fallback) {
     const key = await storage_key(env);
     const snapshots = await Promise.all(origins.map(async origin => {
       const record = await env.COOKIE_KV.get("cookies:" + origin, { type: "json", cacheTtl: 60 });
-      return { origin, cookies: record === null ? null : await open(key, origin, record) };
+      return { origin, cookies: record === null ? null : (await open_record(key, origin, record)).cookies };
     }));
     const found = snapshots.filter(snapshot => snapshot.cookies !== null);
     const cookies = fallback.filter(cookie => !found.some(snapshot => cookie_matches(cookie, new URL(snapshot.origin).hostname)))

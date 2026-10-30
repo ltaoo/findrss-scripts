@@ -86,6 +86,7 @@ jobs:
           path: ${{ runner.temp }}/route-report-site
       - name: Notify route failures
         if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' }}
+        continue-on-error: true
         run: node scripts/notify_route_failures.js
         env:
           NOTIFY_URL: https://notify.funzm.com/api/notify/576b280f25494b399a46a252e9e92ca6/fbd60ffcce51
