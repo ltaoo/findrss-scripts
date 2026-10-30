@@ -16,6 +16,10 @@ test("示例脚本保留品牌 SVG，Hot 来源内嵌 favicon 且在 QuickJS 中
       const compiled = await compile_script_module(source);
       assert.equal(compiled.error, "", kind + "/" + name);
       assert.ok(compiled.metadata.platform.name, kind + "/" + name);
+      assert.notEqual(compiled.metadata.platform.name, "网页", kind + "/" + name);
+      if (kind === "clip" && name === "website.js" || kind === "detect" && name === "website_text.js") {
+        assert.equal(compiled.metadata.platform.name, "通用网页", kind + "/" + name);
+      }
       if (kind !== "rss") {
         assert.ok(!sources.has(compiled.metadata.platform.name), kind + "/" + name + " 与同来源脚本重复");
         sources.add(compiled.metadata.platform.name);
@@ -43,6 +47,23 @@ test("示例脚本保留品牌 SVG，Hot 来源内嵌 favicon 且在 QuickJS 中
         continue;
       }
       const stem = name.replace(/\.js$/, "");
+      const favicon_platforms = { avmoo: "Avmoo", javbus: "JavBus", javlibrary: "JAVLibrary", "69shuba": "69书吧", ttk: "天天看书", hongguo: "红果短剧" };
+      if (kind === "rss" && Object.hasOwn(favicon_platforms, stem)) {
+        const svg = compiled.metadata.platform.icon;
+        const size = stem === "hongguo" ? 40 : ["avmoo", "javbus"].includes(stem) ? 16 : 32;
+        assert.equal(compiled.metadata.platform.name, favicon_platforms[stem], name);
+        assert.equal(XMLValidator.validate(svg), true, name);
+        assert.match(svg, /^<svg\b/);
+        assert.ok(svg.includes(`viewBox="0 0 ${size} ${size}"`), name);
+        assert.ok(svg.length <= 131072, name);
+        assert.match(svg, /<path\b/);
+        assert.doesNotMatch(svg, /<(?:image|text|script|foreignObject)\b|\bhref=|data:image\//i);
+        for (const node of svg.matchAll(/<[a-z]+\b[^>]*>/gi)) {
+          assert.match(node[0], new RegExp(`data-n="${stem}-[a-z0-9-]+"`), name);
+        }
+        assert.match(source, /\/\/ Favicon: https:\/\//, name);
+        continue;
+      }
       if (kind === "rss" && stem === "apple") {
         const svg = compiled.metadata.platform.icon;
         assert.equal(XMLValidator.validate(svg), true);
