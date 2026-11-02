@@ -85,6 +85,12 @@ export function generate_openapi(scripts) {
         },
         "x-script-file": entry.file, "x-route-path": entry.path, "x-example": entry.example,
       } };
+      if (entry.format === "rss_json") {
+        paths[path].get.description += "\n\n返回后台队列生成的订阅快照，约每 10 分钟刷新。首次生成返回 503 FEED_GENERATING，请按 Retry-After 重试；刷新失败时保留上次成功结果。";
+        paths[path].get.responses["503"] = { description: "快照生成中（FEED_GENERATING）或采集、队列、存储暂不可用",
+          headers: { "Retry-After": { description: "生成中时建议等待的秒数", schema: { type: "integer" } } },
+          content: { "application/json": { schema: { $ref: "#/components/schemas/Error" } } } };
+      }
       if (entry.format !== "debug") {
         const operation = paths[path].get;
         const fields = parameters.filter(parameter => parameter.in === "query" && parameter.name !== "token");

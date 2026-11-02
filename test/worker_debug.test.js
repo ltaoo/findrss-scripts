@@ -3,9 +3,10 @@ import test from "node:test";
 import scripts from "../dist/scripts.js";
 import worker from "../worker/index.js";
 import { route_cases, debug_route_cases } from "../worker/catalog.js";
+import { completed_feed_request } from "./support/feed_queue.js";
 
 const origin = "https://scripts.example";
-const request = (path, env = {}, options) => worker.fetch(new Request(origin + path, options), env);
+const request = (path, env = {}, options) => completed_feed_request(new Request(origin + path, options), env);
 const section = (html, name) => new RegExp('data-n="debug-' + name + '-content"[^>]*>([\\s\\S]*?)</pre>').exec(html)[1]
   .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const feed = '<feed xmlns="http://www.w3.org/2005/Atom"><title>Releases</title><entry><id>release:1</id><title>v1</title><link rel="alternate" href="https://github.com/example/repo/releases/tag/v1"/><updated>2026-10-26T01:00:00Z</updated></entry></feed>';

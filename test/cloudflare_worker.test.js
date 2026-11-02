@@ -7,9 +7,10 @@ import { script_names } from "./support/script_sources.js";
 import { check_route } from "../scripts/route_checks.js";
 import { api_route_cases, route_cases } from "../worker/catalog.js";
 import { ERRORS } from "../worker/errors.js";
+import { completed_feed_request } from "./support/feed_queue.js";
 
 const origin = "https://scripts.example";
-const request = (path, env = {}, headers) => worker.fetch(new Request(origin + path, { headers }), env);
+const request = (path, env = {}, headers) => completed_feed_request(new Request(origin + path, { headers }), env);
 const upstream_feed = '<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Releases</title><entry><id>tag:github.com,2008:1/v1</id><title>v1.0</title><link rel="alternate" href="https://github.com/ltaoo/wx_channels_download/releases/tag/v1"/><updated>2026-10-26T01:00:00Z</updated><content>Release content</content></entry></feed>';
 
 test("构建目录覆盖所有脚本和全部路由，包含 RSS/Atom、正文及图片", async () => {
@@ -133,6 +134,8 @@ test("请求、配置及采集能力错误同样返回统一格式", async t => 
     ["/health", { SCRIPT_COOKIES: "[]" }, "ACCESS_TOKEN_REQUIRED"],
     ["/rss/instagram/invalid!", {}, "INVALID_PARAMETER"],
     ["/api/hot/youtube/hot/US/0", { ACCESS_TOKEN: "private-token", SCRIPT_CONFIG: '{"hot/youtube_hot.js":{"api_key":7}}' }, "CONFIG_INVALID"],
+    ["/rss/github/example/repo/release", { FINDRSS_HOSTNAME: "data:text/plain,test" }, "CONFIG_INVALID"],
+    ["/rss/github/example/repo/release", { FINDRSS_HOSTNAME: "file:///tmp" }, "CONFIG_INVALID"],
     ["/api/clip/web/region?url=https%3A%2F%2Fexample.com&selector=body", {}, "SOURCE_UNAVAILABLE"],
     ...["{", "null", "[]", '{"rss/instagram.js":true}', '{"rss/instagram.js":null}', '{"rss/instagram.js":false}']
       .map(SCRIPT_CONFIG => ["/rss/instagram/katarinabluu", { ACCESS_TOKEN: "private-token", SCRIPT_CONFIG }, "CONFIG_INVALID"]),

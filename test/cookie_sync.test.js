@@ -4,6 +4,7 @@ import { createCipheriv, createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import worker from "../worker/index.js";
 import { load_cookies } from "../worker/cookie_sync.js";
+import { completed_feed_request } from "./support/feed_queue.js";
 
 const origin = "https://scripts.findrss.cloud";
 const uuid = "fixture-uuid";
@@ -58,7 +59,7 @@ test("dm AES 上传无需额外字段，KV 只存随机 IV 的密文，RSS 能�
   };
   const denied = await worker.fetch(new Request(origin + "/rss/instagram/katarinabluu"), env);
   assert.equal(denied.status, 401);
-  const rss = await worker.fetch(new Request(origin + "/rss/instagram/katarinabluu", { headers: authorized }), env);
+  const rss = await completed_feed_request(new Request(origin + "/rss/instagram/katarinabluu", { headers: authorized }), env);
   assert.equal(rss.status, 200);
   assert.match(await rss.text(), /<rss\b/);
 });

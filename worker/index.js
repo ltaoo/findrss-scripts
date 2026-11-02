@@ -1,18 +1,14 @@
 import scripts from "../dist/scripts.js";
-import { execute_script } from "../.runtime/findrss-worker/server/infra/script_sandbox.js";
 import { RssRoutePatternModel } from "../.runtime/findrss-worker/server/domain/rss_route.js";
-import { FeedModel } from "../.runtime/findrss-worker/server/domain/feed_format.js";
 import { script_output } from "../.runtime/findrss-worker/server/lib/script_output.js";
 import { fetch_script_image } from "../.runtime/findrss-worker/server/infra/image_proxy.js";
-import { script_config_value } from "../.runtime/findrss-worker/server/lib/script_config.js";
-import { create_puppeteer_navigate } from "../.runtime/findrss-worker/server/infra/script_puppeteer.js";
 import { route_cases, debug_route_cases } from "./catalog.js";
 import { debug_response } from "./debug.js";
-import { WorkerCookieAccess } from "./cookies.js";
 import { error_code, error_response, script_error } from "./errors.js";
-import { load_cookies, read_json_body, update_cookies, validate_cookies } from "./cookie_sync.js";
+import { read_json_body, update_cookies } from "./cookie_sync.js";
 import { request_authenticated } from "./auth.js";
-import { create_browser_session } from "./browser_session.js";
+import { execute_route, script_configuration } from "./execute.js";
+import { snapshot_response, consume_snapshots, record_dead_letters, refresh_snapshots, dead_letter_queue } from "./feed_snapshots.js";
 
 const cases = route_cases(scripts);
 const routes = cases.map(entry => ({ ...entry, pattern: RssRoutePatternModel(entry.path),
@@ -23,6 +19,28 @@ const headers = { "Cache-Control": "no-store", "X-Content-Type-Options": "nosnif
 const cookie_origins = [...new Set(scripts.flatMap(script => (script.metadata.permissions?.cookies || []).map(permission => permission.origin)))];
 
 export default {
+  scheduled: refresh_snapshots,
+  async queue(batch, env) {
+    if (batch.queue === dead_letter_queue) return record_dead_letters(batch, env);
+    return consume_snapshots(batch, env, descriptor => {
+      const context = descriptor?.context;
+      const strings = value => value && typeof value === "object" && !Array.isArray(value) &&
+        Object.values(value).every(item => typeof item === "string");
+      if (!context || !["GET", "POST"].includes(context.method) || !strings(context.params) || !strings(context.query) ||
+        Object.hasOwn(context.query, "token") || typeof context.pathname !== "string") return null;
+      try {
+        const origin = new URL(context.public_origin);
+        if (!["http:", "https:"].includes(origin.protocol) || origin.origin !== context.public_origin) return null;
+      } catch { return null; }
+      const entry = routes.find(route => route.file === descriptor.file && route.route_index === descriptor.route_index && route.format === "rss_json");
+      if (!entry) return null;
+      const pattern = RssRoutePatternModel(entry.script.metadata.routes[entry.route_index].path);
+      const match = pattern.match(context.pathname);
+      if (!match || JSON.stringify(Object.entries(match.params).sort()) !== JSON.stringify(Object.entries(context.params).sort())) return null;
+      const configuration = script_configuration(entry, env);
+      return { entry, configuration, execute: signal => execute_route(entry, context, env, configuration, signal) };
+    });
+  },
   async fetch(request, env) {
     const started_at = Date.now();
     const url = new URL(request.url);
@@ -30,7 +48,7 @@ export default {
     const authenticated = request_authenticated(request, env.ACCESS_TOKEN);
     url.searchParams.delete("token");
     const debugging = url.pathname === "/debug" || url.pathname.startsWith("/debug/");
-    let entry, result, browser_session;
+    let entry, result;
     let invoked = false;
     let stage = "auth";
     let response_headers = headers;
@@ -79,47 +97,20 @@ export default {
         url.search = new URLSearchParams(context.query).toString();
       }
       stage = "config";
-      const config = JSON.parse(env.SCRIPT_CONFIG || "{}");
-      const fallback = validate_cookies(JSON.parse(env.SCRIPT_COOKIES || "[]"));
-      if (!config || typeof config !== "object" || Array.isArray(config)) {
-        return fail("CONFIG_INVALID");
+      const configuration = script_configuration(entry, env, debugging);
+      const { metadata } = configuration;
+      const public_url = new URL(env.FINDRSS_HOSTNAME || url.origin);
+      if (!["http:", "https:"].includes(public_url.protocol)) throw script_error("CONFIG_INVALID");
+      context.public_origin = public_url.origin;
+      if (!debugging && ["rss", "atom", "rss_json"].includes(entry.format)) {
+        return snapshot_response(entry, metadata, context, env, url, response_headers);
       }
-      const metadata = { ...entry.script.metadata, ...entry.script.metadata.routes[entry.route_index],
-        config: Object.hasOwn(config, entry.file) ? config[entry.file] : {},
-        ...(debugging ? { debug: true, debug_request: true } : {}) };
-      metadata.config = script_config_value(metadata.config_schema, metadata.config);
-      context.public_origin = new URL(env.FINDRSS_HOSTNAME || url.origin).origin;
-      stage = "cookies";
-      const cookies = await load_cookies(env, metadata.permissions, fallback);
-      browser_session = await create_browser_session(env, metadata, cookies);
-      const signal = AbortSignal.any([request.signal, AbortSignal.timeout(120000)]);
-      const invoke = env.DEVICE_BRIDGE_URL ? async spec => {
-        invoked = true;
-        const response = await fetch(env.DEVICE_BRIDGE_URL, { method: "POST", signal,
-          headers: { "Content-Type": "application/json", Authorization: "Bearer " + (env.DEVICE_BRIDGE_TOKEN || "") },
-          body: JSON.stringify(spec) });
-        if (!response.ok) throw script_error("DEVICE_UNAVAILABLE");
-        return response.json();
-      } : null;
-      const cookie_access = new WorkerCookieAccess({ permissions: metadata.permissions,
-        cookies: () => browser_session.cookies, assert_grant: () => {} });
-      const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
-        : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
       stage = "script";
-      result = await execute_script(entry.script.source, metadata, invoke, {
-        method: context.method, pathname: context.pathname, params: context.params,
-        query: context.query, public_origin: context.public_origin,
-      }, [], "", cookie_access, signal, navigate);
-      await browser_session.commit(signal);
-      if (debugging && browser_session.navigation) result.lines.push({ level: "info", text: "浏览器验证缓存：" + JSON.stringify(browser_session.stats) });
+      ({ result, invoked } = await execute_route(entry, context, env, configuration,
+        AbortSignal.any([request.signal, AbortSignal.timeout(120000)])));
       if (debugging) return debug_response({ entry, context, stage: "ok", started_at, result, invoked }, response_headers);
       stage = "output";
       const value = JSON.parse(result.output);
-      if (["rss", "atom"].includes(entry.format)) {
-        return new Response(FeedModel(value).render(entry.format, { self_url: url.href }), {
-          headers: { ...response_headers, "Content-Type": entry.format === "rss" ? "application/rss+xml; charset=utf-8" : "application/atom+xml; charset=utf-8" },
-        });
-      }
       const output = script_output(metadata, value);
       if (output.descriptor) {
         const image = await fetch_script_image(metadata, output.descriptor);
@@ -128,7 +119,8 @@ export default {
       return new Response(output.body, { headers: { ...response_headers, "Content-Type": output.content_type,
         ...(output.content_type.startsWith("text/html") ? { "Content-Security-Policy": "sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src https: data:" } : {}) } });
     } catch (error) {
-      await browser_session?.discard();
+      invoked ||= error.invoked === true;
+      if (stage === "script" && error.execution_stage) stage = error.execution_stage;
       const code = stage === "config" ? "CONFIG_INVALID" : error_code(error);
       console.error(JSON.stringify({ file: entry.file, route: entry.path, code }));
       return fail(code, error);
