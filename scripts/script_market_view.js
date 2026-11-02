@@ -1,7 +1,6 @@
 import { View, Form, Input, For, Modal, ref, computed } from "timeless";
 import { create_market_model } from "./script_market.js";
 
-const kind_names = { hot: "热榜", rss: "订阅", clip: "剪藏", detect: "监测" };
 const empty_fields = [];
 
 export function create_market_view_model(data, write_clipboard) {
@@ -70,15 +69,16 @@ function card(vm, script, visible) {
         element("div", "script-icon-container", { class: "icon" }, [script.icon_data_url
           ? element("img", "script-icon", { class: "script-icon", src: script.icon_data_url, alt: "", width: 32, height: 32 })
           : element("span", "script-icon-fallback", { class: "icon-fallback", "aria-hidden": "true" }, [script.title.slice(0, 1)])]),
-        element("div", "script-identity", { class: "script-identity" }, [element("h2", "script-title", { id: script.id + "-title" }, [script.title])]),
-        element("div", "script-status-stack", { class: "script-status-stack" }, [
+        element("div", "script-identity", { class: "script-identity" }, [
+          element("h2", "script-title", { id: script.id + "-title" }, [script.title]),
           element("span", "script-version", { class: "script-version", "aria-label": "版本：" + script.version }, ["v" + script.version]),
+        ]),
+        element("div", "script-status-stack", { class: "script-status-stack" }, [
           element("button", "inspect-script", { class: "inspection-trigger status " + (script.failed ? "failed" : script.total ? "passed" : ""),
             "data-script": script.id, "aria-label": script.title + " 巡检结果与产物" }, [script.total ? `巡检 ${script.total - script.failed}/${script.total} 通过` : "暂无巡检结果"], { onClick: () => model.inspect(script.id) }),
         ]),
       ]),
       element("div", "script-metadata", { class: "metadata" }, [
-        element("span", "script-kind", { class: "kind" }, [kind_names[script.kind] || script.kind]),
         element("a", "script-raw-link", { class: "raw-link", href: script.raw_url }, [script.file]),
         element("button", "copy-raw-url", { class: "copy-icon", "data-script": script.id, "aria-label": "复制 Raw 地址：" + script.file,
           title: "复制 Raw 地址", disabled: watch(() => model.copying) }, [icon("copy-icon", "copy")], { onClick: () => model.copy(script.id) }),
@@ -87,23 +87,44 @@ function card(vm, script, visible) {
   ]);
 }
 
-function examples(vm, route) {
+function example_chip(vm, route, example) {
   const { model, watch } = vm;
-  return element("div", "route-actions", { class: "route-actions" }, [
-    element("div", "route-examples", { class: "route-examples", "data-route": route.key }, [
-      For({ each: watch(() => model.route_examples(route.key)), key: "id", render: example => {
-        const label = watch(() => model.route_examples(route.key).find(value => value.id === example.id)?.label || "");
-        return element("span", "saved-example", { class: "saved-example" }, [
-          element("button", "open-example", { title: label }, [label], { onClick: () => model.open_request(route.key, example.id) }),
-          ...(example.deletable ? [element("button", "delete-example", { title: "删除示例", "aria-label": computed(label, value => "删除示例：" + value) }, ["×"], { onClick(event) {
-            const add = event.currentTarget.closest('[data-n="route-actions"]').querySelector('[data-n="configure-route"]');
-            if (model.delete_example(route.key, example.id)) add.focus();
-          } })] : []),
-        ]);
-      } }),
+  const label = watch(() => model.route_examples(route.key).find(value => value.id === example.id)?.label || "");
+  return element("span", "saved-example", { class: "saved-example" }, [
+    element("button", "open-example", { title: label }, [label], { onClick: () => model.open_request(route.key, example.id) }),
+    ...(example.deletable ? [element("button", "delete-example", { title: "删除示例", "aria-label": computed(label, value => "删除示例：" + value) }, ["×"], { onClick(event) {
+      const add = event.currentTarget.closest('[data-n="output-rows"]').querySelector('[data-n="configure-route"]');
+      if (model.delete_example(route.key, example.id)) add.focus();
+    } })] : []),
+  ]);
+}
+
+function output_entry(entry) {
+  return entry?.artifact
+    ? [element("a", "artifact-link", { href: entry.artifact.url, target: "_blank", rel: "noopener noreferrer" }, [entry.artifact.label])]
+    : entry?.reason ? [element("span", "output-reason", { class: "output-reason" }, [entry.reason])] : [];
+}
+
+function output_comparison(vm, row) {
+  const { model, watch } = vm;
+  const entries = [...(row.artifacts || []).map(artifact => ({ artifact })), ...(row.reason ? [{ reason: row.reason }] : [])];
+  return element("div", "output-rows", { class: "output-rows" }, [
+    For({ each: watch(() => {
+      const examples = model.route_examples(row.request.key);
+      const count = Math.max(examples.length, entries.length);
+      return Array.from({ length: count }, (_, index) => ({ id: examples[index] ? "example:" + (examples[index].id ?? "default") : "entry:" + index,
+        example: examples[index] || null, entry: entries[index] || null }));
+    }), key: "id", render: item => element("div", "output-row", { class: "output-row" }, [
+      element("div", "output-result", { class: "output-result" }, output_entry(item.entry)),
+      element("div", "output-example", { class: "output-example" }, item.example ? [example_chip(vm, row.request, item.example)] : []),
+    ]) }),
+    element("div", "output-row", { class: "output-row" }, [
+      element("div", "output-result", { class: "output-result" }),
+      element("div", "output-example", { class: "output-example" }, [
+        element("button", "configure-route", { class: "copy-icon add-example", "data-route": row.request.key, "aria-label": "添加示例：" + row.request.path,
+          title: "添加示例" }, [icon("add-example-icon", "add")], { onClick: () => model.open_request(row.request.key) }),
+      ]),
     ]),
-    element("button", "configure-route", { class: "copy-icon add-example", "data-route": route.key, "aria-label": "添加示例：" + route.path,
-      title: "添加示例" }, [icon("add-example-icon", "add")], { onClick: () => model.open_request(route.key) }),
   ]);
 }
 
@@ -117,9 +138,14 @@ function inspection_results(vm, script) {
         ].map(([name, title]) => element("th", name + "-heading", { scope: "col" }, [title])))]),
         element("tbody", "results-rows", {}, script.inspection_rows.map(row => element("tr", "route-result", {}, [
           element("th", "route-title", { scope: "row" }, [row.request?.name || row.path]),
-          element("td", "route-identity", {}, [element("code", "route-path", {}, [row.path]), ...(row.request ? [examples(vm, row.request)] : [])]),
+          element("td", "route-identity", {}, [element("code", "route-path", {}, [row.path])]),
           element("td", "route-status", {}, [element("span", "status-label", { class: "status " + (row.ok === null ? "unknown" : row.ok ? "passed" : "failed") }, [row.ok === null ? "未巡检" : row.ok ? "成功" : "失败"])]),
-          element("td", "route-output", {}, [...(row.artifacts || []).map(artifact => element("a", "artifact-link", { href: artifact.url, target: "_blank", rel: "noopener noreferrer" }, [artifact.label])), row.reason]),
+          element("td", "route-output", {}, row.request ? [output_comparison(vm, row)] : [
+            element("div", "output-entries", { class: "output-entries" }, [
+              ...(row.artifacts || []).map(artifact => element("a", "artifact-link", { href: artifact.url, target: "_blank", rel: "noopener noreferrer" }, [artifact.label])),
+              ...(row.reason ? [element("span", "output-reason", { class: "output-reason" }, [row.reason])] : []),
+            ]),
+          ]),
         ]))),
       ]),
     ]),

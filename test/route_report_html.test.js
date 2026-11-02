@@ -80,11 +80,14 @@ test("脚本市场用文件路径链接 Raw，图标复制地址，右上角版�
   assert.equal([...html.matchAll(/<article data-n="script-card"/g)].length, 3);
   assert.equal([...html.matchAll(/<button data-n="copy-raw-url"/g)].length, 3);
   assert.equal([...html.matchAll(/<button data-n="inspect-script"/g)].length, 3);
-  assert.match(html, /data-n="script-status-stack"[\s\S]*?data-n="script-version"[\s\S]*?data-n="inspect-script"/);
+  assert.match(html, /data-n="script-identity"[^>]*><h2 data-n="script-title"[^>]*>[^<]+<\/h2><span data-n="script-version"/);
+  assert.match(html, /data-n="script-status-stack"[\s\S]*?data-n="inspect-script"/);
+  assert.doesNotMatch(html, /data-n="script-status-stack"[^>]*><span data-n="script-version"/);
   assert.match(html, /<dialog[^>]*data-n="inspection-dialog"/);
   assert.match(html, /<a data-n="script-raw-link"[^>]*href="https:\/\/raw.githubusercontent.com\/ltaoo\/findrss-scripts\/refs\/heads\/master\/rss\/example.js">rss\/example.js<\/a>/);
   assert.match(html, /<button data-n="copy-raw-url"[^>]*aria-label="复制 Raw 地址：rss\/example.js"[^>]*><svg/);
-  assert.match(html, /data-n="script-metadata"[^>]*><span data-n="script-kind"[^>]*>订阅<\/span><a data-n="script-raw-link"/);
+  assert.doesNotMatch(html, /data-n="script-kind"/);
+  assert.match(html, /data-n="script-metadata"[^>]*><a data-n="script-raw-link"/);
   assert.doesNotMatch(html, /copy-script-url|copy-script-source|script-actions|查看巡检与产物|巡检 JSON|巡检 Markdown/);
   assert.match(html, /2026年10月28日 14:00:00/);
   assert.match(html, /UPSTREAM_FETCH_FAILED/);
@@ -222,7 +225,7 @@ test("页头设置、动态路由配置与保存入口，未巡检路由仍可�
   }
   assert.match(html, /保存示例/);
   assert.doesNotMatch(html, /调用配置|保存参数/);
-  assert.equal([...html.matchAll(/<div data-n="route-examples"/g)].length, 2);
+  assert.equal([...html.matchAll(/<div data-n="output-rows"/g)].length, 2);
   assert.equal([...html.matchAll(/<svg data-n="add-example-icon"/g)].length, 2);
   assert.match(html, /aria-label="添加示例：/);
   assert.match(html, /未巡检/);
