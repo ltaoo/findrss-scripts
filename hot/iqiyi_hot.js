@@ -1,5 +1,5 @@
 /** HOT */
-export const version = "1.0.1";
+export const version = "1.1.0";
 export const category = "娱乐";
 export const order = 260;
 // Favicon: https://www.iqiyi.com/favicon.ico
@@ -99,14 +99,150 @@ export class IqiyiHotRank extends HotRankScript {
     }
   }
 }
-const script = new IqiyiHotRank();
-export const route = {
-  "name": "爱奇艺 · 热播榜",
-  "path": "/iqiyi/portal/lw/v7/channel/card/videoTab",
-  "url": "www.iqiyi.com",
-  "maintainers": ["findrss"],
-  "example": "/iqiyi/portal/lw/v7/channel/card/videoTab",
-  "parameters": {},
-  "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
-  handler: ctx => script.run(ctx),
+const rank_source = {
+  id: "iqiyi-rank-list",
+  name: "爱奇艺 · 风云榜",
+  home: "https://www.iqiyi.com/trending/"
 };
+const rank_api = "https://cards.iqiyi.com/views_category/3.0/rank_list";
+const rank_categories = {
+  "-1": "总榜",
+  "1": "电影",
+  "2": "电视剧",
+  "3": "纪录片",
+  "4": "动漫",
+  "6": "综艺",
+  "15": "少儿",
+  "17": "体育",
+  "912": "知识"
+};
+const rank_query_pairs = [
+  ["from_type", "3"],
+  ["rec_tags", ""],
+  ["page_st", "1"],
+  ["rankNewStyle", "1"],
+  ["tag", "0"],
+  ["from_category_id", "8192"],
+  ["card_v", "3.0"],
+  ["from_subtype", "6"],
+  ["psp_status", "1"],
+  ["dev_os", "10"],
+  ["app_k", "h5_8e48946f144759d86a50075555fd5862"],
+  ["net_sts", "1"],
+  ["req_from", "h5"],
+  ["qyid", "h5_webview"],
+  ["platform_id", "12"],
+  ["secure_p", "1"],
+  ["secure_v", "1"],
+  ["dev_ua", "h5"],
+  ["app_v", "12.6.5"],
+  ["layout_v", "87.9999.1622018362"]
+];
+export class IqiyiRankListHotRank extends HotRankScript {
+  async fetch(ctx) {
+    try {
+      const category_id = String(ctx.query?.category_id ?? "-1").trim() || "-1";
+      if (!/^(?:-1|[1-9]\d{0,5})$/.test(category_id)) {
+        return Result.Err("category_id 必须为风云榜分类数字 ID，默认 -1（总榜）", "INVALID_PARAMETER");
+      }
+      const query = rank_query_pairs.map(pair => pair[0] + "=" + encodeURIComponent(pair[1]));
+      query.unshift("category_id=" + encodeURIComponent(category_id));
+      query.push("req_sn=" + encodeURIComponent(String(Date.now())));
+      const request_options = { headers: { Referer: "https://m.iqiyi.com/ranklist.html" } };
+      const fetched = await utils.request_json(ctx, rank_api + "?" + query.join("&"), request_options);
+      if (fetched.error) return fetched;
+      const data = fetched.data;
+      if (!data || typeof data !== 'object') return Result.Err('上游未返回数据对象', 'UPSTREAM_INVALID_RESPONSE');
+      if (data.need_force_login) return Result.Err('上游要求登录，请更新并授权 Cookie', 'UPSTREAM_AUTH_REQUIRED');
+      if (data.error || data.errors?.length || (typeof data.error_code === 'number' && data.error_code !== 0) || (data.code !== undefined && Number(data.code) !== 0)) {
+        return Result.Err(data.message ? '上游拒绝请求：' + data.message : '上游拒绝请求，请检查账户权限或验证页面', 'UPSTREAM_INVALID_RESPONSE');
+      }
+      const cards = Array.isArray(data.cards) ? data.cards : [];
+      const entries = [],
+        seen = new Set();
+      for (const card of cards) {
+        const blocks = Array.isArray(card?.blocks) ? card.blocks : [];
+        for (const row of blocks) {
+          const album_id = row?.actions?.click_event?.data?.album_id;
+          if (!album_id) continue;
+          const id = utils.identity(album_id);
+          if (id.error) return id;
+          if (seen.has(id.data)) continue;
+          seen.add(id.data);
+          const raw_link = String(row.other?.h5_url || '').replace(/^https?:\/\/m\.iqiyi\.com/i, 'https://www.iqiyi.com');
+          const link = utils.absolute_url(raw_link || rank_source.home, rank_source.home);
+          if (link.error) return link;
+          const raw_rank = row.images?.[0]?.marks?.lu_mark?.t;
+          const rank_number = Number(raw_rank);
+          const rank = Number.isInteger(rank_number) && rank_number > 0 ? rank_number : null;
+          const heat_meta = (row.metas || []).find(meta => meta && meta.meta_class === 'b823_1_meta5') ||
+            (row.metas || []).find(meta => meta && Array.isArray(meta.spans));
+          let heat_text = '';
+          if (heat_meta) {
+            const parts = [];
+            for (const span of heat_meta.spans || []) {
+              if (String(span.content_type) === '0' && span.content) parts.push(String(span.content));
+            }
+            heat_text = parts.join('').trim();
+          }
+          const heat_number = heat_text === '' ? NaN : Number(heat_text.replace(/,/g, ''));
+          const thumbnail_value = row.images?.[0]?.url;
+          const thumbnail = thumbnail_value ? utils.absolute_url(thumbnail_value, rank_source.home) : null;
+          entries.push({
+            id: rank_source.id + ':' + id.data,
+            title: utils.plain_text(row.metas?.[0]?.text),
+            link: link.data,
+            ...(thumbnail && !thumbnail.error ? { thumbnail: thumbnail.data } : {}),
+            rank,
+            pinned: false,
+            heat: {
+              value: Number.isFinite(heat_number) && heat_number >= 0 ? heat_number : null,
+              unit: "热度",
+              text: heat_text
+            }
+          });
+        }
+      }
+      const category_label = rank_categories[category_id] || category_id;
+      ctx.log('榜单解析完成', {
+        source: rank_source.id,
+        category_id,
+        count: entries.length,
+        missing_rank: entries.filter(entry => entry.rank === null).length
+      });
+      return Result.Ok({
+        title: rank_source.name + (category_label === '总榜' ? '热播榜' : category_label + '热播榜'),
+        category,
+        link: rank_source.home,
+        entries
+      });
+    } catch (error) {
+      return Result.Err(error, error?.code ?? 'UPSTREAM_INVALID_RESPONSE');
+    }
+  }
+}
+
+const script = new IqiyiHotRank();
+const rank_list_script = new IqiyiRankListHotRank();
+export const routes = [
+  {
+    "name": "爱奇艺 · 热播榜",
+    "path": "/iqiyi/portal/lw/v7/channel/card/videoTab",
+    "url": "www.iqiyi.com",
+    "maintainers": ["findrss"],
+    "example": "/iqiyi/portal/lw/v7/channel/card/videoTab",
+    "parameters": {},
+    "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
+    handler: ctx => script.run(ctx),
+  },
+  {
+    "name": "爱奇艺 · 风云榜热播榜",
+    "path": "/iqiyi/views_category/3.0/rank_list",
+    "url": "www.iqiyi.com",
+    "maintainers": ["findrss"],
+    "example": "/iqiyi/views_category/3.0/rank_list",
+    "parameters": { category_id: "查询参数：风云榜分类数字 ID，默认 -1（总榜）；1 电影、2 电视剧、3 纪录片、4 动漫、6 综艺、15 少儿、17 体育、912 知识" },
+    "description": "读取爱奇艺风云榜热播榜前 20 名，保留封面、排名与热度；?category_id=2 切换到电视剧榜。",
+    handler: ctx => rank_list_script.run(ctx),
+  }
+];
