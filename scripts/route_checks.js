@@ -3,8 +3,11 @@ import { createHash } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { XMLParser, XMLValidator } from "fast-xml-parser";
+import { setTimeout as wait } from "node:timers/promises";
 
 const parser = new XMLParser({ ignoreAttributes: false, parseTagValue: false });
+// Cloudflare 在 CPU 超限（错误 1102）时返回平台 HTML，而不是脚本的 JSON 错误。
+const platform_cpu = /Worker exceeded resource limits|exceeded CPU time limit|Error 1102/i;
 const array = value => value === undefined ? [] : Array.isArray(value) ? value : [value];
 const text = value => typeof value === "string" ? value : value?.["#text"];
 const nonempty = value => typeof value === "string" && value.trim().length > 0;
@@ -127,53 +130,67 @@ export async function check_route(base, entry, { fetch_impl = fetch, token = "",
   try {
     const url = new URL(entry.example, base);
     assert.equal(url.origin, new URL(base).origin, "检查地址必须位于部署站点，禁止跨站发送令牌");
-    const response = await fetch_impl(url, { redirect: "manual", signal: AbortSignal.timeout(timeout_ms),
-      headers: token ? { Authorization: "Bearer " + token } : {} });
-    result.status = response.status;
-    result.request = response.ok;
-    const reader = response.body?.getReader();
-    assert.ok(reader, response.ok ? "响应没有正文流" : "HTTP " + response.status);
-    const chunks = [];
-    let size = 0;
-    try {
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        size += value.byteLength;
-        assert.ok(size <= 24 * 1024 * 1024, "响应超过 24MB");
-        chunks.push(value);
+    const signal = AbortSignal.timeout(timeout_ms);
+    for (;;) {
+      signal.throwIfAborted();
+      const response = await fetch_impl(url, { redirect: "manual", signal,
+        headers: token ? { Authorization: "Bearer " + token } : {} });
+      result.status = response.status;
+      result.request = response.ok;
+      const reader = response.body?.getReader();
+      assert.ok(reader, response.ok ? "响应没有正文流" : "HTTP " + response.status);
+      const chunks = [];
+      let size = 0;
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          size += value.byteLength;
+          assert.ok(size <= 24 * 1024 * 1024, "响应超过 24MB");
+          chunks.push(value);
+        }
+      } finally { await reader.cancel().catch(() => {}); }
+      const bytes = Buffer.concat(chunks);
+      const content_type = (response.headers.get("Content-Type") || "").split(";")[0].trim().toLowerCase();
+      if (!response.ok) {
+        let problem;
+        try { problem = JSON.parse(bytes.toString("utf8")); } catch {}
+        if (content_type === "text/html" && platform_cpu.test(bytes.toString("utf8"))) {
+          result.code = "EXCEEDED_CPU";
+          throw new Error("HTTP " + response.status + ": EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）");
+        }
+        if (response.status === 503 && problem?.code === "FEED_GENERATING") {
+          const delay = Math.min(timeout_ms, Math.max(1, Number(response.headers.get("Retry-After")) || 5) * 1000);
+          await wait(delay, undefined, { signal });
+          continue;
+        }
+        if (typeof problem?.code === "string" && typeof problem?.message === "string") {
+          result.code = problem.code;
+          throw new Error(`HTTP ${response.status}: ${problem.code}: ${problem.message}`);
+        }
+        throw new Error("HTTP " + response.status);
       }
-    } finally { await reader.cancel().catch(() => {}); }
-    const bytes = Buffer.concat(chunks);
-    if (!response.ok) {
-      let problem;
-      try { problem = JSON.parse(bytes.toString("utf8")); } catch {}
-      if (typeof problem?.code === "string" && typeof problem?.message === "string") {
-        result.code = problem.code;
-        throw new Error(`HTTP ${response.status}: ${problem.code}: ${problem.message}`);
+      if (output_dir) {
+        const extension = ["rss", "atom"].includes(entry.format) ? "xml" : entry.format === "html" ? "html"
+          : entry.format === "image" ? ({ "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp",
+            "image/gif": "gif", "image/x-icon": "ico", "image/vnd.microsoft.icon": "ico" }[content_type] || "bin") : "json";
+        const suffix = url.search ? "." + createHash("sha256").update(url.search).digest("hex").slice(0, 16) : "";
+        const output_file = url.pathname.replace(/\/$/, "/index").slice(1) + suffix + "." + extension;
+        const destination = join(output_dir, output_file);
+        await mkdir(dirname(destination), { recursive: true });
+        await writeFile(destination, bytes);
+        result.output_file = output_file;
       }
-      throw new Error("HTTP " + response.status);
+      assert.ok(size > 0, "响应正文为空");
+      result.response = true;
+      const value = parse_response(entry, response.headers.get("Content-Type") || "", bytes);
+      result.format_valid = true;
+      assert.equal(response.headers.get("X-FindRSS-Script"), entry.file, "命中了错误的脚本");
+      assert.equal(response.headers.get("X-FindRSS-Route"), String(entry.route_index), "命中了错误的 handler");
+      check_output(entry, value);
+      result.output_valid = true;
+      break;
     }
-    if (output_dir) {
-      const content_type = (response.headers.get("Content-Type") || "").split(";")[0].toLowerCase();
-      const extension = ["rss", "atom"].includes(entry.format) ? "xml" : entry.format === "html" ? "html"
-        : entry.format === "image" ? ({ "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp",
-          "image/gif": "gif", "image/x-icon": "ico", "image/vnd.microsoft.icon": "ico" }[content_type] || "bin") : "json";
-      const suffix = url.search ? "." + createHash("sha256").update(url.search).digest("hex").slice(0, 16) : "";
-      const output_file = url.pathname.replace(/\/$/, "/index").slice(1) + suffix + "." + extension;
-      const destination = join(output_dir, output_file);
-      await mkdir(dirname(destination), { recursive: true });
-      await writeFile(destination, bytes);
-      result.output_file = output_file;
-    }
-    assert.ok(size > 0, "响应正文为空");
-    result.response = true;
-    const value = parse_response(entry, response.headers.get("Content-Type") || "", bytes);
-    result.format_valid = true;
-    assert.equal(response.headers.get("X-FindRSS-Script"), entry.file, "命中了错误的脚本");
-    assert.equal(response.headers.get("X-FindRSS-Route"), String(entry.route_index), "命中了错误的 handler");
-    check_output(entry, value);
-    result.output_valid = true;
   } catch (error) { result.error = error.message; }
   result.duration_ms = Date.now() - started;
   return result;

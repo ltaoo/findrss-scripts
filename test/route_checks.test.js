@@ -10,6 +10,39 @@ const value = { kind: "hot_rank", title: "Example", link: "https://example.com",
 const headers = { "Content-Type": "application/json", "X-FindRSS-Script": entry.file, "X-FindRSS-Route": "0" };
 const run = fetch_impl => check_route("https://scripts.example", entry, { fetch_impl });
 
+test("快照生成中按 Retry-After 重试，沿用同一个总超时信号，其他 503 不重试", async () => {
+  let calls = 0;
+  const signals = [];
+  const result = await run(async (_url, options) => {
+    signals.push(options.signal);
+    return ++calls === 1 ? Response.json({ code: "FEED_GENERATING", message: "生成中" }, {
+      status: 503, headers: { "Retry-After": "1" },
+    }) : Response.json(value, { headers });
+  });
+  assert.equal(result.output_valid, true);
+  assert.equal(calls, 2);
+  assert.equal(signals[0], signals[1]);
+  const timed_out = await check_route("https://scripts.example", entry, { timeout_ms: 20,
+    fetch_impl: async () => Response.json({ code: "FEED_GENERATING", message: "生成中" }, { status: 503 }) });
+  assert.equal(timed_out.output_valid, false);
+  assert.ok(timed_out.error);
+  calls = 0;
+  await run(async () => { calls++; return new Response("unavailable", { status: 503 }); });
+  assert.equal(calls, 1);
+});
+
+test("平台 CPU 超限页标记为 EXCEEDED_CPU，普通 503 不误判", async () => {
+  const cpu = await run(async () => new Response(
+    "<title>Worker exceeded resource limits | scripts.example | Cloudflare</title>",
+    { status: 503, headers: { "Content-Type": "text/html; charset=utf-8" } }));
+  assert.equal(cpu.code, "EXCEEDED_CPU");
+  assert.match(cpu.error, /EXCEEDED_CPU/);
+  const plain = await run(async () => new Response("Service unavailable",
+    { status: 503, headers: { "Content-Type": "text/html" } }));
+  assert.equal(plain.code, undefined);
+  assert.equal(plain.error, "HTTP 503");
+});
+
 test("2xx 原始回包按实际路径单独保存，校验失败也保留，HTTP 失败不保存", async t => {
   const output_dir = await mkdtemp(join(tmpdir(), "findrss-route-output-"));
   t.after(() => rm(output_dir, { recursive: true, force: true }));
