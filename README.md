@@ -53,7 +53,7 @@ Cookie 权限声明不代表每条路由都必须登录。YouTube Hot 需要自�
 
 [脚本市场（Script Market）](https://ltaoo.github.io/findrss-scripts/)支持 RSS、Hot、Clip、Detect 分类，以及按名称、文件路径或路由搜索。点击文件路径查看 Raw 源码，使用旁边图标复制地址；点击巡检状态查看结果，通过样本可在新窗口查看 Raw 产物。页面展示最近一次成功发布的巡检快照，实际可用性仍需在自己的环境运行 Debug 确认。
 
-页头设置按钮可保存 Worker 的 `baseURL` 和 `token`。巡检弹窗中每条路由的 Plus 图标（添加示例）会根据脚本声明显示参数表单，并生成 GET URL（token 放 query）和 POST curl（token 放 Authorization 请求头，查询参数放 JSON 请求体），也可点击「复制 Debug 链接」复制带当前参数和 token 的 `/debug` 路由地址。点击「保存示例」后，按脚本文件和路由分别保存多个参数示例，并显示在 Plus 图标左侧；点击示例可回填和修改，点击旁边的 × 删除。旧版保存的单组参数会自动保留为一个示例；设置和参数均保存在当前站点的浏览器 localStorage，token 为明文存储。
+页头设置按钮可保存 Worker 的 `baseURL` 和 `token`。巡检弹窗中产物 / 失败原因列的 Plus 图标（添加示例）会根据脚本声明显示参数表单，并生成 GET URL（token 放 query）和 POST curl（token 放 Authorization 请求头，查询参数放 JSON 请求体），也可点击「复制 Debug 链接」复制带当前参数和 token 的 `/debug` 路由地址。点击「保存示例」后，按脚本文件和路由分别保存多个参数示例，每个示例单独一行，与产物或失败原因并排对照；点击示例可回填和修改，点击旁边的 × 删除。旧版保存的单组参数会自动保留为一个示例；设置和参数均保存在当前站点的浏览器 localStorage，token 为明文存储。
 
 清单中的文件链接均指向本仓库 `master` 分支，Raw 地址格式为：
 
@@ -70,16 +70,32 @@ npm ci
 npm test
 npm run dry-run
 npx wrangler login
+npx wrangler whoami
 ```
 
-部署前，先将 [`wrangler.jsonc`](wrangler.jsonc) 中的 Worker 名称、自定义域名和 `COOKIE_KV` 命名空间 ID 改为自己账号的配置；使用默认 `workers.dev` 地址时可移除 `routes`，不使用 Cookie 同步时可移除 `COOKIE_KV` 绑定。然后设置访问令牌并部署：
+部署前，先将 [`wrangler.jsonc`](wrangler.jsonc) 中的 Worker 名称、自定义域名和 `COOKIE_KV` 命名空间 ID 改为自己账号的配置；使用默认 `workers.dev` 地址时可移除 `routes`，不使用 Cookie 同步时可移除 `COOKIE_KV` 绑定。确认登录账号后检查资源：
 
 ```sh
+npx wrangler r2 bucket list
+npx wrangler queues list
+```
+
+首次部署仅创建列表中尚不存在的同名资源，再设置访问令牌并部署；已有令牌无需重复设置：
+
+```sh
+npx wrangler r2 bucket create findrss-script-feeds --update-config=false
+npx wrangler queues create findrss-script-feeds
 npx wrangler secret put ACCESS_TOKEN
 npm run deploy
 ```
 
 默认配置包含 `COOKIE_KV` 绑定，必须同时设置 `ACCESS_TOKEN`，否则入口返回 503。需要登录态或 API 凭据的脚本还需配置 Cookie、`SCRIPT_CONFIG` 等，见[凭据与设备配置](docs/cloudflare.md#凭据与设备)。
+
+RSS、Atom 和 `/api/rss` 由 Queues 消费者采集，快照存放在私有 R2 桶；队列和桶仅首次部署时创建，修改资源名称时需同步 `wrangler.jsonc`。首次访问返回 `503 FEED_GENERATING` 和 `Retry-After: 5`，稍后重试即可；已访问的订阅约每 10 分钟刷新，刷新失败保留旧快照。Debug 仍在当前请求内执行，可能受到 HTTP CPU 限额影响。
+
+队列不会自动提高当前套餐的 CPU 额度。2026-11-02 的 Free 账号线上验证中，YouTube Shorts 消费者仍被 `exceededCpu` 终止；显式配置 30 秒 CPU 被平台以 `100328` 拒绝。部署和资源绑定成功后，仍需确认消费者具备足够 CPU 预算并完成采集，不能仅凭 `/health` 成功判断订阅可用。
+
+后续更新运行 `npm test`、`npm run dry-run`、`npm run deploy` 即可，依赖变化时先执行 `npm ci`；无需重复创建资源或设置已有 Secret。部署会按配置绑定 Queue 的生产者、消费者及 Cron，单独创建资源还不会启用队列采集。首次部署和上线检查见[部署流程](docs/cloudflare.md#首次部署)。
 
 部署后，在请求头中携带 `Authorization: Bearer <ACCESS_TOKEN>` 访问 Worker：
 
@@ -130,7 +146,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 微信公众号 | [rss/wxmp.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxmp.js) | `/wxmp/wow36kr` | 1.2.0 | 配置：`api_url`、`auth_token` |
 | X 用户作品 | [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) | `/x/NTCGoK9jFQURsEu` | 1.1.0 | Cookie 授权 |
 | 小红书用户笔记 | [rss/xiaohongshu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xiaohongshu.js) | `/xiaohongshu/user/profile/5d2aec020000000012037401` | 1.1.0 | Cookie 授权 |
-| YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.0 | Cookie 授权 |
+| YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.1 | Cookie 授权 |
 | 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.0 | Cookie 授权 |
 
 ### Hot（76 个）
@@ -165,7 +181,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | Hatena · 热门书签 | [hot/hatena.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hatena.js) | `/hatena/hotentry/all` | 1.0.0 | 公开来源 |
 | 虎扑 · 主干道热帖 | [hot/hupu_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hupu_hot.js) | `/hupu/topic-daily-hot` | 1.0.1 | 公开来源 |
 | 凤凰网 · 热点资讯 | [hot/ifeng_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/ifeng_hot.js) | `/ifeng/hot` | 1.0.1 | 公开来源 |
-| 爱奇艺 · 热播榜 | [hot/iqiyi_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/iqiyi_hot.js) | `/iqiyi/portal/lw/v7/channel/card/videoTab` | 1.0.1 | 公开来源 |
+| 爱奇艺 · 热播榜 / 风云榜热播榜 | [hot/iqiyi_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/iqiyi_hot.js) | `/iqiyi/portal/lw/v7/channel/card/videoTab`、`/iqiyi/views_category/3.0/rank_list` | 1.1.0 | 公开来源 |
 | IT之家 | [hot/ithome.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/ithome.js) | `/ithome/list` | 1.0.1 | 公开来源 |
 | ITmedia NEWS · 最新资讯 | [hot/itmedia.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/itmedia.js) | `/itmedia/rss/2.0/news_bursts.xml` | 1.0.0 | 公开来源 |
 | 金十数据 | [hot/jin10.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/jin10.js) | `/jin10/flash_newest.js` | 1.0.1 | 公开来源 |
