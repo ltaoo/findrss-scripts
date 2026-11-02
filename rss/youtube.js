@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.0";
+export const version = "1.1.1";
 export const platform = {
   name: "YouTube",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" data-n="youtube-platform-icon"><rect width="32" height="22" y="5" rx="5" fill="#ff0033" data-n="youtube-icon-rect-1" /><path fill="#fff" d="m13 12 8 4-8 5z" data-n="youtube-icon-path-2" /></svg>',
@@ -213,7 +213,27 @@ export class YoutubeRSS extends RSSScript {
                 });
                 return;
               }
-              const parsed = utils.document_nodes(page.data);
+              // 只解析 meta；跳过大段脚本和样式，避免为整个详情页创建节点树。
+              const metadata = [];
+              const tags =
+                /<!--|<(script|style)\b[^>]*>|<meta\b(?:"[^"]*"|'[^']*'|[^'">])*>|<\/head\s*>/gi;
+              let tag;
+              while ((tag = tags.exec(page.data))) {
+                if (/^<\/head/i.test(tag[0])) break;
+                if (tag[0] === "<!--") {
+                  const end = page.data.indexOf("-->", tags.lastIndex);
+                  tags.lastIndex = end < 0 ? page.data.length : end + 3;
+                } else if (tag[1]) {
+                  const closing = new RegExp("</" + tag[1] + "\\s*>", "gi");
+                  closing.lastIndex = tags.lastIndex;
+                  tags.lastIndex = closing.exec(page.data)
+                    ? closing.lastIndex
+                    : page.data.length;
+                } else {
+                  metadata.push(tag[0]);
+                }
+              }
+              const parsed = utils.document_nodes(metadata.join(""));
               if (parsed.error) {
                 ctx.log("YouTube Shorts 发布时间解析失败", {
                   link: item.link,

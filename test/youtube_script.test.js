@@ -10,7 +10,7 @@ const source = read_script("rss/youtube.js");
 const compiled = await compile_script_module(source);
 assert.equal(compiled.error, "");
 
-async function run_html(t, html, cookies = [], route_index = 0) {
+async function run_html(t, html, cookies = [], route_index = 0, script_source = source) {
   const original_fetch = globalThis.fetch;
   t.after(() => { globalThis.fetch = original_fetch; });
   globalThis.fetch = typeof html === "function" ? html : async () => new Response(html);
@@ -19,7 +19,7 @@ async function run_html(t, html, cookies = [], route_index = 0) {
   });
   const route = compiled.metadata.routes[route_index];
   const before = Date.now();
-  const result = await execute_script(source, { ...compiled.metadata, ...route }, null,
+  const result = await execute_script(script_source, { ...compiled.metadata, ...route }, null,
     { method: "GET", pathname: route.path.replace(":handle", "example"), params: { handle: "example" }, query: {} }, [], "", access);
   return { feed: JSON.parse(result.output), before, after: Date.now() };
 }
@@ -297,6 +297,30 @@ test("YouTube Shorts 限制详情补查并发，保留失败条目且不覆盖�
   assert.ok(timestamp >= before - 86400000 && timestamp <= after - 86400000);
   assert.equal(feed.items.find(item => item.id === "youtube:video:" + video_id(5)).published, "2020-01-01T00:00:00.000Z");
   assert.ok(feed.items.filter(item => ![video_id(0), video_id(5)].some(id => item.id === "youtube:video:" + id)).every(item => item.published === undefined));
+  assert.equal(feed.updated, feed.items[0].published);
+});
+
+test("YouTube Shorts 大详情页只将 meta 交给节点解析器，忽略脚本、样式、注释和正文中的伪日期", async t => {
+  const data = JSON.parse(await readFile(new URL("./fixtures/youtube_shorts.json", import.meta.url)));
+  const fake_meta = '<meta itemprop="datePublished" content="2000-01-01">';
+  const page = '<html><head><!--' + fake_meta + '-->' +
+    '<SCRIPT>const fake = ' + JSON.stringify(fake_meta) + ';' + ' '.repeat(1024 * 1024) + '</SCRIPT>' +
+    '<style>/*' + fake_meta + '*/</style>' +
+    '<meta content="2026-10-16T12:00:00&#43;08:00" itemprop="datePublished">' +
+    '</head><body>' + fake_meta + '<div>正文</div>'.repeat(10000) + '</body></html>';
+  const guarded_source = source.replace('import { utils } from "@findrss/util";', `
+import { utils as original_utils } from "@findrss/util";
+const utils = { ...original_utils, document_nodes(html) {
+  if (html.length > 4096 || /<(?:script|style|div)\\b/i.test(html)) {
+    throw new Error("节点解析器不应接收完整详情页");
+  }
+  return original_utils.document_nodes(html);
+} };
+`);
+  const { feed } = await run_html(t, async url => new Response(url.includes("/@example/")
+    ? "<script>var ytInitialData = " + JSON.stringify(data) + ";</script>" : page), [], 1, guarded_source);
+  assert.equal(feed.items.length, 3);
+  assert.ok(feed.items.every(item => item.published === "2026-10-16T04:00:00.000Z"));
   assert.equal(feed.updated, feed.items[0].published);
 });
 
