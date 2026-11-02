@@ -1,5 +1,5 @@
 diff --git a/server/infra/script_puppeteer.js b/server/infra/script_puppeteer.js
-index b8de3e9..a842f4b 100644
+index b8de3e9..ab3aecc 100644
 --- a/server/infra/script_puppeteer.js
 +++ b/server/infra/script_puppeteer.js
 @@ -1,7 +1,7 @@
@@ -11,7 +11,7 @@ index b8de3e9..a842f4b 100644
    return async (url, options = {}, evaluate, signal) => {
      let target;
      try { target = new URL(url); } catch { throw new Error("navigate 需要完整的 HTTP(S) URL"); }
-@@ -27,14 +27,32 @@ export function create_puppeteer_navigate(binding, puppeteer_impl = puppeteer) {
+@@ -27,16 +27,34 @@ export function create_puppeteer_navigate(binding, puppeteer_impl = puppeteer) {
      if (new TextEncoder().encode(evaluation).length > MAX_SCRIPT_BYTES) throw new Error("navigate 的提取函数及参数过大");
      const combined = AbortSignal.any([...(signal ? [signal] : []), AbortSignal.timeout(110000)]);
      combined.throwIfAborted();
@@ -44,8 +44,11 @@ index b8de3e9..a842f4b 100644
 +          if (!reused && restored?.user_agent) await page.setUserAgent(restored.user_agent);
 +          if (!reused && restored?.cookies?.length) await page.setCookie(...restored.cookies);
            await page.goto(target.href, { waitUntil: "networkidle2", timeout: 30000 });
-           if (options.selector) await page.waitForSelector(options.selector, { visible: true, timeout: 15000 });
+-          if (options.selector) await page.waitForSelector(options.selector, { visible: true, timeout: 15000 });
++          if (options.selector) await page.waitForSelector(options.selector, { visible: true, timeout: verification ? 45000 : 15000 });
            await page.evaluate(async delay => {
+             await new Promise(resolve => setTimeout(resolve, delay));
+             await Promise.race([document.fonts?.ready, new Promise(resolve => setTimeout(resolve, 2000))]);
 @@ -49,6 +67,14 @@ export function create_puppeteer_navigate(binding, puppeteer_impl = puppeteer) {
              return json;
            })()`);

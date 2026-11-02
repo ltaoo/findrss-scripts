@@ -62,7 +62,7 @@ export async function create_browser_session(env, metadata, manual_cookies) {
             httpOnly: !!cookie.httpOnly, ...(cookie.hostOnly ? { url: target.origin + (cookie.path || "/") } : { domain: cookie.domain }),
             ...(cookie.expirationDate ? { expires: cookie.expirationDate } : {}),
             ...(["Strict", "Lax", "None"].includes(cookie.sameSite) ? { sameSite: cookie.sameSite } : {}),
-            ...(cookie.partitionKey ? { partitionKey: cookie.partitionKey } : {}),
+            ...(cookie.partitionKey ? { partitionKey: typeof cookie.partitionKey === "string" ? cookie.partitionKey : cookie.partitionKey.topLevelSite } : {}),
           })) };
       },
       async capture({ url, final_url, cookies: captured, user_agent, session_id, session_expires_at, reused, close }) {
