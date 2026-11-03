@@ -3,7 +3,7 @@ import test from "node:test";
 import { createCipheriv, createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import worker from "../worker/index.js";
-import { load_cookies } from "../worker/cookie_sync.js";
+import { clear_cookie_read_cache, load_cookies } from "../worker/cookie_sync.js";
 import { completed_feed_request } from "./support/feed_queue.js";
 
 const origin = "https://scripts.findrss.cloud";
@@ -13,14 +13,17 @@ const push_key = createHash("md5").update(uuid + "-" + password).digest("hex").s
 const instagram = ["sessionid", "csrftoken"].map(name => ({ name, value: "private-" + name, domain: ".instagram.com", path: "/", secure: true }));
 const permission = host => ({ cookies: [{ origin: "https://" + host }] });
 
+test.beforeEach(clear_cookie_read_cache);
+
 function environment() {
   const values = new Map();
+  const reads = new Map();
   return {
     ACCESS_TOKEN: "private-access-token", COOKIE_STORAGE_KEY: "12".repeat(32),
     COOKIE_PUSH_UUID: uuid, COOKIE_PUSH_KEY: push_key,
     COOKIE_KV: {
-      values,
-      async get(key) { return values.has(key) ? JSON.parse(values.get(key)) : null; },
+      values, reads,
+      async get(key) { reads.set(key, (reads.get(key) || 0) + 1); return values.has(key) ? JSON.parse(values.get(key)) : null; },
       async put(key, value) { values.set(key, value); },
     },
   };
@@ -191,4 +194,62 @@ test("Cookie 同步的明文上传同样支持查询令牌，并保持请求头�
     assert.doesNotMatch(await response.text(), /private-access-token|wrong-token/);
   }
   assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), instagram);
+});
+
+test("60 秒内同一 origin 只读取一次 KV，并发调用共用同一次读取", async () => {
+  const env = environment();
+  await upload(payload(), env);
+  const key = "cookies:https://www.instagram.com";
+  assert.equal(env.COOKIE_KV.reads.get(key), undefined);
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), instagram);
+  assert.equal(env.COOKIE_KV.reads.get(key), 1);
+  const [first, second] = await Promise.all([
+    load_cookies(env, permission("www.instagram.com"), []),
+    load_cookies(env, permission("www.instagram.com"), []),
+  ]);
+  assert.deepEqual(first, instagram);
+  assert.deepEqual(second, instagram);
+  assert.equal(env.COOKIE_KV.reads.get(key), 1);
+});
+
+test("缺失键同样在 60 秒内只读取一次", async () => {
+  const env = environment();
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), []);
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), []);
+  assert.equal(env.COOKIE_KV.reads.get("cookies:https://www.instagram.com"), 1);
+});
+
+test("update_cookies 成功写入后立即重新读取并返回新值", async () => {
+  const env = environment();
+  await upload(payload(), env);
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), instagram);
+  const updated = [{ ...instagram[0], value: "private-updated" }, instagram[1]];
+  await upload(payload(updated), env);
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), updated);
+  assert.equal(env.COOKIE_KV.reads.get("cookies:https://www.instagram.com"), 2);
+});
+
+test("KV 读取失败不会被缓存，随后可以重新读取成功", async () => {
+  const env = environment();
+  await upload(payload(), env);
+  const get = env.COOKIE_KV.get.bind(env.COOKIE_KV);
+  let fail = true;
+  env.COOKIE_KV.get = async key => {
+    if (fail) throw new Error("private KV error");
+    return get(key);
+  };
+  await assert.rejects(load_cookies(env, permission("www.instagram.com"), []), error => error.code === "COOKIE_STORAGE_UNAVAILABLE");
+  fail = false;
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), instagram);
+});
+
+test("超过 60 秒后缓存过期并重新读取 KV", async t => {
+  t.mock.timers.enable({ apis: ["Date"] });
+  const env = environment();
+  await upload(payload(), env);
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), instagram);
+  assert.equal(env.COOKIE_KV.reads.get("cookies:https://www.instagram.com"), 1);
+  t.mock.timers.tick(60_001);
+  assert.deepEqual(await load_cookies(env, permission("www.instagram.com"), []), instagram);
+  assert.equal(env.COOKIE_KV.reads.get("cookies:https://www.instagram.com"), 2);
 });

@@ -5,6 +5,9 @@ import { request_authenticated } from "./auth.js";
 
 const max_bytes = 2 * 1024 * 1024;
 const encoder = new TextEncoder();
+const read_ttl_ms = 60_000;
+const read_cache = new Map(); // key -> { expires_at, promise }
+const read_cache_key = (env, name) => String(env.COOKIE_STORAGE_KEY || "") + "\0" + name;
 const matches = (host, domain) => host === domain || host.endsWith("." + domain);
 const domain_name = value => {
   if (typeof value !== "string") throw script_error("COOKIE_SYNC_INVALID");
@@ -52,17 +55,46 @@ async function open_record(key, origin, record) {
   return value;
 }
 
+function read_cookie_record(env, name) {
+  const cache_key = read_cache_key(env, name);
+  const now = Date.now();
+  const cached = read_cache.get(cache_key);
+  if (cached && cached.expires_at > now) return cached.promise;
+  if (read_cache.size >= 512) {
+    for (const [key, entry] of read_cache) if (entry.expires_at <= now) read_cache.delete(key);
+    if (read_cache.size >= 512) read_cache.clear();
+  }
+  const promise = env.COOKIE_KV.get(name, { type: "json", cacheTtl: 60 });
+  const entry = { expires_at: now + read_ttl_ms, promise };
+  read_cache.set(cache_key, entry);
+  promise.catch(() => { if (read_cache.get(cache_key) === entry) read_cache.delete(cache_key); });
+  return promise;
+}
+
+function invalidate_cookie_record(env, name) {
+  read_cache.delete(read_cache_key(env, name));
+}
+
+export function clear_cookie_read_cache() {
+  read_cache.clear();
+}
+
 export async function load_browser_session(env, origin) {
   if (!env.COOKIE_KV) return null;
+  const name = "browser-session:" + origin;
   try {
-    const record = await env.COOKIE_KV.get("browser-session:" + origin, { type: "json" });
+    const record = await read_cookie_record(env, name);
     return record === null ? null : await open_record(await storage_key(env), origin, record);
-  } catch { throw script_error("COOKIE_STORAGE_UNAVAILABLE"); }
+  } catch {
+    invalidate_cookie_record(env, name);
+    throw script_error("COOKIE_STORAGE_UNAVAILABLE");
+  }
 }
 
 export async function save_browser_session(env, origin, session) {
   try {
     await env.COOKIE_KV.put("browser-session:" + origin, await seal(await storage_key(env), origin, session));
+    invalidate_cookie_record(env, "browser-session:" + origin);
   } catch { throw script_error("COOKIE_STORAGE_UNAVAILABLE"); }
 }
 
@@ -116,6 +148,7 @@ export async function update_cookies(request, env, origins, headers) {
         scoped.forEach(cookie => accepted.add(cookie));
         const record = await seal(key, origin, { cookies: scoped, update_time: body.update_time || new Date().toISOString() });
         await env.COOKIE_KV.put("cookies:" + origin, record);
+        invalidate_cookie_record(env, "cookies:" + origin);
       }));
     } catch { throw script_error("COOKIE_STORAGE_UNAVAILABLE"); }
     return Response.json({ updated: true, count: accepted.size, skipped, action: "done", code: 0, msg: "成功",
@@ -131,8 +164,14 @@ export async function load_cookies(env, permissions, fallback) {
   try {
     const key = await storage_key(env);
     const snapshots = await Promise.all(origins.map(async origin => {
-      const record = await env.COOKIE_KV.get("cookies:" + origin, { type: "json", cacheTtl: 60 });
-      return { origin, cookies: record === null ? null : (await open_record(key, origin, record)).cookies };
+      const name = "cookies:" + origin;
+      try {
+        const record = await read_cookie_record(env, name);
+        return { origin, cookies: record === null ? null : (await open_record(key, origin, record)).cookies };
+      } catch (error) {
+        invalidate_cookie_record(env, name);
+        throw error;
+      }
     }));
     const found = snapshots.filter(snapshot => snapshot.cookies !== null);
     const cookies = fallback.filter(cookie => !found.some(snapshot => cookie_matches(cookie, new URL(snapshot.origin).hostname)))

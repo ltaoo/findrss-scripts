@@ -5,7 +5,7 @@ import { transform } from "esbuild";
 import puppeteer from "../.runtime/findrss-worker/node_modules/@cloudflare/puppeteer/lib/esm/puppeteer/puppeteer-cloudflare.js";
 import worker from "../worker/index.js";
 import { create_browser_session } from "../worker/browser_session.js";
-import { load_browser_session, save_browser_session } from "../worker/cookie_sync.js";
+import { clear_cookie_read_cache, load_browser_session, save_browser_session } from "../worker/cookie_sync.js";
 import { create_puppeteer_navigate } from "findrss-worker/server/infra/script_puppeteer.js";
 import { completed_feed_request } from "./support/feed_queue.js";
 
@@ -17,9 +17,13 @@ const page_html = '<title>演员 - JAVLibrary</title><div id="rightcolumn"><div 
   '<div class="videothumblist"><div class="video"><a href="./movie1.html"><div class="id">ABC-123</div><div class="title">测试作品</div></a></div></div></div>';
 const permissions = { cookies: [{ id: "site", origin, path_prefix: "/", names: ["cf_clearance"] }] };
 const metadata = () => ({ permissions, config: {}, config_schema: { properties: { use_cookies: {}, user_agent: {} } } });
+test.beforeEach(clear_cookie_read_cache);
+
 function environment(values = new Map()) {
+  const reads = new Map();
   return { ACCESS_TOKEN: "fixture-access-token", COOKIE_STORAGE_KEY: "12".repeat(32), BROWSER: {},
-    COOKIE_KV: { values, async get(key) { return values.has(key) ? JSON.parse(values.get(key)) : null; },
+    COOKIE_KV: { values, reads,
+      async get(key) { reads.set(key, (reads.get(key) || 0) + 1); return values.has(key) ? JSON.parse(values.get(key)) : null; },
       async put(key, value) { values.set(key, value); } } };
 }
 const request = (env, path = "/api/rss/javlibrary/star/abc123") => completed_feed_request(new Request("https://feeds.example" + path, {
@@ -238,4 +242,17 @@ test("损坏密文、跨站替换和存储失败不会泄露会话或伪装成�
   env.COOKIE_KV.put = async () => { throw new Error("private storage detail"); };
   await assert.rejects(session.commit(), error => error.code === "COOKIE_STORAGE_UNAVAILABLE" && !error.message.includes("private"));
   assert.equal(env.COOKIE_KV.values.get("browser-session:" + origin), ciphertext);
+});
+
+test("保存浏览器会话会使读取缓存立即失效", async () => {
+  const env = environment();
+  const key = "browser-session:" + origin;
+  await save_browser_session(env, origin, { user_agent, cookies: [cookie("first")] });
+  assert.equal((await load_browser_session(env, origin)).cookies[0].value, "first");
+  assert.equal(env.COOKIE_KV.reads.get(key), 1);
+  assert.equal((await load_browser_session(env, origin)).cookies[0].value, "first");
+  assert.equal(env.COOKIE_KV.reads.get(key), 1);
+  await save_browser_session(env, origin, { user_agent, cookies: [cookie("second")] });
+  assert.equal((await load_browser_session(env, origin)).cookies[0].value, "second");
+  assert.equal(env.COOKIE_KV.reads.get(key), 2);
 });
