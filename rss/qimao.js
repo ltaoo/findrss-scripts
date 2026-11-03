@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.0.0";
+export const version = "1.0.1";
 // Favicon: https://www.google.com/s2/favicons?domain=www.qimao.com&sz=64
 export const platform = {
   name: "七猫小说",
@@ -32,11 +32,16 @@ export class QimaoChaptersRSS extends RSSScript {
       const parsed = utils.document_nodes(detail.data);
       if (parsed.error) return parsed;
       const root = parsed.data;
-      const title = utils.attribute(root, 'meta[property="og:novel:book_name"]', "content") || utils.field(root, "h1");
+      const title = utils.attribute(root, 'meta[property="og:novel:book_name"]', "content")
+        || utils.field(root, ".book-information .wrap-txt .title .txt")
+        || utils.field(root, "h1");
       if (!title.trim()) return Result.Err("七猫页面缺少小说标题", "UPSTREAM_INVALID_RESPONSE");
-      const author_name = utils.attribute(root, 'meta[property="og:novel:author"]', "content");
+      const author_name = utils.attribute(root, 'meta[property="og:novel:author"]', "content")
+        || utils.field(root, ".book-information .wrap-txt .sub-title .txt em a")
+        || utils.field(root, ".book-information .wrap-txt .sub-title .txt em");
       const author = { name: author_name || title, uri: link };
-      const image = utils.absolute_url(utils.attribute(root, 'meta[property="og:image"]', "content"), link);
+      const image = utils.absolute_url(utils.attribute(root, 'meta[property="og:image"]', "content")
+        || utils.attribute(root, ".book-information .wrap-pic img", "src"), link);
       if (image.error) return image;
       const fetched = await QimaoChaptersRSS.request_text(ctx,
         "https://www.qimao.com/qimaoapi/api/book/chapter-list?book_id=" + book_id, acquired.data, link);
@@ -83,7 +88,7 @@ export class QimaoChaptersRSS extends RSSScript {
   }
 
   static async request_text(ctx, url, cookies, referer) {
-    const fetched = await utils.request_text(ctx, url, { cookies, headers: { Referer: referer } });
+    const fetched = await utils.request_text(ctx, url, { cookies, headers: { Referer: referer }, transport: "tcp" });
     if (fetched.error) return fetched;
     if (/aliyun_waf_|AliyunCaptcha|<title>\s*(?:滑动验证页面|访问验证|Verification)\s*<\/title>/i.test(fetched.data)) {
       return Result.Err("七猫返回访问验证页，请手动完成官网验证，在后台同步有效的 qimao.com 验证 Cookie 并确认脚本 Cookie 授权；若仍失败，可能是上游限制了服务端 IP", "UPSTREAM_INVALID_RESPONSE");

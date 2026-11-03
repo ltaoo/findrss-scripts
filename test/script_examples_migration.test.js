@@ -20,7 +20,7 @@ const read = read_script;
 const hash = (kind, value) => createHash(kind).update(value).digest('hex');
 
 test('源码目录包含完整 Hot/RSS 脚本，分类与路由经生产 QuickJS 校验', async () => {
-  assert.equal(script_names('hot').length, 76);
+  assert.equal(script_names('hot').length, 78);
   assert.equal(script_names('rss').length, 23);
   for (const kind of ['hot', 'rss']) for (const name of script_names(kind)) {
     const source = read(kind + '/' + name);

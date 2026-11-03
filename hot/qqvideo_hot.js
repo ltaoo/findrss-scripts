@@ -1,5 +1,5 @@
 /** HOT */
-export const version = "1.0.1";
+export const version = "1.1.0";
 export const category = "娱乐";
 export const order = 390;
 // Favicon: https://vfiles.gtimg.cn/wuji_dashboard/xy/starter/4ea79867.png
@@ -151,14 +151,131 @@ export class QqvideoHotRank extends HotRankScript {
     }
   }
 }
-const script = new QqvideoHotRank();
-export const route = {
-  "name": "腾讯视频 · 热搜榜",
-  "path": "/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
-  "url": "v.qq.com",
-  "maintainers": ["findrss"],
-  "example": "/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
-  "parameters": {},
-  "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
-  handler: ctx => script.run(ctx),
+const channel_source = {
+  "id": "qqvideo-channel-hotsearch",
+  "name": "腾讯视频 · 频道热搜榜",
+  "home": "https://v.qq.com/biu/ranks/"
 };
+const channel_api = "https://pbaccess.video.qq.com/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp";
+const channel_labels = {
+  "0": "热搜",
+  "1": "电影",
+  "2": "电视剧",
+  "3": "动漫",
+  "6": "游戏",
+  "9": "纪录片",
+  "10": "综艺",
+  "24": "科技",
+  "106": "少儿"
+};
+export class QqvideoChannelHotRank extends HotRankScript {
+  async fetch(ctx) {
+    try {
+      const channel_id = String(ctx.query?.channel_id ?? "2").trim() || "2";
+      if (!/^\d{1,6}$/.test(channel_id)) {
+        return Result.Err("channel_id 必须为数字频道 ID，默认 2（电视剧）", "INVALID_PARAMETER");
+      }
+      const page_size = String(ctx.query?.page_size ?? "20").trim() || "20";
+      if (!/^\d{1,2}$/.test(page_size) || Number(page_size) < 1 || Number(page_size) > 50) {
+        return Result.Err("page_size 必须为 1-50 的整数，默认 20", "INVALID_PARAMETER");
+      }
+      const request_options = {
+        headers: {
+          Referer: channel_source.home
+        }
+      };
+      const url = channel_api + "?ChannelID=" + encodeURIComponent(channel_id)
+        + "&PageSize=" + encodeURIComponent(page_size) + "&PageNum=0&SceneID=2";
+      const fetched = await utils.request_json(ctx, url, request_options);
+      if (fetched.error) return fetched;
+      const data = fetched.data;
+      if (!data || typeof data !== 'object') return Result.Err('上游未返回数据对象', 'UPSTREAM_INVALID_RESPONSE');
+      if (data.need_force_login) return Result.Err('上游要求登录，请更新并授权 Cookie', 'UPSTREAM_AUTH_REQUIRED');
+      if (data.error || data.errors?.length || (typeof data.code === 'number' && data.code < 0) || (data.error_code !== undefined && data.error_code !== 0) || (data.ret !== undefined && data.ret !== 0)) return Result.Err('上游拒绝请求，请检查账户权限或验证页面', 'UPSTREAM_INVALID_RESPONSE');
+      const results = utils.array_at(data, "data.Results");
+      if (results.error) return results;
+      const result = results.data[0];
+      if (!result) return Result.Err('上游未返回榜单', 'UPSTREAM_INVALID_RESPONSE');
+      const list = utils.array_at(result, "Result.ListInfo");
+      if (list.error) return list;
+      const rows = list.data;
+      const entries = [],
+        seen = new Set();
+      let position = 0;
+      for (const row of rows) {
+        const raw_id = String(row.ID || row.Query || '').trim();
+        if (!raw_id) continue;
+        const id = utils.identity(raw_id);
+        if (id.error) return id;
+        if (seen.has(id.data)) continue;
+        seen.add(id.data);
+        position += 1;
+        const title = utils.plain_text(row.Query);
+        if (!title) continue;
+        const raw_link = row.ID
+          ? 'https://v.qq.com/x/cover/' + encodeURIComponent(String(row.ID)) + '.html'
+          : 'https://v.qq.com/x/search/?q=' + encodeURIComponent(title) + '&stag=12';
+        const link = utils.absolute_url(raw_link, channel_source.home);
+        if (link.error) return link;
+        const heat_number = Number(row.HotLevel);
+        const thumbnail_value = String(row.HzImgURL || '').trim();
+        const thumbnail = thumbnail_value ? utils.absolute_url(thumbnail_value, channel_source.home) : null;
+        entries.push({
+          id: channel_source.id + ':' + id.data,
+          title,
+          link: link.data,
+          ...(thumbnail && !thumbnail.error ? { thumbnail: thumbnail.data } : {}),
+          rank: position,
+          pinned: false,
+          heat: {
+            value: Number.isFinite(heat_number) && heat_number >= 0 ? heat_number : null,
+            unit: "热度",
+            text: Number.isFinite(heat_number) ? String(heat_number) : ""
+          }
+        });
+      }
+      const label = channel_labels[channel_id] || String(result.ChannelName || channel_id);
+      ctx.log('榜单解析完成', {
+        source: channel_source.id,
+        channel_id,
+        count: entries.length,
+        missing_rank: entries.filter(entry => entry.rank === null).length
+      });
+      return Result.Ok({
+        title: channel_source.name.replace('频道', label),
+        category,
+        link: channel_source.home,
+        entries
+      });
+    } catch (error) {
+      return Result.Err(error, error?.code ?? 'UPSTREAM_INVALID_RESPONSE');
+    }
+  }
+}
+const script = new QqvideoHotRank();
+const channel_script = new QqvideoChannelHotRank();
+export const routes = [
+  {
+    "name": "腾讯视频 · 热搜榜",
+    "path": "/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
+    "url": "v.qq.com",
+    "maintainers": ["findrss"],
+    "example": "/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
+    "parameters": {},
+    "description": "列表快照 JSON，保留上游顺序、已提供的排名与热度；未知排名和热度为 null。",
+    handler: ctx => script.run(ctx),
+  },
+  {
+    "name": "腾讯视频 · 频道热搜榜",
+    "path": "/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp",
+    "url": "v.qq.com",
+    "maintainers": ["findrss"],
+    "example": "/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp",
+    "parameters": {
+      channel_id: "查询参数：频道 ID，默认 2（电视剧）；0 热搜、1 电影、3 动漫、6 游戏、9 纪录片、10 综艺、24 科技、106 少儿",
+      page_size: "查询参数：条数，1-50，默认 20"
+    },
+    "description": "读取腾讯视频全网影视排行榜各频道热搜榜，保留封面、排名与热度；?channel_id=10 切换到综艺榜。",
+    handler: ctx => channel_script.run(ctx),
+  }
+];

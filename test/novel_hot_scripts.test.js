@@ -4,6 +4,7 @@ import test from "node:test";
 import { readFile } from "node:fs/promises";
 import { RssRoutePatternModel } from "findrss-worker/server/domain/rss_route.js";
 import { ScriptCookieAccess } from "findrss-worker/server/infra/script_cookie_access.js";
+import { mock_tcp_http } from "findrss-worker/test/support/tcp_socket_fixture.js";
 
 const { compile_script_module, execute_script } = await import("findrss-worker/server/infra/script_sandbox.js");
 const original_fetch = globalThis.fetch;
@@ -66,12 +67,13 @@ async function run(t, name, body, params = {}, query = {}, cookies = []) {
     requests.push({ url, options });
     return new Response(body);
   };
+  const tcp = name === "qimao" ? mock_tcp_http(t) : null;
   const { source } = sources[name];
   const metadata = route_metadata(name, params);
   const result = await execute_script(source, metadata, null, undefined, [], `({params:${JSON.stringify(params)},query:${JSON.stringify(query)}})`, cookie_access(name, cookies));
   const snapshot = JSON.parse(result.output);
   assert.equal(snapshot.category, "小说");
-  return { snapshot, requests };
+  return { snapshot, requests: tcp ? tcp.requests.map(row => ({ url: row.url, options: { method: row.method, headers: row.headers, body: row.body } })) : requests };
 }
 
 test("起点热榜保留书籍大整数 ID、原排名、月票与去重，按排名输出", async t => {

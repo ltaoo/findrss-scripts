@@ -2,7 +2,7 @@
 import { utils } from "@findrss/util";
 import { HotRankScript, Result } from "@findrss/core";
 
-export const version = "1.0.2";
+export const version = "1.0.3";
 export const category = "小说";
 export const order = 380;
 // Favicon: https://www.google.com/s2/favicons?domain=www.qimao.com&sz=64
@@ -37,6 +37,7 @@ export class QimaoHotRank extends HotRankScript {
       const fetched = await utils.request_text(ctx, link, {
         cookies: acquired.data,
         headers: { Referer: "https://www.qimao.com/" },
+        transport: "tcp",
       });
       if (fetched.error) return fetched;
       if (/aliyun_waf_|AliyunCaptcha|<title>\s*(?:滑动验证页面|访问验证|Verification)\s*<\/title>/i.test(fetched.data)) {

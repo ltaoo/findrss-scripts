@@ -23,7 +23,7 @@
 | 类型 | 数量 | 用途 | 请求路径前缀 |
 | --- | --- | --- | --- |
 | [RSS](#rss23-个) | 23 | 将文章、视频、动态、章节等转换为订阅源 | `/rss`、`/atom`、`/api/rss`（JSON 快照） |
-| [Hot](#hot76-个) | 76 | 获取排行榜、热点、快讯与最新资讯 JSON | `/api/hot`、`/hot` |
+| [Hot](#hot78-个) | 78 | 获取排行榜、热点、快讯与最新资讯 JSON | `/api/hot`、`/hot` |
 | [Clip 剪藏](#clip-剪藏3-个) | 3 | 提取网页区域或生成卡片，返回包含静态 HTML 的 JSON | `/api/clip`、`/clip` |
 | [Detect 内容检测](#detect-内容检测2-个) | 2 | 采集内容快照，供后台检测任务持续比较变化 | `/api/detect`、`/detect` |
 
@@ -138,7 +138,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | JAVLibrary 演员作品 | [rss/javlibrary.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javlibrary.js) | `/javlibrary/star/abbds` | 1.1.0 | 自动复用加密验证状态，失效时需 BROWSER 刷新 |
 | 快手用户作品 | [rss/kuaishou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/kuaishou.js) | `/kuaishou/profile/3xuxw5yhgr6f4um` | 1.1.0 | Cookie 授权 |
 | 起点中文网章节列表 | [rss/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qidian.js) | `/qidian/book/1036526469` | 1.1.0 | Cookie 授权 |
-| 七猫小说章节 | [rss/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qimao.js) | `/qimao/book/13030701` | 1.0.0 | Cookie 授权；章节链接指向官网 |
+| 七猫小说章节 | [rss/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qimao.js) | `/qimao/book/13030701` | 1.0.1 | Cookie 授权；章节链接指向官网；TCP 传输兼容折行响应头 |
 | Telegram 公开频道 | [rss/telegram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/telegram.js) | `/telegram/channel/telegram` | 1.1.0 | 公开来源 |
 | 天天看书小说章节 | [rss/ttk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ttk.js) | `/ttk/book/congzhanyaochumokaishichangshengbusi` | 1.1.1 | 公开来源 |
 | 微博用户列表 | [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) | `/weibo/u/1992429663` | 1.1.0 | Cookie 授权 |
@@ -149,7 +149,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.1 | Cookie 授权 |
 | 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.0 | Cookie 授权 |
 
-### Hot（76 个）
+### Hot（78 个）
 
 | 脚本 | 文件 | 路由示例 | 版本 | 使用要求 |
 | --- | --- | --- | --- | --- |
@@ -191,6 +191,8 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 快手 | [hot/kuaishou_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuaishou_hot.js) | `/kuaishou/hot` | 1.0.1 | 公开来源 |
 | 酷安 · 今日最热 | [hot/kuan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuan.js) | `/kuan/v6/page/dataList` | 1.0.1 | 公开来源 |
 | Lobsters · 热门讨论 | [hot/lobsters.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/lobsters.js) | `/lobsters/hottest.json` | 1.0.0 | 公开来源 |
+| 芒果TV · 热搜榜 | [hot/mango_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/mango_hot.js) | `/mango/pc/suggest/v1` | 1.0.0 | 公开来源 |
+| 猫眼 · 实时票房榜 | [hot/maoyan_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/maoyan_hot.js) | `/maoyan/dashboard-ajax/movie` | 1.0.0 | 公开来源 |
 | Mastodon · 社媒趋势 | [hot/mastodon.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/mastodon.js) | `/mastodon/api/v1/trends/links` | 1.0.0 | 公开来源 |
 | MKTNews · 快讯 | [hot/mktnews_flash.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/mktnews_flash.js) | `/mktnews/api/flash` | 1.0.1 | 公开来源 |
 | MyAnimeList · 动漫/轻小说榜 | [hot/myanimelist.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/myanimelist.js) | `/myanimelist/top/anime` | 1.0.0 | 公开来源 |
@@ -204,8 +206,8 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 起点 · 男频榜单 | [hot/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qidian.js) | `/qidian/rank/yuepiao` | 1.2.0 | 公开来源；男频 9 榜 |
 | 起点女生网 · 女频榜单 | [hot/qdmm.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qdmm.js) | `/qidian/rank/yuepiao/female` | 1.0.0 | 公开来源；女频 8 榜，保留原路由 |
 | Qiita · 热门文章 | [hot/qiita.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qiita.js) | `/qiita/popular-items/feed` | 1.0.0 | 公开来源 |
-| 七猫小说排行榜 | [hot/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qimao.js) | `/qimao/paihang/boy/hot` | 1.0.2 | Cookie 授权 |
-| 腾讯视频 · 热搜榜 | [hot/qqvideo_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qqvideo_hot.js) | `/qqvideo/trpc.vector_layout.page_view.PageService/getCard` | 1.0.1 | 公开来源 |
+| 七猫小说排行榜 | [hot/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qimao.js) | `/qimao/paihang/boy/hot` | 1.0.3 | Cookie 授权；TCP 传输兼容折行响应头 |
+| 腾讯视频 · 热搜榜 / 频道热搜榜 | [hot/qqvideo_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qqvideo_hot.js) | `/qqvideo/trpc.vector_layout.page_view.PageService/getCard`、`/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp` | 1.1.0 | 公开来源 |
 | Reddit · 社区热门 | [hot/reddit.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/reddit.js) | `/reddit/r/popular/hot` | 1.0.0 | 公开来源 |
 | Slashdot · 科技资讯 | [hot/slashdot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/slashdot.js) | `/slashdot/Slashdot/slashdotMain` | 1.0.0 | 公开来源 |
 | Solidot | [hot/solidot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/solidot.js) | `/solidot/index.rss` | 1.0.1 | 公开来源 |

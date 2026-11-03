@@ -3,6 +3,7 @@ import test from "node:test";
 import { readFileSync } from "node:fs";
 import { read_script } from "./support/script_sources.js";
 import { compile_script_module, execute_script } from "findrss-worker/server/infra/script_sandbox.js";
+import { mock_tcp_http } from "findrss-worker/test/support/tcp_socket_fixture.js";
 import { ScriptCookieAccess } from "findrss-worker/server/infra/script_cookie_access.js";
 import { FeedModel } from "findrss-worker/server/domain/feed_format.js";
 import { XMLValidator } from "fast-xml-parser";
@@ -34,6 +35,7 @@ async function run(book_id = "13030701", cookies = access()) {
 const invalid_response = error => error.problem?.code === "UPSTREAM_INVALID_RESPONSE";
 
 test("七猫完整目录转换为 RSS/Atom，保留稳定 ID、更新时间和原站链接，仅发送授权 Cookie", async t => {
+  mock_tcp_http(t);
   const calls = [];
   t.mock.method(globalThis, "fetch", async (url, options) => {
     calls.push(url);
@@ -63,6 +65,7 @@ test("七猫完整目录转换为 RSS/Atom，保留稳定 ID、更新时间和�
 });
 
 test("七猫按更新时间排序、去重，不补造缺失时间，允许空目录和元数据书名", async t => {
+  mock_tcp_http(t);
   const chapters = [
     { id: "1", title: "已修订 & <章节>", update_time: "1792762334" },
     { id: "2", title: "未提供时间", update_time: "0" },
@@ -89,6 +92,7 @@ test("七猫拒绝无效参数和缺少 Cookie 授权，不发起请求", async 
 });
 
 test("七猫详情和目录均识别访问验证页，并保留 HTTP 错误分类", async t => {
+  mock_tcp_http(t);
   for (const target of [detail_url, api_url]) {
     for (const body of ['<meta name="aliyun_waf_aa">', '<script src="AliyunCaptcha.js"></script>', '<title>滑动验证页面</title>']) {
       t.mock.method(globalThis, "fetch", async url => new Response(url === target ? body : detail));
@@ -102,6 +106,7 @@ test("七猫详情和目录均识别访问验证页，并保留 HTTP 错误分�
 });
 
 test("七猫拒绝缺少书名、畸形目录、危险章节 ID 和无效时间", async t => {
+  mock_tcp_http(t);
   for (const body of ["not json", "null", "{}", '{"data":{"chapters":{}}}', ...[
     null, {}, { id: "../evil", title: "章节" }, { id: 9007199254740992, title: "章节" },
     { id: "1", title: " " }, { id: "1", title: "章节", update_time: "invalid" },
