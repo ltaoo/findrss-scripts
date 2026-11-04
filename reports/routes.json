@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-04T06:44:49.959Z",
+  "checked_at": "2026-11-04T19:56:16.772Z",
   "total": 142,
-  "passed": 104,
-  "failed": 38,
+  "passed": 77,
+  "failed": 65,
   "results": [
     {
       "file": "clip/baidu_weather.js",
@@ -15,7 +15,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/clip/baidu/s/weather/%E4%B8%8A%E6%B5%B7.json",
-      "duration_ms": 3244
+      "duration_ms": 2265
     },
     {
       "file": "clip/github.js",
@@ -29,7 +29,7 @@
       "status": 502,
       "code": "SCRIPT_FAILED",
       "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-      "duration_ms": 507
+      "duration_ms": 1006
     },
     {
       "file": "clip/website.js",
@@ -43,7 +43,7 @@
       "status": 502,
       "code": "SCRIPT_FAILED",
       "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-      "duration_ms": 495
+      "duration_ms": 831
     },
     {
       "file": "detect/github_releases.js",
@@ -57,7 +57,7 @@
       "status": 200,
       "output_file": "api/detect/github/ltaoo/findrss-worker/releases.atom.json",
       "error": "检测列表为空",
-      "duration_ms": 153
+      "duration_ms": 175
     },
     {
       "file": "detect/website_text.js",
@@ -70,7 +70,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/detect/web/text/detect.5204cf87dc2a69fc.json",
-      "duration_ms": 34
+      "duration_ms": 105
     },
     {
       "file": "hot/36kr.js",
@@ -83,8 +83,8 @@
       "output_valid": false,
       "status": 503,
       "code": "COOKIE_REQUIRED",
-      "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（_waf_verification_proof、_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-04/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
-      "duration_ms": 422
+      "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（_waf_verification_proof、_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-05/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
+      "duration_ms": 698
     },
     {
       "file": "hot/36kr.js",
@@ -98,7 +98,7 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1403
+      "duration_ms": 1602
     },
     {
       "file": "hot/aihot.js",
@@ -111,7 +111,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/aihot/feed/all.xml.json",
-      "duration_ms": 3649
+      "duration_ms": 2248
     },
     {
       "file": "hot/anilist.js",
@@ -125,21 +125,21 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 376
+      "duration_ms": 814
     },
     {
       "file": "hot/apple_charts.js",
       "path": "/api/hot/apple-charts/api/v2/:country?/:type?",
       "example": "/api/hot/apple-charts/api/v2/us/podcasts",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
+      "request": true,
+      "response": true,
+      "format_valid": true,
       "output_valid": false,
-      "status": 504,
-      "code": "UPSTREAM_TIMEOUT",
-      "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-      "duration_ms": 10152
+      "status": 200,
+      "output_file": "api/hot/apple-charts/api/v2/us/podcasts.json",
+      "error": "来源应为 rss.marketingtools.apple.com，实际为 podcasts.apple.com",
+      "duration_ms": 2782
     },
     {
       "file": "hot/arstechnica.js",
@@ -152,7 +152,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/arstechnica/arstechnica/index.json",
-      "duration_ms": 851
+      "duration_ms": 651
     },
     {
       "file": "hot/baidu_hot.js",
@@ -165,20 +165,21 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/baidu/board.json",
-      "duration_ms": 1913
+      "duration_ms": 1965
     },
     {
       "file": "hot/bilibili.js",
       "path": "/api/hot/bilibili/main/hotword",
       "example": "/api/hot/bilibili/main/hotword",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/bilibili/main/hotword.json",
-      "duration_ms": 873
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 502,
+      "code": "UPSTREAM_FETCH_FAILED",
+      "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+      "duration_ms": 1688
     },
     {
       "file": "hot/bilibili.js",
@@ -192,7 +193,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1109
+      "duration_ms": 753
     },
     {
       "file": "hot/bilibili.js",
@@ -206,7 +207,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 692
+      "duration_ms": 1377
     },
     {
       "file": "hot/bluesky.js",
@@ -220,7 +221,7 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 235
+      "duration_ms": 202
     },
     {
       "file": "hot/cankaoxiaoxi.js",
@@ -233,7 +234,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cankaoxiaoxi/json/channel.json",
-      "duration_ms": 5325
+      "duration_ms": 2717
     },
     {
       "file": "hot/chongbuluo.js",
@@ -246,7 +247,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/chongbuluo/forum.php/hot.json",
-      "duration_ms": 1089
+      "duration_ms": 540
     },
     {
       "file": "hot/chongbuluo.js",
@@ -259,7 +260,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/chongbuluo/forum.php/latest.json",
-      "duration_ms": 944
+      "duration_ms": 1050
     },
     {
       "file": "hot/cls.js",
@@ -272,7 +273,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cls/v1/roll/get_roll_list.json",
-      "duration_ms": 813
+      "duration_ms": 1729
     },
     {
       "file": "hot/cls.js",
@@ -285,7 +286,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cls/v2/article/hot/list.json",
-      "duration_ms": 1233
+      "duration_ms": 1407
     },
     {
       "file": "hot/cls.js",
@@ -298,7 +299,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cls/v3/depth/home/assembled/1000.json",
-      "duration_ms": 1515
+      "duration_ms": 2187
     },
     {
       "file": "hot/dailymotion.js",
@@ -311,7 +312,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/dailymotion/videos/us.json",
-      "duration_ms": 520
+      "duration_ms": 339
     },
     {
       "file": "hot/deezer.js",
@@ -324,7 +325,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/deezer/chart/0/tracks.json",
-      "duration_ms": 391
+      "duration_ms": 326
     },
     {
       "file": "hot/devto.js",
@@ -337,7 +338,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/devto/api/articles/week.json",
-      "duration_ms": 190
+      "duration_ms": 401
     },
     {
       "file": "hot/dongqiudi.js",
@@ -350,7 +351,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/dongqiudi/app/tabs/web/1.json.json",
-      "duration_ms": 1776
+      "duration_ms": 1219
     },
     {
       "file": "hot/douban_hot.js",
@@ -363,7 +364,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/douban/rexxar/api/v2/subject/recent_hot/movie.json",
-      "duration_ms": 1809
+      "duration_ms": 1474
     },
     {
       "file": "hot/douyin_hot.js",
@@ -376,7 +377,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/douyin/aweme/v1/web/hot/search/list.json",
-      "duration_ms": 1161
+      "duration_ms": 2173
     },
     {
       "file": "hot/fanqienovel.js",
@@ -389,20 +390,21 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/fanqienovel/rank/1_2_1141.json",
-      "duration_ms": 619
+      "duration_ms": 962
     },
     {
       "file": "hot/fastbull.js",
       "path": "/api/hot/fastbull/cn/express-news",
       "example": "/api/hot/fastbull/cn/express-news",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/fastbull/cn/express-news.json",
-      "duration_ms": 2044
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 2868
     },
     {
       "file": "hot/fastbull.js",
@@ -415,7 +417,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/fastbull/cn/news.json",
-      "duration_ms": 2148
+      "duration_ms": 1976
     },
     {
       "file": "hot/freebuf.js",
@@ -429,7 +431,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1767
+      "duration_ms": 2026
     },
     {
       "file": "hot/gelonghui.js",
@@ -442,7 +444,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/gelonghui/news.json",
-      "duration_ms": 1907
+      "duration_ms": 2451
     },
     {
       "file": "hot/github_trending.js",
@@ -455,7 +457,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/github/trending.json",
-      "duration_ms": 1644
+      "duration_ms": 2227
     },
     {
       "file": "hot/google_news.js",
@@ -469,7 +471,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 5734
+      "duration_ms": 5490
     },
     {
       "file": "hot/gutenberg.js",
@@ -482,7 +484,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/gutenberg/browse/scores/top/day.json",
-      "duration_ms": 482
+      "duration_ms": 373
     },
     {
       "file": "hot/hackernews.js",
@@ -495,7 +497,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/hackernews.json",
-      "duration_ms": 1365
+      "duration_ms": 1077
     },
     {
       "file": "hot/hatena.js",
@@ -508,7 +510,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/hatena/hotentry/all.json",
-      "duration_ms": 1209
+      "duration_ms": 705
     },
     {
       "file": "hot/hupu_hot.js",
@@ -522,7 +524,7 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1180
+      "duration_ms": 1581
     },
     {
       "file": "hot/ifeng_hot.js",
@@ -535,7 +537,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/ifeng/hot.json",
-      "duration_ms": 439
+      "duration_ms": 603
     },
     {
       "file": "hot/iqiyi_hot.js",
@@ -548,7 +550,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/iqiyi/portal/lw/v7/channel/card/videoTab.json",
-      "duration_ms": 1388
+      "duration_ms": 773
     },
     {
       "file": "hot/iqiyi_hot.js",
@@ -561,7 +563,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/iqiyi/views_category/3.0/rank_list.json",
-      "duration_ms": 1607
+      "duration_ms": 1642
     },
     {
       "file": "hot/ithome.js",
@@ -574,7 +576,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/ithome/list.json",
-      "duration_ms": 1116
+      "duration_ms": 2583
     },
     {
       "file": "hot/itmedia.js",
@@ -587,7 +589,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/itmedia/rss/2.0/news_bursts.xml.json",
-      "duration_ms": 896
+      "duration_ms": 915
     },
     {
       "file": "hot/jin10.js",
@@ -600,7 +602,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/jin10/flash_newest.js.json",
-      "duration_ms": 1623
+      "duration_ms": 1045
     },
     {
       "file": "hot/juejin_hot.js",
@@ -613,7 +615,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/juejin/content_api/v1/content/article_rank.json",
-      "duration_ms": 746
+      "duration_ms": 1601
     },
     {
       "file": "hot/kakuyomu.js",
@@ -638,10 +640,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 413
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 82
     },
     {
       "file": "hot/kuaishou_hot.js",
@@ -655,46 +657,49 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 3059
+      "duration_ms": 1483
     },
     {
       "file": "hot/kuan.js",
       "path": "/api/hot/kuan/v6/page/dataList",
       "example": "/api/hot/kuan/v6/page/dataList",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/kuan/v6/page/dataList.json",
-      "duration_ms": 1621
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 58
     },
     {
       "file": "hot/lobsters.js",
       "path": "/api/hot/lobsters/hottest.json",
       "example": "/api/hot/lobsters/hottest.json",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/lobsters/hottest.json.json",
-      "duration_ms": 477
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 78
     },
     {
       "file": "hot/mango_hot.js",
       "path": "/api/hot/mango/pc/suggest/v1",
       "example": "/api/hot/mango/pc/suggest/v1",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/mango/pc/suggest/v1.json",
-      "duration_ms": 1133
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 62
     },
     {
       "file": "hot/maoyan_hot.js",
@@ -707,7 +712,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/maoyan/dashboard-ajax/movie.json",
-      "duration_ms": 2586
+      "duration_ms": 2831
     },
     {
       "file": "hot/mastodon.js",
@@ -720,59 +725,63 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/mastodon/api/v1/trends/links.json",
-      "duration_ms": 711
+      "duration_ms": 752
     },
     {
       "file": "hot/mktnews_flash.js",
       "path": "/api/hot/mktnews/api/flash",
       "example": "/api/hot/mktnews/api/flash",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/mktnews/api/flash.json",
-      "duration_ms": 108
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 61
     },
     {
       "file": "hot/myanimelist.js",
       "path": "/api/hot/myanimelist/top/:type?",
       "example": "/api/hot/myanimelist/top/anime",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/myanimelist/top/anime.json",
-      "duration_ms": 849
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 48
     },
     {
       "file": "hot/narou.js",
       "path": "/api/hot/narou/novelapi/api/:period?",
       "example": "/api/hot/narou/novelapi/api/daily",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/narou/novelapi/api/daily.json",
-      "duration_ms": 614
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 33
     },
     {
       "file": "hot/nhk.js",
       "path": "/api/hot/nhk/rss/news/cat0.xml",
       "example": "/api/hot/nhk/rss/news/cat0.xml",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/nhk/rss/news/cat0.xml.json",
-      "duration_ms": 245
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 56
     },
     {
       "file": "hot/niconico.js",
@@ -785,33 +794,35 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/niconico/ranking.json",
-      "duration_ms": 1064
+      "duration_ms": 1263
     },
     {
       "file": "hot/nowcoder_hot.js",
       "path": "/api/hot/nowcoder/api/sparta/hot-search/top-hot-pc",
       "example": "/api/hot/nowcoder/api/sparta/hot-search/top-hot-pc",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/nowcoder/api/sparta/hot-search/top-hot-pc.json",
-      "duration_ms": 1878
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 117
     },
     {
       "file": "hot/npr.js",
       "path": "/api/hot/npr/1001/rss.xml",
       "example": "/api/hot/npr/1001/rss.xml",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/npr/1001/rss.xml.json",
-      "duration_ms": 209
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 53
     },
     {
       "file": "hot/pcbeta_windows11.js",
@@ -822,10 +833,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1720
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 37
     },
     {
       "file": "hot/producthunt.js",
@@ -838,7 +849,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/producthunt/feed.json",
-      "duration_ms": 255
+      "duration_ms": 318
     },
     {
       "file": "hot/qdmm.js",
@@ -852,7 +863,7 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1994
+      "duration_ms": 2188
     },
     {
       "file": "hot/qdmm.js",
@@ -863,10 +874,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1457
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 28
     },
     {
       "file": "hot/qdmm.js",
@@ -877,10 +888,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 3406
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 87
     },
     {
       "file": "hot/qdmm.js",
@@ -891,10 +902,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1736
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 75
     },
     {
       "file": "hot/qdmm.js",
@@ -905,10 +916,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 2316
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 29
     },
     {
       "file": "hot/qdmm.js",
@@ -919,10 +930,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1878
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 31
     },
     {
       "file": "hot/qdmm.js",
@@ -933,10 +944,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1916
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 64
     },
     {
       "file": "hot/qdmm.js",
@@ -947,10 +958,10 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 2929
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 39
     },
     {
       "file": "hot/qidian.js",
@@ -963,46 +974,49 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qidian/rank/hotsales.json",
-      "duration_ms": 1661
+      "duration_ms": 1834
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/newauthor",
       "example": "/api/hot/qidian/rank/newauthor",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/newauthor.json",
-      "duration_ms": 3357
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 46
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/newbook",
       "example": "/api/hot/qidian/rank/newbook",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/newbook.json",
-      "duration_ms": 2145
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 29
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/newfans",
       "example": "/api/hot/qidian/rank/newfans",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/newfans.json",
-      "duration_ms": 1926
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 41
     },
     {
       "file": "hot/qidian.js",
@@ -1015,112 +1029,118 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qidian/rank/readindex.json",
-      "duration_ms": 2908
+      "duration_ms": 2402
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/rec",
       "example": "/api/hot/qidian/rank/rec",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/rec.json",
-      "duration_ms": 3036
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 62
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/sign",
       "example": "/api/hot/qidian/rank/sign",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/sign.json",
-      "duration_ms": 2773
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 55
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/update",
       "example": "/api/hot/qidian/rank/update",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/update.json",
-      "duration_ms": 1965
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 44
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rank/yuepiao",
       "example": "/api/hot/qidian/rank/yuepiao",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rank/yuepiao.json",
-      "duration_ms": 1616
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 60
     },
     {
       "file": "hot/qiita.js",
       "path": "/api/hot/qiita/popular-items/feed",
       "example": "/api/hot/qiita/popular-items/feed",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qiita/popular-items/feed.json",
-      "duration_ms": 590
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 29
     },
     {
       "file": "hot/qimao.js",
       "path": "/api/hot/qimao/paihang/:gender?/:type?/:period?",
       "example": "/api/hot/qimao/paihang/boy/hot",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "COOKIE_REQUIRED",
-      "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://www.qimao.com 已同步的 Cookie 无法用于 https://www.qimao.com/paihang/boy/hot/date/（权限 qimao，路径范围 /paihang/）：acw_tc（已过期）。请检查 Cookie 同步中的域名、路径、Secure 与过期时间",
-      "duration_ms": 264
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/qimao/paihang/boy/hot.json",
+      "duration_ms": 4879
     },
     {
       "file": "hot/qqvideo_hot.js",
       "path": "/api/hot/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp",
       "example": "/api/hot/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp.json",
-      "duration_ms": 1642
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 53
     },
     {
       "file": "hot/qqvideo_hot.js",
       "path": "/api/hot/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
       "example": "/api/hot/qqvideo/trpc.vector_layout.page_view.PageService/getCard",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qqvideo/trpc.vector_layout.page_view.PageService/getCard.json",
-      "duration_ms": 2230
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 34
     },
     {
       "file": "hot/reddit.js",
@@ -1131,36 +1151,38 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_ACCESS_DENIED",
-      "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 121
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 39
     },
     {
       "file": "hot/slashdot.js",
       "path": "/api/hot/slashdot/Slashdot/slashdotMain",
       "example": "/api/hot/slashdot/Slashdot/slashdotMain",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/slashdot/Slashdot/slashdotMain.json",
-      "duration_ms": 201
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 29
     },
     {
       "file": "hot/solidot.js",
       "path": "/api/hot/solidot/index.rss",
       "example": "/api/hot/solidot/index.rss",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/solidot/index.rss.json",
-      "duration_ms": 1643
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 48
     },
     {
       "file": "hot/sputniknewscn.js",
@@ -1173,59 +1195,57 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/sputniknewscn/services/widget/lenta.json",
-      "duration_ms": 1411
+      "duration_ms": 1570
     },
     {
       "file": "hot/sspai_hot.js",
       "path": "/api/hot/sspai/api/v1/article/tag/page/get",
       "example": "/api/hot/sspai/api/v1/article/tag/page/get",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/sspai/api/v1/article/tag/page/get.json",
-      "duration_ms": 2405
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_CPU",
+      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
+      "duration_ms": 28
     },
     {
       "file": "hot/steam.js",
       "path": "/api/hot/steam/stats/stats",
       "example": "/api/hot/steam/stats/stats",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/steam/stats/stats.json",
-      "duration_ms": 557
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001
     },
     {
       "file": "hot/techmeme.js",
       "path": "/api/hot/techmeme/feed.xml",
       "example": "/api/hot/techmeme/feed.xml",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/techmeme/feed.xml.json",
-      "duration_ms": 452
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001
     },
     {
       "file": "hot/tencent_hot.js",
       "path": "/api/hot/tencent/web_backend/v2/getTagInfo",
       "example": "/api/hot/tencent/web_backend/v2/getTagInfo",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/tencent/web_backend/v2/getTagInfo.json",
-      "duration_ms": 2173
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001
     },
     {
       "file": "hot/thepaper_hot.js",
@@ -1238,7 +1258,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/thepaper/contentapi/wwwIndex/rightSidebar.json",
-      "duration_ms": 2302
+      "duration_ms": 504
     },
     {
       "file": "hot/theverge.js",
@@ -1251,7 +1271,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/theverge/rss/index.xml.json",
-      "duration_ms": 624
+      "duration_ms": 106
     },
     {
       "file": "hot/tieba_hot.js",
@@ -1264,7 +1284,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/tieba/hottopic/browse/topicList.json",
-      "duration_ms": 1624
+      "duration_ms": 1242
     },
     {
       "file": "hot/tiktok.js",
@@ -1278,7 +1298,7 @@
       "status": 400,
       "code": "INVALID_PARAMETER",
       "error": "HTTP 400: INVALID_PARAMETER: 请求参数无效，请检查路径参数和查询参数",
-      "duration_ms": 106
+      "duration_ms": 76
     },
     {
       "file": "hot/toutiao_hot.js",
@@ -1291,20 +1311,21 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/toutiao/hot-event/hot-board.json",
-      "duration_ms": 921
+      "duration_ms": 960
     },
     {
       "file": "hot/v2ex_share.js",
       "path": "/api/hot/v2ex/feed",
       "example": "/api/hot/v2ex/feed",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/v2ex/feed.json",
-      "duration_ms": 119
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 504,
+      "code": "UPSTREAM_TIMEOUT",
+      "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
+      "duration_ms": 10122
     },
     {
       "file": "hot/vimeo.js",
@@ -1317,7 +1338,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/vimeo/channels/staffpicks/videos/rss.json",
-      "duration_ms": 598
+      "duration_ms": 750
     },
     {
       "file": "hot/wallstreetcn.js",
@@ -1330,7 +1351,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/wallstreetcn/apiv1/content/articles/hot.json",
-      "duration_ms": 951
+      "duration_ms": 4603
     },
     {
       "file": "hot/wallstreetcn.js",
@@ -1343,7 +1364,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/wallstreetcn/apiv1/content/information-flow.json",
-      "duration_ms": 2978
+      "duration_ms": 4869
     },
     {
       "file": "hot/wallstreetcn.js",
@@ -1356,21 +1377,20 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/wallstreetcn/apiv1/content/lives.json",
-      "duration_ms": 1044
+      "duration_ms": 1971
     },
     {
       "file": "hot/weibo_hot.js",
       "path": "/api/hot/weibo/top/summary",
       "example": "/api/hot/weibo/top/summary",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 2493
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/weibo/top/summary.json",
+      "duration_ms": 14171
     },
     {
       "file": "hot/xueqiu_hotstock.js",
@@ -1383,7 +1403,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/xueqiu/v5/stock/hot_stock/list.json.json",
-      "duration_ms": 1360
+      "duration_ms": 1650
     },
     {
       "file": "hot/yahoo_japan.js",
@@ -1396,7 +1416,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/yahoo-japan/rss/topics/top-picks.xml.json",
-      "duration_ms": 800
+      "duration_ms": 1768
     },
     {
       "file": "hot/youtube_hot.js",
@@ -1410,7 +1430,7 @@
       "status": 503,
       "code": "CONFIG_INVALID",
       "error": "HTTP 503: CONFIG_INVALID: 服务端脚本配置无效或缺少必填项，请检查 SCRIPT_CONFIG 和 SCRIPT_COOKIES",
-      "duration_ms": 23
+      "duration_ms": 19
     },
     {
       "file": "hot/zaobao.js",
@@ -1423,7 +1443,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/zaobao/realtime.json",
-      "duration_ms": 542
+      "duration_ms": 763
     },
     {
       "file": "hot/zenn.js",
@@ -1436,20 +1456,21 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/zenn/api/articles.json",
-      "duration_ms": 339
+      "duration_ms": 412
     },
     {
       "file": "hot/zhihu_hot.js",
       "path": "/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
       "example": "/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/zhihu/api/v3/feed/topstory/hot-list-web.json",
-      "duration_ms": 1149
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 502,
+      "code": "UPSTREAM_ACCESS_DENIED",
+      "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
+      "duration_ms": 897
     },
     {
       "file": "rss/69shuba.js",
@@ -1462,7 +1483,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/69shuba/book/34567.json",
-      "duration_ms": 1184
+      "duration_ms": 1242
     },
     {
       "file": "rss/apple.js",
@@ -1476,7 +1497,7 @@
       "status": 504,
       "code": "UPSTREAM_TIMEOUT",
       "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-      "duration_ms": 1001
+      "duration_ms": 654
     },
     {
       "file": "rss/avmoo.js",
@@ -1490,7 +1511,7 @@
       "status": 504,
       "code": "UPSTREAM_TIMEOUT",
       "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-      "duration_ms": 1492
+      "duration_ms": 1345
     },
     {
       "file": "rss/bilibili.js",
@@ -1503,7 +1524,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/bilibili/650898515/dynamic.json",
-      "duration_ms": 1002
+      "duration_ms": 1148
     },
     {
       "file": "rss/bilibili.js",
@@ -1516,7 +1537,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/bilibili/650898515/upload/video.json",
-      "duration_ms": 1200
+      "duration_ms": 1059
     },
     {
       "file": "rss/douyin.js",
@@ -1529,7 +1550,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/douyin/user/MS4wLjABAAAAOE57npukdzs0SH_Fk5RHB-qfUlnZ5jQT2R_KPH4Sd8s.json",
-      "duration_ms": 1057
+      "duration_ms": 569
     },
     {
       "file": "rss/fanqienovel.js",
@@ -1542,7 +1563,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/fanqienovel/book/7143038691944959011.json",
-      "duration_ms": 1323
+      "duration_ms": 3549
     },
     {
       "file": "rss/github.js",
@@ -1555,7 +1576,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/github/ltaoo/wx_channels_download/release.json",
-      "duration_ms": 1373
+      "duration_ms": 1448
     },
     {
       "file": "rss/hongguo.js",
@@ -1568,7 +1589,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/hongguo/search/%E7%83%AD%E6%92%AD.json",
-      "duration_ms": 1114
+      "duration_ms": 973
     },
     {
       "file": "rss/hongguo.js",
@@ -1581,7 +1602,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/hongguo/series/7688352674999176254.json",
-      "duration_ms": 939
+      "duration_ms": 1141
     },
     {
       "file": "rss/instagram.js",
@@ -1594,7 +1615,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/instagram/katarinabluu.json",
-      "duration_ms": 1406
+      "duration_ms": 1457
     },
     {
       "file": "rss/javbus.js",
@@ -1607,7 +1628,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/javbus/star/2jv.json",
-      "duration_ms": 1309
+      "duration_ms": 1071
     },
     {
       "file": "rss/javlibrary.js",
@@ -1621,7 +1642,7 @@
       "status": 504,
       "code": "UPSTREAM_TIMEOUT",
       "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-      "duration_ms": 914
+      "duration_ms": 1431
     },
     {
       "file": "rss/kuaishou.js",
@@ -1634,7 +1655,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/kuaishou/profile/3xuxw5yhgr6f4um.json",
-      "duration_ms": 997
+      "duration_ms": 1301
     },
     {
       "file": "rss/qidian.js",
@@ -1647,7 +1668,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/qidian/book/1036526469.json",
-      "duration_ms": 1278
+      "duration_ms": 1488
     },
     {
       "file": "rss/qimao.js",
@@ -1660,7 +1681,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/qimao/book/13030701.json",
-      "duration_ms": 1045
+      "duration_ms": 1065
     },
     {
       "file": "rss/telegram.js",
@@ -1673,7 +1694,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/telegram/channel/telegram.json",
-      "duration_ms": 1134
+      "duration_ms": 1286
     },
     {
       "file": "rss/ttk.js",
@@ -1686,7 +1707,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/ttk/book/congzhanyaochumokaishichangshengbusi.json",
-      "duration_ms": 1311
+      "duration_ms": 1209
     },
     {
       "file": "rss/weibo.js",
@@ -1699,7 +1720,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/weibo/u/1992429663.json",
-      "duration_ms": 1032
+      "duration_ms": 811
     },
     {
       "file": "rss/wxchannels.js",
@@ -1717,7 +1738,7 @@
           "output_valid": true,
           "status": 200,
           "output_file": "api/rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder.json",
-          "duration_ms": 1045
+          "duration_ms": 1354
         },
         {
           "file": "rss/wxchannels.js",
@@ -1730,10 +1751,10 @@
           "output_valid": true,
           "status": 200,
           "output_file": "api/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder.json",
-          "duration_ms": 990
+          "duration_ms": 1289
         }
       ],
-      "duration_ms": 2035,
+      "duration_ms": 2643,
       "request": true,
       "response": true,
       "format_valid": true,
@@ -1755,7 +1776,7 @@
           "output_valid": true,
           "status": 200,
           "output_file": "api/rss/wxmp/wow36kr.json",
-          "duration_ms": 969
+          "duration_ms": 1295
         },
         {
           "file": "rss/wxmp.js",
@@ -1768,10 +1789,10 @@
           "output_valid": true,
           "status": 200,
           "output_file": "api/rss/wxmp/zhihuribao.json",
-          "duration_ms": 964
+          "duration_ms": 1167
         }
       ],
-      "duration_ms": 1933,
+      "duration_ms": 2462,
       "request": true,
       "response": true,
       "format_valid": true,
@@ -1788,7 +1809,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/x/NTCGoK9jFQURsEu.json",
-      "duration_ms": 948
+      "duration_ms": 1034
     },
     {
       "file": "rss/xiaohongshu.js",
@@ -1801,7 +1822,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/xiaohongshu/user/profile/5d2aec020000000012037401.json",
-      "duration_ms": 1078
+      "duration_ms": 1145
     },
     {
       "file": "rss/youtube.js",
@@ -1815,7 +1836,7 @@
       "status": 504,
       "code": "UPSTREAM_TIMEOUT",
       "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-      "duration_ms": 1380
+      "duration_ms": 1187
     },
     {
       "file": "rss/youtube.js",
@@ -1829,7 +1850,7 @@
       "status": 504,
       "code": "UPSTREAM_TIMEOUT",
       "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-      "duration_ms": 882
+      "duration_ms": 1139
     },
     {
       "file": "rss/zhihu.js",
@@ -1842,7 +1863,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/zhihu/collection/26444956.json",
-      "duration_ms": 1554
+      "duration_ms": 1358
     },
     {
       "file": "rss/zhihu.js",
@@ -1855,7 +1876,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/zhihu/column/googledevelopers.json",
-      "duration_ms": 1231
+      "duration_ms": 1248
     },
     {
       "file": "rss/zhihu.js",
@@ -1868,7 +1889,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/zhihu/people/zhihu/answers.json",
-      "duration_ms": 899
+      "duration_ms": 1617
     },
     {
       "file": "rss/zhihu.js",
@@ -1881,7 +1902,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/zhihu/people/zhihu.json",
-      "duration_ms": 1273
+      "duration_ms": 1263
     },
     {
       "file": "rss/zhihu.js",
@@ -1894,7 +1915,7 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/zhihu/people/zhihu/asks.json",
-      "duration_ms": 1176
+      "duration_ms": 1224
     },
     {
       "file": "rss/zhihu.js",
@@ -1908,7 +1929,7 @@
       "status": 200,
       "output_file": "api/rss/zhihu/people/zhihu/pins.json",
       "error": "条目数须 >= 1",
-      "duration_ms": 896
+      "duration_ms": 1088
     },
     {
       "file": "rss/zhihu.js",
@@ -1922,7 +1943,7 @@
       "status": 200,
       "output_file": "api/rss/zhihu/people/zhihu/posts.json",
       "error": "条目数须 >= 1",
-      "duration_ms": 959
+      "duration_ms": 1038
     },
     {
       "file": "rss/zhihu.js",
@@ -1936,7 +1957,7 @@
       "status": 200,
       "output_file": "api/rss/zhihu/people/zhihu/zvideos.json",
       "error": "条目数须 >= 1",
-      "duration_ms": 1022
+      "duration_ms": 1180
     }
   ],
   "mode": "release",
