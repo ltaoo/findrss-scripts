@@ -3,12 +3,26 @@ import test from "node:test";
 import scripts from "../dist/scripts.js";
 import worker from "../worker/index.js";
 import { route_cases, debug_route_cases } from "../worker/catalog.js";
+import { debug_response } from "../worker/debug.js";
 
 const origin = "https://scripts.example";
 const request = (path, env = {}, options) => worker.fetch(new Request(origin + path, options), env);
 const section = (html, name) => new RegExp('data-n="debug-' + name + '-content"[^>]*>([\\s\\S]*?)</pre>').exec(html)[1]
   .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const feed = '<feed xmlns="http://www.w3.org/2005/Atom"><title>Releases</title><entry><id>release:1</id><title>v1</title><link rel="alternate" href="https://github.com/example/repo/releases/tag/v1"/><updated>2026-10-26T01:00:00Z</updated></entry></feed>';
+
+test("Debug 顶部优先显示具体失败原因并转义 HTML，无详情时保留通用描述", async () => {
+  const detail = '快手作品接口返回失败状态（result=109）：<script>验证</script>';
+  for (const failure of [new Error(detail), undefined]) {
+    const response = debug_response({ context: {}, stage: "script", started_at: Date.now(),
+      code: "UPSTREAM_INVALID_RESPONSE", failure }, {});
+    assert.equal(response.status, 502);
+    const html = await response.text();
+    const summary = /data-n="debug-upstream">([^\n]*?)<\/p>/.exec(html)[1];
+    assert.match(summary, failure ? /result=109.*&lt;script&gt;验证&lt;\/script&gt;/ : /上游响应不符合要求/);
+    assert.doesNotMatch(html, /<script>/);
+  }
+});
 
 test("每个脚本的全部路由都有 canonical Debug 和完整路径前缀入口，参数和查询串正确传递", async () => {
   const env = { ACCESS_TOKEN: "test-token", SCRIPT_CONFIG: "[]" };
@@ -149,6 +163,7 @@ test("上游失败保留 HTTP 业务码、堆栈、失败前日志和上游状�
   assert.match(html, /UPSTREAM_ACCESS_DENIED/);
   assert.match(html, /Hacker News 首页获取失败，尝试 hnrss/);
   assert.match(section(html, "error"), /HTTP 403/);
+  assert.match(/data-n="debug-upstream">([^\n]*?)<\/p>/.exec(html)[1], /UPSTREAM_ACCESS_DENIED:.*HTTP 403/);
   const traces = JSON.parse(section(html, "upstream-requests"));
   assert.deepEqual(traces.map(trace => trace.host), ["news.ycombinator.com", "hnrss.org"]);
   assert.deepEqual(traces.map(trace => trace.url), ["https://news.ycombinator.com/", "https://hnrss.org/frontpage?count=30"]);

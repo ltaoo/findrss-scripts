@@ -19,7 +19,7 @@ export function debug_response({ entry, context, stage, started_at, code, failur
       path: metadata.routes[entry.route_index].path, request_path: entry.path, route_index: entry.route_index } : {},
     request, phase: stage === "script" && fields ? fields.phase : stage,
     elapsed_ms: Date.now() - started_at, invoked,
-    upstream_error: code ? code + ": " + message : "",
+    upstream_error: code ? code + ": " + (fields?.message || message) : "",
     error_text: fields?.error_text || (code ? message : ""),
     lines: fields?.lines || result?.lines || [],
     upstream_requests: failure?.upstream_requests || result?.upstream_requests || [],
