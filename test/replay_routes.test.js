@@ -4,12 +4,10 @@ import { classify_probe, failed_entries, probe_route, replay_routes } from "../s
 
 const base = "https://scripts.example";
 
-test("复跑分类区分平台 CPU、快照生成、上游错误和成功", () => {
+test("复跑分类区分平台 CPU、上游错误和成功", () => {
   assert.deepEqual(classify_probe(200, "application/json", "{}"), { classification: "passed" });
   assert.equal(classify_probe(503, "text/html",
     "<title>Worker exceeded resource limits | scripts.example | Cloudflare</title>").classification, "exceeded_cpu");
-  assert.equal(classify_probe(503, "application/json", JSON.stringify({ code: "FEED_GENERATING" })).classification,
-    "feed_generating");
   assert.equal(classify_probe(502, "application/json",
     JSON.stringify({ code: "UPSTREAM_FETCH_FAILED" })).classification, "upstream");
   assert.equal(classify_probe(503, "application/json", JSON.stringify({ code: "COOKIE_REQUIRED" })).classification,
@@ -39,18 +37,7 @@ test("复跑只选取未通过的路由，并展开失败样本", () => {
   assert.deepEqual(failed_entries(replay, { classification: "exceeded_cpu" }).map(entry => entry.file), ["hot/x.js"]);
 });
 
-test("复跑按 Retry-After 重试快照生成，并并发执行", async () => {
-  let calls = 0;
-  const result = await probe_route(base, { file: "hot/a.js", example: "/api/hot/a" }, {
-    feed_retries: 1,
-    fetch_impl: async () => ++calls === 1
-      ? Response.json({ code: "FEED_GENERATING" }, { status: 503, headers: { "Retry-After": "1" } })
-      : new Response('{"kind":"hot_rank"}', { headers: { "Content-Type": "application/json", "X-FindRSS-Script": "hot/a.js" } }),
-  });
-  assert.equal(calls, 2);
-  assert.equal(result.classification, "passed");
-  assert.equal(result.script, "hot/a.js");
-
+test("复跑并发执行", async () => {
   let active = 0;
   let peak = 0;
   const entries = Array.from({ length: 6 }, (_, index) => ({ file: "hot/" + index + ".js", example: "/api/hot/" + index }));

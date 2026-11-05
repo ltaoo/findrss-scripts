@@ -12,17 +12,17 @@
 
 本目录的 RSS 脚本从 `@findrss/core` 导入 `RSSScript` 和 `Result`，从 `@findrss/util` 导入 `utils`；接口请求、JSON 解析和校验返回 `Result`。
 
-两类脚本都通过 `export const route = { path, handler, ... }` 或 `routes` 注册路径，模块级 `export const kind = "rss"` / `"hot"` 区分脚本类型；未声明时兼容文件头 `/** RSS */` / `/** HOT */` 和基类推断。脚本声明的 `route.path` 始终可以直接访问，访问前缀由 `kind` 决定：RSS 可使用 `/rss`、`/atom`（XML）和 `/api/rss`（JSON 快照），Hot 可使用 `/api/hot` 或 `/hot`（JSON）；Clip 和 Detect 分别使用 `/api/clip`/`/clip`、`/api/detect`/`/detect`。`/debug/<path>` 返回诊断 HTML。例如 Hot 脚本注册 `/douyin/aweme/v1/web/hot/search/list`，可访问 `/douyin/aweme/v1/web/hot/search/list`、`/api/hot/douyin/aweme/v1/web/hot/search/list` 或 `/hot/douyin/aweme/v1/web/hot/search/list`。路径参数和查询参数保留，仍需满足路由公开性、访问凭证及 Cookie 授权要求。
+两类脚本都通过 `export const route = { path, handler, ... }` 或 `routes` 注册路径，模块级 `export const kind = "rss"` / `"hot"` 区分脚本类型；未声明时兼容文件头 `/** RSS */` / `/** HOT */` 和基类推断。脚本声明的 `route.path` 始终可以直接访问，访问前缀由 `kind` 决定：RSS 可使用 `/rss`、`/atom`（XML）和 `/api/rss`（JSON），Hot 可使用 `/api/hot` 或 `/hot`（JSON）；Clip 和 Detect 分别使用 `/api/clip`/`/clip`、`/api/detect`/`/detect`。`/debug/<path>` 返回诊断 HTML。例如 Hot 脚本注册 `/douyin/aweme/v1/web/hot/search/list`，可访问 `/douyin/aweme/v1/web/hot/search/list`、`/api/hot/douyin/aweme/v1/web/hot/search/list` 或 `/hot/douyin/aweme/v1/web/hot/search/list`。路径参数和查询参数保留，仍需满足路由公开性、访问凭证及 Cookie 授权要求。
 
 每个脚本通过 `export const platform = { name, icon }` 声明来源，`icon` 已直接内嵌对应的 SVG 源码；多路由共用此对象，也可用 `route.platform` 覆盖。正式版本发布成功后才收集来源到数据库，供订阅广场与后台来源筛选 Select 使用，保存草稿和 Debug 不注册来源。
 
 可用 `export const tags = ['科技', '文章']` 声明共用标签，或用 `route.tags` 逐条覆盖（`[]` 表示无标签）。每条路由最多 13 个不同标签，每个为去除首尾空白后的 1–32 字符且不含控制字符。正式发布后聚合为 discover 和后台的可选标签，新建自有源时按匹配路由预填，可手动修改；草稿和 Debug 不注册标签。标签属于脚本元数据，不是 handler 返回的 feed 字段。
 
-复制单个 `.js` 到管理后台 `/admin/scripts` 的 RSS Tab，可保存草稿、运行 Debug，确认后发布。同一主路由可用 `/rss/<path>`、`/atom/<path>` 获取订阅，或 `/api/rss/<path>` 获取 JSON 快照。章节正文等附加路由没有命名空间，直接按声明路径返回 HTML。
+复制单个 `.js` 到管理后台 `/admin/scripts` 的 RSS Tab，可保存草稿、运行 Debug，确认后发布。同一主路由可用 `/rss/<path>`、`/atom/<path>` 获取订阅，或 `/api/rss/<path>` 获取 JSON。章节正文等附加路由没有命名空间，直接按声明路径返回 HTML。
 
 ## 选择脚本
 
-以下路径为脚本声明的主路由，订阅时在前面加 `/rss`、`/atom`（XML）或 `/api/rss`（JSON 快照），也可直接访问声明路径，并将 `:参数` 替换为实际值。标注 Cookie 的脚本需先同步对应站点的 Cookie，并在后台确认脚本权限；微信公众号和视频号需连接支持对应能力的设备。
+以下路径为脚本声明的主路由，订阅时在前面加 `/rss`、`/atom`（XML）或 `/api/rss`（JSON），也可直接访问声明路径，并将 `:参数` 替换为实际值。标注 Cookie 的脚本需先同步对应站点的 Cookie，并在后台确认脚本权限；微信公众号和视频号需连接支持对应能力的设备。
 
 | 脚本 | 主路由 | 采集内容与使用要求 |
 | --- | --- | --- |
@@ -40,7 +40,7 @@
 | [微信视频号](../rss/wxchannels.js) | `/wxchannels/:account` | 视频、图集、Live Photo 与直播；使用视频号 `username`，配置完整 `api_url=https://dhub.funzm.com/api/wxchannels/contact/feed/list` 及 `auth_token`，直接 POST 到该地址 |
 | [番茄小说](../rss/fanqienovel.js) | `/fanqienovel/book/:book_id` | 完整章节目录与正文代理；ID 来自详情页 `/page/` 后的数字 |
 | [起点中文网](../rss/qidian.js) | `/qidian/book/:book_id` | 完整跨卷目录与正文代理；需授权 Cookie，付费章节需有效阅读权限 |
-| [七猫小说](../rss/qimao.js) | `/qimao/book/:book_id` | 完整章节目录，按更新时间倒序输出，不抓取正文；ID 来自 `/shuku/<ID>/`，需授权验证 Cookie |
+| [七猫小说](../rss/qimao.js) | `/qimao/book/:book_id` | 完整章节目录，按更新时间倒序输出，不抓取正文；ID 来自 `/shuku/<ID>/`；可选授权验证 Cookie |
 | [69 书吧](../rss/69shuba.js) | `/69shuba/book/:book_id` | 完整章节目录，不抓取正文；ID 来自 `/book/<ID>.htm`；访问验证时通过 BROWSER 绑定读取页面 |
 | [天天看书](../rss/ttk.js) | `/ttk/book/:book_id` | 完整章节目录，不抓取正文；标识来自目录页 `/novel/chapters/<ID>/index.html` 中的 `<ID>` |
 | [Apple App Store](../rss/apple.js) | `/apple/apps/update/:country/:id/:platform?` | 应用版本更新；使用 App Store 链接中的地区与应用 ID |
@@ -156,39 +156,39 @@ YouTube、TikTok 没有使用真实凭据执行官方 API，完成文档核对�
 | 脚本 | 路由 | 覆盖范围 |
 | --- | --- | --- |
 | [起点](../hot/qidian.js) | 明确导出男频 9 条固定路由，见下表 | 官方移动端男频榜单；分类及适用的周期筛选 |
-| [起点女生网](../hot/qdmm.js) | 明确导出女频 8 条固定路由，见下表 | 官方移动端女频榜单；保留原路由、书籍 ID 和查询参数 |
+| [起点女生网](../hot/qdmm.js) | 明确导出女频 8 条固定路由，见下表 | 官网女生网榜单；`/qdmm/<榜单>` 路由，需同步访问验证 Cookie |
 | [七猫小说](../hot/qimao.js) | `/qimao/paihang/:gender?/:type?/:period?` | 男女频全部 5 类榜单及可用的日/月周期，共 16 个入口 |
 | [番茄小说](../hot/fanqienovel.js) | `/fanqienovel/rank/:rank_id?` | 巅峰榜、男频 19 类与女频 18 类各自的阅读/新书榜，共 75 个入口 |
 
 ### 起点与起点女生网
 
-`hot/qidian.js` 通过 `export const routes` 列出男频 9 条固定路由；`hot/qdmm.js` 独立列出女频 8 条固定路由，并使用起点女生网图标。两者均不使用 `:type`、`:gender` 动态参数。男频读取 `m.qidian.com`，女频读取 `m.qdmm.com`，使用与 RSS 示例相同的移动端 User-Agent 和 Referer。
+`hot/qidian.js` 通过 `export const routes` 列出男频 9 条固定路由；`hot/qdmm.js` 独立列出女频 8 条固定路由，并使用起点女生网图标。两者均不使用 `:type`、`:gender` 动态参数。男频读取 `m.qidian.com` 的内嵌 JSON；女频读取 `www.qdmm.com` 的服务端渲染 HTML，需要同步 `qdmm.com` 访问验证 Cookie（`w_tsfp`）才能通过风控。
 
 | 榜单 | 男频路由 | 女频路由 | 可选 period |
 | --- | --- | --- | --- |
-| 月票榜 | `/qidian/rank/yuepiao` | `/qidian/rank/yuepiao/female` | `YYYYMM`，如 `202609`；默认当月 |
-| 畅销榜 | `/qidian/rank/hotsales` | `/qidian/rank/hotsales/female` | — |
-| 阅读榜 | `/qidian/rank/readindex` | `/qidian/rank/readindex/female` | — |
-| 书友榜 | `/qidian/rank/newfans` | `/qidian/rank/newfans/female` | `week`、`month`；默认周榜 |
-| 推荐榜 | `/qidian/rank/rec` | `/qidian/rank/rec/female` | `week`、`month`、`all`；默认周榜 |
-| 更新榜 | `/qidian/rank/update` | `/qidian/rank/update/female` | — |
-| 签约榜 | `/qidian/rank/sign` | — | — |
-| 新书榜 | `/qidian/rank/newbook` | — | — |
-| 新人榜 | `/qidian/rank/newauthor` | — | — |
-| 收藏榜 | — | `/qidian/rank/collect/female` | — |
-| 免费榜 | — | `/qidian/rank/free/female` | — |
+| 月票榜 | `/qidian/yuepiao` | `/qdmm/yuepiao` | `YYYYMM`，如 `202609`；默认当月 |
+| 畅销榜 | `/qidian/hotsales` | `/qdmm/hotsales` | — |
+| 阅读榜 | `/qidian/readindex` | `/qdmm/readindex` | — |
+| 书友榜 | `/qidian/newfans` | `/qdmm/newfans` | `week`、`month`；默认周榜 |
+| 推荐榜 | `/qidian/rec` | `/qdmm/rec` | `week`、`month`、`all`；默认周榜 |
+| 更新榜 | `/qidian/update` | `/qdmm/update` | — |
+| 签约榜 | `/qidian/sign` | — | — |
+| 新书榜 | `/qidian/newbook` | — | — |
+| 新人榜 | `/qidian/newauthor` | — | — |
+| 收藏榜 | — | `/qdmm/collect` | — |
+| 免费榜 | — | `/qdmm/free` | — |
 
-两个脚本的第一条路由分别为男频和女频月票榜。原 `/qidian/rank` 请改用 `/qidian/rank/yuepiao`，原男频地址的 `/male` 后缀请去掉；其余表内地址保持不变。更新后台的 `qidian.js` 后，女频需另外导入、发布 `qdmm.js`；已有女频调用地址和书籍 ID 无需修改。
+两个脚本的第一条路由分别为男频和女频月票榜。男频使用 `/qidian/<榜单>`，女频使用 `/qdmm/<榜单>`；原 `/qidian/rank` 及 `/qidian/rank/<榜单>/female` 地址请改用下表路由。更新后台的 `qidian.js` 后，女频需另外导入、发布 `qdmm.js`，并同步 `www.qdmm.com` 的访问验证 Cookie；书籍 ID 无需修改。
 
-查询参数 `category` 为[官网移动榜单](https://m.qidian.com/rank/)分类链接中 `catid` 后的数字，默认 `-1` 全站；`period` 仅适用于表中列出的榜单。示例：
+查询参数 `category` 在男频为[官网移动榜单](https://m.qidian.com/rank/)分类链接中 `catid` 后的数字，在女频为 [www.qdmm.com 榜单](https://www.qdmm.com/rank/)筛选链接中 `chanId` 后的数字，默认 `-1` 全站；`period` 仅适用于表中列出的榜单。示例：
 
-- `/qidian/rank/yuepiao`：男频当月月票榜。
-- `/qidian/rank/free/female`：女频免费榜。
-- `/qidian/rank/rec?category=21&period=all`：玄幻总推荐榜。
-- `/qidian/rank/newfans/female?period=month`：女频月书友榜。
-- `/qidian/rank/yuepiao?category=22&period=202609`：仙侠 2026 年 9 月月票榜。
+- `/qidian/yuepiao`：男频当月月票榜。
+- `/qdmm/free`：女频免费榜。
+- `/qidian/rec?category=21&period=all`：玄幻总推荐榜。
+- `/qdmm/newfans?period=month`：女频月书友榜。
+- `/qidian/yuepiao?category=22&period=202609`：仙侠 2026 年 9 月月票榜。
 
-只读取第一页，封面沿用 RSS 示例的阅文封面地址。没有提供热度的畅销、阅读等榜单不补造数值。当前本地 HTTP 核对中，女频站点返回风控验证页；脚本覆盖对应入口和数据解析，并明确报告上游错误，不输出假榜单，需在部署环境手动 Debug 验证。
+只读取第一页，封面沿用 RSS 示例的阅文封面地址。没有提供热度的畅销、阅读等榜单不补造数值；女频部分榜单的热度使用字体混淆，无法还原时热度为 `null`。女频遇到访问验证页时会明确提示同步 Cookie，不输出假榜单。
 
 ### 七猫小说
 
@@ -204,7 +204,7 @@ YouTube、TikTok 没有使用真实凭据执行官方 API，完成文档核对�
 
 示例：`/qimao/paihang/girl/new/month`（女频新书月榜）、`/qimao/paihang/boy/collect`（男频收藏榜）、`/qimao/paihang/girl/update`（女频更新榜）。收藏和更新榜没有日/月切换，显式传入 `month` 会报参数错误。只读取第一页，封面来自官方 HTML；收藏/更新榜未展示计数时保留未知，不把它们标为热度。
 
-七猫可能以 HTTP 200 返回阿里云滑动验证页。脚本声明并携带 `acw_tc`、`acw_sc__v2`、`acw_sc__v3` 验证 Cookie，仅用于 `https://www.qimao.com/paihang/`。请手动完成官网验证，在后台同步有效的 `qimao.com` Cookie，并确认新版脚本的 Cookie 授权后发布。验证仍失败时脚本会明确报错；Cookie 可能失效或受上游 IP 限制，需在部署环境手动 Debug 验证。
+七猫可能以 HTTP 200 返回阿里云滑动验证页。脚本可选携带 `acw_tc`、`acw_sc__v2`、`acw_sc__v3` 验证 Cookie（章节路由同样如此），仅用于 `https://www.qimao.com/`；同步数据中没有这些名称时会自动匿名重试，公开页面通常无需 Cookie。若仍遇到验证页，请手动完成官网验证，在后台同步有效的 `qimao.com` Cookie，并确认新版脚本的 Cookie 授权后发布。验证仍失败时脚本会明确报错；Cookie 可能失效或受上游 IP 限制，需在部署环境手动 Debug 验证。
 
 ### 番茄小说
 

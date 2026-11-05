@@ -5,6 +5,7 @@ import { read_script } from "./support/script_sources.js";
 import { compile_script_module, execute_script } from "findrss-worker/server/infra/script_sandbox.js";
 import { mock_tcp_http } from "findrss-worker/test/support/tcp_socket_fixture.js";
 import { ScriptCookieAccess } from "findrss-worker/server/infra/script_cookie_access.js";
+import { WorkerCookieAccess } from "../worker/cookies.js";
 import { FeedModel } from "findrss-worker/server/domain/feed_format.js";
 import { XMLValidator } from "fast-xml-parser";
 
@@ -89,6 +90,20 @@ test("七猫拒绝无效参数和缺少 Cookie 授权，不发起请求", async 
     await assert.rejects(run(id === undefined ? null : id), error => error.problem?.code === "INVALID_PARAMETER");
   }
   await assert.rejects(run("13030701", null), /Cookie 权限/);
+});
+
+test("七猫同步数据缺少授权名称时匿名重试，不因 Cookie 不可用失败", async t => {
+  mock_tcp_http(t);
+  const calls = [];
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    calls.push({ url, headers: new Headers(options.headers) });
+    return new Response(url === detail_url ? detail : JSON.stringify(fixture));
+  });
+  const empty = new WorkerCookieAccess({ permissions: compiled.metadata.permissions, assert_grant() {}, cookies: () => [] });
+  const feed = await run("13030701", empty);
+  assert.deepEqual(calls.map(call => call.url), [detail_url, api_url]);
+  assert.equal(calls[0].headers.get("cookie"), null);
+  assert.equal(feed.items.length, 4);
 });
 
 test("七猫详情和目录均识别访问验证页，并保留 HTTP 错误分类", async t => {

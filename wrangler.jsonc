@@ -12,16 +12,6 @@
   "build": { "command": "npm run build" },
   "browser": { "binding": "BROWSER" },
   "kv_namespaces": [{ "binding": "COOKIE_KV", "id": "60fd0995c8524aeeb167cd57a2e3e099" }],
-  "r2_buckets": [{ "binding": "FEED_SNAPSHOTS", "bucket_name": "findrss-script-feeds" }],
-  "queues": {
-    "producers": [{ "binding": "FEED_QUEUE", "queue": "findrss-script-feeds" }],
-    "consumers": [
-      { "queue": "findrss-script-feeds", "max_batch_size": 1, "max_concurrency": 1, "max_retries": 3,
-        "dead_letter_queue": "findrss-script-feeds-dlq" },
-      { "queue": "findrss-script-feeds-dlq", "max_batch_size": 10, "max_concurrency": 1, "max_retries": 3 }
-    ]
-  },
-  "triggers": { "crons": ["*/10 * * * *"] },
   "rules": [{ "type": "CompiledWasm", "globs": ["**/*.wasm"], "fallthrough": false }],
   "observability": { "enabled": true }
 }

@@ -100,8 +100,10 @@ function example_chip(vm, route, example) {
 }
 
 function output_entry(entry) {
-  return entry?.artifact
-    ? [element("a", "artifact-link", { href: entry.artifact.url, target: "_blank", rel: "noopener noreferrer" }, [entry.artifact.label])]
+  const artifact = entry?.artifact;
+  return artifact
+    ? [element("a", "artifact-link", { href: artifact.url, target: "_blank", rel: "noopener noreferrer" }, [artifact.label]),
+      ...(artifact.example ? [element("code", "artifact-example", { class: "artifact-example" }, [artifact.example])] : [])]
     : entry?.reason ? [element("span", "output-reason", { class: "output-reason" }, [entry.reason])] : [];
 }
 
@@ -142,7 +144,7 @@ function inspection_results(vm, script) {
           element("td", "route-status", {}, [element("span", "status-label", { class: "status " + (row.ok === null ? "unknown" : row.ok ? "passed" : "failed") }, [row.ok === null ? "未巡检" : row.ok ? "成功" : "失败"])]),
           element("td", "route-output", {}, row.request ? [output_comparison(vm, row)] : [
             element("div", "output-entries", { class: "output-entries" }, [
-              ...(row.artifacts || []).map(artifact => element("a", "artifact-link", { href: artifact.url, target: "_blank", rel: "noopener noreferrer" }, [artifact.label])),
+              ...(row.artifacts || []).flatMap(artifact => output_entry({ artifact })),
               ...(row.reason ? [element("span", "output-reason", { class: "output-reason" }, [row.reason])] : []),
             ]),
           ]),

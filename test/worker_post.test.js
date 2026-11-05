@@ -2,11 +2,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import scripts from "../dist/scripts.js";
 import worker from "../worker/index.js";
-import { completed_feed_request } from "./support/feed_queue.js";
 
 const path = "https://scripts.example/rss/github/example/repo/release";
 const env = { ACCESS_TOKEN: "private-token" };
-const post = (body, headers = {}, url = path) => completed_feed_request(new Request(url, { method: "POST", body,
+const post = (body, headers = {}, url = path) => worker.fetch(new Request(url, { method: "POST", body,
   headers: { Authorization: "Bearer private-token", "Content-Type": "application/json", ...headers } }), env);
 
 test("POST 复用 GET 路由，JSON 参数转换为查询参数，路径参数保留，token 不传给脚本", async t => {

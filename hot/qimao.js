@@ -2,7 +2,7 @@
 import { utils } from "@findrss/util";
 import { HotRankScript, Result } from "@findrss/core";
 
-export const version = "1.0.3";
+export const version = "1.0.4";
 export const category = "小说";
 export const order = 380;
 // Favicon: https://www.google.com/s2/favicons?domain=www.qimao.com&sz=64
@@ -34,11 +34,13 @@ export class QimaoHotRank extends HotRankScript {
       const link = "https://www.qimao.com/paihang/" + gender + "/" + type + "/" + period + "/";
       const acquired = await ctx.cookies.get("qimao");
       if (acquired.error) return acquired;
-      const fetched = await utils.request_text(ctx, link, {
-        cookies: acquired.data,
-        headers: { Referer: "https://www.qimao.com/" },
-        transport: "tcp",
-      });
+      const options = { headers: { Referer: "https://www.qimao.com/" }, transport: "tcp" };
+      let fetched = await utils.request_text(ctx, link, { ...options, cookies: acquired.data });
+      if (fetched.code === "SCRIPT_COOKIE_PERMISSION_REQUIRED") {
+        // 同步数据里没有授权名称时不能携带 Cookie；七猫公开页面通常匿名也能读取。
+        ctx.log("七猫未获得可用 Cookie，改为匿名请求", { url: link });
+        fetched = await utils.request_text(ctx, link, options);
+      }
       if (fetched.error) return fetched;
       if (/aliyun_waf_|AliyunCaptcha|<title>\s*(?:滑动验证页面|访问验证|Verification)\s*<\/title>/i.test(fetched.data)) {
         return Result.Err("七猫返回访问验证页，请手动完成官网验证，在后台同步有效的 qimao.com 验证 Cookie 并确认脚本 Cookie 授权；若仍失败，可能是上游限制了服务端 IP", "UPSTREAM_INVALID_RESPONSE");
@@ -91,6 +93,6 @@ export const route = {
   maintainers: ["findrss"],
   example: "/qimao/paihang/boy/hot",
   parameters: { gender: "boy（男频，默认）、girl（女频）", type: "hot 大热榜（默认）、new 新书榜、over 完结榜、collect 收藏榜、update 更新榜", period: "date（默认）、month；大热/新书/完结支持日榜和月榜，收藏按总收藏数、更新按近 30 天更新字数排行，仅支持 date" },
-  description: "覆盖官网男女频全部 5 类榜单及可用周期，读取第一页并返回封面；保留上游排名与热度，未提供的数据为 null。需授权七猫访问验证 Cookie；遇到验证页请手动完成官网验证后同步 Cookie。",
+  description: "覆盖官网男女频全部 5 类榜单及可用周期，读取第一页并返回封面；保留上游排名与热度，未提供的数据为 null。可选授权七猫访问验证 Cookie：同步数据中没有授权名称时自动匿名重试；遇到验证页请手动完成官网验证后同步 Cookie。",
   handler: ctx => script.run(ctx),
 };

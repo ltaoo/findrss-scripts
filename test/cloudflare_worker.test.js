@@ -7,10 +7,9 @@ import { script_names } from "./support/script_sources.js";
 import { check_route } from "../scripts/route_checks.js";
 import { api_route_cases, route_cases } from "../worker/catalog.js";
 import { ERRORS } from "../worker/errors.js";
-import { completed_feed_request } from "./support/feed_queue.js";
 
 const origin = "https://scripts.example";
-const request = (path, env = {}, headers) => completed_feed_request(new Request(origin + path, { headers }), env);
+const request = (path, env = {}, headers) => worker.fetch(new Request(origin + path, { headers }), env);
 const upstream_feed = '<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Releases</title><entry><id>tag:github.com,2008:1/v1</id><title>v1.0</title><link rel="alternate" href="https://github.com/ltaoo/wx_channels_download/releases/tag/v1"/><updated>2026-10-26T01:00:00Z</updated><content>Release content</content></entry></feed>';
 
 test("构建目录覆盖所有脚本和全部路由，包含 RSS/Atom、正文及图片", async () => {
@@ -41,6 +40,40 @@ test("Worker 使用生产沙箱采集并渲染 RSS/Atom，巡检验证实际输�
   const failed = await request("/rss/github/ltaoo/wx_channels_download/release");
   assert.equal(failed.status, 502);
   assert.equal((await failed.json()).file, "rss/github.js");
+});
+
+test("订阅路由在请求内同步执行并直接返回 RSS、Atom 与 JSON", async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  globalThis.fetch = async () => new Response(upstream_feed);
+  const path = "/github/ltaoo/wx_channels_download/release";
+  const self = origin + "/rss" + path;
+  const rss = await request("/rss" + path);
+  assert.equal(rss.status, 200);
+  assert.equal(rss.headers.get("Content-Type"), "application/rss+xml; charset=utf-8");
+  const rss_body = await rss.text();
+  assert.match(rss_body, /^<\?xml[^>]*\?>\s*<rss\b/);
+  assert.ok(rss_body.includes('<atom:link href="' + self + '" rel="self" type="application/rss+xml" />'));
+  assert.equal(rss.headers.get("X-FindRSS-Cache"), null);
+  assert.equal(rss.headers.get("X-FindRSS-Updated-At"), null);
+  const atom = await request("/atom" + path);
+  assert.equal(atom.status, 200);
+  assert.equal(atom.headers.get("Content-Type"), "application/atom+xml; charset=utf-8");
+  assert.match(await atom.text(), /^<\?xml[^>]*\?>\s*<feed [^>]*xmlns="http:\/\/www\.w3\.org\/2005\/Atom"/);
+  const json = await request("/api/rss" + path);
+  assert.equal(json.status, 200);
+  assert.equal(json.headers.get("Content-Type"), "application/json; charset=utf-8");
+  assert.equal((await json.json()).title, "ltaoo/wx_channels_download Releases");
+});
+
+test("订阅路由输出结构非法时返回 SCRIPT_OUTPUT_INVALID", async t => {
+  const script = scripts.find(script => script.file === "rss/github.js");
+  const source = script.source;
+  t.after(() => { script.source = source; });
+  script.source += '\nroutes[0].handler = async () => ({ title: "缺少 items" });';
+  const response = await request("/rss/github/ltaoo/wx_channels_download/release");
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).code, "SCRIPT_OUTPUT_INVALID");
 });
 
 test("Detect 路由初始化快照，凭据配置必须经令牌保护且不会公开返回", async t => {

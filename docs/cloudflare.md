@@ -16,30 +16,7 @@ npx wrangler login
 npx wrangler whoami
 ```
 
-将 `wrangler.jsonc` 的 Worker 名称、自定义域名和 `COOKIE_KV` 命名空间 ID 改为自己账号的资源。订阅快照使用以下独立资源，无需 D1 或 Durable Objects：
-
-| 资源 | 名称 | Worker 绑定 | 用途 |
-| --- | --- | --- | --- |
-| R2 桶 | `findrss-script-feeds` | `FEED_SNAPSHOTS` | 保存任务记录与订阅快照 |
-| Queue | `findrss-script-feeds` | `FEED_QUEUE`（生产者） | 消费者由同一个 Worker 提供 |
-| Queue | `findrss-script-feeds-dlq` | 无 | 保存重试耗尽的任务，由同一个 Worker 消费并记录失败 |
-
-先检查资源，只有列表中不存在同名资源时才执行相应创建命令：
-
-```sh
-npx wrangler r2 bucket list
-npx wrangler queues list
-```
-
-```sh
-npx wrangler r2 bucket create findrss-script-feeds --update-config=false
-npx wrangler queues create findrss-script-feeds
-npx wrangler queues create findrss-script-feeds-dlq
-```
-
-死信队列先创建再部署；否则 `wrangler` 会因消费者引用的队列不存在而拒绝部署。已有部署补加死信队列时同样先执行最后一条命令。
-
-绑定已写入本仓库配置，R2 创建命令不再自动追加配置。资源按名称绑定，无需将 Queue ID 写入配置；修改资源名称时同步 `r2_buckets` 中绑定 `FEED_SNAPSHOTS` 的 `bucket_name`，以及 Queue 生产者和消费者的 `queue`。R2 桶保持私有，不启用 `r2.dev` 或 R2 自定义域名；订阅通过受 Worker 鉴权保护的地址读取。
+将 `wrangler.jsonc` 的 Worker 名称、自定义域名和 `COOKIE_KV` 命名空间 ID 改为自己账号的资源。订阅在请求内同步执行，不需要 R2、Queue、Cron、D1 或 Durable Objects。`COOKIE_KV` 用于保存 Cookie 与浏览器验证状态，不使用 Cookie 同步时可移除该绑定。
 
 首次设置访问令牌，再执行检查与部署；已有部署的 Secret 会保留，无需重新输入：
 
@@ -50,7 +27,7 @@ npm run dry-run
 npm run deploy
 ```
 
-默认 `COOKIE_KV` 绑定要求配置 `ACCESS_TOKEN`，Cookie 同步还需[下方凭据配置](#凭据与设备)。`npm run deploy` 会按 `wrangler.jsonc` 绑定 R2、注册 Queue 生产者和消费者，并启用每 10 分钟一次的 Cron。单独创建桶和队列不会更新线上 Worker；刚创建的 Queue 尚无生产者、消费者，需部署后才会出现。
+默认 `COOKIE_KV` 绑定要求配置 `ACCESS_TOKEN`，Cookie 同步还需[下方凭据配置](#凭据与设备)。`npm run deploy` 会按 `wrangler.jsonc` 更新 Worker 及其绑定。
 
 ## 后续更新
 
@@ -62,20 +39,13 @@ npm run dry-run
 npm run deploy
 ```
 
-无需重复创建 R2 桶、Queue 或设置已有 Secret。若本机默认 Node 版本低于要求，可使用 `mise exec node@22.19.0 -- npm run deploy`，其余 npm/npx 命令也可使用相同前缀。GitHub 集成首次部署前同样需完成资源与 Secret 初始化，之后只需构建和部署。
+无需重复设置已有 Secret。若本机默认 Node 版本低于要求，可使用 `mise exec node@22.19.0 -- npm run deploy`，其余 npm/npx 命令也可使用相同前缀。GitHub 集成首次部署前同样需完成 Secret 初始化，之后只需构建和部署。
 
 ## 上线检查
 
-先确认资源及 Queue 绑定：
+使用已有令牌访问 `/health` 应返回 `ok: true`，再访问 `/rss/youtube/@Brookemonk/shorts` 或 `/api/rss/youtube/@Brookemonk/shorts`：订阅在请求内同步执行并直接返回 200，没有缓存或快照等待。用同一路径的 Atom 地址可以获取同一采集结果。
 
-```sh
-npx wrangler r2 bucket info findrss-script-feeds
-npx wrangler queues info findrss-script-feeds
-```
-
-部署后 Queue 应显示 `findrss-scripts` 为生产者和消费者。使用已有令牌访问 `/health` 应返回 `ok: true`，再访问 `/rss/youtube/@Brookemonk/shorts` 或 `/api/rss/youtube/@Brookemonk/shorts`：首次返回 `503 FEED_GENERATING` 和 `Retry-After: 5`，稍后重试应返回 200、`X-FindRSS-Cache: hit` 和 `X-FindRSS-Updated-At`。用同一路径的 Atom 地址可以读取同一采集结果。
-
-若持续生成中或返回采集错误，使用 `npx wrangler tail --format json` 检查 `snapshot_collect`、`snapshot_consume` 等阶段日志及业务码。平台直接终止消费者时可能没有脚本日志，需检查队列事件的 `outcome`、`cpuTime`；`exceededCpu` 表示消费者仍受实际 CPU 额度限制。资源绑定和 `/health` 成功不能证明采集成功。`/debug` 仍同步执行，不能用它判断队列快照是否可用。仓库巡检工具会在总超时内按 `Retry-After` 等待首次生成。
+若返回采集错误，使用 `npx wrangler tail --format json` 检查脚本阶段日志及业务码。平台直接终止 Worker 时可能没有脚本日志，需检查 `outcome`、`cpuTime`；`exceededCpu` 表示当前套餐 CPU 额度不足，Free 套餐约 10ms。`/health` 成功不能证明某一脚本采集成功。
 
 ## 默认入口
 
@@ -86,7 +56,7 @@ npx wrangler queues info findrss-script-feeds
 | `/api/hot/<脚本路径>` | 热榜 JSON |
 | `/rss/<脚本路径>` | RSS 2.0 |
 | `/atom/<脚本路径>` | Atom 1.0 |
-| `/api/rss/<脚本路径>` | 订阅 JSON 快照 |
+| `/api/rss/<脚本路径>` | 订阅 JSON |
 | `/api/clip/<脚本路径>` | 剪藏 JSON，包含静态 HTML |
 | `/api/detect/<脚本路径>` | 检测 JSON，本次采样的初始快照 |
 | `/img/<平台>?url=...` | 经脚本白名单校验的图片 |
@@ -98,23 +68,15 @@ npx wrangler queues info findrss-script-feeds
 
 脚本路由同时支持 GET 和 POST。POST 使用 `Content-Type: application/json`，JSON 对象中的字符串、数字或布尔值作为查询参数传入脚本（覆盖同名 query；null 忽略），路径参数仍写在 URL 中。请求体最多 2MB，不接受嵌套对象或数组；请求体中的 `token` 不用于授权，也不会传入脚本。建议 POST 使用 `Authorization: Bearer <token>`；管理入口与 Debug 仍仅支持 GET。
 
-所有脚本默认注册，不需要后台导入、发布或数据库。当前 104 个脚本生成 138 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。RSS/Atom/订阅 JSON 使用持久化快照；Detect 为无状态采样，不保存历史基线。没有管理后台或订阅管理。
+所有脚本默认注册，不需要后台导入、发布或数据库。当前 104 个脚本生成 138 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。RSS/Atom/订阅 JSON 与其它入口一样在请求内同步执行；Detect 为无状态采样，不保存历史基线。没有管理后台或订阅管理。
 
 `npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，69书吧和 JAVLibrary 优先复用已保存的验证状态，失效时通过浏览器兜底，配置已声明 `BROWSER` 绑定。Wrangler 本地开发通过 Miniflare 启动本机 Chrome，首次调用可能需要下载浏览器；使用 `X_BROWSER_HEADFUL=true npm run dev` 可显示浏览器窗口。若要让本地服务调用云端浏览器，可在 `browser` 配置中添加 `"remote": true`，这会使用 Cloudflare 账号的浏览器额度。只有声明 Cookie 权限的站点会恢复已授权 Cookie 和匹配的 User-Agent，其他页面仍为匿名会话；本地浏览器的网络环境和风控结果可能与云端不同。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/s/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
 
-## 队列采集与订阅快照
+## 订阅同步执行
 
-RSS、Atom、`/api/rss` 及脚本声明路径的订阅入口共用 Queues 采集结果。HTTP 请求先完成鉴权、路由匹配、POST 请求体和配置检查，然后读取 R2 快照，不运行 QuickJS；缺少快照时投递采集任务并返回 HTTP 503、`code: FEED_GENERATING` 和 `Retry-After: 5`。首次访问例如 `/rss/youtube/@Brookemonk/shorts` 后等待数秒重试，队列完成采集即可读取结果。
+RSS、Atom、`/api/rss` 及脚本声明路径的订阅入口与其它入口一样，在 HTTP 请求内直接运行 QuickJS：完成鉴权、路由匹配、POST 请求体和配置检查后执行脚本，并把结果渲染为 XML 或 JSON。没有队列、定时任务、R2 快照或缓存，首次访问即返回结果，响应中也不包含 `X-FindRSS-Cache`、`X-FindRSS-Updated-At`。
 
-队列消费者复用原有脚本执行器，在后台读取当前 Cookie、脚本配置和浏览器验证状态，运行脚本并生成 JSON、RSS 和 Atom 三种格式。一次成功结果原子写入 R2；采集或写入失败保留上次成功快照，首次采集失败则返回原有业务错误码。临时性采集错误会延迟重试，未知消费或存储故障交给 Queue 重试。单次执行除中止信号外还有 120 秒的等待上限，避免忽略中止信号的调用把消费者拖到 15 分钟墙钟上限并阻塞整个队列。
-
-快照按脚本源码、路由索引、路径参数、查询参数、请求方法、公开 origin 和脚本配置隔离；RSS/Atom/JSON 的路径别名与查询参数顺序不产生重复采集。GET 和 POST 保持各自脚本上下文；队列中的 `ctx.pathname` 为去掉访问命名空间后的脚本路径。修改源码或配置后重新生成快照，旧任务不会覆盖新版本。Cookie 更新在后续采集时读取。访问令牌在投递前剥离，不存入任务记录、队列消息或 self URL；队列消息只携带任务键和投递时间。
-
-默认每 10 分钟由 Cron 扫描已访问过的订阅并投递刷新任务；访问过期快照也会触发刷新，刷新期间继续提供旧结果。响应头 `X-FindRSS-Cache` 为 `hit`、`stale` 或 `pending`，`X-FindRSS-Updated-At` 为最后一次成功采集时间。两个绑定缺失或存储不可读时返回 `SNAPSHOT_UNAVAILABLE`，不会退回 HTTP 内同步采集。定时任务只刷新已登记的参数组合，不自动订阅全部脚本示例。
-
-队列用于分离采集与读取，不会自动提高套餐的 CPU 额度。实际预算以账号套餐、Worker 配置及线上日志为准；[Queues Limits](https://developers.cloudflare.com/queues/platform/limits/) 的通用默认额度不能替代实测。2026-11-02 在当前 Free 账号部署后，YouTube Shorts 队列事件仍出现 `exceededCpu`（首次约 2050 ms，随后约 50 ms 被终止）；尝试显式设置 `limits.cpu_ms: 30000` 被 Cloudflare API 以 `100328` 拒绝，提示 Free 套餐不支持 CPU 上限配置。该配置已撤回；要完成这类重采集，需要具备足够 CPU 预算的套餐或执行环境。
-
-`max_batch_size: 1`、`max_concurrency: 1` 让每次消费只运行一个采集任务。重试耗尽的采集任务进入 `findrss-script-feeds-dlq`，由同一个 Worker 消费：没有成功快照时写入 `FEED_GENERATION_FAILED` 失败快照并释放租约，已有成功快照时保持不变等待下次刷新，避免消息被静默丢弃或请求永远停在 `FEED_GENERATING`。死信队列本身没有成功生成能力，只负责让失败可见。调试、Hot、Clip、Detect、正文和图片代理入口仍同步执行；Debug 不读取订阅快照，仍可能出现 HTTP CPU 超限。`npm run dev` 会在本地模拟队列与 R2；本地测试不能替代线上资源限额验证。
+执行受当前套餐 CPU 限制，不会因改为同步而提高额度。Free 套餐约 10ms；复杂脚本可能被平台终止并返回 1102，这是预期可能结果，不做降级或缓存。需要稳定执行较大页面解析时，应使用具备足够 CPU 预算的套餐。`npm run dev` 与线上运行同一套同步路径，但本地资源限制与线上不同。
 
 ## 凭据与设备
 
@@ -267,7 +229,7 @@ GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-chec
 }
 ```
 
-巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。当前仓库配置为 `rss/wxmp.js` 的 `wow36kr`、`zhihuribao` 和 `rss/wxchannels.js` 的两个视频号账号检查 `/api/rss` JSON 快照。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本地址，JSON 的 `samples` 保留逐样本详情。
+巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。当前仓库配置为 `rss/wxmp.js` 的 `wow36kr`、`zhihuribao` 和 `rss/wxchannels.js` 的两个视频号账号检查 `/api/rss` JSON。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本地址，JSON 的 `samples` 保留逐样本详情。
 
 本地也可以运行同一巡检：
 
@@ -292,7 +254,7 @@ npm run replay:routes -- --report reports/replay.json --class exceeded_cpu
 npm run replay:routes -- --base http://127.0.0.1:8801 --dev-vars
 ```
 
-分类包括 `passed`、`exceeded_cpu`、`feed_generating`、`cookie_required`、`config`、`upstream`、`script`、`error`、`timeout`、`platform_error`、`server_error`、`http_error` 和 `network_error`。`--feed-retries` 按 `Retry-After` 等待订阅快照生成；`--all` 复跑所有路由而不仅是失败项。再次用 `--class exceeded_cpu` 复跑上一份复跑报告，可以单独确认 CPU 超限是否可复现。
+分类包括 `passed`、`exceeded_cpu`、`cookie_required`、`config`、`upstream`、`script`、`error`、`timeout`、`platform_error`、`server_error`、`http_error` 和 `network_error`。`--all` 复跑所有路由而不仅是失败项。再次用 `--class exceeded_cpu` 复跑上一份复跑报告，可以单独确认 CPU 超限是否可复现。
 
 ## 错误响应
 
@@ -302,7 +264,7 @@ npm run replay:routes -- --base http://127.0.0.1:8801 --dev-vars
 
 本项目使用 QuickJS/Wasm 执行脚本，大页面解析和多条详情补查会消耗 CPU。YouTube Shorts 为首屏每条视频补查发布日期，即使限制请求并发，累计 CPU 开销也不会减少；脚本仅将详情页的 meta 标签交给节点解析器，跳过脚本、样式和正文。
 
-Workers Free 每个 HTTP 请求只有 10 ms CPU。订阅入口现已使用 Queues 采集并读取 R2 快照，但消费者仍需满足实际套餐的 CPU 限制；当前 Free 账号线上已验证队列也会超限，不能假定改为队列就获得 30 秒预算。Workers Paid 的默认 HTTP CPU 上限为 30 秒，CPU 配置是否可用由平台校验。`limits.cpu_ms` 不会升级账号套餐；`AbortSignal.timeout` 控制等待时长，同样不能提高 CPU 额度。额度和诊断字段见 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/) 和 [Queues Limits](https://developers.cloudflare.com/queues/platform/limits/)。
+Workers Free 每个 HTTP 请求只有 10 ms CPU。订阅入口与其它入口一样在请求内同步执行，同样受这一额度限制；不能假定去掉队列就获得更多 CPU。Workers Paid 的默认 HTTP CPU 上限为 30 秒，CPU 配置是否可用由平台校验。`limits.cpu_ms` 不会升级账号套餐；`AbortSignal.timeout` 控制等待时长，同样不能提高 CPU 额度。额度和诊断字段见 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)。
 
 2026-11-02 用生产同版本 QuickJS 实测：即使不计上游请求，每次执行先要实例化沙箱（约 4 ms）并编译运行内置工具与脚本（约 5 ms），已经接近 Free 的 10 ms 预算。`npm run replay:routes --all --concurrency 10` 复跑 140 条路由得到 40 条 `exceeded_cpu`，与巡检报告的 40 条无业务码 503 完全一致；`wrangler tail` 捕获的终止事件中，kuaishou、mastodon、mktnews、tencent、thepaper 等路由均为 `cpuTime: 10`、`wallTime` 仅 12–23 ms，说明 CPU 预算在脚本开始请求上游前就被沙箱初始化耗尽。同一批 CPU 路由以 `--concurrency 5` 复跑时没有超限，通过的路由实测 33–161 ms CPU，说明平台对偶发超额有容忍，但巡检的 10 路并发会集中触发硬限制。
 

@@ -1,5 +1,13 @@
 const encode_path = file => String(file).split("/").map(part => encodeURIComponent(part).replace(/[!'()*]/g, char => "%" + char.charCodeAt(0).toString(16).toUpperCase())).join("/");
 const raw_url = (branch, file) => `https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/${branch}/` + encode_path(file);
+// 只展示请求路径，避免 token 等查询参数进入报告页面。
+const example_path = value => {
+  if (typeof value !== "string") return "";
+  try {
+    return new URL(value, "https://example.invalid").pathname.split("/")
+      .map(part => { try { return decodeURIComponent(part); } catch { return part; } }).join("/");
+  } catch { return ""; }
+};
 
 export function route_report_model(report, catalog) {
   if (!report || !Array.isArray(report.results)) throw new Error("巡检报告缺少 results 数组");
@@ -15,8 +23,9 @@ export function route_report_model(report, catalog) {
       const file = sample.output_file;
       if (!sample.output_valid || typeof file !== "string" || /[\\?#\u0000-\u001f]/.test(file)
         || file.split("/").some(part => !part || part === "." || part === "..")) return [];
+      const example = example_path(sample.example);
       return [{ url: report_prefix + encode_path("responses/" + file),
-        label: samples.length > 1 ? `查看产物 ${index + 1}` : "查看产物" }];
+        label: samples.length > 1 ? `查看产物 ${index + 1}` : "查看产物", ...(example ? { example } : {}) }];
     });
     if (artifacts.length) row.artifacts = artifacts;
     if (!groups.has(result.file)) groups.set(result.file, []);

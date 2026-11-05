@@ -1,5 +1,5 @@
 // 每种脚本 kind 对应一组访问前缀。route.path 自身始终直接可访问，前缀只是按 kind 增加的别名。
-// rss 的 /api/rss 返回订阅 JSON 快照，/rss 与 /atom 仍渲染 XML；其余 kind 都返回 JSON。
+// rss 的 /api/rss 返回订阅 JSON，/rss 与 /atom 仍渲染 XML；其余 kind 都返回 JSON。
 const prefixes = {
   rss: [
     { prefix: "/rss", format: "rss" },

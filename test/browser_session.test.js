@@ -7,7 +7,6 @@ import worker from "../worker/index.js";
 import { create_browser_session } from "../worker/browser_session.js";
 import { clear_cookie_read_cache, load_browser_session, save_browser_session } from "../worker/cookie_sync.js";
 import { create_puppeteer_navigate } from "findrss-worker/server/infra/script_puppeteer.js";
-import { completed_feed_request } from "./support/feed_queue.js";
 
 const origin = "https://www.javlibrary.com";
 const user_agent = "VerifiedBrowser/1.0";
@@ -26,7 +25,7 @@ function environment(values = new Map()) {
       async get(key) { reads.set(key, (reads.get(key) || 0) + 1); return values.has(key) ? JSON.parse(values.get(key)) : null; },
       async put(key, value) { values.set(key, value); } } };
 }
-const request = (env, path = "/api/rss/javlibrary/star/abc123") => completed_feed_request(new Request("https://feeds.example" + path, {
+const request = (env, path = "/api/rss/javlibrary/star/abc123") => worker.fetch(new Request("https://feeds.example" + path, {
   headers: { Authorization: "Bearer " + env.ACCESS_TOKEN },
 }), env);
 

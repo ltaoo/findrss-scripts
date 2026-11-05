@@ -453,11 +453,11 @@ export const routes = [
     "zvideos",
     "用户视频",
     "/people/:user/zvideos",
-    "/people/zhihu/zvideos",
+    "/people/TonyVolcano/zvideos",
     "user",
   ],
   ["asks", "用户提问", "/people/:user/asks", "/people/zhihu/asks", "user"],
-  ["posts", "用户文章", "/people/:user/posts", "/people/zhihu/posts", "user"],
+  ["posts", "用户文章", "/people/:user/posts", "/people/TonyVolcano/posts", "user"],
   [
     "column",
     "专栏",
@@ -465,7 +465,7 @@ export const routes = [
     "/column/googledevelopers",
     "column_id",
   ],
-  ["pins", "用户想法", "/people/:user/pins", "/people/zhihu/pins", "user"],
+  ["pins", "用户想法", "/people/:user/pins", "/people/TonyVolcano/pins", "user"],
   [
     "collection",
     "收藏夹",

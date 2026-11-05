@@ -2,7 +2,7 @@
 import { utils } from "@findrss/util";
 import { HotRankScript, Result } from "@findrss/core";
 
-export const version = "1.2.0";
+export const version = "1.3.1";
 export const category = "小说";
 export const order = 370;
 export const platform = {
@@ -66,20 +66,34 @@ export class QidianHotRank extends HotRankScript {
         "/" +
         (category_id !== "-1" || period ? "catid" + category_id + "/" : "") +
         (period ? (type === "yuepiao" ? period : periods[period]) + "/" : "");
-      const fetched = await utils.request_text(ctx, link, {
-        headers: {
-          Referer: home + "/",
-          Accept: "text/html,application/xhtml+xml",
-          "User-Agent":
-            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
-        },
+      const page_marker =
+        /<script\b[^>]*\bid=["']vite-plugin-ssr_pageContext["'][^>]*>/i;
+      const headers = {
+        Accept: "text/html,application/xhtml+xml",
+        "User-Agent":
+          "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
+      };
+      let fetched = await utils.request_text(ctx, link, {
+        headers: { ...headers, Referer: home + "/" },
       });
       if (fetched.error) return fetched;
-      const context = utils.embedded_json(
-        fetched.data,
-        /<script\b[^>]*\bid=["']vite-plugin-ssr_pageContext["'][^>]*>/i,
-      );
-      if (context.error) return context;
+      let context = utils.embedded_json(fetched.data, page_marker);
+      if (context.error) {
+        // m.qidian.com 对非移动 UA 携带 Referer 时返回 SEO 跳转页（无内嵌 JSON），
+        // 去掉 Referer 重试一次可拿到服务端渲染榜单。
+        fetched = await utils.request_text(ctx, link, { headers });
+        if (fetched.error) return fetched;
+        context = utils.embedded_json(fetched.data, page_marker);
+        if (context.error)
+          return Result.Err(
+            /location\.replace|source=m_jump|TCaptcha|probe\w*\.js|yw_risk_verify/i.test(
+              fetched.data,
+            )
+              ? "起点返回访问验证或跳转页，请稍后重试"
+              : "起点返回的榜单页缺少内嵌数据",
+            "UPSTREAM_INVALID_RESPONSE",
+          );
+      }
       const page = context.data.pageContext?.pageProps?.pageData;
       if (page?.gender && page.gender !== "male")
         return Result.Err(
@@ -179,55 +193,55 @@ export const routes = [
   {
     ...rank_metadata,
     name: "起点 · 月票榜",
-    path: "/qidian/rank/yuepiao",
+    path: "/qidian/yuepiao",
     handler: (ctx) => new QidianHotRank("yuepiao").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 畅销榜",
-    path: "/qidian/rank/hotsales",
+    path: "/qidian/hotsales",
     handler: (ctx) => new QidianHotRank("hotsales").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 阅读榜",
-    path: "/qidian/rank/readindex",
+    path: "/qidian/readindex",
     handler: (ctx) => new QidianHotRank("readindex").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 书友榜",
-    path: "/qidian/rank/newfans",
+    path: "/qidian/newfans",
     handler: (ctx) => new QidianHotRank("newfans").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 推荐榜",
-    path: "/qidian/rank/rec",
+    path: "/qidian/rec",
     handler: (ctx) => new QidianHotRank("rec").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 更新榜",
-    path: "/qidian/rank/update",
+    path: "/qidian/update",
     handler: (ctx) => new QidianHotRank("update").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 签约榜",
-    path: "/qidian/rank/sign",
+    path: "/qidian/sign",
     handler: (ctx) => new QidianHotRank("sign").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 新书榜",
-    path: "/qidian/rank/newbook",
+    path: "/qidian/newbook",
     handler: (ctx) => new QidianHotRank("newbook").run(ctx),
   },
   {
     ...rank_metadata,
     name: "起点 · 新人榜",
-    path: "/qidian/rank/newauthor",
+    path: "/qidian/newauthor",
     handler: (ctx) => new QidianHotRank("newauthor").run(ctx),
   },
 ];

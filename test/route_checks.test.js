@@ -10,25 +10,20 @@ const value = { kind: "hot_rank", title: "Example", link: "https://example.com",
 const headers = { "Content-Type": "application/json", "X-FindRSS-Script": entry.file, "X-FindRSS-Route": "0" };
 const run = fetch_impl => check_route("https://scripts.example", entry, { fetch_impl });
 
-test("快照生成中按 Retry-After 重试，沿用同一个总超时信号，其他 503 不重试", async () => {
+test("其他 503 只请求一次，不重试", async () => {
   let calls = 0;
-  const signals = [];
-  const result = await run(async (_url, options) => {
-    signals.push(options.signal);
-    return ++calls === 1 ? Response.json({ code: "FEED_GENERATING", message: "生成中" }, {
-      status: 503, headers: { "Retry-After": "1" },
-    }) : Response.json(value, { headers });
-  });
-  assert.equal(result.output_valid, true);
-  assert.equal(calls, 2);
-  assert.equal(signals[0], signals[1]);
-  const timed_out = await check_route("https://scripts.example", entry, { timeout_ms: 20,
-    fetch_impl: async () => Response.json({ code: "FEED_GENERATING", message: "生成中" }, { status: 503 }) });
-  assert.equal(timed_out.output_valid, false);
-  assert.ok(timed_out.error);
-  calls = 0;
   await run(async () => { calls++; return new Response("unavailable", { status: 503 }); });
   assert.equal(calls, 1);
+});
+
+test("巡检先发出 on_start，再为同一槽位发出 on_result", async () => {
+  const calls = [];
+  await check_routes("https://scripts.example", [entry], {}, {
+    fetch_impl: async () => Response.json(value, { headers }),
+    on_start: (item, worker) => calls.push(["start", worker, item.example]),
+    on_result: (result, worker) => calls.push(["result", worker, result.example]),
+  });
+  assert.deepEqual(calls, [["start", 0, entry.example], ["result", 0, entry.example]]);
 });
 
 test("平台 CPU 超限页标记为 EXCEEDED_CPU，普通 503 不误判", async () => {

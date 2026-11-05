@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.0.1";
+export const version = "1.0.2";
 // Favicon: https://www.google.com/s2/favicons?domain=www.qimao.com&sz=64
 export const platform = {
   name: "七猫小说",
@@ -88,7 +88,13 @@ export class QimaoChaptersRSS extends RSSScript {
   }
 
   static async request_text(ctx, url, cookies, referer) {
-    const fetched = await utils.request_text(ctx, url, { cookies, headers: { Referer: referer }, transport: "tcp" });
+    const options = { headers: { Referer: referer }, transport: "tcp" };
+    let fetched = await utils.request_text(ctx, url, { ...options, cookies });
+    if (fetched.code === "SCRIPT_COOKIE_PERMISSION_REQUIRED") {
+      // 同步数据里没有授权名称时不能携带 Cookie；七猫公开页面通常匿名也能读取。
+      ctx.log("七猫未获得可用 Cookie，改为匿名请求", { url });
+      fetched = await utils.request_text(ctx, url, options);
+    }
     if (fetched.error) return fetched;
     if (/aliyun_waf_|AliyunCaptcha|<title>\s*(?:滑动验证页面|访问验证|Verification)\s*<\/title>/i.test(fetched.data)) {
       return Result.Err("七猫返回访问验证页，请手动完成官网验证，在后台同步有效的 qimao.com 验证 Cookie 并确认脚本 Cookie 授权；若仍失败，可能是上游限制了服务端 IP", "UPSTREAM_INVALID_RESPONSE");
@@ -105,6 +111,6 @@ export const route = {
   maintainers: ["findrss"],
   example: "/qimao/book/13030701",
   parameters: { book_id: "小说详情页 /shuku/ 后的数字 ID" },
-  description: "读取完整章节目录，按更新时间倒序输出章节标题、字数和官网阅读链接，不抓取正文。需授权七猫访问验证 Cookie；遇到验证页请手动完成官网验证后同步 Cookie。",
+  description: "读取完整章节目录，按更新时间倒序输出章节标题、字数和官网阅读链接，不抓取正文。可选授权七猫访问验证 Cookie：同步数据中没有授权名称时自动匿名重试；遇到验证页请手动完成官网验证后同步 Cookie。",
   handler: ctx => script.run(ctx),
 };

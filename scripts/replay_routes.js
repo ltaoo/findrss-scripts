@@ -20,7 +20,6 @@ export function classify_probe(status, content_type, body) {
   if (problem && typeof problem === "object") {
     const code = typeof problem.code === "string" ? problem.code : typeof problem.error === "string" ? problem.error : "";
     const message = typeof problem.message === "string" ? problem.message : "";
-    if (code === "FEED_GENERATING") return { classification: "feed_generating", code, message };
     if (code === "COOKIE_REQUIRED") return { classification: "cookie_required", code, message };
     if (code === "CONFIG_INVALID" || code === "ACCESS_TOKEN_REQUIRED") return { classification: "config", code, message };
     if (code.startsWith("UPSTREAM_")) return { classification: "upstream", code, message };
@@ -64,27 +63,21 @@ async function read_prefix(response) {
   return Buffer.concat(chunks.map(chunk => Buffer.from(chunk))).toString("utf8");
 }
 
-export async function probe_route(base, entry, { token = "", timeout_ms = 60000, feed_retries = 0, fetch_impl = fetch } = {}) {
+export async function probe_route(base, entry, { token = "", timeout_ms = 60000, fetch_impl = fetch } = {}) {
   const started = Date.now();
   const signal = AbortSignal.timeout(timeout_ms);
   let attempts = 0;
   try {
     const url = new URL(entry.example, base);
     if (url.origin !== new URL(base).origin) throw new Error("复跑地址必须位于目标站点：" + entry.example);
-    for (;;) {
-      attempts++;
-      const response = await fetch_impl(url, { redirect: "manual", signal,
-        headers: token ? { Authorization: "Bearer " + token } : {} });
-      const body = await read_prefix(response);
-      const result = { ...entry, status: response.status, attempts, duration_ms: Date.now() - started,
-        ...classify_probe(response.status, response.headers.get("Content-Type"), body) };
-      result.script = response.headers.get("X-FindRSS-Script") || "";
-      result.cache = response.headers.get("X-FindRSS-Cache") || "";
-      if (result.classification !== "feed_generating" || attempts > feed_retries) return result;
-      const delay = Math.min(timeout_ms, Math.max(1, Number(response.headers.get("Retry-After")) || 5) * 1000);
-      await new Promise(resolve => setTimeout(resolve, delay));
-      signal.throwIfAborted();
-    }
+    attempts++;
+    const response = await fetch_impl(url, { redirect: "manual", signal,
+      headers: token ? { Authorization: "Bearer " + token } : {} });
+    const body = await read_prefix(response);
+    const result = { ...entry, status: response.status, attempts, duration_ms: Date.now() - started,
+      ...classify_probe(response.status, response.headers.get("Content-Type"), body) };
+    result.script = response.headers.get("X-FindRSS-Script") || "";
+    return result;
   } catch (error) {
     return { ...entry, status: 0, attempts, duration_ms: Date.now() - started,
       classification: timeout_names.has(error.name) ? "timeout" : "network_error", message: error.message };
@@ -109,7 +102,7 @@ export async function replay_routes(entries, options = {}) {
 }
 
 export function render_replay_summary(report) {
-  const labels = { passed: "通过", exceeded_cpu: "平台 CPU 超限", feed_generating: "快照生成中",
+  const labels = { passed: "通过", exceeded_cpu: "平台 CPU 超限",
     cookie_required: "缺少 Cookie", config: "配置无效", upstream: "上游错误", script: "脚本失败",
     error: "业务错误", timeout: "超时", platform_error: "平台错误页", server_error: "服务端错误",
     http_error: "HTTP 错误", network_error: "网络错误" };
@@ -129,7 +122,7 @@ export function render_replay_summary(report) {
 }
 
 function parse_args(argv) {
-  const options = { all: false, dev_vars: false, concurrency: 5, timeout_ms: 60000, feed_retries: 0, file: "", classification: "" };
+  const options = { all: false, dev_vars: false, concurrency: 5, timeout_ms: 60000, file: "", classification: "" };
   for (let index = 0; index < argv.length; index++) {
     const arg = argv[index];
     const value = () => argv[++index];
@@ -142,7 +135,6 @@ function parse_args(argv) {
     else if (arg === "--class") options.classification = value();
     else if (arg === "--concurrency") options.concurrency = Number(value());
     else if (arg === "--timeout") options.timeout_ms = Number(value());
-    else if (arg === "--feed-retries") options.feed_retries = Number(value());
     else throw new Error("未知参数：" + arg);
   }
   return options;
@@ -164,7 +156,6 @@ async function main() {
   }
   const output = await replay_routes(entries, {
     base, token, concurrency: options.concurrency, timeout_ms: options.timeout_ms,
-    feed_retries: options.feed_retries,
     on_result: result => console.log(result.classification.padEnd(16) + result.file + " " + result.path),
   });
   const summary = render_replay_summary(output);

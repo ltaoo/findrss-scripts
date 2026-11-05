@@ -4,6 +4,7 @@ import test from "node:test";
 import { readFile } from "node:fs/promises";
 import { RssRoutePatternModel } from "findrss-worker/server/domain/rss_route.js";
 import { ScriptCookieAccess } from "findrss-worker/server/infra/script_cookie_access.js";
+import { WorkerCookieAccess } from "../worker/cookies.js";
 import { mock_tcp_http } from "findrss-worker/test/support/tcp_socket_fixture.js";
 
 const { compile_script_module, execute_script } = await import("findrss-worker/server/infra/script_sandbox.js");
@@ -16,6 +17,19 @@ const qidian_body = qidian_page([
   { bid: "9007199254740993", bName: "测试 &amp; 小说", rankNum: 2, rankCnt: "11.1万月票" },
   { bid: "1036526469", bName: "榜首", rankNum: 1, rankCnt: "1,234月票" },
   { bid: "9007199254740993", bName: "重复", rankNum: 3 },
+]);
+const qdmm_page = rows => '<div class="book-img-text"><ul>' + rows.map((row, index) =>
+  '<li data-rid="' + (index + 1) + '"><div class="book-img-box">' +
+  '<a href="//www.qdmm.com/book/' + row.bid + '/" data-bid="' + row.bid + '">' +
+  '<img src="//bookcover.yuewen.com/qdbimg/349573/' + row.bid + '/150.webp" alt="' + row.bName + '在线阅读"></a></div>' +
+  '<div class="book-mid-info"><h2><a href="//www.qdmm.com/book/' + row.bid + '/" data-bid="' + row.bid +
+  '" title="' + row.bName + '最新章节在线阅读">' + row.bName + '</a></h2></div>' +
+  (row.heat === undefined ? "" : '<div class="book-right-info"><div class="total"><p><span>' + row.heat + '</span>' + (row.unit || "月票") + '</p></div></div>') +
+  '</li>').join("") + '</ul></div>';
+const qdmm_body = qdmm_page([
+  { bid: "9007199254740993", bName: "测试 &amp; 小说", heat: "11.1万", unit: "月票" },
+  { bid: "1036526469", bName: "榜首", heat: "1,234", unit: "月票" },
+  { bid: "9007199254740993", bName: "重复", heat: "9" },
 ]);
 const fanqie_page = (books, rank_id = "1_2_1141", category = "西方奇幻") =>
   `<div class="muye-rank-menu"><a href="/rank/${rank_id}">${category}</a></div>` +
@@ -49,7 +63,7 @@ for (const name of ["qidian", "qdmm", "fanqienovel", "qimao"]) {
 function route_metadata(name, params = {}) {
   const metadata = sources[name].metadata;
   if (!["qidian", "qdmm"].includes(name)) return metadata;
-  const path = "/qidian/rank/" + (params.type || "yuepiao") + (name === "qdmm" ? "/female" : "");
+  const path = "/" + name + "/" + (params.type || "yuepiao");
   const route = metadata.routes.find(route => route.path === path);
   assert.ok(route, path);
   return { ...metadata, ...route };
@@ -97,6 +111,33 @@ test("起点热榜保留书籍大整数 ID、原排名、月票与去重，按�
   assert.equal("items" in snapshot, false);
 });
 
+test("起点遇到无内嵌 JSON 的跳转页时去掉 Referer 重试", async t => {
+  t.after(() => { globalThis.fetch = original_fetch; });
+  const requests = [];
+  const redirect =
+    '<script>try{var t=new URL("https://www.qidian.com/rank/yuepiao/");' +
+    'location.replace(t.toString())}catch(e){location.replace("https://www.qidian.com/rank/yuepiao/")}</script>';
+  globalThis.fetch = async (url, options) => {
+    requests.push({ url, options });
+    return new Response(requests.length === 1 ? redirect : qidian_body);
+  };
+  const result = await execute_script(
+    sources.qidian.source,
+    route_metadata("qidian"),
+    null,
+    undefined,
+    [],
+    "({params:{},query:{}})",
+    null,
+  );
+  const snapshot = JSON.parse(result.output);
+  assert.equal(snapshot.entries.length, 2);
+  assert.equal(requests.length, 2);
+  assert.equal(requests[0].url, "https://m.qidian.com/rank/yuepiao/");
+  assert.equal(new Headers(requests[0].options.headers).get("Referer"), "https://m.qidian.com/");
+  assert.equal(new Headers(requests[1].options.headers).get("Referer"), null);
+});
+
 test("起点畅销榜不补造上游未提供的热度和排名", async t => {
   const { snapshot, requests } = await run(t, "qidian", qidian_page([{ bid: "123", bName: "畅销小说" }]), { type: "hotsales" });
   assert.equal(snapshot.title, "起点 · 畅销榜");
@@ -105,7 +146,7 @@ test("起点畅销榜不补造上游未提供的热度和排名", async t => {
   assert.equal(requests[0].url, "https://m.qidian.com/rank/hotsales/");
 });
 
-test("起点男频 9 榜与独立起点女生网 8 榜保留原路由、来源、书籍 ID 和名称", async t => {
+test("起点男频 9 榜与独立起点女生网 8 榜使用站点路由并保留来源、书籍 ID 和名称", async t => {
   assert.deepEqual(Object.values(catalog.qidian).map(rows => rows.length), [9, 8]);
   assert.equal(sources.qidian.metadata.routes.length, 9);
   assert.equal(sources.qdmm.metadata.routes.length, 8);
@@ -113,10 +154,10 @@ test("起点男频 9 榜与独立起点女生网 8 榜保留原路由、来源�
   assert.equal(sources.qdmm.metadata.platform.name, "起点女生网");
   const routes = [...sources.qidian.metadata.routes, ...sources.qdmm.metadata.routes];
   assert.deepEqual(routes.map(route => route.path), Object.entries(catalog.qidian).flatMap(([gender, rows]) =>
-    rows.map(({ type }) => "/qidian/rank/" + type + (gender === "female" ? "/female" : ""))));
+    rows.map(({ type }) => (gender === "female" ? "/qdmm/" : "/qidian/") + type)));
   assert.ok(routes.every(route => !route.path.includes(":") && route.example === route.path));
   for (const route of routes) assert.deepEqual(Object.keys(route.parameters).sort(), ["category", "period"]);
-  for (const path of ["/qidian/rank/unknown", "/qidian/rank/free", "/qidian/rank/sign/female", "/qidian/rank/yuepiao/unknown"]) {
+  for (const path of ["/qidian/unknown", "/qidian/free", "/qdmm/sign", "/qidian/yuepiao/unknown", "/qdmm/yuepiao/female"]) {
     assert.ok(routes.every(route => !RssRoutePatternModel(route.path).match(path)), path);
   }
   for (const [gender, rows] of Object.entries(catalog.qidian)) {
@@ -125,11 +166,14 @@ test("起点男频 9 榜与独立起点女生网 8 榜保留原路由、来源�
       const route = route_metadata(name, { type });
       assert.equal(route.name, "起点 · " + (gender === "female" ? "女频" : "") + title);
       assert.ok(RssRoutePatternModel(route.path).match(route.example));
-      const { snapshot, requests } = await run(t, name, qidian_body, { type });
+      const { snapshot, requests } = await run(t, name, gender === "female" ? qdmm_body : qidian_body, { type });
       assert.equal(snapshot.title, "起点 · " + (gender === "female" ? "女频" : "") + title);
-      const home = gender === "female" ? "https://m.qdmm.com" : "https://m.qidian.com";
+      const home = gender === "female" ? "https://www.qdmm.com" : "https://m.qidian.com";
       assert.equal(route.url, new URL(home).hostname);
-      assert.equal(requests[0].url, home + "/rank/" + type + "/");
+      const page_path = gender === "female"
+        ? (type === "free" ? "/free/" : "/rank/" + ({ rec: "recom", update: "vipup" }[type] || type) + "/")
+        : "/rank/" + type + "/";
+      assert.equal(requests[0].url, home + page_path);
       assert.equal(new Headers(requests[0].options.headers).get("Referer"), home + "/");
       assert.equal(snapshot.entries.length, 2);
       assert.ok(snapshot.entries.every(row => row.link.startsWith(home + "/book/")));
@@ -142,36 +186,42 @@ test("起点男频 9 榜与独立起点女生网 8 榜保留原路由、来源�
 test("起点固定路由的榜单及频道不会被请求参数覆盖", async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
-  globalThis.fetch = async url => {
-    assert.equal(url, "https://m.qdmm.com/rank/free/");
-    return new Response(qidian_body);
+  globalThis.fetch = async (url, options) => {
+    assert.equal(url, "https://www.qdmm.com/free/");
+    // 起点女生网对不含 */* 的 Accept 返回 406。
+    assert.match(new Headers(options.headers).get("Accept"), /\*\/\*/);
+    return new Response(qdmm_body);
   };
   const metadata = route_metadata("qdmm", { type: "free" });
   const result = await execute_script(sources.qdmm.source, metadata, null, undefined, [],
-    '({params:{type:"../book",gender:"male"},query:{type:"hotsales",gender:"unknown"}})');
+    '({params:{type:"../book",gender:"male"},query:{type:"hotsales",gender:"unknown"}})', cookie_access("qdmm"));
   assert.equal(JSON.parse(result.output).title, "起点 · 女频免费榜");
 });
 
 test("起点分类、月票历史月份、推荐周月总榜和书友周月榜使用官方筛选地址", async t => {
-  for (const [type, query, suffix] of [
-    ["yuepiao", { category: "21", period: "202609" }, "catid21/202609/"],
-    ["hotsales", { category: "4" }, "catid4/"],
-    ["rec", { period: "week" }, "catid-1/3/"],
-    ["rec", { period: "month" }, "catid-1/2/"],
-    ["rec", { category: "22", period: "all" }, "catid22/1/"],
-    ["newfans", { period: "week" }, "catid-1/3/"],
-    ["newfans", { period: "month" }, "catid-1/2/"],
+  for (const [type, query, qidian_suffix, qdmm_suffix] of [
+    ["yuepiao", { category: "21", period: "202609" }, "catid21/202609/", "chanId21/year2026-month09/"],
+    ["hotsales", { category: "4" }, "catid4/", "chanId4/"],
+    ["rec", { period: "week" }, "catid-1/3/", "dateType1/"],
+    ["rec", { period: "month" }, "catid-1/2/", "dateType2/"],
+    ["rec", { category: "22", period: "all" }, "catid22/1/", "chanId22/dateType3/"],
+    ["newfans", { period: "week" }, "catid-1/3/", "dateType1/"],
+    ["newfans", { period: "month" }, "catid-1/2/", "dateType2/"],
   ]) {
-    for (const name of ["qidian", "qdmm"]) {
-      const { requests } = await run(t, name, qidian_body, { type }, query);
-      assert.equal(requests[0].url, "https://m." + name + ".com/rank/" + type + "/" + suffix);
-    }
+    const qidian = await run(t, "qidian", qidian_body, { type }, query);
+    assert.equal(qidian.requests[0].url, "https://m.qidian.com/rank/" + type + "/" + qidian_suffix);
+    const qdmm = await run(t, "qdmm", qdmm_body, { type }, query);
+    assert.equal(qdmm.requests[0].url, "https://www.qdmm.com/rank/" + ({ rec: "recom" }[type] || type) + "/" + qdmm_suffix);
   }
-  for (const [type, value, unit] of [["newfans", "900", "书友"], ["rec", "1.1万推荐", "推荐"], ["update", "0月更字", "更新字数"], ["collect", "1000", "收藏"]]) {
-    const { snapshot } = await run(t, type === "collect" ? "qdmm" : "qidian", qidian_page([{ bid: "123", bName: "小说", rankNum: 1, rankCnt: value }]), { type });
+  for (const [type, value, unit] of [["newfans", "900", "书友"], ["rec", "1.1万推荐", "推荐"], ["update", "0月更字", "更新字数"]]) {
+    const { snapshot } = await run(t, "qidian", qidian_page([{ bid: "123", bName: "小说", rankNum: 1, rankCnt: value }]), { type });
     assert.equal(snapshot.entries[0].heat.unit, unit);
     assert.equal(snapshot.entries[0].heat.value, type === "update" ? 0 : type === "rec" ? 11000 : Number(value));
   }
+  const { snapshot } = await run(t, "qdmm", qdmm_page([{ bid: "123", bName: "小说", heat: "1.1万", unit: "收藏" }]), { type: "collect" });
+  assert.deepEqual(snapshot.entries[0].heat, { value: 11000, unit: "收藏", text: "1.1万收藏" });
+  const obfuscated = await run(t, "qdmm", qdmm_page([{ bid: "123", bName: "小说", heat: "\uE000\uE001", unit: "月票" }]), { type: "yuepiao" });
+  assert.deepEqual(obfuscated.snapshot.entries[0].heat, { value: null, unit: "月票", text: "" });
 });
 
 test("番茄热榜沿用 RSS 字体映射解码标题，保留在读数、稳定 ID 并去重", async t => {
@@ -282,6 +332,32 @@ test("七猫只携带授权的验证 Cookie，不输出凭据，缺少授权时�
   assert.equal(requests.length, 1);
 });
 
+test("七猫同步数据缺少授权名称时匿名重试，不因 Cookie 不可用失败", async t => {
+  t.after(() => { globalThis.fetch = original_fetch; });
+  const requests = [];
+  globalThis.fetch = async (url, options) => {
+    requests.push({ url, options });
+    return new Response(qimao_body);
+  };
+  mock_tcp_http(t);
+  const access = new WorkerCookieAccess({
+    permissions: sources.qimao.metadata.permissions, assert_grant() {}, cookies: () => [],
+  });
+  const result = await execute_script(sources.qimao.source, sources.qimao.metadata, null, undefined, [], "({params:{},query:{}})", access);
+  const snapshot = JSON.parse(result.output);
+  assert.equal(snapshot.entries.length, 2);
+  assert.equal(requests.length, 1);
+  assert.equal(new Headers(requests[0].options.headers).get("cookie"), null);
+});
+
+test("起点女生网识别访问验证页并提示同步 Cookie", async t => {
+  await assert.rejects(run(t, "qdmm", '<html><script src="/C2WF/probev3.js"></script><title>访问验证</title></html>'), error => {
+    assert.equal(error.problem.code, "UPSTREAM_INVALID_RESPONSE");
+    assert.match(error.message, /访问验证页.*Cookie/);
+    return true;
+  });
+});
+
 test("七猫识别 HTTP 200 的阿里云验证页并提示更新验证 Cookie", async t => {
   for (const body of [
     '<!doctype html><meta name="aliyun_waf_aa" content="challenge"><title></title>',
@@ -305,9 +381,10 @@ test("小说榜单拒绝验证码、空列表、损坏数据、无效链接与�
     ["qidian", qidian_body.replace('"rankNum":2', '"rankNum":0')],
     ["qidian", qidian_body.replace('"records":[', '"records":{')],
     ["qidian", qidian_body.replace('"pageData":{', '"pageData":{"gender":"female",')],
-    ...[qidian_page([]), qidian_page([{ bid: "bad", bName: "小说" }]),
-      qidian_body.replace('"rankNum":2', '"rankNum":0'),
-      qidian_body.replace('"pageData":{', '"pageData":{"gender":"male",')].map(body => ["qdmm", body]),
+    ["qdmm", qdmm_page([])],
+    ["qdmm", qdmm_page([{ bid: "bad", bName: "小说" }])],
+    ["qdmm", qdmm_body.replace("//www.qdmm.com/book/1036526469/", "javascript:alert(1)")],
+    ["qdmm", qdmm_body.replace("//bookcover.yuewen.com/qdbimg/349573/1036526469/150.webp", "data:image/png,bad")],
     ["fanqienovel", fanqie_body.replace('"bookId":"9007199254740993"', '"bookId":"bad"')],
     ["fanqienovel", fanqie_body.replace("诡异", "\uE000未知编码")],
     ["fanqienovel", fanqie_body.replace("/rank/1_2_1141", "/rank/0_1_1139")],

@@ -3,10 +3,9 @@ import test from "node:test";
 import scripts from "../dist/scripts.js";
 import worker from "../worker/index.js";
 import { route_cases, debug_route_cases } from "../worker/catalog.js";
-import { completed_feed_request } from "./support/feed_queue.js";
 
 const origin = "https://scripts.example";
-const request = (path, env, headers) => completed_feed_request(new Request(origin + path, { headers }), env);
+const request = (path, env, headers) => worker.fetch(new Request(origin + path, { headers }), env);
 
 test("所有路由支持查询令牌，空令牌、错误令牌及无服务端令牌不能绕过授权", async () => {
   const env = { ACCESS_TOKEN: "private-access-token", SCRIPT_CONFIG: "[]" };

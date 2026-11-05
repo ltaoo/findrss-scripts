@@ -47,8 +47,8 @@ test("构建生成的 OpenAPI 覆盖全部脚本和路由，参数、操作 ID �
 test("每个 Kind 下按内容类别分组，同一脚本的 RSS、Atom、正文和图片保留所属目录", () => {
   const { paths } = generate_openapi(scripts);
   const folders = {
-    "/api/hot/qidian/rank/yuepiao": "hot/小说",
-    "/api/hot/qidian/rank/yuepiao/female": "hot/小说",
+    "/api/hot/qidian/yuepiao": "hot/小说",
+    "/api/hot/qdmm/yuepiao": "hot/小说",
     "/api/hot/nhk/rss/news/cat0.xml": "hot/新闻",
     "/api/rss/qidian/book/{book_id}": "rss/小说",
     "/api/rss/qimao/book/{book_id}": "rss/小说",

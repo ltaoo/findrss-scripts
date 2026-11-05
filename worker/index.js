@@ -8,7 +8,7 @@ import { error_code, error_response, script_error } from "./errors.js";
 import { read_json_body, update_cookies } from "./cookie_sync.js";
 import { request_authenticated } from "./auth.js";
 import { execute_route, script_configuration } from "./execute.js";
-import { snapshot_response, consume_snapshots, record_dead_letters, refresh_snapshots, dead_letter_queue } from "./feed_snapshots.js";
+import { FeedModel } from "../.runtime/findrss-worker/server/domain/feed_format.js";
 
 const cases = route_cases(scripts);
 const routes = cases.map(entry => ({ ...entry, pattern: RssRoutePatternModel(entry.path),
@@ -19,28 +19,6 @@ const headers = { "Cache-Control": "no-store", "X-Content-Type-Options": "nosnif
 const cookie_origins = [...new Set(scripts.flatMap(script => (script.metadata.permissions?.cookies || []).map(permission => permission.origin)))];
 
 export default {
-  scheduled: refresh_snapshots,
-  async queue(batch, env) {
-    if (batch.queue === dead_letter_queue) return record_dead_letters(batch, env);
-    return consume_snapshots(batch, env, descriptor => {
-      const context = descriptor?.context;
-      const strings = value => value && typeof value === "object" && !Array.isArray(value) &&
-        Object.values(value).every(item => typeof item === "string");
-      if (!context || !["GET", "POST"].includes(context.method) || !strings(context.params) || !strings(context.query) ||
-        Object.hasOwn(context.query, "token") || typeof context.pathname !== "string") return null;
-      try {
-        const origin = new URL(context.public_origin);
-        if (!["http:", "https:"].includes(origin.protocol) || origin.origin !== context.public_origin) return null;
-      } catch { return null; }
-      const entry = routes.find(route => route.file === descriptor.file && route.route_index === descriptor.route_index && route.format === "rss_json");
-      if (!entry) return null;
-      const pattern = RssRoutePatternModel(entry.script.metadata.routes[entry.route_index].path);
-      const match = pattern.match(context.pathname);
-      if (!match || JSON.stringify(Object.entries(match.params).sort()) !== JSON.stringify(Object.entries(context.params).sort())) return null;
-      const configuration = script_configuration(entry, env);
-      return { entry, configuration, execute: signal => execute_route(entry, context, env, configuration, signal) };
-    });
-  },
   async fetch(request, env) {
     const started_at = Date.now();
     const url = new URL(request.url);
@@ -102,15 +80,22 @@ export default {
       const public_url = new URL(env.FINDRSS_HOSTNAME || url.origin);
       if (!["http:", "https:"].includes(public_url.protocol)) throw script_error("CONFIG_INVALID");
       context.public_origin = public_url.origin;
-      if (!debugging && ["rss", "atom", "rss_json"].includes(entry.format)) {
-        return snapshot_response(entry, metadata, context, env, url, response_headers);
-      }
       stage = "script";
       ({ result, invoked } = await execute_route(entry, context, env, configuration,
         AbortSignal.any([request.signal, AbortSignal.timeout(120000)])));
       if (debugging) return debug_response({ entry, context, stage: "ok", started_at, result, invoked }, response_headers);
       stage = "output";
       const value = JSON.parse(result.output);
+      if (["rss", "atom", "rss_json"].includes(entry.format)) {
+        let feed;
+        try { feed = FeedModel(value); } catch (error) { error.phase = "output"; throw error; }
+        if (entry.format === "rss_json") {
+          return new Response(result.output, { headers: { ...response_headers,
+            "Content-Type": "application/json; charset=utf-8" } });
+        }
+        return new Response(feed.render(entry.format, { self_url: url.href }), {
+          headers: { ...response_headers, "Content-Type": FeedModel.content_type(entry.format) } });
+      }
       const output = script_output(metadata, value);
       if (output.descriptor) {
         const image = await fetch_script_image(metadata, output.descriptor);

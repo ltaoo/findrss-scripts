@@ -182,14 +182,15 @@ test("通过样本在新窗口打开产物 Raw 链接，失败样本和不安全
   const html = render_report_html({ results: [
     { ...passed, file: "rss/example.js", path: "/rss/example", format: "rss", output_file: "rss/example.xml" },
     { ...passed, file: "rss/example.js", path: "/samples", format: "hot", output_valid: false, samples: [
-      { ...passed, output_file: "hot/a %20.json", example: "/?token=private-query-value" },
+      { ...passed, output_file: "hot/a %20.json", example: "/api/hot/sample%20a?token=private-query-value" },
       { ...passed, output_valid: false, output_file: "hot/failed.json" },
       ...["../private.json", "/absolute.json", "a/../private.json", "a\\private.json", "a.json?secret=1"].map(output_file => ({ ...passed, output_file })),
     ] },
   ] });
   assert.match(html, /data-n="artifact-link"[^>]*href="https:\/\/raw.githubusercontent.com\/ltaoo\/findrss-scripts\/refs\/heads\/route-reports\/reports\/responses\/rss\/example.xml" target="_blank" rel="noopener noreferrer"/);
-  assert.match(html, /responses\/hot\/a%20%2520.json"[^>]*>查看产物 1/);
+  assert.match(html, /responses\/hot\/a%20%2520.json"[^>]*>查看产物 1<\/a><code data-n="artifact-example"[^>]*>\/api\/hot\/sample a<\/code>/);
   assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 2);
+  assert.equal([...html.matchAll(/<code data-n="artifact-example"/g)].length, 1);
   assert.doesNotMatch(html, /private-query-value|failed.json|private.json|absolute.json|secret=1/);
   assert.doesNotMatch(html, /<iframe|artifact-dialog|open_artifact/);
 });
