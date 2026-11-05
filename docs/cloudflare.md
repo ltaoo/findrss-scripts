@@ -52,7 +52,8 @@ npm run deploy
 | 地址 | 返回内容 |
 | --- | --- |
 | `/health` | 已加载脚本数和已注册路由数（含别名） |
-| `/api/routes` 或 `/` | 全部已注册路由（含别名）、示例、类型及来源 |
+| `/api/routes` | 全部已注册路由（含别名）、示例、类型及来源 |
+| `/` 或 `/index.html` | 巡检报告首页；构建时存在 `reports/index.html` 才可访问，否则返回 404 |
 | `/api/hot/<脚本路径>` | 热榜 JSON |
 | `/rss/<脚本路径>` | RSS 2.0 |
 | `/atom/<脚本路径>` | Atom 1.0 |
@@ -195,6 +196,8 @@ node scripts/render_route_report.js
 ```
 
 该命令读取 `reports/routes.json` 和已构建的 `dist/scripts.js`，写入 `reports/index.html`，并沿用报告中的 `mode`：本地巡检（`--local` 或回环地址）记录为 `dev`，产物使用相对当前报告目录的 `./responses/` prefix，可直接打开本地文件；其他巡检记录为 `release`，使用产物分支的 GitHub Raw prefix。未记录 `mode` 的旧报告按 `release` 处理。本地查看时需保留报告旁的 `responses/` 目录。
+
+Worker 构建会将已有的 `reports/index.html`、`reports/icons/` 和 `reports/responses/` 复制为静态资源，首页和资源无需令牌，API 和 Debug 仍保留鉴权；生成或更新报告后需重新构建。没有报告文件的构建仍可正常启动或部署，首页返回 404。部署前若本地已有报告，这些报告资源也会随部署上传并公开访问。
 
 | 阶段 | 校验 |
 | --- | --- |

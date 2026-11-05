@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import { compile_script_module } from "findrss-worker/server/infra/script_sandbox.js";
 import { read_script, script_names } from "../test/support/script_sources.js";
 import { route_cases, api_route_cases, debug_route_cases } from "../worker/catalog.js";
@@ -24,6 +24,16 @@ for (const entry of [...route_cases(scripts), ...debug_route_cases(scripts)]) {
 // 巡检只覆盖 /api/rss、/api/hot、/api/clip、/api/detect 四个规范前缀。
 const cases = api_route_cases(scripts);
 await mkdir(new URL("../dist/", import.meta.url), { recursive: true });
+const report_assets = new URL("../dist/report-assets/", import.meta.url);
+await rm(report_assets, { recursive: true, force: true });
+await mkdir(report_assets, { recursive: true });
+for (const name of ["index.html", "icons", "responses"]) {
+  try {
+    await cp(new URL("../reports/" + name, import.meta.url), new URL(name, report_assets), { recursive: true });
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+}
 await writeFile(new URL("../dist/scripts.js", import.meta.url), "export default " + JSON.stringify(scripts) + ";\n");
 await writeFile(new URL("../dist/routes.json", import.meta.url), JSON.stringify(cases, null, 2) + "\n");
 await writeFile(new URL("../dist/openapi.json", import.meta.url), JSON.stringify(generate_openapi(scripts), null, 2) + "\n");

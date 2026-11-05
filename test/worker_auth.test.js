@@ -9,7 +9,7 @@ const request = (path, env, headers) => worker.fetch(new Request(origin + path, 
 
 test("所有路由支持查询令牌，空令牌、错误令牌及无服务端令牌不能绕过授权", async () => {
   const env = { ACCESS_TOKEN: "private-access-token", SCRIPT_CONFIG: "[]" };
-  for (const path of ["/", "/health", "/api/routes"]) {
+  for (const path of ["/health", "/api/routes"]) {
     assert.equal((await request(path + "?token=private-access-token", env)).status, 200, path);
     for (const query of ["", "?token=", "?token=wrong-token"]) {
       assert.equal((await request(path + query, env)).status, 401, path + query);

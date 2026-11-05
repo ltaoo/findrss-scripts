@@ -40,10 +40,15 @@ export default {
       ? debug_response({ entry, context, stage, started_at, code, failure, result, invoked }, response_headers)
       : error_response(code, response_headers, entry?.file, failure);
     const syncing = url.pathname === "/api/cookies/update";
-    const methods = syncing ? ["POST"] : debugging || ["/", "/health", "/api/routes"].includes(url.pathname) ? ["GET"] : ["GET", "POST"];
+    const asset_request = ["/", "/index.html"].includes(url.pathname) || url.pathname.startsWith("/icons/") || url.pathname.startsWith("/responses/");
+    const methods = syncing ? ["POST"] : debugging || asset_request || ["/health", "/api/routes"].includes(url.pathname) ? ["GET"] : ["GET", "POST"];
     if (!methods.includes(request.method)) {
       response_headers = { ...headers, Allow: methods.join(", ") };
       return fail("METHOD_NOT_ALLOWED");
+    }
+    if (asset_request) {
+      if (url.pathname === "/") url.pathname = "/index.html";
+      return env.ASSETS ? env.ASSETS.fetch(new Request(url, request)) : fail("NOT_FOUND");
     }
     // 配置凭据时必须同时设置令牌，避免将私人订阅或登录态采集开放给公网。
     if ((syncing || env.COOKIE_KV || env.SCRIPT_CONFIG || env.SCRIPT_COOKIES || env.DEVICE_BRIDGE_URL) && !env.ACCESS_TOKEN) {
@@ -54,7 +59,7 @@ export default {
       return fail("UNAUTHORIZED");
     }
     if (url.pathname === "/health") return Response.json({ ok: true, scripts: scripts.length, routes: cases.length }, { headers });
-    if (["/", "/api/routes"].includes(url.pathname)) return Response.json(cases, { headers });
+    if (url.pathname === "/api/routes") return Response.json(cases, { headers });
     stage = "route";
     // /debug 之后可以跟脚本声明路径，也可以跟 /rss、/api/hot 等任一命名空间。
     const pathname = debugging ? url.pathname.slice("/debug".length) : url.pathname;

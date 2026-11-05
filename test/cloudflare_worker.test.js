@@ -12,6 +12,37 @@ const origin = "https://scripts.example";
 const request = (path, env = {}, headers) => worker.fetch(new Request(origin + path, { headers }), env);
 const upstream_feed = '<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Releases</title><entry><id>tag:github.com,2008:1/v1</id><title>v1.0</title><link rel="alternate" href="https://github.com/ltaoo/wx_channels_download/releases/tag/v1"/><updated>2026-10-26T01:00:00Z</updated><content>Release content</content></entry></feed>';
 
+test("报告首页与资源无需令牌，未提供报告时返回 404，API 与 Debug 保留鉴权", async () => {
+  for (const path of ["/", "/index.html"]) {
+    assert.equal((await request(path)).status, 404);
+    assert.equal((await request(path, { ACCESS_TOKEN: "private-token" })).status, 404);
+    assert.equal((await request(path, { ASSETS: { fetch: () => new Response(null, { status: 404 }) } })).status, 404);
+  }
+  const fetched = [];
+  const env = { ACCESS_TOKEN: "private-token", ASSETS: { async fetch(request) {
+    const url = new URL(request.url);
+    fetched.push(url.pathname);
+    assert.equal(url.searchParams.has("token"), false);
+    return url.pathname === "/index.html"
+      ? new Response("<html>Report</html>", { headers: { "Content-Type": "text/html" } })
+      : new Response(null, { status: 404 });
+  } } };
+  for (const path of ["/", "/index.html", "/?token=wrong-token"]) {
+    const response = await request(path, env);
+    assert.equal(response.status, 200);
+    assert.equal(await response.text(), "<html>Report</html>");
+  }
+  const options = { Authorization: "Bearer private-token" };
+  for (const path of ["/responses/missing.json", "/icons/missing.png"]) assert.equal((await request(path, env)).status, 404);
+  assert.deepEqual(fetched, ["/index.html", "/index.html", "/index.html", "/responses/missing.json", "/icons/missing.png"]);
+  for (const path of ["/api/routes", "/debug/missing"]) assert.equal((await request(path, env)).status, 401);
+  assert.equal((await request("/api/routes", env, options)).status, 200);
+  assert.match(await (await request("/debug/missing", env, options)).text(), /NOT_FOUND/);
+  for (const path of ["/", "/index.html"]) {
+    assert.equal((await worker.fetch(new Request(origin + path, { method: "POST", headers: options }), env)).status, 405);
+  }
+});
+
 test("构建目录覆盖所有脚本和全部路由，包含 RSS/Atom、正文及图片", async () => {
   const response = await request("/api/routes");
   const cases = await response.json();
