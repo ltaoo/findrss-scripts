@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.2.0";
+export const version = "1.2.1";
 export const config_schema = {
   type: "object",
   additionalProperties: false,
@@ -250,16 +250,24 @@ export class WechatChannelsRSS extends RSSScript {
       const username = requested_username.endsWith("@finder")
         ? requested_username
         : requested_username + "@finder";
-      const result_1 = await utils.request_json(ctx, ctx.config.api_url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + ctx.config.auth_token,
-        },
-        body: JSON.stringify({ username, offset }),
-      });
+      let result_1;
+      // 只读列表在上游超时或回包中断后重试一次，JSON 和业务校验在重试之外。
+      for (let attempt = 0; attempt < 2; attempt++) {
+        result_1 = await utils.request_text(ctx, ctx.config.api_url, {
+          method: "POST",
+          // 设备采集可能超过 10 秒，HTTP/1.1 统一处理完整回包和连接错误。
+          timeout_ms: 60000,
+          transport: "tcp",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + ctx.config.auth_token,
+          },
+          body: JSON.stringify({ username, offset }),
+        });
+        if (!["UPSTREAM_TIMEOUT", "UPSTREAM_FETCH_FAILED", "UPSTREAM_INVALID_RESPONSE"].includes(result_1.code)) break;
+      }
       if (result_1.error) return result_1;
-      const data = result_1.data;
+      const data = JSON.parse(result_1.data);
       if (data === null || typeof data !== "object" || Array.isArray(data)) {
         return Result.Err(
           "接口返回了无效的视频号数据",

@@ -34,7 +34,7 @@ test('源码目录包含完整 Hot/RSS 脚本，分类与路由经生产 QuickJS
 
 
 for (const fixture of content_cases) test('迁移脚本保留内容与媒体：' + fixture.file + (fixture.route_index ? (fixture.file === 'zhihu' ? ' 回答' : fixture.file === 'bilibili' ? ' 视频' : ' 正文代理') : ''), async t => {
-  if (fixture.file === 'bilibili') mock_tcp_http(t);
+  if (['bilibili', 'wxchannels'].includes(fixture.file)) mock_tcp_http(t);
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   const kind = fixture.kind || 'rss';
