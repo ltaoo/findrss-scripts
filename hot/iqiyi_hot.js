@@ -1,5 +1,5 @@
 /** HOT */
-export const version = "1.1.0";
+export const version = "1.1.1";
 export const category = "娱乐";
 export const order = 260;
 // Favicon: https://www.iqiyi.com/favicon.ico
@@ -38,6 +38,15 @@ const source = {
   "id": "iqiyi-hot-ranklist",
   "name": "爱奇艺 · 热播榜",
   "home": "https://www.iqiyi.com"
+};
+export const permissions = {
+  cookies: [{
+    id: "iqiyi",
+    origin: "https://www.iqiyi.com",
+    path_prefix: "/",
+    names: ["P00001", "P00002", "P00003", "QC005"],
+    purpose: "同步爱奇艺登录态，供本机 hgdownload 使用",
+  }],
 };
 export class IqiyiHotRank extends HotRankScript {
   async fetch(ctx) {

@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createCipheriv, createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, stat } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import worker from "../worker/index.js";
 import { clear_cookie_read_cache, load_cookies } from "../worker/cookie_sync.js";
+import { export_iqiyi_cookie } from "../scripts/export_iqiyi_cookie.js";
 
 const origin = "https://scripts.findrss.cloud";
 const uuid = "fixture-uuid";
@@ -38,6 +41,29 @@ const upload = (body, env, headers = {}) => worker.fetch(new Request(origin + "/
   method: "POST", headers: { "Content-Type": "application/json", ...headers }, body: JSON.stringify(body),
 }), env);
 const authorized = { Authorization: "Bearer private-access-token" };
+
+test("爱奇艺同步后可在本机导出供 hgdownload 使用，不包含过期或其他路径 Cookie", async t => {
+  const env = environment();
+  const directory = await mkdtemp(join(tmpdir(), "iqiyi-cookie-"));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const filename = join(directory, "cookie.txt");
+  await assert.rejects(export_iqiyi_cookie(env, filename), /P00001/);
+  const cookies = [
+    { name: "P00001", value: "fixture-login", domain: ".iqiyi.com", path: "/", secure: true },
+    { name: "expired", value: "old", domain: ".iqiyi.com", expirationDate: 1 },
+    { name: "other_path", value: "hidden", domain: ".iqiyi.com", path: "/private/" },
+    { name: "other_host", value: "hidden", domain: "passport.iqiyi.com", hostOnly: true },
+  ];
+  const response = await upload(payload(cookies, ["iqiyi.com"]), env);
+  assert.equal(response.status, 200);
+  assert.ok(env.COOKIE_KV.values.has("cookies:https://www.iqiyi.com"));
+  await export_iqiyi_cookie(env, filename);
+  assert.equal(await readFile(filename, "utf8"), "P00001=fixture-login");
+  assert.equal((await stat(filename)).mode & 0o777, 0o600);
+  await assert.rejects(export_iqiyi_cookie(env, filename), { code: "EEXIST" });
+  env.COOKIE_STORAGE_KEY = "34".repeat(32);
+  await assert.rejects(export_iqiyi_cookie(env, join(directory, "wrong-key.txt")), error => error.code === "COOKIE_STORAGE_UNAVAILABLE");
+});
 
 test("dm AES 上传无需额外字段，KV 只存随机 IV 的密文，RSS 能读取凭据", async t => {
   const env = environment();

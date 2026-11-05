@@ -144,6 +144,15 @@ npx wrangler secret put SCRIPT_COOKIES
 
 Cookie 按脚本声明的来源分别保存，每条快照均使用随机 IV 和独立存储密钥做 AES-256-GCM 加密，来源也参与完整性校验。更新选中站点时保留其他站点；显式空数组会清除所选站点快照。老客户端不提供 `domains` 时从 Cookie 域名推导范围，空数组必须补充域名范围。没有 Cookie 读取或明文导出接口。
 
+爱奇艺登录态可供本机 `hgdownload` 使用。部署包含爱奇艺 Cookie 声明的版本后，在 dm 勾选 `*.iqiyi.com` 并重新同步；旧版本未保存的站点数据无法恢复。本地管理命令复用 KV 解密和 Cookie 过滤逻辑，只导出爱奇艺，不增加 HTTP 读取接口：
+
+```sh
+mise exec node@24 -- node scripts/export_iqiyi_cookie.js --remote /private/tmp/iqiyi-cookie.txt
+../hgdownload/hgdownload download -cookie-file /private/tmp/iqiyi-cookie.txt -from 1 -to 1 -o ../hgdownload/downloads/iqiyi-hd 'https://www.iqiyi.com/v_1l3oeczxohg.html'
+```
+
+读取本机 Wrangler KV 时将 `--remote` 换成 `--local`。命令需要 Wrangler 管理权限以及与目标环境一致的 `COOKIE_STORAGE_KEY`（优先读取环境变量，否则读取本项目 `.dev.vars`），仅创建新的 0600 文件，不覆盖旧文件、不打印凭据。导出的文件含登录凭据，用完后删除。使用新的输出目录可避免 `hgdownload` 跳过此前已下载的 720p 文件；实际清晰度仍取决于账号权限和平台返回的可下载流。
+
 采集时优先使用 KV 的站点快照，尚未同步的站点使用 `SCRIPT_COOKIES` 回退；已清空的 KV 快照不会恢复静态旧值。KV 读取、解密失败会明确报错，不会偷偷退回旧 Cookie。更换存储密钥后需要重新同步所需站点。为降低 KV 读取量与上游限流风险，同一 Worker isolate 内对相同（存储密钥, KV 键）最多每 60 秒读取一次，写入成功后立即失效缓存；这是对 KV 最终一致性的叠加优化，不改变「更新在其他节点可能延迟 60 秒以上」的可见性语义，也不缓存解密后的明文凭据。
 
 RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKEN>`，两个域名均适用。KV 是最终一致存储，更新在其他节点可能延迟 60 秒以上，见 [Cloudflare KV 一致性说明](https://developers.cloudflare.com/kv/concepts/how-kv-works/)。同一站点应只使用一个同步配置，多个客户端并发上传时以最后完成的写入为准。
