@@ -99,6 +99,16 @@ test('快手 HTTP 200 中的 result=50 明确报告签名失败，不误报为 C
   });
 });
 
+test('快手明确提示操作太快时报告限流，保留业务码和原因，不误报 Cookie 失效', async t => {
+  t.mock.method(globalThis, 'fetch', upstream(async () => Response.json({ result: 2, error_msg: '操作太快了，请稍微休息一下' })));
+  await assert.rejects(run(), error => {
+    assert.equal(error.problem.code, 'UPSTREAM_RATE_LIMITED');
+    assert.match(error.message, /result=2.*操作太快了.*降低请求频率/);
+    assert.doesNotMatch(error.message, /Cookie/);
+    return true;
+  });
+});
+
 test('快手保留参数、Cookie 授权、HTTP 和无效响应错误，允许上游明确返回空列表', async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
@@ -108,13 +118,19 @@ test('快手保留参数、Cookie 授权、HTTP 和无效响应错误，允许�
   await assert.rejects(run({ user_id }, null), /Cookie 权限/);
   assert.equal(calls, 0);
   assert.deepEqual(JSON.parse((await run()).output).items, []);
-  for (const response of [
-    () => new Response('', { status: 403 }),
-    () => new Response('<html>主页 HTTP 200</html>'),
-    () => Response.json(null),
-    () => Response.json({ result: 1 }),
+  for (const [response, message] of [
+    [() => new Response('', { status: 403 }), /HTTP 403/],
+    [() => new Response('<html>主页 HTTP 200</html>'), /返回 HTML 页面，未返回 JSON/],
+    [() => new Response(''), /返回空响应/],
+    [() => new Response('invalid-json'), /不是有效 JSON/],
+    [() => Response.json(null), /JSON 不是数据对象/],
+    [() => Response.json([]), /JSON 不是数据对象/],
+    [() => Response.json({}), /result=缺失或非数字.*未提供错误说明/],
+    [() => Response.json({ result: 109, error_msg: '请求被限制' }), /result=109.*请求被限制/],
+    [() => Response.json({ result: 1 }), /result=1.*缺少 feeds 作品列表/],
+    [() => Response.json({ result: 1, feeds: {} }), /result=1.*feeds 作品列表不是数组/],
   ]) {
     globalThis.fetch = upstream(async () => response());
-    await assert.rejects(run(), /HTTP 403|unexpected token|未返回作品列表/);
+    await assert.rejects(run(), message);
   }
 });
