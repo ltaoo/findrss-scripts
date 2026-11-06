@@ -1,22 +1,168 @@
 {
-  "checked_at": "2026-11-06T07:03:44.071Z",
+  "checked_at": "2026-11-06T19:34:34.841Z",
   "inspection": {
     "file": "hot/hatena.js",
     "path": "/api/hot/hatena/hotentry/:topic?",
     "example": "/api/hot/hatena/hotentry/all",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/hatena/hotentry/all.json",
-    "duration_ms": 567
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 100
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 193
+    "status": 200,
+    "duration_ms": 594
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/hatena.js",
+      "name": "Hatena · 热门书签",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/hatena/hotentry/:topic?",
+      "request_path": "/api/hot/hatena/hotentry/:topic?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/hatena/hotentry/all",
+      "params": {
+        "topic": "all"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5668953dffd58ac"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 46,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":40}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://b.hatena.ne.jp/hotentry/all.rss",
+        "method": "GET",
+        "host": "b.hatena.ne.jp",
+        "pathname": "/hotentry/all.rss",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 46,
+        "timings": {
+          "response_ms": 46,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"はてなブックマーク · 综合\",\"link\":\"https://b.hatena.ne.jp/hotentry/all\",\"category\":\"社交\",\"observed_at\":\"2026-11-06T19:34:34.959Z\",\"entries\":[{\"id\":\"hatena:https://note.com/haru_yuki_i/n/n4ec981874187\",\"title\":\"Mrs. GREEN APPLEが無理だった話｜はるゆき\",\"link\":\"https://note.com/haru_yuki_i/n/n4ec981874187\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":428,\"unit\":\"书签\",\"text\":\"428\"}},{\"id\":\"hatena:https://xtrend.nikkei.com/atcl/contents/casestudy/00012/01986/\",\"title\":\"カルビーのポテチ、白黒パッケージで顧客が消えた？\",\"link\":\"https://xtrend.nikkei.com/atcl/contents/casestudy/00012/01986/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":202,\"unit\":\"书签\",\"text\":\"202\"}},{\"id\":\"hatena:https://www.bbc.com/japanese/articles/c63ellvpdq58o\",\"title\":\"ピザにパイナップルのせることを拒否、イタリア人シェフ解雇 豪レストラン - BBCニュース\",\"link\":\"https://www.bbc.com/japanese/articles/c63ellvpdq58o\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":233,\"unit\":\"书签\",\"text\":\"233\"}},{\"id\":\"hatena:https://mainichi.jp/articles/20261106/k00/00m/010/329000c\",\"title\":\"「議員辞職ものだ」 消費減税法案「造反」4氏に執行部怒気 | 毎日新聞\",\"link\":\"https://mainichi.jp/articles/20261106/k00/00m/010/329000c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":112,\"unit\":\"书签\",\"text\":\"112\"}},{\"id\":\"hatena:https://tamatabi.world/ja/\",\"title\":\"世界のライブカメラ地図｜いま見れるライブ映像 — たま旅ライブ\",\"link\":\"https://tamatabi.world/ja/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":289,\"unit\":\"书签\",\"text\":\"289\"}},{\"id\":\"hatena:https://mainichi.jp/articles/20261106/k00/00m/010/050000c\",\"title\":\"高市首相、G7欠席は「総合的に判断」 「力強い外交展開」強調 | 毎日新聞\",\"link\":\"https://mainichi.jp/articles/20261106/k00/00m/010/050000c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":243,\"unit\":\"书签\",\"text\":\"243\"}},{\"id\":\"hatena:https://www.gamespark.jp/article/2026/11/06/174557.html\",\"title\":\"脱衣麻雀が約28年ぶりゲーセンに帰還するアケ版『スーパーリアル麻雀AC』2026年冬稼働へ！「麻雀コンパネ」令和に爆誕、いま平成38年？“届けるため”のクラファンも実施 | Game*Spark - 国内・海外ゲーム情報サイト\",\"link\":\"https://www.gamespark.jp/article/2026/11/06/174557.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":89,\"unit\":\"书签\",\"text\":\"89\"}},{\"id\":\"hatena:https://www.watch.impress.co.jp/docs/news/2154508.html\",\"title\":\"ドコモ不正アクセス、「料金プラン」などの情報も流出 29.5万件\",\"link\":\"https://www.watch.impress.co.jp/docs/news/2154508.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":88,\"unit\":\"书签\",\"text\":\"88\"}},{\"id\":\"hatena:https://lp.p.pia.jp/article/news/516951/index.html?detail=true\",\"title\":\"『装甲騎兵ボトムズ』×押井守はいかにして実現したのか？ 髙橋良輔との“約束”と新キャラ誕生秘話【押井守監督インタビュー・前編】\",\"link\":\"https://lp.p.pia.jp/article/news/516951/index.html?detail=true\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":35,\"unit\":\"书签\",\"text\":\"35\"}},{\"id\":\"hatena:https://note.com/yukkuridotcom/n/n4a9cb5ef1110\",\"title\":\"【インフルエンサー誹謗中傷事件】イケハヤ編｜ゆっくりドットコム\",\"link\":\"https://note.com/yukkuridotcom/n/n4a9cb5ef1110\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":81,\"unit\":\"书签\",\"text\":\"81\"}},{\"id\":\"hatena:https://msknmr.hatenablog.com/entry/2026/11/06/151324\",\"title\":\"「ラブコメと言ったのは嘘です」——柳本光晴に踊らされる私たち - 今は亡しわが村\",\"link\":\"https://msknmr.hatenablog.com/entry/2026/11/06/151324\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":51,\"unit\":\"书签\",\"text\":\"51\"}},{\"id\":\"hatena:https://naigaitimes.com/society/599716/\",\"title\":\"本屋の「文教堂書店」が黒字化を達成 収益を改善させた“改革”とは - 内外タイムス\",\"link\":\"https://naigaitimes.com/society/599716/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":203,\"unit\":\"书签\",\"text\":\"203\"}},{\"id\":\"hatena:https://anond.hatelabo.jp/20261106102708\",\"title\":\"直感的に異性に対して「この人いい！」って思える女性は結構すぐ彼氏でき..\",\"link\":\"https://anond.hatelabo.jp/20261106102708\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":90,\"unit\":\"书签\",\"text\":\"90\"}},{\"id\":\"hatena:https://zenn.dev/xin9le/articles/9a1cf8e10494d6\",\"title\":\"[破壊的変更] 明治時代の開始日が変更になって単体テストが失敗した件\",\"link\":\"https://zenn.dev/xin9le/articles/9a1cf8e10494d6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21,\"unit\":\"书签\",\"text\":\"21\"}},{\"id\":\"hatena:https://natalie.mu/comic/news/696841\",\"title\":\"天原「33歳独身女騎士隊長。」アニメ化 キャラデザ解禁、記念MVも公開（動画あり） - コミックナタリー\",\"link\":\"https://natalie.mu/comic/news/696841\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":49,\"unit\":\"书签\",\"text\":\"49\"}},{\"id\":\"hatena:https://togetter.com/li/2767411\",\"title\":\"大学の授業で最前列でノートをとってたら、授業後に教授が「君何してたの？内職？」と聞くので「聞いたことまとめてました」と返したら「そうなんだ、前でそれするのやめてね」\",\"link\":\"https://togetter.com/li/2767411\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":93,\"unit\":\"书签\",\"text\":\"93\"}},{\"id\":\"hatena:https://joho-todai.com/microsoft-office-365-a1-discontinuing-2028/\",\"title\":\"Microsoft、教育機関向け無料プランOffice 365 A1を2028年に廃止。基本100TBも撤廃へ\",\"link\":\"https://joho-todai.com/microsoft-office-365-a1-discontinuing-2028/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":37,\"unit\":\"书签\",\"text\":\"37\"}},{\"id\":\"hatena:https://www.asahi.com/articles/ASVC53SLLVC5UTFK00HM.html\",\"title\":\"「日中国交正常化は日台断交」 高市首相、持論封印したが難しい譲歩：朝日新聞\",\"link\":\"https://www.asahi.com/articles/ASVC53SLLVC5UTFK00HM.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":57,\"unit\":\"书签\",\"text\":\"57\"}},{\"id\":\"hatena:https://comic-ogyaaa.com/episode/12207421984476356323\",\"title\":\"『邦画プレゼン女子高生 邦キチ！ 映子さん』Season16／8本目 ヒプノシスマイク -Division Rap Battle- - 服部昇大 | COMIC OGYAAA!!\",\"link\":\"https://comic-ogyaaa.com/episode/12207421984476356323\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":92,\"unit\":\"书签\",\"text\":\"92\"}},{\"id\":\"hatena:https://natgeo.nikkeibp.co.jp/atcl/news/26/082600477/\",\"title\":\"冥王星を外した「惑星の定義」、実は太陽系の外では通用しない\",\"link\":\"https://natgeo.nikkeibp.co.jp/atcl/news/26/082600477/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27,\"unit\":\"书签\",\"text\":\"27\"}},{\"id\":\"hatena:https://0115765.com/archives/212830\",\"title\":\"【独自】インドの映画館に『ドラえもん』初登場、早くも”日本アニメ映画2位” 現地の熱量と上映の意義 | オタク総研\",\"link\":\"https://0115765.com/archives/212830\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":38,\"unit\":\"书签\",\"text\":\"38\"}},{\"id\":\"hatena:https://dougamuryou.heteml.net/amazon-prime-new-releases-list/\",\"title\":\"アマゾンプライムで見れるもの一覧【新作】2026年11月以降の映画・ドラマ・アニメ\",\"link\":\"https://dougamuryou.heteml.net/amazon-prime-new-releases-list/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"书签\",\"text\":\"6\"}},{\"id\":\"hatena:https://www.ben54.jp/news/4003\",\"title\":\"「年収が日本人平均以上」永住審査の基準改定、手数料も1万円⇒20万円へ…国会審議を経ない“新ガイドライン”の問題点【弁護士解説】 | 弁護士JPニュース\",\"link\":\"https://www.ben54.jp/news/4003\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5,\"unit\":\"书签\",\"text\":\"5\"}},{\"id\":\"hatena:https://kaden.watch.impress.co.jp/docs/news/2153879.html\",\"title\":\"ニトリから猫じゃらし付き空気清浄機 爪とぎも - 家電 Watch\",\"link\":\"https://kaden.watch.impress.co.jp/docs/news/2153879.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21,\"unit\":\"书签\",\"text\":\"21\"}},{\"id\":\"hatena:https://president.jp/articles/-/121534\",\"title\":\"アジア1位なのに海外視聴者はわずか3%…｢VIVANT｣の大ヒットが示した日本ドラマの｢成功の逆説｣\",\"link\":\"https://president.jp/articles/-/121534\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5,\"unit\":\"书签\",\"text\":\"5\"}},{\"id\":\"hatena:https://proxia.hateblo.jp/entry/2026/11/06/204345\",\"title\":\"ゲームのメカニクスについて語る同人誌のこと～東京文学フリマ編～ - 名馬であれば馬のうち\",\"link\":\"https://proxia.hateblo.jp/entry/2026/11/06/204345\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27,\"unit\":\"书签\",\"text\":\"27\"}},{\"id\":\"hatena:https://www.megamouth.info/entry/2026/11/06/165305\",\"title\":\"PHPは使っておりません - megamouthの葬列\",\"link\":\"https://www.megamouth.info/entry/2026/11/06/165305\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":35,\"unit\":\"书签\",\"text\":\"35\"}},{\"id\":\"hatena:https://shonenjumpplus.com/episode/9253191257689746171\",\"title\":\"Young Panther 19 Buchigillle Knowing - 下元朗 | 少年ジャンプ＋\",\"link\":\"https://shonenjumpplus.com/episode/9253191257689746171\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18,\"unit\":\"书签\",\"text\":\"18\"}},{\"id\":\"hatena:https://news.tv-asahi.co.jp/news_politics/articles/000545789.html\",\"title\":\"国会でG7欠席は「失敗だった」と追及 高市総理「総合的に判断した」\",\"link\":\"https://news.tv-asahi.co.jp/news_politics/articles/000545789.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":31,\"unit\":\"书签\",\"text\":\"31\"}},{\"id\":\"hatena:https://www.youtube.com/watch?v=KIqV8aUPnr8\",\"title\":\"TVアニメ『ゆるキャン△ SEASON４』予告編│2027.04 ON AIR\",\"link\":\"https://www.youtube.com/watch?v=KIqV8aUPnr8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":48,\"unit\":\"书签\",\"text\":\"48\"}},{\"id\":\"hatena:https://note.com/mild_gerbil3622/n/n708a49388f4f\",\"title\":\"Amazonスーパーセールで探すリカバリーウェア｜メンズ・レディース・上下・パジャマ、ワークマンとReDを比べる｜ガジェット|ミニマリスト\",\"link\":\"https://note.com/mild_gerbil3622/n/n708a49388f4f\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"书签\",\"text\":\"8\"}},{\"id\":\"hatena:https://www.afpbb.com/articles/-/3661281\",\"title\":\"パラグアイ大統領が辞任表明、人口のほぼ半数が預金凍結で混乱\",\"link\":\"https://www.afpbb.com/articles/-/3661281\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":70,\"unit\":\"书签\",\"text\":\"70\"}},{\"id\":\"hatena:https://www.cnn.co.jp/fringe/35254511.html\",\"title\":\"大麻使用の最古の証拠、シベリアの3000年近く前の墓から発見 向精神作用を得る目的\",\"link\":\"https://www.cnn.co.jp/fringe/35254511.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17,\"unit\":\"书签\",\"text\":\"17\"}},{\"id\":\"hatena:https://shonenjumpplus.com/episode/9253191257689746274\",\"title\":\"[第21歩目]あっ、悪魔ちゃん - 深津ザオウ | 少年ジャンプ＋\",\"link\":\"https://shonenjumpplus.com/episode/9253191257689746274\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14,\"unit\":\"书签\",\"text\":\"14\"}},{\"id\":\"hatena:https://courrier.jp/news/archives/464009/\",\"title\":\"日本に残された「アベノミクスの負の遺産」…100年以上続くツケ | 国家的損失を生む「大実験」の結末\",\"link\":\"https://courrier.jp/news/archives/464009/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":163,\"unit\":\"书签\",\"text\":\"163\"}},{\"id\":\"hatena:https://note.com/planetary_gear/n/nb21a9d34f776\",\"title\":\"おもしろゲーム論が大集合！ 『遊星 物語るゲームたち』収録記事全紹介｜遊星歯車機関\",\"link\":\"https://note.com/planetary_gear/n/nb21a9d34f776\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":19,\"unit\":\"书签\",\"text\":\"19\"}},{\"id\":\"hatena:https://k-tai.watch.impress.co.jp/docs/news/2154506.html\",\"title\":\"ドコモ、不正アクセスで最大29.5万件の情報が流出\",\"link\":\"https://k-tai.watch.impress.co.jp/docs/news/2154506.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":26,\"unit\":\"书签\",\"text\":\"26\"}},{\"id\":\"hatena:https://syu-m-5151.hatenablog.com/entry/2026/11/06/132239\",\"title\":\"Herdrで、複数のエージェントを見守りたい - じゃあ、おうちで学べる\",\"link\":\"https://syu-m-5151.hatenablog.com/entry/2026/11/06/132239\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":86,\"unit\":\"书签\",\"text\":\"86\"}},{\"id\":\"hatena:https://kai-you.net/article/97078\",\"title\":\"にじさんじ家長むぎ、日本語検定の合格者を対象とした「時事通信社賞」受賞 初挑戦で1級合格\",\"link\":\"https://kai-you.net/article/97078\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":22,\"unit\":\"书签\",\"text\":\"22\"}},{\"id\":\"hatena:https://www.nature.com/articles/d41586-026-03505-1\",\"title\":\"When humans disappear, biodiversity takes a surprising turn\",\"link\":\"https://www.nature.com/articles/d41586-026-03505-1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"书签\",\"text\":\"8\"}}]}",
+    "timing": {
+      "elapsed_ms": 46,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 46
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 46,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 46,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 46,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 46,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 46,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 46
+        }
+      ]
+    }
+  }
 }

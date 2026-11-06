@@ -1,175 +1,23 @@
 {
-  "checked_at": "2026-11-06T07:03:55.782Z",
+  "checked_at": "2026-11-06T19:34:51.201Z",
   "inspection": {
     "file": "hot/xueqiu_hotstock.js",
     "path": "/api/hot/xueqiu/v5/stock/hot_stock/list.json",
     "example": "/api/hot/xueqiu/v5/stock/hot_stock/list.json",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/xueqiu/v5/stock/hot_stock/list.json.json",
-    "duration_ms": 1756
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 365
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 790
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 62
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/xueqiu_hotstock.js",
-      "name": "雪球 · 热门股票",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/xueqiu/v5/stock/hot_stock/list.json",
-      "request_path": "/api/hot/xueqiu/v5/stock/hot_stock/list.json",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/xueqiu/v5/stock/hot_stock/list.json",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5623dbdacde7c13"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 757,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"xueqiu-hotstock\",\"count\":30,\"missing_rank\":30}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":30}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://stock.xueqiu.com/v5/stock/hot_stock/list.json?size=30&_type=10&type=10",
-        "method": "GET",
-        "host": "stock.xueqiu.com",
-        "pathname": "/v5/stock/hot_stock/list.json",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "script_grant",
-          "headers_sent": [
-            "Cookie"
-          ]
-        },
-        "started_ms": 0,
-        "duration_ms": 757,
-        "timings": {
-          "response_ms": 757,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"雪球 · 热门股票\",\"link\":\"https://xueqiu.com\",\"category\":\"财经\",\"observed_at\":\"2026-11-06T07:03:56.544Z\",\"entries\":[{\"id\":\"xueqiu-hotstock:SZ300308\",\"title\":\"中际旭创 (SZ300308)\",\"link\":\"https://xueqiu.com/S/SZ300308\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":30737,\"unit\":\"关注热度\",\"text\":\"30737\"}},{\"id\":\"xueqiu-hotstock:SZ002384\",\"title\":\"东山精密 (SZ002384)\",\"link\":\"https://xueqiu.com/S/SZ002384\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":19395,\"unit\":\"关注热度\",\"text\":\"19395\"}},{\"id\":\"xueqiu-hotstock:SZ300413\",\"title\":\"芒果超媒 (SZ300413)\",\"link\":\"https://xueqiu.com/S/SZ300413\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17459,\"unit\":\"关注热度\",\"text\":\"17459\"}},{\"id\":\"xueqiu-hotstock:SH603259\",\"title\":\"药明康德 (SH603259)\",\"link\":\"https://xueqiu.com/S/SH603259\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12738,\"unit\":\"关注热度\",\"text\":\"12738\"}},{\"id\":\"xueqiu-hotstock:SH601899\",\"title\":\"紫金矿业 (SH601899)\",\"link\":\"https://xueqiu.com/S/SH601899\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12443,\"unit\":\"关注热度\",\"text\":\"12443\"}},{\"id\":\"xueqiu-hotstock:SZ300502\",\"title\":\"新易盛 (SZ300502)\",\"link\":\"https://xueqiu.com/S/SZ300502\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11056,\"unit\":\"关注热度\",\"text\":\"11056\"}},{\"id\":\"xueqiu-hotstock:SH603986\",\"title\":\"兆易创新 (SH603986)\",\"link\":\"https://xueqiu.com/S/SH603986\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":9365,\"unit\":\"关注热度\",\"text\":\"9365\"}},{\"id\":\"xueqiu-hotstock:SZ300750\",\"title\":\"宁德时代 (SZ300750)\",\"link\":\"https://xueqiu.com/S/SZ300750\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8316,\"unit\":\"关注热度\",\"text\":\"8316\"}},{\"id\":\"xueqiu-hotstock:SZ002827\",\"title\":\"高争民爆 (SZ002827)\",\"link\":\"https://xueqiu.com/S/SZ002827\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6540,\"unit\":\"关注热度\",\"text\":\"6540\"}},{\"id\":\"xueqiu-hotstock:SZ002275\",\"title\":\"桂林三金 (SZ002275)\",\"link\":\"https://xueqiu.com/S/SZ002275\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6408,\"unit\":\"关注热度\",\"text\":\"6408\"}},{\"id\":\"xueqiu-hotstock:SZ002929\",\"title\":\"润建股份 (SZ002929)\",\"link\":\"https://xueqiu.com/S/SZ002929\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5944,\"unit\":\"关注热度\",\"text\":\"5944\"}},{\"id\":\"xueqiu-hotstock:SZ000858\",\"title\":\"五粮液 (SZ000858)\",\"link\":\"https://xueqiu.com/S/SZ000858\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5681,\"unit\":\"关注热度\",\"text\":\"5681\"}},{\"id\":\"xueqiu-hotstock:00700\",\"title\":\"腾讯控股 (00700)\",\"link\":\"https://xueqiu.com/S/00700\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5121,\"unit\":\"关注热度\",\"text\":\"5121\"}},{\"id\":\"xueqiu-hotstock:02513\",\"title\":\"智谱 (02513)\",\"link\":\"https://xueqiu.com/S/02513\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5075,\"unit\":\"关注热度\",\"text\":\"5075\"}},{\"id\":\"xueqiu-hotstock:SH688825\",\"title\":\"长鑫科技 (SH688825)\",\"link\":\"https://xueqiu.com/S/SH688825\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4809,\"unit\":\"关注热度\",\"text\":\"4809\"}},{\"id\":\"xueqiu-hotstock:07709\",\"title\":\"XL二南方海力士 (07709)\",\"link\":\"https://xueqiu.com/S/07709\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4691,\"unit\":\"关注热度\",\"text\":\"4691\"}},{\"id\":\"xueqiu-hotstock:SH600585\",\"title\":\"海螺水泥 (SH600585)\",\"link\":\"https://xueqiu.com/S/SH600585\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4553,\"unit\":\"关注热度\",\"text\":\"4553\"}},{\"id\":\"xueqiu-hotstock:SZ300476\",\"title\":\"胜宏科技 (SZ300476)\",\"link\":\"https://xueqiu.com/S/SZ300476\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4181,\"unit\":\"关注热度\",\"text\":\"4181\"}},{\"id\":\"xueqiu-hotstock:SH600519\",\"title\":\"贵州茅台 (SH600519)\",\"link\":\"https://xueqiu.com/S/SH600519\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4129,\"unit\":\"关注热度\",\"text\":\"4129\"}},{\"id\":\"xueqiu-hotstock:SH600900\",\"title\":\"长江电力 (SH600900)\",\"link\":\"https://xueqiu.com/S/SH600900\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4120,\"unit\":\"关注热度\",\"text\":\"4120\"}},{\"id\":\"xueqiu-hotstock:SH601872\",\"title\":\"招商轮船 (SH601872)\",\"link\":\"https://xueqiu.com/S/SH601872\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4104,\"unit\":\"关注热度\",\"text\":\"4104\"}},{\"id\":\"xueqiu-hotstock:SZ002242\",\"title\":\"九阳股份 (SZ002242)\",\"link\":\"https://xueqiu.com/S/SZ002242\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4046,\"unit\":\"关注热度\",\"text\":\"4046\"}},{\"id\":\"xueqiu-hotstock:NVDA\",\"title\":\"英伟达 (NVDA)\",\"link\":\"https://xueqiu.com/S/NVDA\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4019,\"unit\":\"关注热度\",\"text\":\"4019\"}},{\"id\":\"xueqiu-hotstock:SZ000807\",\"title\":\"云铝股份 (SZ000807)\",\"link\":\"https://xueqiu.com/S/SZ000807\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3924,\"unit\":\"关注热度\",\"text\":\"3924\"}},{\"id\":\"xueqiu-hotstock:SZ300118\",\"title\":\"东方日升 (SZ300118)\",\"link\":\"https://xueqiu.com/S/SZ300118\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3849,\"unit\":\"关注热度\",\"text\":\"3849\"}},{\"id\":\"xueqiu-hotstock:SZ000408\",\"title\":\"藏格矿业 (SZ000408)\",\"link\":\"https://xueqiu.com/S/SZ000408\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3803,\"unit\":\"关注热度\",\"text\":\"3803\"}},{\"id\":\"xueqiu-hotstock:SH600036\",\"title\":\"招商银行 (SH600036)\",\"link\":\"https://xueqiu.com/S/SH600036\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3790,\"unit\":\"关注热度\",\"text\":\"3790\"}},{\"id\":\"xueqiu-hotstock:SZ300274\",\"title\":\"阳光电源 (SZ300274)\",\"link\":\"https://xueqiu.com/S/SZ300274\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3567,\"unit\":\"关注热度\",\"text\":\"3567\"}},{\"id\":\"xueqiu-hotstock:SZ002463\",\"title\":\"沪电股份 (SZ002463)\",\"link\":\"https://xueqiu.com/S/SZ002463\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3376,\"unit\":\"关注热度\",\"text\":\"3376\"}},{\"id\":\"xueqiu-hotstock:SH600183\",\"title\":\"生益科技 (SH600183)\",\"link\":\"https://xueqiu.com/S/SH600183\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3321,\"unit\":\"关注热度\",\"text\":\"3321\"}}]}",
-    "timing": {
-      "elapsed_ms": 757,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 757
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 757,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 757,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 757,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 757,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 757,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 757
-        }
-      ]
-    }
-  }
+  "debug": null
 }

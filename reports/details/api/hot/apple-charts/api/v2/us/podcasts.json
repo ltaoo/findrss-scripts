@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T07:03:47.336Z",
+  "checked_at": "2026-11-06T19:34:40.815Z",
   "inspection": {
     "file": "hot/apple_charts.js",
     "path": "/api/hot/apple-charts/api/v2/:country?/:type?",
@@ -12,12 +12,145 @@
     "status": 504,
     "code": "UPSTREAM_TIMEOUT",
     "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-    "duration_ms": 10353
+    "duration_ms": 10388
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 25
+    "status": 504,
+    "duration_ms": 10021
   },
-  "debug": null
+  "debug": {
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
+    "script": {
+      "file": "hot/apple_charts.js",
+      "name": "Apple · 播客/音乐榜",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/apple-charts/api/v2/:country?/:type?",
+      "request_path": "/api/hot/apple-charts/api/v2/:country?/:type?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/apple-charts/api/v2/us/podcasts",
+      "params": {
+        "country": "us",
+        "type": "podcasts"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56689791c6fea78"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 10000,
+    "invoked": false,
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:617:45)",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://rss.marketingtools.apple.com/api/v2/us/podcasts/top/50/podcasts.json",
+        "method": "GET",
+        "host": "rss.marketingtools.apple.com",
+        "pathname": "/api/v2/us/podcasts/top/50/podcasts.json",
+        "status": null,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 10000,
+        "timings": {
+          "response_ms": 10000
+        }
+      }
+    ],
+    "timing": {
+      "elapsed_ms": 10000,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 10000
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 10000,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 10000,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 10000,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 10000,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 10000
+        }
+      ]
+    }
+  }
 }

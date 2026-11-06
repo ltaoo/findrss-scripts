@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T07:03:53.941Z",
+  "checked_at": "2026-11-06T19:34:50.578Z",
   "inspection": {
     "file": "hot/wallstreetcn.js",
     "path": "/api/hot/wallstreetcn/apiv1/content/lives",
@@ -12,159 +12,12 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 22
+    "duration_ms": 46
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1272
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 48
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/wallstreetcn.js",
-      "name": "华尔街见闻 · 快讯",
-      "kind": "hot",
-      "version": "1.0.2",
-      "path": "/wallstreetcn/apiv1/content/lives",
-      "request_path": "/api/hot/wallstreetcn/apiv1/content/lives",
-      "route_index": 2
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/wallstreetcn/apiv1/content/lives",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5623db22b9e82c8"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 1208,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"wallstreetcn-quick\",\"count\":30,\"missing_rank\":30}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":30}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://api-one.wallstcn.com/apiv1/content/lives?channel=global-channel&limit=30",
-        "method": "GET",
-        "host": "api-one.wallstcn.com",
-        "pathname": "/apiv1/content/lives",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 1208,
-        "timings": {
-          "response_ms": 999,
-          "body_read_ms": 209,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"华尔街见闻 · 快讯\",\"link\":\"https://wallstreetcn.com/\",\"category\":\"财经\",\"observed_at\":\"2026-11-06T07:03:55.179Z\",\"entries\":[{\"id\":\"wallstreetcn-quick:3195699\",\"title\":\"【商务部：对原产于欧盟、日本的进口乙叉降冰片烯发起反倾销立案调查】商务部：自本公告发布之日起，商务部对原产于欧盟和日本的进口乙叉降冰片烯进行反倾销立案调查，本次调查确定的倾销调查期为2025年7月1日至2026年6月30日，产业损害调查期为2023年1月1日至2026年6月30日。\",\"link\":\"https://wallstreetcn.com/livenews/3195699\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195698\",\"title\":\"【创业板指缩量跌近4%，全市场下跌个股超4700只】 市场全天低开震荡，三大指数集体下挫。农业股逆势走强，万向德农、新赛股份涨停。电力、电网股拉升，新能股份、立新能源、东方新能涨停。光伏板块继续活跃，永臻股份4连板，安彩高科涨停。下跌方面，算力硬件股集体下挫，东山精密、剑桥科技等跌停，中际旭创跌超9%。个股呈现普跌态势，沪深京三市超4700股飘绿，今日成交1.67万亿。截止收盘沪指跌1.1%，深成指跌2.57%，创业板指跌3.96%。\",\"link\":\"https://wallstreetcn.com/livenews/3195698\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195694\",\"title\":\"商品期货收盘，苹果主力合约涨超5%，LU燃油涨超4%，焦炭、碳酸锂、红枣、沪镍涨超2%。液化气、聚乙烯、丙烯跌超3%。\",\"link\":\"https://wallstreetcn.com/livenews/3195694\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195692\",\"title\":\"驻冲绳美军决定将宵禁措施延长一个月\",\"link\":\"https://wallstreetcn.com/livenews/3195692\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195691\",\"title\":\"德国9月工业产出同比 0.4%，预期 1.2%，前值 2.3%。\",\"link\":\"https://wallstreetcn.com/livenews/3195691\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195690\",\"title\":\"德国9月工业产出环比 0.7%，预期 -0.1%，前值 2%。\",\"link\":\"https://wallstreetcn.com/livenews/3195690\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195688\",\"title\":\"2027年度全国煤炭交易会定于12月3日至4日召开\",\"link\":\"https://wallstreetcn.com/livenews/3195688\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195687\",\"title\":\"回购增持再贷款最新进展！10家沪市公司集中公告\",\"link\":\"https://wallstreetcn.com/livenews/3195687\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195686\",\"title\":\"香港投资推广署：将为内地黄金等贵金属企业提供一站式服务落地支持\",\"link\":\"https://wallstreetcn.com/livenews/3195686\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195685\",\"title\":\"泽连斯基向伊比利亚美洲国家点名求助\",\"link\":\"https://wallstreetcn.com/livenews/3195685\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195682\",\"title\":\"宁德时代入股智能传感器研发商灵动佳芯\",\"link\":\"https://wallstreetcn.com/livenews/3195682\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195679\",\"title\":\"成都高新区出台房产新政：购买参与活动房产项目新建住宅 每套补贴3万元消费券\",\"link\":\"https://wallstreetcn.com/livenews/3195679\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195678\",\"title\":\"河北发行5年期普通专项地方债，规模3.3200亿元，发行利率1.3400%，边际倍数1.81倍，倍数预期1.34；\\n\\n河北发行30年期其他专项地方债，规模50.0000亿元，发行利率2.1700%，边际倍数12.26倍，倍数预期2.16。\",\"link\":\"https://wallstreetcn.com/livenews/3195678\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195675\",\"title\":\"中广核阿里5万千瓦光热电站首次并网发电\",\"link\":\"https://wallstreetcn.com/livenews/3195675\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195672\",\"title\":\"宝马中国辟谣“车辆召回短信”：非官方发布，谨防诈骗。\",\"link\":\"https://wallstreetcn.com/livenews/3195672\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195669\",\"title\":\"中国东航进博会签署23份采购协议，签约总金额达5.4亿美元\",\"link\":\"https://wallstreetcn.com/livenews/3195669\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195667\",\"title\":\"日本GPIF因债券下跌遭遇六季度来首次亏损\",\"link\":\"https://wallstreetcn.com/livenews/3195667\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195666\",\"title\":\"马斯克：特斯拉将于明年年中左右在得州超级工厂逐步停产赛博卡车，为扩大赛博卡车生产腾出空间。\",\"link\":\"https://wallstreetcn.com/livenews/3195666\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195665\",\"title\":\"日经225指数收跌5.96%，报57434.77点。\\n\\n韩国KOSPI指数收跌6.02%，报5059.65点。\",\"link\":\"https://wallstreetcn.com/livenews/3195665\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195663\",\"title\":\"北京中小学将全部取消外送餐\",\"link\":\"https://wallstreetcn.com/livenews/3195663\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195661\",\"title\":\"特朗普称将就俄乌问题达成“重大协议”\",\"link\":\"https://wallstreetcn.com/livenews/3195661\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195658\",\"title\":\"市场监管总局公开征求《检验检测机构资质认定沙盒监管实施细则（征求意见稿）》意见\",\"link\":\"https://wallstreetcn.com/livenews/3195658\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195656\",\"title\":\"中国黄金集团等在新疆巴州成立矿业公司\",\"link\":\"https://wallstreetcn.com/livenews/3195656\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195655\",\"title\":\"海南矿业：优先发展已布局的锂和萤石业务\",\"link\":\"https://wallstreetcn.com/livenews/3195655\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195654\",\"title\":\"国家发改委：我国将动态调整优化粮食储备规模结构布局\",\"link\":\"https://wallstreetcn.com/livenews/3195654\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195653\",\"title\":\"中汽协：1-9月中国出口到“一带一路”沿线国家的汽车商品累计金额同比增长32.6%\",\"link\":\"https://wallstreetcn.com/livenews/3195653\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195652\",\"title\":\"欧盟推出一揽子方案应对教育挑战\",\"link\":\"https://wallstreetcn.com/livenews/3195652\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195651\",\"title\":\"报道：荷兰国际集团拟出售价值5亿美元的数据中心贷款组合\",\"link\":\"https://wallstreetcn.com/livenews/3195651\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195649\",\"title\":\"2030年我国充电基础设施将超4000万个\",\"link\":\"https://wallstreetcn.com/livenews/3195649\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3195648\",\"title\":\"新台币兑美元午后由跌转涨，早盘一度跌0.5%。\",\"link\":\"https://wallstreetcn.com/livenews/3195648\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 1208,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 1208
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 1208,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1208,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1208,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 1208,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 1208,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 1208
-        }
-      ]
-    }
-  }
+  "debug": null
 }

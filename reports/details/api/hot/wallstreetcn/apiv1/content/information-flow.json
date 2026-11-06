@@ -1,23 +1,169 @@
 {
-  "checked_at": "2026-11-06T07:03:53.897Z",
+  "checked_at": "2026-11-06T19:34:51.726Z",
   "inspection": {
     "file": "hot/wallstreetcn.js",
     "path": "/api/hot/wallstreetcn/apiv1/content/information-flow",
     "example": "/api/hot/wallstreetcn/apiv1/content/information-flow",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 32
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/wallstreetcn/apiv1/content/information-flow.json",
+    "duration_ms": 1495
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 21
+    "status": 200,
+    "duration_ms": 331
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/wallstreetcn.js",
+      "name": "华尔街见闻 · 最新",
+      "kind": "hot",
+      "version": "1.0.2",
+      "path": "/wallstreetcn/apiv1/content/information-flow",
+      "request_path": "/api/hot/wallstreetcn/apiv1/content/information-flow",
+      "route_index": 1
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/wallstreetcn/apiv1/content/information-flow",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56689bd5df758ac"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 247,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"wallstreetcn-news\",\"count\":26,\"missing_rank\":26}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":26}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api-one.wallstcn.com/apiv1/content/information-flow?channel=global-channel&accept=article&limit=30",
+        "method": "GET",
+        "host": "api-one.wallstcn.com",
+        "pathname": "/apiv1/content/information-flow",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 247,
+        "timings": {
+          "response_ms": 242,
+          "body_read_ms": 5,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"华尔街见闻 · 最新\",\"link\":\"https://wallstreetcn.com/\",\"category\":\"财经\",\"observed_at\":\"2026-11-06T19:34:51.999Z\",\"entries\":[{\"id\":\"wallstreetcn-news:3785404\",\"title\":\"微软收缩AI算力租赁！据称逐步退出甲骨文云协议，“新云”CoreWeave闪跌\",\"link\":\"https://wallstreetcn.com/articles/3785404\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785401\",\"title\":\"虚拟货币主要发行平台Solana高调“入沪”被紧急叫停！人民银行有关司局回应\",\"link\":\"https://wallstreetcn.com/articles/3785401\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785399\",\"title\":\"美国11月密歇根消费者信心超预期升至三个月高位，独立选民信心提升，通胀预期改善\",\"link\":\"https://wallstreetcn.com/articles/3785399\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785400\",\"title\":\"10月非农重燃12月加息预期！华尔街押注概率超八成，“新美联储通讯社”：AI抛售或成政策变量\",\"link\":\"https://wallstreetcn.com/articles/3785400\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785315\",\"title\":\"非农大超预期，美股芯片领涨，费半大涨7%，美债收益率走高，黄金承压回落\",\"link\":\"https://wallstreetcn.com/articles/3785315\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785395\",\"title\":\"美国10月非农就业激增16.5万，远超预期！失业率意外降至4.1%，12月加息预期升温\",\"link\":\"https://wallstreetcn.com/articles/3785395\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785394\",\"title\":\"AI抛售潮冲击Anthropic IPO，潜在估值预期下调至1.2万亿—1.3万亿美元\",\"link\":\"https://wallstreetcn.com/articles/3785394\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785389\",\"title\":\"Moderna Q3营收同比增长29%大超预期，上调全年营收增长指引至15%-25% | 财报见闻\",\"link\":\"https://wallstreetcn.com/articles/3785389\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785392\",\"title\":\"IT技术太烂，日本正在被黑客们当怪刷\",\"link\":\"https://wallstreetcn.com/articles/3785392\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785388\",\"title\":\"中选后华尔街集体看多美股，结果一天就被打脸！\",\"link\":\"https://wallstreetcn.com/articles/3785388\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785386\",\"title\":\"法国财政危机、欧盟政治重组与地缘冲突交织，欧洲或迎2027年系统性考验\",\"link\":\"https://wallstreetcn.com/articles/3785386\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785087\",\"title\":\"对标2000 与 2008：本轮 4.1 万亿AI 债务裂痕有多深？\",\"link\":\"https://wallstreetcn.com/member/articles/3785087\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785387\",\"title\":\"广电总局：开展为期两个月微短剧专项治理，重点整治AI低俗内容、同质化推荐\",\"link\":\"https://wallstreetcn.com/articles/3785387\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785384\",\"title\":\"旗舰配置下沉，车企争抢家庭SUV市场\",\"link\":\"https://wallstreetcn.com/articles/3785384\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785383\",\"title\":\"国常会：完善资本市场稳市机制，增强股市内在稳定性，促进资本市场平稳健康发展\",\"link\":\"https://wallstreetcn.com/articles/3785383\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785381\",\"title\":\"不拼外卖的京东，才是大家都爱的好京东\",\"link\":\"https://wallstreetcn.com/articles/3785381\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785382\",\"title\":\"国泰连续第四年参展进博会，未来十年计划接收 150 架新飞机\",\"link\":\"https://wallstreetcn.com/articles/3785382\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785380\",\"title\":\"逆AI！为什么这两个资产一枝独秀？\",\"link\":\"https://wallstreetcn.com/member/articles/3785380\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:41960143\",\"title\":\"MiniMax的野心：让AI不只会生成视频，还能独立完成整个项目\",\"link\":\"https://wallstreetcn.com/charts/41960143\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785379\",\"title\":\"特斯拉宣布终止Cybertruck生产，马斯克将资源转向机器人与AI赛道\",\"link\":\"https://wallstreetcn.com/articles/3785379\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785378\",\"title\":\"机器人拟实施“一机一码”，标识码申请量一般不超上年产量3倍\",\"link\":\"https://wallstreetcn.com/articles/3785378\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785367\",\"title\":\"MiniMax创始人罕见公开访谈：将一直开源直到实现AGI，盈利靠压低推理成本不靠涨价\",\"link\":\"https://wallstreetcn.com/articles/3785367\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785377\",\"title\":\"中国“不买”英伟达芯片，美国人急什么\",\"link\":\"https://wallstreetcn.com/articles/3785377\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785376\",\"title\":\"新能源接棒前，神龙先打燃油车保卫战\",\"link\":\"https://wallstreetcn.com/articles/3785376\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785375\",\"title\":\"民主党计划调查苹果、Meta和马斯克，特朗普的硅谷盟友面临“清算”！\",\"link\":\"https://wallstreetcn.com/articles/3785375\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785374\",\"title\":\"AI抛售潮血洗亚洲富豪榜，孙正义、三星家族身家遭重创！\",\"link\":\"https://wallstreetcn.com/articles/3785374\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 247,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 247
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 247,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 247
+        }
+      ]
+    }
+  }
 }

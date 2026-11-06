@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T07:03:54.227Z",
+  "checked_at": "2026-11-06T19:34:51.036Z",
   "inspection": {
     "file": "hot/weibo_hot.js",
     "path": "/api/hot/weibo/top/summary",
@@ -12,12 +12,165 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 250
+    "duration_ms": 409
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 23
+    "status": 200,
+    "duration_ms": 2503
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/weibo_hot.js",
+      "name": "微博 · 实时热搜",
+      "kind": "hot",
+      "version": "1.0.2",
+      "path": "/weibo/top/summary",
+      "request_path": "/api/hot/weibo/top/summary",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/weibo/top/summary",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56689b90918ea78"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1646,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"weibo\",\"count\":51,\"missing_rank\":0}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":51}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://s.weibo.com/top/summary?cate=realtimehot",
+        "method": "GET",
+        "host": "s.weibo.com",
+        "pathname": "/top/summary",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 129,
+        "duration_ms": 1517,
+        "timings": {
+          "response_ms": 1406,
+          "body_read_ms": 111,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"微博 · 实时热搜\",\"link\":\"https://weibo.com\",\"category\":\"综合\",\"observed_at\":\"2026-11-06T19:34:52.694Z\",\"entries\":[{\"id\":\"weibo:确保选出人民满意的代表\",\"title\":\"确保选出人民满意的代表\",\"link\":\"https://s.weibo.com/weibo?q=%23%E7%A1%AE%E4%BF%9D%E9%80%89%E5%87%BA%E4%BA%BA%E6%B0%91%E6%BB%A1%E6%84%8F%E7%9A%84%E4%BB%A3%E8%A1%A8%23&Refer=new_time\",\"rank\":null,\"pinned\":true,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"weibo:没本事但听话的婚姻没内耗\",\"title\":\"没本事但听话的婚姻没内耗\",\"link\":\"https://s.weibo.com/weibo?q=%E6%B2%A1%E6%9C%AC%E4%BA%8B%E4%BD%86%E5%90%AC%E8%AF%9D%E7%9A%84%E5%A9%9A%E5%A7%BB%E6%B2%A1%E5%86%85%E8%80%97&t=31&band_rank=1&Refer=top\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":118716,\"unit\":\"热度\",\"text\":\"118716\"}},{\"id\":\"weibo:后会友期综史一\",\"title\":\"后会友期综史一\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%90%8E%E4%BC%9A%E5%8F%8B%E6%9C%9F%E7%BB%BC%E5%8F%B2%E4%B8%80%23&t=31&band_rank=2&Refer=top\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":117165,\"unit\":\"热度\",\"text\":\"综艺 117165\"}},{\"id\":\"weibo:一图速览进博会亮点\",\"title\":\"一图速览进博会亮点\",\"link\":\"https://s.weibo.com/weibo?q=%23%E4%B8%80%E5%9B%BE%E9%80%9F%E8%A7%88%E8%BF%9B%E5%8D%9A%E4%BC%9A%E4%BA%AE%E7%82%B9%23&t=31&band_rank=3&Refer=top\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":103687,\"unit\":\"热度\",\"text\":\"103687\"}},{\"id\":\"weibo:小米澎程主驾车门被撞仍保护车主\",\"title\":\"小米澎程主驾车门被撞仍保护车主\",\"link\":\"https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E6%BE%8E%E7%A8%8B%E4%B8%BB%E9%A9%BE%E8%BD%A6%E9%97%A8%E8%A2%AB%E6%92%9E%E4%BB%8D%E4%BF%9D%E6%8A%A4%E8%BD%A6%E4%B8%BB&t=31&band_rank=4&Refer=top\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":103589,\"unit\":\"热度\",\"text\":\"103589\"}},{\"id\":\"weibo:许飞非虚构写作级别的表达\",\"title\":\"许飞非虚构写作级别的表达\",\"link\":\"https://s.weibo.com/weibo?q=%E8%AE%B8%E9%A3%9E%E9%9D%9E%E8%99%9A%E6%9E%84%E5%86%99%E4%BD%9C%E7%BA%A7%E5%88%AB%E7%9A%84%E8%A1%A8%E8%BE%BE&t=31&band_rank=5&Refer=top\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":103483,\"unit\":\"热度\",\"text\":\"综艺 103483\"}},{\"id\":\"weibo:厉娜因为有工作激动到睡不着\",\"title\":\"厉娜因为有工作激动到睡不着\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%8E%89%E5%A8%9C%E5%9B%A0%E4%B8%BA%E6%9C%89%E5%B7%A5%E4%BD%9C%E6%BF%80%E5%8A%A8%E5%88%B0%E7%9D%A1%E4%B8%8D%E7%9D%80%23&t=31&band_rank=6&Refer=top\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":98979,\"unit\":\"热度\",\"text\":\"98979\"}},{\"id\":\"weibo:张萌老公简历居然这么厉害\",\"title\":\"张萌老公简历居然这么厉害\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%BC%A0%E8%90%8C%E8%80%81%E5%85%AC%E7%AE%80%E5%8E%86%E5%B1%85%E7%84%B6%E8%BF%99%E4%B9%88%E5%8E%89%E5%AE%B3%23&t=31&band_rank=7&Refer=top\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":94986,\"unit\":\"热度\",\"text\":\"94986\"}},{\"id\":\"weibo:青稚听到和白小纯一起住偷笑\",\"title\":\"青稚听到和白小纯一起住偷笑\",\"link\":\"https://s.weibo.com/weibo?q=%23%E9%9D%92%E7%A8%9A%E5%90%AC%E5%88%B0%E5%92%8C%E7%99%BD%E5%B0%8F%E7%BA%AF%E4%B8%80%E8%B5%B7%E4%BD%8F%E5%81%B7%E7%AC%91%23&t=31&band_rank=8&Refer=top\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":90725,\"unit\":\"热度\",\"text\":\"综艺 90725\"}},{\"id\":\"weibo:全麻胃肠镜睡一觉就做完\",\"title\":\"全麻胃肠镜睡一觉就做完\",\"link\":\"https://s.weibo.com/weibo?q=%E5%85%A8%E9%BA%BB%E8%83%83%E8%82%A0%E9%95%9C%E7%9D%A1%E4%B8%80%E8%A7%89%E5%B0%B1%E5%81%9A%E5%AE%8C&t=31&band_rank=9&Refer=top\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":85044,\"unit\":\"热度\",\"text\":\"85044\"}},{\"id\":\"weibo:特斯拉将逐步停产Cybertruck\",\"title\":\"特斯拉将逐步停产Cybertruck\",\"link\":\"https://s.weibo.com/weibo?q=%23%E7%89%B9%E6%96%AF%E6%8B%89%E5%B0%86%E9%80%90%E6%AD%A5%E5%81%9C%E4%BA%A7Cybertruck%23&t=31&band_rank=10&Refer=top\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":83199,\"unit\":\"热度\",\"text\":\"83199\"}},{\"id\":\"weibo:圆通总裁心疼儿子Tim\",\"title\":\"圆通总裁心疼儿子Tim\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%9C%86%E9%80%9A%E6%80%BB%E8%A3%81%E5%BF%83%E7%96%BC%E5%84%BF%E5%AD%90Tim%23&t=31&band_rank=11&Refer=top\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":83072,\"unit\":\"热度\",\"text\":\"83072\"}},{\"id\":\"weibo:网友解读白小纯审判青稚\",\"title\":\"网友解读白小纯审判青稚\",\"link\":\"https://s.weibo.com/weibo?q=%E7%BD%91%E5%8F%8B%E8%A7%A3%E8%AF%BB%E7%99%BD%E5%B0%8F%E7%BA%AF%E5%AE%A1%E5%88%A4%E9%9D%92%E7%A8%9A&t=31&band_rank=12&Refer=top\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":82907,\"unit\":\"热度\",\"text\":\"82907\"}},{\"id\":\"weibo:KC挑衅Faker\",\"title\":\"KC挑衅Faker\",\"link\":\"https://s.weibo.com/weibo?q=%23KC%E6%8C%91%E8%A1%85Faker%23&t=31&band_rank=13&Refer=top\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":80105,\"unit\":\"热度\",\"text\":\"80105\"}},{\"id\":\"weibo:姜妍吃的饭被蒋欣看到天要塌了\",\"title\":\"姜妍吃的饭被蒋欣看到天要塌了\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%A7%9C%E5%A6%8D%E5%90%83%E7%9A%84%E9%A5%AD%E8%A2%AB%E8%92%8B%E6%AC%A3%E7%9C%8B%E5%88%B0%E5%A4%A9%E8%A6%81%E5%A1%8C%E4%BA%86%23&t=31&band_rank=14&Refer=top\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":74239,\"unit\":\"热度\",\"text\":\"74239\"}},{\"id\":\"weibo:天霸老板解释为什么换下白小纯\",\"title\":\"天霸老板解释为什么换下白小纯\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%A4%A9%E9%9C%B8%E8%80%81%E6%9D%BF%E8%A7%A3%E9%87%8A%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8D%A2%E4%B8%8B%E7%99%BD%E5%B0%8F%E7%BA%AF%23&t=31&band_rank=15&Refer=top\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":62025,\"unit\":\"热度\",\"text\":\"62025\"}},{\"id\":\"weibo:曝我们来了阵容\",\"title\":\"曝我们来了阵容\",\"link\":\"https://s.weibo.com/weibo?q=%E6%9B%9D%E6%88%91%E4%BB%AC%E6%9D%A5%E4%BA%86%E9%98%B5%E5%AE%B9&t=31&band_rank=16&Refer=top\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":60723,\"unit\":\"热度\",\"text\":\"综艺 60723\"}},{\"id\":\"weibo:张萌辟谣大IP剧是陈情令\",\"title\":\"张萌辟谣大IP剧是陈情令\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%BC%A0%E8%90%8C%E8%BE%9F%E8%B0%A3%E5%A4%A7IP%E5%89%A7%E6%98%AF%E9%99%88%E6%83%85%E4%BB%A4%23&t=31&band_rank=17&Refer=top\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":59816,\"unit\":\"热度\",\"text\":\"综艺 59816\"}},{\"id\":\"weibo:重大气象灾害暴雪四级应急响应\",\"title\":\"重大气象灾害暴雪四级应急响应\",\"link\":\"https://s.weibo.com/weibo?q=%23%E9%87%8D%E5%A4%A7%E6%B0%94%E8%B1%A1%E7%81%BE%E5%AE%B3%E6%9A%B4%E9%9B%AA%E5%9B%9B%E7%BA%A7%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%23&t=31&band_rank=18&Refer=top\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":59816,\"unit\":\"热度\",\"text\":\"59816\"}},{\"id\":\"weibo:美国10月非农远超预期\",\"title\":\"美国10月非农远超预期\",\"link\":\"https://s.weibo.com/weibo?q=%23%E7%BE%8E%E5%9B%BD10%E6%9C%88%E9%9D%9E%E5%86%9C%E8%BF%9C%E8%B6%85%E9%A2%84%E6%9C%9F%23&t=31&band_rank=19&Refer=top\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":59682,\"unit\":\"热度\",\"text\":\"59682\"}},{\"id\":\"weibo:F1巴西大奖赛\",\"title\":\"F1巴西大奖赛\",\"link\":\"https://s.weibo.com/weibo?q=F1%E5%B7%B4%E8%A5%BF%E5%A4%A7%E5%A5%96%E8%B5%9B&t=31&band_rank=20&Refer=top\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":59437,\"unit\":\"热度\",\"text\":\"59437\"}},{\"id\":\"weibo:许飞是全网唯一文吉儿王子璇CP粉\",\"title\":\"许飞是全网唯一文吉儿王子璇CP粉\",\"link\":\"https://s.weibo.com/weibo?q=%E8%AE%B8%E9%A3%9E%E6%98%AF%E5%85%A8%E7%BD%91%E5%94%AF%E4%B8%80%E6%96%87%E5%90%89%E5%84%BF%E7%8E%8B%E5%AD%90%E7%92%87CP%E7%B2%89&t=31&band_rank=21&Refer=top\",\"rank\":21,\"pinned\":false,\"heat\":{\"value\":59301,\"unit\":\"热度\",\"text\":\"59301\"}},{\"id\":\"weibo:大冰回答八年没上班的女子\",\"title\":\"大冰回答八年没上班的女子\",\"link\":\"https://s.weibo.com/weibo?q=%E5%A4%A7%E5%86%B0%E5%9B%9E%E7%AD%94%E5%85%AB%E5%B9%B4%E6%B2%A1%E4%B8%8A%E7%8F%AD%E7%9A%84%E5%A5%B3%E5%AD%90&t=31&band_rank=22&Refer=top\",\"rank\":22,\"pinned\":false,\"heat\":{\"value\":59230,\"unit\":\"热度\",\"text\":\"59230\"}},{\"id\":\"weibo:工作真的会改变人的性格\",\"title\":\"工作真的会改变人的性格\",\"link\":\"https://s.weibo.com/weibo?q=%E5%B7%A5%E4%BD%9C%E7%9C%9F%E7%9A%84%E4%BC%9A%E6%94%B9%E5%8F%98%E4%BA%BA%E7%9A%84%E6%80%A7%E6%A0%BC&t=31&band_rank=23&Refer=top\",\"rank\":23,\"pinned\":false,\"heat\":{\"value\":59104,\"unit\":\"热度\",\"text\":\"59104\"}},{\"id\":\"weibo:青稚白小纯和好 全联盟开始狼人杀\",\"title\":\"青稚白小纯和好 全联盟开始狼人杀\",\"link\":\"https://s.weibo.com/weibo?q=%E9%9D%92%E7%A8%9A%E7%99%BD%E5%B0%8F%E7%BA%AF%E5%92%8C%E5%A5%BD%20%E5%85%A8%E8%81%94%E7%9B%9F%E5%BC%80%E5%A7%8B%E7%8B%BC%E4%BA%BA%E6%9D%80&t=31&band_rank=24&Refer=top\",\"rank\":24,\"pinned\":false,\"heat\":{\"value\":58912,\"unit\":\"热度\",\"text\":\"58912\"}},{\"id\":\"weibo:青稚白小纯好标准的刻舟求剑\",\"title\":\"青稚白小纯好标准的刻舟求剑\",\"link\":\"https://s.weibo.com/weibo?q=%E9%9D%92%E7%A8%9A%E7%99%BD%E5%B0%8F%E7%BA%AF%E5%A5%BD%E6%A0%87%E5%87%86%E7%9A%84%E5%88%BB%E8%88%9F%E6%B1%82%E5%89%91&t=31&band_rank=25&Refer=top\",\"rank\":25,\"pinned\":false,\"heat\":{\"value\":58768,\"unit\":\"热度\",\"text\":\"综艺 58768\"}},{\"id\":\"weibo:11岁女童遭性侵被困宾馆5小时\",\"title\":\"11岁女童遭性侵被困宾馆5小时\",\"link\":\"https://s.weibo.com/weibo?q=%2311%E5%B2%81%E5%A5%B3%E7%AB%A5%E9%81%AD%E6%80%A7%E4%BE%B5%E8%A2%AB%E5%9B%B0%E5%AE%BE%E9%A6%865%E5%B0%8F%E6%97%B6%23&t=31&band_rank=26&Refer=top\",\"rank\":26,\"pinned\":false,\"heat\":{\"value\":58766,\"unit\":\"热度\",\"text\":\"58766\"}},{\"id\":\"weibo:赵丽颖周迅打招呼\",\"title\":\"赵丽颖周迅打招呼\",\"link\":\"https://s.weibo.com/weibo?q=%23%E8%B5%B5%E4%B8%BD%E9%A2%96%E5%91%A8%E8%BF%85%E6%89%93%E6%8B%9B%E5%91%BC%23&t=31&band_rank=27&Refer=top\",\"rank\":27,\"pinned\":false,\"heat\":{\"value\":54406,\"unit\":\"热度\",\"text\":\"盛典 54406\"}},{\"id\":\"weibo:11元拍下鹤岗一套房男子发声\",\"title\":\"11元拍下鹤岗一套房男子发声\",\"link\":\"https://s.weibo.com/weibo?q=%2311%E5%85%83%E6%8B%8D%E4%B8%8B%E9%B9%A4%E5%B2%97%E4%B8%80%E5%A5%97%E6%88%BF%E7%94%B7%E5%AD%90%E5%8F%91%E5%A3%B0%23&t=31&band_rank=28&Refer=top\",\"rank\":28,\"pinned\":false,\"heat\":{\"value\":54222,\"unit\":\"热度\",\"text\":\"54222\"}},{\"id\":\"weibo:还原商南重大刑事案嫌疑人路线\",\"title\":\"还原商南重大刑事案嫌疑人路线\",\"link\":\"https://s.weibo.com/weibo?q=%23%E8%BF%98%E5%8E%9F%E5%95%86%E5%8D%97%E9%87%8D%E5%A4%A7%E5%88%91%E4%BA%8B%E6%A1%88%E5%AB%8C%E7%96%91%E4%BA%BA%E8%B7%AF%E7%BA%BF%23&t=31&band_rank=29&Refer=top\",\"rank\":29,\"pinned\":false,\"heat\":{\"value\":53767,\"unit\":\"热度\",\"text\":\"53767\"}},{\"id\":\"weibo:立冬后建议多吃这些食物\",\"title\":\"立冬后建议多吃这些食物\",\"link\":\"https://s.weibo.com/weibo?q=%23%E7%AB%8B%E5%86%AC%E5%90%8E%E5%BB%BA%E8%AE%AE%E5%A4%9A%E5%90%83%E8%BF%99%E4%BA%9B%E9%A3%9F%E7%89%A9%23&t=31&band_rank=30&Refer=top\",\"rank\":30,\"pinned\":false,\"heat\":{\"value\":53272,\"unit\":\"热度\",\"text\":\"53272\"}},{\"id\":\"weibo:原来器官没在我以为的地方\",\"title\":\"原来器官没在我以为的地方\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%8E%9F%E6%9D%A5%E5%99%A8%E5%AE%98%E6%B2%A1%E5%9C%A8%E6%88%91%E4%BB%A5%E4%B8%BA%E7%9A%84%E5%9C%B0%E6%96%B9%23&t=31&band_rank=31&Refer=top\",\"rank\":31,\"pinned\":false,\"heat\":{\"value\":53213,\"unit\":\"热度\",\"text\":\"53213\"}},{\"id\":\"weibo:永远不要和人产生太深的羁绊\",\"title\":\"永远不要和人产生太深的羁绊\",\"link\":\"https://s.weibo.com/weibo?q=%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A6%81%E5%92%8C%E4%BA%BA%E4%BA%A7%E7%94%9F%E5%A4%AA%E6%B7%B1%E7%9A%84%E7%BE%81%E7%BB%8A&t=31&band_rank=32&Refer=top\",\"rank\":32,\"pinned\":false,\"heat\":{\"value\":52832,\"unit\":\"热度\",\"text\":\"52832\"}},{\"id\":\"weibo:曝乔欣有孩子了\",\"title\":\"曝乔欣有孩子了\",\"link\":\"https://s.weibo.com/weibo?q=%23%E6%9B%9D%E4%B9%94%E6%AC%A3%E6%9C%89%E5%AD%A9%E5%AD%90%E4%BA%86%23&t=31&band_rank=33&Refer=top\",\"rank\":33,\"pinned\":false,\"heat\":{\"value\":51043,\"unit\":\"热度\",\"text\":\"51043\"}},{\"id\":\"weibo:取消化妆大赛吧我们已经有冠军了\",\"title\":\"取消化妆大赛吧我们已经有冠军了\",\"link\":\"https://s.weibo.com/weibo?q=%E5%8F%96%E6%B6%88%E5%8C%96%E5%A6%86%E5%A4%A7%E8%B5%9B%E5%90%A7%E6%88%91%E4%BB%AC%E5%B7%B2%E7%BB%8F%E6%9C%89%E5%86%A0%E5%86%9B%E4%BA%86&t=31&band_rank=34&Refer=top\",\"rank\":34,\"pinned\":false,\"heat\":{\"value\":49169,\"unit\":\"热度\",\"text\":\"49169\"}},{\"id\":\"weibo:友情的回光返照最让人失落\",\"title\":\"友情的回光返照最让人失落\",\"link\":\"https://s.weibo.com/weibo?q=%E5%8F%8B%E6%83%85%E7%9A%84%E5%9B%9E%E5%85%89%E8%BF%94%E7%85%A7%E6%9C%80%E8%AE%A9%E4%BA%BA%E5%A4%B1%E8%90%BD&t=31&band_rank=35&Refer=top\",\"rank\":35,\"pinned\":false,\"heat\":{\"value\":48877,\"unit\":\"热度\",\"text\":\"48877\"}},{\"id\":\"weibo:马天宇没去的剧疑似是陈情令\",\"title\":\"马天宇没去的剧疑似是陈情令\",\"link\":\"https://s.weibo.com/weibo?q=%23%E9%A9%AC%E5%A4%A9%E5%AE%87%E6%B2%A1%E5%8E%BB%E7%9A%84%E5%89%A7%E7%96%91%E4%BC%BC%E6%98%AF%E9%99%88%E6%83%85%E4%BB%A4%23&t=31&band_rank=36&Refer=top\",\"rank\":36,\"pinned\":false,\"heat\":{\"value\":47842,\"unit\":\"热度\",\"text\":\"剧集 47842\"}},{\"id\":\"weibo:青稚白小纯的老板是陈赫鹿晗\",\"title\":\"青稚白小纯的老板是陈赫鹿晗\",\"link\":\"https://s.weibo.com/weibo?q=%23%E9%9D%92%E7%A8%9A%E7%99%BD%E5%B0%8F%E7%BA%AF%E7%9A%84%E8%80%81%E6%9D%BF%E6%98%AF%E9%99%88%E8%B5%AB%E9%B9%BF%E6%99%97%23&t=31&band_rank=37&Refer=top\",\"rank\":37,\"pinned\":false,\"heat\":{\"value\":47842,\"unit\":\"热度\",\"text\":\"47842\"}},{\"id\":\"weibo:王子璇把文吉儿的两头退路都堵死了\",\"title\":\"王子璇把文吉儿的两头退路都堵死了\",\"link\":\"https://s.weibo.com/weibo?q=%23%E7%8E%8B%E5%AD%90%E7%92%87%E6%8A%8A%E6%96%87%E5%90%89%E5%84%BF%E7%9A%84%E4%B8%A4%E5%A4%B4%E9%80%80%E8%B7%AF%E9%83%BD%E5%A0%B5%E6%AD%BB%E4%BA%86%23&t=31&band_rank=38&Refer=top\",\"rank\":38,\"pinned\":false,\"heat\":{\"value\":47842,\"unit\":\"热度\",\"text\":\"47842\"}},{\"id\":\"weibo:张柏芝夸迪丽热巴很漂亮\",\"title\":\"张柏芝夸迪丽热巴很漂亮\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%BC%A0%E6%9F%8F%E8%8A%9D%E5%A4%B8%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4%E5%BE%88%E6%BC%82%E4%BA%AE%23&t=31&band_rank=39&Refer=top\",\"rank\":39,\"pinned\":false,\"heat\":{\"value\":47840,\"unit\":\"热度\",\"text\":\"47840\"}},{\"id\":\"weibo:女子称父亲倒在站台旅客施救被制止\",\"title\":\"女子称父亲倒在站台旅客施救被制止\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%A5%B3%E5%AD%90%E7%A7%B0%E7%88%B6%E4%BA%B2%E5%80%92%E5%9C%A8%E7%AB%99%E5%8F%B0%E6%97%85%E5%AE%A2%E6%96%BD%E6%95%91%E8%A2%AB%E5%88%B6%E6%AD%A2%23&t=31&band_rank=40&Refer=top\",\"rank\":40,\"pinned\":false,\"heat\":{\"value\":47840,\"unit\":\"热度\",\"text\":\"47840\"}},{\"id\":\"weibo:白小纯梭哈的原因找到了\",\"title\":\"白小纯梭哈的原因找到了\",\"link\":\"https://s.weibo.com/weibo?q=%23%E7%99%BD%E5%B0%8F%E7%BA%AF%E6%A2%AD%E5%93%88%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%89%BE%E5%88%B0%E4%BA%86%23&t=31&band_rank=41&Refer=top\",\"rank\":41,\"pinned\":false,\"heat\":{\"value\":47839,\"unit\":\"热度\",\"text\":\"47839\"}},{\"id\":\"weibo:格拉夫认领赵丽颖珠宝\",\"title\":\"格拉夫认领赵丽颖珠宝\",\"link\":\"https://s.weibo.com/weibo?q=%E6%A0%BC%E6%8B%89%E5%A4%AB%E8%AE%A4%E9%A2%86%E8%B5%B5%E4%B8%BD%E9%A2%96%E7%8F%A0%E5%AE%9D&t=31&band_rank=42&Refer=top\",\"rank\":42,\"pinned\":false,\"heat\":{\"value\":47838,\"unit\":\"热度\",\"text\":\"盛典 47838\"}},{\"id\":\"weibo:华为连续三年拍金鸡百花宣传片\",\"title\":\"华为连续三年拍金鸡百花宣传片\",\"link\":\"https://s.weibo.com/weibo?q=%E5%8D%8E%E4%B8%BA%E8%BF%9E%E7%BB%AD%E4%B8%89%E5%B9%B4%E6%8B%8D%E9%87%91%E9%B8%A1%E7%99%BE%E8%8A%B1%E5%AE%A3%E4%BC%A0%E7%89%87&t=31&band_rank=43&Refer=top\",\"rank\":43,\"pinned\":false,\"heat\":{\"value\":47838,\"unit\":\"热度\",\"text\":\"47838\"}},{\"id\":\"weibo:曾沛慈看孙燕姿演唱会点歌\",\"title\":\"曾沛慈看孙燕姿演唱会点歌\",\"link\":\"https://s.weibo.com/weibo?q=%E6%9B%BE%E6%B2%9B%E6%85%88%E7%9C%8B%E5%AD%99%E7%87%95%E5%A7%BF%E6%BC%94%E5%94%B1%E4%BC%9A%E7%82%B9%E6%AD%8C&t=31&band_rank=44&Refer=top\",\"rank\":44,\"pinned\":false,\"heat\":{\"value\":47837,\"unit\":\"热度\",\"text\":\"演出 47837\"}},{\"id\":\"weibo:第一眼以为是爱豆结果是AI\",\"title\":\"第一眼以为是爱豆结果是AI\",\"link\":\"https://s.weibo.com/weibo?q=%E7%AC%AC%E4%B8%80%E7%9C%BC%E4%BB%A5%E4%B8%BA%E6%98%AF%E7%88%B1%E8%B1%86%E7%BB%93%E6%9E%9C%E6%98%AFAI&t=31&band_rank=45&Refer=top\",\"rank\":45,\"pinned\":false,\"heat\":{\"value\":47836,\"unit\":\"热度\",\"text\":\"47836\"}},{\"id\":\"weibo:做了近视激光手术的人后来怎样了\",\"title\":\"做了近视激光手术的人后来怎样了\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%81%9A%E4%BA%86%E8%BF%91%E8%A7%86%E6%BF%80%E5%85%89%E6%89%8B%E6%9C%AF%E7%9A%84%E4%BA%BA%E5%90%8E%E6%9D%A5%E6%80%8E%E6%A0%B7%E4%BA%86%23&t=31&band_rank=46&Refer=top\",\"rank\":46,\"pinned\":false,\"heat\":{\"value\":47836,\"unit\":\"热度\",\"text\":\"47836\"}},{\"id\":\"weibo:MAC长文回应SAKEE\",\"title\":\"MAC长文回应SAKEE\",\"link\":\"https://s.weibo.com/weibo?q=MAC%E9%95%BF%E6%96%87%E5%9B%9E%E5%BA%94SAKEE&t=31&band_rank=47&Refer=top\",\"rank\":47,\"pinned\":false,\"heat\":{\"value\":47835,\"unit\":\"热度\",\"text\":\"47835\"}},{\"id\":\"weibo:陈情令选角时间线\",\"title\":\"陈情令选角时间线\",\"link\":\"https://s.weibo.com/weibo?q=%23%E9%99%88%E6%83%85%E4%BB%A4%E9%80%89%E8%A7%92%E6%97%B6%E9%97%B4%E7%BA%BF%23&t=31&band_rank=48&Refer=top\",\"rank\":48,\"pinned\":false,\"heat\":{\"value\":47833,\"unit\":\"热度\",\"text\":\"剧集 47833\"}},{\"id\":\"weibo:商户称商南命案受伤警察流了很多血\",\"title\":\"商户称商南命案受伤警察流了很多血\",\"link\":\"https://s.weibo.com/weibo?q=%23%E5%95%86%E6%88%B7%E7%A7%B0%E5%95%86%E5%8D%97%E5%91%BD%E6%A1%88%E5%8F%97%E4%BC%A4%E8%AD%A6%E5%AF%9F%E6%B5%81%E4%BA%86%E5%BE%88%E5%A4%9A%E8%A1%80%23&t=31&band_rank=49&Refer=top\",\"rank\":49,\"pinned\":false,\"heat\":{\"value\":47833,\"unit\":\"热度\",\"text\":\"47833\"}},{\"id\":\"weibo:高盛预测黄金新上涨窗口时间\",\"title\":\"高盛预测黄金新上涨窗口时间\",\"link\":\"https://s.weibo.com/weibo?q=%23%E9%AB%98%E7%9B%9B%E9%A2%84%E6%B5%8B%E9%BB%84%E9%87%91%E6%96%B0%E4%B8%8A%E6%B6%A8%E7%AA%97%E5%8F%A3%E6%97%B6%E9%97%B4%23&t=31&band_rank=50&Refer=top\",\"rank\":50,\"pinned\":false,\"heat\":{\"value\":47833,\"unit\":\"热度\",\"text\":\"47833\"}}]}",
+    "timing": {
+      "elapsed_ms": 1646,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 129
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 129,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 129,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 129,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 129,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 129,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 129,
+          "duration_ms": 1517
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1646,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1646,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1646,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1646,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1646,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 129,
+          "duration_ms": 1517
+        }
+      ]
+    }
+  }
 }

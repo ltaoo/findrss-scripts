@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T07:03:40.001Z",
+  "checked_at": "2026-11-06T19:34:32.847Z",
   "inspection": {
     "file": "hot/aihot.js",
     "path": "/api/hot/aihot/feed/all.xml",
@@ -11,176 +11,12 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/aihot/feed/all.xml.json",
-    "duration_ms": 3020
+    "duration_ms": 2422
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1275
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 688
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/aihot.js",
-      "name": "AIHOT",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/aihot/feed/all.xml",
-      "request_path": "/api/hot/aihot/feed/all.xml",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/aihot/feed/all.xml",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5623d5b0e9c99f9"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 925,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"aihot\",\"count\":50,\"missing_rank\":50}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":50}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://aihot.virxact.com/feed/all.xml",
-        "method": "GET",
-        "host": "aihot.virxact.com",
-        "pathname": "/feed/all.xml",
-        "status": 301,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 711,
-        "timings": {
-          "response_ms": 711
-        }
-      },
-      {
-        "url": "https://aihot.news/feed/all.xml",
-        "method": "GET",
-        "host": "aihot.news",
-        "pathname": "/feed/all.xml",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 711,
-        "duration_ms": 214,
-        "timings": {
-          "response_ms": 214,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"AIHOT\",\"link\":\"https://aihot.virxact.com/all\",\"category\":\"科技\",\"observed_at\":\"2026-11-06T07:03:40.954Z\",\"entries\":[{\"id\":\"aihot:be02dme3vj0bwyhhiwoz6lb2i\",\"title\":\"Palo Alto Networks 洽购 AI 智能体安全初创公司 Clutch，作价 5 亿美元\",\"link\":\"https://aihot.news/items/be02dme3vj0bwyhhiwoz6lb2i\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:z8t9cu6n3dxdm302k81ondzfd\",\"title\":\"World Labs 发布 Frameboy 实时世界模型演示，fal 提供 serverless 推理支持\",\"link\":\"https://aihot.news/items/z8t9cu6n3dxdm302k81ondzfd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:e368rs85k2p6l5n1pis34i3yl\",\"title\":\"webAI 开源 TwIL-8B 推理模型：聚焦数学与编程，长板表现优于 Gemma 4 31B\",\"link\":\"https://aihot.news/items/e368rs85k2p6l5n1pis34i3yl\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:gwygx968xwjoots38v40p2lmm\",\"title\":\"Perplexity CEO：智能体将越来越多地被其他智能体调用\",\"link\":\"https://aihot.news/items/gwygx968xwjoots38v40p2lmm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:l9wgs8gjyahc419eoy50n2egz\",\"title\":\"Kate Clark 援引 WSJ 报道：Anthropic 年化收入 10 月底突破 800 亿美元\",\"link\":\"https://aihot.news/items/l9wgs8gjyahc419eoy50n2egz\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:eil7g827qnurbw83ytbjpokhb\",\"title\":\"Thinking Machines 发布 Inkling 2 Small：594B MoE、17B 激活、1M 上下文\",\"link\":\"https://aihot.news/items/eil7g827qnurbw83ytbjpokhb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:eiyrkwa1fbacrybe9exyxs1ff\",\"title\":\"腾讯混元Hy4登顶Agent Arena中国模型榜首\",\"link\":\"https://aihot.news/items/eiyrkwa1fbacrybe9exyxs1ff\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:hz8i8bd22dnwaxcg9vxcikfkd\",\"title\":\"张朝阳承认搜狐错过移动互联网：大模型拼资源做不起，不要全被 AI 带跑\",\"link\":\"https://aihot.news/items/hz8i8bd22dnwaxcg9vxcikfkd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:p2n47kaclfgaop2o3dtkw3l6a\",\"title\":\"Jeff Dean 等合作资助开放科学登月项目\",\"link\":\"https://aihot.news/items/p2n47kaclfgaop2o3dtkw3l6a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:k0lony39tobnppjueuas7s76e\",\"title\":\"淘宝 MNN 团队开源 MNN-Pocket-0.3B 端侧模型，iPhone 18 Pro 离线解码达 350 token/s\",\"link\":\"https://aihot.news/items/k0lony39tobnppjueuas7s76e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:h9vthcb5i8k4pezob6aim2fe8\",\"title\":\"中国移动宣布 2027 年算力投资超 1000 亿元，未来两年智算能力连续翻番\",\"link\":\"https://aihot.news/items/h9vthcb5i8k4pezob6aim2fe8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:lqw9mgxgmeoa6rabmmsagfo13\",\"title\":\"曹操出行接入中国移动 12580 个人智能助理，成首个打车生态合作伙伴\",\"link\":\"https://aihot.news/items/lqw9mgxgmeoa6rabmmsagfo13\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:txeaq1sfx9oalqx5kh0rwkou8\",\"title\":\"Ricursive Intelligence 发布 Ripple-65B Preview，自称美国最佳智能体编程开放权重模型\",\"link\":\"https://aihot.news/items/txeaq1sfx9oalqx5kh0rwkou8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:yspksmmwaaupllhpgbxcv124h\",\"title\":\"百度开源 280B 参数的 ERNIE 5.5 Flash Base 基础模型\",\"link\":\"https://aihot.news/items/yspksmmwaaupllhpgbxcv124h\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:am18w4bxa6tx93eiw7s8hd1es\",\"title\":\"Artificial Analysis 发布端点准确率指数 v1.1\",\"link\":\"https://aihot.news/items/am18w4bxa6tx93eiw7s8hd1es\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:tlzycr051m2ix8wros5799ja7\",\"title\":\"消息称 Thinking Machines Lab 正以 400 亿美元投前估值筹集 50 亿美元\",\"link\":\"https://aihot.news/items/tlzycr051m2ix8wros5799ja7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:iherxwf5l55jl8x0akk22gx2j\",\"title\":\"Gemini Omni 1.2 Flash 上线 Higgsfield\",\"link\":\"https://aihot.news/items/iherxwf5l55jl8x0akk22gx2j\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:vljna2gmwabgd27b9kg0l0gnv\",\"title\":\"中国移动：今年手机上网流量增长 18%，AI 生成内容带动流量增长 5 倍\",\"link\":\"https://aihot.news/items/vljna2gmwabgd27b9kg0l0gnv\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:c7tx0bmfg70a6bu3jbo9921x3\",\"title\":\"MiniCPM-OCR 集成进 LiteParse\",\"link\":\"https://aihot.news/items/c7tx0bmfg70a6bu3jbo9921x3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:hrgtd1nycr9l6nynuqrdgg8wy\",\"title\":\"Meta 个人 AI 助手 Muse 上线实时语音对话与虚拟形象功能\",\"link\":\"https://aihot.news/items/hrgtd1nycr9l6nynuqrdgg8wy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:eh0u52eew8qw69cdf5h0hfhxa\",\"title\":\"Noam Brown 称赞 Blood on the Clocktower 评测方法并向 Dwarkesh 抛出橄榄枝\",\"link\":\"https://aihot.news/items/eh0u52eew8qw69cdf5h0hfhxa\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:x98uq5qyvs5es9nowy3apfv49\",\"title\":\"World Labs 发布 Frameboy 演示：网页端实时探索 AI 生成世界，最高 15 帧\",\"link\":\"https://aihot.news/items/x98uq5qyvs5es9nowy3apfv49\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:vxp7zov815cfx7h5o69ocd23e\",\"title\":\"工信部发布通知加强智能体终端设备进网管理，提出四大工作任务\",\"link\":\"https://aihot.news/items/vxp7zov815cfx7h5o69ocd23e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:k77h49nfegbs1cfx2137i6kyi\",\"title\":\"Casey Newton 分析 AI 反弹浪潮为何需要监管计划\",\"link\":\"https://aihot.news/items/k77h49nfegbs1cfx2137i6kyi\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:e13mz24869h24423kxt65guy0\",\"title\":\"Gemini Omni 1.2 Flash 上线 Krea\",\"link\":\"https://aihot.news/items/e13mz24869h24423kxt65guy0\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:v74el189fl1z6z01w1ncvf0m7\",\"title\":\"OpenAI 宣布数据中心社区承诺，不再对公职人员使用 NDA\",\"link\":\"https://aihot.news/items/v74el189fl1z6z01w1ncvf0m7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:vz7tqyuw4ofxzf1ku553bqenf\",\"title\":\"Anthropic 推出 Claude 个人理财功能，支持消费分析和账单追踪\",\"link\":\"https://aihot.news/items/vz7tqyuw4ofxzf1ku553bqenf\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:i10kfdc7hszn1g4kz15jsr6as\",\"title\":\"Arena Agent Arena 榜单：腾讯混元 Hy4 登顶中国模型第一\",\"link\":\"https://aihot.news/items/i10kfdc7hszn1g4kz15jsr6as\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:auosi7m7db6vyeckyo1qn02su\",\"title\":\"METR 发布报告：Anthropic 的 AI 自我加速循环已达约 2 倍\",\"link\":\"https://aihot.news/items/auosi7m7db6vyeckyo1qn02su\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:lt9r8bjmxpwgtxmd9mt2fctc3\",\"title\":\"蚂蚁百灵发布原生多模态模型 Ling-3.2-flash：560B 总参数、1M 上下文，三项基准超 Claude Opus 5\",\"link\":\"https://aihot.news/items/lt9r8bjmxpwgtxmd9mt2fctc3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:xpmyon7tezenro4k4fmlbf3th\",\"title\":\"Thinking Machines 发布 Inkling 2 Small，Artificial Analysis 指数得分 31 并计划开源权重\",\"link\":\"https://aihot.news/items/xpmyon7tezenro4k4fmlbf3th\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ulp3wiu0wqc134cllhoas33kw\",\"title\":\"美国中期选举后数据中心民意反弹引发AI股暴跌\",\"link\":\"https://aihot.news/items/ulp3wiu0wqc134cllhoas33kw\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:c66xa3anti4ibc6om7fcq1owk\",\"title\":\"Inkling 2 Small 进入 Code Arena: WebDev 榜单，1654 分约列美国开源模型第一\",\"link\":\"https://aihot.news/items/c66xa3anti4ibc6om7fcq1owk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:hwndgs0mfinihh396euqp0wv9\",\"title\":\"Perplexity 每月刷新帕累托最优曲线\",\"link\":\"https://aihot.news/items/hwndgs0mfinihh396euqp0wv9\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:dfl6x1foulmm0456amukc5na6\",\"title\":\"Karina Nguyen 演示 Inkling 2 Small 在财务尽调任务中独立解析 PSEG 10-Q 并发现 12 亿美元抵押品释放\",\"link\":\"https://aihot.news/items/dfl6x1foulmm0456amukc5na6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:o3kzzqpf35qwhqm7w9xvr1xuw\",\"title\":\"Thinking Machines 发布 Inkling 2 Small 并上线 Tinker\",\"link\":\"https://aihot.news/items/o3kzzqpf35qwhqm7w9xvr1xuw\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:j2wy2avc7gqke53hk08kztvy1\",\"title\":\"Thinking Machines 介绍 Inkling 2 Small 的长任务与视觉自检能力，开放 Tinker 微调\",\"link\":\"https://aihot.news/items/j2wy2avc7gqke53hk08kztvy1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:hca5pexdy88fstdlafrqet4iq\",\"title\":\"Thinking Machines 发布 Inkling 2 Small\",\"link\":\"https://aihot.news/items/hca5pexdy88fstdlafrqet4iq\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:pa4qeatsai3vfpr66bcp7wur6\",\"title\":\"OpenAI 承诺自建数据中心承担全部电力与电网成本，并推动监管将规则扩展到所有开发商\",\"link\":\"https://aihot.news/items/pa4qeatsai3vfpr66bcp7wur6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:sn4q4btm73grh1z32lak3n9ha\",\"title\":\"Codex 0.167.0 发布：新增智能体命令中心与多后端切换\",\"link\":\"https://aihot.news/items/sn4q4btm73grh1z32lak3n9ha\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:eo45aqghj7u7j03xpemly427a\",\"title\":\"英伟达解读全栈协同设计破解 AI 内存瓶颈，每美元智能体吞吐量最高提升 30 倍\",\"link\":\"https://aihot.news/items/eo45aqghj7u7j03xpemly427a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:gzzyv7qj81q0vfomoqf3vnpvk\",\"title\":\"OpenAI 发布网络安全模型 GPT-6 Cyber：ExploitGym 相对提升 51%，发现 Firefox 81 个新漏洞\",\"link\":\"https://aihot.news/items/gzzyv7qj81q0vfomoqf3vnpvk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:y9llwfhdm33g8zii9rjc0ekr5\",\"title\":\"FLUX 3 Image Klein 位列 AA-Image-T2I v2.1 开源权重模型第二名\",\"link\":\"https://aihot.news/items/y9llwfhdm33g8zii9rjc0ekr5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:qybgtuoevyku43rkoe5edei08\",\"title\":\"英伟达实测 Vera CPU：每瓦智能体数量较最快 x86 CPU 多 60%\",\"link\":\"https://aihot.news/items/qybgtuoevyku43rkoe5edei08\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ubd0353yy2s8rtssyi3kymw2s\",\"title\":\"Google 发布 Gemini Omni 1.2 Flash：15 秒视频生成，720p 每秒 $0.07\",\"link\":\"https://aihot.news/items/ubd0353yy2s8rtssyi3kymw2s\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:w9lf02cgm0bbaygdjlrvmkd60\",\"title\":\"Nasdaq 100 单日下跌 6.49% 进入技术性熊市，indigo 分析 AI 基建政策风险\",\"link\":\"https://aihot.news/items/w9lf02cgm0bbaygdjlrvmkd60\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:nmtokg17qo3e8nzni5n8412eq\",\"title\":\"谷歌发布 Gemini Omni 1.2 Flash 视频模型，原生 15 秒生成、较 1.1 降价 30%\",\"link\":\"https://aihot.news/items/nmtokg17qo3e8nzni5n8412eq\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:z0fy2ayajz7ri5y1r3hqbca48\",\"title\":\"Airbnb 宣布 2027 年上半年推出 AI 旅行智能体\",\"link\":\"https://aihot.news/items/z0fy2ayajz7ri5y1r3hqbca48\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ugyl3yhsep1h5bjzcfdl3znbo\",\"title\":\"fal 上线 Meshy N1 重纹理与浮雕模型\",\"link\":\"https://aihot.news/items/ugyl3yhsep1h5bjzcfdl3znbo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:efocrsrmts4e12z4rrq3l4hsu\",\"title\":\"fal 上线 Meshy Relief 与 N1 Retexture\",\"link\":\"https://aihot.news/items/efocrsrmts4e12z4rrq3l4hsu\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 925,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 925
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 925,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 925,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 925,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 925,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 925,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 925
-        }
-      ]
-    }
-  }
+  "debug": null
 }

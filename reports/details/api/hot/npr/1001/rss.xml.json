@@ -1,23 +1,165 @@
 {
-  "checked_at": "2026-11-06T07:03:45.164Z",
+  "checked_at": "2026-11-06T19:34:39.500Z",
   "inspection": {
     "file": "hot/npr.js",
     "path": "/api/hot/npr/1001/rss.xml",
     "example": "/api/hot/npr/1001/rss.xml",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 51
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/npr/1001/rss.xml.json",
+    "duration_ms": 203
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 25
+    "status": 200,
+    "duration_ms": 219
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/npr.js",
+      "name": "NPR · Top Stories",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/npr/1001/rss.xml",
+      "request_path": "/api/hot/npr/1001/rss.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/npr/1001/rss.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5668970ff1c1d99"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 99,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":10}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://feeds.npr.org/1001/rss.xml",
+        "method": "GET",
+        "host": "feeds.npr.org",
+        "pathname": "/1001/rss.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 99,
+        "timings": {
+          "response_ms": 99,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"NPR · Top Stories\",\"link\":\"https://www.npr.org/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-06T19:34:39.639Z\",\"entries\":[{\"id\":\"npr:https://www.npr.org/2026/11/06/nx-s1-6032795/stephen-miller-replace-susie-wiles-trumps-chief-of-staff\",\"title\":\"Stephen Miller will replace Susie Wiles as Trump's chief of staff\",\"link\":\"https://www.npr.org/2026/11/06/nx-s1-6032795/stephen-miller-replace-susie-wiles-trumps-chief-of-staff\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/nx-s1-6026702/pope-leo-begins-12-day-3-country-tour-after-cancer-surgery\",\"title\":\"Pope Leo begins a 12-day, 3-country South America tour after his cancer surgery\",\"link\":\"https://www.npr.org/2026/11/06/nx-s1-6026702/pope-leo-begins-12-day-3-country-tour-after-cancer-surgery\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/nx-s1-6032602/cyberattack-blood-bank-healthcare\",\"title\":\"Health intel-sharing group warns industry in wake of cyberattack on French blood bank\",\"link\":\"https://www.npr.org/2026/11/06/nx-s1-6032602/cyberattack-blood-bank-healthcare\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/nx-s1-6030777/remembering-star-trek-actor-patrick-stewart\",\"title\":\"Remembering 'Star Trek' actor Patrick Stewart\",\"link\":\"https://www.npr.org/2026/11/06/nx-s1-6030777/remembering-star-trek-actor-patrick-stewart\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/nx-s1-6032612/europe-flights-hoaxes\",\"title\":\"European air traffic is targeted by new threats after a week of hoaxes\",\"link\":\"https://www.npr.org/2026/11/06/nx-s1-6032612/europe-flights-hoaxes\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/nx-s1-6032593/kenya-cult-leader-paul-mackenzie-sentenced-murder\",\"title\":\"The leader of a Kenyan doomsday cult is sentenced to 200 years in prison\",\"link\":\"https://www.npr.org/2026/11/06/nx-s1-6032593/kenya-cult-leader-paul-mackenzie-sentenced-murder\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/g-s1-152217/ex-lawmaker-gets-12-5-years-in-macaos-first-national-security-case\",\"title\":\"Ex-lawmaker gets 12.5 years in Macao's first national security case\",\"link\":\"https://www.npr.org/2026/11/06/g-s1-152217/ex-lawmaker-gets-12-5-years-in-macaos-first-national-security-case\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/nx-s1-6030867/jobs-labor-market-economy-wages-inflation\",\"title\":\"Hiring jumps: The economy added 165,000 jobs last month\",\"link\":\"https://www.npr.org/2026/11/06/nx-s1-6030867/jobs-labor-market-economy-wages-inflation\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/06/g-s1-152213/up-first-newsletter-job-market-trump-arch-school-enrollment-harmeet-dhillon\",\"title\":\"Judge halts construction of Trump's arch. And, Labor Department to release jobs report\",\"link\":\"https://www.npr.org/2026/11/06/g-s1-152213/up-first-newsletter-job-market-trump-arch-school-enrollment-harmeet-dhillon\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/sections/planet-money/2026/11/06/nx-s1-6030995/why-gold-prices-are-surprisingly-low\",\"title\":\"Why gold prices are surprisingly low\",\"link\":\"https://www.npr.org/sections/planet-money/2026/11/06/nx-s1-6030995/why-gold-prices-are-surprisingly-low\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 99,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 99
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 99,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 99,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 99,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 99,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 99,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 99
+        }
+      ]
+    }
+  }
 }
