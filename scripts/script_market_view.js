@@ -100,16 +100,17 @@ function example_chip(vm, route, example) {
 }
 
 function output_entry(entry) {
-  const artifact = entry?.artifact;
-  return artifact
-    ? [element("a", "artifact-link", { href: artifact.url, target: "_blank", rel: "noopener noreferrer" }, [artifact.label]),
-      ...(artifact.example ? [element("code", "artifact-example", { class: "artifact-example" }, [artifact.example])] : [])]
-    : entry?.reason ? [element("span", "output-reason", { class: "output-reason" }, [entry.reason])] : [];
+  return [
+    ...(entry?.artifact ? [element("a", "artifact-link", { href: entry.artifact.url, target: "_blank", rel: "noopener noreferrer" }, [entry.artifact.label])] : []),
+    ...(entry?.detail ? [element("a", "detail-link", { href: entry.detail.url, target: "_blank", rel: "noopener noreferrer" }, [entry.detail.label])] : []),
+    ...(entry?.example ? [element("code", "artifact-example", { class: "artifact-example" }, [entry.example])] : []),
+    ...(entry?.reason ? [element("span", "output-reason", { class: "output-reason" }, [entry.reason])] : []),
+  ];
 }
 
 function output_comparison(vm, row) {
   const { model, watch } = vm;
-  const entries = [...(row.artifacts || []).map(artifact => ({ artifact })), ...(row.reason ? [{ reason: row.reason }] : [])];
+  const entries = row.outputs || [];
   return element("div", "output-rows", { class: "output-rows" }, [
     For({ each: watch(() => {
       const examples = model.route_examples(row.request.key);
@@ -136,7 +137,7 @@ function inspection_results(vm, script) {
     element("div", "table-scroll-container", { class: "table-scroll", role: "region", "aria-label": script.title + " 巡检详情", tabindex: 0 }, [
       element("table", "results-table", {}, [
         element("thead", "results-head", {}, [element("tr", "column-headings", {}, [
-          ["title", "标题"], ["route", "路由"], ["status", "结果"], ["output", "产物 / 失败原因"],
+          ["title", "标题"], ["route", "路由"], ["status", "结果"], ["output", "产物 / 详情 / 失败原因"],
         ].map(([name, title]) => element("th", name + "-heading", { scope: "col" }, [title])))]),
         element("tbody", "results-rows", {}, script.inspection_rows.map(row => element("tr", "route-result", {}, [
           element("th", "route-title", { scope: "row" }, [row.request?.name || row.path]),
@@ -144,8 +145,7 @@ function inspection_results(vm, script) {
           element("td", "route-status", {}, [element("span", "status-label", { class: "status " + (row.ok === null ? "unknown" : row.ok ? "passed" : "failed") }, [row.ok === null ? "未巡检" : row.ok ? "成功" : "失败"])]),
           element("td", "route-output", {}, row.request ? [output_comparison(vm, row)] : [
             element("div", "output-entries", { class: "output-entries" }, [
-              ...(row.artifacts || []).flatMap(artifact => output_entry({ artifact })),
-              ...(row.reason ? [element("span", "output-reason", { class: "output-reason" }, [row.reason])] : []),
+              ...(row.outputs || []).flatMap(output_entry),
             ]),
           ]),
         ]))),

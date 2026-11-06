@@ -19,6 +19,7 @@ const output_dir = fileURLToPath(
   new URL("../reports/responses/", import.meta.url),
 );
 const icon_dir = fileURLToPath(new URL("../reports/icons/", import.meta.url));
+const details_dir = fileURLToPath(new URL("../reports/details/", import.meta.url));
 await Promise.all(
   [
     "routes.json",
@@ -26,6 +27,7 @@ await Promise.all(
     "README.md",
     "index.html",
     "responses",
+    "details",
     "icons",
   ].map((name) =>
     rm(new URL("../reports/" + name, import.meta.url), {
@@ -74,6 +76,7 @@ try {
     {
       token,
       output_dir,
+      details_dir,
       on_start: progress.start,
       on_result: progress.finish,
     },

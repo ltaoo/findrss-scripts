@@ -18,16 +18,22 @@ export function route_report_model(report, catalog) {
     const ok = result.output_valid === true;
     const row = { path: result.path, ok,
       reason: ok ? "" : [result.code, result.error].filter(Boolean).join(": ") || "校验未通过" };
-    const samples = result.samples || [result];
-    const artifacts = samples.flatMap((sample, index) => {
-      const file = sample.output_file;
-      if (!sample.output_valid || typeof file !== "string" || /[\\?#\u0000-\u001f]/.test(file)
-        || file.split("/").some(part => !part || part === "." || part === "..")) return [];
+    const samples = result.samples?.length ? result.samples : [result];
+    const outputs = samples.flatMap((sample, index) => {
+      const link = (directory, file, label) => {
+        if (typeof file !== "string" || /[\\?#\u0000-\u001f]/.test(file)
+          || file.split("/").some(part => !part || part === "." || part === "..")) return null;
+        return { url: report_prefix + encode_path(directory + "/" + file), label: label + (samples.length > 1 ? ` ${index + 1}` : "") };
+      };
+      const artifact = sample.output_valid ? link("responses", sample.output_file, "查看产物") : null;
+      const detail = link("details", sample.detail_file, "查看详情");
+      const reason = sample.output_valid ? "" : [sample.code, sample.error].filter(Boolean).join(": ") || "校验未通过";
+      if (!artifact && !detail && !reason) return [];
       const example = example_path(sample.example);
-      return [{ url: report_prefix + encode_path("responses/" + file),
-        label: samples.length > 1 ? `查看产物 ${index + 1}` : "查看产物", ...(example ? { example } : {}) }];
+      return [{ ...(artifact ? { artifact } : {}), ...(detail ? { detail } : {}), ...(reason ? { reason } : {}),
+        ...(example && (artifact || detail) ? { example } : {}) }];
     });
-    if (artifacts.length) row.artifacts = artifacts;
+    if (outputs.length) row.outputs = outputs;
     if (!groups.has(result.file)) groups.set(result.file, []);
     groups.get(result.file).push(row);
   }

@@ -57,7 +57,7 @@ test("报告 Model 按脚本聚合全部格式路由、失败优先，每条路�
   assert.equal(rss.total, 6);
   assert.equal(rss.version, "1.2.3");
   assert.equal(Buffer.from(rss.icon_data_url.split(",")[1], "base64").toString(), icon);
-  assert.deepEqual(rss.rows[0], { path: "/rss/example", ok: false, reason: "XML 格式错误" });
+  assert.deepEqual(rss.rows[0], { path: "/rss/example", ok: false, reason: "XML 格式错误", outputs: [{ reason: "XML 格式错误" }] });
   assert.deepEqual(rss.rows[1], { path: "/atom/example", ok: true, reason: "" });
   assert.equal(model.groups[1].rows[0].reason, "UPSTREAM_FETCH_FAILED: 访问上游失败");
   assert.equal(JSON.stringify(report), original);
@@ -207,6 +207,26 @@ test("dev 产物使用本地 prefix，release 和旧报告使用 Raw prefix，�
       prefix + "responses/rss/%E6%B5%8B%E8%AF%95%20a%20%2520%281%29.xml");
     assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 1);
     assert.doesNotMatch(html, /private.json|failed.json/);
+  }
+});
+
+test("成功与失败样本各自显示详情 JSON，产物和详情对应同一样本，拒绝不安全路径", () => {
+  for (const mode of ["dev", "release", undefined]) {
+    const html = render_report_html({ mode, results: [{ ...passed, file: "rss/example.js", path: "/api/rss/example", output_valid: false,
+      samples: [
+        { ...passed, output_file: "api/rss/one.json", detail_file: "api/rss/one.json", example: "/api/rss/one?token=private-token" },
+        { output_valid: false, error: "HTTP 503", detail_file: "api/rss/测试 two.json", example: "/api/rss/two" },
+        ...["../private.json", "/absolute.json", "a/../private.json", "a\\private.json", "a.json?secret=1", "a.json#part"].map(detail_file => ({ ...passed, detail_file })),
+      ] }] });
+    const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
+    const links = [...html.matchAll(/<a data-n="detail-link"[^>]*href="([^"]+)" target="_blank" rel="noopener noreferrer">([^<]+)<\/a>/g)];
+    assert.deepEqual(links.map(match => [match[1], match[2]]), [
+      [prefix + "details/api/rss/one.json", "查看详情 1"],
+      [prefix + "details/api/rss/%E6%B5%8B%E8%AF%95%20two.json", "查看详情 2"],
+    ]);
+    assert.match(html, /查看产物 1<\/a><a data-n="detail-link"[^>]*>查看详情 1<\/a>/);
+    assert.match(html, /查看详情 2<\/a>[\s\S]*?HTTP 503/);
+    assert.doesNotMatch(html, /private-token|private.json|absolute.json|secret=1/);
   }
 });
 

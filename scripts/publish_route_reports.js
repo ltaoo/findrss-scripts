@@ -11,7 +11,7 @@ const git = (args, options = {}) => execFileSync("git", args, { encoding: "utf8"
 for (const file of [...files, "reports/README.md"]) {
   if (!statSync(file).isFile()) throw new Error("缺少巡检报告：" + file);
 }
-for (const directory of ["reports/responses", "reports/icons"]) {
+for (const directory of ["reports/responses", "reports/icons", "reports/details"]) {
   if (existsSync(directory)) files.push(directory);
 }
 
@@ -23,7 +23,7 @@ if (remote.status === 0) {
   git(["fetch", "--no-tags", "origin", branch]);
   parent = git(["rev-parse", "FETCH_HEAD"]);
   const existing = git(["ls-tree", "-r", "--name-only", parent]);
-  if (existing.split("\n").some(file => file && !root_paths.includes(file) && !files.includes(file) && !file.startsWith("reports/responses/") && !file.startsWith("reports/icons/"))) throw new Error("产物分支包含其他文件，拒绝覆盖");
+  if (existing.split("\n").some(file => file && !root_paths.includes(file) && !files.includes(file) && !file.startsWith("reports/responses/") && !file.startsWith("reports/icons/") && !file.startsWith("reports/details/"))) throw new Error("产物分支包含其他文件，拒绝覆盖");
 }
 
 const directory = mkdtempSync(join(tmpdir(), "findrss-route-reports-"));
@@ -48,7 +48,7 @@ try {
     const email = "41898282+github-actions[bot]@users.noreply.github.com";
     const commit = git(["commit-tree", tree, ...(parent ? ["-p", parent] : [])], {
       env: { ...env, GIT_AUTHOR_NAME: name, GIT_COMMITTER_NAME: name, GIT_AUTHOR_EMAIL: email, GIT_COMMITTER_EMAIL: email },
-      input: "Update route reports for " + source + "\n",
+      input: "chore(reports): publish route inspection results for " + source + "\n",
     });
     git(["push", "origin", commit + ":" + branch]);
     console.log("巡检报告已发布到 route-reports 分支");

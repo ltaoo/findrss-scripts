@@ -25,7 +25,8 @@ for (const { mode, base, args } of [
   }));
   await mkdir(join(root, "reports/icons"), { recursive: true });
   await mkdir(join(root, "reports/responses"), { recursive: true });
-  const old_results = ["routes.json", "routes.md", "README.md", "index.html", "icons/stale.svg", "responses/stale.json"];
+  await mkdir(join(root, "reports/details"), { recursive: true });
+  const old_results = ["routes.json", "routes.md", "README.md", "index.html", "icons/stale.svg", "responses/stale.json", "details/stale.json"];
   for (const file of old_results) await writeFile(join(root, "reports", file), "old result");
   await writeFile(join(root, "reports/cookie-sync-setup.json"), "private setup");
   await writeFile(join(root, "package.json"), '{"type":"module"}');
@@ -41,6 +42,10 @@ for (const { mode, base, args } of [
 import { existsSync } from "node:fs";
 globalThis.fetch = async url => {
   for (const file of ${JSON.stringify(old_results)}) assert.equal(existsSync("reports/" + file), false, file + " must be removed before requests");
+  if (url.pathname.startsWith("/debug/")) return Response.json({ status: url.pathname.endsWith("failed") ? 503 : 200,
+    script: { file: "hot/example.js", route_index: 0 }, phase: "ok", elapsed_ms: 10, request: {}, lines: [], upstream_requests: [],
+    timing: { elapsed_ms: 10, stages: [{ name: "脚本执行", started_ms: 0, duration_ms: 10 }], operations: [] } },
+    { status: url.pathname.endsWith("failed") ? 503 : 200 });
   return url.pathname.endsWith("failed")
     ? new Response("Unavailable", { status: 503 })
     : !["/configured/one", "/configured/two"].includes(url.pathname) ? new Response("Unexpected request", { status: 400 })
@@ -73,21 +78,32 @@ globalThis.fetch = async url => {
   assert.doesNotMatch(html, /private-source/);
   assert.doesNotMatch(html, /private-config/);
   assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 2);
+  assert.equal([...html.matchAll(/<a data-n="detail-link"/g)].length, 3);
+  for (const sample of [...passed.samples, report.results.find(result => !result.output_valid)]) {
+    const detail = JSON.parse(await readFile(join(root, "reports/details", sample.detail_file), "utf8"));
+    assert.equal(detail.debug.elapsed_ms, 10);
+    assert.equal(detail.inspection.output_valid, sample.output_valid);
+  }
   assert.match(html, /responses\/configured\/one.json/);
   assert.equal([...html.matchAll(/<button data-n="inspect-script"/g)].length, 1);
   assert.equal([...html.matchAll(/<tr data-n="route-result"/g)].length, 2);
   const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
   const artifact = html.match(/<a data-n="artifact-link"[^>]*href="([^"]+)"/)[1];
   assert.equal(artifact, prefix + "responses/configured/one.json");
+  const detail_links = [...html.matchAll(/<a data-n="detail-link"[^>]*href="([^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(detail_links.sort(), ["failed", "one", "two"].map(name => prefix + "details/configured/" + name + ".json").sort());
   assert.ok(markdown.includes('src="' + prefix + 'icons/script-0.svg"'));
-  if (mode === "dev") assert.ok(await readFile(join(root, "reports", artifact), "utf8"));
+  if (mode === "dev") {
+    assert.ok(await readFile(join(root, "reports", artifact), "utf8"));
+    for (const link of detail_links) assert.ok(JSON.parse(await readFile(join(root, "reports", link), "utf8")).debug);
+  }
   execFileSync(process.execPath, ["scripts/render_route_report.js"], { cwd: root, stdio: "pipe" });
   assert.equal(await readFile(join(root, "reports/index.html"), "utf8"), html);
   await writeFile(join(root, ".github/route-checks.json"), "invalid json");
   assert.throws(() => execFileSync(process.execPath, ["scripts/check_routes.js", ...args], {
     cwd: root, env: { ...process.env, CHECK_BASE_URL: base, ROUTE_CHECK_CONFIG: ".github/route-checks.json" }, stdio: "pipe",
   }), error => error.status === 1);
-  for (const file of ["routes.json", "routes.md", "README.md", "index.html", "icons", "responses"]) {
+  for (const file of ["routes.json", "routes.md", "README.md", "index.html", "icons", "responses", "details"]) {
     await assert.rejects(access(join(root, "reports", file)), { code: "ENOENT" });
   }
   assert.equal(await readFile(join(root, "reports/cookie-sync-setup.json"), "utf8"), "private setup");

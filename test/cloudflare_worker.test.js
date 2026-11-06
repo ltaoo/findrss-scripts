@@ -33,8 +33,8 @@ test("报告首页与资源无需令牌，未提供报告时返回 404，API 与
     assert.equal(await response.text(), "<html>Report</html>");
   }
   const options = { Authorization: "Bearer private-token" };
-  for (const path of ["/responses/missing.json", "/icons/missing.png"]) assert.equal((await request(path, env)).status, 404);
-  assert.deepEqual(fetched, ["/index.html", "/index.html", "/index.html", "/responses/missing.json", "/icons/missing.png"]);
+  for (const path of ["/responses/missing.json", "/icons/missing.png", "/details/missing.json"]) assert.equal((await request(path, env)).status, 404);
+  assert.deepEqual(fetched, ["/index.html", "/index.html", "/index.html", "/responses/missing.json", "/icons/missing.png", "/details/missing.json"]);
   for (const path of ["/api/routes", "/debug/missing"]) assert.equal((await request(path, env)).status, 401);
   assert.equal((await request("/api/routes", env, options)).status, 200);
   assert.match(await (await request("/debug/missing", env, options)).text(), /NOT_FOUND/);

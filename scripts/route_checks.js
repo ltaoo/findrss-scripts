@@ -3,11 +3,9 @@ import { createHash } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { XMLParser, XMLValidator } from "fast-xml-parser";
+import { classify_platform_error } from "./platform_errors.js";
 
 const parser = new XMLParser({ ignoreAttributes: false, parseTagValue: false });
-// Cloudflare 在 CPU 超限（错误 1102）时返回平台 HTML，而不是脚本的 JSON 错误。
-const platform_cpu =
-  /Worker exceeded resource limits|exceeded CPU time limit|Error 1102/i;
 const array = (value) =>
   value === undefined ? [] : Array.isArray(value) ? value : [value];
 const text = (value) => (typeof value === "string" ? value : value?.["#text"]);
@@ -22,6 +20,67 @@ function http_url(value) {
     "链接必须是无凭据的 HTTP(S) 地址",
   );
   return url;
+}
+async function response_bytes(response) {
+  const reader = response.body?.getReader();
+  assert.ok(reader, response.ok ? "响应没有正文流" : "HTTP " + response.status);
+  const chunks = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      assert.ok(size <= 24 * 1024 * 1024, "响应超过 24MB");
+      chunks.push(value);
+    }
+  } finally {
+    await reader.cancel().catch(() => {});
+  }
+  return Buffer.concat(chunks);
+}
+function response_file(url, extension) {
+  const suffix = url.search ? "." + createHash("sha256").update(url.search).digest("hex").slice(0, 16) : "";
+  return url.pathname.replace(/\/$/, "/index").slice(1) + suffix + "." + extension;
+}
+
+async function save_debug_details(base, entry, result, { fetch_impl, token, timeout_ms, details_dir }) {
+  const url = new URL(entry.example, base);
+  const detail = { checked_at: new Date().toISOString(),
+    inspection: { ...result, example: url.pathname }, debug_request: {}, debug: null };
+  const started = Date.now();
+  try {
+    assert.equal(url.origin, new URL(base).origin, "Debug 地址必须位于部署站点，禁止跨站发送令牌");
+    assert.ok(!url.username && !url.password, "Debug 地址不得包含用户名或密码");
+    const debug_url = new URL(url);
+    debug_url.pathname = "/debug" + url.pathname;
+    const response = await fetch_impl(debug_url, { redirect: "manual", signal: AbortSignal.timeout(timeout_ms),
+      headers: { Accept: "application/json", ...(token ? { Authorization: "Bearer " + token } : {}) } });
+    detail.debug_request.status = response.status;
+    const body = (await response_bytes(response)).toString("utf8");
+    const platform_error = classify_platform_error(response.headers.get("Content-Type"), body);
+    if (platform_error) {
+      detail.debug_request.code = platform_error.code;
+      throw new Error(platform_error.message);
+    }
+    assert.match(response.headers.get("Content-Type") || "", /^application\/json\b/i,
+      "Debug 未返回诊断 JSON，请确认 Worker 已更新");
+    let debug;
+    try { debug = JSON.parse(body); } catch { throw new Error("Debug 返回了无效 JSON"); }
+    assert.ok(debug && typeof debug.phase === "string" && Number.isFinite(debug.elapsed_ms)
+      && debug.request && Array.isArray(debug.lines) && Array.isArray(debug.upstream_requests)
+      && debug.status === response.status, "Debug 返回了无效的诊断结构");
+    assert.ok(!debug.script?.file || debug.script.file === entry.file, "Debug 命中了错误的脚本");
+    detail.debug = debug;
+  } catch (error) {
+    detail.debug_request.error = ["TimeoutError", "AbortError"].includes(error.name) ? "Debug 请求超时或已取消" : error.message;
+  }
+  detail.debug_request.duration_ms = Date.now() - started;
+  const file = response_file(url, "json");
+  const destination = join(details_dir, file);
+  await mkdir(dirname(destination), { recursive: true });
+  await writeFile(destination, JSON.stringify(detail, null, 2) + "\n");
+  return file;
 }
 function items_check(items, minimum) {
   assert.ok(
@@ -258,7 +317,7 @@ export function check_output(entry, value) {
 export async function check_route(
   base,
   entry,
-  { fetch_impl = fetch, token = "", timeout_ms = 60000, output_dir } = {},
+  { fetch_impl = fetch, token = "", timeout_ms = 60000, output_dir, details_dir } = {},
 ) {
   const result = {
     file: entry.file,
@@ -288,25 +347,7 @@ export async function check_route(
       });
       result.status = response.status;
       result.request = response.ok;
-      const reader = response.body?.getReader();
-      assert.ok(
-        reader,
-        response.ok ? "响应没有正文流" : "HTTP " + response.status,
-      );
-      const chunks = [];
-      let size = 0;
-      try {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          size += value.byteLength;
-          assert.ok(size <= 24 * 1024 * 1024, "响应超过 24MB");
-          chunks.push(value);
-        }
-      } finally {
-        await reader.cancel().catch(() => {});
-      }
-      const bytes = Buffer.concat(chunks);
+      const bytes = await response_bytes(response);
       const content_type = (response.headers.get("Content-Type") || "")
         .split(";")[0]
         .trim()
@@ -316,16 +357,10 @@ export async function check_route(
         try {
           problem = JSON.parse(bytes.toString("utf8"));
         } catch {}
-        if (
-          content_type === "text/html" &&
-          platform_cpu.test(bytes.toString("utf8"))
-        ) {
-          result.code = "EXCEEDED_CPU";
-          throw new Error(
-            "HTTP " +
-              response.status +
-              ": EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-          );
+        const platform_error = classify_platform_error(content_type, bytes.toString("utf8"));
+        if (platform_error) {
+          result.code = platform_error.code;
+          throw new Error(`HTTP ${response.status}: ${platform_error.code}: ${platform_error.message}`);
         }
         if (
           typeof problem?.code === "string" &&
@@ -353,21 +388,13 @@ export async function check_route(
                   "image/vnd.microsoft.icon": "ico",
                 }[content_type] || "bin"
               : "json";
-        const suffix = url.search
-          ? "." +
-            createHash("sha256").update(url.search).digest("hex").slice(0, 16)
-          : "";
-        const output_file =
-          url.pathname.replace(/\/$/, "/index").slice(1) +
-          suffix +
-          "." +
-          extension;
+        const output_file = response_file(url, extension);
         const destination = join(output_dir, output_file);
         await mkdir(dirname(destination), { recursive: true });
         await writeFile(destination, bytes);
         result.output_file = output_file;
       }
-      assert.ok(size > 0, "响应正文为空");
+      assert.ok(bytes.byteLength > 0, "响应正文为空");
       result.response = true;
       const value = parse_response(
         entry,
@@ -393,6 +420,7 @@ export async function check_route(
     result.error = error.message;
   }
   result.duration_ms = Date.now() - started;
+  if (details_dir) result.detail_file = await save_debug_details(base, entry, result, { fetch_impl, token, timeout_ms, details_dir });
   return result;
 }
 

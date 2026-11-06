@@ -1,0 +1,271 @@
+diff --git a/server/infra/script_debug.js b/server/infra/script_debug.js
+--- a/server/infra/script_debug.js
++++ b/server/infra/script_debug.js
+@@ -7,10 +7,21 @@
+   const request = redact_log_value(debug.request);
+   const heading = status < 400 ? "路由调试" : "路由请求失败";
+   const block = (name, title, value) => `<section data-n="debug-${name}"><h2 data-n="debug-${name}-title">${title}</h2><pre data-n="debug-${name}-content">${escape_html(value)}</pre></section>`;
++  const timing_table = (name, rows) => `<table data-n="debug-${name}-table"><thead data-n="debug-${name}-head"><tr data-n="debug-${name}-heading"><th data-n="debug-${name}-name-label" scope="col">阶段</th><th data-n="debug-${name}-start-label" scope="col">开始 ms</th><th data-n="debug-${name}-duration-label" scope="col">耗时 ms</th></tr></thead><tbody data-n="debug-${name}-rows">${rows.map(row => `<tr data-n="debug-${name}-row"><th data-n="debug-${name}-name" scope="row">${escape_html(row.name)}</th><td data-n="debug-${name}-start">${escape_html(row.started_ms ?? "—")}</td><td data-n="debug-${name}-duration">${escape_html(row.duration_ms)}</td></tr>`).join("")}</tbody></table>`;
++  const timing_labels = { response_ms: "获取响应（TCP 包含完整正文）", connect_ms: "连接（含 DNS / TCP / TLS）",
++    send_ms: "发送请求", wait_headers_ms: "等待并读取响应头", receive_body_ms: "读取响应正文",
++    decompress_ms: "解压正文", body_read_ms: "Response 正文读取", decode_and_transfer_ms: "文本解码与传入沙箱" };
++  const timing_html = debug.timing ? `<section data-n="debug-timing"><h2 data-n="debug-timing-title">阶段耗时</h2>
++<p data-n="debug-timing-note" class="meta">以下为经过时间，包含等待，不是 CPU 时间。从 Worker 接收请求计至调试数据生成，不含调试 HTML 生成、页面传输与浏览器渲染。主阶段互不重叠，合计 ${escape_html(debug.timing.elapsed_ms)} ms；Workers 时钟仅在 I/O 后更新，纯计算阶段可能显示 0 ms，不代表没有开销。</p>
++${timing_table("timing-stages", debug.timing.stages)}
++${debug.timing.operations.length ? `<h2 data-n="debug-timing-operations-title">外部调用明细</h2><p data-n="debug-timing-operations-note" class="meta">已包含在主阶段内；并行调用的耗时不能直接相加。</p>${timing_table("timing-operations", debug.timing.operations)}` : ""}
++${(debug.upstream_requests || []).filter(trace => trace.timings).map((trace, index) => `<section data-n="debug-timing-upstream"><h2 data-n="debug-timing-upstream-title">上游 #${index + 1} · ${escape_html(trace.method)} ${escape_html(trace.host)} · ${escape_html(trace.duration_ms)} ms</h2><p data-n="debug-timing-upstream-note" class="meta">连接、发送、响应头、正文和解压是获取响应的子阶段，已包含在请求总耗时内。</p>${timing_table("timing-upstream", Object.entries(trace.timings).map(([name, duration_ms]) => ({ name: timing_labels[name] || name, duration_ms })))}</section>`).join("")}
++</section>` : "";
+   return `<!doctype html>
+ <html lang="zh-CN" data-n="rss-debug-page"><head data-n="debug-head"><meta data-n="debug-charset" charset="utf-8"><meta data-n="debug-viewport" name="viewport" content="width=device-width,initial-scale=1"><title data-n="debug-title">${heading} · FindRSS</title>
+ <style data-n="debug-style">
+ :root{color-scheme:light dark;font:15px/1.6 system-ui,sans-serif;background:#f6f7f9;color:#172033}*{box-sizing:border-box}body{margin:0;padding:24px 16px}main{max-width:1600px;margin:auto}header,.column{background:#fff;border:1px solid #e2e6ed;border-radius:16px}header{padding:24px;margin-bottom:16px;border-top:4px solid ${status < 400 ? "#2563eb" : "#e11d48"}}h1{font-size:26px;margin:8px 0}h2{font-size:15px;margin:0 0 12px}p{margin:8px 0;overflow-wrap:anywhere}.meta{color:#667085;font-size:13px}pre{margin:0;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;height:75vh}.column{min-width:0;min-height:0;overflow:auto}.context section{padding:24px;border-bottom:1px solid #e2e6ed}.xml{display:flex;flex-direction:column;overflow:hidden}.xml h2{padding:20px 24px;margin:0;border-bottom:1px solid #e2e6ed}.xml pre{overflow:auto;min-height:0;flex:1;padding:24px}svg{color:#e11d48;width:28px;height:28px}@media(prefers-color-scheme:dark){:root{background:#10141c;color:#e5eaf3}header,.column{background:#191f2b;border-color:#30394a}.context section,.xml h2{border-color:#30394a}.meta{color:#a4aec0}}@media(max-width:800px){body{padding:16px 12px}.layout{grid-template-columns:minmax(0,1fr);height:auto}.context{max-height:65vh}.xml{height:65vh}header,.context section{padding:18px}}
++table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:8px;border-bottom:1px solid #66708540}td{white-space:nowrap}.context h2{margin-top:12px}
+ </style></head><body data-n="debug-body"><main data-n="debug-main"><header data-n="debug-header">
+ ${status >= 400 ? '<svg data-n="debug-error-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle data-n="debug-icon-circle" cx="12" cy="12" r="10"/><path data-n="debug-icon-mark" d="M12 7v6m0 4h.01"/></svg>' : ""}
+ <p data-n="debug-brand" class="meta">FindRSS · 脚本 Debug</p><h1 data-n="debug-heading">${heading}</h1>
+@@ -19,6 +30,7 @@
+ <p data-n="debug-status" class="meta">HTTP ${escape_html(status)} · ${escape_html(debug.phase)} · ${escape_html(debug.elapsed_ms)} ms${debug.invoked ? " · 已调用设备" : ""}</p>
+ <p data-n="debug-upstream">${escape_html(debug.upstream_error)}</p></header>
+ <div data-n="debug-layout" class="layout"><div data-n="debug-context-column" class="column context" tabindex="0" role="region" aria-label="上下文与执行日志">
++${timing_html}
+ ${debug.error_text ? block("error", "错误详情与堆栈", debug.error_text) : ""}
+ ${block("route", "脚本路由", JSON.stringify(debug.script, null, 2))}
+ ${block("request", "请求上下文", JSON.stringify(request, null, 2))}
+diff --git a/server/infra/script_sandbox.js b/server/infra/script_sandbox.js
+--- a/server/infra/script_sandbox.js
++++ b/server/infra/script_sandbox.js
+@@ -373,6 +373,7 @@
+  * @param {AbortSignal} [signal] 任务取消信号
+  * @param {Function | null} [puppeteer_navigate] 宿主页面渲染能力
+  * @param {number} [output_limit] 宿主输出上限；剪藏允许保存较大的静态片段
++ * @param {object | null} [timing] Debug 宿主阶段计时器，不注入脚本上下文
+  * @returns {Promise<{ output: string, invoked: boolean, lines: { level: string, text: string }[] }>}
+  *   路由返回值的 JSON 串、是否调用过设备与 ctx.log/ctx.error 收集到的行
+  */
+@@ -387,6 +388,7 @@
+   signal,
+   puppeteer_navigate = null,
+   output_limit = SCRIPT_OUTPUT_BYTES,
++  timing = null,
+ ) {
+   return run_in_sandbox_queue(() =>
+     execute_script_inner(
+@@ -400,6 +402,7 @@
+       signal,
+       puppeteer_navigate,
+       output_limit,
++      timing,
+     ));
+ }
+ 
+@@ -414,19 +417,23 @@
+   task_signal,
+   puppeteer_navigate = null,
+   output_limit = SCRIPT_OUTPUT_BYTES,
++  timing = null,
+ ) {
++  timing?.mark("沙箱参数准备");
+   task_signal?.throwIfAborted();
+   const clip_request = script_type(script, route_metadata.kind ?? route_metadata.script_type) === "clip";
+   if (clip_request) output_limit = ClipModel.MAX_BYTES * 3;
+   const detect_request = script_type(script, route_metadata.kind ?? route_metadata.script_type) === "detect";
+   if (detect_request) output_limit = DETECT_RESULT_BYTES;
+   request_context = { ...request_context, previous: normalize_detect_previous(request_context?.previous) };
++  timing?.mark("QuickJS/Wasm 初始化");
+   const QuickJS = await get_quickjs_module();
+   const runtime = QuickJS.newRuntime();
+   const vm = runtime.newContext();
+   const promises = create_sandbox_promises(vm);
+   const upstream_requests = [];
+   try {
++    timing?.mark("沙箱上下文与工具初始化");
+     inject_script_globals(vm);
+     try {
+       route_metadata = { ...route_metadata, config: route_metadata.config_schema ? script_config_value(route_metadata.config_schema, route_metadata.config) : {} };
+@@ -450,12 +457,18 @@
+       task_signal?.throwIfAborted();
+       if (!puppeteer_navigate) throw new Error("Puppeteer 不可用，请配置 Worker 的 BROWSER 绑定或提供 puppeteer.navigate mock");
+       const { url, options, evaluate } = JSON.parse(vm.getString(spec_handle));
+-      const value = await puppeteer_navigate(url, options, evaluate, task_signal);
+-      return vm.newString(JSON.stringify(value));
++      const finish = timing?.span("浏览器页面获取");
++      try {
++        const value = await puppeteer_navigate(url, options, evaluate, task_signal);
++        return vm.newString(JSON.stringify(value));
++      } finally { finish?.(); }
+     });
+     vm.setProp(vm.global, "__puppeteerNavigate", navigate);
+     navigate.dispose();
+     const fetch_text = promises.bind("fetchText", async (url_handle, options_handle) => {
++      const finish = timing?.span("上游 HTTP 请求");
++      let active_trace, trace_started_at;
++      try {
+       task_signal?.throwIfAborted();
+       const url = vm.getString(url_handle);
+       const fetch_options = options_handle ? vm.dump(options_handle) : null;
+@@ -519,14 +532,18 @@
+             ...RSS_FETCH_CREDENTIAL_HEADERS.filter(name => headers[name] || signed_headers[name] || derived_headers[name]),
+           ],
+         },
++        ...(timing ? { started_ms: timing.offset(), duration_ms: 0, timings: {} } : {}),
+       } : null;
+       if (trace && upstream_requests.length < SCRIPT_LOG_MAX_LINES) upstream_requests.push(trace);
++      active_trace = trace;
++      trace_started_at = timing ? Date.now() : 0;
+       try {
+       response = await (transport === "tcp" ? tcp_http_fetch : fetch)(outgoing_url, {
+         method,
+         body,
+         redirect: "manual",
+         signal,
++        ...(transport === "tcp" && timing ? { timing: trace?.timings } : {}),
+         headers: {
+           ...headers,
+           ...signed_headers,
+@@ -542,6 +559,11 @@
+         throw Object.assign(new Error(timed_out ? "脚本上游请求超时，请稍后重试" : "脚本上游连接失败，请稍后重试"), {
+           name: "FeedError", code: timed_out ? "UPSTREAM_TIMEOUT" : "UPSTREAM_FETCH_FAILED",
+         });
++      } finally {
++        if (timing && trace) {
++          trace.timings.response_ms = Date.now() - trace_started_at;
++          trace.duration_ms = trace.timings.response_ms;
++        }
+       }
+       if (![301, 302, 303, 307, 308].includes(response.status)) break;
+       if (redirects >= 5) throw new Error("脚本上游重定向过多");
+@@ -567,15 +589,27 @@
+         const code = { 401: "UPSTREAM_AUTH_REQUIRED", 403: "UPSTREAM_ACCESS_DENIED", 429: "UPSTREAM_RATE_LIMITED", 504: "UPSTREAM_TIMEOUT" }[response.status] || "UPSTREAM_FETCH_FAILED";
+         throw Object.assign(new Error(`脚本上游 ${parsed.host} 返回 HTTP ${response.status}`), { name: "FeedError", code });
+       }
+-      const buffer = await response.arrayBuffer();
++      const body_started_at = timing ? Date.now() : 0;
++      let buffer;
++      try { buffer = await response.arrayBuffer(); }
++      finally {
++        if (timing && active_trace) active_trace.timings.body_read_ms = Date.now() - body_started_at;
++      }
+       if (buffer.byteLength > SCRIPT_FETCH_BYTES) {
+         throw new Error("脚本上游响应超过 10MB 限制");
+       }
++      const decode_started_at = timing ? Date.now() : 0;
+       const text = rss_response_text(buffer, response.headers.get("Content-Type") || "");
+       // newString 使用 C 字符串，内嵌 NUL（如 X 的流式页面）会截断后续内容。
+-      return text.includes("\0")
++      const value = text.includes("\0")
+         ? vm.unwrapResult(vm.evalCode(JSON.stringify(text), "fetch-response.js"))
+         : vm.newString(text);
++      if (timing && active_trace) active_trace.timings.decode_and_transfer_ms = Date.now() - decode_started_at;
++      return value;
++      } finally {
++        if (timing && active_trace) active_trace.duration_ms = Date.now() - trace_started_at;
++        finish?.();
++      }
+     });
+     vm.setProp(vm.global, "__fetchText", fetch_text);
+     fetch_text.dispose();
+@@ -589,8 +623,12 @@
+         if (invoke_count > MAX_SCRIPT_INVOKES) {
+           throw new Error("脚本调用设备次数超过上限（" + MAX_SCRIPT_INVOKES + " 次）");
+         }
+-        const value = await invoke_impl(JSON.parse(vm.getString(spec_handle)));
+-        return vm.newString(JSON.stringify(value === undefined ? null : value));
++        const spec = JSON.parse(vm.getString(spec_handle));
++        const finish = timing?.span("设备调用");
++        try {
++          const value = await invoke_impl(spec);
++          return vm.newString(JSON.stringify(value === undefined ? null : value));
++        } finally { finish?.(); }
+       });
+       vm.setProp(vm.global, "__invoke", invoke_fn);
+       invoke_fn.dispose();
+@@ -627,6 +665,7 @@
+     const code = script + "\n" + script_result_source();
+     // module 模式支持顶层 await（async 脚本函数）；返回值是 module exports，
+     // 因此脚本结果经 globalThis.__result 传出。
++    timing?.mark("脚本执行（含外部调用等待）");
+     const result = await vm.evalCodeAsync(code, "script-source.js", { type: "module" });
+     if (result.error) {
+       // 语法/模块求值失败：QuickJS 对解析错误不给 stack，属预期。
+@@ -664,6 +703,7 @@
+       throw new ScriptError("runtime", "脚本异步任务未完成");
+     }
+     result.value.dispose();
++    timing?.mark("输出读取与校验");
+     const result_handle = vm.getProp(vm.global, "__result");
+     let output = vm.getString(result_handle);
+     result_handle.dispose();
+@@ -687,8 +727,10 @@
+       );
+     }
+     cookie_access?.assert_grant();
++    timing?.mark("执行日志收集");
+     return { output, invoked, cookie_accesses: cookie_access?.records || [], lines: sandbox_log_lines(vm, route_metadata.debug_request === true), upstream_requests };
+   } catch (failure) {
++    timing?.mark("错误诊断收集");
+     // 失败路径也要把已经收集到的日志行带走，否则前几行 ctx.log 会随错误丢失。
+     if (failure instanceof ScriptError) {
+       failure.message = script_error_source(failure.message, script.split("\n").length);
+@@ -702,6 +744,7 @@
+     }
+     throw failure;
+   } finally {
++    timing?.mark("沙箱释放");
+     // dispose 前必须清空 pending jobs；残留的 Promise 回调会触发
+     // QuickJS 的 gc_obj_list 断言并中止 workerd。失败路径同样适用。
+     try {
+diff --git a/server/infra/tcp_http.js b/server/infra/tcp_http.js
+--- a/server/infra/tcp_http.js
++++ b/server/infra/tcp_http.js
+@@ -165,6 +165,15 @@
+     [...headers].map(([name, header]) => name + ": " + header + "\r\n").join("") + "\r\n");
+   const signal = options.signal ?? AbortSignal.timeout(SCRIPT_FETCH_TIMEOUT_MS);
+   signal.throwIfAborted();
++  const timing = options.timing;
++  let phase = "connect_ms", phase_started_at = timing ? Date.now() : 0;
++  const next_phase = name => {
++    if (!timing) return;
++    const now = Date.now();
++    if (phase) timing[phase] = now - phase_started_at;
++    phase = name;
++    phase_started_at = now;
++  };
+   const connector = connect_fn ?? (await import("cloudflare:sockets")).connect;
+   signal.throwIfAborted();
+   const socket = connector({ hostname: url.hostname, port: url.protocol === "https:" ? 443 : 80 },
+@@ -177,8 +186,10 @@
+   signal.addEventListener("abort", on_abort, { once: true });
+   const perform = async () => {
+     await socket.opened;
++    next_phase("send_ms");
+     await writer.write(request);
+     if (body_bytes.length) await writer.write(body_bytes);
++    next_phase("wait_headers_ms");
+     const http = new HttpReader(reader);
+     let status, response_headers;
+     do {
+@@ -187,10 +198,14 @@
+       if (status < 100 || status > 599 || !match || status === 101) throw invalid_response("HTTP 状态行无效");
+       response_headers = await http.headers();
+     } while (status < 200);
++    next_phase("receive_body_ms");
+     let bytes = null;
+     if (status >= 200 && status < 300 && ![204, 205].includes(status)) {
+-      bytes = await decode_body(await http.body(response_headers), response_headers.get("content-encoding")?.toLowerCase());
+-    }
++      const encoded = await http.body(response_headers);
++      next_phase("decompress_ms");
++      bytes = await decode_body(encoded, response_headers.get("content-encoding")?.toLowerCase());
++    }
++    next_phase(null);
+     for (const name of ["content-length", "transfer-encoding", "content-encoding", "connection"]) response_headers.delete(name);
+     return new Response(bytes, { status, headers: response_headers });
+   };
+@@ -198,6 +213,7 @@
+     if (signal.aborted) on_abort();
+     return await Promise.race([perform(), aborted]);
+   } finally {
++    next_phase(null);
+     signal.removeEventListener("abort", on_abort);
+     // 关闭握手不能延长请求或取消的超时预算。
+     try { void socket.close().catch(() => {}); } catch {}

@@ -158,3 +158,18 @@ test("脚本图标随报告发布，无图标的下一轮清理旧文件", async
   assert.equal(result.status, 0, result.stderr);
   assert.equal(git(f.remote, "ls-tree", "-r", "--name-only", "route-reports"), report_files.join("\n"));
 });
+
+test("Debug 详情 JSON 随报告发布，下一轮清理失效详情", async t => {
+  const f = await fixture(t);
+  const directory = join(f.source, "reports/details/api/hot");
+  await mkdir(directory, { recursive: true });
+  const detail = { inspection: { output_valid: false }, debug: { phase: "runtime", elapsed_ms: 16706 } };
+  await writeFile(join(directory, "example.json"), JSON.stringify(detail));
+  let result = f.publish();
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(git(f.remote, "show", "route-reports:reports/details/api/hot/example.json")), detail);
+  await rm(join(f.source, "reports/details"), { recursive: true });
+  result = f.publish();
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(git(f.remote, "ls-tree", "-r", "--name-only", "route-reports"), report_files.join("\n"));
+});

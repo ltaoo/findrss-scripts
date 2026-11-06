@@ -9,6 +9,7 @@ import { read_json_body, update_cookies } from "./cookie_sync.js";
 import { request_authenticated } from "./auth.js";
 import { execute_route, script_configuration } from "./execute.js";
 import { FeedModel } from "../.runtime/findrss-worker/server/domain/feed_format.js";
+import { create_execution_timing } from "./timing.js";
 
 const cases = route_cases(scripts);
 const routes = cases.map(entry => ({ ...entry, pattern: RssRoutePatternModel(entry.path),
@@ -26,6 +27,8 @@ export default {
     const authenticated = request_authenticated(request, env.ACCESS_TOKEN);
     url.searchParams.delete("token");
     const debugging = url.pathname === "/debug" || url.pathname.startsWith("/debug/");
+    const timing = debugging ? create_execution_timing(started_at) : null;
+    timing?.mark("鉴权与路由");
     let entry, result;
     let invoked = false;
     let stage = "auth";
@@ -37,10 +40,10 @@ export default {
       authentication: { required: Boolean(env.ACCESS_TOKEN),
         credential_present: request.headers.has("Authorization") || query_credential_present, authenticated } };
     const fail = (code, failure) => debugging
-      ? debug_response({ entry, context, stage, started_at, code, failure, result, invoked }, response_headers)
+      ? debug_response({ entry, context, stage, started_at, code, failure, result, invoked, timing }, response_headers)
       : error_response(code, response_headers, entry?.file, failure);
     const syncing = url.pathname === "/api/cookies/update";
-    const asset_request = ["/", "/index.html"].includes(url.pathname) || url.pathname.startsWith("/icons/") || url.pathname.startsWith("/responses/");
+    const asset_request = ["/", "/index.html"].includes(url.pathname) || url.pathname.startsWith("/icons/") || url.pathname.startsWith("/responses/") || url.pathname.startsWith("/details/");
     const methods = syncing ? ["POST"] : debugging || asset_request || ["/health", "/api/routes"].includes(url.pathname) ? ["GET"] : ["GET", "POST"];
     if (!methods.includes(request.method)) {
       response_headers = { ...headers, Allow: methods.join(", ") };
@@ -69,6 +72,7 @@ export default {
     context.params = entry.pattern.match(entry.format === "debug" ? url.pathname : pathname).params;
     response_headers = { ...headers, "X-FindRSS-Script": entry.file, "X-FindRSS-Route": String(entry.route_index) };
     stage = "parameters";
+    timing?.mark("参数与配置");
     try {
       if (request.method === "POST") {
         const body = await read_json_body(request);
@@ -87,8 +91,8 @@ export default {
       context.public_origin = public_url.origin;
       stage = "script";
       ({ result, invoked } = await execute_route(entry, context, env, configuration,
-        AbortSignal.any([request.signal, AbortSignal.timeout(120000)])));
-      if (debugging) return debug_response({ entry, context, stage: "ok", started_at, result, invoked }, response_headers);
+        AbortSignal.any([request.signal, AbortSignal.timeout(120000)]), timing));
+      if (debugging) return debug_response({ entry, context, stage: "ok", started_at, result, invoked, timing }, response_headers);
       stage = "output";
       const value = JSON.parse(result.output);
       if (["rss", "atom", "rss_json"].includes(entry.format)) {

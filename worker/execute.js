@@ -19,13 +19,15 @@ export function script_configuration(entry, env, debugging = false) {
   } catch (error) { throw script_error("CONFIG_INVALID", error.message); }
 }
 
-export async function execute_route(entry, context, env, { metadata, fallback }, signal) {
+export async function execute_route(entry, context, env, { metadata, fallback }, signal, timing = null) {
   let browser_session;
   let invoked = false;
   let stage = "cookies";
   try {
+    timing?.mark("Cookie 与浏览器状态读取");
     const cookies = await load_cookies(env, metadata.permissions, fallback);
     browser_session = await create_browser_session(env, metadata, cookies);
+    timing?.mark("宿主能力准备");
     const invoke = env.DEVICE_BRIDGE_URL ? async spec => {
       invoked = true;
       const response = await fetch(env.DEVICE_BRIDGE_URL, { method: "POST", signal,
@@ -39,16 +41,19 @@ export async function execute_route(entry, context, env, { metadata, fallback },
     const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
       : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
     stage = "script";
+    timing?.mark("沙箱排队");
     const result = await execute_script(entry.script.source, metadata, invoke, {
       method: context.method, pathname: context.pathname, params: context.params,
       query: context.query, public_origin: context.public_origin,
-    }, [], "", cookie_access, signal, navigate);
+    }, [], "", cookie_access, signal, navigate, undefined, timing);
+    timing?.mark("浏览器状态保存");
     await browser_session.commit(signal);
     if (metadata.debug_request && browser_session.navigation) {
       result.lines.push({ level: "info", text: "浏览器验证缓存：" + JSON.stringify(browser_session.stats) });
     }
     return { result, invoked };
   } catch (error) {
+    timing?.mark("失败后浏览器清理");
     await browser_session?.discard();
     error.invoked = invoked;
     error.execution_stage = stage;

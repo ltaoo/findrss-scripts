@@ -4,10 +4,18 @@ import { classify_probe, failed_entries, probe_route, replay_routes } from "../s
 
 const base = "https://scripts.example";
 
-test("复跑分类区分平台 CPU、上游错误和成功", () => {
+test("复跑分类区分通用资源超限、明确 CPU 超限、上游错误和成功", () => {
   assert.deepEqual(classify_probe(200, "application/json", "{}"), { classification: "passed" });
   assert.equal(classify_probe(503, "text/html",
-    "<title>Worker exceeded resource limits | scripts.example | Cloudflare</title>").classification, "exceeded_cpu");
+    "<title>Worker exceeded resource limits | scripts.example | Cloudflare</title>").classification, "exceeded_resources");
+  const resource = classify_probe(503, "text/html; charset=utf-8", "<h1>Error 1102</h1>");
+  assert.equal(resource.code, "EXCEEDED_RESOURCES");
+  assert.match(resource.message, /需查看 Workers Logs 确认/);
+  assert.equal(classify_probe(503, "text/html", "Worker exceeded CPU time limit").classification, "exceeded_cpu");
+  assert.equal(classify_probe(503, "application/json", JSON.stringify({
+    code: "UPSTREAM_FETCH_FAILED", message: "Worker exceeded resource limits",
+  })).classification, "upstream");
+  assert.deepEqual(classify_probe(200, "text/html", "Worker exceeded resource limits"), { classification: "passed" });
   assert.equal(classify_probe(502, "application/json",
     JSON.stringify({ code: "UPSTREAM_FETCH_FAILED" })).classification, "upstream");
   assert.equal(classify_probe(503, "application/json", JSON.stringify({ code: "COOKIE_REQUIRED" })).classification,

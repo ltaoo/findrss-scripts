@@ -3,7 +3,8 @@ import { script_failure_fields } from "../.runtime/findrss-worker/server/infra/s
 import { redact_log_value } from "../.runtime/findrss-worker/server/lib/log_redact.js";
 import { ERRORS } from "./errors.js";
 
-export function debug_response({ entry, context, stage, started_at, code, failure, result, invoked }, headers) {
+export function debug_response({ entry, context, stage, started_at, code, failure, result, invoked, timing }, headers) {
+  timing?.mark("调试信息整理");
   const [status, message] = code ? ERRORS[code] : [200, ""];
   const fields = failure ? script_failure_fields(failure) : null;
   const metadata = entry?.script.metadata;
@@ -15,6 +16,7 @@ export function debug_response({ entry, context, stage, started_at, code, failur
     }
   }
   const debug = {
+    status, code: code || null,
     script: entry ? { file: entry.file, name: entry.name, kind: entry.kind, version: metadata.version,
       path: metadata.routes[entry.route_index].path, request_path: entry.path, route_index: entry.route_index } : {},
     request, phase: stage === "script" && fields ? fields.phase : stage,
@@ -22,11 +24,20 @@ export function debug_response({ entry, context, stage, started_at, code, failur
     upstream_error: code ? code + ": " + (fields?.message || message) : "",
     error_text: fields?.error_text || (code ? message : ""),
     lines: fields?.lines || result?.lines || [],
-    upstream_requests: failure?.upstream_requests || result?.upstream_requests || [],
+    upstream_requests: redact_log_value(failure?.upstream_requests || result?.upstream_requests || []),
     output: result?.output,
   };
+  if (timing) {
+    debug.timing = timing.snapshot();
+    debug.elapsed_ms = debug.timing.elapsed_ms;
+  }
+  if (context.headers?.Accept === "application/json") {
+    return Response.json(debug, { status, headers: { ...headers, "Cache-Control": "no-store", Vary: "Accept",
+      "Referrer-Policy": "no-referrer" } });
+  }
   return new Response(script_debug_html(debug, status), { status, headers: { ...headers,
     "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store",
+    Vary: "Accept",
     "Content-Security-Policy": "sandbox; default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
     "Referrer-Policy": "no-referrer",
   } });

@@ -1,9 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import scripts from "../dist/scripts.js";
 import worker from "../worker/index.js";
 import { route_cases, debug_route_cases } from "../worker/catalog.js";
 import { debug_response } from "../worker/debug.js";
+import { check_route } from "../scripts/route_checks.js";
 
 const origin = "https://scripts.example";
 const request = (path, env = {}, options) => worker.fetch(new Request(origin + path, options), env);
@@ -231,4 +235,39 @@ test("Detect、正文及图片路由同样展示原始输出，Debug 图片描�
   const response = await request("/debug/img/apple?url=" + encodeURIComponent("https://is1-ssl.mzstatic.com/image/thumb/test.jpg/100x100bb.jpg"));
   assert.equal(response.status, 200);
   assert.equal(JSON.parse(section(await response.text(), "output")).url, "https://is1-ssl.mzstatic.com/image/thumb/test.jpg/100x100bb.jpg");
+});
+
+test("巡检保存真实 Debug JSON，成功失败均含阶段耗时、上游请求与原始输出或错误", async t => {
+  const details_dir = await mkdtemp(join(tmpdir(), "findrss-debug-details-"));
+  t.after(() => rm(details_dir, { recursive: true, force: true }));
+  const env = { ACCESS_TOKEN: "private-check-token" };
+  let upstream_status = 200;
+  t.mock.method(globalThis, "fetch", async () => new Response(upstream_status === 200 ? feed : "denied", { status: upstream_status }));
+  const entry = route_cases(scripts).find(entry => entry.file === "rss/github.js" && entry.format === "rss_json");
+  for (upstream_status of [200, 403]) {
+    const result = await check_route(origin, { ...entry, example: "/api/rss/github/example/repo/release?case=" + upstream_status }, {
+      details_dir, token: env.ACCESS_TOKEN,
+      fetch_impl: (url, options) => worker.fetch(new Request(url, options), env),
+    });
+    const detail = JSON.parse(await readFile(join(details_dir, result.detail_file), "utf8"));
+    assert.equal(result.output_valid, upstream_status === 200);
+    assert.equal(detail.inspection.status, result.status);
+    assert.equal(detail.debug.status, result.status);
+    assert.equal(detail.debug_request.status, result.status);
+    assert.equal(detail.debug_request.error, undefined);
+    assert.equal(detail.debug.script.file, entry.file);
+    assert.equal(detail.debug.request.pathname, "/debug/api/rss/github/example/repo/release");
+    assert.ok(detail.debug.timing.stages.length);
+    assert.equal(detail.debug.upstream_requests[0].status, upstream_status);
+    if (upstream_status === 200) assert.equal(JSON.parse(detail.debug.output).title, "example/repo Releases");
+    else {
+      assert.equal(detail.debug.code, "UPSTREAM_ACCESS_DENIED");
+      assert.match(detail.debug.error_text, /403/);
+    }
+    assert.doesNotMatch(JSON.stringify(detail), /private-check-token/);
+  }
+  const unauthorized = await request("/debug/github/example/repo/release", env, { headers: { Accept: "application/json" } });
+  assert.equal(unauthorized.status, 401);
+  assert.equal(unauthorized.headers.get("Vary"), "Accept");
+  assert.equal((await unauthorized.json()).code, "UNAUTHORIZED");
 });

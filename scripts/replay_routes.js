@@ -2,19 +2,18 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { is_loopback_url, parse_dev_var } from "./check_routes_env.js";
+import { classify_platform_error } from "./platform_errors.js";
 
 const DEFAULT_BASE = "https://scripts.findrss.cloud";
 const dev_vars_url = new URL("../.dev.vars", import.meta.url);
 const max_probe_bytes = 64 * 1024;
-const platform_cpu = /Worker exceeded resource limits|exceeded CPU time limit|Error 1102/i;
 const timeout_names = new Set(["TimeoutError", "AbortError"]);
 
 export function classify_probe(status, content_type, body) {
   const type = (content_type || "").split(";")[0].trim().toLowerCase();
   if (status >= 200 && status < 300) return { classification: "passed" };
-  if (type === "text/html" && platform_cpu.test(body)) {
-    return { classification: "exceeded_cpu", code: "EXCEEDED_CPU", message: "Cloudflare 终止了 Worker（CPU 超限）" };
-  }
+  const platform_error = classify_platform_error(type, body);
+  if (platform_error) return platform_error;
   let problem;
   try { problem = JSON.parse(body); } catch {}
   if (problem && typeof problem === "object") {
@@ -102,7 +101,7 @@ export async function replay_routes(entries, options = {}) {
 }
 
 export function render_replay_summary(report) {
-  const labels = { passed: "通过", exceeded_cpu: "平台 CPU 超限",
+  const labels = { passed: "通过", exceeded_cpu: "平台 CPU 超限", exceeded_resources: "平台资源超限（原因待确认）",
     cookie_required: "缺少 Cookie", config: "配置无效", upstream: "上游错误", script: "脚本失败",
     error: "业务错误", timeout: "超时", platform_error: "平台错误页", server_error: "服务端错误",
     http_error: "HTTP 错误", network_error: "网络错误" };

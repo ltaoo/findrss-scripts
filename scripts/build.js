@@ -27,7 +27,7 @@ await mkdir(new URL("../dist/", import.meta.url), { recursive: true });
 const report_assets = new URL("../dist/report-assets/", import.meta.url);
 await rm(report_assets, { recursive: true, force: true });
 await mkdir(report_assets, { recursive: true });
-for (const name of ["index.html", "icons", "responses"]) {
+for (const name of ["index.html", "icons", "responses", "details"]) {
   try {
     await cp(new URL("../reports/" + name, import.meta.url), new URL(name, report_assets), { recursive: true });
   } catch (error) {

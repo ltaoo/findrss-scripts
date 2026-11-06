@@ -170,13 +170,15 @@ RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKE
 | Secret | `ROUTE_CHECK_CASES` | 可选的路由样本及预期覆盖 JSON，见下文 |
 | Secret | `NOTIFY_TOKEN` | 通知接口的 Bearer 令牌，仅填写令牌值，不包含 `Bearer ` 前缀 |
 
-检查从当前代码构建的本地清单出发，最多同时请求 10 条路由，不依赖线上目录来决定检查范围。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。每条请求最多 60 秒，完成一条后立即继续下一条，拒绝重定向。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文、`reports/icons/` 中的脚本图标一起上传为 `route-check-report` artifact。
+检查从当前代码构建的本地清单出发，最多同时处理 10 条路由，不依赖线上目录来决定检查范围。每个样本先检查普通接口，再采集一次对应的 Debug JSON；两次请求各自最多 60 秒，均拒绝重定向。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文、Debug 详情、`reports/icons/` 中的脚本图标一起上传为 `route-check-report` artifact。
 
-每次启动巡检时，先删除上述四份旧报告并清空 `reports/responses/`、`reports/icons/`，再读取配置并发起检查。巡检期间或配置错误、中断导致未生成新报告时，不保留旧结果；`reports/cookie-sync-setup.json` 等其他本机文件不受影响。
+每次启动巡检时，先删除上述四份旧报告并清空 `reports/responses/`、`reports/details/`、`reports/icons/`，再读取配置并发起检查。巡检期间或配置错误、中断导致未生成新报告时，不保留旧结果；`reports/cookie-sync-setup.json` 等其他本机文件不受影响。
 
 HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存到 `reports/responses/`，即使后续格式或输出校验失败也保留。目录使用实际请求 URL 的路径（包含样本覆盖后的参数值），不包含查询串明文；有查询参数时，在扩展名前添加查询串的 SHA-256 前 16 位，避免多个样本相互覆盖。例如 `/rss/github/ltaoo/wx_channels_download/release` 保存为 `reports/responses/rss/github/ltaoo/wx_channels_download/release.xml`，`/api/hot/baidu/board` 保存为 `reports/responses/api/hot/baidu/hot.json`。RSS/Atom 使用 `.xml`，JSON 使用 `.json`，正文使用 `.html`，图片按响应类型使用扩展名；以 `/` 结尾的路径使用 `index` 文件名。JSON 报告的 `output_file` 记录相对于 `responses/` 的产物路径；同一路由有多个样本时，详细结果和产物路径保存在该路由的 `samples` 中。每轮先清空正文目录，失败请求不会沿用上轮文件。
 
-定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，提交上述报告、`reports/responses/` 中的正文及 `reports/icons/` 中的脚本图标。分支根目录同时提供 `README.md`、`index.html`、`routes.json`、`routes.md` 和禁用 Jekyll 的 `.nojekyll`，JSON/Markdown 报告可通过文件路径访问；原有 `reports/` 下的报告路径继续保留。打开分支即可看到 README 结果表格，按脚本聚合所有格式的路由，展示脚本版本及可用的平台图标，路由表仅保留路由、成功／失败和失败原因；失败项优先，点击脚本路径直接打开 `master` 分支的 Raw 源码，方便复制复用。首次提交不包含源码历史；后续提交保留历次报告和正文历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。原有产物分支会自动增加这些根目录文件和本轮正文，并保留旧提交。源码工作区和分支不切换，源码 README 不会被生成报告覆盖，`reports/` 中其他本机文件不会发布。正文会随产物分支公开，包括使用登录态采集的内容。
+无论普通接口检查成功或失败，都会请求 `/debug` 加实际路径，并发送 `Accept: application/json`，保存到 `reports/details/` 下相同路径的 `.json` 文件；查询参数同样通过文件名哈希区分。`routes.json` 中每个样本的 `detail_file` 记录相对路径。详情的 `inspection` 保存普通检查结果，`debug` 保存与 Debug 页面对应的脚本、上下文、阶段耗时、上游请求、日志、输出和错误，`debug_request` 保存详情采集的状态及耗时。Debug 是单独一次执行，可能与普通检查结果不同，不会改变原检查的成功／失败或耗时。Debug 超时、资源超限、非 JSON 响应或旧版 Worker 不支持 JSON 时，仍保存详情文件，`debug` 为 `null`，具体原因在 `debug_request`。访问令牌通过请求头发送，沿用 Debug 页的上下文及凭据请求头脱敏；日志和原始输出保留实际内容，并随报告分支公开。
+
+定时及手动巡检还会自动创建或更新独立的 `route-reports` 分支，提交上述报告、`reports/responses/` 中的正文、`reports/details/` 中的 Debug JSON 及 `reports/icons/` 中的脚本图标。分支根目录同时提供 `README.md`、`index.html`、`routes.json`、`routes.md` 和禁用 Jekyll 的 `.nojekyll`，JSON/Markdown 报告可通过文件路径访问；原有 `reports/` 下的报告路径继续保留。打开分支即可看到 README 结果表格，按脚本聚合所有格式的路由，展示脚本版本及可用的平台图标，路由表仅保留路由、成功／失败和失败原因；失败项优先，点击脚本路径直接打开 `master` 分支的 Raw 源码，方便复制复用。首次提交不包含源码历史；后续提交保留历次报告、正文和详情历史，内容没有变化时跳过提交。每次提交注明对应的源码 SHA。原有产物分支会自动增加这些根目录文件和本轮产物，并保留旧提交。源码工作区和分支不切换，源码 README 不会被生成报告覆盖，`reports/` 中其他本机文件不会发布。正文和详情会随产物分支公开，包括使用登录态采集的内容。
 
 巡检有失败项时，已生成的报告仍会发布。巡检脚本保留非零退出码，workflow 的巡检步骤以生成 `reports/index.html` 为成功条件，路由失败不会使该步骤失败；通知推送失败也不会影响 workflow 成功状态，发布自身出错仍会使任务失败。未生成完整报告或运行被取消时跳过分支发布。不同源码分支发起的巡检共用发布并发组，串行更新产物分支。发布使用当前仓库的 `GITHUB_TOKEN`，只对巡检任务授予 `contents: write`，PR 测试任务仍为只读。产物提交不会触发只监听默认分支 `master` 的推送 CI。
 
@@ -192,7 +194,7 @@ HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存�
 
 如果使用分支发布，发布源应为 **Deploy from a branch → route-reports → /(root)**，分支根目录已包含入口和下载文件。但当前工作流的 `GITHUB_TOKEN` 推送仍不会触发这种发布模式的自动构建；需另行使用有权限用户的推送或合适的发布凭据触发，不能仅切换设置就保证每轮巡检后站点更新。现有工作流已包含完整的 Pages artifact 部署，建议保留 **GitHub Actions** 模式。
 
-定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。首页是「脚本市场（Script Market）」，按脚本展示名称、路径、版本及脚本自身的内嵌图标，提供 RSS、Hot、Clip、Detect 分类，支持按名称、文件路径或路由搜索。文件路径直接打开 `master` 分支 Raw 源码，旁边图标复制 Raw 地址。版本号位于标题下方，巡检通过数量位于卡片右侧，点击巡检状态打开结果弹窗，可点击遮罩或关闭按钮关闭。通过样本提供「查看产物」，在新窗口打开 `route-reports` 分支中对应响应文件的 GitHub Raw URL，多样本分别提供入口，并在产物 / 失败原因列与示例逐行对照。复制结果的 Toast 显示在当前最上层弹窗内或页面上，在 2.5 秒后自动关闭，连续复制会重新计时。README 和 JSON 保留原有巡检用途。搜索、复制和巡检弹窗需要 JavaScript；Clipboard API 不可用或拒绝时会尝试选中文本复制，两种方式均失败则提示手动选择文本复制。
+定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。首页是「脚本市场（Script Market）」，按脚本展示名称、路径、版本及脚本自身的内嵌图标，提供 RSS、Hot、Clip、Detect 分类，支持按名称、文件路径或路由搜索。文件路径直接打开 `master` 分支 Raw 源码，旁边图标复制 Raw 地址。版本号位于标题下方，巡检通过数量位于卡片右侧，点击巡检状态打开结果弹窗，可点击遮罩或关闭按钮关闭。通过样本提供「查看产物」，在新窗口打开 `route-reports` 分支中对应响应文件的 GitHub Raw URL，成功和失败样本均提供「查看详情」，在新窗口打开 `reports/details/` 下对应的 Debug JSON；多样本按编号分别提供入口，并在产物 / 详情 / 失败原因列与示例逐行对照。复制结果的 Toast 显示在当前最上层弹窗内或页面上，在 2.5 秒后自动关闭，连续复制会重新计时。README 和 JSON 保留原有巡检用途。搜索、复制和巡检弹窗需要 JavaScript；Clipboard API 不可用或拒绝时会尝试选中文本复制，两种方式均失败则提示手动选择文本复制。
 
 `pages` 任务只授予 `pages: write` 和 `id-token: write`，使用 `github-pages` 环境。只要 Pages artifact 成功上传，即使 `routes` 因发布或通知失败而变红，也会继续部署这份页面；取消运行或没有生成完整报告时跳过。HTML 只包含脚本目录元数据和巡检摘要，Pages artifact 包含 HTML 以及 JSON/Markdown 报告，本机凭据文件不会进入其中。页面是最近一次成功部署的快照，通知同时附有页面入口和本次 Actions 链接；本轮 Pages 发布完成后页面才更新，发布失败时仍保留上次快照。
 
@@ -204,9 +206,9 @@ HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存�
 node scripts/render_route_report.js
 ```
 
-该命令读取 `reports/routes.json` 和已构建的 `dist/scripts.js`，写入 `reports/index.html`，并沿用报告中的 `mode`：本地巡检（`--local` 或回环地址）记录为 `dev`，产物使用相对当前报告目录的 `./responses/` prefix，可直接打开本地文件；其他巡检记录为 `release`，使用产物分支的 GitHub Raw prefix。未记录 `mode` 的旧报告按 `release` 处理。本地查看时需保留报告旁的 `responses/` 目录。
+该命令读取 `reports/routes.json` 和已构建的 `dist/scripts.js`，写入 `reports/index.html`，并沿用报告中的 `mode`：本地巡检（`--local` 或回环地址）记录为 `dev`，产物和详情使用相对当前报告目录的 `./responses/`、`./details/` prefix，可直接打开本地文件；其他巡检记录为 `release`，使用产物分支的 GitHub Raw prefix。未记录 `mode` 的旧报告按 `release` 处理；没有 `detail_file` 的旧结果只显示已有产物。本地查看时需保留报告旁的 `responses/`、`details/` 目录。
 
-Worker 构建会将已有的 `reports/index.html`、`reports/icons/` 和 `reports/responses/` 复制为静态资源，首页和资源无需令牌，API 和 Debug 仍保留鉴权；生成或更新报告后需重新构建。没有报告文件的构建仍可正常启动或部署，首页返回 404。部署前若本地已有报告，这些报告资源也会随部署上传并公开访问。
+Worker 构建会将已有的 `reports/index.html`、`reports/icons/`、`reports/responses/` 和 `reports/details/` 复制为静态资源，首页和资源无需令牌，API 和 Debug 仍保留鉴权；生成或更新报告后需重新构建。没有报告文件的构建仍可正常启动或部署，首页返回 404。部署前若本地已有报告，这些报告资源也会随部署上传并公开访问。
 
 | 阶段 | 校验 |
 | --- | --- |
@@ -254,6 +256,8 @@ CHECK_BASE_URL=https://你的Worker地址 npm run check:routes
 
 `--local` 未指定 `CHECK_BASE_URL` 时使用 Wrangler 的开发地址 `http://127.0.0.1:8801`；连接回环地址时若未设置 `CHECK_ACCESS_TOKEN`，会自动读取被 Git 忽略的 `.dev.vars` 中的 `ACCESS_TOKEN`，不会把本地令牌发送到远端站点。需要鉴权时也可通过 `CHECK_ACCESS_TOKEN` 提供。缺少地址会失败并提示配置；缺少上游 Cookie/API Key/设备、验证页或空内容会记录为失败，不会自动忽略。巡检报告保留 Worker 返回的业务码和描述，详细上游问题可结合 Workers Logs 与对应脚本夹具定位。
 
+本地巡检同样生成 `reports/details/`，成功和失败样本都保存 Debug JSON；本地报告中的「查看详情」使用 `./details/` 相对链接，直接打开本轮生成的文件。启动 `npm run dev` 后运行 `npm run check:local` 即可，无需 GitHub 环境或发布报告分支。
+
 ### 复跑失败路由
 
 `npm run replay:routes` 读取巡检报告中的失败项，直接请求已部署站点并重新分类，结果写入 `reports/replay.json`（默认读取 `reports/routes.json`）：
@@ -262,25 +266,25 @@ CHECK_BASE_URL=https://你的Worker地址 npm run check:routes
 npm run replay:routes                                      # 复跑全部失败项
 npm run replay:routes -- --concurrency 1                   # 单路复跑，降低并发干扰
 npm run replay:routes -- --file hot/qidian                 # 只复跑某脚本
-npm run replay:routes -- --report reports/replay.json --class exceeded_cpu
+npm run replay:routes -- --report reports/replay.json --class exceeded_resources
 npm run replay:routes -- --base http://127.0.0.1:8801 --dev-vars
 ```
 
-分类包括 `passed`、`exceeded_cpu`、`cookie_required`、`config`、`upstream`、`script`、`error`、`timeout`、`platform_error`、`server_error`、`http_error` 和 `network_error`。`--all` 复跑所有路由而不仅是失败项。再次用 `--class exceeded_cpu` 复跑上一份复跑报告，可以单独确认 CPU 超限是否可复现。
+分类包括 `passed`、`exceeded_resources`、`exceeded_cpu`、`cookie_required`、`config`、`upstream`、`script`、`error`、`timeout`、`platform_error`、`server_error`、`http_error` 和 `network_error`。`--all` 复跑所有路由而不仅是失败项。`--class exceeded_resources` 复跑通用资源超限页，`exceeded_cpu` 仅用于回包明确说明 CPU 超限的情况；复跑 1102 仍须结合 Workers Logs 确认具体资源。
 
 ## 错误响应
 
 ### Worker exceeded resource limits（1102）
 
-这是 Cloudflare 在平台层终止执行产生的错误，脚本无法捕获，也无法渲染 Debug 页。先在 Workers Logs 或 `npx wrangler tail --format json` 查看 `outcome`：`exceededCpu` 表示 CPU 超限，`exceededMemory` 表示内存超限。
+这是 Cloudflare 在平台层终止执行产生的错误，脚本无法捕获，也无法渲染 Debug 页。CPU 和内存超限都会返回相同的 1102 / `Worker exceeded resource limits` 页面，因此巡检将其标记为 `EXCEEDED_RESOURCES`，不能仅凭页面断定 CPU 超限。先在 Workers Logs 或 `npx wrangler tail --format json` 查看 `outcome`：`exceededCpu` 表示 CPU 超限，`exceededMemory` 表示内存超限。网络请求等待时间不计入 CPU，沙箱初始化、JSON 解析和结果转换等执行时间会计入。见 [Cloudflare Error 1102](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1102/)。
 
 本项目使用 QuickJS/Wasm 执行脚本，大页面解析和多条详情补查会消耗 CPU。YouTube Shorts 为首屏每条视频补查发布日期，即使限制请求并发，累计 CPU 开销也不会减少；脚本仅将详情页的 meta 标签交给节点解析器，跳过脚本、样式和正文。
 
 Workers Free 每个 HTTP 请求只有 10 ms CPU。订阅入口与其它入口一样在请求内同步执行，同样受这一额度限制；不能假定去掉队列就获得更多 CPU。Workers Paid 的默认 HTTP CPU 上限为 30 秒，CPU 配置是否可用由平台校验。`limits.cpu_ms` 不会升级账号套餐；`AbortSignal.timeout` 控制等待时长，同样不能提高 CPU 额度。额度和诊断字段见 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)。
 
-2026-11-02 用生产同版本 QuickJS 实测：即使不计上游请求，每次执行先要实例化沙箱（约 4 ms）并编译运行内置工具与脚本（约 5 ms），已经接近 Free 的 10 ms 预算。`npm run replay:routes --all --concurrency 10` 复跑 140 条路由得到 40 条 `exceeded_cpu`，与巡检报告的 40 条无业务码 503 完全一致；`wrangler tail` 捕获的终止事件中，kuaishou、mastodon、mktnews、tencent、thepaper 等路由均为 `cpuTime: 10`、`wallTime` 仅 12–23 ms，说明 CPU 预算在脚本开始请求上游前就被沙箱初始化耗尽。同一批 CPU 路由以 `--concurrency 5` 复跑时没有超限，通过的路由实测 33–161 ms CPU，说明平台对偶发超额有容忍，但巡检的 10 路并发会集中触发硬限制。
+2026-11-02 用生产同版本 QuickJS 实测：即使不计上游请求，每次执行先要实例化沙箱（约 4 ms）并编译运行内置工具与脚本（约 5 ms），已经接近 Free 的 10 ms 预算。`npm run replay:routes --all --concurrency 10` 复跑 140 条路由得到 40 条资源超限页，与巡检报告的 40 条无业务码 503 完全一致；旧分类器将它们全部记为 `exceeded_cpu`，该标签本身不能证明 CPU 超限。`wrangler tail` 捕获的终止事件中，kuaishou、mastodon、mktnews、tencent、thepaper 等路由均为 `cpuTime: 10`、`wallTime` 仅 12–23 ms，支持这些已捕获事件的 CPU 预算在脚本开始请求上游前就被沙箱初始化耗尽，不能据此外推所有 1102。同一批路由以 `--concurrency 5` 复跑时没有超限，通过的路由实测 33–161 ms CPU；这些是当次观测结果，不是平台保证。
 
-大页面解析会进一步放大差距：`hot/fastbull.js` 的头条页约 475 KB，`document_nodes` 建树约 307 ms，选择行约 111 ms，逐行取标题约 126 ms；线上 tail 记录到该路由 `cpuTime: 2019`、`outcome: exceededCpu`。巡检工具现在会把这类 `text/html` 平台错误页标记为 `EXCEEDED_CPU`，与上游或脚本错误区分。
+大页面解析会进一步放大差距：`hot/fastbull.js` 的头条页约 475 KB，`document_nodes` 建树约 307 ms，选择行约 111 ms，逐行取标题约 126 ms；线上 tail 记录到该路由 `cpuTime: 2019`、`outcome: exceededCpu`。这里的 CPU 结论来自 tail 日志，巡检仅凭通用 `text/html` 平台错误页仍标记为 `EXCEEDED_RESOURCES`。
 
 结论：这不是单个脚本可以修掉的 bug，也无法靠优化解析把 475 KB 页面的完整 DOM 建树降到 10 ms 以内。要稳定运行 Hot、Debug 等同步执行 QuickJS 的入口，需要改用 Workers Paid（默认 30 秒）或把脚本执行移出 Worker。升级后仍可对 `hot/fastbull.js` 这类大页面改为定向提取（只截取列表区域或内嵌 JSON），以降低延迟和费用，但不应把它当作 Free 额度的替代方案。
 
@@ -321,6 +325,10 @@ Cookie 在脚本实际携带 Cookie 请求上游时检查：没有匹配当前�
 例如 `/debug/rss/github/ltaoo/wx_channels_download/release`、`/debug/api/hot/hackernews` 和 `/debug/hot/hackernews` 也可访问。`dist/openapi.json` 只包含四个 `/api` 前缀接口，不包含 Debug；`/api/routes` 仍列出全部普通路由及别名。
 
 Debug 成功、失败均返回 HTML，失败保留对应业务码的 HTTP 状态，无需设置 `Accept`。页面展示脚本文件、版本、路由与 handler 索引，请求路径、路径参数、查询参数、部分请求头和鉴权状态，执行阶段、总耗时、失败详情与沙箱堆栈、执行日志，以及上游请求的完整 `url`（包含查询参数及签名参数，每次重定向分别记录）、方法、主机、路径、状态、传输方式和凭据发送情况。成功时显示脚本原始返回值，不转换 RSS/Atom XML，也不额外抓取图片描述指向的二进制。每次重新执行并返回 `Cache-Control: no-store`。
+
+发送 `Accept: application/json` 时返回与 HTML 页面相同的诊断数据，额外带有 `status` 和 `code`，沿用鉴权、HTTP 状态和脱敏规则；该形式用于巡检详情归档。默认浏览器访问仍返回 HTML，普通 API 接口不受此设置影响。
+
+「阶段耗时」表展示每个主阶段从请求开始的偏移和耗时：鉴权与路由、参数与配置、Cookie 与浏览器状态读取、沙箱排队、QuickJS/Wasm 初始化、上下文与工具初始化、脚本执行、输出读取与校验、日志收集、沙箱释放、浏览器状态保存和调试信息整理。主阶段互不重叠，合计等于页头总耗时；失败时同样保留已执行阶段。「外部调用明细」分别记录 HTTP、浏览器和设备调用，耗时已包含在主阶段内，并行调用不能相加。每次 HTTP 请求、重定向和重试的上游记录包含开始偏移、总耗时、获取响应、正文读取、文本解码与传入沙箱的耗时；TCP 进一步拆分连接（含 DNS/TCP/TLS）、发送、等待并读取响应头、读取正文和解压，这些子阶段包含在「获取响应」内。计时使用平台时钟，表示经过时间而非 CPU 时间；[Workers 时钟仅在 I/O 后更新](https://developers.cloudflare.com/workers/runtime-apis/performance/)，纯计算阶段可能显示 0 ms，不代表没有开销。总耗时不包含调试 HTML 生成、页面传输和浏览器渲染。旧请求未采集阶段计时，需更新部署后重新请求。
 
 Debug 沿用 `ACCESS_TOKEN` 鉴权及凭据配置保护，支持请求头或 `?token=`。鉴权、配置或路由匹配失败同样返回诊断 HTML，脚本尚未执行时不会有上游记录。查询参数 `token` 在执行脚本前移除；请求上下文对 Cookie、Authorization、secret、password 和 API Key 等敏感字段脱敏，不显示环境变量配置值；上游记录不显示凭据请求头的值，但完整 `url` 保留实际查询参数，可能包含令牌或签名。日志、错误文本与脚本原始输出保留实际内容，可能包含上游正文或脚本自行记录的信息，分享诊断页前请检查内容。页面将内容转义为文本，并禁止脚本执行及外部资源加载。
 

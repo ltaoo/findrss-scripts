@@ -26,16 +26,77 @@ test("巡检先发出 on_start，再为同一槽位发出 on_result", async () =
   assert.deepEqual(calls, [["start", 0, entry.example], ["result", 0, entry.example]]);
 });
 
-test("平台 CPU 超限页标记为 EXCEEDED_CPU，普通 503 不误判", async () => {
-  const cpu = await run(async () => new Response(
-    "<title>Worker exceeded resource limits | scripts.example | Cloudflare</title>",
-    { status: 503, headers: { "Content-Type": "text/html; charset=utf-8" } }));
-  assert.equal(cpu.code, "EXCEEDED_CPU");
-  assert.match(cpu.error, /EXCEEDED_CPU/);
+test("平台通用资源超限页不能断定 CPU 超限，普通 503 不误判", async () => {
+  for (const [body, code] of [
+    ["<title>Worker exceeded resource limits | scripts.example | Cloudflare</title>", "EXCEEDED_RESOURCES"],
+    ["<h1>Error 1102</h1>", "EXCEEDED_RESOURCES"],
+    ["<p>Worker exceeded CPU time limit</p>", "EXCEEDED_CPU"],
+  ]) {
+    const result = await run(async () => new Response(body,
+      { status: 503, headers: { "Content-Type": "text/html; charset=utf-8" } }));
+    assert.equal(result.code, code);
+    assert.match(result.error, new RegExp(code));
+    if (code === "EXCEEDED_RESOURCES") assert.match(result.error, /需查看 Workers Logs 确认/);
+  }
   const plain = await run(async () => new Response("Service unavailable",
     { status: 503, headers: { "Content-Type": "text/html" } }));
   assert.equal(plain.code, undefined);
   assert.equal(plain.error, "HTTP 503");
+});
+
+test("Debug 超限、超时、旧版 HTML 和无效 JSON 均保存详情，普通巡检结果保持独立", async t => {
+  const details_dir = await mkdtemp(join(tmpdir(), "findrss-debug-capture-"));
+  t.after(() => rm(details_dir, { recursive: true, force: true }));
+  for (const [name, debug_response, error] of [
+    ["resources", () => new Response("<h1>Error 1102</h1>", { status: 503, headers: { "Content-Type": "text/html" } }), /资源超限/],
+    ["timeout", () => { throw new DOMException("timeout", "TimeoutError"); }, /超时/],
+    ["old", () => new Response("Debug HTML", { headers: { "Content-Type": "text/html" } }), /Worker 已更新/],
+    ["invalid", () => new Response("{", { headers: { "Content-Type": "application/json" } }), /无效 JSON/],
+    ["shape", () => Response.json({ title: "ordinary output" }), /无效的诊断结构/],
+  ]) {
+    let calls = 0;
+    const result = await check_route("https://scripts.example", { ...entry, example: "/api/hot/" + name }, {
+      details_dir, token: "private-token", fetch_impl: async (url, options) => {
+        calls++;
+        assert.equal(options.redirect, "manual");
+        assert.equal(options.headers.Authorization, "Bearer private-token");
+        if (url.pathname.startsWith("/debug/")) {
+          assert.equal(options.headers.Accept, "application/json");
+          return debug_response();
+        }
+        return Response.json(value, { headers });
+      },
+    });
+    assert.equal(calls, 2);
+    assert.equal(result.output_valid, true);
+    const detail = JSON.parse(await readFile(join(details_dir, result.detail_file), "utf8"));
+    assert.equal(detail.debug, null);
+    assert.match(detail.debug_request.error, error);
+    assert.equal(detail.inspection.output_valid, true);
+    if (name === "resources") assert.equal(detail.debug_request.code, "EXCEEDED_RESOURCES");
+    assert.doesNotMatch(JSON.stringify(detail), /private-token/);
+  }
+});
+
+test("Debug 详情按查询参数分文件且不能跨站发送令牌", async t => {
+  const details_dir = await mkdtemp(join(tmpdir(), "findrss-debug-samples-"));
+  t.after(() => rm(details_dir, { recursive: true, force: true }));
+  const files = [];
+  for (const query of ["?page=1&token=private-query", "?page=2&token=private-query"]) {
+    const result = await check_route("https://scripts.example", { ...entry, example: "/api/hot/example" + query }, {
+      details_dir, fetch_impl: async () => new Response("unavailable", { status: 503 }),
+    });
+    files.push(result.detail_file);
+    const detail = await readFile(join(details_dir, result.detail_file), "utf8");
+    assert.doesNotMatch(result.detail_file + detail, /private-query/);
+    assert.equal(JSON.parse(detail).inspection.status, 503);
+  }
+  assert.notEqual(files[0], files[1]);
+  const result = await check_route("https://scripts.example", { ...entry, example: "https://other.example/private" }, {
+    details_dir, token: "private-token", fetch_impl: () => assert.fail("不能跨站请求"),
+  });
+  const detail = JSON.parse(await readFile(join(details_dir, result.detail_file), "utf8"));
+  assert.match(detail.debug_request.error, /禁止跨站发送令牌/);
 });
 
 test("2xx 原始回包按实际路径单独保存，校验失败也保留，HTTP 失败不保存", async t => {
