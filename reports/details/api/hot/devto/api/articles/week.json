@@ -1,0 +1,167 @@
+{
+  "checked_at": "2026-11-06T07:03:40.175Z",
+  "inspection": {
+    "file": "hot/devto.js",
+    "path": "/api/hot/devto/api/articles/:period?",
+    "example": "/api/hot/devto/api/articles/week",
+    "format": "hot",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/devto/api/articles/week.json",
+    "duration_ms": 524
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 83
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/devto.js",
+      "name": "DEV Community · 热门文章",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/devto/api/articles/:period?",
+      "request_path": "/api/hot/devto/api/articles/:period?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/devto/api/articles/week",
+      "params": {
+        "period": "week"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5623d5c1868d6f5"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 13,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dev.to/api/articles?top=7&per_page=30",
+        "method": "GET",
+        "host": "dev.to",
+        "pathname": "/api/articles",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 13,
+        "timings": {
+          "response_ms": 13,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"DEV Community · 周榜\",\"link\":\"https://dev.to/top/week\",\"category\":\"科技\",\"observed_at\":\"2026-11-06T07:03:40.205Z\",\"entries\":[{\"id\":\"devto:4971955\",\"title\":\"We're Building AI to Replace Ourselves. What's the Plan?\",\"link\":\"https://dev.to/sylwia-lask/were-building-ai-to-replace-ourselves-whats-the-plan-4oll\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fmsqofwuj23waq6n4qaof.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":167,\"unit\":\"互动\",\"text\":\"167\"}},{\"id\":\"devto:4963920\",\"title\":\"This is my first HacktoberFest, and I don't know what to feel.\",\"link\":\"https://dev.to/francistrdev/this-is-my-first-hacktoberfest-and-i-dont-know-what-to-feel-449f\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fkdrg60peavzloceeysdp.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":130,\"unit\":\"互动\",\"text\":\"130\"}},{\"id\":\"devto:4984085\",\"title\":\"Congrats to the Kaggle Benchmarking Challenge Winners!\",\"link\":\"https://dev.to/devteam/congrats-to-the-kaggle-benchmarking-challenge-winners-2moh\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fig8gi4bw1h7vk0z76krk.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":79,\"unit\":\"互动\",\"text\":\"79\"}},{\"id\":\"devto:4646637\",\"title\":\"We Need to Talk About How Gross Modern Web Design Has Become (And How We Built an AI to Catch It)\",\"link\":\"https://dev.to/dj29/we-need-to-talk-about-how-gross-modern-web-design-has-become-and-how-we-built-an-ai-to-catch-it-5gin\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fb61la8s368galmbcxahw.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":93,\"unit\":\"互动\",\"text\":\"93\"}},{\"id\":\"devto:4954082\",\"title\":\"Every Codebase Has a '// DO NOT TOUCH' File. I Built an AI Necromancer to Summon the Ghost of the Developer Who Wrote It 💀🔮\",\"link\":\"https://dev.to/dj29/every-codebase-has-a-do-not-touch-file-i-built-an-ai-necromancer-to-summon-the-ghost-of-the-2no5\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fezbb0xf5v8087ny2qes2.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":126,\"unit\":\"互动\",\"text\":\"126\"}},{\"id\":\"devto:4966470\",\"title\":\"One Last Post, and a Proper Goodbye\",\"link\":\"https://dev.to/anchildress1/one-last-post-and-a-proper-goodbye-53a2\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fvgz2izgjw1fw22jc0g0c.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":49,\"unit\":\"互动\",\"text\":\"49\"}},{\"id\":\"devto:4971893\",\"title\":\"That's a Wrap on Hacktoberfest 2026! 🎃👻\",\"link\":\"https://dev.to/devteam/thats-a-wrap-on-hacktoberfest-2026-148k\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F9j2yyb098hr9vwiu2xyr.webp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":61,\"unit\":\"互动\",\"text\":\"61\"}},{\"id\":\"devto:4971470\",\"title\":\"Let's see where you code!\",\"link\":\"https://dev.to/maame-codes/lets-see-where-you-code-147\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F8w7rf58mqbwxnvnh2bqp.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":77,\"unit\":\"互动\",\"text\":\"77\"}},{\"id\":\"devto:4766389\",\"title\":\"What was your win this week?\",\"link\":\"https://dev.to/devteam/what-was-your-win-this-week-47ci\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F8upd03ge8c0a414jq3ai.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":33,\"unit\":\"互动\",\"text\":\"33\"}},{\"id\":\"devto:4962916\",\"title\":\"I built a 3D game about my Nigerian childhood (and I'm not a game developer)\",\"link\":\"https://dev.to/deborahemeni1/i-built-a-3d-game-about-my-nigerian-childhood-and-im-not-a-game-developer-281g\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F3h9pza57hou2f27a7nhj.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":34,\"unit\":\"互动\",\"text\":\"34\"}},{\"id\":\"devto:4976856\",\"title\":\"Scared to Publish Your First Technical Article? Don't Be. I'll Be There to Read It\",\"link\":\"https://dev.to/georgekobaidze/scared-to-publish-your-first-technical-article-dont-be-ill-be-there-to-read-it-1gg2\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fsj3z3wne9uej05d24y0q.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":72,\"unit\":\"互动\",\"text\":\"72\"}},{\"id\":\"devto:4958573\",\"title\":\"🐾 DEV Pet Corner #4: Show Us Your Pets!\",\"link\":\"https://dev.to/hemapriya_kanagala/dev-pet-corner-4-show-us-your-pets-55jh\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fuonbff781lc6lq68fu5f.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":93,\"unit\":\"互动\",\"text\":\"93\"}},{\"id\":\"devto:4945564\",\"title\":\"Singularity News :: CCG\",\"link\":\"https://dev.to/pengeszikra/singularity-news-ccg-5ejk\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fyyh84oxpucdnmygo396v.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":51,\"unit\":\"互动\",\"text\":\"51\"}},{\"id\":\"devto:4957226\",\"title\":\"My reflections on raising a daughter in the age of AI\",\"link\":\"https://dev.to/p0rt/i-use-ai-what-should-i-teach-my-daughter-3efp\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fhaqxbjqjlz8rvyqrpvpa.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":46,\"unit\":\"互动\",\"text\":\"46\"}},{\"id\":\"devto:4948394\",\"title\":\"Don't Write Markdown Files for Your Coding Agent. Write Scripts.\",\"link\":\"https://dev.to/dannwaneri/dont-write-markdown-files-for-your-coding-agent-write-scripts-j00\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F701t0c2zifz0n0n7667t.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":40,\"unit\":\"互动\",\"text\":\"40\"}},{\"id\":\"devto:4956710\",\"title\":\"Meet Necoz! 😸 Small. Simple. Useful.\",\"link\":\"https://dev.to/nyaomaru/meet-necoz-small-simple-useful-ppo\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fxk1od80qev2aceo6uua4.gif\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":85,\"unit\":\"互动\",\"text\":\"85\"}},{\"id\":\"devto:4978154\",\"title\":\"Crows, Moths, and Makefiles: How 300 Megabytes of Crow DNA Explains Why a 20-Kilobyte Scar File Outsmarts a Terabyte LLM\",\"link\":\"https://dev.to/gde/crows-moths-and-makefiles-how-300-megabytes-of-crow-dna-explains-why-a-20-kilobyte-scar-file-36a\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fp24lnbmzkhrdluxod8g5.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16,\"unit\":\"互动\",\"text\":\"16\"}},{\"id\":\"devto:4985077\",\"title\":\"An AI Testing Presentation Became the Final Push for Organizational Change at My Company\",\"link\":\"https://dev.to/xulingfeng/an-ai-testing-presentation-became-the-final-push-for-organizational-change-at-my-company-12ag\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fixx20m4903kd4gqasfhz.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":58,\"unit\":\"互动\",\"text\":\"58\"}},{\"id\":\"devto:4955502\",\"title\":\"My Local AI Invented 162 Python Packages. I Reran Everything From Scratch, and 161 Came Back.\",\"link\":\"https://dev.to/soumyadeepdey/my-local-ai-invented-162-python-packages-i-reran-everything-from-scratch-and-161-came-back-4j73\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fk0muq7rnwgqvoopal8dx.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":59,\"unit\":\"互动\",\"text\":\"59\"}},{\"id\":\"devto:4916522\",\"title\":\"Trick or Type Guard? Surviving `unknown` with is-kit 🎃\",\"link\":\"https://dev.to/nyaomaru/trick-or-type-guard-surviving-unknown-with-is-kit-4oc2\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fedxqob3qk61zkrn9sudb.gif\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":92,\"unit\":\"互动\",\"text\":\"92\"}},{\"id\":\"devto:4961856\",\"title\":\"Codex Was Torching Your SSD and Nobody Noticed for Months\",\"link\":\"https://dev.to/varshithvhegde/codex-was-torching-your-ssd-and-nobody-noticed-for-months-4c5h\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fuwumzuicrzyp2slqdp54.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":40,\"unit\":\"互动\",\"text\":\"40\"}},{\"id\":\"devto:4982721\",\"title\":\"Plan Stamping, for Software\",\"link\":\"https://dev.to/kenwalger/plan-stamping-for-software-4ein\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F2zo9qu20538eija6ia4c.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14,\"unit\":\"互动\",\"text\":\"14\"}},{\"id\":\"devto:4950698\",\"title\":\"A Two-Line Function Caught AI Collusion Better Than the AI Did\",\"link\":\"https://dev.to/ayush_singh_9b0d83152be5b/a-two-line-function-caught-ai-collusion-better-than-the-ai-did-3nmd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":50,\"unit\":\"互动\",\"text\":\"50\"}},{\"id\":\"devto:4954763\",\"title\":\"Butter Scraped Over Too Much Bread\",\"link\":\"https://dev.to/aws-heroes/butter-scraped-over-too-much-bread-55jn\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F3q7m60h5uhrqd3loihvo.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18,\"unit\":\"互动\",\"text\":\"18\"}},{\"id\":\"devto:4966488\",\"title\":\"I lost half a day to an n8n workflow that was \\\"working.\\\" It never ran.\",\"link\":\"https://dev.to/aws-builders/i-lost-half-a-day-to-an-n8n-workflow-that-was-working-it-never-ran-43p\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":26,\"unit\":\"互动\",\"text\":\"26\"}},{\"id\":\"devto:4977310\",\"title\":\"\\\"Mandatory user verification\\\" on DEV is a scam. Here's how to spot it in 30 seconds.\",\"link\":\"https://dev.to/ayoub_hammoudi/mandatory-user-verification-on-dev-is-a-scam-heres-how-to-spot-it-in-30-seconds-1594\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18,\"unit\":\"互动\",\"text\":\"18\"}},{\"id\":\"devto:4941092\",\"title\":\"gp-grid: A Free, Open-Source TypeScript Data Grid for React, Vue, and Angular (No Paywalled Features)\",\"link\":\"https://dev.to/hadil/gp-grid-a-free-open-source-typescript-data-grid-for-react-vue-and-angular-no-paywalled-5heb\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Ffhh705ti5amsemyc79e9.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":96,\"unit\":\"互动\",\"text\":\"96\"}},{\"id\":\"devto:4965289\",\"title\":\"Use it, or lose it 🧠\",\"link\":\"https://dev.to/fm/use-it-or-lose-it-42l\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":36,\"unit\":\"互动\",\"text\":\"36\"}},{\"id\":\"devto:4964878\",\"title\":\"I Built a Visual System Design Reference — Switch Any Architecture Between AWS, Azure, GCP & Open Source\",\"link\":\"https://dev.to/amananandrai/i-built-a-visual-system-design-reference-switch-any-architecture-between-aws-azure-gcp-open-55og\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F31ijp8806lrw0lbpfmkd.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":35,\"unit\":\"互动\",\"text\":\"35\"}},{\"id\":\"devto:4828068\",\"title\":\"Svelte 5 Isn't Pure Compiler Magic: How Runes, Fine-Grained Signals, and Direct DOM Mutations Actually Work Under the Hood\",\"link\":\"https://dev.to/smtahosin/svelte-5-isnt-pure-compiler-magic-how-runes-fine-grained-signals-and-direct-dom-mutations-36a3\",\"thumbnail\":\"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fi.imgur.com%2Fi3w5hN8.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18,\"unit\":\"互动\",\"text\":\"18\"}}]}",
+    "timing": {
+      "elapsed_ms": 13,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 13
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 13,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 13,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 13,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 13,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 13,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 13
+        }
+      ]
+    }
+  }
+}

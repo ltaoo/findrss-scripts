@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-05T20:09:37.204Z",
+  "checked_at": "2026-11-06T07:06:11.972Z",
   "total": 142,
-  "passed": 63,
-  "failed": 79,
+  "passed": 47,
+  "failed": 95,
   "results": [
     {
       "file": "clip/baidu_weather.js",
@@ -14,9 +14,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 47
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 2171,
+      "detail_file": "api/clip/baidu/s/weather/%E4%B8%8A%E6%B5%B7.json"
     },
     {
       "file": "clip/github.js",
@@ -28,23 +29,24 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 66
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 21,
+      "detail_file": "api/clip/github/ltaoo/findrss-worker.json"
     },
     {
       "file": "clip/website.js",
       "path": "/api/clip/web/region",
       "example": "/api/clip/web/region?url=https%3A%2F%2Fexample.com%2F&selector=body",
       "format": "clip",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 29
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/clip/web/region.5204cf87dc2a69fc.json",
+      "duration_ms": 4900,
+      "detail_file": "api/clip/web/region.5204cf87dc2a69fc.json"
     },
     {
       "file": "detect/github_releases.js",
@@ -56,23 +58,24 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 51
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 21,
+      "detail_file": "api/detect/github/ltaoo/findrss-worker/releases.atom.json"
     },
     {
       "file": "detect/website_text.js",
       "path": "/api/detect/web/text/detect",
       "example": "/api/detect/web/text/detect?url=https%3A%2F%2Fexample.com%2F&selector=body",
       "format": "detect",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 69
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/detect/web/text/detect.5204cf87dc2a69fc.json",
+      "duration_ms": 116,
+      "detail_file": "api/detect/web/text/detect.5204cf87dc2a69fc.json"
     },
     {
       "file": "hot/36kr.js",
@@ -86,7 +89,8 @@
       "status": 503,
       "code": "COOKIE_REQUIRED",
       "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（_waf_verification_proof、_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-06/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
-      "duration_ms": 643
+      "duration_ms": 525,
+      "detail_file": "api/hot/36kr/hot-list/renqi.json"
     },
     {
       "file": "hot/36kr.js",
@@ -100,7 +104,8 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 1660
+      "duration_ms": 2023,
+      "detail_file": "api/hot/36kr/newsflashes.json"
     },
     {
       "file": "hot/aihot.js",
@@ -113,7 +118,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/aihot/feed/all.xml.json",
-      "duration_ms": 2354
+      "duration_ms": 3020,
+      "detail_file": "api/hot/aihot/feed/all.xml.json"
     },
     {
       "file": "hot/anilist.js",
@@ -127,21 +133,23 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 458
+      "duration_ms": 314,
+      "detail_file": "api/hot/anilist/trending/anime.json"
     },
     {
       "file": "hot/apple_charts.js",
       "path": "/api/hot/apple-charts/api/v2/:country?/:type?",
       "example": "/api/hot/apple-charts/api/v2/us/podcasts",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
+      "request": false,
+      "response": false,
+      "format_valid": false,
       "output_valid": false,
-      "status": 200,
-      "output_file": "api/hot/apple-charts/api/v2/us/podcasts.json",
-      "error": "来源应为 rss.marketingtools.apple.com，实际为 podcasts.apple.com",
-      "duration_ms": 881
+      "status": 504,
+      "code": "UPSTREAM_TIMEOUT",
+      "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
+      "duration_ms": 10353,
+      "detail_file": "api/hot/apple-charts/api/v2/us/podcasts.json"
     },
     {
       "file": "hot/arstechnica.js",
@@ -154,7 +162,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/arstechnica/arstechnica/index.json",
-      "duration_ms": 772
+      "duration_ms": 539,
+      "detail_file": "api/hot/arstechnica/arstechnica/index.json"
     },
     {
       "file": "hot/baidu_hot.js",
@@ -167,7 +176,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/baidu/board.json",
-      "duration_ms": 1487
+      "duration_ms": 1767,
+      "detail_file": "api/hot/baidu/board.json"
     },
     {
       "file": "hot/bilibili.js",
@@ -181,7 +191,8 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 768
+      "duration_ms": 977,
+      "detail_file": "api/hot/bilibili/main/hotword.json"
     },
     {
       "file": "hot/bilibili.js",
@@ -195,7 +206,8 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 798
+      "duration_ms": 1380,
+      "detail_file": "api/hot/bilibili/x/web-interface/popular.json"
     },
     {
       "file": "hot/bilibili.js",
@@ -209,7 +221,8 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 963
+      "duration_ms": 612,
+      "detail_file": "api/hot/bilibili/x/web-interface/ranking/v2.json"
     },
     {
       "file": "hot/bluesky.js",
@@ -223,21 +236,22 @@
       "status": 502,
       "code": "UPSTREAM_INVALID_RESPONSE",
       "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 174
+      "duration_ms": 161,
+      "detail_file": "api/hot/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics.json"
     },
     {
       "file": "hot/cankaoxiaoxi.js",
       "path": "/api/hot/cankaoxiaoxi/json/channel",
       "example": "/api/hot/cankaoxiaoxi/json/channel",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 3399
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/cankaoxiaoxi/json/channel.json",
+      "duration_ms": 5228,
+      "detail_file": "api/hot/cankaoxiaoxi/json/channel.json"
     },
     {
       "file": "hot/chongbuluo.js",
@@ -250,7 +264,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/chongbuluo/forum.php/hot.json",
-      "duration_ms": 746
+      "duration_ms": 909,
+      "detail_file": "api/hot/chongbuluo/forum.php/hot.json"
     },
     {
       "file": "hot/chongbuluo.js",
@@ -263,7 +278,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/chongbuluo/forum.php/latest.json",
-      "duration_ms": 503
+      "duration_ms": 631,
+      "detail_file": "api/hot/chongbuluo/forum.php/latest.json"
     },
     {
       "file": "hot/cls.js",
@@ -276,7 +292,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cls/v1/roll/get_roll_list.json",
-      "duration_ms": 1082
+      "duration_ms": 2180,
+      "detail_file": "api/hot/cls/v1/roll/get_roll_list.json"
     },
     {
       "file": "hot/cls.js",
@@ -289,7 +306,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cls/v2/article/hot/list.json",
-      "duration_ms": 1398
+      "duration_ms": 1350,
+      "detail_file": "api/hot/cls/v2/article/hot/list.json"
     },
     {
       "file": "hot/cls.js",
@@ -302,7 +320,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/cls/v3/depth/home/assembled/1000.json",
-      "duration_ms": 1282
+      "duration_ms": 1937,
+      "detail_file": "api/hot/cls/v3/depth/home/assembled/1000.json"
     },
     {
       "file": "hot/dailymotion.js",
@@ -315,7 +334,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/dailymotion/videos/us.json",
-      "duration_ms": 425
+      "duration_ms": 252,
+      "detail_file": "api/hot/dailymotion/videos/us.json"
     },
     {
       "file": "hot/deezer.js",
@@ -328,7 +348,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/deezer/chart/0/tracks.json",
-      "duration_ms": 602
+      "duration_ms": 307,
+      "detail_file": "api/hot/deezer/chart/0/tracks.json"
     },
     {
       "file": "hot/devto.js",
@@ -341,7 +362,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/devto/api/articles/week.json",
-      "duration_ms": 364
+      "duration_ms": 524,
+      "detail_file": "api/hot/devto/api/articles/week.json"
     },
     {
       "file": "hot/dongqiudi.js",
@@ -354,7 +376,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/dongqiudi/app/tabs/web/1.json.json",
-      "duration_ms": 976
+      "duration_ms": 1298,
+      "detail_file": "api/hot/dongqiudi/app/tabs/web/1.json.json"
     },
     {
       "file": "hot/douban_hot.js",
@@ -367,7 +390,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/douban/rexxar/api/v2/subject/recent_hot/movie.json",
-      "duration_ms": 1002
+      "duration_ms": 1328,
+      "detail_file": "api/hot/douban/rexxar/api/v2/subject/recent_hot/movie.json"
     },
     {
       "file": "hot/douyin_hot.js",
@@ -380,7 +404,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/douyin/aweme/v1/web/hot/search/list.json",
-      "duration_ms": 1201
+      "duration_ms": 1218,
+      "detail_file": "api/hot/douyin/aweme/v1/web/hot/search/list.json"
     },
     {
       "file": "hot/fanqienovel.js",
@@ -393,7 +418,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/fanqienovel/rank/1_2_1141.json",
-      "duration_ms": 2148
+      "duration_ms": 1504,
+      "detail_file": "api/hot/fanqienovel/rank/1_2_1141.json"
     },
     {
       "file": "hot/fastbull.js",
@@ -405,9 +431,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 2156
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 3130,
+      "detail_file": "api/hot/fastbull/cn/express-news.json"
     },
     {
       "file": "hot/fastbull.js",
@@ -420,7 +447,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/fastbull/cn/news.json",
-      "duration_ms": 1824
+      "duration_ms": 1569,
+      "detail_file": "api/hot/fastbull/cn/news.json"
     },
     {
       "file": "hot/freebuf.js",
@@ -434,7 +462,8 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1105
+      "duration_ms": 1908,
+      "detail_file": "api/hot/freebuf/feed.json"
     },
     {
       "file": "hot/gelonghui.js",
@@ -447,7 +476,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/gelonghui/news.json",
-      "duration_ms": 1586
+      "duration_ms": 2174,
+      "detail_file": "api/hot/gelonghui/news.json"
     },
     {
       "file": "hot/github_trending.js",
@@ -460,7 +490,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/github/trending.json",
-      "duration_ms": 2018
+      "duration_ms": 1834,
+      "detail_file": "api/hot/github/trending.json"
     },
     {
       "file": "hot/google_news.js",
@@ -474,7 +505,8 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 8018
+      "duration_ms": 5294,
+      "detail_file": "api/hot/google-news/rss/us/top.json"
     },
     {
       "file": "hot/gutenberg.js",
@@ -487,21 +519,22 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/gutenberg/browse/scores/top/day.json",
-      "duration_ms": 701
+      "duration_ms": 840,
+      "detail_file": "api/hot/gutenberg/browse/scores/top/day.json"
     },
     {
       "file": "hot/hackernews.js",
       "path": "/api/hot/hackernews",
       "example": "/api/hot/hackernews",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 1199
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/hackernews.json",
+      "duration_ms": 1523,
+      "detail_file": "api/hot/hackernews.json"
     },
     {
       "file": "hot/hatena.js",
@@ -514,7 +547,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/hatena/hotentry/all.json",
-      "duration_ms": 985
+      "duration_ms": 567,
+      "detail_file": "api/hot/hatena/hotentry/all.json"
     },
     {
       "file": "hot/hupu_hot.js",
@@ -528,46 +562,53 @@
       "status": 502,
       "code": "UPSTREAM_FETCH_FAILED",
       "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-      "duration_ms": 1137
+      "duration_ms": 1840,
+      "detail_file": "api/hot/hupu/topic-daily-hot.json"
     },
     {
       "file": "hot/ifeng_hot.js",
       "path": "/api/hot/ifeng/hot",
       "example": "/api/hot/ifeng/hot",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/ifeng/hot.json",
-      "duration_ms": 1078
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 49,
+      "detail_file": "api/hot/ifeng/hot.json"
     },
     {
       "file": "hot/iqiyi_hot.js",
       "path": "/api/hot/iqiyi/portal/lw/v7/channel/card/videoTab",
       "example": "/api/hot/iqiyi/portal/lw/v7/channel/card/videoTab",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/iqiyi/portal/lw/v7/channel/card/videoTab.json",
-      "duration_ms": 1428
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 227,
+      "detail_file": "api/hot/iqiyi/portal/lw/v7/channel/card/videoTab.json"
     },
     {
       "file": "hot/iqiyi_hot.js",
       "path": "/api/hot/iqiyi/views_category/3.0/rank_list",
       "example": "/api/hot/iqiyi/views_category/3.0/rank_list",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/iqiyi/views_category/3.0/rank_list.json",
-      "duration_ms": 1802
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 112,
+      "detail_file": "api/hot/iqiyi/views_category/3.0/rank_list.json"
     },
     {
       "file": "hot/ithome.js",
@@ -580,20 +621,23 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/ithome/list.json",
-      "duration_ms": 1567
+      "duration_ms": 1573,
+      "detail_file": "api/hot/ithome/list.json"
     },
     {
       "file": "hot/itmedia.js",
       "path": "/api/hot/itmedia/rss/2.0/news_bursts.xml",
       "example": "/api/hot/itmedia/rss/2.0/news_bursts.xml",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/itmedia/rss/2.0/news_bursts.xml.json",
-      "duration_ms": 962
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 48,
+      "detail_file": "api/hot/itmedia/rss/2.0/news_bursts.xml.json"
     },
     {
       "file": "hot/jin10.js",
@@ -605,9 +649,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 59
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 21,
+      "detail_file": "api/hot/jin10/flash_newest.js.json"
     },
     {
       "file": "hot/juejin_hot.js",
@@ -619,9 +664,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 44
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 41,
+      "detail_file": "api/hot/juejin/content_api/v1/content/article_rank.json"
     },
     {
       "file": "hot/kakuyomu.js",
@@ -633,9 +679,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 32
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 29,
+      "detail_file": "api/hot/kakuyomu/rankings/all/daily.json"
     },
     {
       "file": "hot/kaopu.js",
@@ -647,22 +694,25 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 51
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 25,
+      "detail_file": "api/hot/kaopu.json"
     },
     {
       "file": "hot/kuaishou_hot.js",
       "path": "/api/hot/kuaishou/hot",
       "example": "/api/hot/kuaishou/hot",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/kuaishou/hot.json",
-      "duration_ms": 3011
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 25,
+      "detail_file": "api/hot/kuaishou/hot.json"
     },
     {
       "file": "hot/kuan.js",
@@ -674,9 +724,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 30
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 61,
+      "detail_file": "api/hot/kuan/v6/page/dataList.json"
     },
     {
       "file": "hot/lobsters.js",
@@ -688,22 +739,25 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 85
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 20,
+      "detail_file": "api/hot/lobsters/hottest.json.json"
     },
     {
       "file": "hot/mango_hot.js",
       "path": "/api/hot/mango/pc/suggest/v1",
       "example": "/api/hot/mango/pc/suggest/v1",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/mango/pc/suggest/v1.json",
-      "duration_ms": 1257
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 36,
+      "detail_file": "api/hot/mango/pc/suggest/v1.json"
     },
     {
       "file": "hot/maoyan_hot.js",
@@ -715,48 +769,55 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 34
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 25,
+      "detail_file": "api/hot/maoyan/dashboard-ajax/movie.json"
     },
     {
       "file": "hot/mastodon.js",
       "path": "/api/hot/mastodon/api/v1/trends/:type?",
       "example": "/api/hot/mastodon/api/v1/trends/links",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/mastodon/api/v1/trends/links.json",
-      "duration_ms": 1562
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 25,
+      "detail_file": "api/hot/mastodon/api/v1/trends/links.json"
     },
     {
       "file": "hot/mktnews_flash.js",
       "path": "/api/hot/mktnews/api/flash",
       "example": "/api/hot/mktnews/api/flash",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/mktnews/api/flash.json",
-      "duration_ms": 194
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 29,
+      "detail_file": "api/hot/mktnews/api/flash.json"
     },
     {
       "file": "hot/myanimelist.js",
       "path": "/api/hot/myanimelist/top/:type?",
       "example": "/api/hot/myanimelist/top/anime",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/myanimelist/top/anime.json",
-      "duration_ms": 1152
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 36,
+      "detail_file": "api/hot/myanimelist/top/anime.json"
     },
     {
       "file": "hot/narou.js",
@@ -768,22 +829,25 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 36
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 21,
+      "detail_file": "api/hot/narou/novelapi/api/daily.json"
     },
     {
       "file": "hot/nhk.js",
       "path": "/api/hot/nhk/rss/news/cat0.xml",
       "example": "/api/hot/nhk/rss/news/cat0.xml",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/nhk/rss/news/cat0.xml.json",
-      "duration_ms": 390
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 28,
+      "detail_file": "api/hot/nhk/rss/news/cat0.xml.json"
     },
     {
       "file": "hot/niconico.js",
@@ -795,22 +859,25 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 57
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 25,
+      "detail_file": "api/hot/niconico/ranking.json"
     },
     {
       "file": "hot/nowcoder_hot.js",
       "path": "/api/hot/nowcoder/api/sparta/hot-search/top-hot-pc",
       "example": "/api/hot/nowcoder/api/sparta/hot-search/top-hot-pc",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/nowcoder/api/sparta/hot-search/top-hot-pc.json",
-      "duration_ms": 1221
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 21,
+      "detail_file": "api/hot/nowcoder/api/sparta/hot-search/top-hot-pc.json"
     },
     {
       "file": "hot/npr.js",
@@ -822,9 +889,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 72
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 51,
+      "detail_file": "api/hot/npr/1001/rss.xml.json"
     },
     {
       "file": "hot/pcbeta_windows11.js",
@@ -835,10 +903,11 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "UPSTREAM_INVALID_RESPONSE",
-      "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-      "duration_ms": 897
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 28,
+      "detail_file": "api/hot/pcbeta/forum.php.json"
     },
     {
       "file": "hot/producthunt.js",
@@ -849,10 +918,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 58
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001,
+      "detail_file": "api/hot/producthunt/feed.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -866,7 +934,8 @@
       "status": 503,
       "code": "COOKIE_REQUIRED",
       "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w_tsfp），请求 https://www.qdmm.com/rank/collect/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
-      "duration_ms": 91
+      "duration_ms": 84,
+      "detail_file": "api/hot/qdmm/collect.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -878,7 +947,8 @@
       "format_valid": false,
       "output_valid": false,
       "error": "The operation was aborted due to timeout",
-      "duration_ms": 60001
+      "duration_ms": 60000,
+      "detail_file": "api/hot/qdmm/free.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -890,9 +960,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 176
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 247,
+      "detail_file": "api/hot/qdmm/hotsales.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -904,9 +975,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "COOKIE_REQUIRED",
-      "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w_tsfp），请求 https://www.qdmm.com/rank/newfans/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
-      "duration_ms": 145
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 36,
+      "detail_file": "api/hot/qdmm/newfans.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -918,9 +990,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 147
+      "code": "COOKIE_REQUIRED",
+      "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w_tsfp），请求 https://www.qdmm.com/rank/readindex/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
+      "duration_ms": 201,
+      "detail_file": "api/hot/qdmm/readindex.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -934,7 +1007,8 @@
       "status": 503,
       "code": "COOKIE_REQUIRED",
       "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w_tsfp），请求 https://www.qdmm.com/rank/recom/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
-      "duration_ms": 70
+      "duration_ms": 86,
+      "detail_file": "api/hot/qdmm/rec.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -946,9 +1020,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "COOKIE_REQUIRED",
-      "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w_tsfp），请求 https://www.qdmm.com/rank/vipup/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
-      "duration_ms": 131
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 39,
+      "detail_file": "api/hot/qdmm/update.json"
     },
     {
       "file": "hot/qdmm.js",
@@ -960,35 +1035,40 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "COOKIE_REQUIRED",
-      "error": "HTTP 503: COOKIE_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w_tsfp），请求 https://www.qdmm.com/rank/yuepiao/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
-      "duration_ms": 423
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 256,
+      "detail_file": "api/hot/qdmm/yuepiao.json"
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/hotsales",
       "example": "/api/hot/qidian/hotsales",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/hotsales.json",
-      "duration_ms": 1666
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 90,
+      "detail_file": "api/hot/qidian/hotsales.json"
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/newauthor",
       "example": "/api/hot/qidian/newauthor",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/newauthor.json",
-      "duration_ms": 1004
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 27,
+      "detail_file": "api/hot/qidian/newauthor.json"
     },
     {
       "file": "hot/qidian.js",
@@ -999,21 +1079,26 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "The operation was aborted due to timeout",
-      "duration_ms": 60000
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 37,
+      "detail_file": "api/hot/qidian/newbook.json"
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/newfans",
       "example": "/api/hot/qidian/newfans",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/newfans.json",
-      "duration_ms": 1375
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 27,
+      "detail_file": "api/hot/qidian/newfans.json"
     },
     {
       "file": "hot/qidian.js",
@@ -1024,60 +1109,71 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "The operation was aborted due to timeout",
-      "duration_ms": 60000
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 27,
+      "detail_file": "api/hot/qidian/readindex.json"
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/rec",
       "example": "/api/hot/qidian/rec",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/rec.json",
-      "duration_ms": 1820
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 40,
+      "detail_file": "api/hot/qidian/rec.json"
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/sign",
       "example": "/api/hot/qidian/sign",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/sign.json",
-      "duration_ms": 1006
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 34,
+      "detail_file": "api/hot/qidian/sign.json"
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/update",
       "example": "/api/hot/qidian/update",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/update.json",
-      "duration_ms": 1071
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 50,
+      "detail_file": "api/hot/qidian/update.json"
     },
     {
       "file": "hot/qidian.js",
       "path": "/api/hot/qidian/yuepiao",
       "example": "/api/hot/qidian/yuepiao",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qidian/yuepiao.json",
-      "duration_ms": 1696
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 59,
+      "detail_file": "api/hot/qidian/yuepiao.json"
     },
     {
       "file": "hot/qiita.js",
@@ -1090,20 +1186,21 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qiita/popular-items/feed.json",
-      "duration_ms": 468
+      "duration_ms": 501,
+      "detail_file": "api/hot/qiita/popular-items/feed.json"
     },
     {
       "file": "hot/qimao.js",
       "path": "/api/hot/qimao/paihang/:gender?/:type?/:period?",
       "example": "/api/hot/qimao/paihang/boy/hot",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/qimao/paihang/boy/hot.json",
-      "duration_ms": 1988
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001,
+      "detail_file": "api/hot/qimao/paihang/boy/hot.json"
     },
     {
       "file": "hot/qqvideo_hot.js",
@@ -1116,7 +1213,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp.json",
-      "duration_ms": 977
+      "duration_ms": 1320,
+      "detail_file": "api/hot/qqvideo/trpc.tencentvideohotlistdata.hotlistdata.DoSearchHotListHttp/getSearchHotListHttp.json"
     },
     {
       "file": "hot/qqvideo_hot.js",
@@ -1129,7 +1227,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/qqvideo/trpc.vector_layout.page_view.PageService/getCard.json",
-      "duration_ms": 1200
+      "duration_ms": 1949,
+      "detail_file": "api/hot/qqvideo/trpc.vector_layout.page_view.PageService/getCard.json"
     },
     {
       "file": "hot/reddit.js",
@@ -1143,7 +1242,8 @@
       "status": 502,
       "code": "UPSTREAM_ACCESS_DENIED",
       "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 139
+      "duration_ms": 99,
+      "detail_file": "api/hot/reddit/r/popular/hot.json"
     },
     {
       "file": "hot/slashdot.js",
@@ -1156,7 +1256,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/slashdot/Slashdot/slashdotMain.json",
-      "duration_ms": 396
+      "duration_ms": 217,
+      "detail_file": "api/hot/slashdot/Slashdot/slashdotMain.json"
     },
     {
       "file": "hot/solidot.js",
@@ -1169,7 +1270,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/solidot/index.rss.json",
-      "duration_ms": 1491
+      "duration_ms": 1958,
+      "detail_file": "api/hot/solidot/index.rss.json"
     },
     {
       "file": "hot/sputniknewscn.js",
@@ -1182,7 +1284,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/sputniknewscn/services/widget/lenta.json",
-      "duration_ms": 1344
+      "duration_ms": 2070,
+      "detail_file": "api/hot/sputniknewscn/services/widget/lenta.json"
     },
     {
       "file": "hot/sspai_hot.js",
@@ -1195,21 +1298,22 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/sspai/api/v1/article/tag/page/get.json",
-      "duration_ms": 1695
+      "duration_ms": 2626,
+      "detail_file": "api/hot/sspai/api/v1/article/tag/page/get.json"
     },
     {
       "file": "hot/steam.js",
       "path": "/api/hot/steam/stats/stats",
       "example": "/api/hot/steam/stats/stats",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 511
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/steam/stats/stats.json",
+      "duration_ms": 556,
+      "detail_file": "api/hot/steam/stats/stats.json"
     },
     {
       "file": "hot/techmeme.js",
@@ -1222,7 +1326,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/techmeme/feed.xml.json",
-      "duration_ms": 271
+      "duration_ms": 441,
+      "detail_file": "api/hot/techmeme/feed.xml.json"
     },
     {
       "file": "hot/tencent_hot.js",
@@ -1235,7 +1340,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/tencent/web_backend/v2/getTagInfo.json",
-      "duration_ms": 733
+      "duration_ms": 2527,
+      "detail_file": "api/hot/tencent/web_backend/v2/getTagInfo.json"
     },
     {
       "file": "hot/thepaper_hot.js",
@@ -1248,7 +1354,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/hot/thepaper/contentapi/wwwIndex/rightSidebar.json",
-      "duration_ms": 890
+      "duration_ms": 2506,
+      "detail_file": "api/hot/thepaper/contentapi/wwwIndex/rightSidebar.json"
     },
     {
       "file": "hot/theverge.js",
@@ -1260,23 +1367,24 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 33
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 58,
+      "detail_file": "api/hot/theverge/rss/index.xml.json"
     },
     {
       "file": "hot/tieba_hot.js",
       "path": "/api/hot/tieba/hottopic/browse/topicList",
       "example": "/api/hot/tieba/hottopic/browse/topicList",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 1079
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/tieba/hottopic/browse/topicList.json",
+      "duration_ms": 1586,
+      "detail_file": "api/hot/tieba/hottopic/browse/topicList.json"
     },
     {
       "file": "hot/tiktok.js",
@@ -1288,22 +1396,25 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 103
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 54,
+      "detail_file": "api/hot/tiktok/open_api/v1.3/discovery/trending_list/US/7.json"
     },
     {
       "file": "hot/toutiao_hot.js",
       "path": "/api/hot/toutiao/hot-event/hot-board",
       "example": "/api/hot/toutiao/hot-event/hot-board",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/toutiao/hot-event/hot-board.json",
-      "duration_ms": 771
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 22,
+      "detail_file": "api/hot/toutiao/hot-event/hot-board.json"
     },
     {
       "file": "hot/v2ex_share.js",
@@ -1315,49 +1426,54 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 96
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 22,
+      "detail_file": "api/hot/v2ex/feed.json"
     },
     {
       "file": "hot/vimeo.js",
       "path": "/api/hot/vimeo/channels/staffpicks/videos/rss",
       "example": "/api/hot/vimeo/channels/staffpicks/videos/rss",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/vimeo/channels/staffpicks/videos/rss.json",
-      "duration_ms": 659
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 25,
+      "detail_file": "api/hot/vimeo/channels/staffpicks/videos/rss.json"
     },
     {
       "file": "hot/wallstreetcn.js",
       "path": "/api/hot/wallstreetcn/apiv1/content/articles/hot",
       "example": "/api/hot/wallstreetcn/apiv1/content/articles/hot",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 34
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/wallstreetcn/apiv1/content/articles/hot.json",
+      "duration_ms": 1158,
+      "detail_file": "api/hot/wallstreetcn/apiv1/content/articles/hot.json"
     },
     {
       "file": "hot/wallstreetcn.js",
       "path": "/api/hot/wallstreetcn/apiv1/content/information-flow",
       "example": "/api/hot/wallstreetcn/apiv1/content/information-flow",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/wallstreetcn/apiv1/content/information-flow.json",
-      "duration_ms": 1071
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 32,
+      "detail_file": "api/hot/wallstreetcn/apiv1/content/information-flow.json"
     },
     {
       "file": "hot/wallstreetcn.js",
@@ -1369,36 +1485,39 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 54
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 22,
+      "detail_file": "api/hot/wallstreetcn/apiv1/content/lives.json"
     },
     {
       "file": "hot/weibo_hot.js",
       "path": "/api/hot/weibo/top/summary",
       "example": "/api/hot/weibo/top/summary",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/weibo/top/summary.json",
-      "duration_ms": 2176
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 250,
+      "detail_file": "api/hot/weibo/top/summary.json"
     },
     {
       "file": "hot/xueqiu_hotstock.js",
       "path": "/api/hot/xueqiu/v5/stock/hot_stock/list.json",
       "example": "/api/hot/xueqiu/v5/stock/hot_stock/list.json",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 417
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/xueqiu/v5/stock/hot_stock/list.json.json",
+      "duration_ms": 1756,
+      "detail_file": "api/hot/xueqiu/v5/stock/hot_stock/list.json.json"
     },
     {
       "file": "hot/yahoo_japan.js",
@@ -1410,9 +1529,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 32
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 26,
+      "detail_file": "api/hot/yahoo-japan/rss/topics/top-picks.xml.json"
     },
     {
       "file": "hot/youtube_hot.js",
@@ -1426,34 +1546,37 @@
       "status": 503,
       "code": "CONFIG_INVALID",
       "error": "HTTP 503: CONFIG_INVALID: 服务端脚本配置无效或缺少必填项，请检查 SCRIPT_CONFIG 和 SCRIPT_COOKIES",
-      "duration_ms": 168
+      "duration_ms": 25,
+      "detail_file": "api/hot/youtube/hot/US/0.json"
     },
     {
       "file": "hot/zaobao.js",
       "path": "/api/hot/zaobao/realtime",
       "example": "/api/hot/zaobao/realtime",
       "format": "hot",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/hot/zaobao/realtime.json",
-      "duration_ms": 511
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 28,
+      "detail_file": "api/hot/zaobao/realtime.json"
     },
     {
       "file": "hot/zenn.js",
       "path": "/api/hot/zenn/api/articles",
       "example": "/api/hot/zenn/api/articles",
       "format": "hot",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 68
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/hot/zenn/api/articles.json",
+      "duration_ms": 347,
+      "detail_file": "api/hot/zenn/api/articles.json"
     },
     {
       "file": "hot/zhihu_hot.js",
@@ -1464,10 +1587,9 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 55
+      "error": "The operation was aborted due to timeout",
+      "duration_ms": 60001,
+      "detail_file": "api/hot/zhihu/api/v3/feed/topstory/hot-list-web.json"
     },
     {
       "file": "rss/69shuba.js",
@@ -1478,10 +1600,11 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 373
+      "status": 502,
+      "code": "SCRIPT_FAILED",
+      "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+      "duration_ms": 6262,
+      "detail_file": "api/rss/69shuba/book/34567.json"
     },
     {
       "file": "rss/apple.js",
@@ -1495,7 +1618,8 @@
       "status": 503,
       "code": "UPSTREAM_RATE_LIMITED",
       "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
-      "duration_ms": 148
+      "duration_ms": 49,
+      "detail_file": "api/rss/apple/apps/update/us/id408709785.json"
     },
     {
       "file": "rss/avmoo.js",
@@ -1507,9 +1631,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 502,
-      "code": "UPSTREAM_ACCESS_DENIED",
-      "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-      "duration_ms": 538
+      "code": "UPSTREAM_FETCH_FAILED",
+      "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+      "duration_ms": 323,
+      "detail_file": "api/rss/avmoo/star/abc123.json"
     },
     {
       "file": "rss/bilibili.js",
@@ -1522,21 +1647,22 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/bilibili/650898515/dynamic.json",
-      "duration_ms": 1219
+      "duration_ms": 877,
+      "detail_file": "api/rss/bilibili/650898515/dynamic.json"
     },
     {
       "file": "rss/bilibili.js",
       "path": "/api/rss/bilibili/:userid/upload/video",
       "example": "/api/rss/bilibili/650898515/upload/video",
       "format": "rss_json",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 520
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/rss/bilibili/650898515/upload/video.json",
+      "duration_ms": 9732,
+      "detail_file": "api/rss/bilibili/650898515/upload/video.json"
     },
     {
       "file": "rss/douyin.js",
@@ -1547,36 +1673,41 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 310
+      "status": 502,
+      "code": "SCRIPT_FAILED",
+      "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+      "duration_ms": 10415,
+      "detail_file": "api/rss/douyin/user/MS4wLjABAAAAOE57npukdzs0SH_Fk5RHB-qfUlnZ5jQT2R_KPH4Sd8s.json"
     },
     {
       "file": "rss/fanqienovel.js",
       "path": "/api/rss/fanqienovel/book/:book_id",
       "example": "/api/rss/fanqienovel/book/7143038691944959011",
       "format": "rss_json",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/rss/fanqienovel/book/7143038691944959011.json",
-      "duration_ms": 3400
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 4194,
+      "detail_file": "api/rss/fanqienovel/book/7143038691944959011.json"
     },
     {
       "file": "rss/github.js",
       "path": "/api/rss/github/:org/:pro/release",
       "example": "/api/rss/github/ltaoo/wx_channels_download/release",
       "format": "rss_json",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/rss/github/ltaoo/wx_channels_download/release.json",
-      "duration_ms": 475
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 47,
+      "detail_file": "api/rss/github/ltaoo/wx_channels_download/release.json"
     },
     {
       "file": "rss/hongguo.js",
@@ -1589,20 +1720,23 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/hongguo/search/%E7%83%AD%E6%92%AD.json",
-      "duration_ms": 2940
+      "duration_ms": 2713,
+      "detail_file": "api/rss/hongguo/search/%E7%83%AD%E6%92%AD.json"
     },
     {
       "file": "rss/hongguo.js",
       "path": "/api/rss/hongguo/series/:series_id",
       "example": "/api/rss/hongguo/series/7688352674999176254",
       "format": "rss_json",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/rss/hongguo/series/7688352674999176254.json",
-      "duration_ms": 1707
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 56,
+      "detail_file": "api/rss/hongguo/series/7688352674999176254.json"
     },
     {
       "file": "rss/instagram.js",
@@ -1614,23 +1748,24 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 360
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 238,
+      "detail_file": "api/rss/instagram/katarinabluu.json"
     },
     {
       "file": "rss/javbus.js",
       "path": "/api/rss/javbus/star/:id",
       "example": "/api/rss/javbus/star/2jv",
       "format": "rss_json",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 317
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/rss/javbus/star/2jv.json",
+      "duration_ms": 498,
+      "detail_file": "api/rss/javbus/star/2jv.json"
     },
     {
       "file": "rss/javlibrary.js",
@@ -1641,10 +1776,11 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "status": 502,
-      "code": "SCRIPT_FAILED",
-      "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-      "duration_ms": 1346
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 258,
+      "detail_file": "api/rss/javlibrary/star/abbds.json"
     },
     {
       "file": "rss/kuaishou.js",
@@ -1656,9 +1792,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 425
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 287,
+      "detail_file": "api/rss/kuaishou/profile/3xuxw5yhgr6f4um.json"
     },
     {
       "file": "rss/qidian.js",
@@ -1670,23 +1807,24 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 413
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 255,
+      "detail_file": "api/rss/qidian/book/1036526469.json"
     },
     {
       "file": "rss/qimao.js",
       "path": "/api/rss/qimao/book/:book_id",
       "example": "/api/rss/qimao/book/13030701",
       "format": "rss_json",
-      "request": false,
-      "response": false,
-      "format_valid": false,
-      "output_valid": false,
-      "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 1692
+      "request": true,
+      "response": true,
+      "format_valid": true,
+      "output_valid": true,
+      "status": 200,
+      "output_file": "api/rss/qimao/book/13030701.json",
+      "duration_ms": 3178,
+      "detail_file": "api/rss/qimao/book/13030701.json"
     },
     {
       "file": "rss/telegram.js",
@@ -1698,9 +1836,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 44
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 35,
+      "detail_file": "api/rss/telegram/channel/telegram.json"
     },
     {
       "file": "rss/ttk.js",
@@ -1712,9 +1851,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 41
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 30,
+      "detail_file": "api/rss/ttk/book/congzhanyaochumokaishichangshengbusi.json"
     },
     {
       "file": "rss/weibo.js",
@@ -1726,9 +1866,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 401
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 269,
+      "detail_file": "api/rss/weibo/u/1992429663.json"
     },
     {
       "file": "rss/wxchannels.js",
@@ -1745,30 +1886,33 @@
           "format_valid": false,
           "output_valid": false,
           "status": 503,
-          "code": "EXCEEDED_CPU",
-          "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-          "duration_ms": 45
+          "code": "EXCEEDED_RESOURCES",
+          "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+          "duration_ms": 36,
+          "detail_file": "api/rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder.json"
         },
         {
           "file": "rss/wxchannels.js",
           "path": "/api/rss/wxchannels/:account",
           "example": "/api/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder",
           "format": "rss_json",
-          "request": true,
-          "response": true,
-          "format_valid": true,
-          "output_valid": true,
-          "status": 200,
-          "output_file": "api/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder.json",
-          "duration_ms": 2170
+          "request": false,
+          "response": false,
+          "format_valid": false,
+          "output_valid": false,
+          "status": 503,
+          "code": "EXCEEDED_RESOURCES",
+          "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+          "duration_ms": 72,
+          "detail_file": "api/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder.json"
         }
       ],
-      "duration_ms": 2215,
+      "duration_ms": 108,
       "request": false,
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "/api/rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder: HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）"
+      "error": "/api/rss/wxchannels/v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder: HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认；/api/rss/wxchannels/v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder: HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认"
     },
     {
       "file": "rss/wxmp.js",
@@ -1785,9 +1929,10 @@
           "format_valid": false,
           "output_valid": false,
           "status": 503,
-          "code": "EXCEEDED_CPU",
-          "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-          "duration_ms": 31
+          "code": "EXCEEDED_RESOURCES",
+          "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+          "duration_ms": 32,
+          "detail_file": "api/rss/wxmp/wow36kr.json"
         },
         {
           "file": "rss/wxmp.js",
@@ -1798,18 +1943,17 @@
           "response": false,
           "format_valid": false,
           "output_valid": false,
-          "status": 503,
-          "code": "EXCEEDED_CPU",
-          "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-          "duration_ms": 30
+          "error": "The operation was aborted due to timeout",
+          "duration_ms": 60001,
+          "detail_file": "api/rss/wxmp/zhihuribao.json"
         }
       ],
-      "duration_ms": 61,
+      "duration_ms": 60033,
       "request": false,
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "/api/rss/wxmp/wow36kr: HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）；/api/rss/wxmp/zhihuribao: HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）"
+      "error": "/api/rss/wxmp/wow36kr: HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认；/api/rss/wxmp/zhihuribao: The operation was aborted due to timeout"
     },
     {
       "file": "rss/x.js",
@@ -1821,9 +1965,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 330
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 243,
+      "detail_file": "api/rss/x/NTCGoK9jFQURsEu.json"
     },
     {
       "file": "rss/xiaohongshu.js",
@@ -1835,9 +1980,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 348
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 262,
+      "detail_file": "api/rss/xiaohongshu/user/profile/5d2aec020000000012037401.json"
     },
     {
       "file": "rss/youtube.js",
@@ -1849,9 +1995,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 921
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 227,
+      "detail_file": "api/rss/youtube/@goldfishbrain.json"
     },
     {
       "file": "rss/youtube.js",
@@ -1863,9 +2010,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 4441
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 23,
+      "detail_file": "api/rss/youtube/@Brookemonk/shorts.json"
     },
     {
       "file": "rss/zhihu.js",
@@ -1878,20 +2026,23 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/zhihu/collection/26444956.json",
-      "duration_ms": 1020
+      "duration_ms": 1241,
+      "detail_file": "api/rss/zhihu/collection/26444956.json"
     },
     {
       "file": "rss/zhihu.js",
       "path": "/api/rss/zhihu/column/:column_id",
       "example": "/api/rss/zhihu/column/googledevelopers",
       "format": "rss_json",
-      "request": true,
-      "response": true,
-      "format_valid": true,
-      "output_valid": true,
-      "status": 200,
-      "output_file": "api/rss/zhihu/column/googledevelopers.json",
-      "duration_ms": 2518
+      "request": false,
+      "response": false,
+      "format_valid": false,
+      "output_valid": false,
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 22,
+      "detail_file": "api/rss/zhihu/column/googledevelopers.json"
     },
     {
       "file": "rss/zhihu.js",
@@ -1903,9 +2054,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 65
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 22,
+      "detail_file": "api/rss/zhihu/people/zhihu/answers.json"
     },
     {
       "file": "rss/zhihu.js",
@@ -1917,9 +2069,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 331
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 243,
+      "detail_file": "api/rss/zhihu/people/zhihu.json"
     },
     {
       "file": "rss/zhihu.js",
@@ -1931,9 +2084,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 37
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 25,
+      "detail_file": "api/rss/zhihu/people/zhihu/asks.json"
     },
     {
       "file": "rss/zhihu.js",
@@ -1946,7 +2100,8 @@
       "output_valid": true,
       "status": 200,
       "output_file": "api/rss/zhihu/people/TonyVolcano/pins.json",
-      "duration_ms": 1251
+      "duration_ms": 2250,
+      "detail_file": "api/rss/zhihu/people/TonyVolcano/pins.json"
     },
     {
       "file": "rss/zhihu.js",
@@ -1958,9 +2113,10 @@
       "format_valid": false,
       "output_valid": false,
       "status": 503,
-      "code": "EXCEEDED_CPU",
-      "error": "HTTP 503: EXCEEDED_CPU: Cloudflare 终止了 Worker（CPU 超限）",
-      "duration_ms": 64
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 23,
+      "detail_file": "api/rss/zhihu/people/TonyVolcano/posts.json"
     },
     {
       "file": "rss/zhihu.js",
@@ -1971,8 +2127,11 @@
       "response": false,
       "format_valid": false,
       "output_valid": false,
-      "error": "The operation was aborted due to timeout",
-      "duration_ms": 60001
+      "status": 503,
+      "code": "EXCEEDED_RESOURCES",
+      "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+      "duration_ms": 22,
+      "detail_file": "api/rss/zhihu/people/TonyVolcano/zvideos.json"
     }
   ],
   "mode": "release",
@@ -2203,7 +2362,7 @@
     },
     {
       "file": "hot/iqiyi_hot.js",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "platform": {
         "name": "爱奇艺",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"iqiyi-hot-platform-icon\"><image width=\"32\" height=\"32\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAJu0lEQVRYw12XW4hd13nHf+u2b+ecGY00M7qNI08sIUtKLGPSJnUa3MouBCeFFtoiAsEtFNoYUgIlDTSFkpfmoeQCAdGHPlj0oaUxDaRQGhyUBGriGKsKuUiyrWpkaXQdzf3Muex1+fqw98zIPpvFWZfN+v+/+7fVidWvogeQMqFfD0xly6OecAaReRAXJRElElMkSDOadSKKkJIgCQSFRAVJQ9SoZDDRopLFJOtNsguuzi+My7Vrex8ejBtV5OBygc2GOd7ViEp7e67zMsJLGjsXVSqiJJQICgXteHSOsPuT7b3dfxGFTgoVNMbbkfFmcXJr/3mNOje1Ua7ENIH1ziNK7XXivgOcRYlO0twtAqKEJIJCUKSWgm7XoGSbRwsuCiV6ZyAalTQqmUIHc9QE9zUb7QmT7Be1Gq7ogWwZK+pljT6rURoUqBZEKT74ILplty1tA0LaJdC8o3bAd881OhltgzubefdyL1qjO5RHtaiXFGhUI4kS1er1EXW3at42xPvO3kdme212wFXSKDE7WtHRaFdnL6VxflRHkTMo5gRapX7AtM3Bzp7Q2BZ0C653wJUoFNtAj5rDoJNGp4aMTgaTzBw6nbEKPZ+EQgHSPgkhSesD7X4SiDuEVDtRiMguqdRqT3QTDamJCpU0khQqanRsyJhoCpXUvNUKJ6T2skbKSUoGjNmSQJSEFs20LhERllOfvowRURjRTKiCEQGUJjcZG9ETEyjRTJkuWhyCoWdKAgqdDDoaTDK4kDkz8+VPfVqETwgQSTympvjHyT+mKzlv+QVm9QR/1XuBv5l4kc93n+Ujbo4Fv8ydsM4RvY9/PvCn5JIzJR2+efBP2Ag1vxrc5+niMc7N/xGTqeSxfA9/98Tvcn1lg6X+iMJnFD4j9+4NnSSRSCSJREmMYs3d4QrL9QYdcv629xn+MH+G/9l4m/9c/Tkfdx/mm9NnmTfT5GT8Rvk4j7tpLg5uYcXw17PPc8zt5y/3P8vJYj9vrN5m2nV5Zuoge0yJaaU30WCjRe9kOiJJEptqzC/TbW6wwmk7x3P5cb6z+hpf2XiVr25+j68svcpJd4gXy9PEJEQaX7gdNvnGvQvM53v5xof+gN/fe4pXFi9xceMOWjRJBB01JlpMsthosNGggwSCBEKKeAlMUvCFyTM8VxxnRvWIkrjkb1KriCi4FG6ykYbM2onWGUGJQmN4beNdvv/w13x23wlu9Nf4l7s/R6JCpSa6dGpAXbTYduiQIqHN8zFFUkoo1Vx8ffwABZzpnKSrcjIxPFccZ0KX3BitIEnthKZKmkEKfH/lCoPg+eHy/3F7uIlNDi1NyJqkscFgQ0PCRYMNEtvoV0SRxuvbZPuWf49/X3+TP9vz25zIDtFPYz5VHKOrc45nB7i4dQutNFqaECMa6pAQhDoJKtrG5mLQSmFTC+wNWbRk0WFDCjuZLYrQlyFv9q+xMHrApoz4h/X/4sZ4md+rTjGrepx/8FO2Us1ivc6Gr3lj7QYLW6sQLToZNuqanz1c5O7WVqtmx9LGiF/cWWIwiDvAzltcMKi97/3Ft0C+RJtMtGhKyRhJYCCe2JbbjhRoMfRjs6fEQlJ0Y0WMMAqCDoYi5vRiRag1Umtyn9GrS6ZCFz005GNHb5zTG+UUwX7bBgmP5HNIwLSdYMZMoEWjBIwYcjIWxsv8KtxjSnchaY4Ws8ybaV5fv0XQMEaISfNkZ5Y9VYfLSytY5Xh6336KOud6v0/mDVkw5NGRB4uNSbaTPCJgEX5HHeP54iQrYUBPl6zFIV2V88roTW6pDf5++kUOuylOlQc44Ca4uHmb5fGQ/7h3hbVxzdeffJ4JXXDxwX1U1JyemSHD8MpP3uHSlRVyb8m8+QABIAnM6718rPNh9ttJ+qlmLptiNA7M5zOcGB/kzcEib60vcnjPFDcH61zYus7pzkHubm2yuNnnbn/IjxZvMqu7/GDhJtZbfF8wteHG4hZlzChiRhEteTDYJLulLgl0VMEhNcmGH2JE85PNd9FtzT9t5ziiF/j0nhMIileXfslSPWToEx/fM8f94Zjvrr9DZXO6LufFJ+bRQTPlCrb6Cak1hdfk3lIESxEtVuJuSyUC78VVLg/vcHb6t7g2uL9T3VRS/PfaFVyw9Ec1E0bzQu8YkmAQI3tdxePZHkxt+PHCbXopp0oZxyen+NiT+4mV8GMeMPKJMjiK4CiCRqekSVGT2tL5IGzx+niBUazZrEf06xqVFE9Us1wfr3F5sEJfPIXO2KxrplzF25ur3Nza4OrqGv1B4n/vLbM0rPnowWmePjzDz369xD997x0Gq4kqOopgKIJuNLDbSmlEFDOmx+emPsEP165SqYyREUoL62HM4rBPmXJOVQd4bek6Fx68x5ePfpJT3Vm0KMTDFBV//tRH+eT+g7x9c51//dECD+97qtrRCVkjvbcNiWSxBNOawCBJccodIg8GnyJHOvs4bTpopViqt3i2e4QfPFjg0uo9frM3x7Fshq5kXNlYYW66x62VAYftBJ+dP8JwFKlyxwtPHSIXAyPNL15fZ3QnUUZHGS1Z1Chz8QvfQtSXlGhENB0y9knFE9ksJM2N0To2OY5m+1ge11zur9KRgolU4qJFBYOqDXN2gntrNYV3PLN3hsN5lzw2jlYEixsb7r87Rq1put7RCQYt8m2rvPJgm2YxaUbAYhqxOFpEtbVbJc+t/ggTLC5lhKhZ9wEXVJPXg2axHlHGHOcd79zYYrGu6dQZHe/o+Iyez+h5RydZymjIomKYDb1V3iwo5UZKTNF0r81XTdvLNz1cNOhoMW0JNcHigsUFR+YzsmDJvaPwGaV3VD6jCo5OcFTR0W1HFS1lMJTeUIge9W29YE3MLihxi0rMUSWPAuud/k1vV7VkscFht8GDJQ+O3Fvyts0qvaUKGZ3a0fGuIeIdld8Gt5SN9y9OjqoLNqSH14rw2Hmd3Ne0GP0+yVMDqqPBBNs2Ew2BLFgy71oCjjJYCu+ovKMMjq7PqLyl8pZOdFTRUAVDFSy56ORNOH91/+Vrthp9KErinE32hEnZWZW01smgk21aqNSqPrTdTCt5FncJNOCWImyr37bSW6pgKYNu54ZcVIra/9vYDc+duncy2iSeLFQrJqkvmqiv2JC9ZJKdM9EWpv3Cbeq6wUWDC5YsOLLYxHMeGuDSG8rgqEJGGQxVbKQvkyaPijwxMiot1jqe93Z8rlZqZbUbsZYu1VaHcTFeyR6Ovq4m3HdJ4zMqqnkbnbPBNmpPuulmdmxvm7IamqKSR0seTTNSs86SQhEZZmM/0H5hT11duNq5eu0j6yfjch556l6H/wf0/1jKBThyvQAAAABJRU5ErkJggg==\" data-n=\"iqiyi-hot-favicon\"/></svg>"
@@ -2691,7 +2850,7 @@
     },
     {
       "file": "rss/kuaishou.js",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "platform": {
         "name": "快手",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" data-n=\"kuaishou-platform-icon\"><path data-n=\"kuaishou-pixels-ff4300-255\" fill=\"#ff4300\" d=\"M10 21h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ff4400-255\" fill=\"#ff4400\" d=\"M17 14h1v1H17z\" />\n    <path data-n=\"kuaishou-pixels-ff4500-255\" fill=\"#ff4500\" d=\"M22 8h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ff4501-255\" fill=\"#ff4501\" d=\"M15 19h1v1H15zM8 20h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ff4601-255\" fill=\"#ff4601\" d=\"M11 7h1v1H11zM15 8h1v1H15zM15 9h1v1H15zM11 10h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ff4602-255\" fill=\"#ff4602\" d=\"M15 2h1v1H15zM18 4h1v1H18zM6 7h1v1H6zM6 8h1v1H6zM20 8h2v1H20zM27 8h1v1H27zM6 9h1v1H6zM6 10h1v1H6zM20 10h1v1H20zM27 11h1v1H27zM7 15h1v1H7zM27 18h1v1H27zM8 22h1v1H8zM27 24h1v1H27zM11 26h1v1H11zM14 28h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ff4603-255\" fill=\"#ff4603\" d=\"M23 28h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff4703-255\" fill=\"#ff4703\" d=\"M11 2h1v1H11zM21 3h1v1H21zM24 4h1v1H24zM7 5h1v1H7zM20 9h1v1H20zM27 10h1v1H27zM7 12h1v1H7zM26 13h1v1H26zM6 15h1v1H6zM11 15h1v1H11zM10 16h1v1H10zM4 17h1v1H4zM15 23h1v1H15zM4 25h1v1H4z\" />\n    <path data-n=\"kuaishou-pixels-ff4704-255\" fill=\"#ff4704\" d=\"M10 2h1v1H10zM17 3h1v1H17zM22 3h1v1H22zM27 7h1v1H27zM21 11h1v1H21zM25 14h1v1H25zM8 15h1v1H8zM10 15h1v1H10zM22 19h1v1H22zM27 19h1v1H27zM9 22h1v1H9zM23 23h1v1H23zM16 24h1v1H16zM22 24h1v1H22zM27 25h1v1H27zM10 26h1v1H10zM15 28h1v1H15zM24 28h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ff4804-255\" fill=\"#ff4804\" d=\"M20 3h1v1H20zM13 6h1v1H13zM26 6h1v1H26zM27 9h1v1H27zM22 10h1v1H22zM13 11h1v1H13zM9 14h1v1H9zM25 15h1v1H25zM26 16h1v1H26zM4 18h1v1H4zM4 19h1v1H4zM16 19h6v1H16zM4 20h1v1H4zM15 20h1v1H15zM23 20h1v1H23zM27 20h1v1H27zM4 21h1v1H4zM8 21h2v1H8zM15 21h1v1H15zM23 21h1v1H23zM27 21h1v1H27zM4 22h1v1H4zM15 22h1v1H15zM23 22h1v1H23zM27 22h1v1H27zM4 23h1v1H4zM27 23h1v1H27zM4 24h1v1H4zM17 24h5v1H17zM8 27h2v1H8zM12 27h1v1H12zM16 28h7v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ff4805-255\" fill=\"#ff4805\" d=\"M14 2h1v1H14zM16 2h1v1H16zM9 3h1v1H9zM6 6h1v1H6zM14 7h1v1H14zM11 8h1v1H11zM11 9h1v1H11zM14 10h1v1H14zM6 11h1v1H6zM27 12h1v1H27zM11 17h1v1H11zM27 17h1v1H27zM4 26h1v1H4zM26 26h1v1H26zM5 27h1v1H5zM25 27h1v1H25zM13 28h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ff4905-255\" fill=\"#ff4905\" d=\"M8 3h1v1H8zM23 3h1v1H23zM22 9h1v1H22zM11 16h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-37\" fill=\"#ff4906\" fill-opacity=\"0.145098\" d=\"M3 31h1v1H3zM28 31h1v1H28z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-38\" fill=\"#ff4906\" fill-opacity=\"0.14902\" d=\"M3 0h1v1H3zM28 0h1v1H28zM0 3h1v1H0zM31 3h1v1H31zM0 28h1v1H0zM31 28h1v1H31z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-77\" fill=\"#ff4906\" fill-opacity=\"0.301961\" d=\"M2 1h1v1H2zM29 1h1v1H29zM2 30h1v1H2zM29 30h1v1H29z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-78\" fill=\"#ff4906\" fill-opacity=\"0.305882\" d=\"M1 2h1v1H1zM30 2h1v1H30zM1 29h1v1H1zM30 29h1v1H30z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-135\" fill=\"#ff4906\" fill-opacity=\"0.529412\" d=\"M31 4h1v1H31zM31 27h1v1H31zM4 31h1v1H4zM27 31h1v1H27z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-136\" fill=\"#ff4906\" fill-opacity=\"0.533333\" d=\"M27 0h1v1H27zM0 27h1v1H0z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-140\" fill=\"#ff4906\" fill-opacity=\"0.54902\" d=\"M4 0h1v1H4zM0 4h1v1H0z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-210\" fill=\"#ff4906\" fill-opacity=\"0.823529\" d=\"M1 3h1v1H1zM30 3h1v1H30zM1 28h1v1H1zM30 28h1v1H30z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-211\" fill=\"#ff4906\" fill-opacity=\"0.827451\" d=\"M3 1h1v1H3zM28 1h1v1H28zM3 30h1v1H3zM28 30h1v1H28z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-213\" fill=\"#ff4906\" fill-opacity=\"0.835294\" d=\"M26 0h1v1H26zM0 5h1v1H0zM31 5h1v1H31zM0 26h1v1H0zM31 26h1v1H31zM5 31h1v1H5zM26 31h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-214\" fill=\"#ff4906\" fill-opacity=\"0.839216\" d=\"M5 0h1v1H5z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-231\" fill=\"#ff4906\" fill-opacity=\"0.905882\" d=\"M2 2h1v1H2zM29 2h1v1H29zM2 29h1v1H2zM29 29h1v1H29z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-251\" fill=\"#ff4906\" fill-opacity=\"0.984314\" d=\"M0 6h1v1H0zM31 6h1v1H31zM0 25h1v1H0zM31 25h1v1H31z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-252\" fill=\"#ff4906\" fill-opacity=\"0.988235\" d=\"M6 0h1v1H6zM25 0h1v1H25zM6 31h1v1H6zM25 31h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-254\" fill=\"#ff4906\" fill-opacity=\"0.996078\" d=\"M4 1h1v1H4zM27 1h1v1H27zM1 4h1v1H1zM30 4h1v1H30zM1 27h1v1H1zM30 27h1v1H30zM4 30h1v1H4zM27 30h1v1H27z\" />\n    <path data-n=\"kuaishou-pixels-ff4906-255\" fill=\"#ff4906\" d=\"M7 0h18v1H7zM5 1h22v1H5zM3 2h7v1H3zM17 2h12v1H17zM2 3h6v1H2zM18 3h2v1H18zM24 3h6v1H24zM2 4h6v1H2zM25 4h5v1H25zM1 5h6v1H1zM26 5h5v1H26zM1 6h5v1H1zM27 6h4v1H27zM0 7h6v1H0zM12 7h2v1H12zM28 7h4v1H28zM0 8h6v1H0zM12 8h3v1H12zM28 8h4v1H28zM0 9h6v1H0zM12 9h3v1H12zM21 9h1v1H21zM28 9h4v1H28zM0 10h6v1H0zM12 10h2v1H12zM21 10h1v1H21zM28 10h4v1H28zM0 11h6v1H0zM28 11h4v1H28zM0 12h7v1H0zM28 12h4v1H28zM0 13h8v1H0zM27 13h5v1H27zM0 14h9v1H0zM26 14h6v1H26zM0 15h6v1H0zM9 15h1v1H9zM26 15h6v1H26zM0 16h5v1H0zM27 16h5v1H27zM0 17h4v1H0zM28 17h4v1H28zM0 18h4v1H0zM28 18h4v1H28zM0 19h4v1H0zM28 19h4v1H28zM0 20h4v1H0zM16 20h7v1H16zM28 20h4v1H28zM0 21h4v1H0zM16 21h7v1H16zM28 21h4v1H28zM0 22h4v1H0zM16 22h7v1H16zM28 22h4v1H28zM0 23h4v1H0zM16 23h7v1H16zM28 23h4v1H28zM0 24h4v1H0zM28 24h4v1H28zM1 25h3v1H1zM28 25h3v1H28zM1 26h3v1H1zM27 26h4v1H27zM2 27h3v1H2zM6 27h1v1H6zM10 27h2v1H10zM26 27h4v1H26zM2 28h11v1H2zM25 28h5v1H25zM3 29h26v1H3zM5 30h22v1H5zM7 31h18v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ff4907-1\" fill=\"#ff4907\" fill-opacity=\"0.003922\" d=\"M30 1h1v1H30zM30 30h1v1H30z\" />\n    <path data-n=\"kuaishou-pixels-ff4908-1\" fill=\"#ff4908\" fill-opacity=\"0.003922\" d=\"M1 1h1v1H1zM1 30h1v1H1z\" />\n    <path data-n=\"kuaishou-pixels-ff4a07-255\" fill=\"#ff4a07\" d=\"M12 6h1v1H12zM12 11h1v1H12zM9 16h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ff4a08-255\" fill=\"#ff4a08\" d=\"M25 5h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ff4b08-255\" fill=\"#ff4b08\" d=\"M23 19h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff4b09-255\" fill=\"#ff4b09\" d=\"M12 2h1v1H12zM8 4h1v1H8zM19 4h1v1H19zM15 7h1v1H15zM15 10h1v1H15zM8 13h1v1H8zM12 15h1v1H12zM24 15h1v1H24zM5 16h1v1H5zM12 16h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-ff4b0a-255\" fill=\"#ff4b0a\" d=\"M18 14h1v1H18z\" />\n    <path data-n=\"kuaishou-pixels-ff4c0a-255\" fill=\"#ff4c0a\" d=\"M15 24h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-ff4d0b-255\" fill=\"#ff4d0b\" d=\"M22 11h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ff4d0c-255\" fill=\"#ff4d0c\" d=\"M13 15h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ff4e0d-255\" fill=\"#ff4e0d\" d=\"M7 27h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ff4e0e-255\" fill=\"#ff4e0e\" d=\"M13 2h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ff4f0e-255\" fill=\"#ff4f0e\" d=\"M23 9h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff4f0f-255\" fill=\"#ff4f0f\" d=\"M23 4h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff5110-255\" fill=\"#ff5110\" d=\"M14 6h1v1H14zM14 11h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ff5111-255\" fill=\"#ff5111\" d=\"M16 14h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ff5313-255\" fill=\"#ff5313\" d=\"M23 10h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff5314-255\" fill=\"#ff5314\" d=\"M16 3h1v1H16zM13 27h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ff5416-255\" fill=\"#ff5416\" d=\"M26 12h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ff5516-255\" fill=\"#ff5516\" d=\"M10 8h1v1H10zM26 17h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ff5517-255\" fill=\"#ff5517\" d=\"M10 9h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ff5617-255\" fill=\"#ff5617\" d=\"M24 14h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ff5618-255\" fill=\"#ff5618\" d=\"M20 11h1v1H20z\" />\n    <path data-n=\"kuaishou-pixels-ff571a-255\" fill=\"#ff571a\" d=\"M7 11h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ff581a-255\" fill=\"#ff581a\" d=\"M5 26h1v1H5z\" />\n    <path data-n=\"kuaishou-pixels-ff591b-255\" fill=\"#ff591b\" d=\"M7 6h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ff591c-255\" fill=\"#ff591c\" d=\"M9 20h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ff5a1d-255\" fill=\"#ff5a1d\" d=\"M14 15h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ff5b1e-255\" fill=\"#ff5b1e\" d=\"M12 26h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-ff5c1f-255\" fill=\"#ff5c1f\" d=\"M20 4h1v1H20z\" />\n    <path data-n=\"kuaishou-pixels-ff5c20-255\" fill=\"#ff5c20\" d=\"M25 16h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ff5e23-255\" fill=\"#ff5e23\" d=\"M16 18h1v1H16zM14 20h1v1H14zM10 22h1v1H10zM14 22h1v1H14zM8 23h1v1H8zM9 26h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ff5f23-255\" fill=\"#ff5f23\" d=\"M21 18h1v1H21z\" />\n    <path data-n=\"kuaishou-pixels-ff5f24-255\" fill=\"#ff5f24\" d=\"M17 18h4v1H17zM22 18h1v1H22zM14 21h1v1H14zM11 25h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ff6127-255\" fill=\"#ff6127\" d=\"M17 4h1v1H17z\" />\n    <path data-n=\"kuaishou-pixels-ff6228-255\" fill=\"#ff6228\" d=\"M22 4h1v1H22zM14 23h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ff632a-255\" fill=\"#ff632a\" d=\"M19 9h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ff642b-255\" fill=\"#ff642b\" d=\"M26 7h1v1H26zM23 15h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff662e-255\" fill=\"#ff662e\" d=\"M10 14h1v1H10zM26 25h1v1H26zM24 27h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ff672e-255\" fill=\"#ff672e\" d=\"M10 3h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ff6830-255\" fill=\"#ff6830\" d=\"M25 13h1v1H25zM10 17h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ff6932-255\" fill=\"#ff6932\" d=\"M8 16h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ff6b34-255\" fill=\"#ff6b34\" d=\"M17 13h1v1H17zM15 18h1v1H15zM23 24h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff6b35-255\" fill=\"#ff6b35\" d=\"M21 4h1v1H21z\" />\n    <path data-n=\"kuaishou-pixels-ff6d37-255\" fill=\"#ff6d37\" d=\"M14 19h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ff6e39-255\" fill=\"#ff6e39\" d=\"M19 10h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ff703b-255\" fill=\"#ff703b\" d=\"M11 6h1v1H11zM11 11h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ff713d-255\" fill=\"#ff713d\" d=\"M23 8h1v1H23zM15 15h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-ff723e-255\" fill=\"#ff723e\" d=\"M6 16h1v1H6z\" />\n    <path data-n=\"kuaishou-pixels-ff733f-255\" fill=\"#ff733f\" d=\"M18 5h1v1H18z\" />\n    <path data-n=\"kuaishou-pixels-ff7340-255\" fill=\"#ff7340\" d=\"M19 15h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ff7543-255\" fill=\"#ff7543\" d=\"M16 15h1v1H16zM20 15h1v1H20z\" />\n    <path data-n=\"kuaishou-pixels-ff7643-255\" fill=\"#ff7643\" d=\"M18 15h1v1H18z\" />\n    <path data-n=\"kuaishou-pixels-ff7644-255\" fill=\"#ff7644\" d=\"M17 15h1v1H17z\" />\n    <path data-n=\"kuaishou-pixels-ff7745-255\" fill=\"#ff7745\" d=\"M21 7h1v1H21z\" />\n    <path data-n=\"kuaishou-pixels-ff7846-255\" fill=\"#ff7846\" d=\"M22 15h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ff7a49-255\" fill=\"#ff7a49\" d=\"M24 5h1v1H24zM19 14h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ff7b4b-255\" fill=\"#ff7b4b\" d=\"M10 7h1v1H10zM10 10h1v1H10zM21 15h1v1H21z\" />\n    <path data-n=\"kuaishou-pixels-ff7d4d-255\" fill=\"#ff7d4d\" d=\"M11 21h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ff8051-255\" fill=\"#ff8051\" d=\"M7 7h1v1H7zM7 10h1v1H7zM25 26h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ff8253-255\" fill=\"#ff8253\" d=\"M26 11h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ff8254-255\" fill=\"#ff8254\" d=\"M8 12h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ff8255-255\" fill=\"#ff8255\" d=\"M15 14h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-ff8457-255\" fill=\"#ff8457\" d=\"M8 5h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ff8559-255\" fill=\"#ff8559\" d=\"M5 17h1v1H5z\" />\n    <path data-n=\"kuaishou-pixels-ff8659-255\" fill=\"#ff8659\" d=\"M15 3h1v1H15zM26 18h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ff875a-255\" fill=\"#ff875a\" d=\"M14 27h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ff8a5f-255\" fill=\"#ff8a5f\" d=\"M25 6h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ff8b60-255\" fill=\"#ff8b60\" d=\"M16 8h1v1H16zM16 9h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ff8c61-255\" fill=\"#ff8c61\" d=\"M22 7h1v1H22zM9 13h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ff8c62-255\" fill=\"#ff8c62\" d=\"M12 17h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-ff8f65-255\" fill=\"#ff8f65\" d=\"M23 14h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff9067-255\" fill=\"#ff9067\" d=\"M9 4h1v1H9zM7 16h1v1H7zM13 16h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ff9169-255\" fill=\"#ff9169\" d=\"M10 20h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ff926a-255\" fill=\"#ff926a\" d=\"M26 8h1v1H26zM23 18h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff946c-255\" fill=\"#ff946c\" d=\"M7 8h1v1H7zM7 9h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ff956e-255\" fill=\"#ff956e\" d=\"M8 19h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ff966f-255\" fill=\"#ff966f\" d=\"M19 8h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ff9872-255\" fill=\"#ff9872\" d=\"M26 24h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ff9a74-255\" fill=\"#ff9a74\" d=\"M15 6h1v1H15zM15 11h1v1H15zM23 11h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff9c77-255\" fill=\"#ff9c77\" d=\"M23 27h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ff9d78-255\" fill=\"#ff9d78\" d=\"M10 25h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ff9d79-255\" fill=\"#ff9d79\" d=\"M11 14h1v1H11zM8 26h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ff9e7a-255\" fill=\"#ff9e7a\" d=\"M5 25h1v1H5z\" />\n    <path data-n=\"kuaishou-pixels-ff9e7b-255\" fill=\"#ff9e7b\" d=\"M11 3h1v1H11zM14 24h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ff9f7b-255\" fill=\"#ff9f7b\" d=\"M9 23h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ffa27f-255\" fill=\"#ffa27f\" d=\"M20 7h1v1H20z\" />\n    <path data-n=\"kuaishou-pixels-ffa989-255\" fill=\"#ffa989\" d=\"M26 10h1v1H26zM6 26h1v1H6z\" />\n    <path data-n=\"kuaishou-pixels-ffac8e-255\" fill=\"#ffac8e\" d=\"M26 19h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ffad8e-255\" fill=\"#ffad8e\" d=\"M12 25h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-ffad8f-255\" fill=\"#ffad8f\" d=\"M18 13h1v1H18z\" />\n    <path data-n=\"kuaishou-pixels-ffae90-255\" fill=\"#ffae90\" d=\"M20 14h1v1H20zM15 27h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-ffaf91-255\" fill=\"#ffaf91\" d=\"M9 17h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ffb195-255\" fill=\"#ffb195\" d=\"M26 9h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ffb296-255\" fill=\"#ffb296\" d=\"M14 14h1v1H14zM11 22h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ffb397-255\" fill=\"#ffb397\" d=\"M5 18h1v1H5zM11 18h1v1H11zM7 20h1v1H7zM26 23h1v1H26z\" />\n    <path data-n=\"kuaishou-pixels-ffb398-255\" fill=\"#ffb398\" d=\"M24 20h1v1H24zM16 25h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ffb498-255\" fill=\"#ffb498\" d=\"M7 22h1v1H7zM24 22h1v1H24zM21 25h1v1H21zM22 27h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ffb499-255\" fill=\"#ffb499\" d=\"M13 5h1v1H13zM13 12h1v1H13zM21 12h1v1H21zM5 19h1v1H5zM5 20h1v1H5zM26 20h1v1H26zM5 21h1v1H5zM7 21h1v1H7zM24 21h1v1H24zM26 21h1v1H26zM5 22h1v1H5zM26 22h1v1H26zM5 23h1v1H5zM5 24h1v1H5zM17 25h4v1H17zM17 27h5v1H17z\" />\n    <path data-n=\"kuaishou-pixels-ffb599-255\" fill=\"#ffb599\" d=\"M14 3h1v1H14zM16 27h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ffb59a-255\" fill=\"#ffb59a\" d=\"M19 5h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ffb79c-255\" fill=\"#ffb79c\" d=\"M24 16h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ffb79d-255\" fill=\"#ffb79d\" d=\"M24 23h1v1H24zM22 25h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ffb89e-255\" fill=\"#ffb89e\" d=\"M19 11h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ffb99f-255\" fill=\"#ffb99f\" d=\"M7 23h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ffbca3-255\" fill=\"#ffbca3\" d=\"M16 7h1v1H16zM16 10h1v1H16zM22 14h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ffbfa7-255\" fill=\"#ffbfa7\" d=\"M12 5h1v1H12zM12 12h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-ffc3ad-255\" fill=\"#ffc3ad\" d=\"M12 3h1v1H12zM12 14h1v1H12zM24 19h1v1H24zM13 26h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ffc4ae-255\" fill=\"#ffc4ae\" d=\"M15 25h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-ffc4af-255\" fill=\"#ffc4af\" d=\"M16 13h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ffc5af-255\" fill=\"#ffc5af\" d=\"M25 17h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ffc5b0-255\" fill=\"#ffc5b0\" d=\"M14 18h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ffc6b1-255\" fill=\"#ffc6b1\" d=\"M16 4h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ffc7b3-255\" fill=\"#ffc7b3\" d=\"M22 12h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ffc9b5-255\" fill=\"#ffc9b5\" d=\"M23 5h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ffc9b6-255\" fill=\"#ffc9b6\" d=\"M17 5h1v1H17z\" />\n    <path data-n=\"kuaishou-pixels-ffcab7-255\" fill=\"#ffcab7\" d=\"M25 12h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ffccba-255\" fill=\"#ffccba\" d=\"M21 14h1v1H21z\" />\n    <path data-n=\"kuaishou-pixels-ffcdbb-255\" fill=\"#ffcdbb\" d=\"M7 19h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ffcfbd-255\" fill=\"#ffcfbd\" d=\"M13 3h1v1H13zM24 13h1v1H24zM13 14h1v1H13zM7 26h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-ffd0bf-255\" fill=\"#ffd0bf\" d=\"M14 5h1v1H14zM14 12h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ffd3c3-255\" fill=\"#ffd3c3\" d=\"M24 9h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ffd6c7-255\" fill=\"#ffd6c7\" d=\"M20 12h1v1H20z\" />\n    <path data-n=\"kuaishou-pixels-ffd7c8-255\" fill=\"#ffd7c8\" d=\"M8 11h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ffd8ca-255\" fill=\"#ffd8ca\" d=\"M24 10h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ffd9cb-255\" fill=\"#ffd9cb\" d=\"M8 6h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ffdacd-255\" fill=\"#ffdacd\" d=\"M9 19h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ffdcce-255\" fill=\"#ffdcce\" d=\"M9 8h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ffdccf-255\" fill=\"#ffdccf\" d=\"M10 6h1v1H10zM9 9h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ffdcd0-255\" fill=\"#ffdcd0\" d=\"M10 11h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ffddd0-255\" fill=\"#ffddd0\" d=\"M23 7h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ffdfd3-255\" fill=\"#ffdfd3\" d=\"M11 20h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ffdfd4-255\" fill=\"#ffdfd4\" d=\"M14 16h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-ffe1d6-255\" fill=\"#ffe1d6\" d=\"M12 18h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-ffe1d7-255\" fill=\"#ffe1d7\" d=\"M9 25h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-ffe2d7-255\" fill=\"#ffe2d7\" d=\"M10 23h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ffe3d8-255\" fill=\"#ffe3d8\" d=\"M23 25h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-ffe3d9-255\" fill=\"#ffe3d9\" d=\"M24 24h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ffe5db-255\" fill=\"#ffe5db\" d=\"M25 7h1v1H25zM8 24h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-ffe5dc-255\" fill=\"#ffe5dc\" d=\"M20 5h1v1H20zM25 25h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-ffe6dc-255\" fill=\"#ffe6dc\" d=\"M11 24h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ffe7de-255\" fill=\"#ffe7de\" d=\"M10 13h1v1H10zM24 26h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ffe8e0-255\" fill=\"#ffe8e0\" d=\"M10 4h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ffe9e1-255\" fill=\"#ffe9e1\" d=\"M13 20h1v1H13zM13 22h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ffe9e2-255\" fill=\"#ffe9e2\" d=\"M16 17h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-ffeae2-255\" fill=\"#ffeae2\" d=\"M17 17h5v1H17zM13 21h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ffeae3-255\" fill=\"#ffeae3\" d=\"M10 18h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-ffebe3-255\" fill=\"#ffebe3\" d=\"M22 17h1v1H22z\" />\n    <path data-n=\"kuaishou-pixels-ffebe4-255\" fill=\"#ffebe4\" d=\"M11 5h1v1H11zM11 12h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ffece5-255\" fill=\"#ffece5\" d=\"M22 5h1v1H22zM17 12h1v1H17zM8 17h1v1H8zM13 23h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-ffede6-255\" fill=\"#ffede6\" d=\"M18 9h1v1H18z\" />\n    <path data-n=\"kuaishou-pixels-ffede7-255\" fill=\"#ffede7\" d=\"M24 8h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-ffeee7-255\" fill=\"#ffeee7\" d=\"M19 7h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-ffeee8-255\" fill=\"#ffeee8\" d=\"M23 16h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-fff0ea-255\" fill=\"#fff0ea\" d=\"M7 24h1v1H7z\" />\n    <path data-n=\"kuaishou-pixels-fff0eb-255\" fill=\"#fff0eb\" d=\"M15 17h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-fff1eb-255\" fill=\"#fff1eb\" d=\"M18 6h1v1H18z\" />\n    <path data-n=\"kuaishou-pixels-fff1ec-255\" fill=\"#fff1ec\" d=\"M6 17h1v1H6z\" />\n    <path data-n=\"kuaishou-pixels-fff2ed-255\" fill=\"#fff2ed\" d=\"M24 6h1v1H24zM13 19h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-fff2ee-255\" fill=\"#fff2ee\" d=\"M21 5h1v1H21z\" />\n    <path data-n=\"kuaishou-pixels-fff3ef-255\" fill=\"#fff3ef\" d=\"M18 10h1v1H18zM24 18h1v1H24zM12 24h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-fff4f0-255\" fill=\"#fff4f0\" d=\"M9 5h1v1H9zM9 12h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-fff6f2-255\" fill=\"#fff6f2\" d=\"M9 7h1v1H9zM9 10h1v1H9z\" />\n    <path data-n=\"kuaishou-pixels-fff6f3-255\" fill=\"#fff6f3\" d=\"M23 12h1v1H23zM13 17h1v1H13zM14 25h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-fff7f4-255\" fill=\"#fff7f4\" d=\"M16 6h1v1H16zM16 11h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-fff8f5-255\" fill=\"#fff8f5\" d=\"M19 13h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-fff8f6-255\" fill=\"#fff8f6\" d=\"M15 5h1v1H15zM15 12h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-fff9f6-255\" fill=\"#fff9f6\" d=\"M15 16h1v1H15z\" />\n    <path data-n=\"kuaishou-pixels-fff9f7-255\" fill=\"#fff9f7\" d=\"M24 11h1v1H24z\" />\n    <path data-n=\"kuaishou-pixels-fffaf8-255\" fill=\"#fffaf8\" d=\"M21 6h1v1H21zM17 16h6v1H17zM23 17h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-fffaf9-255\" fill=\"#fffaf9\" d=\"M18 12h1v1H18zM16 16h1v1H16z\" />\n    <path data-n=\"kuaishou-pixels-fffbf9-255\" fill=\"#fffbf9\" d=\"M8 7h1v1H8zM8 10h1v1H8zM25 11h1v1H25z\" />\n    <path data-n=\"kuaishou-pixels-fffbfa-255\" fill=\"#fffbfa\" d=\"M15 4h1v1H15zM15 13h1v1H15zM12 21h1v1H12z\" />\n    <path data-n=\"kuaishou-pixels-fffcfa-255\" fill=\"#fffcfa\" d=\"M14 26h1v1H14z\" />\n    <path data-n=\"kuaishou-pixels-fffcfb-255\" fill=\"#fffcfb\" d=\"M25 18h1v1H25zM10 19h1v1H10z\" />\n    <path data-n=\"kuaishou-pixels-fffcfc-255\" fill=\"#fffcfc\" d=\"M19 12h1v1H19z\" />\n    <path data-n=\"kuaishou-pixels-fffdfc-255\" fill=\"#fffdfc\" d=\"M17 6h1v1H17zM22 6h1v1H22zM23 13h1v1H23z\" />\n    <path data-n=\"kuaishou-pixels-fffdfd-255\" fill=\"#fffdfd\" d=\"M18 8h1v1H18zM9 24h2v1H9zM13 24h1v1H13z\" />\n    <path data-n=\"kuaishou-pixels-fffefd-255\" fill=\"#fffefd\" d=\"M8 18h1v1H8zM8 25h1v1H8z\" />\n    <path data-n=\"kuaishou-pixels-fffefe-255\" fill=\"#fffefe\" d=\"M19 6h2v1H19zM17 8h1v1H17zM16 12h1v1H16zM7 18h1v1H7zM11 23h1v1H11z\" />\n    <path data-n=\"kuaishou-pixels-ffffff-255\" fill=\"#ffffff\" d=\"M11 4h4v1H11zM10 5h1v1H10zM16 5h1v1H16zM9 6h1v1H9zM23 6h1v1H23zM17 7h2v1H17zM24 7h1v1H24zM8 8h1v1H8zM25 8h1v1H25zM8 9h1v1H8zM17 9h1v1H17zM25 9h1v1H25zM17 10h1v1H17zM25 10h1v1H25zM9 11h1v1H9zM17 11h2v1H17zM10 12h1v1H10zM24 12h1v1H24zM11 13h4v1H11zM20 13h3v1H20zM7 17h1v1H7zM14 17h1v1H14zM24 17h1v1H24zM6 18h1v1H6zM9 18h1v1H9zM13 18h1v1H13zM6 19h1v1H6zM11 19h2v1H11zM25 19h1v1H25zM6 20h1v1H6zM12 20h1v1H12zM25 20h1v1H25zM6 21h1v1H6zM25 21h1v1H25zM6 22h1v1H6zM12 22h1v1H12zM25 22h1v1H25zM6 23h1v1H6zM12 23h1v1H12zM25 23h1v1H25zM6 24h1v1H6zM25 24h1v1H25zM6 25h2v1H6zM13 25h1v1H13zM24 25h1v1H24zM15 26h9v1H15z\" />\n  </svg>"
@@ -2739,7 +2898,7 @@
     },
     {
       "file": "rss/wxchannels.js",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "platform": {
         "name": "视频号",
         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 512 512\" data-n=\"wxchannels-platform-icon\"><path fill=\"none\" stroke=\"#fa9d3b\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"42\" d=\"M256 256C214 214 174 112 122 112c-46 0-70 54-44 139 28 140 82 260 142 33l36-76M256 256c42-42 82-144 134-144 46 0 70 54 44 139-28 140-82 260-142 33l-36-76\" data-n=\"wxchannels-icon-path-1\" /></svg>"

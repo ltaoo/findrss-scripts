@@ -1,0 +1,166 @@
+{
+  "checked_at": "2026-11-06T07:03:54.106Z",
+  "inspection": {
+    "file": "hot/yahoo_japan.js",
+    "path": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
+    "example": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
+    "format": "hot",
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 26
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 821
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/yahoo_japan.js",
+      "name": "Yahoo! JAPAN · 主要话题",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/yahoo-japan/rss/topics/top-picks.xml",
+      "request_path": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/yahoo-japan/rss/topics/top-picks.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5623db32cff356c"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 746,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":8}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
+        "method": "GET",
+        "host": "news.yahoo.co.jp",
+        "pathname": "/rss/topics/top-picks.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 746,
+        "timings": {
+          "response_ms": 746,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Yahoo! JAPAN · 主要话题\",\"link\":\"https://news.yahoo.co.jp/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-06T07:03:54.858Z\",\"entries\":[{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601533?source=rss\",\"title\":\"日経平均終値 過去3番目の下げ幅\",\"link\":\"https://news.yahoo.co.jp/pickup/6601533?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601532?source=rss\",\"title\":\"128の信用金庫でシステム障害\",\"link\":\"https://news.yahoo.co.jp/pickup/6601532?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601526?source=rss\",\"title\":\"85万円寄付 武部農相返金する考え\",\"link\":\"https://news.yahoo.co.jp/pickup/6601526?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601527?source=rss\",\"title\":\"道で突然暴行疑い 女性7人被害か\",\"link\":\"https://news.yahoo.co.jp/pickup/6601527?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601522?source=rss\",\"title\":\"解体現場で10人搬送 CO中毒か\",\"link\":\"https://news.yahoo.co.jp/pickup/6601522?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601530?source=rss\",\"title\":\"余命宣告後2200万円拾い横領 実刑\",\"link\":\"https://news.yahoo.co.jp/pickup/6601530?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601529?source=rss\",\"title\":\"ポリティカルパン 視聴率は苦戦\",\"link\":\"https://news.yahoo.co.jp/pickup/6601529?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601531?source=rss\",\"title\":\"16歳三井寺 U21代表に飛び級選出\",\"link\":\"https://news.yahoo.co.jp/pickup/6601531?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 746,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 746
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 746,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 746,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 746,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 746,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 746,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 746
+        }
+      ]
+    }
+  }
+}
