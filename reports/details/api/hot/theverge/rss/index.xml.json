@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T06:16:42.334Z",
+  "checked_at": "2026-11-07T13:20:55.055Z",
   "inspection": {
     "file": "hot/theverge.js",
     "path": "/api/hot/theverge/rss/index.xml",
@@ -12,12 +12,155 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 36
+    "duration_ms": 22
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 65
+    "status": 200,
+    "duration_ms": 140
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/theverge.js",
+      "name": "The Verge · 最新资讯",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/theverge/rss/index.xml",
+      "request_path": "/api/hot/theverge/rss/index.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/theverge/rss/index.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56ca3581c34a561"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 15,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":10}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.theverge.com/rss/index.xml",
+        "method": "GET",
+        "host": "www.theverge.com",
+        "pathname": "/rss/index.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 15,
+        "timings": {
+          "response_ms": 15,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"The Verge · 最新资讯\",\"link\":\"https://www.theverge.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-07T13:20:55.088Z\",\"entries\":[{\"id\":\"theverge:https://www.theverge.com/?p=1029126\",\"title\":\"Why a new report on Anthropic automating AI development is alarming researchers\",\"link\":\"https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1029380\",\"title\":\"OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO\",\"link\":\"https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1029338\",\"title\":\"China reportedly recruited AI exec to spy on Jensen Huang\",\"link\":\"https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?post_type=vm_stream&p=1029162\",\"title\":\"Starlink Mobile: All the news on SpaceX’s major mobile carrier ambitions\",\"link\":\"https://www.theverge.com/science/1029162/spacex-starlink-mobile-elon-musk-news\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1028640\",\"title\":\"KPop Demon Hunters on 4K Blu-ray costs less than a month of Netflix Premium\",\"link\":\"https://www.theverge.com/gadgets/1028640/kpop-demon-hunters-4k-criterion-bluray-deal-sale\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?post_type=vm_stream&p=902546\",\"title\":\"All the latest updates on AI data centers\",\"link\":\"https://www.theverge.com/ai-artificial-intelligence/902546/data-centers-ai-energy-power-grids-controversy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1028846\",\"title\":\"Shure’s popular podcasting and streaming mic is almost $50 off\",\"link\":\"https://www.theverge.com/gadgets/1028846/shure-mv7-plus-podcasting-streaming-mic-deal-sale\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1028228\",\"title\":\"Lame-duck Congress might actually do something: speed up energy projects\",\"link\":\"https://www.theverge.com/policy/1028228/energy-infrastructure-permitting-reform-bill-congress-vote\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1028871\",\"title\":\"Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now\",\"link\":\"https://www.theverge.com/tech/1028871/meta-muse-ai-spaces\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1028854\",\"title\":\"Amazon is now making a Melania Trump TV series\",\"link\":\"https://www.theverge.com/tech/1028854/amazon-melania-the-series-mgm-studios-prime-video\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 15,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 15
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 15,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 15,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 15,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 15,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 15,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 15
+        }
+      ]
+    }
+  }
 }

@@ -1,165 +1,20 @@
 {
-  "checked_at": "2026-11-07T06:16:47.945Z",
+  "checked_at": "2026-11-07T13:22:04.328Z",
   "inspection": {
     "file": "hot/yahoo_japan.js",
     "path": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
     "example": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/yahoo-japan/rss/topics/top-picks.xml.json",
-    "duration_ms": 510
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60002
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 233
+    "error": "Debug 请求超时或已取消",
+    "duration_ms": 60000
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/yahoo_japan.js",
-      "name": "Yahoo! JAPAN · 主要话题",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/yahoo-japan/rss/topics/top-picks.xml",
-      "request_path": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/yahoo-japan/rss/topics/top-picks.xml",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a56a3613be68f03e"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 166,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":8}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
-        "method": "GET",
-        "host": "news.yahoo.co.jp",
-        "pathname": "/rss/topics/top-picks.xml",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 166,
-        "timings": {
-          "response_ms": 166,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Yahoo! JAPAN · 主要话题\",\"link\":\"https://news.yahoo.co.jp/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-07T06:16:48.125Z\",\"entries\":[{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601634?source=rss\",\"title\":\"露がJT資産管理 制裁緩和狙いか\",\"link\":\"https://news.yahoo.co.jp/pickup/6601634?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601627?source=rss\",\"title\":\"英メーガン妃の父 訴追され出廷\",\"link\":\"https://news.yahoo.co.jp/pickup/6601627?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601638?source=rss\",\"title\":\"32年ぶりに「台風32号」発生\",\"link\":\"https://news.yahoo.co.jp/pickup/6601638?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601645?source=rss\",\"title\":\"置き配トラブル責任 国指針公表へ\",\"link\":\"https://news.yahoo.co.jp/pickup/6601645?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601640?source=rss\",\"title\":\"マンション建築現場で転落 死亡\",\"link\":\"https://news.yahoo.co.jp/pickup/6601640?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601643?source=rss\",\"title\":\"スーパーの衣料品売れない? 今後\",\"link\":\"https://news.yahoo.co.jp/pickup/6601643?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601625?source=rss\",\"title\":\"なぜ?「有線イヤホン」が再流行\",\"link\":\"https://news.yahoo.co.jp/pickup/6601625?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601650?source=rss\",\"title\":\"木村拓哉から花 きむらバンド歓喜\",\"link\":\"https://news.yahoo.co.jp/pickup/6601650?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 166,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 166
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 166,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 166,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 166,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 166,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 166,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 166
-        }
-      ]
-    }
-  }
+  "debug": null
 }

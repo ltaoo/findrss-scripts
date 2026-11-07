@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T06:17:07.306Z",
+  "checked_at": "2026-11-07T13:23:31.493Z",
   "inspection": {
     "file": "rss/kuaishou.js",
     "path": "/api/rss/kuaishou/profile/:user_id",
@@ -9,15 +9,148 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 188
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60000
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 57
+    "status": 504,
+    "duration_ms": 12763
   },
-  "debug": null
+  "debug": {
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
+    "script": {
+      "file": "rss/kuaishou.js",
+      "name": "快手用户作品",
+      "kind": "rss",
+      "version": "1.1.1",
+      "path": "/kuaishou/profile/:user_id",
+      "request_path": "/api/rss/kuaishou/profile/:user_id",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/kuaishou/profile/3xuxw5yhgr6f4um",
+      "params": {
+        "user_id": "3xuxw5yhgr6f4um"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56ca729e8f92ade"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 12725,
+    "invoked": false,
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:106:26)",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_1c039bfefc89977ae1f65644bb7fd3812c565757575688cffbed4d8571e1d1403029f656cc01698d2c0169bf57&caver=2",
+        "method": "POST",
+        "host": "www.kuaishou.com",
+        "pathname": "/rest/v/profile/feed",
+        "status": null,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "kww"
+          ]
+        },
+        "started_ms": 2725,
+        "duration_ms": 10000,
+        "timings": {
+          "response_ms": 10000
+        }
+      }
+    ],
+    "timing": {
+      "elapsed_ms": 12725,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 6
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 12719
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 12725,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 12725,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 12725,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 12725,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 6,
+          "duration_ms": 12719
+        }
+      ]
+    }
+  }
 }

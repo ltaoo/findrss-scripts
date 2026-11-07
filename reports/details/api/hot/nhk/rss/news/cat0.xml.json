@@ -1,182 +1,23 @@
 {
-  "checked_at": "2026-11-07T06:16:35.200Z",
+  "checked_at": "2026-11-07T13:20:32.111Z",
   "inspection": {
     "file": "hot/nhk.js",
     "path": "/api/hot/nhk/rss/news/cat0.xml",
     "example": "/api/hot/nhk/rss/news/cat0.xml",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/nhk/rss/news/cat0.xml.json",
-    "duration_ms": 660
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 23
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 129
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 41
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/nhk.js",
-      "name": "NHK · 主要新闻",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/nhk/rss/news/cat0.xml",
-      "request_path": "/api/hot/nhk/rss/news/cat0.xml",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/nhk/rss/news/cat0.xml",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a56a35c40ce63822"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 40,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":7}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.nhk.or.jp/rss/news/cat0.xml",
-        "method": "GET",
-        "host": "www.nhk.or.jp",
-        "pathname": "/rss/news/cat0.xml",
-        "status": 301,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 15,
-        "timings": {
-          "response_ms": 15
-        }
-      },
-      {
-        "url": "https://news.web.nhk/n-data/conf/na/rss/cat0.xml",
-        "method": "GET",
-        "host": "news.web.nhk",
-        "pathname": "/n-data/conf/na/rss/cat0.xml",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 15,
-        "duration_ms": 25,
-        "timings": {
-          "response_ms": 25,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"NHK · 主要新闻\",\"link\":\"https://news.web.nhk/newsweb/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-07T06:16:35.268Z\",\"entries\":[{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261107de72062\",\"title\":\"GMO 管理者が全情報アクセス可能 リスク指摘も十分対策されず\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261107de72062\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261107de72104\",\"title\":\"大手金融機関破綻の南米パラグアイで大統領が罷免 混乱続く\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261107de72104\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261107de72009\",\"title\":\"冬型強まり北日本中心に暴風警戒 大雪に十分注意を\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261107de72009\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261107de72096\",\"title\":\"台風32号が発生 年間発生数は1994年以来の多さに\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261107de72096\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261107de72072\",\"title\":\"北茨城の海岸で漁船座礁 乗っていた親子3人搬送 2人は意識不明\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261107de72072\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261107de72003\",\"title\":\"トランプ政権 ワイルズ首席補佐官が退任 ミラー氏起用へ\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261107de72003\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261107de72007\",\"title\":\"ベッセント財務長官と何副首相 貿易摩擦“休戦”の状況を協議\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261107de72007\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 40,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 40
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 40,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 40,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 40,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 40,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 40,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 40
-        }
-      ]
-    }
-  }
+  "debug": null
 }
