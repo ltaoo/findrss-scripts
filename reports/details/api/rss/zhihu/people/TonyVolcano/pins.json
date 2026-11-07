@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T19:35:55.502Z",
+  "checked_at": "2026-11-07T06:17:47.581Z",
   "inspection": {
     "file": "rss/zhihu.js",
     "path": "/api/rss/zhihu/people/:user/pins",
@@ -12,11 +12,163 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 47
+    "duration_ms": 51
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 2251
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/zhihu.js",
+      "name": "知乎用户想法",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/zhihu/people/:user/pins",
+      "request_path": "/api/rss/zhihu/people/:user/pins",
+      "route_index": 6
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/zhihu/people/TonyVolcano/pins",
+      "params": {
+        "user": "TonyVolcano"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56a37887c75144b"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 2169,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":19,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api.zhihu.com/pins/TonyVolcano/moments?limit=20&offset=0",
+        "method": "GET",
+        "host": "api.zhihu.com",
+        "pathname": "/pins/TonyVolcano/moments",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 0,
+        "duration_ms": 2169,
+        "timings": {
+          "response_ms": 2032,
+          "body_read_ms": 137,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"zhihu:user:TonyVolcano:pins\",\"title\":\"潇湘夜雨 的知乎想法\",\"link\":\"https://www.zhihu.com/people/TonyVolcano/pins\",\"description\":\"爱生活，爱世界，爱美女，潜心研究感性营销与LSP大模型落地应用，诚邀风投。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"article\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.zhihu.com/\"},\"tags\":[\"知乎\"]},\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"image\":\"https://pic3.zhimg.com/50/v2-5577db9276fe5aef5218e206ed248123_l.jpg\",\"updated\":\"2026-10-21T06:02:02.000Z\",\"items\":[{\"id\":\"zhihu:pin:2096239823585595871\",\"title\":\"大学扩招从一开始就不是一个纯粹的教育政…\",\"link\":\"https://www.zhihu.com/pin/2096239823585595871\",\"description\":\"大学扩招从一开始就不是一个纯粹的教育政策，它同时是就业政策、内需政策和稳定政策。扩招的第一层功能，是把一部分年轻人从劳动力市场里“接住”，放进校园；第二层功能，是让这批人在这段时间里花钱。而这套安排运行二十多年后，最讽刺的后果是：它成功地让一代人相信了“上大学值得”，又用同一套机制让这代人在毕业后开始怀疑这句话。当本科文凭变成许多岗位的默认要求时，不上大学的风险变大了，但上了大学的超额回报变小了。一个从这套机制里走出来的理性人，大概会这样回答：会，但不会再相信“上了大学就好了”这句话。<a href=\\\"https://www.zhihu.com/answer/2096238912024986537\\\" class=\\\"internal\\\" target=\\\"_blank\\\">谁把大学生搞的这么廉价？</a> <br><a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E6%89%A9%E6%8B%9B%E5%85%A8%E6%97%A5%E5%88%B6%E5%A4%A7%E4%B8%93%23\\\">#扩招全日制大专#</a> <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E8%81%8C%E4%B8%9A%E9%AB%98%E7%AD%89%E6%95%99%E8%82%B2%E5%8F%91%E5%B1%95%E4%B8%8E%E6%94%B9%E9%9D%A9%E6%8E%A2%E7%B4%A2%23\\\">#职业高等教育发展与改革探索#</a> <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E8%81%8C%E4%B8%9A%E6%95%99%E8%82%B2%E6%94%B9%E9%9D%A9%23\\\">#职业教育改革#</a>\",\"content\":\"<p>大学扩招从一开始就不是一个纯粹的教育政策，它同时是就业政策、内需政策和稳定政策。扩招的第一层功能，是把一部分年轻人从劳动力市场里“接住”，放进校园；第二层功能，是让这批人在这段时间里花钱。而这套安排运行二十多年后，最讽刺的后果是：它成功地让一代人相信了“上大学值得”，又用同一套机制让这代人在毕业后开始怀疑这句话。当本科文凭变成许多岗位的默认要求时，不上大学的风险变大了，但上了大学的超额回报变小了。一个从这套机制里走出来的理性人，大概会这样回答：会，但不会再相信“上了大学就好了”这句话。&lt;a href=&quot;https://www.zhihu.com/answer/2096238912024986537&quot; class=&quot;internal&quot; target=&quot;_blank&quot;&gt;谁把大学生搞的这么廉价？&lt;/a&gt; &lt;br&gt;&lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E6%89%A9%E6%8B%9B%E5%85%A8%E6%97%A5%E5%88%B6%E5%A4%A7%E4%B8%93%23&quot;&gt;#扩招全日制大专#&lt;/a&gt; &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E8%81%8C%E4%B8%9A%E9%AB%98%E7%AD%89%E6%95%99%E8%82%B2%E5%8F%91%E5%B1%95%E4%B8%8E%E6%94%B9%E9%9D%A9%E6%8E%A2%E7%B4%A2%23&quot;&gt;#职业高等教育发展与改革探索#&lt;/a&gt; &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E8%81%8C%E4%B8%9A%E6%95%99%E8%82%B2%E6%94%B9%E9%9D%A9%23&quot;&gt;#职业教育改革#&lt;/a&gt;</p><p><img src=\\\"https://pic4.zhimg.com/v2-7a7c75c95ceec4b8c2087adc6a524501.jpg?bf635bb358cb47918a8b646471026d69\\\"></p><p><img src=\\\"https://pic2.zhimg.com/v2-dfb725e426c0755968e9fa1856a215d7.jpg?3170bdac5a03416a976b84ccf54803f0\\\"></p><p><img src=\\\"https://pic3.zhimg.com/v2-dbb2c79f363a6154dbe32fb3fae2ed54.jpg?8c900f78b6a2439b8408878aff381091\\\"></p><p><img src=\\\"https://pic2.zhimg.com/v2-e9f9762c9bab787edaa6b99686eebf93.jpg?1bda72964aa8463a87d80b707bab2003\\\"></p><p><img src=\\\"https://pica.zhimg.com/v2-b74f1233be5f84f9f45d7baf74d0d4b6.jpg?d27a0b5ef52746609d746eb412a155b1\\\"></p><p><img src=\\\"https://pic2.zhimg.com/v2-effd01d48cd71e66a542e993bd2813a3.jpg?e9cf5347e2fb44cfaf67c55eccfc019d\\\"></p><p><img src=\\\"https://pic4.zhimg.com/v2-cf69eed28514b208a533a5d7828ace4b.jpg?523caa42ad224364adeb31ffb49409e0\\\"></p><p><img src=\\\"https://pica.zhimg.com/v2-ce6d3cdb72361e6a018c64ae79f07720.jpg?223a76c5ff6044daabe0b56a346abf7e\\\"></p><p><img src=\\\"https://pic1.zhimg.com/v2-7af091e99451f0eb15317eb7966290fa.jpg?142ed8d46a4945be801031f61cc4294f\\\"></p>\",\"image\":\"https://pic4.zhimg.com/v2-7a7c75c95ceec4b8c2087adc6a524501.jpg?bf635bb358cb47918a8b646471026d69\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-10-21T06:02:02.000Z\",\"updated\":\"2026-10-21T06:02:02.000Z\"},{\"id\":\"zhihu:pin:2085029538887623569\",\"title\":\"上链永久保存\",\"link\":\"https://www.zhihu.com/pin/2085029538887623569\",\"description\":\"上链永久保存。<a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E4%B8%87%E7%89%A9%E7%9A%86%E5%8F%AF%E4%B8%8A%E9%93%BE%23\\\">#万物皆可上链#</a>\",\"content\":\"<p>上链永久保存。&lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E4%B8%87%E7%89%A9%E7%9A%86%E5%8F%AF%E4%B8%8A%E9%93%BE%23&quot;&gt;#万物皆可上链#&lt;/a&gt;</p><p><img src=\\\"https://picx.zhimg.com/v2-5092d2f1a8067d751b1e9d83c5150a8c_720w.png?source=e3d01f54\\\"></p>\",\"image\":\"https://picx.zhimg.com/v2-5092d2f1a8067d751b1e9d83c5150a8c_720w.png?source=e3d01f54\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-09-20T07:37:11.000Z\",\"updated\":\"2026-09-20T07:37:11.000Z\"},{\"id\":\"zhihu:pin:2081423125900742908\",\"title\":\"华为、小米、苹果三巨头在同一周、同一品…\",\"link\":\"https://www.zhihu.com/pin/2081423125900742908\",\"description\":\"华为、小米、苹果三巨头在同一周、同一品类正面硬刚，这在折叠屏诞生七年来，还是头一回。  华为Mate XT 2是第二代三折叠，搭载自研麒麟9050 Pro芯片，这是“韬定律”的首次量产落地，核心思路是“以时间缩微替代几何缩微”。  小米18 Fold定位“中折叠”，首发自研玄戒O3芯片，雷总说这是“口袋里的杜比影院、口袋里的游戏机、口袋里的电子书”。  苹果iPhone Duo的逻辑是：与其做一台能折叠的手机，不如做一台能塞进口袋的iPad，搭载业界首款2nm工艺A20 Pro芯片。  折叠屏目前只占整体智能手机市场约2%，但它能显著拉高产品均价和品牌势能，卖一台折叠屏的利润，可能抵得上卖十台千元机。<a href=\\\"https://zhuanlan.zhihu.com/p/2081399412694295993\\\" class=\\\"internal\\\" target=\\\"_blank\\\">2026折叠屏“三国杀”，苹果华为小米，到底选哪个？</a> <br><a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E6%89%8B%E6%9C%BA%E4%B8%89%E6%8A%98%E5%B1%8F%23\\\">#手机三折屏#</a> <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/pin/special/1566172793577857025\\\">#什么人会买折叠屏手机#</a> <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/pin/special/1500867597289197568\\\">#买折叠屏手机要注意什么#</a>\",\"content\":\"<p>华为、小米、苹果三巨头在同一周、同一品类正面硬刚，这在折叠屏诞生七年来，还是头一回。  华为Mate XT 2是第二代三折叠，搭载自研麒麟9050 Pro芯片，这是“韬定律”的首次量产落地，核心思路是“以时间缩微替代几何缩微”。  小米18 Fold定位“中折叠”，首发自研玄戒O3芯片，雷总说这是“口袋里的杜比影院、口袋里的游戏机、口袋里的电子书”。  苹果iPhone Duo的逻辑是：与其做一台能折叠的手机，不如做一台能塞进口袋的iPad，搭载业界首款2nm工艺A20 Pro芯片。  折叠屏目前只占整体智能手机市场约2%，但它能显著拉高产品均价和品牌势能，卖一台折叠屏的利润，可能抵得上卖十台千元机。&lt;a href=&quot;https://zhuanlan.zhihu.com/p/2081399412694295993&quot; class=&quot;internal&quot; target=&quot;_blank&quot;&gt;2026折叠屏“三国杀”，苹果华为小米，到底选哪个？&lt;/a&gt; &lt;br&gt;&lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E6%89%8B%E6%9C%BA%E4%B8%89%E6%8A%98%E5%B1%8F%23&quot;&gt;#手机三折屏#&lt;/a&gt; &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/pin/special/1566172793577857025&quot;&gt;#什么人会买折叠屏手机#&lt;/a&gt; &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/pin/special/1500867597289197568&quot;&gt;#买折叠屏手机要注意什么#&lt;/a&gt;</p><p><img src=\\\"https://pic1.zhimg.com/v2-9675b9aa0f0a6c2b7dcb2ab13083cbe2.jpg?fb13d1f38a35470aa93ea93ec300ed4f\\\"></p><p><img src=\\\"https://pic4.zhimg.com/v2-06b20dfbe1505e5857729308faece55f.jpg?b0fb85b09c0442fa9925556322f266c7\\\"></p><p><img src=\\\"https://pica.zhimg.com/v2-a79b6039d6450ac3751e85a8ac682c36.jpg?5b3331ea597b4cc8a0177e76a9195deb\\\"></p><p><img src=\\\"https://pic1.zhimg.com/v2-2dfe8c438c7132701503706f0f5e273a.jpg?505b463e54f74fb3ad2a9401b4481058\\\"></p><p><img src=\\\"https://picx.zhimg.com/v2-e9158cd2014605e2e73edf4ac78fe2c7.jpg?095770b226024af0b0973f04509fd664\\\"></p><p><img src=\\\"https://pic3.zhimg.com/v2-f686693bb6b9d8b9f8badcd63e289cde.jpg?56d67fa28ada4d2993bd014b6c35f491\\\"></p><p><img src=\\\"https://pic3.zhimg.com/v2-40fe6e1a6e08f4c64edd6e42d1771cd8.jpg?6ce8df6b750446ddb8930b6849964ebb\\\"></p><p><img src=\\\"https://pic2.zhimg.com/v2-1625598ca6884fd3066cf6f785bfae91.jpg?f42bf62e252847bfbd99bf1d9a30863a\\\"></p><p><img src=\\\"https://pic1.zhimg.com/v2-3aa7710c7667a825d350eae7fb9e87b8.jpg?633dfe5438ad4b9d8296f17929669e1d\\\"></p>\",\"image\":\"https://pic1.zhimg.com/v2-9675b9aa0f0a6c2b7dcb2ab13083cbe2.jpg?fb13d1f38a35470aa93ea93ec300ed4f\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-09-10T08:46:44.000Z\",\"updated\":\"2026-09-10T08:46:44.000Z\"},{\"id\":\"zhihu:pin:2081095404251305792\",\"title\":\"这是我一个哥们儿的故事 一年年地和家人…\",\"link\":\"https://www.zhihu.com/pin/2081095404251305792\",\"description\":\"这是我一个哥们儿的故事<br>一年年地和家人说着“明年就回来”<br>他们嘴上说着没关系、无所谓，其实心里却盼着你说一句“今年，我回来”。<br>万家灯火，总有一盏灯为你亮起<br>快过年了，在外打拼的东北孩子们<br>回来吧，<br>过了山海关，咱就到家了。\",\"content\":\"<p>这是我一个哥们儿的故事&lt;br&gt;一年年地和家人说着“明年就回来”&lt;br&gt;他们嘴上说着没关系、无所谓，其实心里却盼着你说一句“今年，我回来”。&lt;br&gt;万家灯火，总有一盏灯为你亮起&lt;br&gt;快过年了，在外打拼的东北孩子们&lt;br&gt;回来吧，&lt;br&gt;过了山海关，咱就到家了。</p>\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-09-09T11:03:29.000Z\",\"updated\":\"2026-09-09T11:03:29.000Z\"},{\"id\":\"zhihu:pin:2072647973348160265\",\"title\":\"#知乎黑客松 2026# 创建一个有价值的链接！\",\"link\":\"https://www.zhihu.com/pin/2072647973348160265\",\"description\":\"<a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E7%9F%A5%E4%B9%8E%E9%BB%91%E5%AE%A2%E6%9D%BE+2026%23\\\">#知乎黑客松 2026#</a> 创建一个有价值的链接！\",\"content\":\"<p>&lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E7%9F%A5%E4%B9%8E%E9%BB%91%E5%AE%A2%E6%9D%BE+2026%23&quot;&gt;#知乎黑客松 2026#&lt;/a&gt; 创建一个有价值的链接！</p>\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-08-17T03:37:07.000Z\",\"updated\":\"2026-08-17T03:37:07.000Z\"},{\"id\":\"zhihu:pin:2066435801374777348\",\"title\":\"文明有礼的话就不要争了\",\"link\":\"https://www.zhihu.com/pin/2066435801374777348\",\"description\":\"文明有礼的话就不要争了 ​​​\",\"content\":\"<p>文明有礼的话就不要争了 ​​​</p><p><img src=\\\"https://pic3.zhimg.com/50/v2-9f7ba3351e94ab99614f377e5793c885_qhd.jpg\\\"></p>\",\"image\":\"https://pic3.zhimg.com/50/v2-9f7ba3351e94ab99614f377e5793c885_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-07-31T00:11:27.000Z\",\"updated\":\"2026-07-31T00:11:27.000Z\"},{\"id\":\"zhihu:pin:2066316679739618280\",\"title\":\"觉醒，是看清世间得失，挣脱执念； 开悟…\",\"link\":\"https://www.zhihu.com/pin/2066316679739618280\",\"description\":\"觉醒，是看清世间得失，挣脱执念；<br>开悟，是看懂众生本质，放下是非。<br>觉醒尚能心存不甘，想要争一个对错；<br>开悟之后，世间纷争，万般起伏，皆成云烟。<br>不再向外索取认可，不再纠结爱恨得失。<br>旁人喧嚣热闹，他自静守本心，<br>人间万般苦难，于他而言，不过一场途经。\",\"content\":\"<p>觉醒，是看清世间得失，挣脱执念；&lt;br&gt;开悟，是看懂众生本质，放下是非。&lt;br&gt;觉醒尚能心存不甘，想要争一个对错；&lt;br&gt;开悟之后，世间纷争，万般起伏，皆成云烟。&lt;br&gt;不再向外索取认可，不再纠结爱恨得失。&lt;br&gt;旁人喧嚣热闹，他自静守本心，&lt;br&gt;人间万般苦难，于他而言，不过一场途经。</p>\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-07-30T16:18:07.000Z\",\"updated\":\"2026-07-30T16:18:07.000Z\"},{\"id\":\"zhihu:pin:2065720150926668096\",\"title\":\"帛书《道德经》，又名帛书《老子》，是19…\",\"link\":\"https://www.zhihu.com/pin/2065720150926668096\",\"description\":\"帛书《道德经》，又名帛书《老子》，是1973年在湖南长沙马王堆三号汉墓出土的西汉（公元前206-公元25年）时期文物，包含《道德经》甲、乙两种写本，帛书质地为用生丝织成的细绢，乙本现藏于湖南博物院。\",\"content\":\"<p>帛书《道德经》，又名帛书《老子》，是1973年在湖南长沙马王堆三号汉墓出土的西汉（公元前206-公元25年）时期文物，包含《道德经》甲、乙两种写本，帛书质地为用生丝织成的细绢，乙本现藏于湖南博物院。</p>\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-07-29T00:48:11.000Z\",\"updated\":\"2026-07-29T00:48:11.000Z\"},{\"id\":\"zhihu:pin:2062684188072064943\",\"title\":\"高考 2026 徽章佩戴留念，期待在知乎继续…\",\"link\":\"https://www.zhihu.com/pin/2062684188072064943\",\"description\":\"高考 2026 徽章佩戴留念，期待在知乎继续前行，探索无尽可能。 <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E9%AB%98%E8%80%832026%23\\\">#高考2026#</a>\",\"content\":\"<p>高考 2026 徽章佩戴留念，期待在知乎继续前行，探索无尽可能。 &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E9%AB%98%E8%80%832026%23&quot;&gt;#高考2026#&lt;/a&gt;</p><p><img src=\\\"https://pic2.zhimg.com/50/v2-15e55af1f6860464237ea507f1519dc2_qhd.jpg\\\"></p>\",\"image\":\"https://pic2.zhimg.com/50/v2-15e55af1f6860464237ea507f1519dc2_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-07-20T15:43:53.000Z\",\"updated\":\"2026-07-20T15:43:53.000Z\"},{\"id\":\"zhihu:pin:2054854894834783016\",\"title\":\"#下馆子我是认真的# 汉代的“绿釉立姿陶…\",\"link\":\"https://www.zhihu.com/pin/2054854894834783016\",\"description\":\"<a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E4%B8%8B%E9%A6%86%E5%AD%90%E6%88%91%E6%98%AF%E8%AE%A4%E7%9C%9F%E7%9A%84%23\\\">#下馆子我是认真的#</a> 汉代的“绿釉立姿陶狗”看这无辜大眼神儿，跟咱们的中华田园犬还真有几分相似，让人忍不住上去摸摸他的头。毕竟是 <a href=\\\"https://www.zhihu.com/pin/2054854894834783016?activity_scene=pin_poll&amp;activity_title=%E4%B8%AD%E5%8D%8E%E7%94%B0%E5%9B%AD%E7%8A%AC%E5%A5%BD%E5%85%BB%E5%90%97%EF%BC%9F&amp;native=1#bottom_poll\\\" class=\\\"internal\\\" target=\\\"_blank\\\">中华田园犬好养吗？</a> 老祖宗严选，田园犬的含金量是真的高，感觉那个时候的狗栓就好科学了啊，胸缚式的，不是栓脖子上的。\",\"content\":\"<p>&lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E4%B8%8B%E9%A6%86%E5%AD%90%E6%88%91%E6%98%AF%E8%AE%A4%E7%9C%9F%E7%9A%84%23&quot;&gt;#下馆子我是认真的#&lt;/a&gt; 汉代的“绿釉立姿陶狗”看这无辜大眼神儿，跟咱们的中华田园犬还真有几分相似，让人忍不住上去摸摸他的头。毕竟是 &lt;a href=&quot;https://www.zhihu.com/pin/2054854894834783016?activity_scene=pin_poll&amp;amp;activity_title=%E4%B8%AD%E5%8D%8E%E7%94%B0%E5%9B%AD%E7%8A%AC%E5%A5%BD%E5%85%BB%E5%90%97%EF%BC%9F&amp;amp;native=1#bottom_poll&quot; class=&quot;internal&quot; target=&quot;_blank&quot;&gt;中华田园犬好养吗？&lt;/a&gt; 老祖宗严选，田园犬的含金量是真的高，感觉那个时候的狗栓就好科学了啊，胸缚式的，不是栓脖子上的。</p><p><img src=\\\"https://picx.zhimg.com/v2-7066e6d6da6398337d33cdcf76005ec7_1440w.png?source=e3d01f54\\\"></p>\",\"image\":\"https://picx.zhimg.com/v2-7066e6d6da6398337d33cdcf76005ec7_1440w.png?source=e3d01f54\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-29T01:21:02.000Z\",\"updated\":\"2026-06-29T01:21:02.000Z\"},{\"id\":\"zhihu:pin:2053261838645719376\",\"title\":\"#大道无情 为什么格局越高的人，总让人觉…\",\"link\":\"https://www.zhihu.com/pin/2053261838645719376\",\"description\":\"#大道无情 <br>为什么格局越高的人，总让人觉得无情？<br>因为他们看懂了因果，明白万事皆有定数。<br>真正的慈悲，不是处处出手帮扶，强行替别人避开苦难。<br>而是接纳所有际遇，让该来的来，该走的走，让该发生的事自然发生。<br>不强行扭转别人的人生，不逆势对抗世事走向。<br>看似冷眼旁观，实则是尊重每一个人的修行，尊重天地运转的规律。<br>不执念救赎，不肆意干涉，顺势而为，才是最深沉的善良。<br>#国学文化 <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E5%9B%BD%E5%AD%A6%E7%BB%8F%E5%85%B8+%23\\\">#国学经典 #</a>国学智慧  <a href=\\\"http://link.zhihu.com/?target=http%3A//t.cn/AXS6ES5k\\\" class=\\\" external\\\" target=\\\"_blank\\\" rel=\\\"nofollow noreferrer\\\"><span class=\\\"invisible\\\">http://</span><span class=\\\"visible\\\">t.cn/AXS6ES5k</span><span class=\\\"invisible\\\"></span></a>\",\"content\":\"<p>#大道无情 &lt;br&gt;为什么格局越高的人，总让人觉得无情？&lt;br&gt;因为他们看懂了因果，明白万事皆有定数。&lt;br&gt;真正的慈悲，不是处处出手帮扶，强行替别人避开苦难。&lt;br&gt;而是接纳所有际遇，让该来的来，该走的走，让该发生的事自然发生。&lt;br&gt;不强行扭转别人的人生，不逆势对抗世事走向。&lt;br&gt;看似冷眼旁观，实则是尊重每一个人的修行，尊重天地运转的规律。&lt;br&gt;不执念救赎，不肆意干涉，顺势而为，才是最深沉的善良。&lt;br&gt;#国学文化 &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E5%9B%BD%E5%AD%A6%E7%BB%8F%E5%85%B8+%23&quot;&gt;#国学经典 #&lt;/a&gt;国学智慧  &lt;a href=&quot;http://link.zhihu.com/?target=http%3A//t.cn/AXS6ES5k&quot; class=&quot; external&quot; target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;span class=&quot;invisible&quot;&gt;http://&lt;/span&gt;&lt;span class=&quot;visible&quot;&gt;t.cn/AXS6ES5k&lt;/span&gt;&lt;span class=&quot;invisible&quot;&gt;&lt;/span&gt;&lt;/a&gt;</p><p><img src=\\\"https://pic2.zhimg.com/50/v2-2ac3a9d3003431049b75eaef54a1d5e2_qhd.jpg\\\"></p>\",\"image\":\"https://pic2.zhimg.com/50/v2-2ac3a9d3003431049b75eaef54a1d5e2_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-24T15:42:50.000Z\",\"updated\":\"2026-06-24T15:42:50.000Z\"},{\"id\":\"zhihu:pin:2052521291102663604\",\"title\":\"#顺应天机 道家心境：顺应天机，好运自来…\",\"link\":\"https://www.zhihu.com/pin/2052521291102663604\",\"description\":\"#顺应天机 <br>道家心境：顺应天机，好运自来。<br>道家讲静能生定，定能生慧，一个人越是淡定从容，越容易接住世间好运。<br>遇事不慌，得失不执，不纠结一时成败，不焦虑未知前路，心定下来，气场自然平和温润。<br>不必刻意强求，不必步步算计，顺其自然，随性而行，便是纳福最好的姿态。<br>浮躁会推开机缘，从容能承载福泽。<br>那些看似不费力就圆满的结局，从来不是运气，是长久沉淀下来的平常心。<br>心无杂念，从容度日，世间福分，自会缓缓奔赴于你。 <a href=\\\"http://link.zhihu.com/?target=http%3A//t.cn/AXSGbCgu\\\" class=\\\" external\\\" target=\\\"_blank\\\" rel=\\\"nofollow noreferrer\\\"><span class=\\\"invisible\\\">http://</span><span class=\\\"visible\\\">t.cn/AXSGbCgu</span><span class=\\\"invisible\\\"></span></a>\",\"content\":\"<p>#顺应天机 &lt;br&gt;道家心境：顺应天机，好运自来。&lt;br&gt;道家讲静能生定，定能生慧，一个人越是淡定从容，越容易接住世间好运。&lt;br&gt;遇事不慌，得失不执，不纠结一时成败，不焦虑未知前路，心定下来，气场自然平和温润。&lt;br&gt;不必刻意强求，不必步步算计，顺其自然，随性而行，便是纳福最好的姿态。&lt;br&gt;浮躁会推开机缘，从容能承载福泽。&lt;br&gt;那些看似不费力就圆满的结局，从来不是运气，是长久沉淀下来的平常心。&lt;br&gt;心无杂念，从容度日，世间福分，自会缓缓奔赴于你。 &lt;a href=&quot;http://link.zhihu.com/?target=http%3A//t.cn/AXSGbCgu&quot; class=&quot; external&quot; target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;span class=&quot;invisible&quot;&gt;http://&lt;/span&gt;&lt;span class=&quot;visible&quot;&gt;t.cn/AXSGbCgu&lt;/span&gt;&lt;span class=&quot;invisible&quot;&gt;&lt;/span&gt;&lt;/a&gt;</p><p><img src=\\\"https://pic4.zhimg.com/50/v2-03ad66e96bac67c5f850b28fe13e7f20_qhd.jpg\\\"></p>\",\"image\":\"https://pic4.zhimg.com/50/v2-03ad66e96bac67c5f850b28fe13e7f20_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-22T14:40:09.000Z\",\"updated\":\"2026-06-22T14:40:09.000Z\"},{\"id\":\"zhihu:pin:2052370346871874200\",\"title\":\"#佛得角逼平两个世界冠军 佛得角黑马奔腾…\",\"link\":\"https://www.zhihu.com/pin/2052370346871874200\",\"description\":\"#佛得角逼平两个世界冠军 <br>佛得角黑马奔腾如有神助[拳头]<br>但是如有神助，从来不是神明庇佑。<br>所谓神助，是你守住清净本心，行事不违天道规律，心与大道同频共振后的自然结果。<br>内心无贪嗔执念，行事坦荡守正，天时、地利、人和自然向你靠拢；遇事阻碍消散，机遇恰逢其时，旁人看你事事顺遂，只道是有神明相助。<br>人法地，地法天，天法道，道法自然。<br>不必四处求福、拜神祈运，先修一颗不躁、不执、不妄动的心。<br>当你的言行契合天地大道，万事水到渠成，这份从容顺遂，便是道家所说的「有如神助」。 <a href=\\\"http://link.zhihu.com/?target=http%3A//t.cn/AXSUwqa5\\\" class=\\\" external\\\" target=\\\"_blank\\\" rel=\\\"nofollow noreferrer\\\"><span class=\\\"invisible\\\">http://</span><span class=\\\"visible\\\">t.cn/AXSUwqa5</span><span class=\\\"invisible\\\"></span></a>\",\"content\":\"<p>#佛得角逼平两个世界冠军 &lt;br&gt;佛得角黑马奔腾如有神助[拳头]&lt;br&gt;但是如有神助，从来不是神明庇佑。&lt;br&gt;所谓神助，是你守住清净本心，行事不违天道规律，心与大道同频共振后的自然结果。&lt;br&gt;内心无贪嗔执念，行事坦荡守正，天时、地利、人和自然向你靠拢；遇事阻碍消散，机遇恰逢其时，旁人看你事事顺遂，只道是有神明相助。&lt;br&gt;人法地，地法天，天法道，道法自然。&lt;br&gt;不必四处求福、拜神祈运，先修一颗不躁、不执、不妄动的心。&lt;br&gt;当你的言行契合天地大道，万事水到渠成，这份从容顺遂，便是道家所说的「有如神助」。 &lt;a href=&quot;http://link.zhihu.com/?target=http%3A//t.cn/AXSUwqa5&quot; class=&quot; external&quot; target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;span class=&quot;invisible&quot;&gt;http://&lt;/span&gt;&lt;span class=&quot;visible&quot;&gt;t.cn/AXSUwqa5&lt;/span&gt;&lt;span class=&quot;invisible&quot;&gt;&lt;/span&gt;&lt;/a&gt;</p><p><img src=\\\"https://pic1.zhimg.com/50/v2-ccff15b60e6b1b21b0e1776c0d26303d_qhd.jpg\\\"></p>\",\"image\":\"https://pic1.zhimg.com/50/v2-ccff15b60e6b1b21b0e1776c0d26303d_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-22T04:40:21.000Z\",\"updated\":\"2026-06-22T04:40:21.000Z\"},{\"id\":\"zhihu:pin:2052181586884482580\",\"title\":\"#落子无悔 道家顶级心态：“人生如棋，落…\",\"link\":\"https://www.zhihu.com/pin/2052181586884482580\",\"description\":\"#落子无悔 <br>道家顶级心态：“人生如棋，落子无悔。”<br>世人总困在过往，反复回想“如果当初”，道家一句人生如棋，点破所有内耗。<br>黑白棋盘，恰似人间阴阳，每一步落子，便是一次选择，棋子离手，再无反悔余地。<br>道德经讲道法自然，万事自有因果，你当年的抉择，已是彼时认知里最好的答案，没有绝对对错，只有必经修行。<br>不必执念一步得失，不必纠结一时输赢，棋局没有常胜之人，人生亦无完美之路。<br>错步不追，残局不怨，不沉湎遗憾，不幻想重来。<br>所谓落子无悔，不是放任莽撞，而是接纳所有过往，顺势走好眼下每一步。<br>看淡棋盘纷争，放下心中执念，得失随缘，心无挂碍，方是道家自在心境。 <a href=\\\"http://link.zhihu.com/?target=http%3A//t.cn/AXS2AIHx\\\" class=\\\" external\\\" target=\\\"_blank\\\" rel=\\\"nofollow noreferrer\\\"><span class=\\\"invisible\\\">http://</span><span class=\\\"visible\\\">t.cn/AXS2AIHx</span><span class=\\\"invisible\\\"></span></a>\",\"content\":\"<p>#落子无悔 &lt;br&gt;道家顶级心态：“人生如棋，落子无悔。”&lt;br&gt;世人总困在过往，反复回想“如果当初”，道家一句人生如棋，点破所有内耗。&lt;br&gt;黑白棋盘，恰似人间阴阳，每一步落子，便是一次选择，棋子离手，再无反悔余地。&lt;br&gt;道德经讲道法自然，万事自有因果，你当年的抉择，已是彼时认知里最好的答案，没有绝对对错，只有必经修行。&lt;br&gt;不必执念一步得失，不必纠结一时输赢，棋局没有常胜之人，人生亦无完美之路。&lt;br&gt;错步不追，残局不怨，不沉湎遗憾，不幻想重来。&lt;br&gt;所谓落子无悔，不是放任莽撞，而是接纳所有过往，顺势走好眼下每一步。&lt;br&gt;看淡棋盘纷争，放下心中执念，得失随缘，心无挂碍，方是道家自在心境。 &lt;a href=&quot;http://link.zhihu.com/?target=http%3A//t.cn/AXS2AIHx&quot; class=&quot; external&quot; target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;span class=&quot;invisible&quot;&gt;http://&lt;/span&gt;&lt;span class=&quot;visible&quot;&gt;t.cn/AXS2AIHx&lt;/span&gt;&lt;span class=&quot;invisible&quot;&gt;&lt;/span&gt;&lt;/a&gt;</p><p><img src=\\\"https://pic3.zhimg.com/50/v2-eb83cec5a9ffb6e994e2baf78ab334f0_qhd.jpg\\\"></p>\",\"image\":\"https://pic3.zhimg.com/50/v2-eb83cec5a9ffb6e994e2baf78ab334f0_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-21T16:10:17.000Z\",\"updated\":\"2026-06-21T16:10:17.000Z\"},{\"id\":\"zhihu:pin:2050709597694980203\",\"title\":\"#2026高考收官 # 2026高考 #2026高考查分…\",\"link\":\"https://www.zhihu.com/pin/2050709597694980203\",\"description\":\"<a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%232026%E9%AB%98%E8%80%83%E6%94%B6%E5%AE%98+%23\\\">#2026高考收官 #</a>2026高考 #2026高考查分  <br>十年寒窗无人问，一举成名天下知。<br>自古文昌主文运，魁星掌功名。<br>一卷《金榜诀》，涤荡心中焦躁，开启灵台慧光。<br>文光冲破迷雾天门，墨香渡过人海书山；麒麟载万卷典籍踏云而至，魁星持朱笔点下榜上姓名。<br>寒窗数十载，以德行作舟，以才学为薪，熬过漫漫长夜，终见繁花盛开。<br>愿所有伏案苦读之人，放下忐忑杂念，心神安宁通透，如锦鲤乘风，一跃金榜，摘得蟾宫桂枝，前程万里青云直上。<br>心诚诵此诀，智慧自开明，逢考皆顺遂，一举夺魁名。 <a href=\\\"http://link.zhihu.com/?target=http%3A//t.cn/AXaQpwdA\\\" class=\\\" external\\\" target=\\\"_blank\\\" rel=\\\"nofollow noreferrer\\\"><span class=\\\"invisible\\\">http://</span><span class=\\\"visible\\\">t.cn/AXaQpwdA</span><span class=\\\"invisible\\\"></span></a>\",\"content\":\"<p>&lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%232026%E9%AB%98%E8%80%83%E6%94%B6%E5%AE%98+%23&quot;&gt;#2026高考收官 #&lt;/a&gt;2026高考 #2026高考查分  &lt;br&gt;十年寒窗无人问，一举成名天下知。&lt;br&gt;自古文昌主文运，魁星掌功名。&lt;br&gt;一卷《金榜诀》，涤荡心中焦躁，开启灵台慧光。&lt;br&gt;文光冲破迷雾天门，墨香渡过人海书山；麒麟载万卷典籍踏云而至，魁星持朱笔点下榜上姓名。&lt;br&gt;寒窗数十载，以德行作舟，以才学为薪，熬过漫漫长夜，终见繁花盛开。&lt;br&gt;愿所有伏案苦读之人，放下忐忑杂念，心神安宁通透，如锦鲤乘风，一跃金榜，摘得蟾宫桂枝，前程万里青云直上。&lt;br&gt;心诚诵此诀，智慧自开明，逢考皆顺遂，一举夺魁名。 &lt;a href=&quot;http://link.zhihu.com/?target=http%3A//t.cn/AXaQpwdA&quot; class=&quot; external&quot; target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;span class=&quot;invisible&quot;&gt;http://&lt;/span&gt;&lt;span class=&quot;visible&quot;&gt;t.cn/AXaQpwdA&lt;/span&gt;&lt;span class=&quot;invisible&quot;&gt;&lt;/span&gt;&lt;/a&gt;</p><p><img src=\\\"https://pic4.zhimg.com/50/v2-cb82b31c717e69e78d1e5ebf2a668a92_qhd.jpg\\\"></p>\",\"image\":\"https://pic4.zhimg.com/50/v2-cb82b31c717e69e78d1e5ebf2a668a92_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-17T14:41:08.000Z\",\"updated\":\"2026-06-17T14:41:08.000Z\"},{\"id\":\"zhihu:pin:2050482931005657609\",\"title\":\"#清静经 太上老君说常清静经 老君曰：大…\",\"link\":\"https://www.zhihu.com/pin/2050482931005657609\",\"description\":\"#清静经 <br>太上老君说常清静经<br>老君曰：大道无形，生育天地；大道无情，运行日月；大道无名，长养万物；吾不知其名，强名曰道。夫道者：有清有浊，有动有静；天清地浊，天动地静；男清女浊，男动女静；降本流末，而生万物。清者，浊之源，动者，静之基；人能常清静，天地悉皆归。<br>夫人神好清，而心扰之；人心好静，而欲牵之。常能遣其欲，而心自静；澄其心，而神自清；自然六欲不生，三毒消灭。所以不能者，为心未澄，欲未遣也；能遣之者：内观其心，心无其心；外观其形，形无其形；远观其物，物无其物；三者既悟，唯见于空。观空亦空，空无所空；所空既无，无无亦无；无无既无，湛然常寂。寂无所寂，欲岂能生；欲既不生，即是真静。真常应物，真常得性；常应常静，常清静矣。如此清静，渐入真道；既入真道，名为得道；虽名得道，实无所得；为化众生，名为得道；能悟之者，可传圣道。<br>老君曰：上士无争，下士好争；上德不德，下德执德；执著之者，不名道德。众生所以不得真道者，为有妄心；既有妄心，即惊其神；既惊其神，即著万物；既著万物，即生贪求；既生贪求，即是烦恼；烦恼妄想，忧苦身心；便遭浊辱，流浪生死；常沉苦海，永失真道。真常之道，悟者自得；得悟道者，常清静矣！ <a href=\\\"http://link.zhihu.com/?target=http%3A//t.cn/AXaWSn8h\\\" class=\\\" external\\\" target=\\\"_blank\\\" rel=\\\"nofollow noreferrer\\\"><span class=\\\"invisible\\\">http://</span><span class=\\\"visible\\\">t.cn/AXaWSn8h</span><span class=\\\"invisible\\\"></span></a>\",\"content\":\"<p>#清静经 &lt;br&gt;太上老君说常清静经&lt;br&gt;老君曰：大道无形，生育天地；大道无情，运行日月；大道无名，长养万物；吾不知其名，强名曰道。夫道者：有清有浊，有动有静；天清地浊，天动地静；男清女浊，男动女静；降本流末，而生万物。清者，浊之源，动者，静之基；人能常清静，天地悉皆归。&lt;br&gt;夫人神好清，而心扰之；人心好静，而欲牵之。常能遣其欲，而心自静；澄其心，而神自清；自然六欲不生，三毒消灭。所以不能者，为心未澄，欲未遣也；能遣之者：内观其心，心无其心；外观其形，形无其形；远观其物，物无其物；三者既悟，唯见于空。观空亦空，空无所空；所空既无，无无亦无；无无既无，湛然常寂。寂无所寂，欲岂能生；欲既不生，即是真静。真常应物，真常得性；常应常静，常清静矣。如此清静，渐入真道；既入真道，名为得道；虽名得道，实无所得；为化众生，名为得道；能悟之者，可传圣道。&lt;br&gt;老君曰：上士无争，下士好争；上德不德，下德执德；执著之者，不名道德。众生所以不得真道者，为有妄心；既有妄心，即惊其神；既惊其神，即著万物；既著万物，即生贪求；既生贪求，即是烦恼；烦恼妄想，忧苦身心；便遭浊辱，流浪生死；常沉苦海，永失真道。真常之道，悟者自得；得悟道者，常清静矣！ &lt;a href=&quot;http://link.zhihu.com/?target=http%3A//t.cn/AXaWSn8h&quot; class=&quot; external&quot; target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;span class=&quot;invisible&quot;&gt;http://&lt;/span&gt;&lt;span class=&quot;visible&quot;&gt;t.cn/AXaWSn8h&lt;/span&gt;&lt;span class=&quot;invisible&quot;&gt;&lt;/span&gt;&lt;/a&gt;</p><p><img src=\\\"https://pic2.zhimg.com/50/v2-1d361f8778ab3fee60d186444412b4ba_qhd.jpg\\\"></p>\",\"image\":\"https://pic2.zhimg.com/50/v2-1d361f8778ab3fee60d186444412b4ba_qhd.jpg\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-16T23:40:26.000Z\",\"updated\":\"2026-06-16T23:40:26.000Z\"},{\"id\":\"zhihu:pin:2050125644483260905\",\"title\":\"初念如星，指引前行\",\"link\":\"https://www.zhihu.com/pin/2050125644483260905\",\"description\":\"初念如星，指引前行。越千山、风雨兼程。尘嚣过眼，未改峥嵘。历几分寒，几分苦，几分惊。志坚如铁，抵御飘零。纵沧桑、岁月无情。此心依旧，步履轻盈。愿途悠远，行恒久，守常宁。<a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/pin/special/934458980810555392\\\">#道教#</a> <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/search?q=%23%E6%9C%AF%E4%B8%8E%E9%81%93%23\\\">#术与道#</a> <a class=\\\"hash_tag\\\" href=\\\"https://www.zhihu.com/pin/special/1374808530285916160\\\">#道家思想#</a>\",\"content\":\"<p>初念如星，指引前行。越千山、风雨兼程。尘嚣过眼，未改峥嵘。历几分寒，几分苦，几分惊。志坚如铁，抵御飘零。纵沧桑、岁月无情。此心依旧，步履轻盈。愿途悠远，行恒久，守常宁。&lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/pin/special/934458980810555392&quot;&gt;#道教#&lt;/a&gt; &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/search?q=%23%E6%9C%AF%E4%B8%8E%E9%81%93%23&quot;&gt;#术与道#&lt;/a&gt; &lt;a class=&quot;hash_tag&quot; href=&quot;https://www.zhihu.com/pin/special/1374808530285916160&quot;&gt;#道家思想#&lt;/a&gt;</p>\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-16T00:07:07.000Z\",\"updated\":\"2026-06-16T00:07:07.000Z\"},{\"id\":\"zhihu:pin:2049426706281374348\",\"title\":\"两百年光阴流转，昔日切磋武艺的同门再度…\",\"link\":\"https://www.zhihu.com/pin/2049426706281374348\",\"description\":\"两百年光阴流转，昔日切磋武艺的同门再度相见。指尖夹住枪尖的一瞬，镜头一转，少年早已满头华发。这便是凡人的宿命，纵有长生大道，也留不住年少相逢。\",\"content\":\"<p>两百年光阴流转，昔日切磋武艺的同门再度相见。指尖夹住枪尖的一瞬，镜头一转，少年早已满头华发。这便是凡人的宿命，纵有长生大道，也留不住年少相逢。</p>\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-14T01:45:15.000Z\",\"updated\":\"2026-06-14T01:45:15.000Z\"},{\"id\":\"zhihu:pin:2049427141046040182\",\"title\":\"老师好\",\"link\":\"https://www.zhihu.com/pin/2049427141046040182\",\"description\":\"老师好\",\"content\":\"<p>老师好</p>\",\"author\":{\"name\":\"潇湘夜雨\",\"uri\":\"https://www.zhihu.com/people/TonyVolcano\"},\"published\":\"2026-06-14T01:45:06.000Z\",\"updated\":\"2026-06-14T01:45:06.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 2169,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 2169
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 2169,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2169,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 2169,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 2169,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 2169,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 2169
+        }
+      ]
+    }
+  }
 }

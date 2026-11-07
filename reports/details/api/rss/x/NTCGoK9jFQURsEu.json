@@ -1,20 +1,253 @@
 {
-  "checked_at": "2026-11-06T19:36:03.196Z",
+  "checked_at": "2026-11-07T06:17:36.391Z",
   "inspection": {
     "file": "rss/x.js",
     "path": "/api/rss/x/:username",
     "example": "/api/rss/x/NTCGoK9jFQURsEu",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/x/NTCGoK9jFQURsEu.json",
+    "duration_ms": 1523
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60002
+    "status": 200,
+    "duration_ms": 933
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/x.js",
+      "name": "X 用户作品",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/x/:username",
+      "request_path": "/api/rss/x/:username",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/x/NTCGoK9jFQURsEu",
+      "params": {
+        "username": "NTCGoK9jFQURsEu"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56a37428b28c15a"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 755,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://x.com/NTCGoK9jFQURsEu",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/NTCGoK9jFQURsEu",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 0,
+        "duration_ms": 176,
+        "timings": {
+          "response_ms": 123,
+          "body_read_ms": 53,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://abs.twimg.com/responsive-web/client-web/main.ea87d697a9912cc9a.js",
+        "method": "GET",
+        "host": "abs.twimg.com",
+        "pathname": "/responsive-web/client-web/main.ea87d697a9912cc9a.js",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 176,
+        "duration_ms": 13,
+        "timings": {
+          "response_ms": 8,
+          "body_read_ms": 5,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName?variables=%7B%22screen_name%22%3A%22NTCGoK9jFQURsEu%22%2C%22withSafetyModeUserFields%22%3Atrue%7D&features=%7B%22hidden_profile_subscriptions_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22subscriptions_verification_info_is_identity_verified_enabled%22%3Afalse%2C%22subscriptions_verification_info_verified_since_enabled%22%3Afalse%2C%22highlights_tweets_tab_ui_enabled%22%3Afalse%2C%22responsive_web_twitter_article_notes_tab_enabled%22%3Afalse%2C%22subscriptions_feature_can_gift_premium%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withAuxiliaryUserLabels%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 189,
+        "duration_ms": 85,
+        "timings": {
+          "response_ms": 85,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets?variables=%7B%22userId%22%3A%221452097352735477762%22%2C%22count%22%3A20%2C%22includePromotedContent%22%3Afalse%2C%22withQuickPromoteEligibilityTweetFields%22%3Atrue%2C%22withVoice%22%3Atrue%7D&features=%7B%22rweb_video_screen_enabled%22%3Atrue%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_enhance_cards_enabled%22%3Afalse%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 274,
+        "duration_ms": 481,
+        "timings": {
+          "response_ms": 480,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"x:user:1452097352735477762\",\"title\":\"K-pop GIF Archive 的 X 作品\",\"link\":\"https://x.com/NTCGoK9jFQURsEu\",\"description\":\"English : https://t.co/zsVAvVVfbv\\n日本語 : https://t.co/yCGWGbIp7x\\nBahasa Indonesia: https://t.co/0p7bEdCMiN\",\"language\":\"\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"tags\":[\"X\"]},\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"image\":\"https://pbs.twimg.com/profile_images/1452097406099619844/dWUpEMPR_normal.jpg\",\"updated\":\"2026-11-04T09:01:23.000Z\",\"items\":[{\"id\":\"x:tweet:2117905033492869457\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/wVXDZWCI4i\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117905033492869457\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/wVXDZWCI4i\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117820369281384448/img/O791J5efq3lc733X.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117820369281384448/vid/avc1/1072x1632/hfl7jmdKpYS_j5m7.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T09:01:23.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2117820395923665003\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117820395923665003\",\"item\":{\"id\":\"x:tweet:2117820395923665003\",\"title\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117820395923665003\",\"description\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117820369281384448/img/O791J5efq3lc733X.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117820369281384448/vid/avc1/1072x1632/hfl7jmdKpYS_j5m7.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T03:25:04.000Z\"}}]},{\"id\":\"x:tweet:2117820395923665003\",\"title\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117820395923665003\",\"description\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117820369281384448/img/O791J5efq3lc733X.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117820369281384448/vid/avc1/1072x1632/hfl7jmdKpYS_j5m7.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T03:25:04.000Z\"},{\"id\":\"x:tweet:2117778744584892784\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/B6gbjfK2K1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778744584892784\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/B6gbjfK2K1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108614289980624896/img/VzSpQGG-kxxEiqJw.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108614289980624896/vid/avc1/720x1280/kL4jzraJ1b0Nzdgt.mp4?tag=14\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:33.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2108614416585605534\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108614416585605534\",\"item\":{\"id\":\"x:tweet:2108614416585605534\",\"title\":\"#kpopedit #fancam https://t.co/B6gbjfK2K1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108614416585605534\",\"description\":\"#kpopedit #fancam https://t.co/B6gbjfK2K1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108614289980624896/img/VzSpQGG-kxxEiqJw.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108614289980624896/vid/avc1/720x1280/kL4jzraJ1b0Nzdgt.mp4?tag=14\",\"type\":\"video/mp4\"},\"published\":\"2026-10-09T17:43:47.000Z\"}}]},{\"id\":\"x:tweet:2117778730223620589\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/MSi1ndOvL1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778730223620589\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/MSi1ndOvL1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108987815904342016/img/DCx5yebMi7YVtSHb.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108987815904342016/vid/avc1/1080x1920/9TvkN4YVSJwbg-Kt.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:30.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2108987853086818652\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108987853086818652\",\"item\":{\"id\":\"x:tweet:2108987853086818652\",\"title\":\"#kpopedit #fancam https://t.co/MSi1ndOvL1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108987853086818652\",\"description\":\"#kpopedit #fancam https://t.co/MSi1ndOvL1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108987815904342016/img/DCx5yebMi7YVtSHb.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108987815904342016/vid/avc1/1080x1920/9TvkN4YVSJwbg-Kt.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-10T18:27:41.000Z\"}}]},{\"id\":\"x:tweet:2117778710271279467\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/4X8XfxvPTu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778710271279467\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/4X8XfxvPTu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109286941174976512/img/U1f-Uu_epolfyjcG.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109286941174976512/vid/avc1/1192x1920/E2KEva7eJyatAhMx.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:25.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109287290522800143\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109287290522800143\",\"item\":{\"id\":\"x:tweet:2109287290522800143\",\"title\":\"#kpopedit #fancam https://t.co/4X8XfxvPTu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109287290522800143\",\"description\":\"#kpopedit #fancam https://t.co/4X8XfxvPTu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109286941174976512/img/U1f-Uu_epolfyjcG.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109286941174976512/vid/avc1/1192x1920/E2KEva7eJyatAhMx.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-11T14:17:33.000Z\"}}]},{\"id\":\"x:tweet:2117778703673696535\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/wlXmGiX1DF\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778703673696535\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/wlXmGiX1DF\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109405384045965312/img/f5eyTRQ_mBtooWcN.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109405384045965312/vid/avc1/1080x1920/lQ9u_9Sb_p-3AeG9.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:24.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109405536718614986\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109405536718614986\",\"item\":{\"id\":\"x:tweet:2109405536718614986\",\"title\":\"#kpopedit #fancam https://t.co/wlXmGiX1DF\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109405536718614986\",\"description\":\"#kpopedit #fancam https://t.co/wlXmGiX1DF\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109405384045965312/img/f5eyTRQ_mBtooWcN.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109405384045965312/vid/avc1/1080x1920/lQ9u_9Sb_p-3AeG9.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-11T22:07:25.000Z\"}}]},{\"id\":\"x:tweet:2117778695582777655\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xiVWoemuYu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778695582777655\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xiVWoemuYu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109464596981637120/img/I-46eTUek-2pDQG6.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109464596981637120/vid/avc1/1080x1920/jcG6-R-G_Kc4SMVe.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:22.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109464804700340651\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109464804700340651\",\"item\":{\"id\":\"x:tweet:2109464804700340651\",\"title\":\"#kpopedit #fancam https://t.co/xiVWoemuYu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109464804700340651\",\"description\":\"#kpopedit #fancam https://t.co/xiVWoemuYu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109464596981637120/img/I-46eTUek-2pDQG6.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109464596981637120/vid/avc1/1080x1920/jcG6-R-G_Kc4SMVe.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-12T02:02:56.000Z\"}}]},{\"id\":\"x:tweet:2117778674955255849\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xRp1u7kAwo\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778674955255849\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xRp1u7kAwo\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109767601777979392/img/0VWgH63ho1FVasI2.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109767601777979392/vid/avc1/2160x3840/-WJYh5pVAb-IaClQ.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:17.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109768334820720661\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109768334820720661\",\"item\":{\"id\":\"x:tweet:2109768334820720661\",\"title\":\"#kpopedit #fancam https://t.co/xRp1u7kAwo\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109768334820720661\",\"description\":\"#kpopedit #fancam https://t.co/xRp1u7kAwo\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109767601777979392/img/0VWgH63ho1FVasI2.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109767601777979392/vid/avc1/2160x3840/-WJYh5pVAb-IaClQ.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-12T22:09:03.000Z\"}}]},{\"id\":\"x:tweet:2117778667191533988\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/efoUt6dghM\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778667191533988\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/efoUt6dghM\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109828076649783297/img/5lCD_dz1mAQF0lXU.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109828076649783297/vid/avc1/1536x1920/1s3OKHeZhwbG6UAn.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:15.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109828406133342254\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109828406133342254\",\"item\":{\"id\":\"x:tweet:2109828406133342254\",\"title\":\"#kpopedit #fancam https://t.co/efoUt6dghM\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109828406133342254\",\"description\":\"#kpopedit #fancam https://t.co/efoUt6dghM\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109828076649783297/img/5lCD_dz1mAQF0lXU.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109828076649783297/vid/avc1/1536x1920/1s3OKHeZhwbG6UAn.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-13T02:07:45.000Z\"}}]},{\"id\":\"x:tweet:2117778659780247773\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/6Jrj7oukAw\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778659780247773\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/6Jrj7oukAw\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109887947365560320/img/upRY5RXDSpxsgWL1.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109887947365560320/vid/avc1/1080x1920/QsyN2frM9Ts0I2qm.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:13.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109888196016492687\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109888196016492687\",\"item\":{\"id\":\"x:tweet:2109888196016492687\",\"title\":\"#kpopedit #fancam https://t.co/6Jrj7oukAw\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109888196016492687\",\"description\":\"#kpopedit #fancam https://t.co/6Jrj7oukAw\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109887947365560320/img/upRY5RXDSpxsgWL1.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109887947365560320/vid/avc1/1080x1920/QsyN2frM9Ts0I2qm.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-13T06:05:20.000Z\"}}]},{\"id\":\"x:tweet:2117778651991445946\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/vRyqqomFsX\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778651991445946\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/vRyqqomFsX\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109950164572262400/img/UewCY4QYzu_Yp3fg.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109950164572262400/vid/avc1/1080x1920/vr-7Ig_E36uHoBWw.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:11.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109950271334019486\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109950271334019486\",\"item\":{\"id\":\"x:tweet:2109950271334019486\",\"title\":\"#kpopedit #fancam https://t.co/vRyqqomFsX\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109950271334019486\",\"description\":\"#kpopedit #fancam https://t.co/vRyqqomFsX\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109950164572262400/img/UewCY4QYzu_Yp3fg.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109950164572262400/vid/avc1/1080x1920/vr-7Ig_E36uHoBWw.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-13T10:12:00.000Z\"}}]},{\"id\":\"x:tweet:2117778643921625321\",\"title\":\"RT @NTCGoK9jFQURsEu: #KimChaewon #LE_SSERAFIM #kpopedt #fancam https://t.co/3YEukGvv55\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778643921625321\",\"description\":\"RT @NTCGoK9jFQURsEu: #KimChaewon #LE_SSERAFIM #kpopedt #fancam https://t.co/3YEukGvv55\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110010448036945920/img/raL864udY9ZRy2Tr.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110010448036945920/vid/avc1/1080x1920/X8TMHWtyP4LGeCrV.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:09.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2110014585696919715\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110014585696919715\",\"item\":{\"id\":\"x:tweet:2110014585696919715\",\"title\":\"#KimChaewon #LE_SSERAFIM #kpopedt #fancam https://t.co/3YEukGvv55\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110014585696919715\",\"description\":\"#KimChaewon #LE_SSERAFIM #kpopedt #fancam https://t.co/3YEukGvv55\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110010448036945920/img/raL864udY9ZRy2Tr.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110010448036945920/vid/avc1/1080x1920/X8TMHWtyP4LGeCrV.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-13T14:27:34.000Z\"}}]},{\"id\":\"x:tweet:2117778635889528874\",\"title\":\"RT @NTCGoK9jFQURsEu: #Nagyung #fromis_9 #kpopedt #fancam https://t.co/aT4vtaEeuT\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778635889528874\",\"description\":\"RT @NTCGoK9jFQURsEu: #Nagyung #fromis_9 #kpopedt #fancam https://t.co/aT4vtaEeuT\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110131123250708480/img/KxX7og8qsNEo0gXq.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110131123250708480/vid/avc1/1080x1504/9IVIlTw4FkeoGPSo.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:07.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2110131326296998322\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110131326296998322\",\"item\":{\"id\":\"x:tweet:2110131326296998322\",\"title\":\"#Nagyung #fromis_9 #kpopedt #fancam https://t.co/aT4vtaEeuT\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110131326296998322\",\"description\":\"#Nagyung #fromis_9 #kpopedt #fancam https://t.co/aT4vtaEeuT\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110131123250708480/img/KxX7og8qsNEo0gXq.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110131123250708480/vid/avc1/1080x1504/9IVIlTw4FkeoGPSo.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-13T22:11:27.000Z\"}}]},{\"id\":\"x:tweet:2117778628440387990\",\"title\":\"RT @NTCGoK9jFQURsEu: #HuhYunjin #LE_SSERAFIM #kpopedt #fancam https://t.co/Y2uBWRgtRA\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778628440387990\",\"description\":\"RT @NTCGoK9jFQURsEu: #HuhYunjin #LE_SSERAFIM #kpopedt #fancam https://t.co/Y2uBWRgtRA\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110191498721689600/img/v6aGu4DjMEt4hy2O.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110191498721689600/vid/avc1/1128x1920/PKIM5TSjnikG4Xsg.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:06.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2110191670105149690\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110191670105149690\",\"item\":{\"id\":\"x:tweet:2110191670105149690\",\"title\":\"#HuhYunjin #LE_SSERAFIM #kpopedt #fancam https://t.co/Y2uBWRgtRA\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110191670105149690\",\"description\":\"#HuhYunjin #LE_SSERAFIM #kpopedt #fancam https://t.co/Y2uBWRgtRA\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110191498721689600/img/v6aGu4DjMEt4hy2O.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110191498721689600/vid/avc1/1128x1920/PKIM5TSjnikG4Xsg.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-14T02:11:14.000Z\"}}]},{\"id\":\"x:tweet:2117778619976364215\",\"title\":\"RT @NTCGoK9jFQURsEu: #Yel #H1KEY #kpopedt #fancam https://t.co/BNLD8BAC7M\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778619976364215\",\"description\":\"RT @NTCGoK9jFQURsEu: #Yel #H1KEY #kpopedt #fancam https://t.co/BNLD8BAC7M\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110251041765908480/img/u8f-A1I8YHZyHigK.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110251041765908480/vid/avc1/1080x1920/FSQLfHpHqJkB9nun.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:04.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2110251366560182391\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110251366560182391\",\"item\":{\"id\":\"x:tweet:2110251366560182391\",\"title\":\"#Yel #H1KEY #kpopedt #fancam https://t.co/BNLD8BAC7M\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110251366560182391\",\"description\":\"#Yel #H1KEY #kpopedt #fancam https://t.co/BNLD8BAC7M\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110251041765908480/img/u8f-A1I8YHZyHigK.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110251041765908480/vid/avc1/1080x1920/FSQLfHpHqJkB9nun.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-14T06:08:27.000Z\"}}]},{\"id\":\"x:tweet:2117778611516354641\",\"title\":\"RT @NTCGoK9jFQURsEu: #LeeChaeyoung #fromis_9 #kpopedt #fancam https://t.co/gfBKNpJOYH\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778611516354641\",\"description\":\"RT @NTCGoK9jFQURsEu: #LeeChaeyoung #fromis_9 #kpopedt #fancam https://t.co/gfBKNpJOYH\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110312763411300352/img/d4TWXCZHJmiHTxRR.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110312763411300352/vid/avc1/1624x1920/-8u8YzVAKMy91TgO.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:02.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2110312928805306696\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110312928805306696\",\"item\":{\"id\":\"x:tweet:2110312928805306696\",\"title\":\"#LeeChaeyoung #fromis_9 #kpopedt #fancam https://t.co/gfBKNpJOYH\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110312928805306696\",\"description\":\"#LeeChaeyoung #fromis_9 #kpopedt #fancam https://t.co/gfBKNpJOYH\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110312763411300352/img/d4TWXCZHJmiHTxRR.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110312763411300352/vid/avc1/1624x1920/-8u8YzVAKMy91TgO.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-14T10:13:04.000Z\"}}]},{\"id\":\"x:tweet:2117778603920511047\",\"title\":\"RT @NTCGoK9jFQURsEu: #Leesol #KiiiKiii #kpopedt #fancam https://t.co/B9LpCUS3wd\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778603920511047\",\"description\":\"RT @NTCGoK9jFQURsEu: #Leesol #KiiiKiii #kpopedt #fancam https://t.co/B9LpCUS3wd\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110371906268561408/img/GXy9ZZ_A5uds3fBO.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110371906268561408/vid/avc1/1080x1920/DBcBb3QnTNSLgWej.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:00.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2110373217479401599\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110373217479401599\",\"item\":{\"id\":\"x:tweet:2110373217479401599\",\"title\":\"#Leesol #KiiiKiii #kpopedt #fancam https://t.co/B9LpCUS3wd\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110373217479401599\",\"description\":\"#Leesol #KiiiKiii #kpopedt #fancam https://t.co/B9LpCUS3wd\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110371906268561408/img/GXy9ZZ_A5uds3fBO.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110371906268561408/vid/avc1/1080x1920/DBcBb3QnTNSLgWej.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-14T14:12:38.000Z\"}}]},{\"id\":\"x:tweet:2117778595120853332\",\"title\":\"RT @NTCGoK9jFQURsEu: #KimChaeYeon #tripleS #kpopedt #fancam https://t.co/FuLFHkUlI9\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778595120853332\",\"description\":\"RT @NTCGoK9jFQURsEu: #KimChaeYeon #tripleS #kpopedt #fancam https://t.co/FuLFHkUlI9\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110674569166221315/img/dx_PqoGsHQ3ueeqi.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110674569166221315/vid/avc1/1080x1728/AkSOawuIsrW30awF.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:38:58.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2110674752277008760\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110674752277008760\",\"item\":{\"id\":\"x:tweet:2110674752277008760\",\"title\":\"#KimChaeYeon #tripleS #kpopedt #fancam https://t.co/FuLFHkUlI9\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2110674752277008760\",\"description\":\"#KimChaeYeon #tripleS #kpopedt #fancam https://t.co/FuLFHkUlI9\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2110674569166221315/img/dx_PqoGsHQ3ueeqi.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2110674569166221315/vid/avc1/1080x1728/AkSOawuIsrW30awF.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-15T10:10:50.000Z\"}}]},{\"id\":\"x:tweet:2117778580717638027\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedt #fancam #H1KEY #Yel https://t.co/GOOy4288NH\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778580717638027\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedt #fancam #H1KEY #Yel https://t.co/GOOy4288NH\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2111000999989297152/img/e0x5bBuwx_pP1A3e.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2111000999989297152/vid/avc1/1080x1920/_1_KlDAbvChWYFeN.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:38:54.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2111001154784243830\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2111001154784243830\",\"item\":{\"id\":\"x:tweet:2111001154784243830\",\"title\":\"#kpopedt #fancam #H1KEY #Yel https://t.co/GOOy4288NH\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2111001154784243830\",\"description\":\"#kpopedt #fancam #H1KEY #Yel https://t.co/GOOy4288NH\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2111000999989297152/img/e0x5bBuwx_pP1A3e.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2111000999989297152/vid/avc1/1080x1920/_1_KlDAbvChWYFeN.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-16T07:47:50.000Z\"}}]},{\"id\":\"x:tweet:2117778572874219987\",\"title\":\"RT @NTCGoK9jFQURsEu: #Chuu #kpopedt #fancam https://t.co/LRUDCjaPkz\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778572874219987\",\"description\":\"RT @NTCGoK9jFQURsEu: #Chuu #kpopedt #fancam https://t.co/LRUDCjaPkz\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2111629568167804928/img/y95Lf9SIDBjBI11E.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2111629568167804928/vid/avc1/2160x3840/k0KqiDoHeA-Z5KCr.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:38:52.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2111629835248480449\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2111629835248480449\",\"item\":{\"id\":\"x:tweet:2111629835248480449\",\"title\":\"#Chuu #kpopedt #fancam https://t.co/LRUDCjaPkz\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2111629835248480449\",\"description\":\"#Chuu #kpopedt #fancam https://t.co/LRUDCjaPkz\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2111629568167804928/img/y95Lf9SIDBjBI11E.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K-pop GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2111629568167804928/vid/avc1/2160x3840/k0KqiDoHeA-Z5KCr.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-18T01:25:59.000Z\"}}]}]}",
+    "timing": {
+      "elapsed_ms": 755,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 755
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 755,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 755,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 755,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 755,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 755,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 176
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 176,
+          "duration_ms": 13
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 189,
+          "duration_ms": 85
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 274,
+          "duration_ms": 481
+        }
+      ]
+    }
+  }
 }

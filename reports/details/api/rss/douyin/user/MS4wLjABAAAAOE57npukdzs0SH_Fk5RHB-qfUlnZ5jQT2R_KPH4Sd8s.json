@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T19:34:58.535Z",
+  "checked_at": "2026-11-07T06:16:56.056Z",
   "inspection": {
     "file": "rss/douyin.js",
     "path": "/api/rss/douyin/user/:sec_uid",
@@ -9,15 +9,129 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 4081
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 218
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 61
+    "status": 502,
+    "duration_ms": 10038
   },
-  "debug": null
+  "debug": {
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "script": {
+      "file": "rss/douyin.js",
+      "name": "抖音作者作品",
+      "kind": "rss",
+      "version": "1.1.1",
+      "path": "/douyin/user/:sec_uid",
+      "request_path": "/api/rss/douyin/user/:sec_uid",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/douyin/user/MS4wLjABAAAAOE57npukdzs0SH_Fk5RHB-qfUlnZ5jQT2R_KPH4Sd8s",
+      "params": {
+        "sec_uid": "MS4wLjABAAAAOE57npukdzs0SH_Fk5RHB-qfUlnZ5jQT2R_KPH4Sd8s"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56a36466cd0f03e"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 10008,
+    "invoked": false,
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：抖音作品接口请求失败：The operation was aborted due to timeout；请在 Cookie 管理同步有效的 .douyin.com Cookie，检查登录状态及上游风控。",
+    "error_text": "脚本执行失败：抖音作品接口请求失败：The operation was aborted due to timeout；请在 Cookie 管理同步有效的 .douyin.com Cookie，检查登录状态及上游风控。\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:120:26)",
+    "lines": [],
+    "upstream_requests": [],
+    "timing": {
+      "elapsed_ms": 10008,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 8
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 8,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 8,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 8,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 8,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 8,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 8,
+          "duration_ms": 10000
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 10008,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 10008,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 10008,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 10008,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 8,
+          "duration_ms": 10000
+        }
+      ]
+    }
+  }
 }

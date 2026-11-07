@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T19:34:33.031Z",
+  "checked_at": "2026-11-07T06:16:28.042Z",
   "inspection": {
     "file": "hot/dailymotion.js",
     "path": "/api/hot/dailymotion/videos/:country?",
@@ -11,12 +11,157 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/dailymotion/videos/us.json",
-    "duration_ms": 539
+    "duration_ms": 298
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 488
+    "status": 200,
+    "duration_ms": 300
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/dailymotion.js",
+      "name": "Dailymotion · 热门视频",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/dailymotion/videos/:country?",
+      "request_path": "/api/hot/dailymotion/videos/:country?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/dailymotion/videos/us",
+      "params": {
+        "country": "us"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56a35975b7c600c"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 214,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api.dailymotion.com/videos?sort=trending&fields=id,title,url,thumbnail_240_url,views_total&limit=30&country=us",
+        "method": "GET",
+        "host": "api.dailymotion.com",
+        "pathname": "/videos",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 214,
+        "timings": {
+          "response_ms": 214,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Dailymotion · US · 热门视频\",\"link\":\"https://www.dailymotion.com/\",\"category\":\"视频\",\"observed_at\":\"2026-11-07T06:16:28.270Z\",\"entries\":[{\"id\":\"dailymotion:xbt85ta\",\"title\":\"Sold to the Alpha Who Swore to Kill Me (Full Episodes) - Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbt85ta\",\"thumbnail\":\"https://s1.dmcdn.net/v/gaXXk1gxO1bAOw_9t/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27677,\"unit\":\"累计播放\",\"text\":\"27677\"}},{\"id\":\"dailymotion:xbti6ay\",\"title\":\"Undead and Overpowered | Full Series | Short Drama English\",\"link\":\"https://www.dailymotion.com/video/xbti6ay\",\"thumbnail\":\"https://s2.dmcdn.net/v/gcJbg1gx74BVaRVXJ/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21951,\"unit\":\"累计播放\",\"text\":\"21951\"}},{\"id\":\"dailymotion:xbsxrpa\",\"title\":\"The Mermaid's Tear - Short Drama Full HD 720p\",\"link\":\"https://www.dailymotion.com/video/xbsxrpa\",\"thumbnail\":\"https://s1.dmcdn.net/v/gYh9-1gwmtz_tHnxO/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":25484,\"unit\":\"累计播放\",\"text\":\"25484\"}},{\"id\":\"dailymotion:xbtytl2\",\"title\":\"The Substitute Bride Conquers the Mafia Don Episode 1 - Free Streaming_2 | Full Short Drama | English Sub 2026\",\"link\":\"https://www.dailymotion.com/video/xbtytl2\",\"thumbnail\":\"https://s2.dmcdn.net/v/gfHD61gxMbkEuKgzN/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8847,\"unit\":\"累计播放\",\"text\":\"8847\"}},{\"id\":\"dailymotion:xbtjwvi\",\"title\":\"The Bride They Gave the Beast | Short Drama Full HD 720p\",\"link\":\"https://www.dailymotion.com/video/xbtjwvi\",\"thumbnail\":\"https://s1.dmcdn.net/v/gcdOk1gx5fGkiUqQx/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12524,\"unit\":\"累计播放\",\"text\":\"12524\"}},{\"id\":\"dailymotion:xbtvyh6\",\"title\":\"Carrying the Mafia Heir's Baby (Complete)\",\"link\":\"https://www.dailymotion.com/video/xbtvyh6\",\"thumbnail\":\"https://s1.dmcdn.net/v/gembA1gxS2W_p-tPs/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7104,\"unit\":\"累计播放\",\"text\":\"7104\"}},{\"id\":\"dailymotion:xbt7ht6\",\"title\":\"The Homeless Girl | Complete Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbt7ht6\",\"thumbnail\":\"https://s2.dmcdn.net/v/gaPxg1gwi-5fl3WC1/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":41926,\"unit\":\"累计播放\",\"text\":\"41926\"}},{\"id\":\"dailymotion:xbtynu6\",\"title\":\"The Substitute Bride Conquers the Mafia Don -  Short Drama Full HD 720p\",\"link\":\"https://www.dailymotion.com/video/xbtynu6\",\"thumbnail\":\"https://s2.dmcdn.net/v/gfFOk1gxZireeIDsc/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6070,\"unit\":\"累计播放\",\"text\":\"6070\"}},{\"id\":\"dailymotion:xbsilti\",\"title\":\"Whoa! The \\\"Idiot\\\" Wife Is His QUEEN\",\"link\":\"https://www.dailymotion.com/video/xbsilti\",\"thumbnail\":\"https://s2.dmcdn.net/v/gV-Rs1gw7ysVWE4Rh/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":29679,\"unit\":\"累计播放\",\"text\":\"29679\"}},{\"id\":\"dailymotion:xbstqwu\",\"title\":\"Bound to the Mob Alpha's Baby Drama | Full Short Drama | English Sub 2026\",\"link\":\"https://www.dailymotion.com/video/xbstqwu\",\"thumbnail\":\"https://s2.dmcdn.net/v/gXzL-1gx86iOeF1e1/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10930,\"unit\":\"累计播放\",\"text\":\"10930\"}},{\"id\":\"dailymotion:xbsqe92\",\"title\":\"Five Years of Hate, a Lifetime of Regret !! | Full Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbsqe92\",\"thumbnail\":\"https://s2.dmcdn.net/v/gXNAc1gwpKGIP6BE2/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16364,\"unit\":\"累计播放\",\"text\":\"16364\"}},{\"id\":\"dailymotion:xbsh87i\",\"title\":\"The Substitute Bride Conquers the Mafia Don | Full Short Drama | English Sub 2026\",\"link\":\"https://www.dailymotion.com/video/xbsh87i\",\"thumbnail\":\"https://s2.dmcdn.net/v/gVklE1gwqQkvLZjTH/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13764,\"unit\":\"累计播放\",\"text\":\"13764\"}},{\"id\":\"dailymotion:xbtr8ou\",\"title\":\"F-Rank Tamer, S-Rank Monster | Short Drama Full HD 720p\",\"link\":\"https://www.dailymotion.com/video/xbtr8ou\",\"thumbnail\":\"https://s2.dmcdn.net/v/gdws-1gxK_o_CidqO/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5397,\"unit\":\"累计播放\",\"text\":\"5397\"}},{\"id\":\"dailymotion:xbsqtj6\",\"title\":\"The Mermaid's Tear | Complete Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbsqtj6\",\"thumbnail\":\"https://s1.dmcdn.net/v/gXS021gwAVlxp-fs5/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27252,\"unit\":\"累计播放\",\"text\":\"27252\"}},{\"id\":\"dailymotion:xbtgfrq\",\"title\":\"the duke’s substitute groom full drama | Complete Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbtgfrq\",\"thumbnail\":\"https://s2.dmcdn.net/v/gb_pM1gx0N19hcUTE/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14178,\"unit\":\"累计播放\",\"text\":\"14178\"}},{\"id\":\"dailymotion:xbsxuhe\",\"title\":\"The Mermaid's Tear - Short Drama Full HD 720p\",\"link\":\"https://www.dailymotion.com/video/xbsxuhe\",\"thumbnail\":\"https://s2.dmcdn.net/v/gYi2I1gwXc8MaaLQe/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3843,\"unit\":\"累计播放\",\"text\":\"3843\"}},{\"id\":\"dailymotion:xbsw0pu\",\"title\":\"r.o.a.ming the world untamed_full drama\",\"link\":\"https://www.dailymotion.com/video/xbsw0pu\",\"thumbnail\":\"https://s2.dmcdn.net/v/gYNEY1gxBRfVe6dYG/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7035,\"unit\":\"累计播放\",\"text\":\"7035\"}},{\"id\":\"dailymotion:xbu2j2i\",\"title\":\"Farm Girl Whisked into Billionaire Vows (Full Episodes) - Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbu2j2i\",\"thumbnail\":\"https://s2.dmcdn.net/v/gfxSA1gxcXkYaCIZn/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3828,\"unit\":\"累计播放\",\"text\":\"3828\"}},{\"id\":\"dailymotion:xbttuoa\",\"title\":\"Left for Dead, Back with a Demon #englishsub #fullepisode #fantasydrama✅🎯⚡️ | Wisterelle Romance | Full Short Drama | English Sub 2026\",\"link\":\"https://www.dailymotion.com/video/xbttuoa\",\"thumbnail\":\"https://s2.dmcdn.net/v/geOcA1gxReeY66RF3/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4190,\"unit\":\"累计播放\",\"text\":\"4190\"}},{\"id\":\"dailymotion:xbtk5jy\",\"title\":\"Pittsburgh's Headlines: November 4, 2026\",\"link\":\"https://www.dailymotion.com/video/xbtk5jy\",\"thumbnail\":\"https://s1.dmcdn.net/v/gcg8U1gwrtJrQVBzy/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":45853,\"unit\":\"累计播放\",\"text\":\"45853\"}},{\"id\":\"dailymotion:xbtuneu\",\"title\":\"Oops! My Dumped Online Lover is the Mafia Don _ FULL MOVIES ENGLISH SUB\",\"link\":\"https://www.dailymotion.com/video/xbtuneu\",\"thumbnail\":\"https://s2.dmcdn.net/v/geXi61gxIHarBlhKy/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6452,\"unit\":\"累计播放\",\"text\":\"6452\"}},{\"id\":\"dailymotion:xbtv6ay\",\"title\":\"EP.THE ELF PRINCE IS MY BABY DADDY 2 US-FULL - Complete Series | English Sub\",\"link\":\"https://www.dailymotion.com/video/xbtv6ay\",\"thumbnail\":\"https://s2.dmcdn.net/v/gedgg1gxUGJvNze66/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3419,\"unit\":\"累计播放\",\"text\":\"3419\"}},{\"id\":\"dailymotion:xbspnkm\",\"title\":\"The Mermaid's Tear (Complete)\",\"link\":\"https://www.dailymotion.com/video/xbspnkm\",\"thumbnail\":\"https://s1.dmcdn.net/v/gXEkM1gwJ58lnmyQG/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11489,\"unit\":\"累计播放\",\"text\":\"11489\"}},{\"id\":\"dailymotion:xbu4q0u\",\"title\":\"my shopping cart to ancient empire | Full Short Drama | English Sub 2026\",\"link\":\"https://www.dailymotion.com/video/xbu4q0u\",\"thumbnail\":\"https://s1.dmcdn.net/v/ggKQ-1gxSSnXOk4hC/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2951,\"unit\":\"累计播放\",\"text\":\"2951\"}},{\"id\":\"dailymotion:xbu6bny\",\"title\":\"My Shopping Cart Connects To Ancient Empire #engsub #fullepisode #netshort💥🎬 | Velmira Confession\",\"link\":\"https://www.dailymotion.com/video/xbu6bny\",\"thumbnail\":\"https://s1.dmcdn.net/v/ggcgE1gxUxKuEE0Rp/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2901,\"unit\":\"累计播放\",\"text\":\"2901\"}},{\"id\":\"dailymotion:xbsq7fu\",\"title\":\"Falling for the Prince at Dark Arts Academy | Full Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbsq7fu\",\"thumbnail\":\"https://s2.dmcdn.net/v/gXL0g1gxQNjV7Nqxi/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3533,\"unit\":\"累计播放\",\"text\":\"3533\"}},{\"id\":\"dailymotion:xbtycqq\",\"title\":\"Pittsburgh's Headlines: November 5, 2026\",\"link\":\"https://www.dailymotion.com/video/xbtycqq\",\"thumbnail\":\"https://s1.dmcdn.net/v/gfBu21gxEptOMNTyH/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6529,\"unit\":\"累计播放\",\"text\":\"6529\"}},{\"id\":\"dailymotion:xbtkh42\",\"title\":\"She Stole My S-Rank, So I Awakened a God Full EP\",\"link\":\"https://www.dailymotion.com/video/xbtkh42\",\"thumbnail\":\"https://s1.dmcdn.net/v/gcjoY1gxNOS2Pnyed/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3700,\"unit\":\"累计播放\",\"text\":\"3700\"}},{\"id\":\"dailymotion:xbtxlzu\",\"title\":\"In the last few hours, giant hail has caused extensive material damage in several towns in Santa Fe, Argentina\",\"link\":\"https://www.dailymotion.com/video/xbtxlzu\",\"thumbnail\":\"https://s2.dmcdn.net/v/gf3QQ1gxDQlyP9Pmp/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4976,\"unit\":\"累计播放\",\"text\":\"4976\"}},{\"id\":\"dailymotion:xbtlf7q\",\"title\":\"Undead and Overpowered | Complete Short Drama\",\"link\":\"https://www.dailymotion.com/video/xbtlf7q\",\"thumbnail\":\"https://s1.dmcdn.net/v/gcub61gxF50O3TRR-/x240\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5357,\"unit\":\"累计播放\",\"text\":\"5357\"}}]}",
+    "timing": {
+      "elapsed_ms": 214,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 214
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 214,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 214,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 214,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 214,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 214,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 214
+        }
+      ]
+    }
+  }
 }
