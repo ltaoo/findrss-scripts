@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T13:21:01.382Z",
+  "checked_at": "2026-11-07T22:04:37.563Z",
   "inspection": {
     "file": "hot/wallstreetcn.js",
     "path": "/api/hot/wallstreetcn/apiv1/content/lives",
@@ -12,159 +12,12 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 35
+    "duration_ms": 39
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 395
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 39
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/wallstreetcn.js",
-      "name": "华尔街见闻 · 快讯",
-      "kind": "hot",
-      "version": "1.0.2",
-      "path": "/wallstreetcn/apiv1/content/lives",
-      "request_path": "/api/hot/wallstreetcn/apiv1/content/lives",
-      "route_index": 2
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/wallstreetcn/apiv1/content/lives",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a56ca37fa8c7a561"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 352,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"wallstreetcn-quick\",\"count\":30,\"missing_rank\":30}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":30}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://api-one.wallstcn.com/apiv1/content/lives?channel=global-channel&limit=30",
-        "method": "GET",
-        "host": "api-one.wallstcn.com",
-        "pathname": "/apiv1/content/lives",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 352,
-        "timings": {
-          "response_ms": 349,
-          "body_read_ms": 3,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"华尔街见闻 · 快讯\",\"link\":\"https://wallstreetcn.com/\",\"category\":\"财经\",\"observed_at\":\"2026-11-07T13:21:01.740Z\",\"entries\":[{\"id\":\"wallstreetcn-quick:3196426\",\"title\":\"伯克希尔哈撒韦：截至9月底，现金储备较上一季度有所增加，达到3774亿美元。\",\"link\":\"https://wallstreetcn.com/livenews/3196426\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196425\",\"title\":\"伯克希尔哈撒韦：第三季度营业利润为127.1亿美元，同比下降5.8%。\\n\\n第三季度净利润221.1亿美元，同比下降28%。\\n\\n第三季度保险承保经营收益13.5亿美元，同比下降43%。\\n\\n第三季度保险投资经营收益27.3亿美元，同比下降14%。\\n\\n第三季度回购约96亿美元股份。\",\"link\":\"https://wallstreetcn.com/livenews/3196425\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196424\",\"title\":\"10月以来市场震荡调整，基金投顾逆势加仓A股\",\"link\":\"https://wallstreetcn.com/livenews/3196424\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196423\",\"title\":\"伊朗革命卫队称已解除导弹射程限制\",\"link\":\"https://wallstreetcn.com/livenews/3196423\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196422\",\"title\":\"也门遭沙特空袭致22死30伤\",\"link\":\"https://wallstreetcn.com/livenews/3196422\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196421\",\"title\":\"事关中国汽车工业，马斯克最新表态\",\"link\":\"https://wallstreetcn.com/livenews/3196421\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196420\",\"title\":\"第七届世界媒体峰会发布北京共识\",\"link\":\"https://wallstreetcn.com/livenews/3196420\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196419\",\"title\":\"多家银行公告赎回优先股，合计规模超2025年全年\",\"link\":\"https://wallstreetcn.com/livenews/3196419\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196418\",\"title\":\"万兴科技：万兴剧厂海外版ReelMate AI已开启公测\",\"link\":\"https://wallstreetcn.com/livenews/3196418\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196417\",\"title\":\"日本茨城县附近海域发生5.6级地震 东京有震感\",\"link\":\"https://wallstreetcn.com/livenews/3196417\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196416\",\"title\":\"达飞集团九次参展进博，目前在华运营约90条直达海运航线\",\"link\":\"https://wallstreetcn.com/livenews/3196416\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196415\",\"title\":\"始祖鸟首次亮相进博会，计划未来在中国开设更多门店\",\"link\":\"https://wallstreetcn.com/livenews/3196415\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196414\",\"title\":\"利用俄被冻结资产 乌克兰据称获得近500亿美元支持\",\"link\":\"https://wallstreetcn.com/livenews/3196414\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196413\",\"title\":\"伊朗称一艘油轮在霍尔木兹海峡起火停航\",\"link\":\"https://wallstreetcn.com/livenews/3196413\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196412\",\"title\":\"新西兰选举委员会：国家党领导的执政联盟赢得足够议席继续执政\",\"link\":\"https://wallstreetcn.com/livenews/3196412\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196411\",\"title\":\"2026年第二批质量督察工作启动 4个督察组陆续进驻有关省份\",\"link\":\"https://wallstreetcn.com/livenews/3196411\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196410\",\"title\":\"通用汽车高管：持续看好中国新能源汽车发展前景\",\"link\":\"https://wallstreetcn.com/livenews/3196410\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196409\",\"title\":\"联合国开发计划署署长德克罗：人工智能治理需要国际合作，全球应共享发展成果\",\"link\":\"https://wallstreetcn.com/livenews/3196409\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196408\",\"title\":\"“薛定谔的电池” ？固态电池营销也该挤挤水分了\",\"link\":\"https://wallstreetcn.com/livenews/3196408\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196407\",\"title\":\"超3亿元算力订单 格力中标中国移动、中国铁塔集采\",\"link\":\"https://wallstreetcn.com/livenews/3196407\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196406\",\"title\":\"也门首都萨那传出爆炸声\",\"link\":\"https://wallstreetcn.com/livenews/3196406\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196405\",\"title\":\"伊朗海军声称，一艘油轮周六在霍尔木兹海峡触雷。（法尔斯通讯社）\",\"link\":\"https://wallstreetcn.com/livenews/3196405\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196404\",\"title\":\"欧洲央行行长候选人de Cos称需对通胀风险保持警惕\",\"link\":\"https://wallstreetcn.com/livenews/3196404\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196403\",\"title\":\"欧洲航天局：一国际研究小组在火星发现火山活动迹象\",\"link\":\"https://wallstreetcn.com/livenews/3196403\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196402\",\"title\":\"第七届世界媒体峰会先导片《AI赋能，共赴新程》正式发布\",\"link\":\"https://wallstreetcn.com/livenews/3196402\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196401\",\"title\":\"美媒爆：美政府考虑以“涉恐”为由暂停部分非营利组织免税资格\",\"link\":\"https://wallstreetcn.com/livenews/3196401\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196400\",\"title\":\"联合国开发署署长：设立上海中心的目标是“分享中国发展的成功经验”\",\"link\":\"https://wallstreetcn.com/livenews/3196400\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196398\",\"title\":\"中奥企业家委员会首次会议在京举行\",\"link\":\"https://wallstreetcn.com/livenews/3196398\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196396\",\"title\":\"平均成功率91%！苹果研究团队披露机器人“大脑”进展：调用千问模型在宇树G1上验证\",\"link\":\"https://wallstreetcn.com/livenews/3196396\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3196395\",\"title\":\"胡塞武装称也门遭沙特主导的联军空袭致多人伤亡\",\"link\":\"https://wallstreetcn.com/livenews/3196395\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 352,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 352
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 352,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 352,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 352,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 352,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 352,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 352
-        }
-      ]
-    }
-  }
+  "debug": null
 }

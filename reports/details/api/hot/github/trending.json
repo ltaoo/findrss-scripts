@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T13:20:31.028Z",
+  "checked_at": "2026-11-07T22:04:27.801Z",
   "inspection": {
     "file": "hot/github_trending.js",
     "path": "/api/hot/github/trending",
@@ -11,12 +11,159 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/github/trending.json",
-    "duration_ms": 1824
+    "duration_ms": 1994
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 411
+    "status": 200,
+    "duration_ms": 1921
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/github_trending.js",
+      "name": "Github · Today",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/github/trending",
+      "request_path": "/api/hot/github/trending",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/github/trending",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56fa241da52ddab"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1347,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"github-trending-today\",\"count\":15,\"missing_rank\":15}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":15}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://github.com/trending?spoken_language_code=",
+        "method": "GET",
+        "host": "github.com",
+        "pathname": "/trending",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1347,
+        "timings": {
+          "response_ms": 1293,
+          "body_read_ms": 54,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Github · Today\",\"link\":\"https://github.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-07T22:04:29.178Z\",\"entries\":[{\"id\":\"github-trending-today:/vercel-labs/agent-browser\",\"title\":\"vercel-labs/agent-browser\",\"link\":\"https://github.com/vercel-labs/agent-browser\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":46760,\"unit\":\"累计星标\",\"text\":\"46,760\"}},{\"id\":\"github-trending-today:/cloudflare/security-audit-skill\",\"title\":\"cloudflare/security-audit-skill\",\"link\":\"https://github.com/cloudflare/security-audit-skill\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":65568,\"unit\":\"累计星标\",\"text\":\"65,568\"}},{\"id\":\"github-trending-today:/google/skills\",\"title\":\"google/skills\",\"link\":\"https://github.com/google/skills\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":23337,\"unit\":\"累计星标\",\"text\":\"23,337\"}},{\"id\":\"github-trending-today:/mattpocock/skills\",\"title\":\"mattpocock/skills\",\"link\":\"https://github.com/mattpocock/skills\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":317608,\"unit\":\"累计星标\",\"text\":\"317,608\"}},{\"id\":\"github-trending-today:/anthropics/skills\",\"title\":\"anthropics/skills\",\"link\":\"https://github.com/anthropics/skills\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":188713,\"unit\":\"累计星标\",\"text\":\"188,713\"}},{\"id\":\"github-trending-today:/meta/astryx\",\"title\":\"meta/astryx\",\"link\":\"https://github.com/meta/astryx\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14415,\"unit\":\"累计星标\",\"text\":\"14,415\"}},{\"id\":\"github-trending-today:/prometheus/prometheus\",\"title\":\"prometheus/prometheus\",\"link\":\"https://github.com/prometheus/prometheus\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":67427,\"unit\":\"累计星标\",\"text\":\"67,427\"}},{\"id\":\"github-trending-today:/sherlock-project/sherlock\",\"title\":\"sherlock-project/sherlock\",\"link\":\"https://github.com/sherlock-project/sherlock\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":100319,\"unit\":\"累计星标\",\"text\":\"100,319\"}},{\"id\":\"github-trending-today:/milind-soni/OpenMausBot\",\"title\":\"milind-soni/OpenMausBot\",\"link\":\"https://github.com/milind-soni/OpenMausBot\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16881,\"unit\":\"累计星标\",\"text\":\"16,881\"}},{\"id\":\"github-trending-today:/astral-sh/ruff\",\"title\":\"astral-sh/ruff\",\"link\":\"https://github.com/astral-sh/ruff\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":50953,\"unit\":\"累计星标\",\"text\":\"50,953\"}},{\"id\":\"github-trending-today:/tailwindlabs/tailwindcss\",\"title\":\"tailwindlabs/tailwindcss\",\"link\":\"https://github.com/tailwindlabs/tailwindcss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":98423,\"unit\":\"累计星标\",\"text\":\"98,423\"}},{\"id\":\"github-trending-today:/mbillow/localthings\",\"title\":\"mbillow/localthings\",\"link\":\"https://github.com/mbillow/localthings\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1034,\"unit\":\"累计星标\",\"text\":\"1,034\"}},{\"id\":\"github-trending-today:/zed-industries/zed\",\"title\":\"zed-industries/zed\",\"link\":\"https://github.com/zed-industries/zed\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":94234,\"unit\":\"累计星标\",\"text\":\"94,234\"}},{\"id\":\"github-trending-today:/ranxianglei/billion-context\",\"title\":\"ranxianglei/billion-context\",\"link\":\"https://github.com/ranxianglei/billion-context\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4571,\"unit\":\"累计星标\",\"text\":\"4,571\"}},{\"id\":\"github-trending-today:/dsx-ai-factory/nvke\",\"title\":\"dsx-ai-factory/nvke\",\"link\":\"https://github.com/dsx-ai-factory/nvke\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":527,\"unit\":\"累计星标\",\"text\":\"527\"}}]}",
+    "timing": {
+      "elapsed_ms": 1347,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1347
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1347,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1347,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1347,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1347,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1347,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1347
+        }
+      ]
+    }
+  }
 }

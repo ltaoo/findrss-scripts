@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T13:22:04.328Z",
+  "checked_at": "2026-11-07T22:05:38.146Z",
   "inspection": {
     "file": "hot/yahoo_japan.js",
     "path": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
@@ -10,11 +10,155 @@
     "format_valid": false,
     "output_valid": false,
     "error": "The operation was aborted due to timeout",
-    "duration_ms": 60002
+    "duration_ms": 60001
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60000
+    "status": 200,
+    "duration_ms": 1559
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/yahoo_japan.js",
+      "name": "Yahoo! JAPAN · 主要话题",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/yahoo-japan/rss/topics/top-picks.xml",
+      "request_path": "/api/hot/yahoo-japan/rss/topics/top-picks.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/yahoo-japan/rss/topics/top-picks.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56fa3f97f75ddab"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1510,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":8}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
+        "method": "GET",
+        "host": "news.yahoo.co.jp",
+        "pathname": "/rss/topics/top-picks.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1510,
+        "timings": {
+          "response_ms": 1510,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Yahoo! JAPAN · 主要话题\",\"link\":\"https://news.yahoo.co.jp/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-07T22:05:39.669Z\",\"entries\":[{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601719?source=rss\",\"title\":\"愛知県で震度5強 津波の心配なし\",\"link\":\"https://news.yahoo.co.jp/pickup/6601719?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601716?source=rss\",\"title\":\"米中間選挙 共和党大敗の舞台裏\",\"link\":\"https://news.yahoo.co.jp/pickup/6601716?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601718?source=rss\",\"title\":\"大阪維新の会「吉村体制」3期目に\",\"link\":\"https://news.yahoo.co.jp/pickup/6601718?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601709?source=rss\",\"title\":\"基地交付金 打ち切り恐れに町反発\",\"link\":\"https://news.yahoo.co.jp/pickup/6601709?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601700?source=rss\",\"title\":\"女性を監禁疑い 供述後に遺体発見\",\"link\":\"https://news.yahoo.co.jp/pickup/6601700?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601712?source=rss\",\"title\":\"FA宣言 15年ぶり「2ケタ」現実味\",\"link\":\"https://news.yahoo.co.jp/pickup/6601712?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601706?source=rss\",\"title\":\"山本モナさん 50歳で司法修習生に\",\"link\":\"https://news.yahoo.co.jp/pickup/6601706?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"yahoo_japan:https://news.yahoo.co.jp/pickup/6601699?source=rss\",\"title\":\"こじはる結婚 ノースリーブス祝福\",\"link\":\"https://news.yahoo.co.jp/pickup/6601699?source=rss\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 1510,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1510
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1510,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1510,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1510,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1510,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1510,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1510
+        }
+      ]
+    }
+  }
 }

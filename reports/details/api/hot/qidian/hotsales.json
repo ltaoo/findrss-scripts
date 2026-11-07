@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T13:21:34.971Z",
+  "checked_at": "2026-11-07T22:04:31.176Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/hotsales",
@@ -9,13 +9,162 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 45
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 21
+    "status": 200,
+    "duration_ms": 1539
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/qidian.js",
+      "name": "起点 · 畅销榜",
+      "kind": "hot",
+      "version": "1.3.1",
+      "path": "/qidian/hotsales",
+      "request_path": "/api/hot/qidian/hotsales",
+      "route_index": 1
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/qidian/hotsales",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56fa256ebe2dd07"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1476,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "起点榜单解析完成 {\"type\":\"hotsales\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://m.qidian.com/rank/hotsales/",
+        "method": "GET",
+        "host": "m.qidian.com",
+        "pathname": "/rank/hotsales/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1476,
+        "timings": {
+          "response_ms": 1476,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 畅销榜\",\"link\":\"https://m.qidian.com/rank/hotsales/\",\"category\":\"小说\",\"observed_at\":\"2026-11-07T22:04:32.679Z\",\"entries\":[{\"id\":\"qidian:book:1040765595\",\"title\":\"夜无疆\",\"link\":\"https://m.qidian.com/book/1040765595/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1040765595/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1050460263\",\"title\":\"神宠供应商\",\"link\":\"https://m.qidian.com/book/1050460263/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050460263/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1035420986\",\"title\":\"玄鉴仙族\",\"link\":\"https://m.qidian.com/book/1035420986/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1035420986/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1042256511\",\"title\":\"没钱修什么仙？\",\"link\":\"https://m.qidian.com/book/1042256511/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1042256511/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1003306811\",\"title\":\"放开那个女巫\",\"link\":\"https://m.qidian.com/book/1003306811/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1003306811/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1049107474\",\"title\":\"让仙门再次伟大\",\"link\":\"https://m.qidian.com/book/1049107474/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049107474/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1049534879\",\"title\":\"武道！\",\"link\":\"https://m.qidian.com/book/1049534879/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049534879/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1033014772\",\"title\":\"青山\",\"link\":\"https://m.qidian.com/book/1033014772/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1033014772/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1050032171\",\"title\":\"原来我是仙道天骄\",\"link\":\"https://m.qidian.com/book/1050032171/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050032171/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1044818845\",\"title\":\"1984：从川菜馆开始\",\"link\":\"https://m.qidian.com/book/1044818845/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044818845/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1049898328\",\"title\":\"请勿高考时渡劫\",\"link\":\"https://m.qidian.com/book/1049898328/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049898328/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1048862481\",\"title\":\"剑烛大荒\",\"link\":\"https://m.qidian.com/book/1048862481/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048862481/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1010868264\",\"title\":\"诡秘之主\",\"link\":\"https://m.qidian.com/book/1010868264/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1010868264/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1038504669\",\"title\":\"重生高考前99天\",\"link\":\"https://m.qidian.com/book/1038504669/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1038504669/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1044896207\",\"title\":\"以神通之名\",\"link\":\"https://m.qidian.com/book/1044896207/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044896207/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1033422902\",\"title\":\"我的模拟长生路\",\"link\":\"https://m.qidian.com/book/1033422902/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1033422902/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1040840487\",\"title\":\"我的魔法没有上限！\",\"link\":\"https://m.qidian.com/book/1040840487/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1040840487/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1049836819\",\"title\":\"还不起学贷的我只好兼职猎魔\",\"link\":\"https://m.qidian.com/book/1049836819/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049836819/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1039807042\",\"title\":\"万历明君\",\"link\":\"https://m.qidian.com/book/1039807042/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1039807042/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"qidian:book:1041637443\",\"title\":\"捞尸人\",\"link\":\"https://m.qidian.com/book/1041637443/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1041637443/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 1476,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1476
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1476,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1476,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1476,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1476,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1476,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1476
+        }
+      ]
+    }
+  }
 }

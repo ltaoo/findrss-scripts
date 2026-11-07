@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T13:27:04.383Z",
+  "checked_at": "2026-11-07T22:06:31.920Z",
   "inspection": {
     "file": "detect/website_text.js",
     "path": "/api/detect/web/text/detect",
@@ -9,12 +9,156 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60000
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 36
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 55
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "detect/website_text.js",
+      "name": "网页正文内容检测",
+      "kind": "detect",
+      "version": "1.0.1",
+      "path": "/web/text/detect",
+      "request_path": "/api/detect/web/text/detect",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/detect/web/text/detect",
+      "params": {},
+      "query": {
+        "url": "https://example.com/",
+        "selector": "body"
+      },
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56fa5498818ddab"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 6,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://example.com/",
+        "method": "GET",
+        "host": "example.com",
+        "pathname": "/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 6,
+        "timings": {
+          "response_ms": 6,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"detect\",\"schema_version\":1,\"title\":\"网页正文检测\",\"link\":\"https://example.com/\",\"status\":\"initialized\",\"previous_id\":null,\"observed_at\":\"2026-11-07T22:06:31.941Z\",\"snapshot\":{\"body\":{\"type\":\"content\",\"present\":true,\"format\":\"text\",\"value\":\"This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.\"}},\"changes\":[],\"matches\":[],\"issues\":[]}",
+    "timing": {
+      "elapsed_ms": 6,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 6
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 6,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 6
+        }
+      ]
+    }
+  }
 }

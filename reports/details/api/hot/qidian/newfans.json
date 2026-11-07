@@ -1,169 +1,21 @@
 {
-  "checked_at": "2026-11-07T13:20:36.911Z",
+  "checked_at": "2026-11-07T22:05:31.288Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/newfans",
     "example": "/api/hot/qidian/newfans",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/qidian/newfans.json",
-    "duration_ms": 1451
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60000
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 372
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 41
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/qidian.js",
-      "name": "起点 · 书友榜",
-      "kind": "hot",
-      "version": "1.3.1",
-      "path": "/qidian/newfans",
-      "request_path": "/api/hot/qidian/newfans",
-      "route_index": 3
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/qidian/newfans",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a56ca2e6ba8b990a"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 309,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "起点榜单解析完成 {\"type\":\"newfans\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":20}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://m.qidian.com/rank/newfans/",
-        "method": "GET",
-        "host": "m.qidian.com",
-        "pathname": "/rank/newfans/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 309,
-        "timings": {
-          "response_ms": 309,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 书友榜\",\"link\":\"https://m.qidian.com/rank/newfans/\",\"category\":\"小说\",\"observed_at\":\"2026-11-07T13:20:37.241Z\",\"entries\":[{\"id\":\"qidian:book:1050460263\",\"title\":\"神宠供应商\",\"link\":\"https://m.qidian.com/book/1050460263/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050460263/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":10800,\"unit\":\"书友\",\"text\":\"1.08万\"}},{\"id\":\"qidian:book:1049003034\",\"title\":\"有仙则名\",\"link\":\"https://m.qidian.com/book/1049003034/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049003034/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":4272,\"unit\":\"书友\",\"text\":\"4272\"}},{\"id\":\"qidian:book:1049898328\",\"title\":\"请勿高考时渡劫\",\"link\":\"https://m.qidian.com/book/1049898328/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049898328/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":3615,\"unit\":\"书友\",\"text\":\"3615\"}},{\"id\":\"qidian:book:1015648531\",\"title\":\"我真没想重生啊\",\"link\":\"https://m.qidian.com/book/1015648531/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1015648531/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":3518,\"unit\":\"书友\",\"text\":\"3518\"}},{\"id\":\"qidian:book:1050032171\",\"title\":\"原来我是仙道天骄\",\"link\":\"https://m.qidian.com/book/1050032171/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050032171/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":3000,\"unit\":\"书友\",\"text\":\"3000\"}},{\"id\":\"qidian:book:1049836819\",\"title\":\"还不起学贷的我只好兼职猎魔\",\"link\":\"https://m.qidian.com/book/1049836819/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049836819/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":2614,\"unit\":\"书友\",\"text\":\"2614\"}},{\"id\":\"qidian:book:1040840487\",\"title\":\"我的魔法没有上限！\",\"link\":\"https://m.qidian.com/book/1040840487/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1040840487/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":2571,\"unit\":\"书友\",\"text\":\"2571\"}},{\"id\":\"qidian:book:1049534879\",\"title\":\"武道！\",\"link\":\"https://m.qidian.com/book/1049534879/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049534879/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":2443,\"unit\":\"书友\",\"text\":\"2443\"}},{\"id\":\"qidian:book:1051104819\",\"title\":\"登神长阶\",\"link\":\"https://m.qidian.com/book/1051104819/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051104819/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":2191,\"unit\":\"书友\",\"text\":\"2191\"}},{\"id\":\"qidian:book:1049107474\",\"title\":\"让仙门再次伟大\",\"link\":\"https://m.qidian.com/book/1049107474/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049107474/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":2146,\"unit\":\"书友\",\"text\":\"2146\"}},{\"id\":\"qidian:book:1050738484\",\"title\":\"多子多福：开创仙朝\",\"link\":\"https://m.qidian.com/book/1050738484/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050738484/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":2143,\"unit\":\"书友\",\"text\":\"2143\"}},{\"id\":\"qidian:book:1047882236\",\"title\":\"谁说我不是正经冒险者\",\"link\":\"https://m.qidian.com/book/1047882236/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047882236/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":2086,\"unit\":\"书友\",\"text\":\"2086\"}},{\"id\":\"qidian:book:1049745989\",\"title\":\"急急如律令\",\"link\":\"https://m.qidian.com/book/1049745989/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049745989/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":2083,\"unit\":\"书友\",\"text\":\"2083\"}},{\"id\":\"qidian:book:1045463939\",\"title\":\"姐姐，我也要一起当女仆吗？\",\"link\":\"https://m.qidian.com/book/1045463939/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1045463939/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":2016,\"unit\":\"书友\",\"text\":\"2016\"}},{\"id\":\"qidian:book:1048862481\",\"title\":\"剑烛大荒\",\"link\":\"https://m.qidian.com/book/1048862481/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048862481/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":1962,\"unit\":\"书友\",\"text\":\"1962\"}},{\"id\":\"qidian:book:1050582851\",\"title\":\"报告祖国，我穿越了！\",\"link\":\"https://m.qidian.com/book/1050582851/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050582851/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":1913,\"unit\":\"书友\",\"text\":\"1913\"}},{\"id\":\"qidian:book:1050725440\",\"title\":\"家父汉武帝\",\"link\":\"https://m.qidian.com/book/1050725440/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050725440/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":1869,\"unit\":\"书友\",\"text\":\"1869\"}},{\"id\":\"qidian:book:1050952183\",\"title\":\"剑主！\",\"link\":\"https://m.qidian.com/book/1050952183/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050952183/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":1822,\"unit\":\"书友\",\"text\":\"1822\"}},{\"id\":\"qidian:book:1040765595\",\"title\":\"夜无疆\",\"link\":\"https://m.qidian.com/book/1040765595/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1040765595/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":1681,\"unit\":\"书友\",\"text\":\"1681\"}},{\"id\":\"qidian:book:1012584111\",\"title\":\"神秘复苏\",\"link\":\"https://m.qidian.com/book/1012584111/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1012584111/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":1545,\"unit\":\"书友\",\"text\":\"1545\"}}]}",
-    "timing": {
-      "elapsed_ms": 309,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 309
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 309,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 309,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 309,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 309,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 309,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 309
-        }
-      ]
-    }
-  }
+  "debug": null
 }

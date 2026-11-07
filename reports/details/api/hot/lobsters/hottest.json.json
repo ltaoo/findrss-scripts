@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T13:20:31.868Z",
+  "checked_at": "2026-11-07T22:04:29.693Z",
   "inspection": {
     "file": "hot/lobsters.js",
     "path": "/api/hot/lobsters/hottest.json",
@@ -12,12 +12,155 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 23
+    "duration_ms": 39
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 56
+    "status": 200,
+    "duration_ms": 174
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/lobsters.js",
+      "name": "Lobsters · 热门讨论",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/lobsters/hottest.json",
+      "request_path": "/api/hot/lobsters/hottest.json",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/lobsters/hottest.json",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56fa24da9185212"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 117,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":25}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://lobste.rs/hottest.json",
+        "method": "GET",
+        "host": "lobste.rs",
+        "pathname": "/hottest.json",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 117,
+        "timings": {
+          "response_ms": 117,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Lobsters · 热门讨论\",\"link\":\"https://lobste.rs/\",\"category\":\"科技\",\"observed_at\":\"2026-11-07T22:04:29.824Z\",\"entries\":[{\"id\":\"lobsters:ipplhe\",\"title\":\"How are you dealing with all the negative side effects of AI on the web?\",\"link\":\"https://lobste.rs/s/ipplhe\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":52,\"unit\":\"得分\",\"text\":\"52\"}},{\"id\":\"lobsters:j63dme\",\"title\":\"Meridian — an experimental web browser built on Servo and GPUI\",\"link\":\"https://lobste.rs/s/j63dme\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":43,\"unit\":\"得分\",\"text\":\"43\"}},{\"id\":\"lobsters:0ouxwf\",\"title\":\"Libghostty 1.0\",\"link\":\"https://lobste.rs/s/0ouxwf\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":140,\"unit\":\"得分\",\"text\":\"140\"}},{\"id\":\"lobsters:jsvlfm\",\"title\":\"Scriptable GeoDNS: leaving AWS for Bunny\",\"link\":\"https://lobste.rs/s/jsvlfm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":23,\"unit\":\"得分\",\"text\":\"23\"}},{\"id\":\"lobsters:owsnms\",\"title\":\"*sshole, or when are we finally going to get rid of C?\",\"link\":\"https://lobste.rs/s/owsnms\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7,\"unit\":\"得分\",\"text\":\"7\"}},{\"id\":\"lobsters:4qiair\",\"title\":\"Progress Report: Linux 7.3 - Asahi Linux\",\"link\":\"https://lobste.rs/s/4qiair\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":41,\"unit\":\"得分\",\"text\":\"41\"}},{\"id\":\"lobsters:tfywf1\",\"title\":\"OpenBSD top(1) adds flag to show chroot, pledge and unveil status\",\"link\":\"https://lobste.rs/s/tfywf1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13,\"unit\":\"得分\",\"text\":\"13\"}},{\"id\":\"lobsters:osqswf\",\"title\":\"The Port That Does Not Exist\",\"link\":\"https://lobste.rs/s/osqswf\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":55,\"unit\":\"得分\",\"text\":\"55\"}},{\"id\":\"lobsters:49o9f3\",\"title\":\"Two Dimensional Version Control\",\"link\":\"https://lobste.rs/s/49o9f3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":26,\"unit\":\"得分\",\"text\":\"26\"}},{\"id\":\"lobsters:hvxjbb\",\"title\":\"Making musl and proprietary NVIDIA drivers work together\",\"link\":\"https://lobste.rs/s/hvxjbb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":62,\"unit\":\"得分\",\"text\":\"62\"}},{\"id\":\"lobsters:c99mdx\",\"title\":\"GhostMap: The Android flaw that crashes your phone before you open the app\",\"link\":\"https://lobste.rs/s/c99mdx\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5,\"unit\":\"得分\",\"text\":\"5\"}},{\"id\":\"lobsters:y8i714\",\"title\":\"Just how far can the FOR UPDATE SKIP LOCKED Postgres queue go?\",\"link\":\"https://lobste.rs/s/y8i714\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"得分\",\"text\":\"3\"}},{\"id\":\"lobsters:i96uyr\",\"title\":\"The MustCreate Pattern for Go Tests\",\"link\":\"https://lobste.rs/s/i96uyr\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":23,\"unit\":\"得分\",\"text\":\"23\"}},{\"id\":\"lobsters:y3hvme\",\"title\":\"Inside GitHub's new Git storage architecture\",\"link\":\"https://lobste.rs/s/y3hvme\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":29,\"unit\":\"得分\",\"text\":\"29\"}},{\"id\":\"lobsters:hreu0b\",\"title\":\"Catching prompt injections hidden in PDFs\",\"link\":\"https://lobste.rs/s/hreu0b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"得分\",\"text\":\"0\"}},{\"id\":\"lobsters:miazwz\",\"title\":\"UploadYourRam.org\",\"link\":\"https://lobste.rs/s/miazwz\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":47,\"unit\":\"得分\",\"text\":\"47\"}},{\"id\":\"lobsters:ngkqj1\",\"title\":\"CHIMERA simulates organic sound with acoustic tubes\",\"link\":\"https://lobste.rs/s/ngkqj1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"得分\",\"text\":\"1\"}},{\"id\":\"lobsters:nft1s2\",\"title\":\"Workflow dependency lockfiles\",\"link\":\"https://lobste.rs/s/nft1s2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2,\"unit\":\"得分\",\"text\":\"2\"}},{\"id\":\"lobsters:7dbarm\",\"title\":\"Alpine Linux : openssh-server password authentication bypass\",\"link\":\"https://lobste.rs/s/7dbarm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2,\"unit\":\"得分\",\"text\":\"2\"}},{\"id\":\"lobsters:soxqxp\",\"title\":\"Amutable Foundations: A Technical Overview\",\"link\":\"https://lobste.rs/s/soxqxp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"得分\",\"text\":\"6\"}},{\"id\":\"lobsters:xhrab6\",\"title\":\"Hacking the meta ray-ban smartglasses\",\"link\":\"https://lobste.rs/s/xhrab6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27,\"unit\":\"得分\",\"text\":\"27\"}},{\"id\":\"lobsters:ur8is2\",\"title\":\"TideCloak | Tide Whitepaper Series\",\"link\":\"https://lobste.rs/s/ur8is2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"得分\",\"text\":\"0\"}},{\"id\":\"lobsters:ydzlvp\",\"title\":\"Exploring Janet and the httpf web framework\",\"link\":\"https://lobste.rs/s/ydzlvp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11,\"unit\":\"得分\",\"text\":\"11\"}},{\"id\":\"lobsters:immpvk\",\"title\":\"Inform is a programming language for creating interactive fiction\",\"link\":\"https://lobste.rs/s/immpvk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11,\"unit\":\"得分\",\"text\":\"11\"}},{\"id\":\"lobsters:m5kism\",\"title\":\"Forwarded Without Question: How Web Frameworks Overtrust the Forwarded Header\",\"link\":\"https://lobste.rs/s/m5kism\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"得分\",\"text\":\"8\"}}]}",
+    "timing": {
+      "elapsed_ms": 117,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 117
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 117,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 117,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 117,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 117,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 117,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 117
+        }
+      ]
+    }
+  }
 }

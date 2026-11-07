@@ -1,20 +1,169 @@
 {
-  "checked_at": "2026-11-07T13:24:32.307Z",
+  "checked_at": "2026-11-07T22:05:47.858Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/wow36kr",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/wow36kr.json",
+    "duration_ms": 3630
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 1887
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/wow36kr",
+      "params": {
+        "account": "wow36kr"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56fa4362b9526c3"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1469,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":35,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 0,
+        "duration_ms": 1469,
+        "timings": {
+          "response_ms": 1304,
+          "body_read_ms": 165,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:wow36kr\",\"title\":\"36氪\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908872&idx=1&sn=b947e11e00b541817c764f998bef50ac&chksm=e8ecda44f4eb42a20c1206a9a2326643b70aa2db4f0776c6eb14ed16cc5d7a91e232e6e14a54&scene=126&sessionid=1794089147#rd\",\"description\":\"36氪是服务中国新经济参与者的卓越品牌和开创性平台，提供新锐深度的商业报道，强调趋势和价值，我们的slogan是：让一部分人先看到未来。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"36氪\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FDxncLlErbRGPmUIpYFjrz665bzmeiaWX3RskoZy2urrOHmEPXUtpB1BBvxfnkoNPVXXpZP9nicl2o%2F0\",\"updated\":\"2026-11-07T13:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908872:1\",\"title\":\"宝马、问界、奔驰共建补能网络，高端汽车品牌进入「共舞」时代\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908872&idx=1&sn=b947e11e00b541817c764f998bef50ac&chksm=e8ecda44f4eb42a20c1206a9a2326643b70aa2db4f0776c6eb14ed16cc5d7a91e232e6e14a54&scene=126&sessionid=1794089147#rd\",\"description\":\"问界加入逸安启，只是中欧产业协同共赢的一个样本，也是一个强有力的注脚。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeHXzCLyGZpLRnRqXQM0Gp2uqjDcia9jqSWJcB5MzO1yFuzTggOAElzic0mpDwDstUPyzqkJ5N7cPmMyh1qyEAsWDtYmKapzh3cvE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908872:2\",\"title\":\"纯过日子的年轻人，开始研究「迷走神经」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908872&idx=2&sn=c2aae3c1b574fa998a71828f7926dfbf&chksm=e8fcab936d816a543eb0b9b228d31893875fa83673422d8b0079b5c21b6257b8f538680727f2&scene=126&sessionid=1794089147#rd\",\"description\":\"“脑科学”的风，还是吹到了迷走神经。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeGqNXL6cCXXibQ33Gs3vcySEms5ItnXbvZzJBewJR8tIGnKgkibd1pzXl25nZIDKQlm4SeVh1Cib6HAyvr20ia76j9Dk2BmAPRpGC4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908858:1\",\"title\":\"后摩智能完成数十亿元B轮融资，资本开始为端边AI的落地能力定价\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908858&idx=1&sn=87e21a5e764462127ef321ea1004c48e&chksm=e836fbf4904700e384fa6387ddc2f5b30dfee639250458cfdadddc94a183c6f66d2be9af7287&scene=126&sessionid=1794089147#rd\",\"description\":\"端边大模型AI芯片进入规模化兑现期。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeFr6iaiavW8Mic824ziaD3bwaDZ3fgJpYOUYlmSWkoianJOhS7gvFL8YYooVH7cj95nbJkGWV6lXffdNH0BdGicsZaL0ticCsSSF2Wv2Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T09:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908858:2\",\"title\":\"马斯克输了丨氪代表周报\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908858&idx=2&sn=ef2661956456bf38d276d473cf5f853d&chksm=e8b171c49f9270e86bee6ea5df7278a1706d311b8b423e49a250a9841dae5b5e2a31f7d32fed&scene=126&sessionid=1794089147#rd\",\"description\":\"快速看懂本周最值得关注的行业大事。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeF3bwzYoRXxmjibHXfxRj2F4ZvmU5icuO955nCmkriaQZJxJGpGJA8mgIlicYGwmtO1CqKJPQGpBqrKwqEuiczyCTX6eI4NPas2g5GY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T09:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908812:1\",\"title\":\"9点1氪：豆包工作个人版取消5小时额度限制；人类低温纪录被打破；美科技股反弹，SpaceX市值一夜暴涨9653亿\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908812&idx=1&sn=639276e402d93718e3050b0f9c2e0d64&chksm=e8e3cec49d901bfab9f4db140e6a357efab48f9eedf96ec203f457e7b620579897fa9ea2a3fa&scene=126&sessionid=1794089147#rd\",\"description\":\"调整后，个人用户不再受到5小时短周期额度限制，可以在周额度范围内，根据实际工作节奏灵活安排使用时间。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeHicKhwFibiau4ibeDrQ1ibMoGicqcM7r6m2P7smVbbWA0jOuf0eVFw6CR3Sj8hIvoue5clBWUzeszYyaJ8sHlbLnk1G1D3bHXiaaWCWI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T01:11:38.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908812:2\",\"title\":\"一批大学老师，正在「自费上班」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908812&idx=2&sn=d0bfa269a495574bb725da6a0f742720&chksm=e8dfd6c9f470913949617409e42eddbc34abcf7ee7995215ecaff6ecfc68f03166534106eaf3&scene=126&sessionid=1794089147#rd\",\"description\":\"卷入一场「坏游戏」。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeEDkppuoiandKNicjfSN06Jw06dxxticolEJaw6WWh82FubgAmnhQicyE43Ofg1kVU5AXHN5B10lUWKPuKJbibkjNwdN5UTjIvDX59E%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T01:11:38.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908812:3\",\"title\":\"中国大学，越来越像高中了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908812&idx=3&sn=96e6d11c031f0526cd0969ab62c48786&chksm=e8399f6d09d3bac2dd6acf7160806531bac2f157a798121bbf68af55689eeb2c67db21b0c828&scene=126&sessionid=1794089147#rd\",\"description\":\"大学生活，过成了高三。文丨Ananke编辑丨卜卜脆 德福来源丨网易数读（ID：datablog163）封面来源丨视觉中国十年前的大学生可能没想到，如今想要重温高三，只需要考上大学就好了。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeHvs6xCelYoNxsFHtjibBut3a7K2cPaBIUvRg8dlMric0yBqdbJMONto1MIbP0baLia1sQupzdNZsOPopoZ7QCRjnhM6r9nMcO1rw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T01:11:38.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908807:1\",\"title\":\"AI重绘《清明上河图》，京东把供应链写进了剧情\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908807&idx=1&sn=8c1c75d7daf504b5f631addb70ddaa76&chksm=e85aa8c3463cf59a6d44f541674636f9f329f78ac983acc6156586007f917c12c0abf6f4a9a9&scene=126&sessionid=1794089147#rd\",\"description\":\"一场AI晚会，京东让好看的内容接上能买的货。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeHMEdcZicwibMhHFLKEw5ZmqEN1CT16cq6IBo4fnJ9jx2zu7zlgxHHDkLics1hJSPHl8enzjLQgde793LQ4TruopqyxD5VdDqxeQ0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908807:2\",\"title\":\"「国家队」的作业不好抄\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908807&idx=2&sn=1bef98d88cace5fabaf243f579ba1f09&chksm=e8afaeaeda340fd91c01480633ab33e4e7d8f606831473db6454bcb45df4dd6fcdb788021d41&scene=126&sessionid=1794089147#rd\",\"description\":\"国家队的抄底能力主要体现在能够把握市场深度调整带来的投资机会与承受大幅波动的能力。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeFzk1OwytqaApmaxwQgxibOpXtadY4AAT4yo5Zqgh7Z4icbWV4ibIkOm9vjEyABt0JRPQnAlnGImeCiaQe13vnxTBiaZBFXEuW3nSHU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908807:3\",\"title\":\"第一批来中国「代购」的老外，赚翻了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908807&idx=3&sn=cb3dc5bc5ba1a8f3fa86d5650dc51583&chksm=e85539a051b76f737cd4717efc9b13985790bc7bf0d057bd81fdaf7cc94ad9ce4fb46b7c1012&scene=126&sessionid=1794089147#rd\",\"description\":\"中国小超市，被老外逛成“代购迪士尼”了。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeEKo0bu2MNDa9iaNHVCIDWVspVLgeicPia4ZtnUPcClibYuGLWt5ibkx3V9sHjXwkDPEUpOXcBkQWB7vN6ibQY8t2wZYCs4ROoKUkPd8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908807:4\",\"title\":\"生菜塌房了，减脂中产疯了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908807&idx=4&sn=ccb115e4cf6d9eb83c980c5ee1de255c&chksm=e87f1b4ad6fcef0af34fcc09236ae74f3cb759de73bbeed636576d641192ec20c8317f579fb9&scene=126&sessionid=1794089147#rd\",\"description\":\"爱吃生菜的人天塌了。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeEnaMZyVnOaZCYHZiahkzAicZB4MkW4tDKRBkNS3GT07YvaNbFVlMuIduOv4gccGdeQTvQqicEw89UCCYASWJE5ZTiawbeEQC1JBlY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908807:5\",\"title\":\"越南消费跨越式迈向「发达国家」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908807&idx=5&sn=feb25f046b3dcb956e509ec67ad74bee&chksm=e8ad2190271c93caaff022b02da79395288a91f6ce93c189b75059e6c9c459e8559e31b6801e&scene=126&sessionid=1794089147#rd\",\"description\":\"越南人均GDP约为5000美元，接近日本1970年代中期的水平，月收入平均约合人民币2584元。尽管如此，消费者仍将有限的资金用于与亲友共度愉快时光，或表达个人喜好……\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeEZCictfxUr6oTypROr1sPfFlW6hAWBqhJiaficQcUBNJeemWJPCWo27nvDwS7EW7pWALqxUdkORfQLc7kkzLDQujxssK4KmQuZtI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908777:1\",\"title\":\"为什么找到一个好阿姨犹如开盲盒？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908777&idx=1&sn=65bd77853590320b1a398de8eb827c44&chksm=e8ee9b07a80480463fbee425b0a6bb5ec9aa68b9a841d9866f51ad1d3ef8e196c1c169467058&scene=126&sessionid=1794089147#rd\",\"description\":\"从“开盲盒”到“意难平”：找阿姨这件事，只剩玄学吗？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeGU3k7rnJ4ADnvXqnA8vLvETcPThBRJqPb01Yl9QSlIobjVfaven0FwSlfWZoib5ySLWldZGSjdk3BKbuh8j9EtkBFdInTDROdo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908777:2\",\"title\":\"卖不动的南极游轮，跌破1万5了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908777&idx=2&sn=20e97c3498714ad92207c5f367cfaa0f&chksm=e8ea5adf38280bb58e2d893ebc7fb44f5d8de562272b41832c56ae4e14d395c9e19d7574c74a&scene=126&sessionid=1794089147#rd\",\"description\":\"坐船去看企鹅似乎也不是那么遥不可及的事情了。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeGMxUefiba3AGicWR1Ya0sFa9T7Bl4RKiccFvrMmUiaOgYSn8rHIHrnLhicbIHZwuBictwda5AfeJdo9dbjVw4oomrzMhCfOGU8h00oY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908777:3\",\"title\":\"GPT-6 Cyber正式发布，AI最强的矛也成了最强的盾\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908777&idx=3&sn=6a82412e064be6105034421a837d1d1a&chksm=e838f4cfcfe336220b7afe92869ca001b0f9654bac20327ef00f78471cb2646994b8fe854c08&scene=126&sessionid=1794089147#rd\",\"description\":\"魔法最终还得靠魔法来打败。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeHsZQ406IBWibbbfUKdLFemBVqU2gEMzehGbXkWyP0oaEUTOcRicNkg70WqNyCXcDibSfug0GTY5ckeH3kBnQwwvJG8Ze33tf7Ps0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908777:4\",\"title\":\"当OPC撞上真实的产业壁垒丨乌镇峰会观察\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908777&idx=4&sn=fe8c198f0cb4ed22e3e39de827db269a&chksm=e8e076e028e88e06982f44e4e18d9e33cc1a8b505692329795caea7753c0b886655e83d9ed25&scene=126&sessionid=1794089147#rd\",\"description\":\"一场关于产业生态接口的追问。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeFicv5NQoDkwBKqDIGvI2DUvxxCB0EHia7Cvzl7bSCOGsfg4jibRwR1qpVUg9dYpF4jMsGfbIdWkHCniayDHMtJ9LnWV1dIvg8Z9js%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908574:1\",\"title\":\"8点1氪：2027放假安排出炉，是近年调休最少的一年；美股现史诗级抛售，马斯克损失近千亿美元；《后会友期》爆火，致芒果服务器故障\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908574&idx=1&sn=0c609f1f2b2eefb8caf92b9861674423&chksm=e85778101f05ed3673f4f97f2b8b389e0467ad946725495fe0e476537c067b197d0523c2d3a0&scene=126&sessionid=1794089147#rd\",\"description\":\"9天超长春节假期将再次回归。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeG2L66LibfnpAmmOQbXibq3ia0gKYDy9goMTiahzaTRIFwwibrfviaPFUzDiaibyiauLiaHMxslBP5xhITU2IK6rwKf6Hbh9OAbhwLQcUJkk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T00:03:25.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908574:2\",\"title\":\"年轻人去乌兰察布守机房，真能月入三万吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908574&idx=2&sn=bc6585abccf8f3e4d56631cafe3ba39a&chksm=e8bff37551be0aa5a2f1b68c04f5fba36c41de0320dfaad1b723546bee2a93ee724f2cbe87b6&scene=126&sessionid=1794089147#rd\",\"description\":\"从专业不限的大专生，到要求专业对口，未来还打算只招本科生，35岁红线也从大城市蔓延到了遥远的草原机房。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeFqh4YCWp6eX7xAdz2rfwptZskQITv2MqpcfNrmIyYibFeu41vaOCvX7Amu9IHTkJniadw5jboJIdlibYZIfQpls9ENWNicE8aydic8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T00:03:25.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908574:3\",\"title\":\"米哈游退出，交大系基金投资接手「零唯一思」丨36氪首发\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908574&idx=3&sn=7fa847eb94d221a23dd9a5e3f56ebb25&chksm=e84ddbccdf2af5e8c09afaf38f246c66501f8967a54454414798b6673cf3cf951e387711501b&scene=126&sessionid=1794089147#rd\",\"description\":\"未来，零唯一思将从情感脑机接口技术逐步拓展到脑电基础模型和通用神经解码平台开发。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeFHqPd2iawdI5sxmR0ekv6ibT8MBwITFMhP4SyWBYydzy48mRuJsTnraJaQZPRZSoGQlicPcuvO8SSCwOhvWSWeor5rPEDdyXKSjo%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T00:03:25.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908574:4\",\"title\":\"健身人爱吃的蓝莓，一年做出30亿生意\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908574&idx=4&sn=8ccc288418e37c4de24e1131e9618425&chksm=e80f9c0c2026c681edafc5937150880f1bc22ae855e09102d0edd52e47bd48633a95c31734c5&scene=126&sessionid=1794089147#rd\",\"description\":\"蓝莓和小番茄成为顶流，健康趋势已经换了赛道。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeFfPZSdiaPp9gRShvOFWpxw6WCQiclWAueGZHuEJVrUxzibXEQGHZa6pnn7pibu4gicf0IjCWh6QDrj10vvKg0QuGEUM2NPZZyPD2oI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T00:03:25.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908573:1\",\"title\":\"一场青奥，万点鼓声，一朵不走的主权云：阿里在达喀尔的答卷\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908573&idx=1&sn=2de6100f5690bfc27829dd3b094fc0aa&chksm=e81f54498bb04f4e76dc5798fa2603c2f0c883d1246e3397a25ff38a41f1b9f388bda060fba4&scene=126&sessionid=1794089147#rd\",\"description\":\"中国科技企业走向世界的新范式。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeFQwLmshib1JWoMhCdmdU6icTrzgibOVyjkyQhrwraDBfNn4KFw587OZGKCp0rcSn86zddCVVw2wS4LQnTosicDBp3UCLpZwqTN0t4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908573:2\",\"title\":\"价格暴涨，山姆限购，黄牛盯上零食顶流\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908573&idx=2&sn=832a8cb7eea254a43bb3da2d9dd48dc3&chksm=e82681f65f9c96b8a7b23c6b70bc0c8917367c7d2c7ac718b827eb707789af0fc0602086b6e8&scene=126&sessionid=1794089147#rd\",\"description\":\"这些被当作“理财产品”的开心果，会不会也像曾经被热捧的Labubu一样，经历一轮价格起落？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeGgHDNJJlJ8jHG0BL4k6p932BYcicbc2cWdhHedhFQHhicjIMFL4QPX5uHls6ia5AqSgC8NpTib0qQibLOEQPso2QUkliafFZvAD96nk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908573:3\",\"title\":\"41岁，他登顶江西首富\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908573&idx=3&sn=d226af17e49718da1d13eb0c17bd5fd7&chksm=e8b96e7fd070b4a42bf2d4e08bc827e55b563470086ed435c52d3e233dd58c3046c8ad9ffc6f&scene=126&sessionid=1794089147#rd\",\"description\":\"产业变迁。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeHiaUxYOlQRvuecibc4qc5qGytgjblQZ158azE1Tv9DcqVOJPOHw7x5qS5jy8j6gPVx7t1M18XicWRvB1M7XtuicLicYageBaibfk2ao%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908573:4\",\"title\":\"Claude Code「产品一姐」加入OpenAI，前一天刚宣布离职\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908573&idx=4&sn=3e7946446c759d70fae8c8efdea21821&chksm=e87df1949b0603bddc520523cff559c03bcd3097a7351e5756899012128c61753fdc4e4dd545&scene=126&sessionid=1794089147#rd\",\"description\":\"Anthropic眼看就要迎来IPO，Claude Code的重要成员却接连选择离开。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeGzfI5XzibbqZzntkmlVOahblrqOwEnCPjzlc0roloibzjBfJxCHJfFicwT5aoTib1icHl3QbrPe7AWbdiafbEI9TlILha71DOOEL8zI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T13:30:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908571:2\",\"title\":\"拿下数亿元杭州国资投资， 李开复要把AI送进企业决策层\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908571&idx=2&sn=d41ff10142510f6b50368daa7be50321&chksm=e8a71e0abe8928c4bf406585155ae5a756e5f9b017207d4c6cf733f74591e5fd3ad18e460750&scene=126&sessionid=1794089147#rd\",\"description\":\"企业AI转型，零一万物重新下注。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeGvibUlxU4yFhgN03Ria9p7aqSKkbSv0NnTp2f938QjdlKuZqjCUqwKJicBEFWO1Nl5MA99MWLDYRH5IdB5iaGbPQdpYoALLzkCKUs%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T09:22:03.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908571:3\",\"title\":\"中期选举落地，为何AI大涨？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908571&idx=3&sn=b3f97e17fe63aac5e9f96a6707a189f6&chksm=e8b278a5aa2c85fed73991e711a2a0ceb64821df6b5cf387cbe7dc973dd38549892d76f2fd67&scene=126&sessionid=1794089147#rd\",\"description\":\"这场搅动全球的中期选举，更像一场大型的“预期纠偏”。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeEWhstx7f3K71gQwATw1MdTjdqTmW3LbQyusq6VatUl38gY44JiaAyF3s7mJN8N24hs3xVhxD8qLBGbHd6FwAdvOKteTghI8UZ4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T09:22:03.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908571:4\",\"title\":\"恨海情天，救不了绝味鸭脖\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908571&idx=4&sn=93bd01634da6b409dc5f9e3e66ab2667&chksm=e8246b605fc06528a974823ff939cf9575b3c1b1d22bddc25c599f64440552c815af4f7c958a&scene=126&sessionid=1794089147#rd\",\"description\":\"卤味市场的问题，远不是一波综艺流量能够解决的，厉娜。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeGrK3ASSCTK865MGVULYqSMNn5HAY8RxojG2gpyWCp1DKiblRSJehVIlovb4ejqYy05eHWRicwQsERZnCniaUXFlUTpvw3bRVT6es%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T09:22:03.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908494:1\",\"title\":\"8点1氪：张雪回应“校招年薪10万起被嫌低”；A股史诗级大涨；“iPhone显示下周五多地-30℃”，苹果致歉\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908494&idx=1&sn=8a682baba18f65292d3655739b7d0202&chksm=e82cc43602eeb318e3f136d7241bf816497faa33ae8f99fbb5f353ede4061b3697842f3160e9&scene=126&sessionid=1794089147#rd\",\"description\":\"张雪在重庆大学校招开出研发岗10万起的年薪，引发学生质疑，张雪回应称招聘是双向选择，不能强制企业抬高薪资。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeH6LjxTarYeygltYric0xJv6c2wl8A4IUYlStRibusblL01LrPib8xTrUrBxj9T8VkUb2t4zMMUskZQdLzictfqvXiaWFww5NTvZ7NA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T00:03:17.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908494:2\",\"title\":\"花钱买封号，中国用户的Claude虐恋之路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908494&idx=2&sn=ac2525f20487d2184463363ba2c8a219&chksm=e8871680ed4dd9e2a21303f6f864c6d444c451ddbf668cfeb9942aa6e37ee7117dfdcb02a5a2&scene=126&sessionid=1794089147#rd\",\"description\":\"一场东八区的虐恋。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeEicnyUXZxsUg0RQRM2d6wLPtT3giaeR7dRT4RQ5dpQ7AibhRWZI9bBYGHEw32wicUXic9YK17qw9zuUnHMWcGc2MCQCUoe8dlibibyZM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T00:03:17.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908494:3\",\"title\":\"国资入股、「臻泰智能」获数千万元B轮融资，脑机康复产品进入500+医院丨36氪首发\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908494&idx=3&sn=fb7c99a1d8a9347ea4e40a6dcef77db7&chksm=e838643c074eb3190506cb29ee56f6ef12d26098e0da4a4f883a76371a172676160b70bbbb29&scene=126&sessionid=1794089147#rd\",\"description\":\"臻泰智能方面称，2025年，公司就已实现盈利。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeFHBDa8N7SG2CX0OBrndN9nGHcj2VS6yegE7usnUAD2Uq5Oc8lL0zMbMDnE1Bpv2ibrTmfX8FoWgvTwDgoC7e5zHDictsHKEnCbA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T00:03:17.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908494:4\",\"title\":\"汉堡巨头要被卖了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908494&idx=4&sn=30a3e310f6beb482a2b4c66d77371b42&chksm=e87403432f225ddd22b5de753a01494ed6e91a292601ad7b020a9d85eda6e551ce9dc17e3682&scene=126&sessionid=1794089147#rd\",\"description\":\"老牌汉堡巨头，站在退市路口。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeEUYWZDgS3BKKhHQz76OrXmz6ticcibaGgU9O7wwvEWSBYvlYOLjEhqd581NUaCuPyEuSpwpnydva6ibojSZmhm0Qwmf207haDJFk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T00:03:17.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908493:1\",\"title\":\"当AI不再「夸夸其谈」：决策模型爆红，物理世界需要端侧「快判断」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908493&idx=1&sn=ac6b318a5d31e35eaf87bb4da8fabaa1&chksm=e8a584824f20eefa5b8415811837feb71aa8fec3100b5b42e6582930e8d5a20c553771ee6908&scene=126&sessionid=1794089147#rd\",\"description\":\"决策模型兴起，端侧多模态赋能物理 AI。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeGyuaN8aPibuxYt9xuy2Y1TAISiaMaNOSZPMZ3jx02DaVHLMUXYVTqJibLaWZ3HfxRgDiaiaBUIicbyxwsMthFZpdBv73vrABiaN25sIs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T13:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908493:2\",\"title\":\"中产最爱的运动品牌，突然尴尬了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908493&idx=2&sn=30f0c87dafa1cd2b1ff43864619af431&chksm=e84f2edf9396a879591cf3b5ebe38e611a465cebf6840ce142d74e1761aba7b6a81c69c40a78&scene=126&sessionid=1794089147#rd\",\"description\":\"姆巴佩风波之于昂跑中国市场。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fo02wSnKAPeE96rK5pDat5PYkMgXMzibR3H4J8veSjmBiaWHic6WzJYvSKvzg4CVQ5PeyQV66Oajhmee00p0YOehVdlcayLN5uwlLcMdzxqEkwk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T13:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908493:3\",\"title\":\"月薪8万招人，一群FDE却接不到单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908493&idx=3&sn=482ee2ba63593ac3fca7aaa01e44a930&chksm=e8084b2dff753f417019aa6e478c953c0444086fb51e1843d18437ea9f9f918d55420ed36b58&scene=126&sessionid=1794089147#rd\",\"description\":\"AI落地最贵的一线工种。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeFPUUziathg3xiagAW04lD0ibMrV5pdhzD9mgo27GQL1VY4mL1zvypLZeeSsXeaib8Znrq90wm5W0jkiaoFvYosnNz273Hy7ZW1c0n4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T13:00:00.000Z\"},{\"id\":\"wxmp:MzI2NDk5NzA0Mw%3D%3D:2248908493:4\",\"title\":\"移民西方16年，偷偷回国交社保\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NDk5NzA0Mw==&mid=2248908493&idx=4&sn=a54de06970c3574a854621ac931f17ad&chksm=e8aaf60f9ecf9219f312a0b9886a9b57022fb135c8a26c76728c4ec98ad08066ccfe99aca8bf&scene=126&sessionid=1794089147#rd\",\"description\":\"漂泊者们流动的选择，在时代浪潮中寻找新锚点。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeEMzq8l18H0jyVeoCnoVVPW1VlqicdagXqCYmderevoZht8jgFJXN2CnGCdSxe3rA7W2RHOSvlBBZOEyVRtVGm7nicoQlnnJvxkw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T13:00:00.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1469,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1469
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1469,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1469,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1469,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1469,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1469,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1469
+        }
+      ]
+    }
+  }
 }

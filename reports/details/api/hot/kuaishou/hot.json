@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T13:20:31.796Z",
+  "checked_at": "2026-11-07T22:04:29.628Z",
   "inspection": {
     "file": "hot/kuaishou_hot.js",
     "path": "/api/hot/kuaishou/hot",
@@ -12,12 +12,159 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 38
+    "duration_ms": 54
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 48
+    "status": 200,
+    "duration_ms": 2898
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/kuaishou_hot.js",
+      "name": "快手",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/kuaishou/hot",
+      "request_path": "/api/hot/kuaishou/hot",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/kuaishou/hot",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a56fa24d3fe9677a"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 2695,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"kuaishou\",\"count\":50,\"missing_rank\":0}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":50}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.kuaishou.com/?isHome=1",
+        "method": "GET",
+        "host": "www.kuaishou.com",
+        "pathname": "/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 2695,
+        "timings": {
+          "response_ms": 2244,
+          "body_read_ms": 451,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"快手\",\"link\":\"https://www.kuaishou.com\",\"category\":\"娱乐\",\"observed_at\":\"2026-11-07T22:04:32.446Z\",\"entries\":[{\"id\":\"kuaishou:共赴进博之约共享中国机遇\",\"title\":\"共赴进博之约共享中国机遇\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%85%B1%E8%B5%B4%E8%BF%9B%E5%8D%9A%E4%B9%8B%E7%BA%A6%E5%85%B1%E4%BA%AB%E4%B8%AD%E5%9B%BD%E6%9C%BA%E9%81%87\",\"rank\":null,\"pinned\":true,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"kuaishou:立冬不端饺子碗冻掉耳朵没人管\",\"title\":\"立冬不端饺子碗冻掉耳朵没人管\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%AB%8B%E5%86%AC%E4%B8%8D%E7%AB%AF%E9%A5%BA%E5%AD%90%E7%A2%97%E5%86%BB%E6%8E%89%E8%80%B3%E6%9C%B5%E6%B2%A1%E4%BA%BA%E7%AE%A1\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1170.4万\"}},{\"id\":\"kuaishou:趵突泉夫妇领证结婚\",\"title\":\"趵突泉夫妇领证结婚\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%B6%B5%E7%AA%81%E6%B3%89%E5%A4%AB%E5%A6%87%E9%A2%86%E8%AF%81%E7%BB%93%E5%A9%9A\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1169.9万\"}},{\"id\":\"kuaishou:消费基础设施建设提速\",\"title\":\"消费基础设施建设提速\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%B6%88%E8%B4%B9%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%BB%BA%E8%AE%BE%E6%8F%90%E9%80%9F\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1169.7万\"}},{\"id\":\"kuaishou:狂犬病致死率近100%\",\"title\":\"狂犬病致死率近100%\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%8B%82%E7%8A%AC%E7%97%85%E8%87%B4%E6%AD%BB%E7%8E%87%E8%BF%91100%25\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1169.5万\"}},{\"id\":\"kuaishou:妻子偷拍丈夫出轨未被采信\",\"title\":\"妻子偷拍丈夫出轨未被采信\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A6%BB%E5%AD%90%E5%81%B7%E6%8B%8D%E4%B8%88%E5%A4%AB%E5%87%BA%E8%BD%A8%E6%9C%AA%E8%A2%AB%E9%87%87%E4%BF%A1\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1169.4万\"}},{\"id\":\"kuaishou:进博党群服务站服务全\",\"title\":\"进博党群服务站服务全\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%BF%9B%E5%8D%9A%E5%85%9A%E7%BE%A4%E6%9C%8D%E5%8A%A1%E7%AB%99%E6%9C%8D%E5%8A%A1%E5%85%A8\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1147.7万\"}},{\"id\":\"kuaishou:后会友期 现象级爆综\",\"title\":\"后会友期 现象级爆综\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%90%8E%E4%BC%9A%E5%8F%8B%E6%9C%9F%20%E7%8E%B0%E8%B1%A1%E7%BA%A7%E7%88%86%E7%BB%BC\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1115.6万\"}},{\"id\":\"kuaishou:偷拍女性如厕黑产曝光\",\"title\":\"偷拍女性如厕黑产曝光\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%81%B7%E6%8B%8D%E5%A5%B3%E6%80%A7%E5%A6%82%E5%8E%95%E9%BB%91%E4%BA%A7%E6%9B%9D%E5%85%89\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1083.5万\"}},{\"id\":\"kuaishou:我国部分地区将迎大雪\",\"title\":\"我国部分地区将迎大雪\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%88%91%E5%9B%BD%E9%83%A8%E5%88%86%E5%9C%B0%E5%8C%BA%E5%B0%86%E8%BF%8E%E5%A4%A7%E9%9B%AA\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1062.6万\"}},{\"id\":\"kuaishou:尾号98888888号码128万起拍\",\"title\":\"尾号98888888号码128万起拍\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%B0%BE%E5%8F%B798888888%E5%8F%B7%E7%A0%81128%E4%B8%87%E8%B5%B7%E6%8B%8D\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1041.2万\"}},{\"id\":\"kuaishou:聪明人也会被骗\",\"title\":\"聪明人也会被骗\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%81%AA%E6%98%8E%E4%BA%BA%E4%B9%9F%E4%BC%9A%E8%A2%AB%E9%AA%97\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1029.4万\"}},{\"id\":\"kuaishou:乌镇展现AI走进生活\",\"title\":\"乌镇展现AI走进生活\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B9%8C%E9%95%87%E5%B1%95%E7%8E%B0AI%E8%B5%B0%E8%BF%9B%E7%94%9F%E6%B4%BB\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1017.6万\"}},{\"id\":\"kuaishou:林正英逝世29周年\",\"title\":\"林正英逝世29周年\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%9E%97%E6%AD%A3%E8%8B%B1%E9%80%9D%E4%B8%9629%E5%91%A8%E5%B9%B4\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1013.4万\"}},{\"id\":\"kuaishou:高市称特朗普周边最低水平\",\"title\":\"高市称特朗普周边最低水平\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%AB%98%E5%B8%82%E7%A7%B0%E7%89%B9%E6%9C%97%E6%99%AE%E5%91%A8%E8%BE%B9%E6%9C%80%E4%BD%8E%E6%B0%B4%E5%B9%B3\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1009.3万\"}},{\"id\":\"kuaishou:新型毒品替来他明正式列管\",\"title\":\"新型毒品替来他明正式列管\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%96%B0%E5%9E%8B%E6%AF%92%E5%93%81%E6%9B%BF%E6%9D%A5%E4%BB%96%E6%98%8E%E6%AD%A3%E5%BC%8F%E5%88%97%E7%AE%A1\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1006.3万\"}},{\"id\":\"kuaishou:广东一墙体坍塌多车被砸\",\"title\":\"广东一墙体坍塌多车被砸\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%B9%BF%E4%B8%9C%E4%B8%80%E5%A2%99%E4%BD%93%E5%9D%8D%E5%A1%8C%E5%A4%9A%E8%BD%A6%E8%A2%AB%E7%A0%B8\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1003.4万\"}},{\"id\":\"kuaishou:北京下雪\",\"title\":\"北京下雪\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%8C%97%E4%BA%AC%E4%B8%8B%E9%9B%AA\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1000.7万\"}},{\"id\":\"kuaishou:立冬天气能预判整个冬天\",\"title\":\"立冬天气能预判整个冬天\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%AB%8B%E5%86%AC%E5%A4%A9%E6%B0%94%E8%83%BD%E9%A2%84%E5%88%A4%E6%95%B4%E4%B8%AA%E5%86%AC%E5%A4%A9\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"998.3万\"}},{\"id\":\"kuaishou:马斯克宣布减产赛博皮卡\",\"title\":\"马斯克宣布减产赛博皮卡\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%A9%AC%E6%96%AF%E5%85%8B%E5%AE%A3%E5%B8%83%E5%87%8F%E4%BA%A7%E8%B5%9B%E5%8D%9A%E7%9A%AE%E5%8D%A1\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"990.6万\"}},{\"id\":\"kuaishou:赵丽颖金鸡奖现场上班咖啡配奶茶\",\"title\":\"赵丽颖金鸡奖现场上班咖啡配奶茶\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%B5%B5%E4%B8%BD%E9%A2%96%E9%87%91%E9%B8%A1%E5%A5%96%E7%8E%B0%E5%9C%BA%E4%B8%8A%E7%8F%AD%E5%92%96%E5%95%A1%E9%85%8D%E5%A5%B6%E8%8C%B6\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"984.9万\"}},{\"id\":\"kuaishou:马天宇直播被叫停怒怼工作人员\",\"title\":\"马天宇直播被叫停怒怼工作人员\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%A9%AC%E5%A4%A9%E5%AE%87%E7%9B%B4%E6%92%AD%E8%A2%AB%E5%8F%AB%E5%81%9C%E6%80%92%E6%80%BC%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98\",\"rank\":21,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"982万\"}},{\"id\":\"kuaishou:特朗普开会讨论伊朗问题\",\"title\":\"特朗普开会讨论伊朗问题\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%89%B9%E6%9C%97%E6%99%AE%E5%BC%80%E4%BC%9A%E8%AE%A8%E8%AE%BA%E4%BC%8A%E6%9C%97%E9%97%AE%E9%A2%98\",\"rank\":22,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"979.1万\"}},{\"id\":\"kuaishou:美股上演黑色星期四\",\"title\":\"美股上演黑色星期四\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%BE%8E%E8%82%A1%E4%B8%8A%E6%BC%94%E9%BB%91%E8%89%B2%E6%98%9F%E6%9C%9F%E5%9B%9B\",\"rank\":23,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"976.5万\"}},{\"id\":\"kuaishou:鬼新娘翻唱\",\"title\":\"鬼新娘翻唱\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%AC%BC%E6%96%B0%E5%A8%98%E7%BF%BB%E5%94%B1\",\"rank\":24,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"972.6万\"}},{\"id\":\"kuaishou:日本男子偷女生鞋垫被捕\",\"title\":\"日本男子偷女生鞋垫被捕\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%97%A5%E6%9C%AC%E7%94%B7%E5%AD%90%E5%81%B7%E5%A5%B3%E7%94%9F%E9%9E%8B%E5%9E%AB%E8%A2%AB%E6%8D%95\",\"rank\":25,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"968.8万\"}},{\"id\":\"kuaishou:当景区来了个懒羊羊\",\"title\":\"当景区来了个懒羊羊\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%BD%93%E6%99%AF%E5%8C%BA%E6%9D%A5%E4%BA%86%E4%B8%AA%E6%87%92%E7%BE%8A%E7%BE%8A\",\"rank\":26,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"966.2万\"}},{\"id\":\"kuaishou:银川村民举报违规装载烟花\",\"title\":\"银川村民举报违规装载烟花\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%93%B6%E5%B7%9D%E6%9D%91%E6%B0%91%E4%B8%BE%E6%8A%A5%E8%BF%9D%E8%A7%84%E8%A3%85%E8%BD%BD%E7%83%9F%E8%8A%B1\",\"rank\":27,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"961.3万\"}},{\"id\":\"kuaishou:爷爷嘴硬实则心疼猫咪\",\"title\":\"爷爷嘴硬实则心疼猫咪\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%88%B7%E7%88%B7%E5%98%B4%E7%A1%AC%E5%AE%9E%E5%88%99%E5%BF%83%E7%96%BC%E7%8C%AB%E5%92%AA\",\"rank\":28,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"951.1万\"}},{\"id\":\"kuaishou:黑龙江开启极寒模式\",\"title\":\"黑龙江开启极寒模式\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%BB%91%E9%BE%99%E6%B1%9F%E5%BC%80%E5%90%AF%E6%9E%81%E5%AF%92%E6%A8%A1%E5%BC%8F\",\"rank\":29,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"948.8万\"}},{\"id\":\"kuaishou:白宫坚毅桌出现否决帽\",\"title\":\"白宫坚毅桌出现否决帽\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%99%BD%E5%AE%AB%E5%9D%9A%E6%AF%85%E6%A1%8C%E5%87%BA%E7%8E%B0%E5%90%A6%E5%86%B3%E5%B8%BD\",\"rank\":30,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"946.6万\"}},{\"id\":\"kuaishou:鬼灭之刃无惨对战林正英\",\"title\":\"鬼灭之刃无惨对战林正英\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%AC%BC%E7%81%AD%E4%B9%8B%E5%88%83%E6%97%A0%E6%83%A8%E5%AF%B9%E6%88%98%E6%9E%97%E6%AD%A3%E8%8B%B1\",\"rank\":31,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"943.4万\"}},{\"id\":\"kuaishou:南北方都要添衣保暖了\",\"title\":\"南北方都要添衣保暖了\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%8D%97%E5%8C%97%E6%96%B9%E9%83%BD%E8%A6%81%E6%B7%BB%E8%A1%A3%E4%BF%9D%E6%9A%96%E4%BA%86\",\"rank\":32,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"940.1万\"}},{\"id\":\"kuaishou:秋临东昌府水城入画\",\"title\":\"秋临东昌府水城入画\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%A7%8B%E4%B8%B4%E4%B8%9C%E6%98%8C%E5%BA%9C%E6%B0%B4%E5%9F%8E%E5%85%A5%E7%94%BB\",\"rank\":33,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"937.7万\"}},{\"id\":\"kuaishou:夫妻守钥匙摊40年寻子\",\"title\":\"夫妻守钥匙摊40年寻子\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A4%AB%E5%A6%BB%E5%AE%88%E9%92%A5%E5%8C%99%E6%91%8A40%E5%B9%B4%E5%AF%BB%E5%AD%90\",\"rank\":34,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"935.4万\"}},{\"id\":\"kuaishou:鞍山街霸恶势力团伙被抓\",\"title\":\"鞍山街霸恶势力团伙被抓\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%9E%8D%E5%B1%B1%E8%A1%97%E9%9C%B8%E6%81%B6%E5%8A%BF%E5%8A%9B%E5%9B%A2%E4%BC%99%E8%A2%AB%E6%8A%93\",\"rank\":35,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"933.2万\"}},{\"id\":\"kuaishou:王楚然山东话表白黄景瑜\",\"title\":\"王楚然山东话表白黄景瑜\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%8E%8B%E6%A5%9A%E7%84%B6%E5%B1%B1%E4%B8%9C%E8%AF%9D%E8%A1%A8%E7%99%BD%E9%BB%84%E6%99%AF%E7%91%9C\",\"rank\":36,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"930.5万\"}},{\"id\":\"kuaishou:男子网恋6年女友是男性\",\"title\":\"男子网恋6年女友是男性\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%94%B7%E5%AD%90%E7%BD%91%E6%81%8B6%E5%B9%B4%E5%A5%B3%E5%8F%8B%E6%98%AF%E7%94%B7%E6%80%A7\",\"rank\":37,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"927.9万\"}},{\"id\":\"kuaishou:中介倒卖女房东信息至境外\",\"title\":\"中介倒卖女房东信息至境外\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%AD%E4%BB%8B%E5%80%92%E5%8D%96%E5%A5%B3%E6%88%BF%E4%B8%9C%E4%BF%A1%E6%81%AF%E8%87%B3%E5%A2%83%E5%A4%96\",\"rank\":38,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"924.9万\"}},{\"id\":\"kuaishou:沈阳保洁大叔回应快手网友\",\"title\":\"沈阳保洁大叔回应快手网友\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%B2%88%E9%98%B3%E4%BF%9D%E6%B4%81%E5%A4%A7%E5%8F%94%E5%9B%9E%E5%BA%94%E5%BF%AB%E6%89%8B%E7%BD%91%E5%8F%8B\",\"rank\":39,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"922.6万\"}},{\"id\":\"kuaishou:今年冬季寒潮频次偏多\",\"title\":\"今年冬季寒潮频次偏多\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BB%8A%E5%B9%B4%E5%86%AC%E5%AD%A3%E5%AF%92%E6%BD%AE%E9%A2%91%E6%AC%A1%E5%81%8F%E5%A4%9A\",\"rank\":40,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"920.2万\"}},{\"id\":\"kuaishou:护栏现铁尖角系人为破坏\",\"title\":\"护栏现铁尖角系人为破坏\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%8A%A4%E6%A0%8F%E7%8E%B0%E9%93%81%E5%B0%96%E8%A7%92%E7%B3%BB%E4%BA%BA%E4%B8%BA%E7%A0%B4%E5%9D%8F\",\"rank\":41,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"919.3万\"}},{\"id\":\"kuaishou:网友在山里拍到的空房子\",\"title\":\"网友在山里拍到的空房子\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%BD%91%E5%8F%8B%E5%9C%A8%E5%B1%B1%E9%87%8C%E6%8B%8D%E5%88%B0%E7%9A%84%E7%A9%BA%E6%88%BF%E5%AD%90\",\"rank\":42,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"918.5万\"}},{\"id\":\"kuaishou:冰之女皇cos\",\"title\":\"冰之女皇cos\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%86%B0%E4%B9%8B%E5%A5%B3%E7%9A%87cos\",\"rank\":43,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"917.6万\"}},{\"id\":\"kuaishou:重庆警方双十一反诈提醒\",\"title\":\"重庆警方双十一反诈提醒\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%87%8D%E5%BA%86%E8%AD%A6%E6%96%B9%E5%8F%8C%E5%8D%81%E4%B8%80%E5%8F%8D%E8%AF%88%E6%8F%90%E9%86%92\",\"rank\":44,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"916.9万\"}},{\"id\":\"kuaishou:临夏州党代表马恩泽谈感悟\",\"title\":\"临夏州党代表马恩泽谈感悟\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%B4%E5%A4%8F%E5%B7%9E%E5%85%9A%E4%BB%A3%E8%A1%A8%E9%A9%AC%E6%81%A9%E6%B3%BD%E8%B0%88%E6%84%9F%E6%82%9F\",\"rank\":45,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"915.9万\"}},{\"id\":\"kuaishou:幼犬舔伤口致男子患狂犬病\",\"title\":\"幼犬舔伤口致男子患狂犬病\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%B9%BC%E7%8A%AC%E8%88%94%E4%BC%A4%E5%8F%A3%E8%87%B4%E7%94%B7%E5%AD%90%E6%82%A3%E7%8B%82%E7%8A%AC%E7%97%85\",\"rank\":46,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"915.1万\"}},{\"id\":\"kuaishou:萧炎双帝之战我会出手\",\"title\":\"萧炎双帝之战我会出手\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%90%A7%E7%82%8E%E5%8F%8C%E5%B8%9D%E4%B9%8B%E6%88%98%E6%88%91%E4%BC%9A%E5%87%BA%E6%89%8B\",\"rank\":47,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"914.2万\"}},{\"id\":\"kuaishou:学生当校长请全校吃大餐\",\"title\":\"学生当校长请全校吃大餐\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%AD%A6%E7%94%9F%E5%BD%93%E6%A0%A1%E9%95%BF%E8%AF%B7%E5%85%A8%E6%A0%A1%E5%90%83%E5%A4%A7%E9%A4%90\",\"rank\":48,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"913.5万\"}},{\"id\":\"kuaishou:白小纯青稚辩论名场面\",\"title\":\"白小纯青稚辩论名场面\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%99%BD%E5%B0%8F%E7%BA%AF%E9%9D%92%E7%A8%9A%E8%BE%A9%E8%AE%BA%E5%90%8D%E5%9C%BA%E9%9D%A2\",\"rank\":49,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"912.7万\"}}]}",
+    "timing": {
+      "elapsed_ms": 2695,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 2695
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 2695,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2695,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 2695,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 2695,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 2695,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 2695
+        }
+      ]
+    }
+  }
 }
