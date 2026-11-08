@@ -1,23 +1,171 @@
 {
-  "checked_at": "2026-11-08T06:21:54.521Z",
+  "checked_at": "2026-11-08T13:44:43.088Z",
   "inspection": {
     "file": "hot/kuan.js",
     "path": "/api/hot/kuan/v6/page/dataList",
     "example": "/api/hot/kuan/v6/page/dataList",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 25
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/kuan/v6/page/dataList.json",
+    "duration_ms": 2051
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 43
+    "status": 200,
+    "duration_ms": 549
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/kuan.js",
+      "name": "酷安 · 今日最热",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/kuan/v6/page/dataList",
+      "request_path": "/api/hot/kuan/v6/page/dataList",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/kuan/v6/page/dataList",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a57503954d02f336"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 487,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"coolapk\",\"count\":18,\"missing_rank\":18}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":18}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api.coolapk.com/v6/page/dataList?url=%2Ffeed%2FstatList%3FcacheExpires%3D300%26statType%3Dday%26sortField%3Ddetailnum%26title%3D%E4%BB%8A%E6%97%A5%E7%83%AD%E9%97%A8&title=%E4%BB%8A%E6%97%A5%E7%83%AD%E9%97%A8&subTitle=&page=1",
+        "method": "GET",
+        "host": "api.coolapk.com",
+        "pathname": "/v6/page/dataList",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "x-app-token"
+          ]
+        },
+        "started_ms": 0,
+        "duration_ms": 487,
+        "timings": {
+          "response_ms": 487,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"酷安 · 今日最热\",\"link\":\"https://coolapk.com\",\"category\":\"社区\",\"observed_at\":\"2026-11-08T13:44:43.594Z\",\"entries\":[{\"id\":\"coolapk:74919683\",\"title\":\"拼多多百亿补贴买到二手机了，今天才送到，显示上个月已经被激活过了，兄弟们咋整？\",\"link\":\"https://www.coolapk.com/feed/74919683\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"381.5万热度 3.0万讨论\"}},{\"id\":\"coolapk:74910676\",\"title\":\"一些站在光里 live。\",\"link\":\"https://www.coolapk.com/feed/74910676\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"33.4万热度 5805讨论\"}},{\"id\":\"coolapk:73785409\",\"title\":\"OriginOS 7 给我的感觉不是功能变多了，而是把截屏、卡包、日历、文件、通知、录音等等这些日常能力串了起来，生活里很多事都能通过小 V 一句话推进。大家感受一下！\",\"link\":\"https://www.coolapk.com/feed/73785409\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"coolapk:74915906\",\"title\":\"现在租的房1000一个月，隔壁邻居家里装空调要从我的窗台过找我开过两次门，给了我150小费。她一个星期后要回加拿大了，她姐姐精神有点问题一个人住这。问我要不要去租她家楼上（loft） ，一个月700就行，到看过比我的宽敞豪华很多。但是要帮忙留意一下她姐姐。\",\"link\":\"https://www.coolapk.com/feed/74915906\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"coolapk:74915977\",\"title\":\"今天饭局遇到个好神的人，来吃宫宴，旁边坐了个女生，不知道为什么主动和我搭话聊天，给她拍照，这女生看着挺清纯的，聊的也很好，聊着和我透露他自己是在tk上做擦边直播的，我真惊讶做这行的这么不避讳了吗？而且她才大三就赚了30多个了，线下有好几个大哥[喷血] #酷安夜话#\",\"link\":\"https://www.coolapk.com/feed/74915977\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"coolapk:74916117\",\"title\":\"地补机被快递员摔磕碰后续，向顺丰官方投诉理赔 他们那边刚才打来电话 只给我补偿10元的顺丰快递电子券， 我说向邮政管理局申诉 由政F平台跟进督办 顺丰客服说投诉到邮政管理局 邮政那边也会督办我们顺丰 很麻烦，最后我说只能向邮政管理局申诉。然后去商家那边问了一下还能不能申请之前他说的补偿40体验金 商家那边说可以，我说晚几天现在向邮政管理局申诉 看下结果如何。\",\"link\":\"https://www.coolapk.com/feed/74916117\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"381.5万热度 3.0万讨论\"}},{\"id\":\"coolapk:74900877\",\"title\":\"#酷安夜话# 📝\",\"link\":\"https://www.coolapk.com/feed/74900877\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"coolapk:74897254\",\"title\":\"前沿，目前本人属于全盲，使用手机必须依赖读屏软件，但目前国产几大系统，读屏软件支持起来或多或少都有一些问题，而且这些问题只能系统那边解决。为了在使用手机时，读屏软件能更加顺畅一点，不会有一些地方读不出来或者操作不了，因此才学会了刷机。正文开始。\",\"link\":\"https://www.coolapk.com/feed/74897254\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"101.1万热度 8.5万讨论\"}},{\"id\":\"coolapk:74901050\",\"title\":\"内置的云端模块都是最新版不需要担心太旧无法使用的问题，由于教程几乎通用就使用一个教程不同模式不同的操作会有标注\",\"link\":\"https://www.coolapk.com/feed/74901050\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"coolapk:74888054\",\"title\":\"（信息量爆炸）不拆不知道，一拆吓一跳！\",\"link\":\"https://www.coolapk.com/feed/74888054\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"32.6万热度 1496讨论\"}},{\"id\":\"coolapk:74914808\",\"title\":\"想选小屏机耍耍\",\"link\":\"https://www.coolapk.com/feed/74914808\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"31.7万热度 9511讨论\"}},{\"id\":\"coolapk:74905555\",\"title\":\"你们都有啥奇怪的兴趣爱好嘛[受虐滑稽][受虐滑稽][受虐滑稽]我喜欢充电宝跟打火机，女朋友说再买分手了[受虐滑稽][受虐滑稽][受虐滑稽]。\",\"link\":\"https://www.coolapk.com/feed/74905555\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"46.1万热度 6.0万讨论\"}},{\"id\":\"coolapk:74914690\",\"title\":\"爆了爆了兄弟们，真4430mAh再配上vc均热板将乱杀17系列啊[受虐滑稽]#数码日常# #iPhone17#\",\"link\":\"https://www.coolapk.com/feed/74914690\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"9.1万热度 3745讨论\"}},{\"id\":\"coolapk:74873826\",\"title\":\"如果不炒股，可以买多少台iPhone duo了[二哈]\",\"link\":\"https://www.coolapk.com/feed/74873826\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"91.4万热度 1.0万讨论\"}},{\"id\":\"coolapk:74925921\",\"title\":\"机器到了，写着需要签收激活，但顺丰直接给我丢门卫那里就走了。拍了开箱视频，外观无瑕疵，保修还查不到，屏幕拍照很红，但肉眼看着挺白，安全下车，先升级澎湃4，等下看看内存厂商，大家都喜欢白色，但白色铝合金和玻纤颜色有差异，我买的黑色，浑然一体。 #HyperOS4# #数码日常#\",\"link\":\"https://www.coolapk.com/feed/74925921\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"381.5万热度 3.0万讨论\"}},{\"id\":\"coolapk:74872164\",\"title\":\"#酷安夜话# 今天出差回来高铁上，进站口遇到个老头，不认识座位，我把他带到座位后发现恰巧坐到我右边，过了一会又来了一个左手打着石膏的奶奶，坐在我左边。车开了以后，我本来想打开笔记本干会活，但是二位老人一个外放刷短剧，一个公放打电话，放在我以前肯定觉得没素质，但是现在我只是觉得他们不知道这样会影响到别人，一会列车员过来提醒他们这是静音车厢，要小点声，两个老人也都连连说不好意思，一会老头手机没电了（老头也喜欢看美女，果然男人至死是少年啊），还问我借了充电头充电。左边的奶奶跟我聊了会天，说自己一个人出来打工，胳膊摔坏了，工厂不要她了，今天回家。看着这个弱小的身体，一时间我想起我奶奶了。哎，好久没打电话给奶奶了。\",\"link\":\"https://www.coolapk.com/feed/74872164\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"coolapk:74916285\",\"title\":\"看看各位的桌面主题搭配还有壁纸，我这个咋样[受虐滑稽][受虐滑稽][受虐滑稽] #MIUI主题#\",\"link\":\"https://www.coolapk.com/feed/74916285\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"381.5万热度 3.0万讨论\"}},{\"id\":\"coolapk:74923461\",\"title\":\"《两手涩影诗~我在酷安晒靓照，你在酷安瞧美模，小中老登赏魅魔第3集 :优一库走起？》\",\"link\":\"https://www.coolapk.com/feed/74923461\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 487,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 487
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 487,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 487,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 487,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 487,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 487,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 487
+        }
+      ]
+    }
+  }
 }

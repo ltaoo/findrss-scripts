@@ -1,8 +1,8 @@
-# 脚本路由巡检：46/142 通过
+# 脚本路由巡检：45/142 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-08T06:24:16.834Z
+巡检时间：2026-11-08T13:47:49.418Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -20,7 +20,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/clip/github/:owner/:repo | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/clip/github/:owner/:repo | ❌ 失败 | The operation was aborted due to timeout |
 
 ## clip/website.js（0/1 通过）
 
@@ -89,34 +89,6 @@
 | --- | --- | --- |
 | /api/hot/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
-## hot/chongbuluo.js（1/2 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-14.svg" alt="" width="24" height="24"> [hot/chongbuluo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/chongbuluo.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/chongbuluo/forum.php/latest | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
-| /api/hot/chongbuluo/forum.php/hot | ✅ 成功 |  |
-
-## hot/cls.js（2/3 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/cls/v3/depth/home/assembled/1000 | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
-| /api/hot/cls/v1/roll/get\_roll\_list | ✅ 成功 |  |
-| /api/hot/cls/v2/article/hot/list | ✅ 成功 |  |
-
-## hot/fastbull.js（1/2 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-23.svg" alt="" width="24" height="24"> [hot/fastbull.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/fastbull.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/fastbull/cn/express-news | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-| /api/hot/fastbull/cn/news | ✅ 成功 |  |
-
 ## hot/freebuf.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-24.svg" alt="" width="24" height="24"> [hot/freebuf.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/freebuf.js) · 版本：1.0.1
@@ -149,22 +121,6 @@
 | --- | --- | --- |
 | /api/hot/google-news/rss/:edition?/:topic? | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
-## hot/gutenberg.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-28.svg" alt="" width="24" height="24"> [hot/gutenberg.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/gutenberg.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/gutenberg/browse/scores/top/:period? | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-
-## hot/hackernews.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-29.svg" alt="" width="24" height="24"> [hot/hackernews.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hackernews.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/hackernews | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-
 ## hot/hatena.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-30.svg" alt="" width="24" height="24"> [hot/hatena.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hatena.js) · 版本：1.0.0
@@ -189,22 +145,22 @@
 | --- | --- | --- |
 | /api/hot/ifeng/hot | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
-## hot/iqiyi\_hot.js（1/2 通过）
+## hot/iqiyi\_hot.js（0/2 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-33.svg" alt="" width="24" height="24"> [hot/iqiyi\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/iqiyi_hot.js) · 版本：1.1.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
+| /api/hot/iqiyi/portal/lw/v7/channel/card/videoTab | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 | /api/hot/iqiyi/views\_category/3.0/rank\_list | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-| /api/hot/iqiyi/portal/lw/v7/channel/card/videoTab | ✅ 成功 |  |
 
-## hot/ithome.js（0/1 通过）
+## hot/itmedia.js（0/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-34.svg" alt="" width="24" height="24"> [hot/ithome.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/ithome.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-35.svg" alt="" width="24" height="24"> [hot/itmedia.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/itmedia.js) · 版本：1.0.0
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/ithome/list | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/itmedia/rss/2.0/news\_bursts.xml | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## hot/jin10.js（0/1 通过）
 
@@ -213,6 +169,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/jin10/flash\_newest.js | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+
+## hot/juejin\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-37.svg" alt="" width="24" height="24"> [hot/juejin\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/juejin_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/juejin/content\_api/v1/content/article\_rank | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## hot/kakuyomu.js（0/1 通过）
 
@@ -238,21 +202,13 @@
 | --- | --- | --- |
 | /api/hot/kuaishou/hot | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
-## hot/kuan.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-41.svg" alt="" width="24" height="24"> [hot/kuan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuan.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/kuan/v6/page/dataList | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-
 ## hot/lobsters.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-42.svg" alt="" width="24" height="24"> [hot/lobsters.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/lobsters.js) · 版本：1.0.0
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/lobsters/hottest.json | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/lobsters/hottest.json | ❌ 失败 | The operation was aborted due to timeout |
 
 ## hot/mango\_hot.js（0/1 通过）
 
@@ -261,14 +217,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/mango/pc/suggest/v1 | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-
-## hot/maoyan\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-44.svg" alt="" width="24" height="24"> [hot/maoyan\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/maoyan_hot.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/maoyan/dashboard-ajax/movie | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## hot/mastodon.js（0/1 通过）
 
@@ -316,7 +264,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/niconico/ranking | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/niconico/ranking | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## hot/nowcoder\_hot.js（0/1 通过）
 
@@ -356,14 +304,14 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/qdmm/collect | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w\_tsfp），请求 https://www.qdmm.com/rank/collect/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
+| /api/hot/qdmm/collect | ❌ 失败 | The operation was aborted due to timeout |
 | /api/hot/qdmm/free | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w\_tsfp），请求 https://www.qdmm.com/free/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/qdmm/hotsales | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-| /api/hot/qdmm/newfans | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w\_tsfp），请求 https://www.qdmm.com/rank/newfans/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
-| /api/hot/qdmm/readindex | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w\_tsfp），请求 https://www.qdmm.com/rank/readindex/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
+| /api/hot/qdmm/newfans | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/qdmm/readindex | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 | /api/hot/qdmm/rec | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-| /api/hot/qdmm/update | ❌ 失败 | The operation was aborted due to timeout |
-| /api/hot/qdmm/yuepiao | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/qdmm/update | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/qdmm/yuepiao | ❌ 失败 | The operation was aborted due to timeout |
 
 ## hot/reddit.js（0/1 通过）
 
@@ -373,13 +321,21 @@
 | --- | --- | --- |
 | /api/hot/reddit/r/:subreddit?/:sort? | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
+## hot/sspai\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-64.svg" alt="" width="24" height="24"> [hot/sspai\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/sspai_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/sspai/api/v1/article/tag/page/get | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+
 ## hot/steam.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-65.svg" alt="" width="24" height="24"> [hot/steam.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/steam.js) · 版本：1.0.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/steam/stats/stats | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/steam/stats/stats | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
 ## hot/techmeme.js（0/1 通过）
 
@@ -388,6 +344,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/techmeme/feed.xml | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+
+## hot/tencent\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-67.svg" alt="" width="24" height="24"> [hot/tencent\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tencent_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/tencent/web\_backend/v2/getTagInfo | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## hot/thepaper\_hot.js（0/1 通过）
 
@@ -445,15 +409,15 @@
 | --- | --- | --- |
 | /api/hot/vimeo/channels/staffpicks/videos/rss | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
-## hot/wallstreetcn.js（1/3 通过）
+## hot/wallstreetcn.js（0/3 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-75.svg" alt="" width="24" height="24"> [hot/wallstreetcn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/wallstreetcn.js) · 版本：1.0.2
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/wallstreetcn/apiv1/content/articles/hot | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/wallstreetcn/apiv1/content/information-flow | ❌ 失败 | The operation was aborted due to timeout |
 | /api/hot/wallstreetcn/apiv1/content/lives | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-| /api/hot/wallstreetcn/apiv1/content/information-flow | ✅ 成功 |  |
 
 ## hot/weibo\_hot.js（0/1 通过）
 
@@ -469,7 +433,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/xueqiu/v5/stock/hot\_stock/list.json | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/hot/xueqiu/v5/stock/hot\_stock/list.json | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://stock.xueqiu.com 的 Cookie 同步数据中没有权限 xueqiu 允许的名称（u、xq\_a\_token、xq\_r\_token），请求 https://stock.xueqiu.com/v5/stock/hot\_stock/list.json 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 
 ## hot/yahoo\_japan.js（0/1 通过）
 
@@ -493,7 +457,23 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/zaobao/realtime | ❌ 失败 | The operation was aborted due to timeout |
+| /api/hot/zaobao/realtime | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+
+## hot/zenn.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-81.svg" alt="" width="24" height="24"> [hot/zenn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zenn.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/zenn/api/articles | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+
+## hot/zhihu\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-82.svg" alt="" width="24" height="24"> [hot/zhihu\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zhihu_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/zhihu/api/v3/feed/topstory/hot-list-web | ❌ 失败 | The operation was aborted due to timeout |
 
 ## rss/69shuba.js（0/1 通过）
 
@@ -501,7 +481,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/69shuba/book/:book\_id | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/rss/69shuba/book/:book\_id | ❌ 失败 | SCRIPT\_FAILED: HTTP 502: SCRIPT\_FAILED: 脚本执行失败，请结合 Worker 日志排查 |
 
 ## rss/apple.js（0/1 通过）
 
@@ -517,7 +497,16 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/avmoo/star/:id | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/rss/avmoo/star/:id | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+
+## rss/bilibili.js（1/2 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-86.svg" alt="" width="24" height="24"> [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/bilibili/:userid/upload/video | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/rss/bilibili/:userid/dynamic | ✅ 成功 |  |
 
 ## rss/douyin.js（0/1 通过）
 
@@ -525,16 +514,24 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/douyin/user/:sec\_uid | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/rss/douyin/user/:sec\_uid | ❌ 失败 | The operation was aborted due to timeout |
 
-## rss/hongguo.js（1/2 通过）
+## rss/fanqienovel.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-88.svg" alt="" width="24" height="24"> [rss/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fanqienovel.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/fanqienovel/book/:book\_id | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+
+## rss/hongguo.js（0/2 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-90.svg" alt="" width="24" height="24"> [rss/hongguo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/hongguo.js) · 版本：1.0.0
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/hongguo/search/:keyword | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-| /api/rss/hongguo/series/:series\_id | ✅ 成功 |  |
+| /api/rss/hongguo/series/:series\_id | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## rss/instagram.js（0/1 通过）
 
@@ -542,15 +539,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/instagram/:username | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-
-## rss/javbus.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-92.svg" alt="" width="24" height="24"> [rss/javbus.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javbus.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/javbus/star/:id | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/rss/instagram/:username | ❌ 失败 | UPSTREAM\_RATE\_LIMITED: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
 
 ## rss/javlibrary.js（0/1 通过）
 
@@ -567,14 +556,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/kuaishou/profile/:user\_id | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
-
-## rss/qidian.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-95.svg" alt="" width="24" height="24"> [rss/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qidian.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/qidian/book/:book\_id | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## rss/qimao.js（0/1 通过）
 
@@ -606,7 +587,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/wxchannels/:account | ❌ 失败 | /api/rss/wxchannels/v2\_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认；/api/rss/wxchannels/v2\_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
+| /api/rss/wxchannels/:account | ❌ 失败 | /api/rss/wxchannels/v2\_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder: The operation was aborted due to timeout；/api/rss/wxchannels/v2\_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## rss/wxmp.js（0/1 通过）
 
@@ -638,7 +619,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/youtube/:handle | ❌ 失败 | The operation was aborted due to timeout |
+| /api/rss/youtube/:handle | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 | /api/rss/youtube/:handle/shorts | ❌ 失败 | EXCEEDED\_RESOURCES: HTTP 503: EXCEEDED\_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认 |
 
 ## rss/zhihu.js（0/8 通过）
@@ -687,6 +668,25 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/cankaoxiaoxi/json/channel | ✅ 成功 |  |
+
+## hot/chongbuluo.js（2/2 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-14.svg" alt="" width="24" height="24"> [hot/chongbuluo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/chongbuluo.js) · 版本：1.0.2
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/chongbuluo/forum.php/hot | ✅ 成功 |  |
+| /api/hot/chongbuluo/forum.php/latest | ✅ 成功 |  |
+
+## hot/cls.js（3/3 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/cls/v1/roll/get\_roll\_list | ✅ 成功 |  |
+| /api/hot/cls/v2/article/hot/list | ✅ 成功 |  |
+| /api/hot/cls/v3/depth/home/assembled/1000 | ✅ 成功 |  |
 
 ## hot/dailymotion.js（1/1 通过）
 
@@ -744,21 +744,54 @@
 | --- | --- | --- |
 | /api/hot/fanqienovel/rank/:rank\_id? | ✅ 成功 |  |
 
-## hot/itmedia.js（1/1 通过）
+## hot/fastbull.js（2/2 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-35.svg" alt="" width="24" height="24"> [hot/itmedia.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/itmedia.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/itmedia/rss/2.0/news\_bursts.xml | ✅ 成功 |  |
-
-## hot/juejin\_hot.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-37.svg" alt="" width="24" height="24"> [hot/juejin\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/juejin_hot.js) · 版本：1.0.1
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-23.svg" alt="" width="24" height="24"> [hot/fastbull.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/fastbull.js) · 版本：1.0.2
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/juejin/content\_api/v1/content/article\_rank | ✅ 成功 |  |
+| /api/hot/fastbull/cn/express-news | ✅ 成功 |  |
+| /api/hot/fastbull/cn/news | ✅ 成功 |  |
+
+## hot/gutenberg.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-28.svg" alt="" width="24" height="24"> [hot/gutenberg.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/gutenberg.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/gutenberg/browse/scores/top/:period? | ✅ 成功 |  |
+
+## hot/hackernews.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-29.svg" alt="" width="24" height="24"> [hot/hackernews.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/hackernews.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/hackernews | ✅ 成功 |  |
+
+## hot/ithome.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-34.svg" alt="" width="24" height="24"> [hot/ithome.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/ithome.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/ithome/list | ✅ 成功 |  |
+
+## hot/kuan.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-41.svg" alt="" width="24" height="24"> [hot/kuan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuan.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/kuan/v6/page/dataList | ✅ 成功 |  |
+
+## hot/maoyan\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-44.svg" alt="" width="24" height="24"> [hot/maoyan\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/maoyan_hot.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/maoyan/dashboard-ajax/movie | ✅ 成功 |  |
 
 ## hot/qidian.js（9/9 通过）
 
@@ -825,55 +858,6 @@
 | --- | --- | --- |
 | /api/hot/sputniknewscn/services/widget/lenta | ✅ 成功 |  |
 
-## hot/sspai\_hot.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-64.svg" alt="" width="24" height="24"> [hot/sspai\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/sspai_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/sspai/api/v1/article/tag/page/get | ✅ 成功 |  |
-
-## hot/tencent\_hot.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-67.svg" alt="" width="24" height="24"> [hot/tencent\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tencent_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/tencent/web\_backend/v2/getTagInfo | ✅ 成功 |  |
-
-## hot/zenn.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-81.svg" alt="" width="24" height="24"> [hot/zenn.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zenn.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/zenn/api/articles | ✅ 成功 |  |
-
-## hot/zhihu\_hot.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-82.svg" alt="" width="24" height="24"> [hot/zhihu\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/zhihu_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/zhihu/api/v3/feed/topstory/hot-list-web | ✅ 成功 |  |
-
-## rss/bilibili.js（2/2 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-86.svg" alt="" width="24" height="24"> [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/bilibili/:userid/dynamic | ✅ 成功 |  |
-| /api/rss/bilibili/:userid/upload/video | ✅ 成功 |  |
-
-## rss/fanqienovel.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-88.svg" alt="" width="24" height="24"> [rss/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fanqienovel.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/fanqienovel/book/:book\_id | ✅ 成功 |  |
-
 ## rss/github.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-89.svg" alt="" width="24" height="24"> [rss/github.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/github.js) · 版本：1.0.0
@@ -881,6 +865,22 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/github/:org/:pro/release | ✅ 成功 |  |
+
+## rss/javbus.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-92.svg" alt="" width="24" height="24"> [rss/javbus.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javbus.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/javbus/star/:id | ✅ 成功 |  |
+
+## rss/qidian.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-95.svg" alt="" width="24" height="24"> [rss/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qidian.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/qidian/book/:book\_id | ✅ 成功 |  |
 
 ## rss/telegram.js（1/1 通过）
 

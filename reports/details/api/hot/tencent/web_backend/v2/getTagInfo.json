@@ -1,169 +1,23 @@
 {
-  "checked_at": "2026-11-08T06:22:06.188Z",
+  "checked_at": "2026-11-08T13:44:56.063Z",
   "inspection": {
     "file": "hot/tencent_hot.js",
     "path": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "example": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/tencent/web_backend/v2/getTagInfo.json",
-    "duration_ms": 1887
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 21
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 864
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 21
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/tencent_hot.js",
-      "name": "腾讯新闻 · 综合早报",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/tencent/web_backend/v2/getTagInfo",
-      "request_path": "/api/hot/tencent/web_backend/v2/getTagInfo",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/tencent/web_backend/v2/getTagInfo",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5727b38ba31d638"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 682,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"tencent-hot\",\"count\":16,\"missing_rank\":16}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":16}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://i.news.qq.com/web_backend/v2/getTagInfo?tagId=aEWqxLtdgmQ%3D",
-        "method": "GET",
-        "host": "i.news.qq.com",
-        "pathname": "/web_backend/v2/getTagInfo",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 682,
-        "timings": {
-          "response_ms": 466,
-          "body_read_ms": 216,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"腾讯新闻 · 综合早报\",\"link\":\"https://news.qq.com/tag/aEWqxLtdgmQ=\",\"category\":\"综合\",\"observed_at\":\"2026-11-08T06:22:06.876Z\",\"entries\":[{\"id\":\"tencent-hot:20261108A02WJQ00\",\"title\":\"以总统将授权正直党领导人埃森科特组建新政府，内塔尼亚胡发声\",\"link\":\"https://view.inews.qq.com/a/20261108A02WJQ00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0DYRN00\",\"title\":\"美中央司令部成立特遣队 阻止伊朗通过陆路运输先进武器\",\"link\":\"https://view.inews.qq.com/a/20261107A0DYRN00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0DC9B00\",\"title\":\"特朗普最新任命，引发舆论哗然\",\"link\":\"https://view.inews.qq.com/a/20261107A0DC9B00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0BICL00\",\"title\":\"日媒：石破茂等四人“出人意料”退席，震动自民党\",\"link\":\"https://view.inews.qq.com/a/20261107A0BICL00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A09JXO00\",\"title\":\"两部门会商调度京冀等5省份雨雪天气防范应对工作\",\"link\":\"https://view.inews.qq.com/a/20261107A09JXO00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261108A015AI00\",\"title\":\"沪武高速追尾事故已致1人死亡、4人受伤\",\"link\":\"https://view.inews.qq.com/a/20261108A015AI00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0941100\",\"title\":\"国家发改委再次召开民企座谈会，研究明年政策举措\",\"link\":\"https://view.inews.qq.com/a/20261107A0941100\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A09NQD00\",\"title\":\"A股迎来重要拐点\",\"link\":\"https://view.inews.qq.com/a/20261107A09NQD00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0DMKF00\",\"title\":\"伯克希尔Q3净利润大降28%，回购创年内单季新高，现金升至3774亿美元\",\"link\":\"https://view.inews.qq.com/a/20261107A0DMKF00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0AVQ500\",\"title\":\"平均成功率91%！苹果研究团队披露机器人“大脑”进展\",\"link\":\"https://view.inews.qq.com/a/20261107A0AVQ500\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0D2BV00\",\"title\":\"马斯克再抛惊人目标：明年SpaceX年化收入5000亿美元\",\"link\":\"https://view.inews.qq.com/a/20261107A0D2BV00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0DUMU00\",\"title\":\"千公里仅3.43毫秒！我国新一代通信网技术取得新突破\",\"link\":\"https://view.inews.qq.com/a/20261107A0DUMU00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A09AFV00\",\"title\":\"委内瑞拉移民称听到声音让他杀特朗普，带3把枪在白宫附近被捕\",\"link\":\"https://view.inews.qq.com/a/20261107A09AFV00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0CQV700\",\"title\":\"也门遭沙特空袭致22死30伤\",\"link\":\"https://view.inews.qq.com/a/20261107A0CQV700\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0CXMJ00\",\"title\":\"新西兰议会选举初步计票结果：执政党国家党胜出\",\"link\":\"https://view.inews.qq.com/a/20261107A0CXMJ00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261107A0E3CM00\",\"title\":\"国乒男单冠军赛全年0冠！WTT法兰克福：温瑞博0-4林昀儒 无缘4强\",\"link\":\"https://view.inews.qq.com/a/20261107A0E3CM00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 682,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 682
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 682,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 682,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 682,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 682,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 682,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 682
-        }
-      ]
-    }
-  }
+  "debug": null
 }

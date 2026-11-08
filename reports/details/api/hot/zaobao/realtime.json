@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T06:23:09.186Z",
+  "checked_at": "2026-11-08T13:44:58.789Z",
   "inspection": {
     "file": "hot/zaobao.js",
     "path": "/api/hot/zaobao/realtime",
@@ -9,160 +9,15 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60000
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 600
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 535
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 21
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/zaobao.js",
-      "name": "联合早报",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/zaobao/realtime",
-      "request_path": "/api/hot/zaobao/realtime",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/zaobao/realtime",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5727cc28fbc5347"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 386,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"zaobao\",\"count\":60,\"missing_rank\":60}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":60}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.zaochenbao.com/realtime/",
-        "method": "GET",
-        "host": "www.zaochenbao.com",
-        "pathname": "/realtime/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 386,
-        "timings": {
-          "response_ms": 204,
-          "body_read_ms": 182,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"联合早报\",\"link\":\"https://www.zaobao.com\",\"category\":\"综合\",\"observed_at\":\"2026-11-08T06:23:09.595Z\",\"entries\":[{\"id\":\"zaobao:/news/china/202611/0885054.html\",\"title\":\"中国煤电发电量占比今年上半年首次低于50%\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885054.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885052.html\",\"title\":\"中华人民共和国最后一位开国将军王扶之逝世\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885052.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885051.html\",\"title\":\"拖欠企业项目款多年 湖南东安县：已达成还款共识\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885051.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885049.html\",\"title\":\"朝鲜劳动党代表团结束访华行程 刘海星到机场送行\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885049.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885047.html\",\"title\":\"中国多地寒潮大幅降温 河北秦皇岛发布暴雪红色预警\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885047.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885046.html\",\"title\":\"日媒：在华获刑的安斯泰来日籍员工预计12月刑满出狱\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885046.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885038.html\",\"title\":\"中国社会科学院大学成立冷门绝学学院\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885038.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885037.html\",\"title\":\"英王查尔斯三世将慎重考虑访华\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885037.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885036.html\",\"title\":\"法兰克福冠军赛 中国男女乒全军覆没\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885036.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/china/202611/0885030.html\",\"title\":\"中国特稿：敢押敢投跑出经济黑马 安徽翻身路上拼耐力赌新局\",\"link\":\"https://www.zaochenbao.com/news/china/202611/0885030.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0885045.html\",\"title\":\"美战争部长与印太司令据报或很快访华\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0885045.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0684964.html\",\"title\":\"江西原省长叶建春等九人人大代表资格终止\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0684964.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0684955.html\",\"title\":\"上海原市长龚正等12名正部级官员履新职\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0684955.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0684917.html\",\"title\":\"涉嫌操纵股票被禁入五年 倍轻松董事长马学军辞职\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0684917.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0584857.html\",\"title\":\"衢州市委书记高屹 任浙江金华市委书记\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0584857.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0584856.html\",\"title\":\"江西省委副书记庄兆林 兼任江西省委政法委书记\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0584856.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0584855.html\",\"title\":\"交银国际信托原董事长张文被“双开”\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0584855.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0584854.html\",\"title\":\"马兴瑞被指收巨额财物提起公诉 搞权色、钱色交易\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0584854.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0584851.html\",\"title\":\"谢继步任无锡市副市长、市公安局局长\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0584851.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/Chronicles/202611/0584850.html\",\"title\":\"纪委书记“内鬼”杨宏勇 受贿数额特别巨大\",\"link\":\"https://www.zaochenbao.com/news/Chronicles/202611/0584850.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0885035.html\",\"title\":\"黄慧敏：美国蓝潮难退保护主义浪潮\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0885035.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0885034.html\",\"title\":\"吴汉钧：蓝潮拍岸，清算降临\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0885034.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0885033.html\",\"title\":\"严孟达：狡兔三窟自保自强\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0885033.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0885032.html\",\"title\":\"叶鹏飞：现代开放社会的软肋\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0885032.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0885031.html\",\"title\":\"评论：中国发改委指经济仍面临供强需弱难题\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0885031.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0784982.html\",\"title\":\"陈光炎：中美关系的未来——美国中期选举与后特朗普时代\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0784982.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0784981.html\",\"title\":\"陈留俊：美国中期选举的意料之内与之外\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0784981.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0784980.html\",\"title\":\"王彼得：媒体正往多语文奔赴，你还困在茧房里？\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0784980.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0784979.html\",\"title\":\"劳静仪：AI时代基础数学教育的去向\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0784979.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/opinion/202611/0784978.html\",\"title\":\"评论：陆港台股市收跌 台股重挫失守4万点\",\"link\":\"https://www.zaochenbao.com/news/opinion/202611/0784978.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0885050.html\",\"title\":\"卢秀燕称台中市长替台北市长跑行程：历史上头一次\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0885050.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0785008.html\",\"title\":\"台外交部宣布关闭驻巴新代表处 国民党吁回归务实外交\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0785008.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0784997.html\",\"title\":\"美媒：台积电拟进军先进存储晶片制造\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0784997.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0784992.html\",\"title\":\"指大陆施压 台湾关闭驻巴新代表处并停止采购液化天然气\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0784992.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0684969.html\",\"title\":\"高市“台湾有事论”将满一年 北京：日本仍原地打转、回避问题\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0684969.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0684965.html\",\"title\":\"台行政院长拒副署施行在野党通过的《老人福利法》修正案\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0684965.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0684945.html\",\"title\":\"蒋万安为民众党候选人站台限制松绑 黄国昌：支持者自有情绪\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0684945.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0684942.html\",\"title\":\"涉违反国安法及贪污罪 台立委高金素梅遭起诉求刑14年\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0684942.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0684940.html\",\"title\":\"巴拉圭总统宣布辞职 台湾称邦交不受影响\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0684940.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/taiwan/202611/0684931.html\",\"title\":\"台股盘中暴跌逾3700点创纪录 赖清德吁民众勿恐慌\",\"link\":\"https://www.zaochenbao.com/news/taiwan/202611/0684931.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0885053.html\",\"title\":\"香港首个社区照顾者饭堂已派逾4000份饭餐\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0885053.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0785005.html\",\"title\":\"美英等10国家谴责黄之锋判刑 港府批歪曲事实污蔑抹黑\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0785005.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0684948.html\",\"title\":\"区锦新获刑12年半 港澳办吁居安思危：澳门“绝非太平无事”\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0684948.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0684932.html\",\"title\":\"港媒：在囚人士支援平台一成员被港警国安处带走\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0684932.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0584894.html\",\"title\":\"消息：北京未批大规模进口 约60万英伟达H200晶片暂存香港\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0584894.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0584882.html\",\"title\":\"中国加大境外资产追税力度 大陆富人赴港买黄金名表\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0584882.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0584877.html\",\"title\":\"李家超：黄之锋、罗冠聪及其团伙是破坏香港繁荣稳定其中祸首\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0584877.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0584819.html\",\"title\":\"香港IPO热潮降温 上市搁置率升至2008年以来新高\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0584819.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0484817.html\",\"title\":\"民主党赢得美国会两院 学者：中美战略稳定关系或面临考验\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0484817.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/hkMacao/202611/0484816.html\",\"title\":\"英国收紧移民政策 移英港人申请永居门槛提高\",\"link\":\"https://www.zaochenbao.com/news/hkMacao/202611/0484816.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885048.html\",\"title\":\"美国民主党掀“蓝色浪潮” 年轻人重燃政治希望\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885048.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885044.html\",\"title\":\"也门胡塞武装称沙特空袭酿33死39伤\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885044.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885043.html\",\"title\":\"美军称在阿曼湾打击一艘“试图违反封锁”的货船\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885043.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885042.html\",\"title\":\"法国连续四周爆发示威 巴黎警民再起冲突\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885042.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885041.html\",\"title\":\"特朗普邀格斗赛事总裁任白宫发言人\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885041.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885040.html\",\"title\":\"波兰克拉科夫发生严重枪击案 六死至少15伤\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885040.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885039.html\",\"title\":\"以色列总统授权埃森科特组阁 内坦亚胡连任前景未明\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885039.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885029.html\",\"title\":\"国际特稿：选票难熄中东战火 美以政局洗牌为何难阻对伊战争\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885029.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/politics/202611/0885027.html\",\"title\":\"特朗普委任新幕僚长 司法部高层纷离职\",\"link\":\"https://www.zaochenbao.com/news/politics/202611/0885027.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"zaobao:/news/world/202611/0885026.html\",\"title\":\"数百人闯荷兰微软数据中心工地 欧洲15国掀反AI扩张抗议浪潮\",\"link\":\"https://www.zaochenbao.com/news/world/202611/0885026.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 386,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 386
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 386,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 386,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 386,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 386,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 386,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 386
-        }
-      ]
-    }
-  }
+  "debug": null
 }

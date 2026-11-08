@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T06:21:55.094Z",
+  "checked_at": "2026-11-08T13:44:41.962Z",
   "inspection": {
     "file": "hot/producthunt.js",
     "path": "/api/hot/producthunt/feed",
@@ -12,159 +12,12 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 27
+    "duration_ms": 37
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 255
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 23
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/producthunt.js",
-      "name": "Product Hunt",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/producthunt/feed",
-      "request_path": "/api/hot/producthunt/feed",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/producthunt/feed",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5727af3583b5001"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 6,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"producthunt\",\"count\":50,\"missing_rank\":50}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":50}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.producthunt.com/feed",
-        "method": "GET",
-        "host": "www.producthunt.com",
-        "pathname": "/feed",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 6,
-        "timings": {
-          "response_ms": 6,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Product Hunt\",\"link\":\"https://www.producthunt.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-08T06:21:55.121Z\",\"entries\":[{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305716\",\"title\":\"Google Omni 1.2 Flash\",\"link\":\"https://www.producthunt.com/products/google-omni-1-2-flash\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1289071\",\"title\":\"PacerTrip\",\"link\":\"https://www.producthunt.com/products/pacertrip\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1288128\",\"title\":\"Quest\",\"link\":\"https://www.producthunt.com/products/quest-d8e9c4e8-cc0d-4b07-baee-e3dbf712c279\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306522\",\"title\":\"Capnot\",\"link\":\"https://www.producthunt.com/products/capnot\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1293330\",\"title\":\"LiveReview\",\"link\":\"https://www.producthunt.com/products/livereview\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305660\",\"title\":\"ChatGPT Images 2.6\",\"link\":\"https://www.producthunt.com/products/openai\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1302926\",\"title\":\"Fleeep\",\"link\":\"https://www.producthunt.com/products/fleeep\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306971\",\"title\":\"Muse Realtime Avatar\",\"link\":\"https://www.producthunt.com/products/meta-ai\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305719\",\"title\":\"GPT‑6 Cyber\",\"link\":\"https://www.producthunt.com/products/openai\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306062\",\"title\":\"Instagram Edits for Desktop\",\"link\":\"https://www.producthunt.com/products/instagram\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306575\",\"title\":\"Switchy\",\"link\":\"https://www.producthunt.com/products/switchy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1299937\",\"title\":\"Standflow\",\"link\":\"https://www.producthunt.com/products/standflow\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1302002\",\"title\":\"Exa Monitors v2\",\"link\":\"https://www.producthunt.com/products/exa-ai\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1293198\",\"title\":\"ClarifierAI for Chrome\",\"link\":\"https://www.producthunt.com/products/clarifierai-rewrite-text-2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1289025\",\"title\":\"Duly\",\"link\":\"https://www.producthunt.com/products/duly-life-organizer\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306766\",\"title\":\"Rex (Beta)\",\"link\":\"https://www.producthunt.com/products/superlogical\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1303866\",\"title\":\"Dino Kids\",\"link\":\"https://www.producthunt.com/products/dino-kids\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306774\",\"title\":\"Sequence Tool\",\"link\":\"https://www.producthunt.com/products/sequence-tool\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1294872\",\"title\":\"seam\",\"link\":\"https://www.producthunt.com/products/seam-2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1307289\",\"title\":\"Trace by Context.dev\",\"link\":\"https://www.producthunt.com/products/context-dev\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1303236\",\"title\":\"Sendoff\",\"link\":\"https://www.producthunt.com/products/sendoff-2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1300996\",\"title\":\"Deal Pilot\",\"link\":\"https://www.producthunt.com/products/deal-pilot\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306835\",\"title\":\"The Writer's Quarter\",\"link\":\"https://www.producthunt.com/products/the-writer-s-quarter\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1303008\",\"title\":\"kayet\",\"link\":\"https://www.producthunt.com/products/kayet\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1291263\",\"title\":\"Tobira Site Agent\",\"link\":\"https://www.producthunt.com/products/tobira-ai\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305393\",\"title\":\"Moatly\",\"link\":\"https://www.producthunt.com/products/moatly-2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1303404\",\"title\":\"Any Video to Text\",\"link\":\"https://www.producthunt.com/products/any-video-to-text\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305826\",\"title\":\"Plainmail\",\"link\":\"https://www.producthunt.com/products/plainmail\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1301588\",\"title\":\"EdgeBar\",\"link\":\"https://www.producthunt.com/products/edgebar\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305936\",\"title\":\"AudioCentral\",\"link\":\"https://www.producthunt.com/products/audiocentral\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1297563\",\"title\":\"chalk\",\"link\":\"https://www.producthunt.com/products/chalk-546d9cf8-cdc3-4b80-9b88-f441167c8f6e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1304371\",\"title\":\"OrgSync\",\"link\":\"https://www.producthunt.com/products/orgsync-2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1297378\",\"title\":\"Make0 Brain OSS\",\"link\":\"https://www.producthunt.com/products/make0-brain\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305524\",\"title\":\"Rankfender v3.0\",\"link\":\"https://www.producthunt.com/products/rankfender\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1301134\",\"title\":\"Wonder Dev View\",\"link\":\"https://www.producthunt.com/products/wonder-dev-view\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1306342\",\"title\":\"Letterpress-1\",\"link\":\"https://www.producthunt.com/products/letterpress-1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1301604\",\"title\":\"SafeGrd\",\"link\":\"https://www.producthunt.com/products/safegrd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305877\",\"title\":\"Magic Wonders\",\"link\":\"https://www.producthunt.com/products/magic-wonders\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1299883\",\"title\":\"Winq\",\"link\":\"https://www.producthunt.com/products/winq\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1303405\",\"title\":\"Vakilat\",\"link\":\"https://www.producthunt.com/products/vakilat\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1298667\",\"title\":\"Mechvibes 3\",\"link\":\"https://www.producthunt.com/products/mechvibes\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1303911\",\"title\":\"Enhanced for Todoist\",\"link\":\"https://www.producthunt.com/products/enhanced-for-todoist\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305199\",\"title\":\"TraceX\",\"link\":\"https://www.producthunt.com/products/tracex\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1258465\",\"title\":\"Meadow\",\"link\":\"https://www.producthunt.com/products/meadow-3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1303942\",\"title\":\"Koltrix\",\"link\":\"https://www.producthunt.com/products/koltrix\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305990\",\"title\":\"MacDupl\",\"link\":\"https://www.producthunt.com/products/macdupl-run-every-acc-in-its-own-app\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1305474\",\"title\":\"PostMyPace\",\"link\":\"https://www.producthunt.com/products/postmypace\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1245328\",\"title\":\"Meshia\",\"link\":\"https://www.producthunt.com/products/meshia\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1298963\",\"title\":\"Native Tasks for Obsidian\",\"link\":\"https://www.producthunt.com/products/native-tasks-for-obsidian\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"producthunt:tag:www.producthunt.com,2005:Post/1304303\",\"title\":\"Datastripes Data Stories\",\"link\":\"https://www.producthunt.com/products/datastripes\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 6,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 6
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 6,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 6,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 6,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 6,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 6,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 6
-        }
-      ]
-    }
-  }
+  "debug": null
 }

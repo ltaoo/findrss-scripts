@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T06:22:16.978Z",
+  "checked_at": "2026-11-08T13:45:46.671Z",
   "inspection": {
     "file": "rss/xiaohongshu.js",
     "path": "/api/rss/xiaohongshu/user/profile/:uid",
@@ -12,12 +12,163 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 198
+    "duration_ms": 264
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 50
+    "status": 200,
+    "duration_ms": 1850
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/xiaohongshu.js",
+      "name": "小红书用户笔记",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/xiaohongshu/user/profile/:uid",
+      "request_path": "/api/rss/xiaohongshu/user/profile/:uid",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401",
+      "params": {
+        "uid": "5d2aec020000000012037401"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5750522bed05774"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1761,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":31,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401",
+        "method": "GET",
+        "host": "www.xiaohongshu.com",
+        "pathname": "/user/profile/5d2aec020000000012037401",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 9,
+        "duration_ms": 1752,
+        "timings": {
+          "response_ms": 1655,
+          "body_read_ms": 97,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"xiaohongshu:user:5d2aec020000000012037401\",\"title\":\"雪糍 的小红书笔记\",\"link\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\",\"description\":\"⊹ 🐾\\\" ◌◞ 🐈‍⬛ 𓂂𓏸\\n分享喜欢的衣服和舞蹈  ◍˃ᵕ˂◍   \\n160 55 肚子肉肉多！\\n📮 2804405871@qq.com\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.xiaohongshu.com/\"},\"tags\":[\"小红书\"]},\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"image\":\"https://sns-avatar-qc.xhscdn.com/avatar/637749bd1801b7598e1b601f.jpg?imageView2/2/w/540/format/webp\",\"updated\":\"2026-11-08T11:06:41.000Z\",\"items\":[{\"id\":\"xiaohongshu:note:6af057c1000000000602fcd9\",\"title\":\"这么甜的露思摇根本就跳不腻！🐰\",\"link\":\"https://www.xiaohongshu.com/explore/6af057c1000000000602fcd9?xsec_token=ABO6NYQx6S3jQr1r8F9sTtG1EmlUENrTK9OMtSr5MgPMw%3D&xsec_source=pc_user\",\"description\":\"这么甜的露思摇根本就跳不腻！🐰\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/16be5b262f795ed6f562a2b91974a2ad/1040g008327act3do6e005n9atg14mt017tj2na8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-11-08T11:06:41.000Z\"},{\"id\":\"xiaohongshu:note:6aec746a000000000602d9d6\",\"title\":\"我称之为最软萌的小宅舞…！有手就会！\",\"link\":\"https://www.xiaohongshu.com/explore/6aec746a000000000602d9d6?xsec_token=ABqveSid5PQ2iBZv1PH_A8R957_T8RMTuQw0gy2kXlLRw%3D&xsec_source=pc_user\",\"description\":\"我称之为最软萌的小宅舞…！有手就会！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/d63103efeb348665b3a8825ab6643a53/1040g2sg3276jbpkimae05n9atg14mt01giijofo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-11-05T12:19:54.000Z\"},{\"id\":\"xiaohongshu:note:6ae9b9b5000000000502ebce\",\"title\":\"尝试跳了故障…！喜欢这版帅帅的编舞\",\"link\":\"https://www.xiaohongshu.com/explore/6ae9b9b5000000000502ebce?xsec_token=ABPw3ALIQI02KSheGU42E2oTpjA93tNVu6fPJGMeboPXk%3D&xsec_source=pc_user\",\"description\":\"尝试跳了故障…！喜欢这版帅帅的编舞\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/134cea2c8bb9d44b459bc64d831d279e/1040g0083273tujj46c005n9atg14mt0180s8fsg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-11-03T10:38:45.000Z\"},{\"id\":\"xiaohongshu:note:6ae8817d000000002d004255\",\"title\":\"女孩快坐上我的backseat🤎\",\"link\":\"https://www.xiaohongshu.com/explore/6ae8817d000000002d004255?xsec_token=ABo2inbgZ4QPuZfznNZmL4GdKYINRGhe2u4lL5O7tuwkE%3D&xsec_source=pc_user\",\"description\":\"女孩快坐上我的backseat🤎\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/ba1a87c986b9b01e2ddb63f40b29ec36/1040g0083272o01i36a005n9atg14mt018srt6jo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-11-02T12:26:37.000Z\"},{\"id\":\"xiaohongshu:note:6ae5e9ea000000001202eb61\",\"title\":\"每天跳上一遍真是通透啊\",\"link\":\"https://www.xiaohongshu.com/explore/6ae5e9ea000000001202eb61?xsec_token=ABm73j-3WxBlsTmBB0Oe9cBrsLO5tE85G945yMi9AHDqM%3D&xsec_source=pc_user\",\"description\":\"每天跳上一遍真是通透啊\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/5073559db8cb202bad7e72bd843c2391/1040g00832706sdm36c005n9atg14mt01jvnhgm8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-31T13:15:22.000Z\"},{\"id\":\"xiaohongshu:note:6ae5788b000000001202d388\",\"title\":\"腿：不吃压力\",\"link\":\"https://www.xiaohongshu.com/explore/6ae5788b000000001202d388?xsec_token=ABm73j-3WxBlsTmBB0Oe9cBuFDO-lQ5l-zx9QCTNiztKc%3D&xsec_source=pc_user\",\"description\":\"腿：不吃压力 \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/731185f2197ea587232c6b0d2936fa95/1040g008326vp6mbh6c005n9atg14mt01osnig50!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-31T05:11:39.000Z\"},{\"id\":\"xiaohongshu:note:6ae481540000000015005de4\",\"title\":\"餐具/カトラリー 🍽️“就请你亲手结束这一切吧”\",\"link\":\"https://www.xiaohongshu.com/explore/6ae481540000000015005de4?xsec_token=ABksWBSs6fj1wExdXX8--xLoiUaRVLOJ-TLbQB788Kfgg%3D&xsec_source=pc_user\",\"description\":\"餐具/カトラリー 🍽️“就请你亲手结束这一切吧”\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/8ca43dce32653b57fa7ca600ead7d1c2/1040g008326uqui7umi005n9atg14mt012tjneog!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-30T11:36:52.000Z\"},{\"id\":\"xiaohongshu:note:6ae33b44000000002503a102\",\"title\":\"小魔女降临🎃万圣节宅舞必跳！！\",\"link\":\"https://www.xiaohongshu.com/explore/6ae33b44000000002503a102?xsec_token=AB6pOLDfwAkDRGOfTwX801k1T-bP8H2do1JLc-pMtXqeM%3D&xsec_source=pc_user\",\"description\":\"小魔女降临🎃万圣节宅舞必跳！！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/eba7480d4f5fc076fc2a373bcaed251f/1040g008326tj3h1im6005n9atg14mt017jjjtm0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-29T12:25:40.000Z\"},{\"id\":\"xiaohongshu:note:6ae1e04f000000002702159a\",\"title\":\"来场这世纪最后的求婚吧💍\",\"link\":\"https://www.xiaohongshu.com/explore/6ae1e04f000000002702159a?xsec_token=ABJ5vr_czJiAHqJ8Nbp9Ag4WTpvwsT0ElcPDL3Eugq7y0%3D&xsec_source=pc_user\",\"description\":\"来场这世纪最后的求婚吧💍\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/47e2ce5ff4091e0191fb5ec478fa9806/1040g008326s8s1ac4a005n9atg14mt01k5l4uao!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-28T11:45:19.000Z\"},{\"id\":\"xiaohongshu:note:6ae0a0d3000000002501cd81\",\"title\":\"当你能量低的时 不妨来跳一下经济上行小曲\",\"link\":\"https://www.xiaohongshu.com/explore/6ae0a0d3000000002501cd81?xsec_token=ABlFBALjN50csrrhY4e_v5PPF1_rhvwkyGCNffFO9sBtM%3D&xsec_source=pc_user\",\"description\":\"当你能量低的时 不妨来跳一下经济上行小曲\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/10663a30eaf8d69ae996caa17dcdd0aa/1040g2sg326r1qap6kae05n9atg14mt01irf08p0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-27T13:02:11.000Z\"},{\"id\":\"xiaohongshu:note:6adf47d20000000018026c84\",\"title\":\"nonono泥怎么这样！超适合穿lo裙跳～\",\"link\":\"https://www.xiaohongshu.com/explore/6adf47d20000000018026c84?xsec_token=ABrqwPVo_GCZ6Ec4K9s-3lWS1euMDZ3iGWG149pJq6kGc%3D&xsec_source=pc_user\",\"description\":\"nonono泥怎么这样！超适合穿lo裙跳～\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/fde1d78c622423f3e6e6650e04139ee8/1040g008326qkk735k60g5n9atg14mt01r4bprm8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-26T12:30:10.000Z\"},{\"id\":\"xiaohongshu:note:6addd1aa000000002b01ccbb\",\"title\":\"魔法笔刷🪄 烤的卡点太舒服了！\",\"link\":\"https://www.xiaohongshu.com/explore/6addd1aa000000002b01ccbb?xsec_token=ABTXtlNLjuPkeyIJbPsphAWFy8-rdl9jid-7Wcrm39JfU%3D&xsec_source=pc_user\",\"description\":\"魔法笔刷🪄 烤的卡点太舒服了！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/f4a1f86190427d18e2a88e51a4416879/1040g2sg326p2vbpp44e05n9atg14mt01t14op3g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-25T09:53:46.000Z\"},{\"id\":\"xiaohongshu:note:6adca4fe000000002c03b435\",\"title\":\"清楚系跟东京闪景好般配…\",\"link\":\"https://www.xiaohongshu.com/explore/6adca4fe000000002c03b435?xsec_token=ABq8cRg7W7g90ctW2BplFvE56qKvnk7gpc6A65G-GQMBA%3D&xsec_source=pc_user\",\"description\":\"清楚系跟东京闪景好般配…\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/17eb993420fde4de18a544b01e6d108a/1040g008326n5admhkc005n9atg14mt01635iulg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-24T12:30:54.000Z\"},{\"id\":\"xiaohongshu:note:6ad9e6ed000000003102e4ce\",\"title\":\"和好朋友一起跳舞打开我的泰兰德落地签💃\",\"link\":\"https://www.xiaohongshu.com/explore/6ad9e6ed000000003102e4ce?xsec_token=ABTs5Z98MjlvMLEYiaLPborlj9P2AO5SGkDxY26ysKgQc%3D&xsec_source=pc_user\",\"description\":\"和好朋友一起跳舞打开我的泰兰德落地签💃\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/8549e97e7364e54a3abdeb83f14972fc/1040g2sg326kfi6b146705n9atg14mt01ng402h8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-22T10:35:25.000Z\"},{\"id\":\"xiaohongshu:note:6ad895e60000000032014df8\",\"title\":\"万圣节预热一下👻感觉25时这段挺适合的～\",\"link\":\"https://www.xiaohongshu.com/explore/6ad895e60000000032014df8?xsec_token=AB42sVDfpCB1kTa28Z84KUigiUmSqYjmXUgkNVBAaepWk%3D&xsec_source=pc_user\",\"description\":\"万圣节预热一下👻感觉25时这段挺适合的～\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/5e8ea078ac0216054cda0d4f72e016e7/1040g2sg326j6e7dgk4e05n9atg14mt01i7fda28!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-21T10:37:26.000Z\"},{\"id\":\"xiaohongshu:note:6ad74cdd000000002902ffbd\",\"title\":\"依旧好舞不挑曲…！还得是illit🦋\",\"link\":\"https://www.xiaohongshu.com/explore/6ad74cdd000000002902ffbd?xsec_token=ABop5futBDSxkQrGXkK1zvemfsa15dJE80ICrkP-0JV5E%3D&xsec_source=pc_user\",\"description\":\"依旧好舞不挑曲…！还得是illit🦋\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/c81080d2ad3bb96dd24387fd9fcb2fd5/1040g2sg326hu2u2644705n9atg14mt01kslp1d8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-20T13:30:16.000Z\"},{\"id\":\"xiaohongshu:note:6ad61f2d0000000028009bfc\",\"title\":\"永远不能拒绝这么甜的手势舞！十月摇🩵\",\"link\":\"https://www.xiaohongshu.com/explore/6ad61f2d0000000028009bfc?xsec_token=ABZVqo9DdESrqF6ipTC-c7bx5J12taLhPpCVUl43Xvtbo%3D&xsec_source=pc_user\",\"description\":\"永远不能拒绝这么甜的手势舞！十月摇🩵\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/9567d781e761b8f902598bed06b72eff/1040g008326gpg23e46005n9atg14mt01fv1camg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-19T13:46:21.000Z\"},{\"id\":\"xiaohongshu:note:6ad4b8f0000000001e0248f8\",\"title\":\"来粘粘瀑布跳舞啦🌴太好玩咯～\",\"link\":\"https://www.xiaohongshu.com/explore/6ad4b8f0000000001e0248f8?xsec_token=ABwqWYoMZ-7J_IuEU36UDRRsH2twiOwYsHcwMpTlKs9dE%3D&xsec_source=pc_user\",\"description\":\"来粘粘瀑布跳舞啦🌴太好玩咯～\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/65589e953b299f9687fcab00c42f5c25/1040g008326fdmrpmkc705n9atg14mt01tn1931o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-18T12:17:52.000Z\"},{\"id\":\"xiaohongshu:note:6ad371e300000000150152d1\",\"title\":\"根本就没有这样的舞蹈…\",\"link\":\"https://www.xiaohongshu.com/explore/6ad371e300000000150152d1?xsec_token=ABls0JRl1I0wa7sD-zuH9MpCZwBhtuNqT8rPUGiA1PLQs%3D&xsec_source=pc_user\",\"description\":\"根本就没有这样的舞蹈…\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/d8896f41ade21777102ad707a481cf64/1040g2sg326e4o8kvk6705n9atg14mt01mbnsmp0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-17T13:02:27.000Z\"},{\"id\":\"xiaohongshu:note:6ad214a1000000001b02c52b\",\"title\":\"永远的少女时代…！🩶Gee好甜呀！\",\"link\":\"https://www.xiaohongshu.com/explore/6ad214a1000000001b02c52b?xsec_token=ABOP3JR7ZQyqtZILoQOqrx_D3oOYoaIonNru66jGAMqyM%3D&xsec_source=pc_user\",\"description\":\"永远的少女时代…！🩶Gee好甜呀！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/00f6ea2901f3d983f1b5925f841221d9/1040g008326cr5e4uk4005n9atg14mt013ojcnt8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-16T12:12:17.000Z\"},{\"id\":\"xiaohongshu:note:6ace14cd0000000015009fc4\",\"title\":\"我不再迷茫～蝴蝶步真的是百搭\",\"link\":\"https://www.xiaohongshu.com/explore/6ace14cd0000000015009fc4?xsec_token=ABnGtnrhfJWKjgt8-OtS2hN8cEkXZeiAOzQ7wMtAq4MQQ%3D&xsec_source=pc_user\",\"description\":\"我不再迷茫～蝴蝶步真的是百搭\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/f0832c16ccf23419e2efa2d5a8469a7f/1040g2sg3268u4fv64a705n9atg14mt01718g6c0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-13T11:23:57.000Z\"},{\"id\":\"xiaohongshu:note:6acb6647000000001803b759\",\"title\":\"“怎样的我都很完美…！”宅舞 淑女的品格\",\"link\":\"https://www.xiaohongshu.com/explore/6acb6647000000001803b759?xsec_token=AB2AIiY-4U7NtUZQbi7MlXaKgVxYRDMygTcDizQFVs_b8%3D&xsec_source=pc_user\",\"description\":\"“怎样的我都很完美…！”宅舞 淑女的品格\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/1207a566f09913fcc552408078fb1cdf/1040g2sg3266a26rpk4705n9atg14mt01aaglj5o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-11T10:34:48.000Z\"},{\"id\":\"xiaohongshu:note:6ac79ccf000000001c00e533\",\"title\":\"感觉至上～前段时间很🔥瓜蛋摇我来试试…！\",\"link\":\"https://www.xiaohongshu.com/explore/6ac79ccf000000001c00e533?xsec_token=ABfuNNS1-0NxX7klh2Hc8fTnb8sBTxhPs-8fBIMB1QCec%3D&xsec_source=pc_user\",\"description\":\"感觉至上～前段时间很🔥瓜蛋摇我来试试…！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/2fdbfcc25a8b1222eb634bbd6aeb2e52/1040g0083262k399ak6005n9atg14mt01emuios0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-08T13:38:23.000Z\"},{\"id\":\"xiaohongshu:note:6ac4e2ac0000000015014ee1\",\"title\":\"嘭嘭嘭圆舞曲🧚‍♀️ 谁的童年响了\",\"link\":\"https://www.xiaohongshu.com/explore/6ac4e2ac0000000015014ee1?xsec_token=ABmBVq0wEeTrAZnfGax7HFB4Q8E20jstADIGAjN2AekJ4%3D&xsec_source=pc_user\",\"description\":\"嘭嘭嘭圆舞曲🧚‍♀️ 谁的童年响了\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/f1035d825e91b2c4b1d692b5b5d8f095/1040g2sg325vuroual8e05n9atg14mt01oghn1jo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-06T11:59:40.000Z\"},{\"id\":\"xiaohongshu:note:6ac38c81000000001b02e2a5\",\"title\":\"所有人开始肘击！！卡点舞太好跳了🔥\",\"link\":\"https://www.xiaohongshu.com/explore/6ac38c81000000001b02e2a5?xsec_token=ABoTZ1o3l2B7aQ6RRD5OiRx3Jc0lmb4PcpJXrVjQuwSiM%3D&xsec_source=pc_user\",\"description\":\"所有人开始肘击！！卡点舞太好跳了🔥\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/68b95d4ac39472c050133bd374cb4ef1/1040g008325ul31vdk4005n9atg14mt01gomj4p0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-05T12:40:03.000Z\"},{\"id\":\"xiaohongshu:note:6abf8c86000000001a0216b0\",\"title\":\"宝宝萌！这个手势舞太萌啦！ᯠ_ ̫ _ᯄ ੭\",\"link\":\"https://www.xiaohongshu.com/explore/6abf8c86000000001a0216b0?xsec_token=AB_zhJtvDM-v3nu363ADcRMcYd7M6HGFD_cS8DlEPVdwg%3D&xsec_source=pc_user\",\"description\":\"宝宝萌！这个手势舞太萌啦！ᯠ_ ̫ _ᯄ ੭\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/208e2e61df7f8a3940e252a9caa59f53/1040g2sg325qo3glg4a005n9atg14mt0137120kg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-10-02T10:50:46.000Z\"},{\"id\":\"xiaohongshu:note:6abd1956000000001203452b\",\"title\":\"稻米摇2.0🤎稻米宝宝快来学！\",\"link\":\"https://www.xiaohongshu.com/explore/6abd1956000000001203452b?xsec_token=ABHcE8atiwTUBvP3Hj3a5mxqUCF0TFeVp_uAOqc71MLPE%3D&xsec_source=pc_user\",\"description\":\"稻米摇2.0🤎稻米宝宝快来学！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/2a14144d4ba245c9cf7b56938e1f4f96/1040g008325obh34q4a005n9atg14mt01ssegiv0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-09-30T14:14:46.000Z\"},{\"id\":\"xiaohongshu:note:6abcc3e8000000001500b0dd\",\"title\":\"放假啦！跳一支元气满满的舞蹈送给你们✨\",\"link\":\"https://www.xiaohongshu.com/explore/6abcc3e8000000001500b0dd?xsec_token=ABfeef3lKtRJIxiJAg9c-bhqz2-ZqE8AWOH3qxDBLGrGI%3D&xsec_source=pc_user\",\"description\":\"放假啦！跳一支元气满满的舞蹈送给你们✨\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/221b4770d0213614dab02db12783c898/1040g2sg325o13mhil8e05n9atg14mt014or8pro!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-09-30T08:10:16.000Z\"},{\"id\":\"xiaohongshu:note:6abbbdf60000000013019ba9\",\"title\":\"特别萌的一支宅舞呀( ᴗ͈ˬᴗ͈)ഒ\",\"link\":\"https://www.xiaohongshu.com/explore/6abbbdf60000000013019ba9?xsec_token=ABaF7kEvWqnBfcO4e8kR8I0ciu3ctSU7xI9KA-g3gafbI%3D&xsec_source=pc_user\",\"description\":\"特别萌的一支宅舞呀( ᴗ͈ˬᴗ͈)ഒ\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/cb472521ea9a167b9f67774c6636f0c2/1040g2sg325n10q9t4ae05n9atg14mt01ijiibtg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-09-29T13:32:38.000Z\"},{\"id\":\"xiaohongshu:note:6abb391e000000001a0208c9\",\"title\":\"🏴‍☠️再跳一遍船长这支舞！好萌好好跳！\",\"link\":\"https://www.xiaohongshu.com/explore/6abb391e000000001a0208c9?xsec_token=ABaF7kEvWqnBfcO4e8kR8I0WEDveJrGZgNFFHG6fCzOJI%3D&xsec_source=pc_user\",\"description\":\"🏴‍☠️再跳一遍船长这支舞！好萌好好跳！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/3e26c6e4ed1b991e7b96925752cbd674/1040g008325mfbdf44a005n9atg14mt01k6fejmo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2026-09-29T04:05:50.000Z\"},{\"id\":\"xiaohongshu:note:68b993c2000000001d00fcf9\",\"title\":\"所有人都深爱着地球！！🌍pjsk神的随波逐流！！\",\"link\":\"https://www.xiaohongshu.com/explore/68b993c2000000001d00fcf9?xsec_token=ABIit2eXAaLY0cf7GqIEQ84UAXnkORBavWMevj-acCM7w%3D&xsec_source=pc_user\",\"description\":\"所有人都深爱着地球！！🌍pjsk神的随波逐流！！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611082145/7d887524740947825eea88af7c9e97ff/1040g2sg31m0tg5q2l0e05n9atg14mt019b9n4l0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"雪糍\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5d2aec020000000012037401\"},\"published\":\"2025-09-04T13:27:30.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1761,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 9
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 9,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 9,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 9,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 9,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 9,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 9,
+          "duration_ms": 1752
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1761,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1761,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1761,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1761,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1761,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 1752
+        }
+      ]
+    }
+  }
 }
