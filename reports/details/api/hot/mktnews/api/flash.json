@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T22:04:30.159Z",
+  "checked_at": "2026-11-08T06:21:54.749Z",
   "inspection": {
     "file": "hot/mktnews_flash.js",
     "path": "/api/hot/mktnews/api/flash",
@@ -12,159 +12,12 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 44
+    "duration_ms": 24
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 223
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 28
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/mktnews_flash.js",
-      "name": "MKTNews · 快讯",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/mktnews/api/flash",
-      "request_path": "/api/hot/mktnews/api/flash",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/mktnews/api/flash",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a56fa2508d366b5c"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 154,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"mktnews-flash\",\"count\":50,\"missing_rank\":50}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":50}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://api.mktnews.net/api/flash?type=0&limit=50",
-        "method": "GET",
-        "host": "api.mktnews.net",
-        "pathname": "/api/flash",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 154,
-        "timings": {
-          "response_ms": 119,
-          "body_read_ms": 35,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"MKTNews · 快讯\",\"link\":\"https://mktnews.net\",\"category\":\"财经\",\"observed_at\":\"2026-11-07T22:04:30.341Z\",\"entries\":[{\"id\":\"mktnews-flash:01a1b7e0-6aac-7ee0-aac2-54210485d212\",\"title\":\"CoreWeave (CRWV.O) writes to Texas governor-elect seeking cooperation on data‑center projects\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7e0-6aac-7ee0-aac2-54210485d212\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7db-25c5-7ee0-aac2-4982f56be73b\",\"title\":\"Iran says two tankers struck mines, caught fire in Strait of Hormuz\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7db-25c5-7ee0-aac2-4982f56be73b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7da-3482-7ee0-aac2-465d876d6cd8\",\"title\":\"Iran's Islamic Revolutionary Guard Corps says two oil tankers struck mines and caught fire in the Strait of Hormuz.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7da-3482-7ee0-aac2-465d876d6cd8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7c7-e11e-7ee0-aac2-3a79ca381007\",\"title\":\"US forces disable merchant ship in Gulf of Oman, CENTCOM says\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7c7-e11e-7ee0-aac2-3a79ca381007\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7be-08da-7ee0-aac2-3048679a3cb6\",\"title\":\"CENTCOM said US aircraft fired precision-guided munitions at the stern of the cargo ship, disabling its ability to navigate. CENTCOM forces had ordered the crew to evacuate the area designated as the strike zone before the action. The vessel had previously called at an Iranian port and then attempted to depart the area.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7be-08da-7ee0-aac2-3048679a3cb6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7bc-04df-7ee0-aac2-284d0dd3039e\",\"title\":\"CENTCOM said US forces disabled a merchant vessel in the Gulf of Oman on Saturday after the ship's civilian crew repeatedly ignored US warnings and made multiple attempts to breach a maritime blockade targeting Iran.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7bc-04df-7ee0-aac2-284d0dd3039e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7b6-f77b-7ee0-aac2-23ef84ead0b5\",\"title\":\"TASNIM NEWS cited sources saying explosions heard on Qeshm Island were unrelated to a missile strike.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7b6-f77b-7ee0-aac2-23ef84ead0b5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7b0-7fa3-7ee0-aac2-1b48be9919a2\",\"title\":\"Israeli opposition leader Eizenkot said he will do everything to make a national government a reality.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7b0-7fa3-7ee0-aac2-1b48be9919a2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7b0-2014-7ee0-aac2-13d191a6e2d3\",\"title\":\"Israeli opposition leader Gadi Eizenkot said it is time to form a national emergency government.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7b0-2014-7ee0-aac2-13d191a6e2d3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7af-3884-7ee0-aac2-0e86b469e3ca\",\"title\":\"Iranian state television said an explosion in southern Iran may be linked to Iranian military activity in the Strait of Hormuz.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7af-3884-7ee0-aac2-0e86b469e3ca\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7ac-d42c-7ee0-aac2-028996bd17db\",\"title\":\"Explosions reported in multiple southern Iranian locations; cause unclear\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7ac-d42c-7ee0-aac2-028996bd17db\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7a7-b6c5-7ee0-aac1-fb97ffbe4576\",\"title\":\"Israel's public broadcaster, citing sources, said Prime Minister Netanyahu has not proposed a rotational premiership but would agree to one if talks begin.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7a7-b6c5-7ee0-aac1-fb97ffbe4576\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b7a7-7abd-7ee0-aac1-f272216b4b11\",\"title\":\"Iranian state TV reported explosions were heard in southern Iran in Jask, Sirik, Bandar Abbas and Qeshm Island; cause unclear.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b7a7-7abd-7ee0-aac1-f272216b4b11\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b794-77e3-7ee0-aac1-e9f618b5cab8\",\"title\":\"Iran's UN mission in Vienna accused the United States of using a \\\"Justice Bounty\\\" program to recruit accomplices to attack Iranian nuclear scientists and facilities, and warned any party supplying related information—including the IAEA—could face legal consequences.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b794-77e3-7ee0-aac1-e9f618b5cab8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b78c-ce19-7ee0-aac1-e2aaf469db66\",\"title\":\"Musk: upcoming efficiency improvements will enable Cybercab to use a 40 kWh battery pack.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b78c-ce19-7ee0-aac1-e2aaf469db66\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b787-6a1d-7ee0-aac1-d83f97f28d00\",\"title\":\"Israeli president authorizes Netanyahu rival Gadi Eisenkot to form government\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b787-6a1d-7ee0-aac1-d83f97f28d00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b782-dfda-7ee0-aac1-d3a061c250b8\",\"title\":\"Office of Israel's president says Gadi Eizenkot has 28 days to form a government, extendable by up to 14 days under law if needed.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b782-dfda-7ee0-aac1-d3a061c250b8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b781-57b9-7ee0-aac1-cd1b5219420d\",\"title\":\"Iranian Students News Agency reports explosions heard on Qeshm Island, Iran.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b781-57b9-7ee0-aac1-cd1b5219420d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b77c-a0d4-7ee0-aac1-c4b99d1187c1\",\"title\":\"Israeli media report Israel's president has selected Netanyahu rival Gadi Eizenkot to form a new government.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b77c-a0d4-7ee0-aac1-c4b99d1187c1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b776-6dd6-7ee0-aac1-bd68058f3fd9\",\"title\":\"Poland's interior minister said all signs indicate the shooter was obsessed with far-right ideology.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b776-6dd6-7ee0-aac1-bd68058f3fd9\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b773-50d9-7ee0-aac1-b0463270f245\",\"title\":\"Saudi civil defense lifted the danger alert for Jizan.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b773-50d9-7ee0-aac1-b0463270f245\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b76c-2f6b-7ee0-aac1-a976341d0f0d\",\"title\":\"Qatar's Ministry of Foreign Affairs reiterated its firm rejection of violence, terrorism and criminal acts regardless of motive.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b76c-2f6b-7ee0-aac1-a976341d0f0d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b76b-ec1c-7ee0-aac1-a66e7c8c82c7\",\"title\":\"Qatar's foreign ministry condemned the shooting in Poland.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b76b-ec1c-7ee0-aac1-a66e7c8c82c7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b76b-4d84-7ee0-aac1-9ceded3a11e9\",\"title\":\"Saudi civil defense issued a potential danger alert for JIZAN.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b76b-4d84-7ee0-aac1-9ceded3a11e9\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b764-5cb8-7ee0-aac1-90d94652ee44\",\"title\":\"Russian cosmonaut says nuclear power plant necessary for further lunar exploration\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b764-5cb8-7ee0-aac1-90d94652ee44\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b762-0a0d-7ee0-aac1-8ff4a7702e09\",\"title\":\"Yemeni government forces said warplanes and drones struck Houthi assembly areas and vehicles in the Masrah and Mukatra areas.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b762-0a0d-7ee0-aac1-8ff4a7702e09\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b75a-f467-7ee0-aac1-85d7c34e2f50\",\"title\":\"Yemeni government forces said they repelled an attack by Houthi forces in the Kanb area on Taiz's eastern front.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b75a-f467-7ee0-aac1-85d7c34e2f50\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b758-c97a-7ee0-aac1-7c7e25994c4b\",\"title\":\"Trump urges reports to DOJ or him of Democrats' 'illegal threats'\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b758-c97a-7ee0-aac1-7c7e25994c4b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b752-6f50-7ee0-aac1-737ace1853c8\",\"title\":\"Trump invites Dana White to be White House press secretary\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b752-6f50-7ee0-aac1-737ace1853c8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b750-a904-7ee0-aac1-6afbde0381fe\",\"title\":\"U.S. President Trump said Dana White has been invited to serve as press secretary.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b750-a904-7ee0-aac1-6afbde0381fe\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b74a-2ecd-7ee0-aac1-65cc22d3f45e\",\"title\":\"TASNIM NEWS reported anti-Netanyahu protests in Tel Aviv, with demonstrators demanding the government's removal and formation of a new cabinet that includes Arab parties.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b74a-2ecd-7ee0-aac1-65cc22d3f45e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b749-6835-7ee0-aac1-59c85a9273f1\",\"title\":\"Musk: California’s high taxes and heavy regulation push business to Texas\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b749-6835-7ee0-aac1-59c85a9273f1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b745-ea3e-7ee0-aac1-542eb181fe5a\",\"title\":\"Musk said SpaceX and Tesla have been able to thrive in Texas because they do not have to operate under an oppressive, predatory state government.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b745-ea3e-7ee0-aac1-542eb181fe5a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b739-f668-7ee0-aac1-4eebf410fa6a\",\"title\":\"Musk said Tesla (TSLA.O) has a Cybertruck order backlog well above current production capacity; around June or July next year the company will dismantle existing production lines to expand Cybercab output.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b739-f668-7ee0-aac1-4eebf410fa6a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b738-db41-7ee0-aac1-437224bdf174\",\"title\":\"Tesla (TSLA.O) said it will add a shift and aims to complete all Cybercab orders on schedule.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b738-db41-7ee0-aac1-437224bdf174\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:3dd7729c-adc0-4533-8d9f-6af0b5655168\",\"title\":\"Trump orders DOJ probe into alleged Democratic threats to use impeachment, imprisonment as political tools\",\"link\":\"https://mktnews.net/flashDetail.html?id=3dd7729c-adc0-4533-8d9f-6af0b5655168\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:18cdbdbc-3246-4e84-90b4-84c490ebefc5\",\"title\":\"TRUMP said Democrats are threatening many people, including the Attorney General and others, and are threatening to impeach them. He called it the highest form of extortion and said they should be held accountable.\",\"link\":\"https://mktnews.net/flashDetail.html?id=18cdbdbc-3246-4e84-90b4-84c490ebefc5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b71b-2304-7ee0-aac1-3bc7f39fc769\",\"title\":\"Erdogan told US President Trump he hopes diplomatic efforts to end the war in Ukraine will yield positive results.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b71b-2304-7ee0-aac1-3bc7f39fc769\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:c1e927de-6b37-4f08-b1ba-ffdc2da7f6b3\",\"title\":\"Erdogan told U.S. President Trump that U.S.-Iran tensions should be resolved through diplomacy and that Ankara will continue efforts to promote peace.\",\"link\":\"https://mktnews.net/flashDetail.html?id=c1e927de-6b37-4f08-b1ba-ffdc2da7f6b3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:05a87e62-8b90-4581-adb5-fa3b38d809ae\",\"title\":\"Turkey's presidential office said President Erdogan spoke by phone with US President Trump to discuss regional and global developments.\",\"link\":\"https://mktnews.net/flashDetail.html?id=05a87e62-8b90-4581-adb5-fa3b38d809ae\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b713-e186-7ee0-aac1-31fe92ccae94\",\"title\":\"Shooting in Krakow kills six, injures 15\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b713-e186-7ee0-aac1-31fe92ccae94\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b712-1dc4-7ee0-aac1-2946c43861f6\",\"title\":\"Russian Defence Ministry said Russian air-defence forces shot down 28 Ukrainian drones in one day.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b712-1dc4-7ee0-aac1-2946c43861f6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b70c-e8e2-7ee0-aac1-2467dcf3f2c7\",\"title\":\"Israeli Prime Minister Netanyahu said there are plans to form a government that would include supporters of terrorism.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b70c-e8e2-7ee0-aac1-2467dcf3f2c7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b70c-cafb-7ee0-aac1-1abee8262b36\",\"title\":\"Israeli Prime Minister Netanyahu said he will not rush to form a new government.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b70c-cafb-7ee0-aac1-1abee8262b36\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b70a-14a2-7ee0-aac1-140f4d08ca04\",\"title\":\"Israeli Prime Minister Netanyahu called for forming a coalition government.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b70a-14a2-7ee0-aac1-140f4d08ca04\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b709-c5a1-7ee0-aac1-0d4b475a3d59\",\"title\":\"Israeli Prime Minister Netanyahu said now is the time to preserve unity.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b709-c5a1-7ee0-aac1-0d4b475a3d59\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b703-8203-7ee0-aac1-00e90c0a9f91\",\"title\":\"Local authorities in Krakow, Poland reported a shooting that left 6 dead and 15 injured.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b703-8203-7ee0-aac1-00e90c0a9f91\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b700-4cfa-7ee0-aac0-f8506b1f1920\",\"title\":\"Houthi militia says Saudi carried out 105 airstrikes in 24 hours, dozens of civilians killed or injured\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b700-4cfa-7ee0-aac0-f8506b1f1920\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b6fe-2204-7ee0-aac0-f1341758b4da\",\"title\":\"Houthi military spokesman Yahya Saree said the Saudi-led coalition carried out 105 airstrikes in the past 24 hours, bringing the cumulative total to 4,369.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b6fe-2204-7ee0-aac0-f1341758b4da\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1b6fc-d8e3-7ee0-aac0-ec033dad146e\",\"title\":\"Putin ordered the seizure of additional Japan Tobacco assets in Russia.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1b6fc-d8e3-7ee0-aac0-ec033dad146e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 154,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 154
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 154,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 154,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 154,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 154,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 154,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 154
-        }
-      ]
-    }
-  }
+  "debug": null
 }

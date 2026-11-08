@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T22:04:29.496Z",
+  "checked_at": "2026-11-08T06:21:54.260Z",
   "inspection": {
     "file": "hot/kaopu.js",
     "path": "/api/hot/kaopu",
@@ -12,11 +12,11 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 41
+    "duration_ms": 35
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 674
+    "duration_ms": 889
   },
   "debug": {
     "status": 502,
@@ -39,7 +39,7 @@
       "headers": {
         "Accept": "application/json",
         "User-Agent": "node",
-        "CF-Ray": "a56fa24c6e764750"
+        "CF-Ray": "a5727aee2986ecd2"
       },
       "authentication": {
         "required": true,
@@ -48,7 +48,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 535,
+    "elapsed_ms": 793,
     "invoked": false,
     "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：热榜条目需要稳定 ID、标题和网页链接",
     "error_text": "脚本执行失败：热榜条目需要稳定 ID、标题和网页链接\nat script_error (script-globals.js:34:33)\n    at <anonymous> (script-globals.js:145:29)\n    at map (native)\n    at run (script-globals.js:136:43)",
@@ -71,16 +71,16 @@
           "headers_sent": []
         },
         "started_ms": 0,
-        "duration_ms": 535,
+        "duration_ms": 793,
         "timings": {
-          "response_ms": 535,
+          "response_ms": 793,
           "body_read_ms": 0,
           "decode_and_transfer_ms": 0
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 535,
+      "elapsed_ms": 793,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -125,26 +125,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 0,
-          "duration_ms": 535
+          "duration_ms": 793
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 535,
+          "started_ms": 793,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 535,
+          "started_ms": 793,
           "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 535,
+          "started_ms": 793,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 535,
+          "started_ms": 793,
           "duration_ms": 0
         }
       ],
@@ -152,7 +152,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 0,
-          "duration_ms": 535
+          "duration_ms": 793
         }
       ]
     }

@@ -1,169 +1,23 @@
 {
-  "checked_at": "2026-11-07T22:04:28.831Z",
+  "checked_at": "2026-11-08T06:21:53.488Z",
   "inspection": {
     "file": "hot/ifeng_hot.js",
     "path": "/api/hot/ifeng/hot",
     "example": "/api/hot/ifeng/hot",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/ifeng/hot.json",
-    "duration_ms": 1147
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 36
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 326
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 27
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/ifeng_hot.js",
-      "name": "凤凰网 · 热点资讯",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/ifeng/hot",
-      "request_path": "/api/hot/ifeng/hot",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/ifeng/hot",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a56fa2484ea74ac0"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 138,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"ifeng\",\"count\":12,\"missing_rank\":12}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":12}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.ifeng.com/",
-        "method": "GET",
-        "host": "www.ifeng.com",
-        "pathname": "/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 138,
-        "timings": {
-          "response_ms": 112,
-          "body_read_ms": 26,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"凤凰网 · 热点资讯\",\"link\":\"https://www.ifeng.com\",\"category\":\"综合\",\"observed_at\":\"2026-11-07T22:04:29.008Z\",\"entries\":[{\"id\":\"ifeng:https://news.ifeng.com/c/8xs6mbs56ue\",\"title\":\"内塔尼亚胡对手被授权组阁\",\"link\":\"https://news.ifeng.com/c/8xs6mbs56ue\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrQh7xLyiI\",\"title\":\"伊朗外长48小时与12国通话\",\"link\":\"https://news.ifeng.com/c/8xrQh7xLyiI\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrZLFbN0ON\",\"title\":\"中期选举重塑美国政治版图，2028年大选全美都将是摇摆州？\",\"link\":\"https://news.ifeng.com/c/8xrZLFbN0ON\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrZsYz1Ofq\",\"title\":\"白宫新任幕僚长，有何来头？\",\"link\":\"https://news.ifeng.com/c/8xrZsYz1Ofq\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://v.ifeng.com/c/8xrIPvD29En\",\"title\":\"特朗普为何容忍万斯的“攻击”？专家：他不想下台后就坐牢\",\"link\":\"https://v.ifeng.com/c/8xrIPvD29En\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xs5ZHVK3YV\",\"title\":\"特朗普邀格斗界大佬出任白宫新闻秘书\",\"link\":\"https://news.ifeng.com/c/8xs5ZHVK3YV\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrDfwNiJDf\",\"title\":\"万斯直接介入，美伊谈判“提级”\",\"link\":\"https://news.ifeng.com/c/8xrDfwNiJDf\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrLSoN1szY\",\"title\":\"争议声中，白宫公布“凯旋门”新方案\",\"link\":\"https://news.ifeng.com/c/8xrLSoN1szY\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrXWazI4Bp\",\"title\":\"300万人取不了钱，总统被抓了\",\"link\":\"https://news.ifeng.com/c/8xrXWazI4Bp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrLSoN1su4\",\"title\":\"别买，全是假的！成本41元，卖到2388元\",\"link\":\"https://news.ifeng.com/c/8xrLSoN1su4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrhHQyUk0s\",\"title\":\"剧组拍摄时突发意外，演员脸部着火二度烧伤，本人发声\",\"link\":\"https://news.ifeng.com/c/8xrhHQyUk0s\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xrSLYPZ8w2\",\"title\":\"超市在“补水啦”瓶身贴老板头像遮挡姆巴佩，还给他“亮红牌”\",\"link\":\"https://news.ifeng.com/c/8xrSLYPZ8w2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 138,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 138
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 138,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 138,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 138,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 138,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 138,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 138
-        }
-      ]
-    }
-  }
+  "debug": null
 }

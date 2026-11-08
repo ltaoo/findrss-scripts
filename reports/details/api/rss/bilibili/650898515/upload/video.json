@@ -1,195 +1,22 @@
 {
-  "checked_at": "2026-11-07T22:04:44.091Z",
+  "checked_at": "2026-11-08T06:22:19.997Z",
   "inspection": {
     "file": "rss/bilibili.js",
     "path": "/api/rss/bilibili/:userid/upload/video",
     "example": "/api/rss/bilibili/650898515/upload/video",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 36
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/bilibili/650898515/upload/video.json",
+    "duration_ms": 9863
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 720
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 31
   },
-  "debug": {
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "script": {
-      "file": "rss/bilibili.js",
-      "name": "哔哩哔哩用户视频",
-      "kind": "rss",
-      "version": "1.1.0",
-      "path": "/bilibili/:userid/upload/video",
-      "request_path": "/api/rss/bilibili/:userid/upload/video",
-      "route_index": 1
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/rss/bilibili/650898515/upload/video",
-      "params": {
-        "userid": "650898515"
-      },
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a56fa2a7aff7ddab"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "runtime",
-    "elapsed_ms": 674,
-    "invoked": false,
-    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：B 站视频接口拒绝请求（-352）：风控校验失败；请更新 .bilibili.com 登录 Cookie 或稍后重试。",
-    "error_text": "脚本执行失败：B 站视频接口拒绝请求（-352）：风控校验失败；请更新 .bilibili.com 登录 Cookie 或稍后重试。\nat fetch (script-source.js:580:20)",
-    "lines": [],
-    "upstream_requests": [
-      {
-        "url": "https://api.bilibili.com/x/web-interface/nav",
-        "method": "GET",
-        "host": "api.bilibili.com",
-        "pathname": "/x/web-interface/nav",
-        "status": 200,
-        "transport": "tcp",
-        "credentials": {
-          "source": "script_grant",
-          "headers_sent": [
-            "Cookie"
-          ]
-        },
-        "started_ms": 0,
-        "duration_ms": 336,
-        "timings": {
-          "connect_ms": 74,
-          "send_ms": 0,
-          "wait_headers_ms": 262,
-          "receive_body_ms": 0,
-          "decompress_ms": 0,
-          "response_ms": 336,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      },
-      {
-        "url": "https://api.bilibili.com/x/space/wbi/arc/search?dm_cover_img_str=QU5HTEUgKEFwcGxlLCBBTkdMRSBNZXRhbCBSZW5kZXJlcjogQXBwbGUgTTEgUHJvLCBVbnNwZWNpZmllZCBWZXJzaW9uKUdvb2dsZSBJbmMuIChBcHBsZS&dm_img_inter=%7B%22ds%22%3A%5B%5D%2C%22wh%22%3A%5B4921%2C5252%2C61%5D%2C%22of%22%3A%5B216%2C432%2C216%5D%7D&dm_img_list=%5B%5D&dm_img_str=V2ViR0wgMS4wIChPcGVuR0wgRVMgMi4wIENocm9taXVtKQ&index=0&keyword=&mid=650898515&order=pubdate&order_avoided=true&platform=web&pn=1&ps=30&special_type=&tid=0&web_location=333.1387&wts=1794089084&x-bili-device-req-json=%7B%22platform%22%3A%22web%22%2C%22device%22%3A%22pc%22%2C%22spmid%22%3A%22333.1387%22%2C%22mobi_app%22%3A%22web_cn%22%7D&x-bili-locale-json=%7B%22c_locale%22%3A%7B%22language%22%3A%22zh%22%2C%22script%22%3A%22Hans%22%7D%2C%22always_translate%22%3Afalse%7D&w_rid=e1c5795eafff30b7584cc4c5f31277ca",
-        "method": "GET",
-        "host": "api.bilibili.com",
-        "pathname": "/x/space/wbi/arc/search",
-        "status": 200,
-        "transport": "tcp",
-        "credentials": {
-          "source": "script_grant",
-          "headers_sent": [
-            "Cookie"
-          ]
-        },
-        "started_ms": 336,
-        "duration_ms": 338,
-        "timings": {
-          "connect_ms": 63,
-          "send_ms": 0,
-          "wait_headers_ms": 275,
-          "receive_body_ms": 0,
-          "decompress_ms": 0,
-          "response_ms": 338,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "timing": {
-      "elapsed_ms": 674,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 674
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 674,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 674,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 674,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 674,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 336
-        },
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 336,
-          "duration_ms": 338
-        }
-      ]
-    }
-  }
+  "debug": null
 }

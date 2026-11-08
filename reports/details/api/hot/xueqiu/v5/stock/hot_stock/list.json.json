@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T22:04:38.047Z",
+  "checked_at": "2026-11-08T06:22:08.429Z",
   "inspection": {
     "file": "hot/xueqiu_hotstock.js",
     "path": "/api/hot/xueqiu/v5/stock/hot_stock/list.json",
@@ -12,11 +12,124 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 213
+    "duration_ms": 212
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 503,
+    "duration_ms": 75
   },
-  "debug": null
+  "debug": {
+    "status": 503,
+    "code": "COOKIE_REQUIRED",
+    "script": {
+      "file": "hot/xueqiu_hotstock.js",
+      "name": "雪球 · 热门股票",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/xueqiu/v5/stock/hot_stock/list.json",
+      "request_path": "/api/hot/xueqiu/v5/stock/hot_stock/list.json",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/xueqiu/v5/stock/hot_stock/list.json",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5727b46bb935001"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 6,
+    "invoked": false,
+    "upstream_error": "COOKIE_REQUIRED: 脚本执行失败：站点 https://stock.xueqiu.com 的 Cookie 同步数据中没有权限 xueqiu 允许的名称（u、xq_a_token、xq_r_token），请求 https://stock.xueqiu.com/v5/stock/hot_stock/list.json 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传",
+    "error_text": "脚本执行失败：站点 https://stock.xueqiu.com 的 Cookie 同步数据中没有权限 xueqiu 允许的名称（u、xq_a_token、xq_r_token），请求 https://stock.xueqiu.com/v5/stock/hot_stock/list.json 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传\nat fetchText (rss-context.js:617:45)",
+    "lines": [],
+    "upstream_requests": [],
+    "timing": {
+      "elapsed_ms": 6,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 6
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 6,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 6,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 6,
+          "duration_ms": 0
+        }
+      ]
+    }
+  }
 }
