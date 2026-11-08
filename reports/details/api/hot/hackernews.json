@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T13:44:39.531Z",
+  "checked_at": "2026-11-08T22:17:11.420Z",
   "inspection": {
     "file": "hot/hackernews.js",
     "path": "/api/hot/hackernews",
@@ -11,159 +11,12 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/hackernews.json",
-    "duration_ms": 801
+    "duration_ms": 1174
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1755
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 29
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/hackernews.js",
-      "name": "Hacker News",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/hackernews",
-      "request_path": "/api/hot/hackernews",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/hackernews",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a575037f1d21e60f"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 360,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"hackernews\",\"count\":30,\"missing_rank\":0}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":30}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://news.ycombinator.com/",
-        "method": "GET",
-        "host": "news.ycombinator.com",
-        "pathname": "/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 360,
-        "timings": {
-          "response_ms": 360,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Hacker News\",\"link\":\"https://news.ycombinator.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-08T13:44:39.910Z\",\"entries\":[{\"id\":\"hackernews:50412318\",\"title\":\"Person of Interest\",\"link\":\"https://news.ycombinator.com/item?id=50412318\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":121,\"unit\":\"积分\",\"text\":\"121\"}},{\"id\":\"hackernews:50412152\",\"title\":\"Petered (what happens after the Peter Principle)\",\"link\":\"https://news.ycombinator.com/item?id=50412152\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":67,\"unit\":\"积分\",\"text\":\"67\"}},{\"id\":\"hackernews:50411961\",\"title\":\"Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU\",\"link\":\"https://news.ycombinator.com/item?id=50411961\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":50,\"unit\":\"积分\",\"text\":\"50\"}},{\"id\":\"hackernews:50412072\",\"title\":\"JIT bitmap text rendering for microcontrollers\",\"link\":\"https://news.ycombinator.com/item?id=50412072\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":30,\"unit\":\"积分\",\"text\":\"30\"}},{\"id\":\"hackernews:50410107\",\"title\":\"Goodbye Claude, Hello Pi\",\"link\":\"https://news.ycombinator.com/item?id=50410107\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":426,\"unit\":\"积分\",\"text\":\"426\"}},{\"id\":\"hackernews:50406670\",\"title\":\"What I run on my $10 USD OpenStick homelab\",\"link\":\"https://news.ycombinator.com/item?id=50406670\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":648,\"unit\":\"积分\",\"text\":\"648\"}},{\"id\":\"hackernews:50407882\",\"title\":\"Claude Code's \\\"Don't Ask Again\\\" exposes passwords in 1,122 public GitHub files\",\"link\":\"https://news.ycombinator.com/item?id=50407882\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":455,\"unit\":\"积分\",\"text\":\"455\"}},{\"id\":\"hackernews:50366902\",\"title\":\"Clj.rs – a Clojure dialect implemented in Rust\",\"link\":\"https://news.ycombinator.com/item?id=50366902\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":88,\"unit\":\"积分\",\"text\":\"88\"}},{\"id\":\"hackernews:50366821\",\"title\":\"Porting Android 16 to my blind mother's keypad phone\",\"link\":\"https://news.ycombinator.com/item?id=50366821\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":15,\"unit\":\"积分\",\"text\":\"15\"}},{\"id\":\"hackernews:50411467\",\"title\":\"Agent memory needs its OpenTelemetry moment\",\"link\":\"https://news.ycombinator.com/item?id=50411467\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":79,\"unit\":\"积分\",\"text\":\"79\"}},{\"id\":\"hackernews:50378974\",\"title\":\"Finding Xanadu: Inside a JRPG classic translation 15 years in the making\",\"link\":\"https://news.ycombinator.com/item?id=50378974\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":37,\"unit\":\"积分\",\"text\":\"37\"}},{\"id\":\"hackernews:50371360\",\"title\":\"New typeface using intricate designs from Shakespeare's First Folio (2023)\",\"link\":\"https://news.ycombinator.com/item?id=50371360\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":22,\"unit\":\"积分\",\"text\":\"22\"}},{\"id\":\"hackernews:50403052\",\"title\":\"Need for Speed Underground 2 online in the browser\",\"link\":\"https://news.ycombinator.com/item?id=50403052\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":1042,\"unit\":\"积分\",\"text\":\"1042\"}},{\"id\":\"hackernews:50408713\",\"title\":\"Making any integer with four 2s (2025)\",\"link\":\"https://news.ycombinator.com/item?id=50408713\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":160,\"unit\":\"积分\",\"text\":\"160\"}},{\"id\":\"hackernews:50387381\",\"title\":\"Earliest evidence of cannabis use found in ancient Siberian tomb\",\"link\":\"https://news.ycombinator.com/item?id=50387381\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":19,\"unit\":\"积分\",\"text\":\"19\"}},{\"id\":\"hackernews:50411083\",\"title\":\"WaveDudeNext 2D Wave Simulator\",\"link\":\"https://news.ycombinator.com/item?id=50411083\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":30,\"unit\":\"积分\",\"text\":\"30\"}},{\"id\":\"hackernews:50409856\",\"title\":\"Consumer brain wave headsets threaten privacy\",\"link\":\"https://news.ycombinator.com/item?id=50409856\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":81,\"unit\":\"积分\",\"text\":\"81\"}},{\"id\":\"hackernews:50403097\",\"title\":\"Every Mac comes with an (undocumented) family member classifier\",\"link\":\"https://news.ycombinator.com/item?id=50403097\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":763,\"unit\":\"积分\",\"text\":\"763\"}},{\"id\":\"hackernews:50377661\",\"title\":\"Uranium cubes reveal why the German nuclear project failed\",\"link\":\"https://news.ycombinator.com/item?id=50377661\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":157,\"unit\":\"积分\",\"text\":\"157\"}},{\"id\":\"hackernews:50406222\",\"title\":\"MaxxBench – \\\"Nice DeepSWE score. But is it true?\\\"\",\"link\":\"https://news.ycombinator.com/item?id=50406222\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":338,\"unit\":\"积分\",\"text\":\"338\"}},{\"id\":\"hackernews:50403507\",\"title\":\"Every Windows 11 app should kill Electron, and Discord just showed why\",\"link\":\"https://news.ycombinator.com/item?id=50403507\",\"rank\":21,\"pinned\":false,\"heat\":{\"value\":368,\"unit\":\"积分\",\"text\":\"368\"}},{\"id\":\"hackernews:50410359\",\"title\":\"Kirlian Photography: Building Your Own Equipment\",\"link\":\"https://news.ycombinator.com/item?id=50410359\",\"rank\":22,\"pinned\":false,\"heat\":{\"value\":57,\"unit\":\"积分\",\"text\":\"57\"}},{\"id\":\"hackernews:50408931\",\"title\":\"GitHub New pull request overview page in public preview\",\"link\":\"https://news.ycombinator.com/item?id=50408931\",\"rank\":23,\"pinned\":false,\"heat\":{\"value\":153,\"unit\":\"积分\",\"text\":\"153\"}},{\"id\":\"hackernews:50410249\",\"title\":\"ISponsorBlockTV: SponsorBlock client for all YouTube TV clients\",\"link\":\"https://news.ycombinator.com/item?id=50410249\",\"rank\":24,\"pinned\":false,\"heat\":{\"value\":65,\"unit\":\"积分\",\"text\":\"65\"}},{\"id\":\"hackernews:50406292\",\"title\":\"Show HN: Coldframe, a honeypot that poses as a supermarket fridge controller\",\"link\":\"https://news.ycombinator.com/item?id=50406292\",\"rank\":25,\"pinned\":false,\"heat\":{\"value\":254,\"unit\":\"积分\",\"text\":\"254\"}},{\"id\":\"hackernews:50380051\",\"title\":\"Mizu – zero-copy parallel R and Python over shared memory\",\"link\":\"https://news.ycombinator.com/item?id=50380051\",\"rank\":26,\"pinned\":false,\"heat\":{\"value\":31,\"unit\":\"积分\",\"text\":\"31\"}},{\"id\":\"hackernews:50351954\",\"title\":\"Amsterdam School\",\"link\":\"https://news.ycombinator.com/item?id=50351954\",\"rank\":27,\"pinned\":false,\"heat\":{\"value\":53,\"unit\":\"积分\",\"text\":\"53\"}},{\"id\":\"hackernews:50406563\",\"title\":\"The end of Microsoft Research's AI Frontiers group\",\"link\":\"https://news.ycombinator.com/item?id=50406563\",\"rank\":28,\"pinned\":false,\"heat\":{\"value\":476,\"unit\":\"积分\",\"text\":\"476\"}},{\"id\":\"hackernews:50404599\",\"title\":\"The $8 Linux Computer (2022)\",\"link\":\"https://news.ycombinator.com/item?id=50404599\",\"rank\":29,\"pinned\":false,\"heat\":{\"value\":247,\"unit\":\"积分\",\"text\":\"247\"}},{\"id\":\"hackernews:50406111\",\"title\":\"Apple’s grey list: Words and phrases your iPhone won’t help you spell\",\"link\":\"https://news.ycombinator.com/item?id=50406111\",\"rank\":30,\"pinned\":false,\"heat\":{\"value\":493,\"unit\":\"积分\",\"text\":\"493\"}}]}",
-    "timing": {
-      "elapsed_ms": 360,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 360
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 360,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 360,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 360,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 360,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 360,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 360
-        }
-      ]
-    }
-  }
+  "debug": null
 }

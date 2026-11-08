@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T13:44:41.882Z",
+  "checked_at": "2026-11-08T22:17:13.336Z",
   "inspection": {
     "file": "hot/npr.js",
     "path": "/api/hot/npr/1001/rss.xml",
@@ -12,155 +12,12 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 35
+    "duration_ms": 46
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 328
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 38
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/npr.js",
-      "name": "NPR · Top Stories",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/npr/1001/rss.xml",
-      "request_path": "/api/hot/npr/1001/rss.xml",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/npr/1001/rss.xml",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a575038dcea45fa4"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 36,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":10}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://feeds.npr.org/1001/rss.xml",
-        "method": "GET",
-        "host": "feeds.npr.org",
-        "pathname": "/1001/rss.xml",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 36,
-        "timings": {
-          "response_ms": 36,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"NPR · Top Stories\",\"link\":\"https://www.npr.org/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-08T13:44:42.055Z\",\"entries\":[{\"id\":\"npr:https://www.npr.org/2026/11/08/nx-s1-6017801/air-ambulance-service-rural-healthcare-staffing\",\"title\":\"In Maine, a new approach to practicing medicine in the sky\",\"link\":\"https://www.npr.org/2026/11/08/nx-s1-6017801/air-ambulance-service-rural-healthcare-staffing\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/08/nx-s1-5393776/color-climate-change-coral-lakes\",\"title\":\"Climate change is altering the colors we see in the world: an illustrated journey\",\"link\":\"https://www.npr.org/2026/11/08/nx-s1-5393776/color-climate-change-coral-lakes\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/08/nx-s1-6023812/chile-desert-el-nino\",\"title\":\"A desert stirs to life: Chile's Atacama erupts in its biggest floral display in decades\",\"link\":\"https://www.npr.org/2026/11/08/nx-s1-6023812/chile-desert-el-nino\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/08/nx-s1-6032829/gen-z-voters-midterm-elections\",\"title\":\"How Gen Z voters helped fuel a blue wave for Democrats\",\"link\":\"https://www.npr.org/2026/11/08/nx-s1-6032829/gen-z-voters-midterm-elections\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/08/nx-s1-6033900/ufc-dana-white-trump-white-house-press-secretary\",\"title\":\"UFC's Dana White says he will meet with Trump Monday over offer to be White House press secretary\",\"link\":\"https://www.npr.org/2026/11/08/nx-s1-6033900/ufc-dana-white-trump-white-house-press-secretary\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/07/nx-s1-6033491/homelessness-in-the-u-s-saw-its-largest-drop-in-more-than-a-decade-last-year\",\"title\":\"Homelessness in the U.S. saw its largest drop in more than a decade last year\",\"link\":\"https://www.npr.org/2026/11/07/nx-s1-6033491/homelessness-in-the-u-s-saw-its-largest-drop-in-more-than-a-decade-last-year\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/07/nx-s1-6030759/the-surprising-and-often-forgotten-history-of-texas-tradition-of-economic-populism\",\"title\":\"The surprising and often forgotten history of economic populism in Texas\",\"link\":\"https://www.npr.org/2026/11/07/nx-s1-6030759/the-surprising-and-often-forgotten-history-of-texas-tradition-of-economic-populism\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/07/nx-s1-6029409/oklahoma-tribes-says-proposed-legal-changes-puts-ancestral-lands-in-ohio-at-risk\",\"title\":\"Oklahoma tribes say proposed legal changes put ancestral lands in Ohio at risk\",\"link\":\"https://www.npr.org/2026/11/07/nx-s1-6029409/oklahoma-tribes-says-proposed-legal-changes-puts-ancestral-lands-in-ohio-at-risk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/07/g-s1-152536/netanyahu-israel-government-eisenkot-herzog\",\"title\":\"Israel's president taps opposition candidate, not Netanyahu, to form a government\",\"link\":\"https://www.npr.org/2026/11/07/g-s1-152536/netanyahu-israel-government-eisenkot-herzog\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"npr:https://www.npr.org/2026/11/07/g-s1-152532/gunman-opens-fire-in-polish-city-of-krakow-killing-6-people-and-injuring-15\",\"title\":\"Polish gunman who killed 6 people in Krakow has 'ultranationalistic' views, authorities say\",\"link\":\"https://www.npr.org/2026/11/07/g-s1-152532/gunman-opens-fire-in-polish-city-of-krakow-killing-6-people-and-injuring-15\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 36,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 36
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 36,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 36,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 36,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 36,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 36,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 36
-        }
-      ]
-    }
-  }
+  "debug": null
 }

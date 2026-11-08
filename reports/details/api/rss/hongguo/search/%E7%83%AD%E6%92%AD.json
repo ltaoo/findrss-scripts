@@ -1,22 +1,162 @@
 {
-  "checked_at": "2026-11-08T13:45:42.289Z",
+  "checked_at": "2026-11-08T22:18:22.665Z",
   "inspection": {
     "file": "rss/hongguo.js",
     "path": "/api/rss/hongguo/search/:keyword",
     "example": "/api/rss/hongguo/search/%E7%83%AD%E6%92%AD",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 40
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/hongguo/search/%E7%83%AD%E6%92%AD.json",
+    "duration_ms": 2238
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 627
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/hongguo.js",
+      "name": "红果短剧搜索",
+      "kind": "rss",
+      "version": "1.0.0",
+      "path": "/hongguo/search/:keyword",
+      "request_path": "/api/rss/hongguo/search/:keyword",
+      "route_index": 1
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/hongguo/search/%E7%83%AD%E6%92%AD",
+      "params": {
+        "keyword": "热播"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a577f403a99598bc"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 579,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://hongguoduanju.com/api/search/result?aid=8662&query=%E7%83%AD%E6%92%AD&page=1",
+        "method": "GET",
+        "host": "hongguoduanju.com",
+        "pathname": "/api/search/result",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 579,
+        "timings": {
+          "response_ms": 579,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"id\":\"hongguo:search:热播:1\",\"title\":\"红果短剧搜索：热播\",\"link\":\"https://hongguoduanju.com/search?query=%E7%83%AD%E6%92%AD\",\"description\":\"搜索“热播”的第 1 页结果\",\"language\":\"zh-cn\",\"items\":[{\"id\":\"hongguo:series:7638987534483082265\",\"title\":\"归墟第一季\",\"link\":\"https://hongguoduanju.com/detail?series_id=7638987534483082265\",\"description\":\"这是一部关于新物种诞生与末世灾难降临的原创长篇故事。一场异常黑雨之后，城市地下开始出现无法解释的生命变化。最初只是零星的失踪与异响，随后，巨型蚂蚁撕开地下空间的入口，隐藏在黑暗中的新生态逐渐显露。昆虫、鱼类与更多生物被未知力量改写，体型、习性与生存方式不断进化，原本熟悉的城市开始变成陌生的猎场。随着变异生物持续扩散，人类原有的生活秩序被迫改变。\",\"image\":\"https://p3-novel.byteimg.com/novel-pic/bedb12ff5b3716312f3b27b54d0c81cb~tplv-shrink:640:0.image\",\"published\":\"2026-05-12T12:53:04.000Z\",\"categories\":[\"末世\",\"求生\",\"都市\"]},{\"id\":\"hongguo:series:7693742714562563097\",\"title\":\"乡野女霸\",\"link\":\"https://hongguoduanju.com/detail?series_id=7693742714562563097\",\"description\":\"结束工作返乡的许知秋，收留了弟弟的同学秦烁，姐弟俩给予他久违的陪伴与关怀。后来得知秦烁来自大城市，有个不擅表达的亲哥哥秦峥，许知秋耐心沟通，化解这对亲生兄弟长久的心结。在陪伴与引导下，秦烁圆梦大学。秦峥也慢慢卸下强硬，学会向亲人流露温情。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/a3ddfce21b4da8989ab087b62240c9ac~tplv-shrink:640:0.image\",\"published\":\"2026-10-07T02:11:08.000Z\",\"categories\":[\"剧情\",\"乡村\"]},{\"id\":\"hongguo:series:7696023326375808024\",\"title\":\"神豪外挂第一季\",\"link\":\"https://hongguoduanju.com/detail?series_id=7696023326375808024\",\"description\":\"开学之日，顾川意外激活特殊成长系统，获得全新的发展机遇，拥有了开启事业的起步条件，他把握住这份契机，不断沉淀自我，积极参与校园实践，拓展商业领域的视野，面对周遭的不解与各类挑战，他沉着从容应对，在完成一项项系统赋予的历练任务的过程中提升个人能力，结识形形色色的伙伴，一步步拓宽自身格局，在校园生活与商业探索当中，走出属于自己的成长道路。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/8849ae3b05378e8168180aeaaa2f7042~tplv-shrink:640:0.image\",\"published\":\"2026-10-13T05:41:04.000Z\",\"categories\":[\"脑洞\",\"系统\",\"都市\",\"校园\"]},{\"id\":\"hongguo:series:7680564528135818302\",\"title\":\"急诊摸鱼王\",\"link\":\"https://hongguoduanju.com/detail?series_id=7680564528135818302\",\"description\":\"曾经站在世界之巅的外科天才贺知舟，隐姓埋名到急诊科躺平摸鱼。上班睡觉打游戏，病历潦草，被全科室当成废物关系户，主任限期将他开除。可每逢危重症人命垂危，他随手出手便起死回生。只想摆烂度日，奈何全院跪求他出手救人！\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/cafa83f45325ece8897fc26f1172d79c~tplv-shrink:640:0.image\",\"published\":\"2026-09-01T13:53:02.000Z\",\"categories\":[\"剧情\",\"都市\",\"职场\"]},{\"id\":\"hongguo:series:7694988917589691417\",\"title\":\"学法律的玄学大师，很常见吗第一季\",\"link\":\"https://hongguoduanju.com/detail?series_id=7694988917589691417\",\"description\":\"身负特殊命数的玄学法师夏晚歌，一直靠着功德和气运艰难求生。一场突发意外，她邂逅气场神秘、身受顽疾的集团总裁陆秋，二人之间竟产生奇妙的精神共鸣。为求自保也为解开对方身上的怪病，两人结成特殊同盟。混迹于现代职场，怪事接连发生，诡异邪术暗中作祟，幕后敌人步步紧逼。夏晚歌一边化解一桩桩离奇危机，一边探寻自身身世谜团。互利共生的两人，在危机四伏的境遇里相互守护，开启一段惊险又温情的玄学逆袭之旅。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/bb6bd9bd564dfa0380ff714801805f69~tplv-shrink:640:0.image\",\"published\":\"2026-10-10T10:47:02.000Z\",\"categories\":[\"诡秘\",\"异能\",\"逆袭\",\"都市\",\"豪门\"]},{\"id\":\"hongguo:series:7680187265020070937\",\"title\":\"反派亲妈：反派漂亮亲妈十斤反骨\",\"link\":\"https://hongguoduanju.com/detail?series_id=7680187265020070937\",\"description\":\"穿成反派亲妈？还是刚把五岁儿子丢了的缺德版！苏缈人都麻了，家里穷得只剩泡面袋，这娃未来还要黑化囚禁亲妈？为了活命，她一路搞钱养崽——可谁能告诉她，为什么她这个当妈的被五岁儿子管得死死的？！不许抽烟、不许吃炸鸡，小大人冷着脸说教的样子，又奶又爷！\",\"image\":\"https://p3-novel.byteimg.com/novel-pic/9bf5b3c3da00452b0aac7c52221da3ac~tplv-shrink:640:0.image\",\"published\":\"2026-08-31T13:29:04.000Z\",\"categories\":[\"萌宝\",\"穿越\",\"逆袭\",\"都市\",\"豪门\"]},{\"id\":\"hongguo:series:7693071659686693913\",\"title\":\"山野春潮\",\"link\":\"https://hongguoduanju.com/detail?series_id=7693071659686693913\",\"description\":\"她本该是送去草原和亲的长乐公主，却在大婚途中坠崖，再睁眼，已不知这具身体是谁。集市上，人伢子将她推上木台叫卖，她浑身是伤，颤抖如入冬的雀。人群散开，一个黑衣少年穿过夕阳走来，十两白银买下了一整个命定的春天。他为她洗衣做饭，替她洗澡上药，背她走长长的山路。柴米油盐里藏着春潮暗涌，粗陶碗中盛满少年深情。山野的春天，漫出来了。“傅铮。”“嗯？”“我们回家啦。”\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/5e8d3ec53f3f84612537531a0f1f7928~tplv-shrink:640:0.image\",\"published\":\"2026-10-05T06:47:06.000Z\",\"categories\":[\"恋爱\",\"古代\"]},{\"id\":\"hongguo:series:7688651092246154264\",\"title\":\"天道余途：苍途问道\",\"link\":\"https://hongguoduanju.com/detail?series_id=7688651092246154264\",\"description\":\"天道倾颓，残道留世，是为天道余途。少年余羡生于凡村，机缘踏上仙路，拜入白云宗。闯试炼，访诸宗，探上古遗迹，层层揭开天道崩毁的尘封秘辛。仙途劫难重重，诱惑丛生，他不逐虚妄长生，凭一己凡躯，于残存天道轨迹间求索，守道心，踏一条无人敢行的苍茫长路。\",\"image\":\"https://p3-novel.byteimg.com/novel-pic/d3bbd221487dca64e19d27a1727e0f58~tplv-shrink:640:0.image\",\"published\":\"2026-09-23T08:53:02.000Z\",\"categories\":[\"玄幻\",\"逆袭\",\"异界\"]},{\"id\":\"hongguo:series:7685265188223732761\",\"title\":\"从东北来的她\",\"link\":\"https://hongguoduanju.com/detail?series_id=7685265188223732761\",\"description\":\"东北神人屯长大的秋野，被接回京城沈家，她竟是失散二十年的真千金。假千金沈晚星屡次陷害，却被武力爆表的秋野反杀。秋野用祖传医术治好联姻对象顾景琛的眼睛，两人联手扳倒觊觎家产的二叔。最终揭露，亲生父亲沈建国当年为私生女将她遗弃。沈建国入狱，沈晚星被送去喂鹅。秋野与顾景琛大婚，神人屯隐藏大佬们霸气撑腰，她成为顾家当家主母。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/7f3bd45397c72e352e4699e2cde816ae~tplv-shrink:640:0.image\",\"published\":\"2026-09-14T05:54:00.000Z\",\"categories\":[\"家庭\",\"家庭伦理\",\"打脸反派\",\"直爽女主\",\"真假千金\",\"现代\"]},{\"id\":\"hongguo:series:7520576652108106814\",\"title\":\"暗光\",\"link\":\"https://hongguoduanju.com/detail?series_id=7520576652108106814\",\"description\":\"看似酒吧的一次意外邂逅，让星耀集团司机秦羽麟，躺上了枫华商会的千金徐恩心的床。徐恩心被秦羽麟深深吸引，向星耀集团总裁周星翰要人，于是，他成了她的专属司机。他会默默记下她所有喜好，会在她疲惫时递上恰到好处的咖啡，更会在危险来临时第一个挡在她身前，徐恩心渐渐发现，自己越来越依赖这个司机。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/b2666052a6792d729037c3c919e374a7~tplv-shrink:640:0.image\",\"published\":\"2025-06-27T10:38:24.000Z\",\"categories\":[\"爱情\",\"都市爱情\",\"强取豪夺\",\"揭露阴谋\",\"暧昧拉扯\",\"总裁\"]}],\"extra\":{\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://hongguoduanju.com/\"},\"tags\":[\"短剧\",\"红果短剧\"],\"category\":[\"短剧\"]}}",
+    "timing": {
+      "elapsed_ms": 579,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 579
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 579,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 579,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 579,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 579,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 579,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 579
+        }
+      ]
+    }
+  }
 }

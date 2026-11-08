@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T13:44:33.354Z",
+  "checked_at": "2026-11-08T22:17:05.420Z",
   "inspection": {
     "file": "hot/bluesky.js",
     "path": "/api/hot/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics",
@@ -12,11 +12,11 @@
     "status": 502,
     "code": "UPSTREAM_INVALID_RESPONSE",
     "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 173
+    "duration_ms": 110
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 111
+    "duration_ms": 617
   },
   "debug": {
     "status": 502,
@@ -39,7 +39,7 @@
       "headers": {
         "Accept": "application/json",
         "User-Agent": "node",
-        "CF-Ray": "a57503587d267c35"
+        "CF-Ray": "a577f220e853eb83"
       },
       "authentication": {
         "required": true,
@@ -48,7 +48,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 23,
+    "elapsed_ms": 503,
     "invoked": false,
     "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：热榜条目需要稳定 ID、标题和网页链接",
     "error_text": "脚本执行失败：热榜条目需要稳定 ID、标题和网页链接\nat script_error (script-globals.js:34:33)\n    at <anonymous> (script-globals.js:145:29)\n    at map (native)\n    at run (script-globals.js:136:43)",
@@ -66,16 +66,16 @@
           "headers_sent": []
         },
         "started_ms": 0,
-        "duration_ms": 23,
+        "duration_ms": 503,
         "timings": {
-          "response_ms": 23,
-          "body_read_ms": 0,
+          "response_ms": 498,
+          "body_read_ms": 5,
           "decode_and_transfer_ms": 0
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 23,
+      "elapsed_ms": 503,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -120,26 +120,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 0,
-          "duration_ms": 23
+          "duration_ms": 503
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 23,
+          "started_ms": 503,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 23,
+          "started_ms": 503,
           "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 23,
+          "started_ms": 503,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 23,
+          "started_ms": 503,
           "duration_ms": 0
         }
       ],
@@ -147,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 0,
-          "duration_ms": 23
+          "duration_ms": 503
         }
       ]
     }

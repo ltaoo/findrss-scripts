@@ -1,23 +1,182 @@
 {
-  "checked_at": "2026-11-08T13:44:41.741Z",
+  "checked_at": "2026-11-08T22:17:13.526Z",
   "inspection": {
     "file": "hot/nhk.js",
     "path": "/api/hot/nhk/rss/news/cat0.xml",
     "example": "/api/hot/nhk/rss/news/cat0.xml",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 29
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/nhk/rss/news/cat0.xml.json",
+    "duration_ms": 583
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 51
+    "status": 200,
+    "duration_ms": 340
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/nhk.js",
+      "name": "NHK · 主要新闻",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/nhk/rss/news/cat0.xml",
+      "request_path": "/api/hot/nhk/rss/news/cat0.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/nhk/rss/news/cat0.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a577f25389500d0f"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 260,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":7}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.nhk.or.jp/rss/news/cat0.xml",
+        "method": "GET",
+        "host": "www.nhk.or.jp",
+        "pathname": "/rss/news/cat0.xml",
+        "status": 301,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 146,
+        "timings": {
+          "response_ms": 146
+        }
+      },
+      {
+        "url": "https://news.web.nhk/n-data/conf/na/rss/cat0.xml",
+        "method": "GET",
+        "host": "news.web.nhk",
+        "pathname": "/n-data/conf/na/rss/cat0.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 146,
+        "duration_ms": 114,
+        "timings": {
+          "response_ms": 114,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"NHK · 主要新闻\",\"link\":\"https://news.web.nhk/newsweb/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-08T22:17:13.823Z\",\"entries\":[{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261109de72639\",\"title\":\"山林遺体は石川県の20代女性と確認 監禁後まもなく殺害か\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261109de72639\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261109de72671\",\"title\":\"エジプトで列車衝突事故 7人死亡 112人けが\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261109de72671\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261108de72633\",\"title\":\"COP31 きょう開幕へ 各国が足並みそろえられるか焦点に\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261108de72633\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261109de72687\",\"title\":\"JR中央線快速電車 運転再開\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261109de72687\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261108de72427\",\"title\":\"【地震速報】岩手県 宮城県で震度3 津波の心配なし\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261108de72427\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261108de72622\",\"title\":\"消費税減税法案 あさって参議院で審議入り 与野党論戦へ\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261108de72622\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261109de72659\",\"title\":\"イスラエル大統領 野党アイゼンコット氏に組閣要請\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261109de72659\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 260,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 260
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 260,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 260,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 260,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 260,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 260,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 260
+        }
+      ]
+    }
+  }
 }

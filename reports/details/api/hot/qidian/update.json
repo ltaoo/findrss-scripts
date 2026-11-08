@@ -1,169 +1,23 @@
 {
-  "checked_at": "2026-11-08T13:44:48.810Z",
+  "checked_at": "2026-11-08T22:17:14.364Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/update",
     "example": "/api/hot/qidian/update",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/qidian/update.json",
-    "duration_ms": 988
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 28
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 408
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 37
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/qidian.js",
-      "name": "起点 · 更新榜",
-      "kind": "hot",
-      "version": "1.3.1",
-      "path": "/qidian/update",
-      "request_path": "/api/hot/qidian/update",
-      "route_index": 5
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/qidian/update",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a57503b91d7ff336"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 316,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "起点榜单解析完成 {\"type\":\"update\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":20}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://m.qidian.com/rank/update/",
-        "method": "GET",
-        "host": "m.qidian.com",
-        "pathname": "/rank/update/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 316,
-        "timings": {
-          "response_ms": 316,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 更新榜\",\"link\":\"https://m.qidian.com/rank/update/\",\"category\":\"小说\",\"observed_at\":\"2026-11-08T13:44:49.154Z\",\"entries\":[{\"id\":\"qidian:book:1049335085\",\"title\":\"都转世成僵尸了，仙子还在追我？\",\"link\":\"https://m.qidian.com/book/1049335085/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049335085/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048529749\",\"title\":\"蓝龙皇帝：从叠被动开始\",\"link\":\"https://m.qidian.com/book/1048529749/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048529749/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1044056211\",\"title\":\"御兽：16岁，老登逆袭什么鬼\",\"link\":\"https://m.qidian.com/book/1044056211/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044056211/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050971957\",\"title\":\"华娱：我有梦境编辑器\",\"link\":\"https://m.qidian.com/book/1050971957/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050971957/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048116775\",\"title\":\"华娱：我即顶流！\",\"link\":\"https://m.qidian.com/book/1048116775/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048116775/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051158629\",\"title\":\"斗罗绝世：阿姨，我不想努力了\",\"link\":\"https://m.qidian.com/book/1051158629/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051158629/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050897589\",\"title\":\"灌篮：我打造全能湘北，称霸全国\",\"link\":\"https://m.qidian.com/book/1050897589/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050897589/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1047455433\",\"title\":\"三国：季汉隐相，克伐中原\",\"link\":\"https://m.qidian.com/book/1047455433/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047455433/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050803270\",\"title\":\"绝世：烈海王转生斗罗，武道通神\",\"link\":\"https://m.qidian.com/book/1050803270/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050803270/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050722132\",\"title\":\"NBA：禁区之王\",\"link\":\"https://m.qidian.com/book/1050722132/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050722132/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048614415\",\"title\":\"西游：成了方寸山首席\",\"link\":\"https://m.qidian.com/book/1048614415/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048614415/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049381777\",\"title\":\"红楼之开局救下林黛玉\",\"link\":\"https://m.qidian.com/book/1049381777/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049381777/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050730004\",\"title\":\"1955，从留洋水货到动力之父\",\"link\":\"https://m.qidian.com/book/1050730004/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050730004/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050241992\",\"title\":\"重生孔乙己，偷师全武林\",\"link\":\"https://m.qidian.com/book/1050241992/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050241992/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048229280\",\"title\":\"维度魔神成长日记，从龙族开始\",\"link\":\"https://m.qidian.com/book/1048229280/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048229280/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1034925775\",\"title\":\"斗破之平凡人生\",\"link\":\"https://m.qidian.com/book/1034925775/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1034925775/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050233974\",\"title\":\"红楼：我终将亲手葬送贾家\",\"link\":\"https://m.qidian.com/book/1050233974/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050233974/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050103620\",\"title\":\"这个武圣太天才了\",\"link\":\"https://m.qidian.com/book/1050103620/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050103620/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051035734\",\"title\":\"诸天武侠，剑出笑傲\",\"link\":\"https://m.qidian.com/book/1051035734/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051035734/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1046357041\",\"title\":\"三国，我？算无遗策？\",\"link\":\"https://m.qidian.com/book/1046357041/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1046357041/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}}]}",
-    "timing": {
-      "elapsed_ms": 316,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 316
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 316,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 316,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 316,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 316,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 316,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 316
-        }
-      ]
-    }
-  }
+  "debug": null
 }

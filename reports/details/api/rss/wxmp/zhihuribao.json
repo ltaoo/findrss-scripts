@@ -1,23 +1,169 @@
 {
-  "checked_at": "2026-11-08T13:45:46.012Z",
+  "checked_at": "2026-11-08T22:18:31.512Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/zhihuribao",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 78
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/zhihuribao.json",
+    "duration_ms": 3063
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 46
+    "status": 200,
+    "duration_ms": 1479
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/zhihuribao",
+      "params": {
+        "account": "zhihuribao"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a577f43afc2398bc"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1437,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":18,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 0,
+        "duration_ms": 1437,
+        "timings": {
+          "response_ms": 1277,
+          "body_read_ms": 160,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:zhihuribao\",\"title\":\"知乎日报\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658093&idx=1&sn=e776bbfc09ab9dce6548eeb25fcab37d&chksm=8a7cf7b4b11b548a0f62f15eeebf6aa669f3d6666deabc2f01fa89b821ef0b67968720091db8&scene=126&sessionid=1794176312#rd\",\"description\":\"知乎官方订阅号，每日精选知乎热门、有趣内容\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"知乎日报\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FUOCHvzUGAIWg6z2Qs1yTHicbpqJwAUFRtJ5nhXPMb35XhGb6OESOg9OianbhYibThkZQiclOv5GN4z8%2F0\",\"updated\":\"2026-11-08T12:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658093:1\",\"title\":\"瞎扯丨花小钱办大事是一种怎样的体验？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658093&idx=1&sn=e776bbfc09ab9dce6548eeb25fcab37d&chksm=8a7cf7b4b11b548a0f62f15eeebf6aa669f3d6666deabc2f01fa89b821ef0b67968720091db8&scene=126&sessionid=1794176312#rd\",\"description\":\"瞎扯一下，轻松一下～\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHkpEiawGNLicibEI8YGEo9dWJdZJHpv5HoVSDYicDMEiaANgw1FdQrWVUDW9icxMSMorsKwqb9Qs2SuQyDsic5v9ibrWn6wgLoUeErwuo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658092:1\",\"title\":\"投票丨本周推文，你最喜欢哪一篇？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658092&idx=1&sn=cebce86b898ca8c8adb02389944836fa&chksm=8a170c5dbbece3a884ec4ce18c92ac331acce1fc7b4aec7be95ee0e04660bec89a9f4d5a23c1&scene=126&sessionid=1794176312#rd\",\"description\":\"🔍 一周即将结束，来做个小小的回顾。\\n\\n这周第一篇聊为什么一看短剧就停不下来。有人提出了新角度：短剧最密集地满足了一个刚需：恶，一定要有恶报。这是怎么一回事？\\n\\n周二，聊为什么现在很多人人不爱接电话？陌生号码不接，外地号码不接，本地陌生号码也不接。这已经不是个人习惯，是几亿人形成的默契。\\n\\n周三一起开个脑洞：古代穷人为什么不搬到海边去，海边鱼多不是饿不死吗？答案比你想象的要更有意思：答案是海边鱼多是真的，但饿不死是假的。\\n\\n周四，我们聊了聊为什么会和好朋友渐行渐远。也许真正的成熟，是允许有人只懂你的过去，允许有人只懂你的利益，也允许没人懂你的灵魂。\\n\\n周五我们在瞎问里展开一系列追问：脑子正在被吃的人会有什么感觉？怎么活出春秋战国诸侯的感觉？来看看有没有和你同频的回答！\\n\\n周六影视栏目，聊热门综艺《后会友期》。为什么短剧流行的当下，我们依然会被友情所打动？不同答主给了自己的见解。\\n\\n❓ 本周发布的 6 篇内容里，你最喜欢哪一篇？评论区聊聊。\",\"content\":\"<p>🔍 一周即将结束，来做个小小的回顾。<br /><br />这周第一篇聊为什么一看短剧就停不下来。有人提出了新角度：短剧最密集地满足了一个刚需：恶，一定要有恶报。这是怎么一回事？<br /><br />周二，聊为什么现在很多人人不爱接电话？陌生号码不接，外地号码不接，本地陌生号码也不接。这已经不是个人习惯，是几亿人形成的默契。<br /><br />周三一起开个脑洞：古代穷人为什么不搬到海边去，海边鱼多不是饿不死吗？答案比你想象的要更有意思：答案是海边鱼多是真的，但饿不死是假的。<br /><br />周四，我们聊了聊为什么会和好朋友渐行渐远。也许真正的成熟，是允许有人只懂你的过去，允许有人只懂你的利益，也允许没人懂你的灵魂。<br /><br />周五我们在瞎问里展开一系列追问：脑子正在被吃的人会有什么感觉？怎么活出春秋战国诸侯的感觉？来看看有没有和你同频的回答！<br /><br />周六影视栏目，聊热门综艺《后会友期》。为什么短剧流行的当下，我们依然会被友情所打动？不同答主给了自己的见解。<br /><br />❓ 本周发布的 6 篇内容里，你最喜欢哪一篇？评论区聊聊。</p>\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFSue3ceRuLEOnVxHxuX134qwHI1B7wTlrvYOURe6WnllayGY1tlnwZlqC5e3LrKGfRqcmDfGa8JDEgNmzctZUyesve5QiaI4gE%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlH3AE12BXl4lsuZhrwficOfbc5q6PDPWh9qIkISHgIiaib0x8kWSkOsHISudLYSNMBsdsguYkwrePVvSShKML1SIBqRQKuajoT2Wo%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlGNnibOCaSY7UbLt5JMTCTZFeWOYYrWYg180BmRdah9icn91ZZNdgsne0gw4mZSC1ex0cSRGoHFOeHEaWIUgjPf9AtxaKBngOyOY%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHfvjrWcrzwqpiavicYlykUaofsTUoNORVGU6BvGuiayTceUYNys2t2KNpl2AxrfUGrhQ6Q82KpUkkHzBZdZ8XKdibLntk4RQAsxfM%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlH5ddnQptPUFe3cP3L4XBraHQxGqWibQxg6CwR2cYWxL1Du6IibGZM6KxMaRTicuP5T2V62rPtTeXm8kJr7uqzT8zrn3yJ5ZOcUIA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlFxuedkFYiafzby1lABj05ltUUIVzdDSy3jJR9Xy579wu3suibpHGdx4LsajoDJwicNicGlO7BtpPvBf7CTomeJnY2dbz8wdpKCe30%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlHkxicnTxt7L2ZL2GMbNRmo3uOdgkUNJOQIt1nBDiclvOdo2nXkX4kXEnZjkY2G852eRZHx7dP6uUPlZxoXCnqLlMOdvRqibDcgv8%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFlUW5hicHEL5be7Qoa6meWQic7p6uTTLL3ibKy1vGC4OVmjUOPVEP1j0onWTtuc22czicVWic2PnEp0vlalgqEsOD0hzTMZOQ91udY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFSue3ceRuLEOnVxHxuX134qwHI1B7wTlrvYOURe6WnllayGY1tlnwZlqC5e3LrKGfRqcmDfGa8JDEgNmzctZUyesve5QiaI4gE%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlH3AE12BXl4lsuZhrwficOfbc5q6PDPWh9qIkISHgIiaib0x8kWSkOsHISudLYSNMBsdsguYkwrePVvSShKML1SIBqRQKuajoT2Wo%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlGNnibOCaSY7UbLt5JMTCTZFeWOYYrWYg180BmRdah9icn91ZZNdgsne0gw4mZSC1ex0cSRGoHFOeHEaWIUgjPf9AtxaKBngOyOY%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHfvjrWcrzwqpiavicYlykUaofsTUoNORVGU6BvGuiayTceUYNys2t2KNpl2AxrfUGrhQ6Q82KpUkkHzBZdZ8XKdibLntk4RQAsxfM%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlH5ddnQptPUFe3cP3L4XBraHQxGqWibQxg6CwR2cYWxL1Du6IibGZM6KxMaRTicuP5T2V62rPtTeXm8kJr7uqzT8zrn3yJ5ZOcUIA%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlFxuedkFYiafzby1lABj05ltUUIVzdDSy3jJR9Xy579wu3suibpHGdx4LsajoDJwicNicGlO7BtpPvBf7CTomeJnY2dbz8wdpKCe30%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlHkxicnTxt7L2ZL2GMbNRmo3uOdgkUNJOQIt1nBDiclvOdo2nXkX4kXEnZjkY2G852eRZHx7dP6uUPlZxoXCnqLlMOdvRqibDcgv8%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-08T09:17:04.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658036:1\",\"title\":\"AI热议丨DeepSeek Harnes 产品负责人亲自答\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658036&idx=1&sn=2d425bb74e1af22f2637cd2d5731508c&chksm=8aa71db0171f526ce2756e326ed97e2d14ef6cbaa62bf3c0182f76562368f987c1ca4ac6aec0&scene=126&sessionid=1794176312#rd\",\"description\":\"DeepSeek Harnes 产品部负责人崔添翼亲自答：如何评价 DeepSeek Harness 发布的 Super-agent 构想？\\n\\nDSH Go 和 DSH-TUI 的作者 ccch1mneyyy 亲自答：基于 DeepSeek Harness 的手机插件 DSH Go 上线后 Star 破 4 千，实际体验如何？\\n\\nDS Bot 的作者 Fei2411 亲自答：如何评价迅速走红的 DS Bot？有哪些值得关注的设计和亮点？\\n\\n如何理解梁文锋「在颠覆性的技术面前，闭源形成的护城河是短暂的」这一判断？\\n\\n亚马逊自由现金流「烧穿了」，谷歌的利润下降了，英特尔营收展望不及预期，放一起看能说明什么？\\n\\n怎么看 OpenAI CEO 说，最好的内存应该留给数据中心，而不是闲置在本地 PC 浪费？\\n\\n基于 DeepSeek Harness 的手机插件 DSH Go 上线后 Star 破4千，实际体验如何？\\n\\n如何看待 GPT-6 Astra 仅改动 0.016% 权重就让 Qwen3.5 数学能力涨 6 倍？\\n\\n👆扫描了解更多精彩。\",\"content\":\"<p>DeepSeek Harnes 产品部负责人崔添翼亲自答：如何评价 DeepSeek Harness 发布的 Super-agent 构想？<br /><br />DSH Go 和 DSH-TUI 的作者 ccch1mneyyy 亲自答：基于 DeepSeek Harness 的手机插件 DSH Go 上线后 Star 破 4 千，实际体验如何？<br /><br />DS Bot 的作者 Fei2411 亲自答：如何评价迅速走红的 DS Bot？有哪些值得关注的设计和亮点？<br /><br />如何理解梁文锋「在颠覆性的技术面前，闭源形成的护城河是短暂的」这一判断？<br /><br />亚马逊自由现金流「烧穿了」，谷歌的利润下降了，英特尔营收展望不及预期，放一起看能说明什么？<br /><br />怎么看 OpenAI CEO 说，最好的内存应该留给数据中心，而不是闲置在本地 PC 浪费？<br /><br />基于 DeepSeek Harness 的手机插件 DSH Go 上线后 Star 破4千，实际体验如何？<br /><br />如何看待 GPT-6 Astra 仅改动 0.016% 权重就让 Qwen3.5 数学能力涨 6 倍？<br /><br />👆扫描了解更多精彩。</p>\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlH6kia007Vz1bWcxiaeHQe7TyHprLrJx0pyfdUAMIq2ld5BiavOTp03aemdl4sf72x8pcHiaHkUS6ibb1RWvOSQd8Qh7Hh1Go2ocjww%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGUUctQtS2mPiaAuX9008JBHL8cdmhM6CvjpGUibia8eKoRqicrxgLLTtLsFSCgib056brpVQm5tVDhoQubfFUdKr8ibDRhRJJgaemTE%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH7hl0xCPIxfgw4tdzicvM0AGQeU3Z7f3juF3CqNYUjbSwL9vSXzYkGxfC9ICf5a8AZBIib4GKSNCXFgjUeNArU8BO8SufCrBu6g%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGjduaGh7LcRmuuygbGaFFBAGAxUZJyfDibLKCib2vyib9r8b2NMurHx8eYH7Neibibg0ibGT1eLHzueePrvNkMHY0FuSDANAyn37boI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFmx0AHpjLlduottejsMfx9ULl2I1YXAg5icicelI6hia4TyN6VldjVuyfIoK2VMq8S63Vrm0Dcz6v7YiaDIaJW3cEjsSaW2Q0Vrpc%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFQIiac7G60l1cKM66fkibFfTaNWyPphf2Iqc59ahwzzr1WtqqSbNnhd2VF1p9iafWvPH1KpkodNCvsol6M8cibWUyvCA5LDXYvLOY%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFT3wOZQGglicwyA5DiaASRibIeWEGHaHTUGjx4BgYhaZcwtl02pVjKLlnSvDC12Ms5jkMupLkOKeqYCXkwr0EorTm9kia5qyv1PpY%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHKu6Fvnk3NdVFevAPJICicFLGYvj6axeJ28AxwZY6LaPh87PRfCl7Jdsjc9Qu9dfqSdTzGBukx9OPKsKhCgbKmza1TDaeGejF4%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHf45FiceNYpU7rCl8ThPmT0iarf81Vr9PyGafcsXVh8B47G52DrM4Rn31xmIGw5R4AD705gtp4cSh9KLIBrzOqOicnBreLjCXib6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlH6kia007Vz1bWcxiaeHQe7TyHprLrJx0pyfdUAMIq2ld5BiavOTp03aemdl4sf72x8pcHiaHkUS6ibb1RWvOSQd8Qh7Hh1Go2ocjww%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGUUctQtS2mPiaAuX9008JBHL8cdmhM6CvjpGUibia8eKoRqicrxgLLTtLsFSCgib056brpVQm5tVDhoQubfFUdKr8ibDRhRJJgaemTE%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH7hl0xCPIxfgw4tdzicvM0AGQeU3Z7f3juF3CqNYUjbSwL9vSXzYkGxfC9ICf5a8AZBIib4GKSNCXFgjUeNArU8BO8SufCrBu6g%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGjduaGh7LcRmuuygbGaFFBAGAxUZJyfDibLKCib2vyib9r8b2NMurHx8eYH7Neibibg0ibGT1eLHzueePrvNkMHY0FuSDANAyn37boI%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFmx0AHpjLlduottejsMfx9ULl2I1YXAg5icicelI6hia4TyN6VldjVuyfIoK2VMq8S63Vrm0Dcz6v7YiaDIaJW3cEjsSaW2Q0Vrpc%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFQIiac7G60l1cKM66fkibFfTaNWyPphf2Iqc59ahwzzr1WtqqSbNnhd2VF1p9iafWvPH1KpkodNCvsol6M8cibWUyvCA5LDXYvLOY%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFT3wOZQGglicwyA5DiaASRibIeWEGHaHTUGjx4BgYhaZcwtl02pVjKLlnSvDC12Ms5jkMupLkOKeqYCXkwr0EorTm9kia5qyv1PpY%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHKu6Fvnk3NdVFevAPJICicFLGYvj6axeJ28AxwZY6LaPh87PRfCl7Jdsjc9Qu9dfqSdTzGBukx9OPKsKhCgbKmza1TDaeGejF4%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-08T09:17:04.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658058:1\",\"title\":\"影视丨《后会友期》里的「画地为牢」是什么意思？为什么会爆火？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658058&idx=1&sn=4efeadb7818c0aad0f0445259e656587&chksm=8a3a62075c48d9c42e428fb98015a3be9f6bdc1b1a8923c3f2d3d2575912068f653e521f9222&scene=126&sessionid=1794176312#rd\",\"description\":\"比精心设计的剧情更抓人的，可能是真实关系里的遗憾。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHAdZD4Liaic1tkx8ibUcm2131IJibCjiaMapo7dXmB3ibqs81bJzo7pGl34amgkQDTQ0WrtCicnV3vtZWkS12oT8qeMTeXdjIl024q6I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658024:1\",\"title\":\"瞎问丨脑子正在被吃的人会有什么感觉？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658024&idx=1&sn=e56cf5184a44fd7bcaf8bc9ec608c8e7&chksm=8ad8d02877d163955335240f72f3d22696f154d8c66524f560b45ff457ab2f03fd450ea25493&scene=126&sessionid=1794176312#rd\",\"description\":\"\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEhr1DsiayLzBbJfibepUuzGY52BPPBVhILNmibTXcwvE1y6rOnFqUn5kMAgefEpibv9kr2g5NHJ1Ef7ibxKiaKSWTZxtHCQmE7iamqGs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658024:2\",\"title\":\"科技｜Unknown Unknowns：防不住的AI 「闪身步」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658024&idx=2&sn=5d14c7fef9043a95783643b739e8df66&chksm=8a170821994c255648fc9a777e5986eda68cc5368f821f48cd2a34676df485461293160fb62b&scene=126&sessionid=1794176312#rd\",\"description\":\"\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlF2GATLQoCEoR0uqF0ia7JPAL6YL79PgoYex8PSYdMNL6FDeV6fjyL6YlQ6viarOmlMF0RlbMjRdSjh55Sa48ib9NpfcfMN9xWW7k%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657965:1\",\"title\":\"经验丨和好朋友渐行渐远是必然的吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657965&idx=1&sn=064526b8837c470cb3a6d9b108bfd3c9&chksm=8a73365f66c65d77e467dde84fc5fcf4f3ea9d2db3b116ac1930ea85f8a1d00af7aa50cb8cb7&scene=126&sessionid=1794176312#rd\",\"description\":\"我画地为牢，朋友！\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGTWaWFTRyYI6xy3bUsqIJ1bEtkPVMTsqSD2zYh27uBVFJymesArGibUmRt2ymiag6QyCR8r9DYib7AqDicMbJjk2RQgpTeVcKubPU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657965:2\",\"title\":\"科普丨哪段代码最能代表程序员的暴力美学？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657965&idx=2&sn=297fcf6695f2fee6be01b7041a65b479&chksm=8a83715dc999ec6d276d6105c6a854063738c4e78a742e0e81f3afd52db71cea80c8e3817769&scene=126&sessionid=1794176312#rd\",\"description\":\"50 年了，从没被取代。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFianmKTvjBO7PEF8og1Iwo9laYNzaM9LjgbVHo0A1cwiaiaAAalbKmxc7ibAPycSMTH3RseBCa2yVvNQfoEIlEfOwh8Iw9vW15S0w%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657854:1\",\"title\":\"脑洞丨古代穷人为什么不搬到海边去？海边鱼多不是饿不死吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657854&idx=1&sn=fa0fcb134d5818106ec7e7c025ab1495&chksm=8aecbd824a0def144c659494e5e4218f2a23260a9262a18d1c89cfd1bb5587ab01b3dc80c8b0&scene=126&sessionid=1794176312#rd\",\"description\":\"「有东西吃」和「能够活下去」并不是一回事？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFdw4gMj9E4dFow0iaOgTsy748By7YWMvpOgw8tR7m2xSnhVzRacvplTLmfjspv11S1Jga17SfV8ZF3AOBpVL9AvZFTSmJ9siaVM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657854:2\",\"title\":\"科普丨为什么牧羊犬能指挥羊群进退？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657854&idx=2&sn=cd007691f7baba7c2d64d7b04e6ad898&chksm=8a4dd94cd733b7c1f9c8c427f40f7f38f37f0100da5ceffab2f13cc9169a1ca0ba994020f81b&scene=126&sessionid=1794176312#rd\",\"description\":\"牧羊犬和羊群之间：没有交流，却高度协同；没有理性，却呈现出理性的秩序。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFee0mibXDYico4v012fcDTzMCM1fTs4cylgYQZUuwhaLotqQRgy0FdEfqIibibvwibiccXnmIPfMFvVLs7RXLwINjgVRNLnrDcZgNko%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657787:1\",\"title\":\"科普丨为什么现在的人不爱接电话了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657787&idx=1&sn=22c68384847b95b70e84363c247c9157&chksm=8a4a1d31e9cfbeaccff33241740ae875ff610ecc9ded0a8dfc64c451f4e270cb55c565a5213a&scene=126&sessionid=1794176312#rd\",\"description\":\"你现在还会接陌生电话吗？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGvw6JUiclABrV3KAco5plzB2Lsu1aw34JP8kVeIXSkicPBsIy35QHgCHOmPziaXiah7JhtqMEy0vBicXDme5bGduBAXicVoebwPnHYc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657787:2\",\"title\":\"人文丨你认同「国内访古需趁早」这句话吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657787&idx=2&sn=87fd97e5af201d1f8d55ba165f96356c&chksm=8ab9cb97e6d964de2352deca6b6a6feeae302791d50741f8cd787a5cb9bcaf444d75233f0e87&scene=126&sessionid=1794176312#rd\",\"description\":\"访古不仅要趁早，而且什么时候都不晚。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEOxBX48mbRBbgexwOhLfeLK183QBnejrBcPqQWCT6gia8l7P7HV0TeUDiaMpJucNiad8MY6oKWwVk43HZjtmcj0b9ra8JYSthbhc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657705:1\",\"title\":\"高赞丨为什么短剧一看就停不下来？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657705&idx=1&sn=7f9a34e0548fd8a263f6c19945c16105&chksm=8abf8f38fc2f053974f5478488a0c14a2c8193610b0d521aa6d63a59292334090d956f058b28&scene=126&sessionid=1794176312#rd\",\"description\":\"让你你点开观看 / 不看的原因是什么？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlH5VYrMN3tpicXVCria9eQImtYDqR66tU6w2WajI13kJpJEl3J3vXyjaq6YmkGyV2Tcq2mLhXIz6sEsu5hrnN8pAkqJG7tUwcWDU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657705:2\",\"title\":\"亲自答丨如何评价 DeepSeek Harness 发布的 Super-agent 构想？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657705&idx=2&sn=780d510f24e42fdb9839c3ce409dd6c2&chksm=8a6ad48e69c9c46dd99ffb87e657198f78bc9ad64dc640ac20eb3405de6bf406531e7386a52e&scene=126&sessionid=1794176312#rd\",\"description\":\"DeepSeek 产品部负责人、原文章最终审稿人之一崔添翼亲自答。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEFDvsMy83rCiaR2kPMkUdbKAqhRSjOYBufOhfbExj5hpjj01gUGYlYUOHsvUIibOS7QCFoJ8gT5cbaiaxnoic40UGX381Msdias2kg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657670:1\",\"title\":\"瞎扯丨为什么说中文是地狱难度？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657670&idx=1&sn=6fbbb8c3f888cc342a3cc8a911e7d51c&chksm=8a23b287e08b895e927dece1242d31fcbc5aad7fc1f4b8f87bd48d7dbf8e3ec53563efc27f3d&scene=126&sessionid=1794176312#rd\",\"description\":\"瞎扯一下，轻松一下～\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFvpyzztjJRY0LMykGYNMD2IRKPKX60pYNQuOVqoRgGyJDcN8cL99kS8Y7aqOge5Ycr6siaRWoVpT3YoeTfiaSRgKS1QIbPgzD1s%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-01T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657631:1\",\"title\":\"影视丨为什么以前电视和光盘都没杀死电影，现在电影行业突然就凉了？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657631&idx=1&sn=9b5e2d79d80ce41c6a6a764120207ab5&chksm=8a09b7d7f412a947210945b7b8d51161cf2993ef3736148d987c7417108714d5f14eae0324d8&scene=126&sessionid=1794176312#rd\",\"description\":\"影行业真正的问题是什么？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFI08XpqQHRp2CNLSfklOGcvsx6c6mXSUVPbcrmqeaicyRSqfbBfF461cz9xe4libibIKELgX44TQBZxlQth3GzJ907FTBdshnCVM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-31T12:39:22.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657604:1\",\"title\":\"科普丨古代士兵中箭后没有消炎药，伤口感染了怎么扛？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657604&idx=1&sn=43b4977f8db1c87f28df0f05021a99e3&chksm=8a6110da4e721d6d81e90c3fac724ffde19338cf609e69893bb8ae59997404c64d1eaa9c16d6&scene=126&sessionid=1794176312#rd\",\"description\":\"没有抗生素的年代，古代军医如何处理伤口？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlHWNQngfFTXyY2Z8uc9BjcH0urWRjMglBa2F35F9xdz6neDOVWX2ZVfsBeT4bC2SKoBianEybmjXUVlYtnc1ibQEttNaYcRVEYcI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T12:00:17.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657604:2\",\"title\":\"人文丨旅途中，有哪些古建筑真正配得上「叹为观止」四个字？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657604&idx=2&sn=3066d4160849621be584cd57139a84fb&chksm=8a31f8c41d6359c5410b65097d6c88c9ff61cfb482066a8b3bae76b19f1672ec3af9530fd7d1&scene=126&sessionid=1794176312#rd\",\"description\":\"沿时间的河流逆流而上，在残缺和沉默里看见过去、理解现在。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFCuiaAKiaO6MjQxnroKVgiaN5ZtqjaRPWa8AibFgxOAe1x6heV6hyAJkxqd0cUXP51YegNayJFpbdZgZT5T9CibjehzYS905BJLUbk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T12:00:17.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1437,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1437
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1437,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1437,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1437,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1437,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1437,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1437
+        }
+      ]
+    }
+  }
 }
