@@ -1,23 +1,182 @@
 {
-  "checked_at": "2026-11-09T06:55:14.815Z",
+  "checked_at": "2026-11-09T22:35:28.373Z",
   "inspection": {
     "file": "hot/nhk.js",
     "path": "/api/hot/nhk/rss/news/cat0.xml",
     "example": "/api/hot/nhk/rss/news/cat0.xml",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 46
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/nhk/rss/news/cat0.xml.json",
+    "duration_ms": 1181
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 38
+    "status": 200,
+    "duration_ms": 176
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/nhk.js",
+      "name": "NHK · 主要新闻",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/nhk/rss/news/cat0.xml",
+      "request_path": "/api/hot/nhk/rss/news/cat0.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/nhk/rss/news/cat0.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5804a6e6aea4f0d"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 100,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":7}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.nhk.or.jp/rss/news/cat0.xml",
+        "method": "GET",
+        "host": "www.nhk.or.jp",
+        "pathname": "/rss/news/cat0.xml",
+        "status": 301,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 72,
+        "timings": {
+          "response_ms": 72
+        }
+      },
+      {
+        "url": "https://news.web.nhk/n-data/conf/na/rss/cat0.xml",
+        "method": "GET",
+        "host": "news.web.nhk",
+        "pathname": "/n-data/conf/na/rss/cat0.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 72,
+        "duration_ms": 28,
+        "timings": {
+          "response_ms": 28,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"NHK · 主要新闻\",\"link\":\"https://news.web.nhk/newsweb/\",\"category\":\"新闻\",\"observed_at\":\"2026-11-09T22:35:28.488Z\",\"entries\":[{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261110de73227\",\"title\":\"アメリカ ヘグセス国防長官 弾劾訴追決議案を共和党議員が提出\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261110de73227\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261110de73230\",\"title\":\"トランプ大統領 移民政策「厳しすぎた」 民主と協力も\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261110de73230\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261109de73179\",\"title\":\"自民 維新 安全保障3文書改定向けきょうから作業チームが協議\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261109de73179\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261110de73218\",\"title\":\"ロシアの独立系新聞「最後の日」 30年余の歴史に幕\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261110de73218\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261110de73229\",\"title\":\"ナスダック一時3％超上昇 AI規制の懸念後退や原油安で\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261110de73229\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261109de73182\",\"title\":\"震度5強 震源を静岡県西部から愛知県東部に変更 気象庁\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261109de73182\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"nhk:https://news.web.nhk/newsweb/na/nd-20261109de73129\",\"title\":\"自民 石破前首相ら4人を戒告処分 本会議退席で 元総裁処分は初\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261109de73129\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 100,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 100
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 100,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 100,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 100,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 100,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 100,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 100
+        }
+      ]
+    }
+  }
 }

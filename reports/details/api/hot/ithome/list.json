@@ -1,22 +1,168 @@
 {
-  "checked_at": "2026-11-09T06:55:14.226Z",
+  "checked_at": "2026-11-09T22:35:25.109Z",
   "inspection": {
     "file": "hot/ithome.js",
     "path": "/api/hot/ithome/list",
     "example": "/api/hot/ithome/list",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/ithome/list.json",
-    "duration_ms": 917
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60001
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 48
+    "status": 200,
+    "duration_ms": 1874
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/ithome.js",
+      "name": "IT之家",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/ithome/list",
+      "request_path": "/api/hot/ithome/list",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/ithome/list",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5804a5a3c0c980a"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1567,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"ithome\",\"count\":40,\"missing_rank\":40}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":40}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.ithome.com/list/",
+        "method": "GET",
+        "host": "www.ithome.com",
+        "pathname": "/list/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1567,
+        "timings": {
+          "response_ms": 1567,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"IT之家\",\"link\":\"https://www.ithome.com\",\"category\":\"科技\",\"observed_at\":\"2026-11-09T22:35:26.834Z\",\"entries\":[{\"id\":\"ithome:https://www.ithome.com/1/024/566.htm\",\"title\":\"《GTA 6》PS5 版正式开启预载，XBOX Series X｜S 需等到北京时间早上 8 点\",\"link\":\"https://www.ithome.com/1/024/566.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/565.htm\",\"title\":\"英伟达黄仁勋承认出轨，消息称其去年已聘请擅长处理丑闻的危机公关公司\",\"link\":\"https://www.ithome.com/1/024/565.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/564.htm\",\"title\":\"欧洲力推本土制造电池，或使一辆电动汽车成本增加 2100 欧元\",\"link\":\"https://www.ithome.com/1/024/564.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/563.htm\",\"title\":\"FEVM 迷你主机 FNPH1 实物亮相：2cm 超薄，0.4L 体积\",\"link\":\"https://www.ithome.com/1/024/563.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/561.htm\",\"title\":\"何小鹏：希望小鹏明年能成为第一个在欧洲上线智能辅助驾驶的中国品牌\",\"link\":\"https://www.ithome.com/1/024/561.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/560.htm\",\"title\":\"AOC“U32U4”31.5 英寸显示器发售：4K 120Hz QD-OLED Penta Tandem 五层堆栈面板 + 双扬，6499 元\",\"link\":\"https://www.ithome.com/1/024/560.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/559.htm\",\"title\":\"美国知名风险投资家科斯拉看好 AI 重塑互联网：能让网站“有生命”\",\"link\":\"https://www.ithome.com/1/024/559.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/558.htm\",\"title\":\"微软商店 Microsoft Store《我的世界》PC 版游戏涨价，国区 89 元起 → 110.99 元起\",\"link\":\"https://www.ithome.com/1/024/558.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/557.htm\",\"title\":\"飞利浦“27B2N1500”27 英寸显示器发售：2K 75Hz、内置电源，899 元\",\"link\":\"https://www.ithome.com/1/024/557.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/556.htm\",\"title\":\"美团龙猫开源 LongCat-2.5 模型：总参数 1.6 万亿，支持百万上下文\",\"link\":\"https://www.ithome.com/1/024/556.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/555.htm\",\"title\":\"硬核洞穴生存游戏《未知伤亡》登陆 Steam：支持简中界面字幕，首发 ¥66.30\",\"link\":\"https://www.ithome.com/1/024/555.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/554.htm\",\"title\":\"179 → 123 元：小米智能摄像机 3 国补新低，500 万像素、6 种 AI 灵敏检测\",\"link\":\"https://www.ithome.com/1/024/554.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/551.htm\",\"title\":\"新西兰玩家抢先预载《GTA 6》，PS5 主界面背景音乐曝光\",\"link\":\"https://www.ithome.com/1/024/551.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/550.htm\",\"title\":\"玩家分析《GTA6》PS5 版预载数据：游戏支持新版 PSSR 2 超分技术，但不支持 QSSR\",\"link\":\"https://www.ithome.com/1/024/550.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/549.htm\",\"title\":\"Waymo 自动驾驶车辆遇到校车“超车成性”，NHTSA 展开召回整改效果调查\",\"link\":\"https://www.ithome.com/1/024/549.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/548.htm\",\"title\":\"千分位甲醛数显：小米米家全效空气净化器 Ultra 国补后 4799 → 1973 元\",\"link\":\"https://www.ithome.com/1/024/548.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/547.htm\",\"title\":\"苹果 iOS 27.3 代码曝光 Siri“个人记忆系统”，可记录用户各类信息\",\"link\":\"https://www.ithome.com/1/024/547.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/546.htm\",\"title\":\"青少年资料填“成年人”也没用，Meta 将在全球推广 AI 年龄估算技术\",\"link\":\"https://www.ithome.com/1/024/546.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/545.htm\",\"title\":\"国补后 1499 → 732 元：小米米家净水器 2 一降再降，1200G 大通量 + 7 年 RO 滤芯\",\"link\":\"https://www.ithome.com/1/024/545.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/544.htm\",\"title\":\"国补后 1899 → 1387 元：HKC 猎鹰“27U165A”27 英寸显示器新低，4K 165Hz/1080P 320Hz 双模\",\"link\":\"https://www.ithome.com/1/024/544.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/543.htm\",\"title\":\"5999 → 1458 元：石头 H1 分子筛洗烘一体机 12kg 新低，毛絮滤网全清洁免动手\",\"link\":\"https://www.ithome.com/1/024/543.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/542.htm\",\"title\":\"研究显示 OpenAI ChatGPT 占全球 AI 聊天机器人流量超 81%，断层领跑\",\"link\":\"https://www.ithome.com/1/024/542.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/541.htm\",\"title\":\"3199 → 2685 元：HKC“天启 27Q320B”26.5 英寸显示器新低，搭三星 2K 320Hz QD-OLED Penta Tandem 面板\",\"link\":\"https://www.ithome.com/1/024/541.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/540.htm\",\"title\":\"C909 灭火机首次亮相国家级森林火灾实战演习\",\"link\":\"https://www.ithome.com/1/024/540.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/537.htm\",\"title\":\"魏牌二代蓝山开启预售：定位智慧豪华方盒子 SUV，28.98 万-32.98 万元\",\"link\":\"https://www.ithome.com/1/024/537.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/536.htm\",\"title\":\"消息称索尼逐步停售 PSVR 2 头显，产品已从官方商店多区服下架\",\"link\":\"https://www.ithome.com/1/024/536.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/534.htm\",\"title\":\"特斯拉 Robotaxi 无人驾驶出租车服务落地至圣安东尼奥，成迄今规模最大运营城市\",\"link\":\"https://www.ithome.com/1/024/534.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/533.htm\",\"title\":\"8499 → 6548 元：OPPO Find X9 Ultra 手机 16+512G 新低，搭载骁龙 8E Gen5 旗舰处理器\",\"link\":\"https://www.ithome.com/1/024/533.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/532.htm\",\"title\":\"V社为 SteamVR 推出 2.19.1 Beta 版本，大幅提升 Steam Link 串流画质\",\"link\":\"https://www.ithome.com/1/024/532.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/531.htm\",\"title\":\"代码显示谷歌正为 Meta VR Glasses 头显开发新版 YouTube App：全新 UI 界面、支持边看边浏览\",\"link\":\"https://www.ithome.com/1/024/531.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/529.htm\",\"title\":\"国补后 599 → 405 元：漫步者 R1700BT+ 蓝牙音箱 11.11 探新低\",\"link\":\"https://www.ithome.com/1/024/529.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/527.htm\",\"title\":\"Meta 为 Quest 系列头显推送 Horizon OS 2.10 公测版：全新虚拟影院环境、小改系统启动器布局...\",\"link\":\"https://www.ithome.com/1/024/527.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/526.htm\",\"title\":\"66W 大功率：漫步者 N300 有源桌面音箱 749 → 491 元国补探新低\",\"link\":\"https://www.ithome.com/1/024/526.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/525.htm\",\"title\":\"谷歌扩充 TPU 芯片阵容，推出 8tx/8i Max 两款新品挑战英伟达\",\"link\":\"https://www.ithome.com/1/024/525.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/524.htm\",\"title\":\"大疆 Osmo Pocket 4P 云台相机固件更新：解锁 18 倍变焦、iPhone 即拍即传等功能\",\"link\":\"https://www.ithome.com/1/024/524.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/521.htm\",\"title\":\"以旧换新后 1843 元：漫步者 S3000MKII 蓝牙音响 11.11 国补新低\",\"link\":\"https://www.ithome.com/1/024/521.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/520.htm\",\"title\":\"天文学家发现“暗星系”候选天体：拥有约 20 亿倍太阳质量的氢气，却几乎没有恒星\",\"link\":\"https://www.ithome.com/1/024/520.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/519.htm\",\"title\":\"OPPO、vivo、小米、荣耀在中国大陆上线 ADV 开发者验证，支持各方结果互认\",\"link\":\"https://www.ithome.com/1/024/519.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/517.htm\",\"title\":\"16GB+512GB 版 7999 → 6726 元：小米 17 Ultra 徕卡版国补直降\",\"link\":\"https://www.ithome.com/1/024/517.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ithome:https://www.ithome.com/1/024/515.htm\",\"title\":\"美国一法学教授尝试利用 Anthropic 更新讲义页码，反被 AI 删除全年课堂笔记\",\"link\":\"https://www.ithome.com/1/024/515.htm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 1567,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1567
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1567,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1567,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1567,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1567,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1567,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1567
+        }
+      ]
+    }
+  }
 }

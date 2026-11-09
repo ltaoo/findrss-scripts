@@ -1,169 +1,23 @@
 {
-  "checked_at": "2026-11-09T06:55:09.063Z",
+  "checked_at": "2026-11-09T22:33:22.478Z",
   "inspection": {
     "file": "hot/cls.js",
     "path": "/api/hot/cls/v2/article/hot/list",
     "example": "/api/hot/cls/v2/article/hot/list",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/cls/v2/article/hot/list.json",
-    "duration_ms": 1359
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 1123
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1182
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 41
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/cls.js",
-      "name": "财联社 · 热门",
-      "kind": "hot",
-      "version": "1.0.2",
-      "path": "/cls/v2/article/hot/list",
-      "request_path": "/api/hot/cls/v2/article/hot/list",
-      "route_index": 1
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/cls/v2/article/hot/list",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a57ae901af07061c"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 1160,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"cls-hot\",\"count\":13,\"missing_rank\":13}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":13}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.cls.cn/v2/article/hot/list?appName=CailianpressWeb&os=web&sv=7.7.5&sign=9c11221af4f6b47b253098a8b9957b8f",
-        "method": "GET",
-        "host": "www.cls.cn",
-        "pathname": "/v2/article/hot/list",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 1160,
-        "timings": {
-          "response_ms": 1160,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"财联社 · 热门\",\"link\":\"https://www.cls.cn\",\"category\":\"财经\",\"observed_at\":\"2026-11-09T06:55:10.230Z\",\"entries\":[{\"id\":\"cls-hot:2528400\",\"title\":\"【早报】国常会最新部署，事关资本市场；我国新一代通信网技术取得新突破\",\"link\":\"https://www.cls.cn/detail/2528400\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528409\",\"title\":\"胖东来深夜发文：“哪怕赔付到破产也必须坚守原则！”\",\"link\":\"https://www.cls.cn/detail/2528409\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528331\",\"title\":\"具身智能数据赛道“变天” 百万小时供给难解上亿小时需求\",\"link\":\"https://www.cls.cn/detail/2528331\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528462\",\"title\":\"A股，这些重要托举变量正在集聚\",\"link\":\"https://www.cls.cn/detail/2528462\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528325\",\"title\":\"A股反弹行情能走多远？投资主线有哪些？十大券商策略来了\",\"link\":\"https://www.cls.cn/detail/2528325\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528420\",\"title\":\"特朗普最新发声：再次打击伊朗可能性极低 “铁门”特遣行动正全面展开\",\"link\":\"https://www.cls.cn/detail/2528420\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528318\",\"title\":\"券商密集研判A股：稳市资金是关键变量，科技反弹看新催化\",\"link\":\"https://www.cls.cn/detail/2528318\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528701\",\"title\":\"“AI缺电”具象化了：Anthropic砸钱“截胡”发电设备订单 金额或创纪录\",\"link\":\"https://www.cls.cn/detail/2528701\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528422\",\"title\":\"11月9日投资避雷针：国家广播电视总局部署开展新一轮微短剧专项治理工作\",\"link\":\"https://www.cls.cn/detail/2528422\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528315\",\"title\":\"“一周内注意防范强烈地震”！中国驻名古屋总领馆紧急提醒\",\"link\":\"https://www.cls.cn/detail/2528315\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528454\",\"title\":\"美股恐慌指标逼近极值！高盛：历史信号指向中期反弹\",\"link\":\"https://www.cls.cn/detail/2528454\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528572\",\"title\":\"人工智能将迎来背水一战！今年剩下的唯一要事就是Anthropic的IPO\",\"link\":\"https://www.cls.cn/detail/2528572\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2528425\",\"title\":\"向特朗普政府“开炮”！民主党预告：将“剑指”马斯克、米勒和赫格塞思\",\"link\":\"https://www.cls.cn/detail/2528425\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 1160,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 1160
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 1160,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1160,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1160,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 1160,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 1160,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 1160
-        }
-      ]
-    }
-  }
+  "debug": null
 }

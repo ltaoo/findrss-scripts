@@ -1,25 +1,26 @@
 {
-  "checked_at": "2026-11-09T06:55:09.693Z",
+  "checked_at": "2026-11-09T22:33:29.844Z",
   "inspection": {
     "file": "hot/baidu_hot.js",
     "path": "/api/hot/baidu/board",
     "example": "/api/hot/baidu/board",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/baidu/board.json",
-    "duration_ms": 3592
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 10648
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 491
+    "status": 504,
+    "duration_ms": 10075
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
     "script": {
       "file": "hot/baidu_hot.js",
       "name": "百度热搜",
@@ -38,7 +39,7 @@
       "headers": {
         "Accept": "application/json",
         "User-Agent": "node",
-        "CF-Ray": "a57ae9059d63e60f"
+        "CF-Ray": "a5804789dd8ef541"
       },
       "authentication": {
         "required": true,
@@ -46,45 +47,33 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 329,
+    "phase": "runtime",
+    "elapsed_ms": 10000,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"baidu\",\"count\":51,\"missing_rank\":0}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":51}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:617:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://top.baidu.com/board?tab=realtime",
         "method": "GET",
         "host": "top.baidu.com",
         "pathname": "/board",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
         "started_ms": 0,
-        "duration_ms": 329,
+        "duration_ms": 10000,
         "timings": {
-          "response_ms": 329,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
+          "response_ms": 10000
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"百度热搜\",\"link\":\"https://www.baidu.com\",\"category\":\"综合\",\"observed_at\":\"2026-11-09T06:55:10.040Z\",\"entries\":[{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%90%8C%E5%BF%83%E5%90%8C%E8%A1%8C%E5%BC%BA%E6%A0%B9%E5%9F%BA+%E4%BB%8E%E4%B8%A5%E4%BB%8E%E5%AE%9E%E6%8B%85%E4%BD%BF%E5%91%BD\",\"title\":\"同心同行强根基 从严从实担使命\",\"link\":\"https://www.baidu.com/s?wd=%E5%90%8C%E5%BF%83%E5%90%8C%E8%A1%8C%E5%BC%BA%E6%A0%B9%E5%9F%BA+%E4%BB%8E%E4%B8%A5%E4%BB%8E%E5%AE%9E%E6%8B%85%E4%BD%BF%E5%91%BD\",\"rank\":null,\"pinned\":true,\"heat\":{\"value\":7903949,\"unit\":\"热度\",\"text\":\"7903949\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%BE%AE%E4%BF%A18%E5%A4%A7%E6%96%B0%E5%8A%9F%E8%83%BD%E6%9D%A5%E4%BA%86\",\"title\":\"微信8大新功能来了\",\"link\":\"https://www.baidu.com/s?wd=%E5%BE%AE%E4%BF%A18%E5%A4%A7%E6%96%B0%E5%8A%9F%E8%83%BD%E6%9D%A5%E4%BA%86\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":7808679,\"unit\":\"热度\",\"text\":\"7808679\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E6%B6%88%E8%B4%B9%E4%B8%89%E5%A7%90%E5%A6%B9+%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E9%A6%99%E4%BA%86\",\"title\":\"消费三姐妹 为什么不香了\",\"link\":\"https://www.baidu.com/s?wd=%E6%B6%88%E8%B4%B9%E4%B8%89%E5%A7%90%E5%A6%B9+%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E9%A6%99%E4%BA%86\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":7714220,\"unit\":\"热度\",\"text\":\"7714220\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E2%80%9C%E6%8A%8A%E6%83%B3%E6%B3%95%E5%B8%A6%E5%88%B0%E4%B8%AD%E5%9B%BD%E5%B0%B1%E8%83%BD%E5%AE%9E%E7%8E%B0%E2%80%9D\",\"title\":\"“把想法带到中国就能实现”\",\"link\":\"https://www.baidu.com/s?wd=%E2%80%9C%E6%8A%8A%E6%83%B3%E6%B3%95%E5%B8%A6%E5%88%B0%E4%B8%AD%E5%9B%BD%E5%B0%B1%E8%83%BD%E5%AE%9E%E7%8E%B0%E2%80%9D\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":7618967,\"unit\":\"热度\",\"text\":\"7618967\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%8E%8B%E5%81%A5%E6%9E%9714%E5%B9%B4%E5%90%8E%E9%87%8D%E6%96%B0%E6%8E%8C%E8%88%B5+%E5%B0%86%E6%9C%89%E4%BD%95%E5%8F%98%E5%8C%96\",\"title\":\"王健林14年后重新掌舵 将有何变化\",\"link\":\"https://www.baidu.com/s?wd=%E7%8E%8B%E5%81%A5%E6%9E%9714%E5%B9%B4%E5%90%8E%E9%87%8D%E6%96%B0%E6%8E%8C%E8%88%B5+%E5%B0%86%E6%9C%89%E4%BD%95%E5%8F%98%E5%8C%96\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":7520366,\"unit\":\"热度\",\"text\":\"7520366\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%B0%8F%E6%97%B6%E5%80%99%E7%9A%84%E2%80%9C%E5%B1%81%E8%82%A1%E9%92%88%E2%80%9D%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B6%88%E5%A4%B1%E4%BA%86\",\"title\":\"小时候的“屁股针”为什么消失了\",\"link\":\"https://www.baidu.com/s?wd=%E5%B0%8F%E6%97%B6%E5%80%99%E7%9A%84%E2%80%9C%E5%B1%81%E8%82%A1%E9%92%88%E2%80%9D%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B6%88%E5%A4%B1%E4%BA%86\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":7425283,\"unit\":\"热度\",\"text\":\"7425283\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E5%90%8E+%E6%B1%9F%E8%A5%BF%E8%B5%A3%E5%B7%9E%E8%BF%9E%E5%A4%9C%E6%88%90%E7%AB%8B%E8%B0%83%E6%9F%A5%E7%BB%84\",\"title\":\"央视曝光后 江西赣州连夜成立调查组\",\"link\":\"https://www.baidu.com/s?wd=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E5%90%8E+%E6%B1%9F%E8%A5%BF%E8%B5%A3%E5%B7%9E%E8%BF%9E%E5%A4%9C%E6%88%90%E7%AB%8B%E8%B0%83%E6%9F%A5%E7%BB%84\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":7332114,\"unit\":\"热度\",\"text\":\"7332114\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%94%9F%E8%9A%9D%E8%82%9A%E5%AD%90%E9%87%8C%E8%BF%99%E5%9D%A8%E9%BB%84%E7%BB%BF%E8%89%B2%E7%9A%84%E8%83%BD%E5%90%83%E5%90%97\",\"title\":\"生蚝肚子里这坨黄绿色的能吃吗\",\"link\":\"https://www.baidu.com/s?wd=%E7%94%9F%E8%9A%9D%E8%82%9A%E5%AD%90%E9%87%8C%E8%BF%99%E5%9D%A8%E9%BB%84%E7%BB%BF%E8%89%B2%E7%9A%84%E8%83%BD%E5%90%83%E5%90%97\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":7232773,\"unit\":\"热度\",\"text\":\"7232773\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%BC%A0%E9%9B%AA%E6%9C%BA%E8%BD%A6%E7%B1%B3%E5%85%B0%E5%B1%95%E5%87%BA%E5%8F%88%E8%A2%AB%E5%81%B7\",\"title\":\"张雪机车米兰展出又被偷\",\"link\":\"https://www.baidu.com/s?wd=%E5%BC%A0%E9%9B%AA%E6%9C%BA%E8%BD%A6%E7%B1%B3%E5%85%B0%E5%B1%95%E5%87%BA%E5%8F%88%E8%A2%AB%E5%81%B7\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":7139173,\"unit\":\"热度\",\"text\":\"7139173\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%AE%9D%E5%A6%88%E6%8E%A8%E9%97%A8%E7%9C%8B%E8%A7%81%E7%99%BD%E9%9D%A2%E5%AE%9D%E5%AE%9D%E7%A0%B4%E9%98%B2\",\"title\":\"宝妈推门看见白面宝宝破防\",\"link\":\"https://www.baidu.com/s?wd=%E5%AE%9D%E5%A6%88%E6%8E%A8%E9%97%A8%E7%9C%8B%E8%A7%81%E7%99%BD%E9%9D%A2%E5%AE%9D%E5%AE%9D%E7%A0%B4%E9%98%B2\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":7041862,\"unit\":\"热度\",\"text\":\"7041862\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E4%BD%9F%E4%B8%BD%E5%A8%85%E6%9C%89%E6%96%B0%E8%BA%AB%E4%BB%BD\",\"title\":\"佟丽娅有新身份\",\"link\":\"https://www.baidu.com/s?wd=%E4%BD%9F%E4%B8%BD%E5%A8%85%E6%9C%89%E6%96%B0%E8%BA%AB%E4%BB%BD\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":6952281,\"unit\":\"热度\",\"text\":\"6952281\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E9%9A%94%E5%A4%9C%E7%99%BD%E5%BC%80%E6%B0%B4%E4%B8%8D%E8%83%BD%E5%96%9D%E6%98%AF%E7%9C%9F%E6%98%AF%E5%81%87\",\"title\":\"隔夜白开水不能喝是真是假\",\"link\":\"https://www.baidu.com/s?wd=%E9%9A%94%E5%A4%9C%E7%99%BD%E5%BC%80%E6%B0%B4%E4%B8%8D%E8%83%BD%E5%96%9D%E6%98%AF%E7%9C%9F%E6%98%AF%E5%81%87\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":6855437,\"unit\":\"热度\",\"text\":\"6855437\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%94%B7%E5%AD%90%E8%81%9A%E9%A4%90%E7%BB%93%E8%B4%A6%E5%90%8E%E5%8F%8D%E6%82%94%E9%A9%BE%E8%BD%A6%E7%A2%BE%E6%AD%BB%E5%90%8C%E9%A4%90%E8%80%85\",\"title\":\"男子聚餐结账后反悔驾车碾死同餐者\",\"link\":\"https://www.baidu.com/s?wd=%E7%94%B7%E5%AD%90%E8%81%9A%E9%A4%90%E7%BB%93%E8%B4%A6%E5%90%8E%E5%8F%8D%E6%82%94%E9%A9%BE%E8%BD%A6%E7%A2%BE%E6%AD%BB%E5%90%8C%E9%A4%90%E8%80%85\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":6752949,\"unit\":\"热度\",\"text\":\"6752949\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E9%87%91%E5%AD%90%E6%B6%B5%E7%A7%B0%E8%A2%AB%E4%B8%8B%E8%8D%AF%E4%B8%AD%E6%AF%92\",\"title\":\"金子涵称被下药中毒\",\"link\":\"https://www.baidu.com/s?wd=%E9%87%91%E5%AD%90%E6%B6%B5%E7%A7%B0%E8%A2%AB%E4%B8%8B%E8%8D%AF%E4%B8%AD%E6%AF%92\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":6665460,\"unit\":\"热度\",\"text\":\"6665460\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%8B%AC%E5%B1%85%E8%80%81%E4%BA%BA%E6%94%B62%E4%B8%87%E5%85%83%E5%88%B0%E4%BB%98%E4%BB%B6+%E5%BF%AB%E9%80%92%E5%91%98%E6%8A%A5%E8%AD%A6\",\"title\":\"独居老人收2万元到付件 快递员报警\",\"link\":\"https://www.baidu.com/s?wd=%E7%8B%AC%E5%B1%85%E8%80%81%E4%BA%BA%E6%94%B62%E4%B8%87%E5%85%83%E5%88%B0%E4%BB%98%E4%BB%B6+%E5%BF%AB%E9%80%92%E5%91%98%E6%8A%A5%E8%AD%A6\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":6573528,\"unit\":\"热度\",\"text\":\"6573528\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E5%AF%92%E8%A1%A3%E8%8A%82\",\"title\":\"今日寒衣节\",\"link\":\"https://www.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E5%AF%92%E8%A1%A3%E8%8A%82\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":6467402,\"unit\":\"热度\",\"text\":\"6467402\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=20%E5%85%AC%E6%96%A4%E9%99%A8%E7%9F%B3%E7%A0%B8%E8%BF%9B%E7%9F%B3%E5%AE%B6%E5%BA%84%E5%86%9C%E7%94%B0\",\"title\":\"20公斤陨石砸进石家庄农田\",\"link\":\"https://www.baidu.com/s?wd=20%E5%85%AC%E6%96%A4%E9%99%A8%E7%9F%B3%E7%A0%B8%E8%BF%9B%E7%9F%B3%E5%AE%B6%E5%BA%84%E5%86%9C%E7%94%B0\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":6367528,\"unit\":\"热度\",\"text\":\"6367528\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%BD%91%E5%8F%8B%E5%87%8C%E6%99%A82%E7%82%B9%E6%B3%A1%E5%90%A7+%E6%90%AD%E5%AD%90%E6%98%AF90%E5%B2%81%E5%A4%96%E5%A9%86\",\"title\":\"网友凌晨2点泡吧 搭子是90岁外婆\",\"link\":\"https://www.baidu.com/s?wd=%E7%BD%91%E5%8F%8B%E5%87%8C%E6%99%A82%E7%82%B9%E6%B3%A1%E5%90%A7+%E6%90%AD%E5%AD%90%E6%98%AF90%E5%B2%81%E5%A4%96%E5%A9%86\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":6277866,\"unit\":\"热度\",\"text\":\"6277866\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%93%88%E5%B7%A5%E5%A4%A7%E7%A0%94%E7%A9%B6%E7%94%9F%E5%8D%96%E6%B0%94%E7%90%83%E6%9C%88%E5%85%A53%E5%8D%83%EF%BC%9A%E4%B8%8D%E5%90%8E%E6%82%94\",\"title\":\"哈工大研究生卖气球月入3千：不后悔\",\"link\":\"https://www.baidu.com/s?wd=%E5%93%88%E5%B7%A5%E5%A4%A7%E7%A0%94%E7%A9%B6%E7%94%9F%E5%8D%96%E6%B0%94%E7%90%83%E6%9C%88%E5%85%A53%E5%8D%83%EF%BC%9A%E4%B8%8D%E5%90%8E%E6%82%94\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":6186431,\"unit\":\"热度\",\"text\":\"6186431\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E6%9B%B4%E8%83%BD%E5%85%B1%E6%83%85%E2%80%9C%E5%8F%8B%E6%97%A0%E8%83%BD%E2%80%9D%E7%9A%84%E9%A9%AC%E5%A4%A9%E5%AE%87\",\"title\":\"更能共情“友无能”的马天宇\",\"link\":\"https://www.baidu.com/s?wd=%E6%9B%B4%E8%83%BD%E5%85%B1%E6%83%85%E2%80%9C%E5%8F%8B%E6%97%A0%E8%83%BD%E2%80%9D%E7%9A%84%E9%A9%AC%E5%A4%A9%E5%AE%87\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":6097248,\"unit\":\"热度\",\"text\":\"6097248\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E9%87%91%E6%99%A8%E6%BE%84%E6%B8%85%E6%90%AC%E5%AE%B6%E4%B8%8D%E7%AD%89%E4%BA%8E%E9%80%80%E5%9C%88\",\"title\":\"金晨澄清搬家不等于退圈\",\"link\":\"https://www.baidu.com/s?wd=%E9%87%91%E6%99%A8%E6%BE%84%E6%B8%85%E6%90%AC%E5%AE%B6%E4%B8%8D%E7%AD%89%E4%BA%8E%E9%80%80%E5%9C%88\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":5989472,\"unit\":\"热度\",\"text\":\"5989472\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E9%BB%84%E4%BB%81%E5%8B%8B%EF%BC%9A%E6%88%91%E5%AF%B9%E5%A6%BB%E5%AD%90%E4%B8%8D%E5%BF%A0+%E6%89%BF%E6%8B%85%E5%85%A8%E9%83%A8%E8%B4%A3%E4%BB%BB\",\"title\":\"黄仁勋：我对妻子不忠 承担全部责任\",\"link\":\"https://www.baidu.com/s?wd=%E9%BB%84%E4%BB%81%E5%8B%8B%EF%BC%9A%E6%88%91%E5%AF%B9%E5%A6%BB%E5%AD%90%E4%B8%8D%E5%BF%A0+%E6%89%BF%E6%8B%85%E5%85%A8%E9%83%A8%E8%B4%A3%E4%BB%BB\",\"rank\":21,\"pinned\":false,\"heat\":{\"value\":5897570,\"unit\":\"热度\",\"text\":\"5897570\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E9%87%8D%E5%A4%A7%E7%AA%81%E7%A0%B4%EF%BC%81%E4%B8%AD%E5%9B%BD%E6%96%B0%E4%B8%80%E4%BB%A3%E5%85%89%E5%88%BB%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BA%AE%E7%9B%B8\",\"title\":\"重大突破！中国新一代光刻机模型亮相\",\"link\":\"https://www.baidu.com/s?wd=%E9%87%8D%E5%A4%A7%E7%AA%81%E7%A0%B4%EF%BC%81%E4%B8%AD%E5%9B%BD%E6%96%B0%E4%B8%80%E4%BB%A3%E5%85%89%E5%88%BB%E6%9C%BA%E6%A8%A1%E5%9E%8B%E4%BA%AE%E7%9B%B8\",\"rank\":22,\"pinned\":false,\"heat\":{\"value\":5793632,\"unit\":\"热度\",\"text\":\"5793632\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E9%BB%84%E4%BB%81%E5%8B%8B%E5%87%BA%E8%BD%A8%E8%BF%98%E8%83%BD%E6%89%AF%E4%B8%8A%E4%B8%AD%E5%9B%BD%EF%BC%9F\",\"title\":\"黄仁勋出轨还能扯上中国？\",\"link\":\"https://www.baidu.com/s?wd=%E9%BB%84%E4%BB%81%E5%8B%8B%E5%87%BA%E8%BD%A8%E8%BF%98%E8%83%BD%E6%89%AF%E4%B8%8A%E4%B8%AD%E5%9B%BD%EF%BC%9F\",\"rank\":23,\"pinned\":false,\"heat\":{\"value\":5697747,\"unit\":\"热度\",\"text\":\"5697747\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%A4%9A%E5%9C%B0%E5%90%91%E5%B8%82%E6%B0%91%E5%85%8D%E8%B4%B9%E8%B5%A0%E8%8A%B1\",\"title\":\"多地向市民免费赠花\",\"link\":\"https://www.baidu.com/s?wd=%E5%A4%9A%E5%9C%B0%E5%90%91%E5%B8%82%E6%B0%91%E5%85%8D%E8%B4%B9%E8%B5%A0%E8%8A%B1\",\"rank\":24,\"pinned\":false,\"heat\":{\"value\":5614905,\"unit\":\"热度\",\"text\":\"5614905\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%A9%BF%E7%BE%BD%E7%BB%92%E6%9C%8D%E5%8D%83%E4%B8%87%E5%88%AB%E8%BF%99%E6%A0%B7%E5%81%9A+%E7%9C%9F%E7%9A%84%E4%BC%9A%E7%88%86%E7%87%83\",\"title\":\"穿羽绒服千万别这样做 真的会爆燃\",\"link\":\"https://www.baidu.com/s?wd=%E7%A9%BF%E7%BE%BD%E7%BB%92%E6%9C%8D%E5%8D%83%E4%B8%87%E5%88%AB%E8%BF%99%E6%A0%B7%E5%81%9A+%E7%9C%9F%E7%9A%84%E4%BC%9A%E7%88%86%E7%87%83\",\"rank\":25,\"pinned\":false,\"heat\":{\"value\":5512039,\"unit\":\"热度\",\"text\":\"5512039\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E6%9B%9D%E9%BB%84%E4%BB%81%E5%8B%8B%E5%87%BA%E8%BD%A8%E5%AF%B9%E8%B1%A1%E4%B8%BA%E6%96%B0%E5%8A%A0%E5%9D%A1%E4%B8%80%E4%BC%81%E4%B8%9A%E9%AB%98%E7%AE%A1\",\"title\":\"曝黄仁勋出轨对象为新加坡一企业高管\",\"link\":\"https://www.baidu.com/s?wd=%E6%9B%9D%E9%BB%84%E4%BB%81%E5%8B%8B%E5%87%BA%E8%BD%A8%E5%AF%B9%E8%B1%A1%E4%B8%BA%E6%96%B0%E5%8A%A0%E5%9D%A1%E4%B8%80%E4%BC%81%E4%B8%9A%E9%AB%98%E7%AE%A1\",\"rank\":26,\"pinned\":false,\"heat\":{\"value\":5422404,\"unit\":\"热度\",\"text\":\"5422404\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%8E%8B%E5%81%A5%E6%9E%97%E5%86%8D%E4%BB%BB%E5%A4%A7%E8%BF%9E%E4%B8%87%E8%BE%BE%E5%95%86%E7%AE%A1%E8%91%A3%E4%BA%8B%E9%95%BF\",\"title\":\"王健林再任大连万达商管董事长\",\"link\":\"https://www.baidu.com/s?wd=%E7%8E%8B%E5%81%A5%E6%9E%97%E5%86%8D%E4%BB%BB%E5%A4%A7%E8%BF%9E%E4%B8%87%E8%BE%BE%E5%95%86%E7%AE%A1%E8%91%A3%E4%BA%8B%E9%95%BF\",\"rank\":27,\"pinned\":false,\"heat\":{\"value\":5335668,\"unit\":\"热度\",\"text\":\"5335668\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E4%BD%8E%E4%BF%97%E6%93%A6%E8%BE%B9%E5%B9%BF%E5%91%8A%E4%B9%B1%E8%B1%A1\",\"title\":\"央视曝光低俗擦边广告乱象\",\"link\":\"https://www.baidu.com/s?wd=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E4%BD%8E%E4%BF%97%E6%93%A6%E8%BE%B9%E5%B9%BF%E5%91%8A%E4%B9%B1%E8%B1%A1\",\"rank\":28,\"pinned\":false,\"heat\":{\"value\":5214208,\"unit\":\"热度\",\"text\":\"5214208\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E2%80%9C%E7%8E%84%E9%BE%99%E2%80%9D%E9%9A%90%E8%BA%AB%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%9C%80%E6%96%B0%E7%BB%86%E8%8A%82%E7%94%BB%E9%9D%A2%E5%85%AC%E5%B8%83\",\"title\":\"“玄龙”隐身无人机最新细节画面公布\",\"link\":\"https://www.baidu.com/s?wd=%E2%80%9C%E7%8E%84%E9%BE%99%E2%80%9D%E9%9A%90%E8%BA%AB%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%9C%80%E6%96%B0%E7%BB%86%E8%8A%82%E7%94%BB%E9%9D%A2%E5%85%AC%E5%B8%83\",\"rank\":29,\"pinned\":false,\"heat\":{\"value\":5120348,\"unit\":\"热度\",\"text\":\"5120348\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E8%83%96%E4%B8%9C%E6%9D%A5%EF%BC%9A%E5%93%AA%E6%80%95%E8%B5%94%E4%BB%98%E5%88%B0%E7%A0%B4%E4%BA%A7%E4%B9%9F%E8%A6%81%E5%9D%9A%E5%AE%88%E5%8E%9F%E5%88%99\",\"title\":\"胖东来：哪怕赔付到破产也要坚守原则\",\"link\":\"https://www.baidu.com/s?wd=%E8%83%96%E4%B8%9C%E6%9D%A5%EF%BC%9A%E5%93%AA%E6%80%95%E8%B5%94%E4%BB%98%E5%88%B0%E7%A0%B4%E4%BA%A7%E4%B9%9F%E8%A6%81%E5%9D%9A%E5%AE%88%E5%8E%9F%E5%88%99\",\"rank\":30,\"pinned\":false,\"heat\":{\"value\":5041888,\"unit\":\"热度\",\"text\":\"5041888\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E8%AE%B8%E9%A3%9E+%E6%88%91%E4%BD%9C%E8%8C%A7%E8%87%AA%E7%BC%9A\",\"title\":\"许飞 我作茧自缚\",\"link\":\"https://www.baidu.com/s?wd=%E8%AE%B8%E9%A3%9E+%E6%88%91%E4%BD%9C%E8%8C%A7%E8%87%AA%E7%BC%9A\",\"rank\":31,\"pinned\":false,\"heat\":{\"value\":4941872,\"unit\":\"热度\",\"text\":\"4941872\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E9%80%80%E9%92%B1%E5%93%A5%E8%B0%88%E6%88%90%E9%83%BD%E4%B8%A2%E5%86%A0%EF%BC%9A%E4%B8%8D%E8%AF%A5%E6%80%AA%E9%9F%A6%E4%B8%96%E8%B1%AA\",\"title\":\"退钱哥谈成都丢冠：不该怪韦世豪\",\"link\":\"https://www.baidu.com/s?wd=%E9%80%80%E9%92%B1%E5%93%A5%E8%B0%88%E6%88%90%E9%83%BD%E4%B8%A2%E5%86%A0%EF%BC%9A%E4%B8%8D%E8%AF%A5%E6%80%AA%E9%9F%A6%E4%B8%96%E8%B1%AA\",\"rank\":32,\"pinned\":false,\"heat\":{\"value\":4856239,\"unit\":\"热度\",\"text\":\"4856239\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E5%87%8C%E6%99%A8%E9%80%81%E9%A4%90%E8%BF%94%E7%A8%8B%E7%8C%9D%E6%AD%BB+%E5%B9%B3%E5%8F%B0%E6%8B%92%E8%B5%94\",\"title\":\"外卖骑手凌晨送餐返程猝死 平台拒赔\",\"link\":\"https://www.baidu.com/s?wd=%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E5%87%8C%E6%99%A8%E9%80%81%E9%A4%90%E8%BF%94%E7%A8%8B%E7%8C%9D%E6%AD%BB+%E5%B9%B3%E5%8F%B0%E6%8B%92%E8%B5%94\",\"rank\":33,\"pinned\":false,\"heat\":{\"value\":4760370,\"unit\":\"热度\",\"text\":\"4760370\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%80%E7%9B%98%E4%B8%AD%E6%B6%A8%E8%B6%8515%25+%E5%B8%82%E5%80%BC%E9%87%8D%E5%9B%9E3000%E4%BA%BF\",\"title\":\"宇树科技盘中涨超15% 市值重回3000亿\",\"link\":\"https://www.baidu.com/s?wd=%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%80%E7%9B%98%E4%B8%AD%E6%B6%A8%E8%B6%8515%25+%E5%B8%82%E5%80%BC%E9%87%8D%E5%9B%9E3000%E4%BA%BF\",\"rank\":34,\"pinned\":false,\"heat\":{\"value\":4662516,\"unit\":\"热度\",\"text\":\"4662516\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E4%B8%80%E4%B8%AA12%E5%B2%81%E5%A5%B3%E5%AD%A9%E6%89%93%E8%B5%8F14%E4%B8%87%E4%B9%8B%E5%90%8E\",\"title\":\"一个12岁女孩打赏14万之后\",\"link\":\"https://www.baidu.com/s?wd=%E4%B8%80%E4%B8%AA12%E5%B2%81%E5%A5%B3%E5%AD%A9%E6%89%93%E8%B5%8F14%E4%B8%87%E4%B9%8B%E5%90%8E\",\"rank\":35,\"pinned\":false,\"heat\":{\"value\":4552667,\"unit\":\"热度\",\"text\":\"4552667\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E3%80%8A%E6%8C%81%E6%A2%B0%E5%85%A5%E5%AE%8B%E3%80%8B%E4%B8%BB%E5%88%9B%E5%9B%9E%E5%BA%94%EF%BC%9A%E6%B2%A1%E8%B5%9A1000%E4%B8%87\",\"title\":\"《持械入宋》主创回应：没赚1000万\",\"link\":\"https://www.baidu.com/s?wd=%E3%80%8A%E6%8C%81%E6%A2%B0%E5%85%A5%E5%AE%8B%E3%80%8B%E4%B8%BB%E5%88%9B%E5%9B%9E%E5%BA%94%EF%BC%9A%E6%B2%A1%E8%B5%9A1000%E4%B8%87\",\"rank\":36,\"pinned\":false,\"heat\":{\"value\":4460280,\"unit\":\"热度\",\"text\":\"4460280\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=7000%E4%BD%99%E4%BA%BA%E4%B8%BA%E9%81%87%E5%AE%B3%E5%A4%96%E5%8D%96%E5%91%98%E6%8D%90%E6%AC%BE%E8%B6%8546%E4%B8%87%E6%BE%B3%E5%85%83\",\"title\":\"7000余人为遇害外卖员捐款超46万澳元\",\"link\":\"https://www.baidu.com/s?wd=7000%E4%BD%99%E4%BA%BA%E4%B8%BA%E9%81%87%E5%AE%B3%E5%A4%96%E5%8D%96%E5%91%98%E6%8D%90%E6%AC%BE%E8%B6%8546%E4%B8%87%E6%BE%B3%E5%85%83\",\"rank\":37,\"pinned\":false,\"heat\":{\"value\":4374274,\"unit\":\"热度\",\"text\":\"4374274\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E6%99%92%E4%BA%86%E5%BC%A0%E6%88%AA%E5%9B%BE+11999%E5%85%83%E6%89%8B%E6%9C%BA%E5%B7%AE%E7%82%B9%E6%B2%A1%E4%BA%86\",\"title\":\"晒了张截图 11999元手机差点没了\",\"link\":\"https://www.baidu.com/s?wd=%E6%99%92%E4%BA%86%E5%BC%A0%E6%88%AA%E5%9B%BE+11999%E5%85%83%E6%89%8B%E6%9C%BA%E5%B7%AE%E7%82%B9%E6%B2%A1%E4%BA%86\",\"rank\":38,\"pinned\":false,\"heat\":{\"value\":4290021,\"unit\":\"热度\",\"text\":\"4290021\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E4%BE%BF%E6%B0%91%E6%89%B6%E6%A2%AF%E2%80%9C%E5%8F%AA%E5%BB%BA%E4%B8%8D%E5%85%BB%E2%80%9D\",\"title\":\"央视曝光便民扶梯“只建不养”\",\"link\":\"https://www.baidu.com/s?wd=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E4%BE%BF%E6%B0%91%E6%89%B6%E6%A2%AF%E2%80%9C%E5%8F%AA%E5%BB%BA%E4%B8%8D%E5%85%BB%E2%80%9D\",\"rank\":39,\"pinned\":false,\"heat\":{\"value\":4186922,\"unit\":\"热度\",\"text\":\"4186922\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%83%88%E7%81%AB%E4%B8%AD%E6%9C%80%E7%A1%AC%E7%9A%84%E9%98%B2%E7%BA%BF%E6%98%AF%E9%97%A8\",\"title\":\"烈火中最硬的防线是门\",\"link\":\"https://www.baidu.com/s?wd=%E7%83%88%E7%81%AB%E4%B8%AD%E6%9C%80%E7%A1%AC%E7%9A%84%E9%98%B2%E7%BA%BF%E6%98%AF%E9%97%A8\",\"rank\":40,\"pinned\":false,\"heat\":{\"value\":4094298,\"unit\":\"热度\",\"text\":\"4094298\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E4%B8%80%E5%A4%9C%E6%B6%A8%E4%BA%8612%E5%85%83+%E5%9B%BD%E5%86%85%E9%87%91%E9%A5%B0%E4%BB%B7%E6%A0%BC%E5%8F%8D%E5%BC%B9\",\"title\":\"一夜涨了12元 国内金饰价格反弹\",\"link\":\"https://www.baidu.com/s?wd=%E4%B8%80%E5%A4%9C%E6%B6%A8%E4%BA%8612%E5%85%83+%E5%9B%BD%E5%86%85%E9%87%91%E9%A5%B0%E4%BB%B7%E6%A0%BC%E5%8F%8D%E5%BC%B9\",\"rank\":41,\"pinned\":false,\"heat\":{\"value\":3969005,\"unit\":\"热度\",\"text\":\"3969005\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E8%91%97%E5%90%8D%E8%AF%97%E4%BA%BA%E4%B8%A5%E9%98%B5%E9%80%9D%E4%B8%96+%E4%BA%AB%E5%B9%B496%E5%B2%81\",\"title\":\"著名诗人严阵逝世 享年96岁\",\"link\":\"https://www.baidu.com/s?wd=%E8%91%97%E5%90%8D%E8%AF%97%E4%BA%BA%E4%B8%A5%E9%98%B5%E9%80%9D%E4%B8%96+%E4%BA%AB%E5%B9%B496%E5%B2%81\",\"rank\":42,\"pinned\":false,\"heat\":{\"value\":3900852,\"unit\":\"热度\",\"text\":\"3900852\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=BLG%E5%87%86%E5%A4%87%E4%B8%80%E7%A9%BF%E5%9B%9B\",\"title\":\"BLG准备一穿四\",\"link\":\"https://www.baidu.com/s?wd=BLG%E5%87%86%E5%A4%87%E4%B8%80%E7%A9%BF%E5%9B%9B\",\"rank\":43,\"pinned\":false,\"heat\":{\"value\":3800583,\"unit\":\"热度\",\"text\":\"3800583\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E4%B8%AD%E6%96%B9%E7%BB%A7%E7%BB%AD%E6%9A%82%E5%81%9C%E5%AE%9E%E6%96%BD24%25%E7%9A%84%E5%AF%B9%E7%BE%8E%E5%8A%A0%E7%A8%8E%E7%A8%8E%E7%8E%87\",\"title\":\"中方继续暂停实施24%的对美加税税率\",\"link\":\"https://www.baidu.com/s?wd=%E4%B8%AD%E6%96%B9%E7%BB%A7%E7%BB%AD%E6%9A%82%E5%81%9C%E5%AE%9E%E6%96%BD24%25%E7%9A%84%E5%AF%B9%E7%BE%8E%E5%8A%A0%E7%A8%8E%E7%A8%8E%E7%8E%87\",\"rank\":44,\"pinned\":false,\"heat\":{\"value\":3698966,\"unit\":\"热度\",\"text\":\"3698966\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%97%93%E5%AD%90%E5%88%9A%E7%96%BC%E5%B0%B1%E7%8C%9B%E5%90%83%E8%8D%AF+%E8%83%BD%E6%8A%8A%E6%84%9F%E5%86%92%E5%8E%8B%E4%BD%8F%E5%90%97\",\"title\":\"嗓子刚疼就猛吃药 能把感冒压住吗\",\"link\":\"https://www.baidu.com/s?wd=%E5%97%93%E5%AD%90%E5%88%9A%E7%96%BC%E5%B0%B1%E7%8C%9B%E5%90%83%E8%8D%AF+%E8%83%BD%E6%8A%8A%E6%84%9F%E5%86%92%E5%8E%8B%E4%BD%8F%E5%90%97\",\"rank\":45,\"pinned\":false,\"heat\":{\"value\":3625326,\"unit\":\"热度\",\"text\":\"3625326\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E5%B0%8F%E5%AD%A6%E7%94%9F%E7%AD%BE%E5%90%8D%E5%8D%B3%E5%8F%AF%E8%B5%8A%E8%B4%A6+%E8%BF%99%E7%94%9F%E6%84%8F%E5%90%88%E9%80%82%E5%90%97\",\"title\":\"小学生签名即可赊账 这生意合适吗\",\"link\":\"https://www.baidu.com/s?wd=%E5%B0%8F%E5%AD%A6%E7%94%9F%E7%AD%BE%E5%90%8D%E5%8D%B3%E5%8F%AF%E8%B5%8A%E8%B4%A6+%E8%BF%99%E7%94%9F%E6%84%8F%E5%90%88%E9%80%82%E5%90%97\",\"rank\":46,\"pinned\":false,\"heat\":{\"value\":3495711,\"unit\":\"热度\",\"text\":\"3495711\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=BLG%E6%88%98%E8%83%9CT1+%E6%8C%BA%E8%BF%9BS16%E5%86%B3%E8%B5%9B\",\"title\":\"BLG战胜T1 挺进S16决赛\",\"link\":\"https://www.baidu.com/s?wd=BLG%E6%88%98%E8%83%9CT1+%E6%8C%BA%E8%BF%9BS16%E5%86%B3%E8%B5%9B\",\"rank\":47,\"pinned\":false,\"heat\":{\"value\":3391178,\"unit\":\"热度\",\"text\":\"3391178\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E6%98%93%E4%B8%AD%E5%A4%A9+%E5%85%A8%E7%90%83%E5%BE%81%E9%9B%86%E5%AF%B9%E8%81%94%E4%B8%8B%E8%81%94\",\"title\":\"易中天 全球征集对联下联\",\"link\":\"https://www.baidu.com/s?wd=%E6%98%93%E4%B8%AD%E5%A4%A9+%E5%85%A8%E7%90%83%E5%BE%81%E9%9B%86%E5%AF%B9%E8%81%94%E4%B8%8B%E8%81%94\",\"rank\":48,\"pinned\":false,\"heat\":{\"value\":3310554,\"unit\":\"热度\",\"text\":\"3310554\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E7%8E%B0%E5%9C%BA%E8%A7%81%E8%AF%81BLG%E6%88%98%E8%83%9CT1\",\"title\":\"现场见证BLG战胜T1\",\"link\":\"https://www.baidu.com/s?wd=%E7%8E%B0%E5%9C%BA%E8%A7%81%E8%AF%81BLG%E6%88%98%E8%83%9CT1\",\"rank\":49,\"pinned\":false,\"heat\":{\"value\":3233427,\"unit\":\"热度\",\"text\":\"3233427\"}},{\"id\":\"baidu:https://www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E4%B8%80%E8%80%81%E4%BA%BA%E5%B0%86%E7%99%BE%E4%B8%87%E9%81%97%E4%BA%A7%E8%B5%A0%E5%85%BB%E8%80%81%E9%99%A2%E9%99%A2%E9%95%BF\",\"title\":\"上海一老人将百万遗产赠养老院院长\",\"link\":\"https://www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E4%B8%80%E8%80%81%E4%BA%BA%E5%B0%86%E7%99%BE%E4%B8%87%E9%81%97%E4%BA%A7%E8%B5%A0%E5%85%BB%E8%80%81%E9%99%A2%E9%99%A2%E9%95%BF\",\"rank\":50,\"pinned\":false,\"heat\":{\"value\":3127142,\"unit\":\"热度\",\"text\":\"3127142\"}}]}",
     "timing": {
-      "elapsed_ms": 329,
+      "elapsed_ms": 10000,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -129,31 +118,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 0,
-          "duration_ms": 329
+          "duration_ms": 10000
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 329,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 329,
+          "name": "错误诊断收集",
+          "started_ms": 10000,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 329,
+          "started_ms": 10000,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 329,
+          "name": "失败后浏览器清理",
+          "started_ms": 10000,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 329,
+          "started_ms": 10000,
           "duration_ms": 0
         }
       ],
@@ -161,7 +145,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 0,
-          "duration_ms": 329
+          "duration_ms": 10000
         }
       ]
     }

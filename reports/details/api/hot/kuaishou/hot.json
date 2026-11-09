@@ -1,155 +1,22 @@
 {
-  "checked_at": "2026-11-09T06:55:14.225Z",
+  "checked_at": "2026-11-09T22:35:27.240Z",
   "inspection": {
     "file": "hot/kuaishou_hot.js",
     "path": "/api/hot/kuaishou/hot",
     "example": "/api/hot/kuaishou/hot",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 23
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/kuaishou/hot.json",
+    "duration_ms": 2835
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1681
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 10024
   },
-  "debug": {
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "script": {
-      "file": "hot/kuaishou_hot.js",
-      "name": "快手",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/kuaishou/hot",
-      "request_path": "/api/hot/kuaishou/hot",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/kuaishou/hot",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a57ae921ec32061c"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "runtime",
-    "elapsed_ms": 1658,
-    "invoked": false,
-    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：页面缺少内嵌 JSON",
-    "error_text": "脚本执行失败：页面缺少内嵌 JSON\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at embedded_json (@findrss/util:81:34)\n    at fetch (script-source.js:48:41)",
-    "lines": [],
-    "upstream_requests": [
-      {
-        "url": "https://www.kuaishou.com/?isHome=1",
-        "method": "GET",
-        "host": "www.kuaishou.com",
-        "pathname": "/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 1658,
-        "timings": {
-          "response_ms": 1658,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "timing": {
-      "elapsed_ms": 1658,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 1658
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 1658,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1658,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 1658,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 1658,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 1658
-        }
-      ]
-    }
-  }
+  "debug": null
 }

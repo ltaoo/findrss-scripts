@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T06:55:09.561Z",
+  "checked_at": "2026-11-09T22:33:21.784Z",
   "inspection": {
     "file": "hot/aihot.js",
     "path": "/api/hot/aihot/feed/all.xml",
@@ -11,176 +11,12 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/aihot/feed/all.xml.json",
-    "duration_ms": 3462
+    "duration_ms": 2591
   },
   "debug_request": {
-    "status": 200,
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
     "duration_ms": 365
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/aihot.js",
-      "name": "AIHOT",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/aihot/feed/all.xml",
-      "request_path": "/api/hot/aihot/feed/all.xml",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/aihot/feed/all.xml",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a57ae904ceaaab5c"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 144,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"aihot\",\"count\":50,\"missing_rank\":50}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":50}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://aihot.virxact.com/feed/all.xml",
-        "method": "GET",
-        "host": "aihot.virxact.com",
-        "pathname": "/feed/all.xml",
-        "status": 301,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 72,
-        "timings": {
-          "response_ms": 72
-        }
-      },
-      {
-        "url": "https://aihot.news/feed/all.xml",
-        "method": "GET",
-        "host": "aihot.news",
-        "pathname": "/feed/all.xml",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 72,
-        "duration_ms": 72,
-        "timings": {
-          "response_ms": 72,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"AIHOT\",\"link\":\"https://aihot.virxact.com/all\",\"category\":\"科技\",\"observed_at\":\"2026-11-09T06:55:09.725Z\",\"entries\":[{\"id\":\"aihot:ltv6wpt4xvxlfissfqd2894i1\",\"title\":\"英伟达在首尔举办 AI Day，与韩国政府、三星、LG 电子、现代汽车集团等公布多项合作\",\"link\":\"https://aihot.news/items/ltv6wpt4xvxlfissfqd2894i1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:i8df3mmfly47axpbbr1p6ivh5\",\"title\":\"黄仁勋职位悬了？耶鲁教授 Sonnenfeld 估计去留概率约五五开\",\"link\":\"https://aihot.news/items/i8df3mmfly47axpbbr1p6ivh5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:bfrwjjualwyput31jqermnefy\",\"title\":\"NVIDIA 助力韩国各行业推进物理 AI 落地\",\"link\":\"https://aihot.news/items/bfrwjjualwyput31jqermnefy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:wbaeaildet2qy2wzsbtkqrkkw\",\"title\":\"NVIDIA 与韩国科学技术信息通信部扩大主权 AI 合作\",\"link\":\"https://aihot.news/items/wbaeaildet2qy2wzsbtkqrkkw\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:wimnx6hnhchd7ch2xnm448mrm\",\"title\":\"MIT 与 NYU 推出 FLEX 平台，让机器人从自然语言指令中理解言外之意\",\"link\":\"https://aihot.news/items/wimnx6hnhchd7ch2xnm448mrm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:r0mnai0g8zh2thkj9xxbiy4t6\",\"title\":\"MIT 与 UBC 等提出 WorldParticle：单一 AI 模型统一模拟沙子流动与蛋白质折叠\",\"link\":\"https://aihot.news/items/r0mnai0g8zh2thkj9xxbiy4t6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:f8piauuiig2ywsihtsclvarh5\",\"title\":\"NVIDIA 携手 Rebellions 与 SK Telecom，用 NVLink Fusion 推进韩国主权 AI 基础设施\",\"link\":\"https://aihot.news/items/f8piauuiig2ywsihtsclvarh5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:jv1ln157wzhngef4tznmco2va\",\"title\":\"Simon Willison 实测 Claude Opus 5.5 用原生 JS + WebGL 移植 Three.js 3D 项目\",\"link\":\"https://aihot.news/items/jv1ln157wzhngef4tznmco2va\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:bozjdmdems7d6comiccs1e0g5\",\"title\":\"AIHOT 上线免费 Token 福利聚合页「Token羊毛」\",\"link\":\"https://aihot.news/items/bozjdmdems7d6comiccs1e0g5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:dt0fpgy3q4t429264db53u29m\",\"title\":\"Simon Willison 分享用 details/summary 折叠 AI 生成的 PR 描述的技巧\",\"link\":\"https://aihot.news/items/dt0fpgy3q4t429264db53u29m\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:s3nzazhg1cz8va4y420xsklyd\",\"title\":\"Anthropic 研究报告：科学家多用 Claude 做数据分析和写作\",\"link\":\"https://aihot.news/items/s3nzazhg1cz8va4y420xsklyd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:tqswz63o4u15qr8q4tvrhugp6\",\"title\":\"AI 创作者用 Kling 4.0 实测完整能量饮料广告制作流程\",\"link\":\"https://aihot.news/items/tqswz63o4u15qr8q4tvrhugp6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:axsf8uddushd3p2yiflombw8h\",\"title\":\"特朗普称 AI 风险可控但不介意设置监管护栏\",\"link\":\"https://aihot.news/items/axsf8uddushd3p2yiflombw8h\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:bjvr1e150e1fpirmc99xxn3cy\",\"title\":\"LG AI 研究院免费开放 K-EXAONE 2.5 模型 API\",\"link\":\"https://aihot.news/items/bjvr1e150e1fpirmc99xxn3cy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:l7qekepqsf7cn0l73da0u0dqj\",\"title\":\"DeepMind 经济总监：数百万 AI 智能体也难带来高增长\",\"link\":\"https://aihot.news/items/l7qekepqsf7cn0l73da0u0dqj\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:hegqek9bt5a6qp3b0qlxhuckq\",\"title\":\"特朗普在 60 Minutes 访谈中谈 AI：美国不能在对华竞争中位居第二\",\"link\":\"https://aihot.news/items/hegqek9bt5a6qp3b0qlxhuckq\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:vde0trttubiyy6ilx0r7s13xj\",\"title\":\"Gary Marcus 评黄仁勋婚外情风波：谁在何时知情\",\"link\":\"https://aihot.news/items/vde0trttubiyy6ilx0r7s13xj\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:c68qgzkcml50onal4kyn5t3lf\",\"title\":\"NYT 报道 Nvidia 调查黄仁勋与一名中国间谍的关系\",\"link\":\"https://aihot.news/items/c68qgzkcml50onal4kyn5t3lf\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:e80fmjdp23n217sd6e7ky52om\",\"title\":\"数字生命卡兹克上线免费 Token 福利聚合网站 Token羊毛\",\"link\":\"https://aihot.news/items/e80fmjdp23n217sd6e7ky52om\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:y7i127lblokmbcax934pbuzy0\",\"title\":\"古尔曼：苹果最早明年推出代理式 Siri，主动代用户完成任务\",\"link\":\"https://aihot.news/items/y7i127lblokmbcax934pbuzy0\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:w9cgtlbu4su3llyujbqjnrenx\",\"title\":\"Artificial Analysis 发布 Decision Index v2：引入奖励校准置信度的 Decision Score\",\"link\":\"https://aihot.news/items/w9cgtlbu4su3llyujbqjnrenx\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:rialbh5b2eqfs3dk649pr5ak7\",\"title\":\"斯坦福与DeepMind用AlphaEvolve进化工具调用基准\",\"link\":\"https://aihot.news/items/rialbh5b2eqfs3dk649pr5ak7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:gbttws4d0uqsk1oexnrmou836\",\"title\":\"腾讯元器平台停止服务，2027年1月9日后不再受理数据导出申请\",\"link\":\"https://aihot.news/items/gbttws4d0uqsk1oexnrmou836\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ppdjty0ow3ytzemiylt9jb0xa\",\"title\":\"Simon Willison 实测用 Claude 编写 SQLite parse_number() 扩展并对比 C 与 Rust 性能\",\"link\":\"https://aihot.news/items/ppdjty0ow3ytzemiylt9jb0xa\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:serfp8560yfwla4o72g7d8voo\",\"title\":\"NVIDIA 董事会声明：就黄仁勋被指为外国情报活动目标启动独立调查\",\"link\":\"https://aihot.news/items/serfp8560yfwla4o72g7d8voo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:qjymzxvzgpiulyjjkcjaqt10u\",\"title\":\"swyx 访谈 Mihail Eric：Stanford CS146S 如何教授 AI 原生软件工程\",\"link\":\"https://aihot.news/items/qjymzxvzgpiulyjjkcjaqt10u\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:gp0q36wvaswnf2rnc5gz9lhrb\",\"title\":\"Amazon 论文审计 9 个政策决策基准，发现评分器和参考答案自身有错\",\"link\":\"https://aihot.news/items/gp0q36wvaswnf2rnc5gz9lhrb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:h95hsfbm85w0couv73mz9amp4\",\"title\":\"斯坦福 CS146S 如何教 AI 原生工程：Mihail Eric 访谈\",\"link\":\"https://aihot.news/items/h95hsfbm85w0couv73mz9amp4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:mg4znyraf1xbbwg1vd915wqoi\",\"title\":\"NVIDIA 董事会宣布就 CEO 黄仁勋遭外国情报行动瞄准一事启动独立调查\",\"link\":\"https://aihot.news/items/mg4znyraf1xbbwg1vd915wqoi\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:envwqgu0h1bp0si2xxbu66rz2\",\"title\":\"Nvidia 董事会宣布独立调查 CEO 黄仁勋与疑似中国间谍的关系\",\"link\":\"https://aihot.news/items/envwqgu0h1bp0si2xxbu66rz2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:prq12tygrxswzhfanvbywdi4b\",\"title\":\"Nvidia 调查黄仁勋与中国间谍的关系\",\"link\":\"https://aihot.news/items/prq12tygrxswzhfanvbywdi4b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:yrnblbao4x8vl14fy215vjc2y\",\"title\":\"Lauren Tan 分享用 /create-formal-verification-skill 和 /statechart 技能建模应用状态机的提示词\",\"link\":\"https://aihot.news/items/yrnblbao4x8vl14fy215vjc2y\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:r9yh4494z44lx0979zn9wclwq\",\"title\":\"Larry Page 预测未来算力将迁至太空\",\"link\":\"https://aihot.news/items/r9yh4494z44lx0979zn9wclwq\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:rd1dy24n73w7u5c3lgxeletvo\",\"title\":\"NY Times 报道称中国招募 AI 高管 Alice Huang 接近 Nvidia 黄仁勋从事情报活动\",\"link\":\"https://aihot.news/items/rd1dy24n73w7u5c3lgxeletvo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:h0h8s5aeapk76yp76i2il36fv\",\"title\":\"Apple 加速推进 Siri 智能体化改造\",\"link\":\"https://aihot.news/items/h0h8s5aeapk76yp76i2il36fv\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ksjbrw4jce9c24scb9vdopxuz\",\"title\":\"Bloomberg 报道 DeepSeek 开源智能体应用 Harness 日活用户达 154 万\",\"link\":\"https://aihot.news/items/ksjbrw4jce9c24scb9vdopxuz\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:git0d98f25uq3o7bu0f4xzysd\",\"title\":\"清华与 Moonshot AI 发布 TCSExam 基准：GPT-6 Astra 证明 70.0% 研究级定理但解不开任何公开猜想\",\"link\":\"https://aihot.news/items/git0d98f25uq3o7bu0f4xzysd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:jptutxjz4k35ulbp3wjvueawe\",\"title\":\"Elvis 与 Eminem 版权方起诉 AI 音乐公司 Suno 涉嫌克隆歌手声音\",\"link\":\"https://aihot.news/items/jptutxjz4k35ulbp3wjvueawe\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:rgkqmql0m4veiibm0ugwrxj9q\",\"title\":\"Perplexity 队友可助写书并在 Kindle 出版\",\"link\":\"https://aihot.news/items/rgkqmql0m4veiibm0ugwrxj9q\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:dkbmn3puqc254los5trc5139w\",\"title\":\"Preferred Networks 开源金融特化小模型 PLaMo 3.0 Fin\",\"link\":\"https://aihot.news/items/dkbmn3puqc254los5trc5139w\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:mxwosbpncetduvls55un7poqo\",\"title\":\"Chamath：算力涨价或迫使 SpaceX 重定价 Anthropic 合约\",\"link\":\"https://aihot.news/items/mxwosbpncetduvls55un7poqo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:uhvixvqd097h0zqy1hscjeg4i\",\"title\":\"蚂蚁集团灵光用户突破 2000 万，灵光 2.0 上线一周管理超 116 万项事务\",\"link\":\"https://aihot.news/items/uhvixvqd097h0zqy1hscjeg4i\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:xas58u8z185ani3f4rhsm198h\",\"title\":\"Andrej Karpathy 用 Claude 周末搭建视频精选平台 HackerTube\",\"link\":\"https://aihot.news/items/xas58u8z185ani3f4rhsm198h\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:kss7rjmanc8dv5mpj60jtdzgd\",\"title\":\"GPT-Image-2.6 实测：10 个 GIF 玩法提示词与三项新能力评测\",\"link\":\"https://aihot.news/items/kss7rjmanc8dv5mpj60jtdzgd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:f7gveb2a8q2jygh7fdlun08di\",\"title\":\"用 n8n 和 TurboDocx 从 Slack 审批到 SharePoint 归档发送合同签署\",\"link\":\"https://aihot.news/items/f7gveb2a8q2jygh7fdlun08di\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:fhtzzpeq9pxo021k0uk7s034p\",\"title\":\"FT 报道 Anthropic 以 34 亿美元购入 1.7GW Caterpillar 燃气发电机\",\"link\":\"https://aihot.news/items/fhtzzpeq9pxo021k0uk7s034p\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:zk8n50br6zuwt663mpbspnjmz\",\"title\":\"Meta 论文介绍大规模 AI 辅助 A/B 实验的 Agent 设计与经验教训\",\"link\":\"https://aihot.news/items/zk8n50br6zuwt663mpbspnjmz\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ik9z9k6qbah9iejqegb6006cb\",\"title\":\"Anil Seth、Ned Block 与 Tononi 在 Nature 撰文称当今 AI 不具备意识且硅基硬件难以产生意识\",\"link\":\"https://aihot.news/items/ik9z9k6qbah9iejqegb6006cb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:zy75yq8c6wra7ne3mtl7zcej0\",\"title\":\"上海交大发布 AI 原生科学实验室 AutoDNA，成果登《自然》\",\"link\":\"https://aihot.news/items/zy75yq8c6wra7ne3mtl7zcej0\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:p7d6evc6anlp0wkx0it56e8oo\",\"title\":\"PixVerse 推出 Draw to Fly 功能\",\"link\":\"https://aihot.news/items/p7d6evc6anlp0wkx0it56e8oo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 144,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 144
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 144,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 144,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 144,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 144,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 144,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 144
-        }
-      ]
-    }
-  }
+  "debug": null
 }

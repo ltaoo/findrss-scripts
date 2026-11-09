@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T06:56:23.663Z",
+  "checked_at": "2026-11-09T22:37:46.963Z",
   "inspection": {
     "file": "rss/javlibrary.js",
     "path": "/api/rss/javlibrary/star/:id",
@@ -12,154 +12,11 @@
     "status": 502,
     "code": "SCRIPT_FAILED",
     "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 337
+    "duration_ms": 411
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 306
+    "error": "Debug 请求超时或已取消",
+    "duration_ms": 60001
   },
-  "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "script": {
-      "file": "rss/javlibrary.js",
-      "name": "JAVLibrary 演员作品",
-      "kind": "rss",
-      "version": "1.1.0",
-      "path": "/javlibrary/star/:id",
-      "request_path": "/api/rss/javlibrary/star/:id",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/rss/javlibrary/star/abbds",
-      "params": {
-        "id": "abbds"
-      },
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a57aead3eca982de"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "runtime",
-    "elapsed_ms": 134,
-    "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：Unable to create new browser: code: 429: message: Rate limit exceeded",
-    "error_text": "脚本执行失败：Unable to create new browser: code: 429: message: Rate limit exceeded\nat navigate (rss-context.js:631:49)",
-    "lines": [
-      {
-        "level": "info",
-        "text": "JAVLibrary 访问验证，改用浏览器读取 {\"url\":\"https://www.javlibrary.com/cn/vl_star.php?s=abbds&mode=2&page=1\"}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.javlibrary.com/cn/vl_star.php?s=abbds&mode=2&page=1",
-        "method": "GET",
-        "host": "www.javlibrary.com",
-        "pathname": "/cn/vl_star.php",
-        "status": 403,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 28,
-        "duration_ms": 34,
-        "timings": {
-          "response_ms": 34
-        }
-      }
-    ],
-    "timing": {
-      "elapsed_ms": 134,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 28
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 28,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 28,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 28,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 28,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 28,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 28,
-          "duration_ms": 106
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 134,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 134,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 134,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 134,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 28,
-          "duration_ms": 34
-        },
-        {
-          "name": "浏览器页面获取",
-          "started_ms": 62,
-          "duration_ms": 72
-        }
-      ]
-    }
-  }
+  "debug": null
 }
