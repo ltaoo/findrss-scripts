@@ -1,23 +1,169 @@
 {
-  "checked_at": "2026-11-08T22:17:19.085Z",
+  "checked_at": "2026-11-09T06:55:29.279Z",
   "inspection": {
     "file": "hot/solidot.js",
     "path": "/api/hot/solidot/index.rss",
     "example": "/api/hot/solidot/index.rss",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 45
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/solidot/index.rss.json",
+    "duration_ms": 1617
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 76
+    "status": 200,
+    "duration_ms": 333
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/solidot.js",
+      "name": "Solidot",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/solidot/index.rss",
+      "request_path": "/api/hot/solidot/index.rss",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/solidot/index.rss",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a57ae9800cdec606"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 263,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"solidot\",\"count\":20,\"missing_rank\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.solidot.org/index.rss",
+        "method": "GET",
+        "host": "www.solidot.org",
+        "pathname": "/index.rss",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 263,
+        "timings": {
+          "response_ms": 262,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Solidot\",\"link\":\"https://solidot.org\",\"category\":\"科技\",\"observed_at\":\"2026-11-09T06:55:29.549Z\",\"entries\":[{\"id\":\"solidot:https://www.solidot.org/story?sid=85831\",\"title\":\"中国讨论征收糖税\",\"link\":\"https://www.solidot.org/story?sid=85831\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85829\",\"title\":\"LG 因其智能电视监视用户面临法律诉讼\",\"link\":\"https://www.solidot.org/story?sid=85829\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85828\",\"title\":\"太平洋垃圾带海水变得更蓝更绿\",\"link\":\"https://www.solidot.org/story?sid=85828\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85827\",\"title\":\"微软移除了 PC 到 PC 的迁移功能\",\"link\":\"https://www.solidot.org/story?sid=85827\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85826\",\"title\":\"台积电考虑进入内存行业\",\"link\":\"https://www.solidot.org/story?sid=85826\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85825\",\"title\":\"ESA Hera 探测器发回 DART 撞击的小行星照片\",\"link\":\"https://www.solidot.org/story?sid=85825\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85824\",\"title\":\"FAA 计划到 2028 年淘汰软盘\",\"link\":\"https://www.solidot.org/story?sid=85824\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85823\",\"title\":\"抗议者闯入微软在欧洲的一处数据中心工地\",\"link\":\"https://www.solidot.org/story?sid=85823\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85822\",\"title\":\"天宫即将迎来首位巴基斯坦宇航员\",\"link\":\"https://www.solidot.org/story?sid=85822\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85821\",\"title\":\"广电总局整治 AI 低俗微短剧\",\"link\":\"https://www.solidot.org/story?sid=85821\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85820\",\"title\":\"从 Linux 到维基百科：志愿者如何构建互联网\",\"link\":\"https://www.solidot.org/story?sid=85820\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85819\",\"title\":\"特斯拉将停产 Cyber​​truck\",\"link\":\"https://www.solidot.org/story?sid=85819\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85818\",\"title\":\"NASA 通过 AI 生成图像宣布 X-70 试验机\",\"link\":\"https://www.solidot.org/story?sid=85818\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85817\",\"title\":\"中国三季度 CO2 排放下降 3%\",\"link\":\"https://www.solidot.org/story?sid=85817\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85816\",\"title\":\"Silver Lake 和 PIF 磋商收购 Unity Software\",\"link\":\"https://www.solidot.org/story?sid=85816\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85815\",\"title\":\"Salon 宣布终止出版\",\"link\":\"https://www.solidot.org/story?sid=85815\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85814\",\"title\":\"摩托罗拉宣布第一款支持 GrapheneOS 的旗舰手机\",\"link\":\"https://www.solidot.org/story?sid=85814\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85813\",\"title\":\"微软画图应用曝出远程代码执行漏洞\",\"link\":\"https://www.solidot.org/story?sid=85813\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85812\",\"title\":\"Kagi 开放搜索\",\"link\":\"https://www.solidot.org/story?sid=85812\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"solidot:https://www.solidot.org/story?sid=85811\",\"title\":\"《尼尔：自动人形》释出更新游戏容量从 50GB 暴涨至 366GB\",\"link\":\"https://www.solidot.org/story?sid=85811\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 263,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 263
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 263,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 263,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 263,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 263,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 263,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 263
+        }
+      ]
+    }
+  }
 }

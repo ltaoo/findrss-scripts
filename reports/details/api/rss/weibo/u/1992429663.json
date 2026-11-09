@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T22:18:24.330Z",
+  "checked_at": "2026-11-09T06:56:30.294Z",
   "inspection": {
     "file": "rss/weibo.js",
     "path": "/api/rss/weibo/u/:uid",
@@ -9,15 +9,199 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 342
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
+    "error": "HTTP 502: UPSTREAM_AUTH_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据",
+    "duration_ms": 3770
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 50
+    "status": 502,
+    "duration_ms": 3590
   },
-  "debug": null
+  "debug": {
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
+    "script": {
+      "file": "rss/weibo.js",
+      "name": "微博用户列表",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/weibo/u/:uid",
+      "request_path": "/api/rss/weibo/u/:uid",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/weibo/u/1992429663",
+      "params": {
+        "uid": "1992429663"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a57aeafd5b2f6ac7"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 3572,
+    "invoked": false,
+    "upstream_error": "UPSTREAM_AUTH_REQUIRED: 脚本执行失败：微博列表接口要求重新登录（ok: -100），请在 Cookie 管理中同步有效的 weibo.com 登录 Cookie",
+    "error_text": "脚本执行失败：微博列表接口要求重新登录（ok: -100），请在 Cookie 管理中同步有效的 weibo.com 登录 Cookie\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:464:30)",
+    "lines": [
+      {
+        "level": "info",
+        "text": "微博主页获取完成 {\"length\":523}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://weibo.com/u/1992429663",
+        "method": "GET",
+        "host": "weibo.com",
+        "pathname": "/u/1992429663",
+        "status": 302,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 5,
+        "duration_ms": 1225,
+        "timings": {
+          "response_ms": 1225
+        }
+      },
+      {
+        "url": "https://login.sina.com.cn/sso/login.php?url=https%3A%2F%2Fweibo.com%2Fu%2F1992429663&_rand=1794207391.387&gateway=1&service=miniblog&entry=miniblog&useticket=1&returntype=META&sudaref=&_client_version=0.6.33",
+        "method": "GET",
+        "host": "login.sina.com.cn",
+        "pathname": "/sso/login.php",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 1230,
+        "duration_ms": 2011,
+        "timings": {
+          "response_ms": 2011,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://weibo.com/ajax/statuses/mymblog?uid=1992429663&page=1&feature=0",
+        "method": "GET",
+        "host": "weibo.com",
+        "pathname": "/ajax/statuses/mymblog",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 3241,
+        "duration_ms": 331,
+        "timings": {
+          "response_ms": 331,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "timing": {
+      "elapsed_ms": 3572,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 5
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 5,
+          "duration_ms": 3567
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 3572,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 3572,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 3572,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 3572,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 5,
+          "duration_ms": 3236
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 3241,
+          "duration_ms": 331
+        }
+      ]
+    }
+  }
 }

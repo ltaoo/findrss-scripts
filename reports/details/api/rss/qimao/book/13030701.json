@@ -1,21 +1,23 @@
 {
-  "checked_at": "2026-11-08T22:18:26.331Z",
+  "checked_at": "2026-11-09T06:56:26.563Z",
   "inspection": {
     "file": "rss/qimao.js",
     "path": "/api/rss/qimao/book/:book_id",
     "example": "/api/rss/qimao/book/13030701",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/qimao/book/13030701.json",
-    "duration_ms": 2838
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 2594
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 57
   },
   "debug": null
 }

@@ -1,169 +1,23 @@
 {
-  "checked_at": "2026-11-08T22:17:10.687Z",
+  "checked_at": "2026-11-09T06:55:12.971Z",
   "inspection": {
     "file": "hot/gelonghui.js",
     "path": "/api/hot/gelonghui/news",
     "example": "/api/hot/gelonghui/news",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/gelonghui/news.json",
-    "duration_ms": 1556
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 1978
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1766
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 33
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/gelonghui.js",
-      "name": "格隆汇 · 事件",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/gelonghui/news",
-      "request_path": "/api/hot/gelonghui/news",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/gelonghui/news",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a577f241dfc5763c"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 1255,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"gelonghui\",\"count\":15,\"missing_rank\":15}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":15}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.gelonghui.com/news/",
-        "method": "GET",
-        "host": "www.gelonghui.com",
-        "pathname": "/news/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 1255,
-        "timings": {
-          "response_ms": 1100,
-          "body_read_ms": 155,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"格隆汇 · 事件\",\"link\":\"https://www.gelonghui.com\",\"category\":\"财经\",\"observed_at\":\"2026-11-08T22:17:12.140Z\",\"entries\":[{\"id\":\"gelonghui:/news/5346922\",\"title\":\"百胜中国(09987.HK)：于11月6日斥资270万美元回购5.42万股\",\"link\":\"https://www.gelonghui.com/news/5346922\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346921\",\"title\":\"铸帝控股(01413.HK)：杨振伟调任为董事会主席\",\"link\":\"https://www.gelonghui.com/news/5346921\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346920\",\"title\":\"创胜集团医药-B(06628.HK)：建议委任国卫为新任核数师\",\"link\":\"https://www.gelonghui.com/news/5346920\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346919\",\"title\":\"中国创新投资(01217.HK)与“中国创新投资管理集团”无任何关系\",\"link\":\"https://www.gelonghui.com/news/5346919\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346918\",\"title\":\"狮子山集团(01127.HK)：唐永炜已获委任为执行董事\",\"link\":\"https://www.gelonghui.com/news/5346918\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346917\",\"title\":\"AIROBO平台(00419.HK)机器人运营平台AIROBO已推出机器人运营管理平台2.0\",\"link\":\"https://www.gelonghui.com/news/5346917\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346916\",\"title\":\"华新建材(06655.HK)：拟约16.42亿美元收购巴西国家钢铁水泥公司99.99%股权\",\"link\":\"https://www.gelonghui.com/news/5346916\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346915\",\"title\":\"劲方医药-B(02595.HK)：于11月6日斥资486.07万港元回购22万股\",\"link\":\"https://www.gelonghui.com/news/5346915\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346914\",\"title\":\"华阳股份(600348.SH)：于家庄煤矿取得采矿许可证及不动产权证书(采矿权)\",\"link\":\"https://www.gelonghui.com/news/5346914\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346913\",\"title\":\"华新建材(600801.SH)：拟约16.42亿美元收购巴西CSN CIMENTOS 99.99%股权\",\"link\":\"https://www.gelonghui.com/news/5346913\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346912\",\"title\":\"世运电路(603920.SH)：拟斥资2亿元-3亿元回购股份\",\"link\":\"https://www.gelonghui.com/news/5346912\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346911\",\"title\":\"乾照光电(300102.SZ)：聘任刘兆为公司总裁\",\"link\":\"https://www.gelonghui.com/news/5346911\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346910\",\"title\":\"上纬新材(688585.SH)：消费级具身智能机器人产品“启元Q1”和“启元T1”下线1万台\",\"link\":\"https://www.gelonghui.com/news/5346910\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346909\",\"title\":\"巨星农牧(603477.SH)：10月商品肥猪销量同比下降39.28%\",\"link\":\"https://www.gelonghui.com/news/5346909\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"gelonghui:/news/5346908\",\"title\":\"韶能股份(000601.SZ)：拟投资建设运营智能集控中心建设项目二期工程\",\"link\":\"https://www.gelonghui.com/news/5346908\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 1255,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 1255
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 1255,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1255,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1255,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 1255,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 1255,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 1255
-        }
-      ]
-    }
-  }
+  "debug": null
 }

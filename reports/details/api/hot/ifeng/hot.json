@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T22:17:10.528Z",
+  "checked_at": "2026-11-09T06:55:12.867Z",
   "inspection": {
     "file": "hot/ifeng_hot.js",
     "path": "/api/hot/ifeng/hot",
@@ -12,12 +12,159 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 119
+    "duration_ms": 65
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 31
+    "status": 200,
+    "duration_ms": 1384
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/ifeng_hot.js",
+      "name": "凤凰网 · 热点资讯",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/ifeng/hot",
+      "request_path": "/api/hot/ifeng/hot",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/ifeng/hot",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a57ae9197ab07afc"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1269,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"ifeng\",\"count\":12,\"missing_rank\":12}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":12}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.ifeng.com/",
+        "method": "GET",
+        "host": "www.ifeng.com",
+        "pathname": "/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1269,
+        "timings": {
+          "response_ms": 804,
+          "body_read_ms": 465,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"凤凰网 · 热点资讯\",\"link\":\"https://www.ifeng.com\",\"category\":\"综合\",\"observed_at\":\"2026-11-09T06:55:14.143Z\",\"entries\":[{\"id\":\"ifeng:https://news.ifeng.com/c/8xuR0fiJV50\",\"title\":\"黄仁勋出轨“中国女间谍”？媒体驳斥\",\"link\":\"https://news.ifeng.com/c/8xuR0fiJV50\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xuSTiEyxK7\",\"title\":\"“这是美国民主党和建制派搞黄仁勋，进而搞特朗普的一种方式”\",\"link\":\"https://news.ifeng.com/c/8xuSTiEyxK7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://original.ifeng.com/c/8xu3OOjkNAx\",\"title\":\"黄仁勋道歉信全文：我对妻子不忠，没有任何借口\",\"link\":\"https://original.ifeng.com/c/8xu3OOjkNAx\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xuFpU4J2wy\",\"title\":\"以色列组阁前景有四大可能，内塔尼亚胡阵营能捡漏吗？\",\"link\":\"https://news.ifeng.com/c/8xuFpU4J2wy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xuQFAvw9L1\",\"title\":\"美专家点赞中国方案，“美国却押上一场豪赌”\",\"link\":\"https://news.ifeng.com/c/8xuQFAvw9L1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://original.ifeng.com/c/8xuGqEePP2n\",\"title\":\"鲁比奥：伊朗提出的要求完全不可接受\",\"link\":\"https://original.ifeng.com/c/8xuGqEePP2n\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://original.ifeng.com/c/8xsybBLthfu\",\"title\":\"美中央司令部成立铁门特遣队，阻击伊朗陆路运输\",\"link\":\"https://original.ifeng.com/c/8xsybBLthfu\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xtdR5tWnxY\",\"title\":\"菲律宾外交部敲打防长特奥多罗\",\"link\":\"https://news.ifeng.com/c/8xtdR5tWnxY\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xuHpOPpgLp\",\"title\":\"男子赴泰失联，最后通话称“我是安全的”\",\"link\":\"https://news.ifeng.com/c/8xuHpOPpgLp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xtQgVRAQyi\",\"title\":\"高市早苗：我十分想见金正恩\",\"link\":\"https://news.ifeng.com/c/8xtQgVRAQyi\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xsjrioAQW7\",\"title\":\"事关卡蓓诺洗发水，胖东来最新回应\",\"link\":\"https://news.ifeng.com/c/8xsjrioAQW7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"ifeng:https://news.ifeng.com/c/8xsprrNE6BU\",\"title\":\"2岁幼童被开水烫伤未及时送医死亡，无偿照看者遭索赔116万\",\"link\":\"https://news.ifeng.com/c/8xsprrNE6BU\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 1269,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1269
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1269,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1269,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1269,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1269,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1269,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1269
+        }
+      ]
+    }
+  }
 }

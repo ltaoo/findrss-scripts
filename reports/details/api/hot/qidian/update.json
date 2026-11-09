@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T22:17:14.364Z",
+  "checked_at": "2026-11-09T06:56:16.219Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/update",
@@ -9,15 +9,160 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 28
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60000
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 37
+    "status": 200,
+    "duration_ms": 1624
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/qidian.js",
+      "name": "起点 · 更新榜",
+      "kind": "hot",
+      "version": "1.3.1",
+      "path": "/qidian/update",
+      "request_path": "/api/hot/qidian/update",
+      "route_index": 5
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/qidian/update",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a57aeaa57928aa17"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1532,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "起点榜单解析完成 {\"type\":\"update\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://m.qidian.com/rank/update/",
+        "method": "GET",
+        "host": "m.qidian.com",
+        "pathname": "/rank/update/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1532,
+        "timings": {
+          "response_ms": 1532,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 更新榜\",\"link\":\"https://m.qidian.com/rank/update/\",\"category\":\"小说\",\"observed_at\":\"2026-11-09T06:56:17.792Z\",\"entries\":[{\"id\":\"qidian:book:1047321972\",\"title\":\"国民律师\",\"link\":\"https://m.qidian.com/book/1047321972/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047321972/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050066150\",\"title\":\"我在修仙界苟成地仙\",\"link\":\"https://m.qidian.com/book/1050066150/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050066150/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049585743\",\"title\":\"人在遮天，无限恐怖\",\"link\":\"https://m.qidian.com/book/1049585743/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049585743/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050027259\",\"title\":\"张献忠穿越崇祯，群臣吓哭了\",\"link\":\"https://m.qidian.com/book/1050027259/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050027259/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049120379\",\"title\":\"华娱：关键词从发行开始\",\"link\":\"https://m.qidian.com/book/1049120379/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049120379/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050576503\",\"title\":\"斗罗：唐三暴露心声后，剧情崩了\",\"link\":\"https://m.qidian.com/book/1050576503/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050576503/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050090721\",\"title\":\"1914从否决施里芬计划开始\",\"link\":\"https://m.qidian.com/book/1050090721/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050090721/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050845900\",\"title\":\"斗罗：我唐舞麟，觉醒变异昊天锤\",\"link\":\"https://m.qidian.com/book/1050845900/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050845900/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050799102\",\"title\":\"斗罗：武魂甲贺忍蛙，唐三麻了\",\"link\":\"https://m.qidian.com/book/1050799102/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050799102/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049659128\",\"title\":\"凡人：道友请入万魂幡！\",\"link\":\"https://m.qidian.com/book/1049659128/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049659128/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049909589\",\"title\":\"全职高手：和楚云秀相约荣耀鬼服\",\"link\":\"https://m.qidian.com/book/1049909589/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049909589/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050260286\",\"title\":\"重生香江我成了落魄豪门公子哥\",\"link\":\"https://m.qidian.com/book/1050260286/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050260286/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050344894\",\"title\":\"不登校，县城街角捡到coser\",\"link\":\"https://m.qidian.com/book/1050344894/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050344894/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1046065016\",\"title\":\"我师妹怎么看谁都像邪修？\",\"link\":\"https://m.qidian.com/book/1046065016/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1046065016/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051024960\",\"title\":\"娱乐：这个导演爱吃软饭！\",\"link\":\"https://m.qidian.com/book/1051024960/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051024960/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051187333\",\"title\":\"半岛：你到底喜欢谁？\",\"link\":\"https://m.qidian.com/book/1051187333/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051187333/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051118200\",\"title\":\"人在遮天，但是深空彼岸\",\"link\":\"https://m.qidian.com/book/1051118200/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051118200/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050620952\",\"title\":\"女神今晚留下来\",\"link\":\"https://m.qidian.com/book/1050620952/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050620952/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1047463197\",\"title\":\"东京少女重度依赖\",\"link\":\"https://m.qidian.com/book/1047463197/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047463197/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050757785\",\"title\":\"学霸：我的攻略对象是各个学科？\",\"link\":\"https://m.qidian.com/book/1050757785/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050757785/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}}]}",
+    "timing": {
+      "elapsed_ms": 1532,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1532
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1532,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1532,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1532,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1532,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1532,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1532
+        }
+      ]
+    }
+  }
 }

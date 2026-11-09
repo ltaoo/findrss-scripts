@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T22:17:11.414Z",
+  "checked_at": "2026-11-09T06:55:14.225Z",
   "inspection": {
     "file": "hot/kuaishou_hot.js",
     "path": "/api/hot/kuaishou/hot",
@@ -12,15 +12,15 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 48
+    "duration_ms": 23
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2887
+    "status": 502,
+    "duration_ms": 1681
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "hot/kuaishou_hot.js",
       "name": "快手",
@@ -39,7 +39,7 @@
       "headers": {
         "Accept": "application/json",
         "User-Agent": "node",
-        "CF-Ray": "a577f2465c0deb83"
+        "CF-Ray": "a57ae921ec32061c"
       },
       "authentication": {
         "required": true,
@@ -47,21 +47,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2629,
+    "phase": "runtime",
+    "elapsed_ms": 1658,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"kuaishou\",\"count\":49,\"missing_rank\":0}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":49}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：页面缺少内嵌 JSON",
+    "error_text": "脚本执行失败：页面缺少内嵌 JSON\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at embedded_json (@findrss/util:81:34)\n    at fetch (script-source.js:48:41)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.kuaishou.com/?isHome=1",
@@ -75,17 +66,16 @@
           "headers_sent": []
         },
         "started_ms": 0,
-        "duration_ms": 2629,
+        "duration_ms": 1658,
         "timings": {
-          "response_ms": 2239,
-          "body_read_ms": 390,
+          "response_ms": 1658,
+          "body_read_ms": 0,
           "decode_and_transfer_ms": 0
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"快手\",\"link\":\"https://www.kuaishou.com\",\"category\":\"娱乐\",\"observed_at\":\"2026-11-08T22:17:14.211Z\",\"entries\":[{\"id\":\"kuaishou:做党和人民信赖的新闻工作者\",\"title\":\"做党和人民信赖的新闻工作者\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%81%9A%E5%85%9A%E5%92%8C%E4%BA%BA%E6%B0%91%E4%BF%A1%E8%B5%96%E7%9A%84%E6%96%B0%E9%97%BB%E5%B7%A5%E4%BD%9C%E8%80%85\",\"rank\":null,\"pinned\":true,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"kuaishou:今日寒衣节\",\"title\":\"今日寒衣节\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BB%8A%E6%97%A5%E5%AF%92%E8%A1%A3%E8%8A%82\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1241.7万\"}},{\"id\":\"kuaishou:张纯如逝世22周年\",\"title\":\"张纯如逝世22周年\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%BC%A0%E7%BA%AF%E5%A6%82%E9%80%9D%E4%B8%9622%E5%91%A8%E5%B9%B4\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1241.2万\"}},{\"id\":\"kuaishou:我国新一代通信网重要突破\",\"title\":\"我国新一代通信网重要突破\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%88%91%E5%9B%BD%E6%96%B0%E4%B8%80%E4%BB%A3%E9%80%9A%E4%BF%A1%E7%BD%91%E9%87%8D%E8%A6%81%E7%AA%81%E7%A0%B4\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1240.9万\"}},{\"id\":\"kuaishou:疑似秦始皇儿子头骨面容复原图\",\"title\":\"疑似秦始皇儿子头骨面容复原图\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%96%91%E4%BC%BC%E7%A7%A6%E5%A7%8B%E7%9A%87%E5%84%BF%E5%AD%90%E5%A4%B4%E9%AA%A8%E9%9D%A2%E5%AE%B9%E5%A4%8D%E5%8E%9F%E5%9B%BE\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1240.8万\"}},{\"id\":\"kuaishou:住老君山透明悬崖酒店\",\"title\":\"住老君山透明悬崖酒店\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BD%8F%E8%80%81%E5%90%9B%E5%B1%B1%E9%80%8F%E6%98%8E%E6%82%AC%E5%B4%96%E9%85%92%E5%BA%97\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1240.7万\"}},{\"id\":\"kuaishou:芒果获众人认可\",\"title\":\"芒果获众人认可\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%8A%92%E6%9E%9C%E8%8E%B7%E4%BC%97%E4%BA%BA%E8%AE%A4%E5%8F%AF\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1116万\"}},{\"id\":\"kuaishou:AI短剧讽刺过度加班\",\"title\":\"AI短剧讽刺过度加班\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=AI%E7%9F%AD%E5%89%A7%E8%AE%BD%E5%88%BA%E8%BF%87%E5%BA%A6%E5%8A%A0%E7%8F%AD\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1094.3万\"}},{\"id\":\"kuaishou:华晨宇演出遇雨湿透换衣\",\"title\":\"华晨宇演出遇雨湿透换衣\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%8D%8E%E6%99%A8%E5%AE%87%E6%BC%94%E5%87%BA%E9%81%87%E9%9B%A8%E6%B9%BF%E9%80%8F%E6%8D%A2%E8%A1%A3\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1073.9万\"}},{\"id\":\"kuaishou:肖战李沁神仙友谊\",\"title\":\"肖战李沁神仙友谊\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%82%96%E6%88%98%E6%9D%8E%E6%B2%81%E7%A5%9E%E4%BB%99%E5%8F%8B%E8%B0%8A\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1052万\"}},{\"id\":\"kuaishou:没钱谈恋爱的尴尬瞬间\",\"title\":\"没钱谈恋爱的尴尬瞬间\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%B2%A1%E9%92%B1%E8%B0%88%E6%81%8B%E7%88%B1%E7%9A%84%E5%B0%B4%E5%B0%AC%E7%9E%AC%E9%97%B4\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1032万\"}},{\"id\":\"kuaishou:警惕网络畸形审美\",\"title\":\"警惕网络畸形审美\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%AD%A6%E6%83%95%E7%BD%91%E7%BB%9C%E7%95%B8%E5%BD%A2%E5%AE%A1%E7%BE%8E\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1021.7万\"}},{\"id\":\"kuaishou:全国消防日防火于未然\",\"title\":\"全国消防日防火于未然\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%85%A8%E5%9B%BD%E6%B6%88%E9%98%B2%E6%97%A5%E9%98%B2%E7%81%AB%E4%BA%8E%E6%9C%AA%E7%84%B6\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1011.5万\"}},{\"id\":\"kuaishou:内塔尼亚胡输了\",\"title\":\"内塔尼亚胡输了\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%86%85%E5%A1%94%E5%B0%BC%E4%BA%9A%E8%83%A1%E8%BE%93%E4%BA%86\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"991.3万\"}},{\"id\":\"kuaishou:特朗普将决定是否打击伊朗\",\"title\":\"特朗普将决定是否打击伊朗\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%89%B9%E6%9C%97%E6%99%AE%E5%B0%86%E5%86%B3%E5%AE%9A%E6%98%AF%E5%90%A6%E6%89%93%E5%87%BB%E4%BC%8A%E6%9C%97\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"988.8万\"}},{\"id\":\"kuaishou:秦皇岛暴雪\",\"title\":\"秦皇岛暴雪\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%A7%A6%E7%9A%87%E5%B2%9B%E6%9A%B4%E9%9B%AA\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"986.8万\"}},{\"id\":\"kuaishou:甘肃女友融入陕西家庭\",\"title\":\"甘肃女友融入陕西家庭\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%94%98%E8%82%83%E5%A5%B3%E5%8F%8B%E8%9E%8D%E5%85%A5%E9%99%95%E8%A5%BF%E5%AE%B6%E5%BA%AD\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"984.7万\"}},{\"id\":\"kuaishou:大三男生做AI漫剧营收超300万\",\"title\":\"大三男生做AI漫剧营收超300万\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A4%A7%E4%B8%89%E7%94%B7%E7%94%9F%E5%81%9AAI%E6%BC%AB%E5%89%A7%E8%90%A5%E6%94%B6%E8%B6%85300%E4%B8%87\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"979.6万\"}},{\"id\":\"kuaishou:60岁李若彤红毯状态佳\",\"title\":\"60岁李若彤红毯状态佳\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=60%E5%B2%81%E6%9D%8E%E8%8B%A5%E5%BD%A4%E7%BA%A2%E6%AF%AF%E7%8A%B6%E6%80%81%E4%BD%B3\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"974.1万\"}},{\"id\":\"kuaishou:老人确认行凶男子身亡后才放心\",\"title\":\"老人确认行凶男子身亡后才放心\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%80%81%E4%BA%BA%E7%A1%AE%E8%AE%A4%E8%A1%8C%E5%87%B6%E7%94%B7%E5%AD%90%E8%BA%AB%E4%BA%A1%E5%90%8E%E6%89%8D%E6%94%BE%E5%BF%83\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"968.7万\"}},{\"id\":\"kuaishou:但斌回应美股持仓大跌\",\"title\":\"但斌回应美股持仓大跌\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BD%86%E6%96%8C%E5%9B%9E%E5%BA%94%E7%BE%8E%E8%82%A1%E6%8C%81%E4%BB%93%E5%A4%A7%E8%B7%8C\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"966.6万\"}},{\"id\":\"kuaishou:女子抱猫被踹致黄体破裂\",\"title\":\"女子抱猫被踹致黄体破裂\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A5%B3%E5%AD%90%E6%8A%B1%E7%8C%AB%E8%A2%AB%E8%B8%B9%E8%87%B4%E9%BB%84%E4%BD%93%E7%A0%B4%E8%A3%82\",\"rank\":21,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"962.1万\"}},{\"id\":\"kuaishou:洪金宝追忆林正英\",\"title\":\"洪金宝追忆林正英\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%B4%AA%E9%87%91%E5%AE%9D%E8%BF%BD%E5%BF%86%E6%9E%97%E6%AD%A3%E8%8B%B1\",\"rank\":22,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"956.8万\"}},{\"id\":\"kuaishou:最后一位开国将军王扶之逝世\",\"title\":\"最后一位开国将军王扶之逝世\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%9C%80%E5%90%8E%E4%B8%80%E4%BD%8D%E5%BC%80%E5%9B%BD%E5%B0%86%E5%86%9B%E7%8E%8B%E6%89%B6%E4%B9%8B%E9%80%9D%E4%B8%96\",\"rank\":23,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"951.6万\"}},{\"id\":\"kuaishou:辽宁迎入冬首场大范围降雪\",\"title\":\"辽宁迎入冬首场大范围降雪\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%BE%BD%E5%AE%81%E8%BF%8E%E5%85%A5%E5%86%AC%E9%A6%96%E5%9C%BA%E5%A4%A7%E8%8C%83%E5%9B%B4%E9%99%8D%E9%9B%AA\",\"rank\":24,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"944万\"}},{\"id\":\"kuaishou:国乒无缘法兰克福站四强\",\"title\":\"国乒无缘法兰克福站四强\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%9B%BD%E4%B9%92%E6%97%A0%E7%BC%98%E6%B3%95%E5%85%B0%E5%85%8B%E7%A6%8F%E7%AB%99%E5%9B%9B%E5%BC%BA\",\"rank\":25,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"941.7万\"}},{\"id\":\"kuaishou:女孩每天跳绳1000次半月板受损\",\"title\":\"女孩每天跳绳1000次半月板受损\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A5%B3%E5%AD%A9%E6%AF%8F%E5%A4%A9%E8%B7%B3%E7%BB%B31000%E6%AC%A1%E5%8D%8A%E6%9C%88%E6%9D%BF%E5%8F%97%E6%8D%9F\",\"rank\":26,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"939.7万\"}},{\"id\":\"kuaishou:许飞穿迷彩服意外走红\",\"title\":\"许飞穿迷彩服意外走红\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%AE%B8%E9%A3%9E%E7%A9%BF%E8%BF%B7%E5%BD%A9%E6%9C%8D%E6%84%8F%E5%A4%96%E8%B5%B0%E7%BA%A2\",\"rank\":27,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"937.6万\"}},{\"id\":\"kuaishou:白血病女生病房上课后离世\",\"title\":\"白血病女生病房上课后离世\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%99%BD%E8%A1%80%E7%97%85%E5%A5%B3%E7%94%9F%E7%97%85%E6%88%BF%E4%B8%8A%E8%AF%BE%E5%90%8E%E7%A6%BB%E4%B8%96\",\"rank\":28,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"932.6万\"}},{\"id\":\"kuaishou:埃及列车脱轨致司机死亡64人受伤\",\"title\":\"埃及列车脱轨致司机死亡64人受伤\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%9F%83%E5%8F%8A%E5%88%97%E8%BD%A6%E8%84%B1%E8%BD%A8%E8%87%B4%E5%8F%B8%E6%9C%BA%E6%AD%BB%E4%BA%A164%E4%BA%BA%E5%8F%97%E4%BC%A4\",\"rank\":29,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"930.5万\"}},{\"id\":\"kuaishou:内塔尼亚胡或扩战稳政权\",\"title\":\"内塔尼亚胡或扩战稳政权\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%86%85%E5%A1%94%E5%B0%BC%E4%BA%9A%E8%83%A1%E6%88%96%E6%89%A9%E6%88%98%E7%A8%B3%E6%94%BF%E6%9D%83\",\"rank\":30,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"927.9万\"}},{\"id\":\"kuaishou:山西一键切换冰雪模式\",\"title\":\"山西一键切换冰雪模式\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%B1%B1%E8%A5%BF%E4%B8%80%E9%94%AE%E5%88%87%E6%8D%A2%E5%86%B0%E9%9B%AA%E6%A8%A1%E5%BC%8F\",\"rank\":31,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"925.9万\"}},{\"id\":\"kuaishou:山姆多款始祖鸟加拿大鹅被抢空\",\"title\":\"山姆多款始祖鸟加拿大鹅被抢空\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%B1%B1%E5%A7%86%E5%A4%9A%E6%AC%BE%E5%A7%8B%E7%A5%96%E9%B8%9F%E5%8A%A0%E6%8B%BF%E5%A4%A7%E9%B9%85%E8%A2%AB%E6%8A%A2%E7%A9%BA\",\"rank\":32,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"923.3万\"}},{\"id\":\"kuaishou:西班牙小伙赴进博留沪创业\",\"title\":\"西班牙小伙赴进博留沪创业\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%A5%BF%E7%8F%AD%E7%89%99%E5%B0%8F%E4%BC%99%E8%B5%B4%E8%BF%9B%E5%8D%9A%E7%95%99%E6%B2%AA%E5%88%9B%E4%B8%9A\",\"rank\":33,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"920.7万\"}},{\"id\":\"kuaishou:中国台湾男子在泰国商场坠亡\",\"title\":\"中国台湾男子在泰国商场坠亡\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%AD%E5%9B%BD%E5%8F%B0%E6%B9%BE%E7%94%B7%E5%AD%90%E5%9C%A8%E6%B3%B0%E5%9B%BD%E5%95%86%E5%9C%BA%E5%9D%A0%E4%BA%A1\",\"rank\":34,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"918.5万\"}},{\"id\":\"kuaishou:8岁男孩迷上做花圈棺材\",\"title\":\"8岁男孩迷上做花圈棺材\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=8%E5%B2%81%E7%94%B7%E5%AD%A9%E8%BF%B7%E4%B8%8A%E5%81%9A%E8%8A%B1%E5%9C%88%E6%A3%BA%E6%9D%90\",\"rank\":35,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"916.1万\"}},{\"id\":\"kuaishou:白血病初二女生蓓蓓去世\",\"title\":\"白血病初二女生蓓蓓去世\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%99%BD%E8%A1%80%E7%97%85%E5%88%9D%E4%BA%8C%E5%A5%B3%E7%94%9F%E8%93%93%E8%93%93%E5%8E%BB%E4%B8%96\",\"rank\":36,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"913.3万\"}},{\"id\":\"kuaishou:特朗普白宫人事大换血\",\"title\":\"特朗普白宫人事大换血\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%89%B9%E6%9C%97%E6%99%AE%E7%99%BD%E5%AE%AB%E4%BA%BA%E4%BA%8B%E5%A4%A7%E6%8D%A2%E8%A1%80\",\"rank\":37,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"911.1万\"}},{\"id\":\"kuaishou:俄炮轰欧洲11国军演\",\"title\":\"俄炮轰欧洲11国军演\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BF%84%E7%82%AE%E8%BD%B0%E6%AC%A7%E6%B4%B211%E5%9B%BD%E5%86%9B%E6%BC%94\",\"rank\":38,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"908.4万\"}},{\"id\":\"kuaishou:世界美食走上中国餐桌\",\"title\":\"世界美食走上中国餐桌\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%96%E7%95%8C%E7%BE%8E%E9%A3%9F%E8%B5%B0%E4%B8%8A%E4%B8%AD%E5%9B%BD%E9%A4%90%E6%A1%8C\",\"rank\":39,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"905.7万\"}},{\"id\":\"kuaishou:王大雷扑碎成都蓉城冠军梦\",\"title\":\"王大雷扑碎成都蓉城冠军梦\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%8E%8B%E5%A4%A7%E9%9B%B7%E6%89%91%E7%A2%8E%E6%88%90%E9%83%BD%E8%93%89%E5%9F%8E%E5%86%A0%E5%86%9B%E6%A2%A6\",\"rank\":40,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"901.2万\"}},{\"id\":\"kuaishou:秦皇岛暴雪多处车棚被积雪压塌\",\"title\":\"秦皇岛暴雪多处车棚被积雪压塌\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%A7%A6%E7%9A%87%E5%B2%9B%E6%9A%B4%E9%9B%AA%E5%A4%9A%E5%A4%84%E8%BD%A6%E6%A3%9A%E8%A2%AB%E7%A7%AF%E9%9B%AA%E5%8E%8B%E5%A1%8C\",\"rank\":41,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"898.8万\"}},{\"id\":\"kuaishou:加沙暴雨致7万顶帐篷被淹\",\"title\":\"加沙暴雨致7万顶帐篷被淹\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%8A%A0%E6%B2%99%E6%9A%B4%E9%9B%A8%E8%87%B47%E4%B8%87%E9%A1%B6%E5%B8%90%E7%AF%B7%E8%A2%AB%E6%B7%B9\",\"rank\":42,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"896.7万\"}},{\"id\":\"kuaishou:太原火灾伤者家属焦急等待\",\"title\":\"太原火灾伤者家属焦急等待\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A4%AA%E5%8E%9F%E7%81%AB%E7%81%BE%E4%BC%A4%E8%80%85%E5%AE%B6%E5%B1%9E%E7%84%A6%E6%80%A5%E7%AD%89%E5%BE%85\",\"rank\":43,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"894.2万\"}},{\"id\":\"kuaishou:丈母娘退彩礼帮女婿还债\",\"title\":\"丈母娘退彩礼帮女婿还债\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%88%E6%AF%8D%E5%A8%98%E9%80%80%E5%BD%A9%E7%A4%BC%E5%B8%AE%E5%A5%B3%E5%A9%BF%E8%BF%98%E5%80%BA\",\"rank\":44,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"893.6万\"}},{\"id\":\"kuaishou:秦皇岛遭遇暴雪大量汽车被雪埋\",\"title\":\"秦皇岛遭遇暴雪大量汽车被雪埋\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%A7%A6%E7%9A%87%E5%B2%9B%E9%81%AD%E9%81%87%E6%9A%B4%E9%9B%AA%E5%A4%A7%E9%87%8F%E6%B1%BD%E8%BD%A6%E8%A2%AB%E9%9B%AA%E5%9F%8B\",\"rank\":45,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"892.7万\"}},{\"id\":\"kuaishou:上海74亿发票工厂被端\",\"title\":\"上海74亿发票工厂被端\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%8A%E6%B5%B774%E4%BA%BF%E5%8F%91%E7%A5%A8%E5%B7%A5%E5%8E%82%E8%A2%AB%E7%AB%AF\",\"rank\":46,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"891.8万\"}},{\"id\":\"kuaishou:WB战胜TTG晋级年总决赛\",\"title\":\"WB战胜TTG晋级年总决赛\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=WB%E6%88%98%E8%83%9CTTG%E6%99%8B%E7%BA%A7%E5%B9%B4%E6%80%BB%E5%86%B3%E8%B5%9B\",\"rank\":47,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"891.1万\"}},{\"id\":\"kuaishou:老人用土方致男婴铅中毒\",\"title\":\"老人用土方致男婴铅中毒\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%80%81%E4%BA%BA%E7%94%A8%E5%9C%9F%E6%96%B9%E8%87%B4%E7%94%B7%E5%A9%B4%E9%93%85%E4%B8%AD%E6%AF%92\",\"rank\":48,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"890.3万\"}}]}",
     "timing": {
-      "elapsed_ms": 2629,
+      "elapsed_ms": 1658,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -130,31 +120,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 0,
-          "duration_ms": 2629
+          "duration_ms": 1658
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2629,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2629,
+          "name": "错误诊断收集",
+          "started_ms": 1658,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2629,
+          "started_ms": 1658,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2629,
+          "name": "失败后浏览器清理",
+          "started_ms": 1658,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2629,
+          "started_ms": 1658,
           "duration_ms": 0
         }
       ],
@@ -162,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 0,
-          "duration_ms": 2629
+          "duration_ms": 1658
         }
       ]
     }
