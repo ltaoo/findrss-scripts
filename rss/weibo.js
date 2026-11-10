@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.0";
+export const version = "1.1.1";
 export const platform = {
   name: "微博",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" data-n="weibo-platform-icon"><path fill="red" d="M1 18c-1-5 3-9 9-10 1-3 4-5 7-4 3 1 3 4 2 6 5 1 9 4 9 8 0 6-8 11-16 11C5 29 1 25 1 18Z" data-n="weibo-icon-path-1" /><path fill="#fff" d="M5 21c0-4 4-6 9-6s9 2 9 6-4 6-9 6-9-2-9-6Z" data-n="weibo-icon-path-2" /><circle cx="13" cy="21" r="3.2" data-n="weibo-icon-circle-3" /><circle cx="12" cy="20" r=".8" fill="#fff" data-n="weibo-icon-circle-4" /><path fill="none" stroke="#ff0" stroke-linecap="round" stroke-width="1.6" d="M22 9c3 1 5 3 6 6M23 6c4 1 7 4 8 8" data-n="weibo-icon-path-5" /></svg>',
@@ -13,14 +13,30 @@ export const permissions = {
       id: "account_0",
       origin: "https://weibo.com",
       path_prefix: "/",
-      names: ["SUB", "SUBP", "ALF", "SSOLoginState", "XSRF-TOKEN"],
+      names: [
+        "SUB",
+        "SUBP",
+        "ALF",
+        "SSOLoginState",
+        "SCF",
+        "WBPSESS",
+        "XSRF-TOKEN",
+      ],
       purpose: "读取用户授权的 微博用户列表 页面或接口",
     },
     {
       id: "account_1",
       origin: "https://www.weibo.com",
       path_prefix: "/",
-      names: ["SUB", "SUBP", "ALF", "SSOLoginState", "XSRF-TOKEN"],
+      names: [
+        "SUB",
+        "SUBP",
+        "ALF",
+        "SSOLoginState",
+        "SCF",
+        "WBPSESS",
+        "XSRF-TOKEN",
+      ],
       purpose: "读取用户授权的 微博用户列表 页面或接口",
     },
   ],
@@ -434,6 +450,7 @@ export class WeiboRSS extends RSSScript {
               "&page=1&feature=0",
             {
               headers: WeiboRSS.request_headers(link, true),
+              cookie_headers: { "x-xsrf-token": "XSRF-TOKEN" },
             },
           );
           if (result_3.error) throw result_3.error;
@@ -462,7 +479,7 @@ export class WeiboRSS extends RSSScript {
           }
           if (data.ok === -100) {
             return Result.Err(
-              "微博列表接口要求重新登录（ok: -100），请在 Cookie 管理中同步有效的 weibo.com 登录 Cookie",
+              "微博列表接口要求重新登录（ok: -100），请在 Cookie 管理中同步完整的 weibo.com 登录 Cookie（包括 SUB、SCF、WBPSESS、XSRF-TOKEN）；若已同步，请在官网确认登录并完成验证后重新同步",
               "UPSTREAM_AUTH_REQUIRED",
             );
           }

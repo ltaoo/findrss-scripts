@@ -130,7 +130,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 七猫小说章节 | [rss/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qimao.js) | `/qimao/book/13030701` | 1.0.2 | 可选 Cookie；章节链接指向官网；TCP 传输兼容折行响应头 |
 | Telegram 公开频道 | [rss/telegram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/telegram.js) | `/telegram/channel/telegram` | 1.1.0 | 公开来源 |
 | 天天看书小说章节 | [rss/ttk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ttk.js) | `/ttk/book/congzhanyaochumokaishichangshengbusi` | 1.1.1 | 公开来源 |
-| 微博用户列表 | [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) | `/weibo/u/1992429663` | 1.1.0 | Cookie 授权 |
+| 微博用户列表 | [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) | `/weibo/u/1992429663` | 1.1.1 | Cookie 授权（同步完整登录 Cookie，包含 SCF、WBPSESS、XSRF-TOKEN） |
 | 微信视频号 | [rss/wxchannels.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxchannels.js) | `/wxchannels/v2_060000231003b20faec8c5e1811ac5d4c803ee35b077b115ba7f22bad44fca23255c1a271f23@finder` | 1.2.0 | 配置：`api_url`、`auth_token`、`PlayerHostname` |
 | 微信公众号 | [rss/wxmp.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxmp.js) | `/wxmp/wow36kr` | 1.2.0 | 配置：`api_url`、`auth_token` |
 | X 用户作品 | [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) | `/x/NTCGoK9jFQURsEu` | 1.1.0 | Cookie 授权 |

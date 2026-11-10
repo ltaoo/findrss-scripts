@@ -120,3 +120,41 @@ test("生产 QuickJS：微博浏览器请求头与显式授权 Cookie 一起发�
   assert.equal(seen[1].get("sec-fetch-mode"), "cors");
   assert.equal(seen[1].get("x-requested-with"), "XMLHttpRequest");
 });
+
+test("生产 QuickJS：微博列表保留完整会话 Cookie 并发送派生 XSRF", async () => {
+  const cookies = ['SUB', 'SUBP', 'SCF', 'WBPSESS', 'XSRF-TOKEN'].map(name => ({
+    name, value: 'fixture-' + name, domain: '.weibo.com', path: '/', secure: true,
+  }));
+  cookies.push({ name: 'unrelated', value: 'not-authorized', domain: '.weibo.com', path: '/', secure: true });
+  let list_headers;
+  const result = await with_fetch(async (url, options) => {
+    if (!url.includes('/ajax/statuses/mymblog?')) return new Response('<html>应用壳</html>');
+    list_headers = new Headers(options.headers);
+    const complete = cookies.slice(0, -1).every(cookie =>
+      list_headers.get('cookie')?.split('; ').includes(cookie.name + '=' + cookie.value))
+      && list_headers.get('x-xsrf-token') === 'fixture-XSRF-TOKEN';
+    return Response.json(complete
+      ? { ok: 1, data: { list: [{ idstr: '9', text_raw: '正文', user: {} }] } }
+      : { ok: -100 });
+  }, () => execute_script_inner(script, metadata, null, request_context, cookies, ''));
+  assert.equal(JSON.parse(result.output).items[0].id, '9');
+  assert.doesNotMatch(list_headers.get('cookie'), /unrelated|not-authorized/);
+  const compiled = await compile_script_module_inner(script);
+  for (const permission of compiled.metadata.permissions.cookies) {
+    assert.ok(permission.names.includes('SCF'), permission.origin);
+    assert.ok(permission.names.includes('WBPSESS'), permission.origin);
+  }
+});
+
+test("生产 QuickJS：已携带会话 Cookie 仍被微博拒绝时保留登录错误且不泄漏 Cookie", async () => {
+  await with_fetch(async url => url.includes('/ajax/statuses/mymblog?')
+    ? Response.json({ ok: -100 }) : new Response('<html>应用壳</html>'), () =>
+    assert.rejects(execute_script_inner(script, metadata, null, request_context, [
+      { name: 'SUB', value: 'private-session-fixture', domain: '.weibo.com', path: '/', secure: true },
+    ], ''), failure => {
+      assert.equal(failure.problem.code, 'UPSTREAM_AUTH_REQUIRED');
+      assert.match(failure.message, /重新登录.*-100/);
+      assert.doesNotMatch(failure.message, /private-session-fixture/);
+      return true;
+    }));
+});
