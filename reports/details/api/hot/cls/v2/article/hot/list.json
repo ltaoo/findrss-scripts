@@ -1,23 +1,169 @@
 {
-  "checked_at": "2026-11-09T22:33:22.478Z",
+  "checked_at": "2026-11-10T07:31:35.668Z",
   "inspection": {
     "file": "hot/cls.js",
     "path": "/api/hot/cls/v2/article/hot/list",
     "example": "/api/hot/cls/v2/article/hot/list",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 1123
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/cls/v2/article/hot/list.json",
+    "duration_ms": 539
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 41
+    "status": 200,
+    "duration_ms": 283
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/cls.js",
+      "name": "财联社 · 热门",
+      "kind": "hot",
+      "version": "1.0.2",
+      "path": "/cls/v2/article/hot/list",
+      "request_path": "/api/hot/cls/v2/article/hot/list",
+      "route_index": 1
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/cls/v2/article/hot/list",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5835bc3ecd47803"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 176,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"cls-hot\",\"count\":13,\"missing_rank\":13}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":13}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.cls.cn/v2/article/hot/list?appName=CailianpressWeb&os=web&sv=7.7.5&sign=9c11221af4f6b47b253098a8b9957b8f",
+        "method": "GET",
+        "host": "www.cls.cn",
+        "pathname": "/v2/article/hot/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 176,
+        "timings": {
+          "response_ms": 176,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"财联社 · 热门\",\"link\":\"https://www.cls.cn\",\"category\":\"财经\",\"observed_at\":\"2026-11-10T07:31:35.853Z\",\"entries\":[{\"id\":\"cls-hot:2529608\",\"title\":\"【早报】深夜暴力反弹，美股芯片股全线爆发；英伟达逆势大跌，收创近七个月新低；国际油价，跌至8月以来最低\",\"link\":\"https://www.cls.cn/detail/2529608\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529594\",\"title\":\"美股收盘：纳指欢腾大涨近3% 英伟达市值独自缩水12800亿元\",\"link\":\"https://www.cls.cn/detail/2529594\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529606\",\"title\":\"【数读IPO】国产工业母机细分龙头，今日上市\",\"link\":\"https://www.cls.cn/detail/2529606\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529750\",\"title\":\"中一签赚7万，A股再现“大肉签”\",\"link\":\"https://www.cls.cn/detail/2529750\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529629\",\"title\":\"美伊和平又现曙光？特朗普：结束战争现积极势头 不太可能打击伊朗\",\"link\":\"https://www.cls.cn/detail/2529629\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529899\",\"title\":\"10月中国出口同比增长35.2%！集成电路、自动数据处理设备翻倍，成品油大涨8成\",\"link\":\"https://www.cls.cn/detail/2529899\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529923\",\"title\":\"年内最后一批储蓄国债“秒光”，有大行上线两分钟额度售罄，定存利率回升抢购潮未止\",\"link\":\"https://www.cls.cn/detail/2529923\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529674\",\"title\":\"无惧市场情绪降温！Anthropic据悉拟于下周冲刺IPO\",\"link\":\"https://www.cls.cn/detail/2529674\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529571\",\"title\":\"八天搓出操作系统，还能设计智能硬件！Anthropic新旗舰模型亮相\",\"link\":\"https://www.cls.cn/detail/2529571\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529648\",\"title\":\"11月10日投资避雷针：特朗普称结束伊朗战争出现积极势头 布油重挫近6%\",\"link\":\"https://www.cls.cn/detail/2529648\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529933\",\"title\":\"一图看懂｜500→600→700→800：宇树科技股价不到1个月连闯四道整数关口\",\"link\":\"https://www.cls.cn/detail/2529933\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529622\",\"title\":\"欧盟拟向互联网应用“成瘾设计”开刀 美议员要求弹劾赫格塞思 | 环球市场\",\"link\":\"https://www.cls.cn/detail/2529622\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}},{\"id\":\"cls-hot:2529631\",\"title\":\"前10个月我国货物贸易进出口44.81万亿元 同比增长20%\",\"link\":\"https://www.cls.cn/detail/2529631\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"阅读量\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 176,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 176
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 176,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 176,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 176,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 176,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 176,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 176
+        }
+      ]
+    }
+  }
 }

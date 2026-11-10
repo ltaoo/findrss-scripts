@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T22:33:21.784Z",
+  "checked_at": "2026-11-10T07:31:35.062Z",
   "inspection": {
     "file": "hot/aihot.js",
     "path": "/api/hot/aihot/feed/all.xml",
@@ -11,12 +11,176 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/aihot/feed/all.xml.json",
-    "duration_ms": 2591
+    "duration_ms": 1250
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 365
+    "status": 200,
+    "duration_ms": 719
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/aihot.js",
+      "name": "AIHOT",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/aihot/feed/all.xml",
+      "request_path": "/api/hot/aihot/feed/all.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/aihot/feed/all.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5835bc02ff47834"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 70,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"aihot\",\"count\":50,\"missing_rank\":50}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":50}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://aihot.virxact.com/feed/all.xml",
+        "method": "GET",
+        "host": "aihot.virxact.com",
+        "pathname": "/feed/all.xml",
+        "status": 301,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 20,
+        "timings": {
+          "response_ms": 20
+        }
+      },
+      {
+        "url": "https://aihot.news/feed/all.xml",
+        "method": "GET",
+        "host": "aihot.news",
+        "pathname": "/feed/all.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 20,
+        "duration_ms": 50,
+        "timings": {
+          "response_ms": 50,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"AIHOT\",\"link\":\"https://aihot.virxact.com/all\",\"category\":\"科技\",\"observed_at\":\"2026-11-10T07:31:35.293Z\",\"entries\":[{\"id\":\"aihot:rvhnhz3yt6drs87r3gf9yrh1s\",\"title\":\"谷歌 Gemini 上线记忆摘要功能，可查看、编辑和删除 AI 记住的个人信息\",\"link\":\"https://aihot.news/items/rvhnhz3yt6drs87r3gf9yrh1s\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:yju4atux2x7xpqj5rpgp29gh8\",\"title\":\"Meta 发布 Muse Ember：1M 上下文的小型智能体模型\",\"link\":\"https://aihot.news/items/yju4atux2x7xpqj5rpgp29gh8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ob980onmw1uvlrmardsbv4mbp\",\"title\":\"Anthropic 发布 Claude Fable 5.2 与 Mythos 5.2，编码基准超 GPT-6 Astra\",\"link\":\"https://aihot.news/items/ob980onmw1uvlrmardsbv4mbp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:f1yeoe9t05p4xvu1vqn1fe82z\",\"title\":\"提示 Claude Fable 5.2：声明代码归属影响重构行为\",\"link\":\"https://aihot.news/items/f1yeoe9t05p4xvu1vqn1fe82z\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:xzw4yl280a5k6yu8jd5qarapi\",\"title\":\"苹果 Siri AI 调度规则曝光：约 2% 英文请求走本地模型，Skimmer 模块前置拦截\",\"link\":\"https://aihot.news/items/xzw4yl280a5k6yu8jd5qarapi\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:mo2qp30tsvb3cy6vonw7xb13s\",\"title\":\"OpenAI Codex 的 Dots 支持连接多台机器协同执行任务\",\"link\":\"https://aihot.news/items/mo2qp30tsvb3cy6vonw7xb13s\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:kwjee7bmjlede4e5k0zo4sm5o\",\"title\":\"MIT 主导团队获 ARPA-H 最高 5300 万美元资助，用生成式 AI 开发下一代除草剂\",\"link\":\"https://aihot.news/items/kwjee7bmjlede4e5k0zo4sm5o\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:o9d92ch2w57volp2rnu4owagx\",\"title\":\"Nvidia 等机构论文揭示无关文本通过 intrusion heads 削弱模型对问题的利用\",\"link\":\"https://aihot.news/items/o9d92ch2w57volp2rnu4owagx\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:q7kb5ik5pt33pnydmtil7mr6u\",\"title\":\"原今日头条 CEO 陈林首次公开承认离职，筹备 AI 教育创业\",\"link\":\"https://aihot.news/items/q7kb5ik5pt33pnydmtil7mr6u\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:lwbznpwnu3d7avukt0arjc2go\",\"title\":\"Anthropic 员工推荐用一条提示词让 Claude Code 全面审查项目\",\"link\":\"https://aihot.news/items/lwbznpwnu3d7avukt0arjc2go\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:b9pkumyv8ofrsjd4mr0zc3tjd\",\"title\":\"Seele AI 发布 Seele03 模型，可生成可编辑的游戏工程文件\",\"link\":\"https://aihot.news/items/b9pkumyv8ofrsjd4mr0zc3tjd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:pz5zq3nyrsf8za2qco82zd29p\",\"title\":\"IBM 拟将 Claude Mythos 集成进 Concert Protect\",\"link\":\"https://aihot.news/items/pz5zq3nyrsf8za2qco82zd29p\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:l9jile71fr96av8zafs02t3p4\",\"title\":\"可灵4.0打造哥本哈根品牌宣传片\",\"link\":\"https://aihot.news/items/l9jile71fr96av8zafs02t3p4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:kgdokhk7o4z59i3paj05238bl\",\"title\":\"实测灰度中的 GPT-6.2 Sol：代码动画与 AI 剪辑能否追平 Opus 5.5\",\"link\":\"https://aihot.news/items/kgdokhk7o4z59i3paj05238bl\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:mna5obim9zs439keyauqnh8nb\",\"title\":\"Adobe 与迪士尼达成多年战略合作，将 Firefly 等 AI 工具推广至乐园和内容制作\",\"link\":\"https://aihot.news/items/mna5obim9zs439keyauqnh8nb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:oalg6v34chp84xi6yeoho9r9p\",\"title\":\"马斯克转发：SpaceX 称 Grok 检测航空航天零件异物准确率达 99.9%，高于人工的 94%\",\"link\":\"https://aihot.news/items/oalg6v34chp84xi6yeoho9r9p\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:v2kttogijk2w2kuk3ip43brpo\",\"title\":\"蚂蚁灵波开源触觉基础模型 LingBot-Touch\",\"link\":\"https://aihot.news/items/v2kttogijk2w2kuk3ip43brpo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:v6gx11iipuaxs3d55cws4hi2v\",\"title\":\"LongCat-2.5 免费上线 OpenCode\",\"link\":\"https://aihot.news/items/v6gx11iipuaxs3d55cws4hi2v\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:y3k5kfq6bie1vvqpmtey93ibd\",\"title\":\"The Information：Nvidia 曾游说反对针对远程访问芯片的出口管制规则\",\"link\":\"https://aihot.news/items/y3k5kfq6bie1vvqpmtey93ibd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:l9q623ej4prg89hcxajl5ckx8\",\"title\":\"魅族 Flyme AIOS 官宣「超级 Aicy」上线：支持通话代接、出行管家与主动备车\",\"link\":\"https://aihot.news/items/l9q623ej4prg89hcxajl5ckx8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:i6uis8oxbtbkgr3udv2ngm6i1\",\"title\":\"OpenAI 部署控制室系统，35 秒内叫停失控 AI 智能体\",\"link\":\"https://aihot.news/items/i6uis8oxbtbkgr3udv2ngm6i1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:t3r8hpgvqjx6m5nntcvu0egd0\",\"title\":\"Azeem Azhar：AI 市场进入调整期，而非崩盘\",\"link\":\"https://aihot.news/items/t3r8hpgvqjx6m5nntcvu0egd0\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:r2mxmpiddonkhfsy6k2zr32dk\",\"title\":\"腾讯首款专属 AI 游戏陪伴 Agent“鹅次元”开启内测，支持实时陪聊与手机 QQ 陪伴\",\"link\":\"https://aihot.news/items/r2mxmpiddonkhfsy6k2zr32dk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:e60057mwacom4thn43un8gfas\",\"title\":\"MiniCPM-OCR 集成进 Docling\",\"link\":\"https://aihot.news/items/e60057mwacom4thn43un8gfas\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:d4f8o2c9r7r8b7fsdqnpev3eu\",\"title\":\"据报道 Anthropic 推进 IPO，计划下周四或周五挂牌\",\"link\":\"https://aihot.news/items/d4f8o2c9r7r8b7fsdqnpev3eu\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:yno6kcgniaxeetqa6g928wna4\",\"title\":\"Meta 推出轻量级 AI 模型 Muse Ember，跑分媲美 Claude Haiku 5.5，单任务成本仅 1/3\",\"link\":\"https://aihot.news/items/yno6kcgniaxeetqa6g928wna4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:oxb115p7flhh5upr2bh08t26v\",\"title\":\"Claude Fable 5.2 登顶 AA-3D 3D 交互榜\",\"link\":\"https://aihot.news/items/oxb115p7flhh5upr2bh08t26v\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:tddtlw62yubh48eeiezsdz5eu\",\"title\":\"Paramount Skydance CEO David Ellison：AI 或成现代史上最大创意解锁\",\"link\":\"https://aihot.news/items/tddtlw62yubh48eeiezsdz5eu\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:x8m6sq9l4vkmkqt6rqnchcqrc\",\"title\":\"Fireworks 遭黑客入侵，客户数据与部分模型权重暴露\",\"link\":\"https://aihot.news/items/x8m6sq9l4vkmkqt6rqnchcqrc\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:spldx7fx85cpl890x6b8gr5u9\",\"title\":\"Claude Fable 5.2 登顶 Arena WebDev 榜，比 Fable 5.1 快 30% 且降价\",\"link\":\"https://aihot.news/items/spldx7fx85cpl890x6b8gr5u9\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:lfw4cc14h85i07c00tah6pc90\",\"title\":\"Anthropic 发布 Fable 5.2 与 Mythos 5.2，llm-anthropic 0.31 已支持\",\"link\":\"https://aihot.news/items/lfw4cc14h85i07c00tah6pc90\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ti2pggxynvpgzivkx9dwb4dhi\",\"title\":\"Simon Willison 用 Claude Code 构建声学三角定位系统找出神秘蜂鸣声\",\"link\":\"https://aihot.news/items/ti2pggxynvpgzivkx9dwb4dhi\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ljc2f7hyvtplkggpez6tivvnz\",\"title\":\"实测Claude Fable 5.2：审美与细节的长任务能力体验\",\"link\":\"https://aihot.news/items/ljc2f7hyvtplkggpez6tivvnz\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:u1n6sw21ocnfdd1sdbd4i9m7z\",\"title\":\"Claude Fable 5.2 (xHigh) 以 1832 分登顶 Code Arena: WebDev 榜单\",\"link\":\"https://aihot.news/items/u1n6sw21ocnfdd1sdbd4i9m7z\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:kci32x4hgxrdl0v5o4xrjlxri\",\"title\":\"The Verge 梳理黄仁勋与 Megaspeed 高管丑闻对 Nvidia 出口管制游说的影响\",\"link\":\"https://aihot.news/items/kci32x4hgxrdl0v5o4xrjlxri\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:a5658v9vdvbmlb8j8y7vcrovl\",\"title\":\"Apple 论文：AMP1 让 Claude Opus 5.5 等通用模型零样本操控机械臂胜过 VLA\",\"link\":\"https://aihot.news/items/a5658v9vdvbmlb8j8y7vcrovl\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:po2cdt1whxfqyfew3e81l8mb0\",\"title\":\"实测 Claude Fable 5.2：一次直出视频与 3D 网页，审美与细节表现突出\",\"link\":\"https://aihot.news/items/po2cdt1whxfqyfew3e81l8mb0\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:yoiln3nl94gd0t3pahyhpl1xu\",\"title\":\"Anthropic 发布 Claude Fable 5.2 与 Mythos 5.2，API 调用费下降 20%\",\"link\":\"https://aihot.news/items/yoiln3nl94gd0t3pahyhpl1xu\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:t5mqlkgq1zlspdsk77jrx1ho5\",\"title\":\"Trump 就间谍指控表态支持 Nvidia CEO 黄仁勋\",\"link\":\"https://aihot.news/items/t5mqlkgq1zlspdsk77jrx1ho5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:lzsihkjga6ini01aqrzcuvtaw\",\"title\":\"Nvidia CEO 黄仁勋涉中国间谍风波：承认与 Megaspeed 高管 Alice Huang 有婚外情\",\"link\":\"https://aihot.news/items/lzsihkjga6ini01aqrzcuvtaw\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:dmwbvf5xa3txsm013y0pfgcgn\",\"title\":\"Rohan Paul 转述 Claude Fable 5.2 完成 23 年未解的黑洞计算\",\"link\":\"https://aihot.news/items/dmwbvf5xa3txsm013y0pfgcgn\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:xtxrx44by1ojv2vyoxls9vc5z\",\"title\":\"Meta 旗下 AI 助手 Muse 登陆苹果 Apple Watch\",\"link\":\"https://aihot.news/items/xtxrx44by1ojv2vyoxls9vc5z\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:zqvokl37rwbvoxzfk3c2v7964\",\"title\":\"做空机构 Culper Research 曾在丑闻爆发前六个月提示 Nvidia CEO 与疑似中国间谍的关系\",\"link\":\"https://aihot.news/items/zqvokl37rwbvoxzfk3c2v7964\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:f551f7n9uf3wx62ahi68jfjfw\",\"title\":\"Thinking Machines 宣布 Inkling 2 Small 上架 OpenRouter 限时免费\",\"link\":\"https://aihot.news/items/f551f7n9uf3wx62ahi68jfjfw\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:fygx0dgo15g11h72g034mqk9k\",\"title\":\"Fable 5.2 让达芬奇手稿变可交互\",\"link\":\"https://aihot.news/items/fygx0dgo15g11h72g034mqk9k\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:zkyiy3u3708z88lawgn7ti39p\",\"title\":\"OpenRouter 限时免费开放 Thinking Machines 的 Inkling 2 Small 模型\",\"link\":\"https://aihot.news/items/zkyiy3u3708z88lawgn7ti39p\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:ag7vdi57n6q8x7xp9u6l1hifa\",\"title\":\"Artificial Analysis 独立评测：GPT Image 2.6 Flare 生成速度约为 2.5 Flare 的两倍\",\"link\":\"https://aihot.news/items/ag7vdi57n6q8x7xp9u6l1hifa\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:t4gzf2sqcpwcazdvdavamji2d\",\"title\":\"OpenAI 建 Control Room 追踪模型负载并快速叫停\",\"link\":\"https://aihot.news/items/t4gzf2sqcpwcazdvdavamji2d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:m7vr6vetxrx0q8fozv289yin3\",\"title\":\"Meta 将 Muse Ember、Muse Wonder 和 Muse Spark 1.3 带入 Google Cloud\",\"link\":\"https://aihot.news/items/m7vr6vetxrx0q8fozv289yin3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"aihot:lko5m98q1kk1dlcjihvk527w8\",\"title\":\"Figma 官方讲解画布智能体的 6 种实用方法\",\"link\":\"https://aihot.news/items/lko5m98q1kk1dlcjihvk527w8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 70,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 70
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 70,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 70,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 70,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 70,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 70,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 70
+        }
+      ]
+    }
+  }
 }

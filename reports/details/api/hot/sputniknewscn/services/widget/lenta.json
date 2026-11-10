@@ -1,22 +1,169 @@
 {
-  "checked_at": "2026-11-09T22:35:31.790Z",
+  "checked_at": "2026-11-10T07:31:50.263Z",
   "inspection": {
     "file": "hot/sputniknewscn.js",
     "path": "/api/hot/sputniknewscn/services/widget/lenta",
     "example": "/api/hot/sputniknewscn/services/widget/lenta",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 37
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/sputniknewscn/services/widget/lenta.json",
+    "duration_ms": 1183
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 393
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/sputniknewscn.js",
+      "name": "卫星通讯社",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/sputniknewscn/services/widget/lenta",
+      "request_path": "/api/hot/sputniknewscn/services/widget/lenta",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/sputniknewscn/services/widget/lenta",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5835c1f2880168c"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 298,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"sputniknewscn\",\"count\":20,\"missing_rank\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://sputniknews.cn/services/widget/lenta/",
+        "method": "GET",
+        "host": "sputniknews.cn",
+        "pathname": "/services/widget/lenta/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 298,
+        "timings": {
+          "response_ms": 298,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"卫星通讯社\",\"link\":\"https://sputniknews.cn\",\"category\":\"综合\",\"observed_at\":\"2026-11-10T07:31:50.596Z\",\"entries\":[{\"id\":\"sputniknewscn:/20261110/1074035634.html\",\"title\":\"俄外交部：俄方代表团没有与北约代表在阿布扎比会面的计划\",\"link\":\"https://sputniknews.cn/20261110/1074035634.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074035529.html\",\"title\":\"赫格塞思：美国正终止对欧洲的国防补贴\",\"link\":\"https://sputniknews.cn/20261110/1074035529.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074035349.html\",\"title\":\"媒体：内塔尼亚胡每日呼吁特朗普重启与伊朗的冲突\",\"link\":\"https://sputniknews.cn/20261110/1074035349.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074035256.html\",\"title\":\"解决乌克兰问题在阿布扎比三方谈判中仅是议题之一\",\"link\":\"https://sputniknews.cn/20261110/1074035256.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074035123.html\",\"title\":\"日本将向菲律宾无偿提供沿岸监视雷达，力图制衡中国\",\"link\":\"https://sputniknews.cn/20261110/1074035123.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074034951.html\",\"title\":\"俄国防部：俄军使用无人机在基辅州击中两座变电站\",\"link\":\"https://sputniknews.cn/20261110/1074034951.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074033657.html\",\"title\":\"中美两军举行“驼峰航线”美军援华抗日飞行员遗骸移交仪式\",\"link\":\"https://sputniknews.cn/20261110/1074033657.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074033409.html\",\"title\":\"特朗普：伊朗希望与美国达成协议，冲突结束日期尚不清楚\",\"link\":\"https://sputniknews.cn/20261110/1074033409.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074033329.html\",\"title\":\"俄美乌三方会谈将于北京时间15时50分开始\",\"link\":\"https://sputniknews.cn/20261110/1074033329.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074032153.html\",\"title\":\"南非执政党地方选举惨败：南非对华合作会陷入“执行难”吗？\",\"link\":\"https://sputniknews.cn/20261110/1074032153.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074033163.html\",\"title\":\"立陶宛总统确认“驻立陶宛台湾代表处”更名事宜\",\"link\":\"https://sputniknews.cn/20261110/1074033163.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074033065.html\",\"title\":\"特朗普：伊朗希望与美国签署协议\",\"link\":\"https://sputniknews.cn/20261110/1074033065.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074032915.html\",\"title\":\"俄公众院：乌克兰秘密监狱被伪装成私人住宅\",\"link\":\"https://sputniknews.cn/20261110/1074032915.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074032331.html\",\"title\":\"中国海关总署：今年前10个月中美贸易额同比增长11%\",\"link\":\"https://sputniknews.cn/20261110/1074032331.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074032038.html\",\"title\":\"维也纳地缘政治研究所所长：金砖国家正在加强其全球地位\",\"link\":\"https://sputniknews.cn/20261110/1074032038.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074031931.html\",\"title\":\"俄外长：北方海路货运量创历史新高\",\"link\":\"https://sputniknews.cn/20261110/1074031931.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074031724.html\",\"title\":\"中国海关总署：前10个月中俄贸易额逾2400亿美元，超去年全年总额\",\"link\":\"https://sputniknews.cn/20261110/1074031724.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074031622.html\",\"title\":\"美国“西奥多•罗斯福”号航母进入印度洋\",\"link\":\"https://sputniknews.cn/20261110/1074031622.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074031520.html\",\"title\":\"俄外长：金砖国家正在研究独立的支付和交易平台\",\"link\":\"https://sputniknews.cn/20261110/1074031520.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"sputniknewscn:/20261110/1074031270.html\",\"title\":\"涉“抄袭”路虎车型，比亚迪荷兰办公室遭搜查\",\"link\":\"https://sputniknews.cn/20261110/1074031270.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 298,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 298
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 298,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 298,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 298,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 298,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 298,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 298
+        }
+      ]
+    }
+  }
 }

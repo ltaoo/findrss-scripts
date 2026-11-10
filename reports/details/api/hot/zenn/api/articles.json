@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T22:37:38.191Z",
+  "checked_at": "2026-11-10T07:31:52.271Z",
   "inspection": {
     "file": "hot/zenn.js",
     "path": "/api/hot/zenn/api/articles",
@@ -9,156 +9,14 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60000
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 66
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 444
+    "error": "Debug 请求超时或已取消",
+    "duration_ms": 60000
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/zenn.js",
-      "name": "Zenn · 趋势文章",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/zenn/api/articles",
-      "request_path": "/api/hot/zenn/api/articles",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/zenn/api/articles",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5804d99ca6d4342"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 395,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":48}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://zenn.dev/api/articles?order=trend",
-        "method": "GET",
-        "host": "zenn.dev",
-        "pathname": "/api/articles",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 395,
-        "timings": {
-          "response_ms": 389,
-          "body_read_ms": 6,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Zenn · 趋势文章\",\"link\":\"https://zenn.dev/\",\"category\":\"科技\",\"observed_at\":\"2026-11-09T22:37:38.602Z\",\"entries\":[{\"id\":\"zenn:682675\",\"title\":\"[破壊的変更] 明治時代の開始日が変更になって単体テストが失敗した件\",\"link\":\"https://zenn.dev/xin9le/articles/9a1cf8e10494d6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":159,\"unit\":\"点赞\",\"text\":\"159\"}},{\"id\":\"zenn:683060\",\"title\":\"ShopifyのReact Native→ネイティブ移行を支える「Reflex」をSwiftとKotlinで試す\",\"link\":\"https://zenn.dev/tellernovel_inc/articles/reflex-native-swift-kotlin\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13,\"unit\":\"点赞\",\"text\":\"13\"}},{\"id\":\"zenn:683673\",\"title\":\"AWSから4.3億円の課金が...バグと思われる高額請求された際にまずすること\",\"link\":\"https://zenn.dev/tsumita7/articles/aoss-intelligent-ingestion-billing-202610\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":39,\"unit\":\"点赞\",\"text\":\"39\"}},{\"id\":\"zenn:682488\",\"title\":\"タスク管理までAIエージェントに任せたら、確認待ちに答えるだけになった\",\"link\":\"https://zenn.dev/rescuenow/articles/4c03a548cd6589\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":61,\"unit\":\"点赞\",\"text\":\"61\"}},{\"id\":\"zenn:682012\",\"title\":\"なぜ mixi2 は iPhone Duo の発売初日から最適化できたのか？\",\"link\":\"https://zenn.dev/mixi/articles/b0ea64fded9503\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12,\"unit\":\"点赞\",\"text\":\"12\"}},{\"id\":\"zenn:682045\",\"title\":\"Weight-Space Programming やってみた(やらせてみた)\",\"link\":\"https://zenn.dev/nwn/articles/cf9fe78aa33861\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":40,\"unit\":\"点赞\",\"text\":\"40\"}},{\"id\":\"zenn:677724\",\"title\":\"OpenCode+Docker+GitHub Actionsで全自動AIペネトレーションテストはじめました\",\"link\":\"https://zenn.dev/team_zenn/articles/opencode-docker-actions-ai-pentest\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":130,\"unit\":\"点赞\",\"text\":\"130\"}},{\"id\":\"zenn:682083\",\"title\":\"週間制限に3日で到達していたClaudeが、ModelとEffortの使い分けで5日持つようになった話\",\"link\":\"https://zenn.dev/sun_asterisk/articles/1d1c65b1fe409a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10,\"unit\":\"点赞\",\"text\":\"10\"}},{\"id\":\"zenn:683388\",\"title\":\"ISUCON2026 ソロ参加記：自作ハーネスで Claude Code をほぼ無人運転した\",\"link\":\"https://zenn.dev/5alt_nacl/articles/isucon2026-solo-ai-agent\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11,\"unit\":\"点赞\",\"text\":\"11\"}},{\"id\":\"zenn:684261\",\"title\":\"JAWS FESTA 2026 in AKITA 懇親会を振り返ってみる\",\"link\":\"https://zenn.dev/k_suzuki_pnx/articles/411e236ab4f2c7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13,\"unit\":\"点赞\",\"text\":\"13\"}},{\"id\":\"zenn:678746\",\"title\":\"LLM アプリケーションのプロンプトをどこで管理するか\",\"link\":\"https://zenn.dev/painter/articles/663816c3195cec\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"点赞\",\"text\":\"6\"}},{\"id\":\"zenn:683452\",\"title\":\"Herdr.app と hc の上で Claude Code の司令塔を回している\",\"link\":\"https://zenn.dev/hoshinotsuyoshi/articles/c994c29833f36c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"点赞\",\"text\":\"8\"}},{\"id\":\"zenn:672477\",\"title\":\"閉域網でも AI を使いこなす: ローカル LLM × GitLab DAP（GitLab Epic Tour Japan 2026 登壇）\",\"link\":\"https://zenn.dev/fixstars/articles/gitlab-epic-tour-2026-local-llm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":29,\"unit\":\"点赞\",\"text\":\"29\"}},{\"id\":\"zenn:684218\",\"title\":\"ホロ1グランプリで宙科そぴあさんが使ってたサイエンスメソッドを最適化の視点で深掘りしてみた\",\"link\":\"https://zenn.dev/akira5kitaoka/articles/holo1gp_sopias_science_method\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"点赞\",\"text\":\"1\"}},{\"id\":\"zenn:682542\",\"title\":\"AIですぐに作れる時代に、何と向き合うか\",\"link\":\"https://zenn.dev/peoplex_blog/articles/2611-what-to-face-when-ai-builds-fast\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"点赞\",\"text\":\"6\"}},{\"id\":\"zenn:683654\",\"title\":\"SELECTしかしていないのに、PostgreSQLのマイグレーションがロック待ちで失敗した話\",\"link\":\"https://zenn.dev/naokisuzuki27/articles/cb1a5ac0e23763\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":9,\"unit\":\"点赞\",\"text\":\"9\"}},{\"id\":\"zenn:682695\",\"title\":\"Anthropicから毎月もらえるAPIクレジットで、AIペンテストツールShannonを回してみた\",\"link\":\"https://zenn.dev/arm_techblog/articles/9c5a29e37d1522\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"点赞\",\"text\":\"3\"}},{\"id\":\"zenn:680444\",\"title\":\"少年団の役員向けRAGを作った — 条文単位に切り直しただけで正答52%→72%、ハイブリッド検索は効かなかった\",\"link\":\"https://zenn.dev/mappy55/articles/rulebook-rag-01\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:677174\",\"title\":\"ゼロから作ったMamba3言語モデルを日本語で話せる全二重音声対話モデルに拡張するまで\",\"link\":\"https://zenn.dev/taaroo/articles/47f8d1ac55d4af\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"点赞\",\"text\":\"1\"}},{\"id\":\"zenn:684481\",\"title\":\"2 つのエージェントで異なる方向性から検証を行う\",\"link\":\"https://zenn.dev/kokagex/articles/75f89df3b007cc\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:672495\",\"title\":\"NestJS + TypeORMでOpenAPIに出したくないプロパティを隠す\",\"link\":\"https://zenn.dev/ncdc/articles/5e6f861f802a54\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"点赞\",\"text\":\"1\"}},{\"id\":\"zenn:684280\",\"title\":\"業務AIエージェントの共通基盤を考える――Ontologyを参考に、業務改善ループを試作した\",\"link\":\"https://zenn.dev/shimpeiws/articles/4fedafb9deb62d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:679455\",\"title\":\"AWS AI Leagueを自身のAWS環境で試す ─ Community Editionのファインチューニングとアジア大会\",\"link\":\"https://zenn.dev/nttdata_tech/articles/2b5a1f4697a234\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"点赞\",\"text\":\"1\"}},{\"id\":\"zenn:683968\",\"title\":\"Zennに投稿された26.4万件の記事のデータから見る現在の技術ブログ\",\"link\":\"https://zenn.dev/northward/articles/zenn-data-report-2611\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2,\"unit\":\"点赞\",\"text\":\"2\"}},{\"id\":\"zenn:684211\",\"title\":\"今の技術だけで設計しない ― 初めての設計で打った布石が、オンプレからLambdaまで効いた話\",\"link\":\"https://zenn.dev/dk_architect/articles/store-system-onprem-to-lambda\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:682669\",\"title\":\"子育て中の隙間時間に、スマホからClaude Codeで自己学習する\",\"link\":\"https://zenn.dev/chot/articles/1bf145d3d31ca1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"点赞\",\"text\":\"3\"}},{\"id\":\"zenn:683689\",\"title\":\"AI時代の開発を支えるMOSHのプレビュー環境\",\"link\":\"https://zenn.dev/moshjp/articles/c068a50c9bbcd7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"点赞\",\"text\":\"3\"}},{\"id\":\"zenn:680827\",\"title\":\"Claudeデスクトップアプリの「新しいウィンドウ」に無いボタンを、mod 機能で足してみた\",\"link\":\"https://zenn.dev/nexta_/articles/claude-desktop-mod-buttons\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12,\"unit\":\"点赞\",\"text\":\"12\"}},{\"id\":\"zenn:683667\",\"title\":\"Claude Codeのworktreeでsettings.local.jsonのenvが効かず、Gradleデーモンを分けられなかった話\",\"link\":\"https://zenn.dev/syarihu/articles/ae9ac46b6b85b4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"点赞\",\"text\":\"3\"}},{\"id\":\"zenn:683239\",\"title\":\"ループ エンジニアリングの前に、会話でハーネスを育てる — 高速フォルダー サイズ ビューアーの制作記録\",\"link\":\"https://zenn.dev/takakiriy/articles/c43ec80072a171\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:683836\",\"title\":\"いまさらながら契約駆動開発をやってみた(会議室予約で実践)\",\"link\":\"https://zenn.dev/satoru_o/articles/57991c052ea191\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:681996\",\"title\":\"Go1.27標準uuidとgoogle/uuidを比較検証\",\"link\":\"https://zenn.dev/engineer38/articles/37480484552386\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:683845\",\"title\":\"TrueNAS の写真を Google フォトへ送る Web UI を作った(Docker・FastAPI)\",\"link\":\"https://zenn.dev/akisakura/articles/photo-up-truenas-google-photos\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:680193\",\"title\":\"Firefoxを手探る~ビルド進捗率を表示したい！~\",\"link\":\"https://zenn.dev/shiborimame/articles/2108dfe2794d28\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:684483\",\"title\":\"「何回もやり直したもの」を回数順に並べたら、いちばん得意なものが先頭に来た\",\"link\":\"https://zenn.dev/horibe/articles/rank-by-failures-not-retries\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:681360\",\"title\":\"Snowflake の AI_COUNT_TOKENS で、AI 関数に投げる前に入力トークンを見積もる\",\"link\":\"https://zenn.dev/mochitec_tech/articles/909dc2f54a19e2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"点赞\",\"text\":\"1\"}},{\"id\":\"zenn:684072\",\"title\":\"Backlogを「AIが読み書きする場所」にした。Claude Code＋Backlog MCPで内製アプリのセキュリティチェックを回す話\",\"link\":\"https://zenn.dev/nexta_/articles/02ded124295a6c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11,\"unit\":\"点赞\",\"text\":\"11\"}},{\"id\":\"zenn:684214\",\"title\":\"サーバーフェイルオーバー: アクティブ・パッシブ vs アクティブ・アクティブ\",\"link\":\"https://zenn.dev/systemdesignsim/articles/main-server-dies-at-3am\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:684136\",\"title\":\"旧URLが「ページにリダイレクトがあります」と出たときに確認すること\",\"link\":\"https://zenn.dev/nadarakainc/articles/d2fd468c682d01\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:684161\",\"title\":\"AWS CLIでLambda関数を操作するコマンド一覧（CRUD）\",\"link\":\"https://zenn.dev/reitonkyoj/articles/aws-lambda-seet\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:682512\",\"title\":\"AIによるハーネスの自己改善で気を付けるべきこと\",\"link\":\"https://zenn.dev/headwaters/articles/25be30393f0be9\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"点赞\",\"text\":\"1\"}},{\"id\":\"zenn:681955\",\"title\":\"テーブルの意味と使い方を育てる。CodexとSkillで回すメタデータ整備\",\"link\":\"https://zenn.dev/dmmdata/articles/753624cdec8535\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:670081\",\"title\":\"WebViewとネイティブが混在する「小説ビューア」をCompose化した話\",\"link\":\"https://zenn.dev/alphapolis_tech/articles/e33ae8d922cc7d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:682278\",\"title\":\"文字起こしは何を選べばいいか｜AWS Transcribe・Whisper・Notion AIを比べた\",\"link\":\"https://zenn.dev/trust/articles/expo2026-asr-comparison\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:682381\",\"title\":\"Antigravity CLIでSUMUZUを作った時の開発の進め方\",\"link\":\"https://zenn.dev/tatsuyan/articles/sumuzu-antigravity-dev-details\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:684025\",\"title\":\"社内FAQの「探しても出てこない」を、AIのタグ付けで減らした3ステップ（0件ヒット3割→1割弱）\",\"link\":\"https://zenn.dev/solo_joshis/articles/2026-10-17-aifaq-ai-tool-88\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"点赞\",\"text\":\"0\"}},{\"id\":\"zenn:674093\",\"title\":\"AI時代のリファインメントを再設計する〜仕様を実装前に詰めきり、見積もりをやめた〜\",\"link\":\"https://zenn.dev/hacobell_dev/articles/redesign-refinement-in-ai-era\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":9,\"unit\":\"点赞\",\"text\":\"9\"}},{\"id\":\"zenn:683626\",\"title\":\"Rust で疎ボリュームのライブラリ brodo を Claude Code と作った\",\"link\":\"https://zenn.dev/akahmys/articles/454a729a00401f\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"点赞\",\"text\":\"3\"}}]}",
-    "timing": {
-      "elapsed_ms": 395,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 395
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 395,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 395,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 395,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 395,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 395,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 395
-        }
-      ]
-    }
-  }
+  "debug": null
 }

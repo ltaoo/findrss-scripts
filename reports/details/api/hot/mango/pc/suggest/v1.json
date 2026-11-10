@@ -1,169 +1,23 @@
 {
-  "checked_at": "2026-11-09T22:35:26.752Z",
+  "checked_at": "2026-11-10T07:31:40.486Z",
   "inspection": {
     "file": "hot/mango_hot.js",
     "path": "/api/hot/mango/pc/suggest/v1",
     "example": "/api/hot/mango/pc/suggest/v1",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/mango/pc/suggest/v1.json",
-    "duration_ms": 1377
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 67
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 488
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 29
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/mango_hot.js",
-      "name": "芒果TV · 热搜榜",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/mango/pc/suggest/v1",
-      "request_path": "/api/hot/mango/pc/suggest/v1",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/mango/pc/suggest/v1",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5804a644c27fe67"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 323,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"mango-hot-search\",\"label\":\"热门内容\",\"count\":10,\"missing_rank\":0}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":10}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://mobileso.bz.mgtv.com/pc/suggest/v1?allowedRC=1&src=mgtv&_support=10000000",
-        "method": "GET",
-        "host": "mobileso.bz.mgtv.com",
-        "pathname": "/pc/suggest/v1",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 323,
-        "timings": {
-          "response_ms": 323,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"芒果TV · 热搜榜\",\"link\":\"https://so.mgtv.com/\",\"category\":\"娱乐\",\"observed_at\":\"2026-11-09T22:35:27.089Z\",\"entries\":[{\"id\":\"mango-hot-search:热门内容:后会友期\",\"title\":\"后会友期\",\"link\":\"https://so.mgtv.com/so?k=%E5%90%8E%E4%BC%9A%E5%8F%8B%E6%9C%9F\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:你好，星期六\",\"title\":\"你好，星期六\",\"link\":\"https://so.mgtv.com/so?k=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%98%9F%E6%9C%9F%E5%85%AD\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:密室大逃脱 第八季\",\"title\":\"密室大逃脱 第八季\",\"link\":\"https://so.mgtv.com/so?k=%E5%AF%86%E5%AE%A4%E5%A4%A7%E9%80%83%E8%84%B1%20%E7%AC%AC%E5%85%AB%E5%AD%A3\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:我家那闺女2026\",\"title\":\"我家那闺女2026\",\"link\":\"https://so.mgtv.com/so?k=%E6%88%91%E5%AE%B6%E9%82%A3%E9%97%BA%E5%A5%B32026\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:花儿与少年2026\",\"title\":\"花儿与少年2026\",\"link\":\"https://so.mgtv.com/so?k=%E8%8A%B1%E5%84%BF%E4%B8%8E%E5%B0%91%E5%B9%B42026\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:陪你到世界之巅\",\"title\":\"陪你到世界之巅\",\"link\":\"https://so.mgtv.com/so?k=%E9%99%AA%E4%BD%A0%E5%88%B0%E4%B8%96%E7%95%8C%E4%B9%8B%E5%B7%85\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:当家爸爸的聚会 第二季\",\"title\":\"当家爸爸的聚会 第二季\",\"link\":\"https://so.mgtv.com/so?k=%E5%BD%93%E5%AE%B6%E7%88%B8%E7%88%B8%E7%9A%84%E8%81%9A%E4%BC%9A%20%E7%AC%AC%E4%BA%8C%E5%AD%A3\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:披荆斩棘2026\",\"title\":\"披荆斩棘2026\",\"link\":\"https://so.mgtv.com/so?k=%E6%8A%AB%E8%8D%86%E6%96%A9%E6%A3%982026\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:大侦探 第十一季\",\"title\":\"大侦探 第十一季\",\"link\":\"https://so.mgtv.com/so?k=%E5%A4%A7%E4%BE%A6%E6%8E%A2%20%E7%AC%AC%E5%8D%81%E4%B8%80%E5%AD%A3\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mango-hot-search:热门内容:伦敦合伙人\",\"title\":\"伦敦合伙人\",\"link\":\"https://so.mgtv.com/so?k=%E4%BC%A6%E6%95%A6%E5%90%88%E4%BC%99%E4%BA%BA\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 323,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 323
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 323,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 323,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 323,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 323,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 323,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 323
-        }
-      ]
-    }
-  }
+  "debug": null
 }

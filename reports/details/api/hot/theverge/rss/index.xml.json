@@ -1,21 +1,166 @@
 {
-  "checked_at": "2026-11-09T22:35:33.760Z",
+  "checked_at": "2026-11-10T07:31:50.912Z",
   "inspection": {
     "file": "hot/theverge.js",
     "path": "/api/hot/theverge/rss/index.xml",
     "example": "/api/hot/theverge/rss/index.xml",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/theverge/rss/index.xml.json",
-    "duration_ms": 118
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 27
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 248
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/theverge.js",
+      "name": "The Verge · 最新资讯",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/theverge/rss/index.xml",
+      "request_path": "/api/hot/theverge/rss/index.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/theverge/rss/index.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5835c233e9deb26"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 147,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":10}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.theverge.com/rss/index.xml",
+        "method": "GET",
+        "host": "www.theverge.com",
+        "pathname": "/rss/index.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 147,
+        "timings": {
+          "response_ms": 147,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"The Verge · 最新资讯\",\"link\":\"https://www.theverge.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-10T07:31:51.066Z\",\"entries\":[{\"id\":\"theverge:https://www.theverge.com/?p=1030510\",\"title\":\"David Ellison says AI could be the ‘biggest creative unlock in modern history’\",\"link\":\"https://www.theverge.com/entertainment/1030510/paramount-skydance-david-ellison-ai\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030328\",\"title\":\"What could China get from Jensen Huang?\",\"link\":\"https://www.theverge.com/ai-artificial-intelligence/1030328/what-could-china-get-from-jensen-huang\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030446\",\"title\":\"Here’s what Trump said he knew about Jensen Huang\",\"link\":\"https://www.theverge.com/tech/1030446/trump-jensen-huang-press-conference\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?post_type=vm_stream&p=1030422\",\"title\":\"Everything we know so far about the Nvidia spy scandal targeting CEO Jensen Huang\",\"link\":\"https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030262\",\"title\":\"MSI’s refurbished QD-OLED gaming monitor is on sale for under $300\",\"link\":\"https://www.theverge.com/gadgets/1030262/msi-mag-272qp-qd-oled-x24-monitor-woot-deal-sale\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030252\",\"title\":\"The global pledge to use AI for climate good is a cruel joke\",\"link\":\"https://www.theverge.com/science/1030252/ai-data-center-climate-pledge-united-nations-cop31\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030084\",\"title\":\"Apple’s $50 Intelligence Usage Packs extend access to some AI features\",\"link\":\"https://www.theverge.com/tech/1030084/apple-intelligence-usage-packs-ai-features-creator-studio-logic-pro\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030005\",\"title\":\"Anthropic launches new Claude Fable and Mythos 5.2 models\",\"link\":\"https://www.theverge.com/ai-artificial-intelligence/1030005/anthropic-claude-fable-mythos-5-2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1029998\",\"title\":\"You can grab three months of Game Pass Ultimate for under $20 per month\",\"link\":\"https://www.theverge.com/gadgets/1029998/game-pass-ultimate-three-months-lego-pokemon-pikachu-deal-sale\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030061\",\"title\":\"Instagram’s Effect Builder makes new filters from AI prompts\",\"link\":\"https://www.theverge.com/tech/1030061/instagram-ai-effect-builder-filters\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 147,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 147
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 147,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 147,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 147,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 147,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 147,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 147
+        }
+      ]
+    }
+  }
 }

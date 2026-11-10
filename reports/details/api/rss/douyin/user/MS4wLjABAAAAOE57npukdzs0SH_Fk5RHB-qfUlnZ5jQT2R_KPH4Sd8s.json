@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T22:37:40.566Z",
+  "checked_at": "2026-11-10T07:32:48.246Z",
   "inspection": {
     "file": "rss/douyin.js",
     "path": "/api/rss/douyin/user/:sec_uid",
@@ -9,14 +9,15 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 4969
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 6862
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60000
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 34
   },
   "debug": null
 }

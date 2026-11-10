@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T22:35:27.035Z",
+  "checked_at": "2026-11-10T07:31:40.135Z",
   "inspection": {
     "file": "hot/jin10.js",
     "path": "/api/hot/jin10/flash_newest.js",
@@ -9,160 +9,15 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 35
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1208
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 49
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/jin10.js",
-      "name": "金十数据",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/jin10/flash_newest.js",
-      "request_path": "/api/hot/jin10/flash_newest.js",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/jin10/flash_newest.js",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5804a660bcd20af"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 1163,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"jin10\",\"count\":26,\"missing_rank\":26}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":26}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.jin10.com/flash_newest.js?t=1794263727050",
-        "method": "GET",
-        "host": "www.jin10.com",
-        "pathname": "/flash_newest.js",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 1163,
-        "timings": {
-          "response_ms": 1152,
-          "body_read_ms": 11,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"金十数据\",\"link\":\"https://www.jin10.com\",\"category\":\"财经\",\"observed_at\":\"2026-11-09T22:35:28.213Z\",\"entries\":[{\"id\":\"jin10:20261110062257663800\",\"title\":\"金十数据整理：中东局势跟踪（11月10日）\",\"link\":\"https://flash.jin10.com/detail/20261110062257663800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110062035344800\",\"title\":\"特朗普已离开白宫新闻简报室，其带领美国UFC总裁进行了亮相，现场记者对特朗普这场临时发布会的提问非常积极。\",\"link\":\"https://flash.jin10.com/detail/20261110062035344800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061637115800\",\"title\":\"美国总统特朗普在白宫的讲话结束。\",\"link\":\"https://flash.jin10.com/detail/20261110061637115800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061417202800\",\"title\":\"美国总统特朗普：认为米勒将与民主党人相处融洽。\",\"link\":\"https://flash.jin10.com/detail/20261110061417202800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061322634800\",\"title\":\"美国总统特朗普：伊朗的制造能力已下降约85%，如今只能生产数量有限的导弹和无人机。\",\"link\":\"https://flash.jin10.com/detail/20261110061322634800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061320578800\",\"title\":\"美国总统特朗普：斯蒂芬·米勒干得非常出色。\",\"link\":\"https://flash.jin10.com/detail/20261110061320578800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061245558800\",\"title\":\"美国总统特朗普：我不对伊朗局势的发展作任何保证，但我们已做好充分的军事准备。\",\"link\":\"https://flash.jin10.com/detail/20261110061245558800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061203911800\",\"title\":\"美国总统特朗普：（谈伊朗）如果非得采取行动，我们一定会非常认真地对待。我们可是装备精良——我们刚又添了一艘航空母舰，上面塞满了崭新、精良的装备。\",\"link\":\"https://flash.jin10.com/detail/20261110061203911800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061123587800\",\"title\":\"美国总统特朗普：我们希望与伊朗达成长期解决方案。\",\"link\":\"https://flash.jin10.com/detail/20261110061123587800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061057123800\",\"title\":\"美国总统特朗普：中期选举结果看起来不公正。\",\"link\":\"https://flash.jin10.com/detail/20261110061057123800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110061028490800\",\"title\":\"美联储12月加息的概率为84.2%\",\"link\":\"https://flash.jin10.com/detail/20261110061028490800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060919996800\",\"title\":\"美国总统特朗普：美国国防部长赫格塞思赢了两场战争。\",\"link\":\"https://flash.jin10.com/detail/20261110060919996800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060908456800\",\"title\":\"美国总统特朗普：（关于美国国防部长赫格塞思）若他遭弹劾，将支持他。\",\"link\":\"https://flash.jin10.com/detail/20261110060908456800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060537345800\",\"title\":\"伊朗高官：停止编造新闻 接受伊朗七项条件\",\"link\":\"https://flash.jin10.com/detail/20261110060537345800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060523339800\",\"title\":\"美国总统特朗普：（谈委内瑞拉）选举将在“某个时候”举行。\",\"link\":\"https://flash.jin10.com/detail/20261110060523339800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060213818800\",\"title\":\"美国总统特朗普：美国在中东部署了三艘航空母舰，均已“严阵以待、蓄势待发”。\",\"link\":\"https://flash.jin10.com/detail/20261110060213818800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060156049800\",\"title\":\"美国总统特朗普：今日与黄仁勋进行了交谈。\",\"link\":\"https://flash.jin10.com/detail/20261110060156049800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060143069800\",\"title\":\"美国总统特朗普：（谈移民问题）没有大赦。我们有着非常强硬的驱逐出境政策。\",\"link\":\"https://flash.jin10.com/detail/20261110060143069800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060102942800\",\"title\":\"美国总统特朗普：（关于伊朗）美国还有另一艘航空母舰已做好部署准备。\",\"link\":\"https://flash.jin10.com/detail/20261110060102942800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110060005960800\",\"title\":\"美国总统特朗普：英伟达CEO黄仁勋是个了不起的人，认为他处境会不错。\",\"link\":\"https://flash.jin10.com/detail/20261110060005960800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110055751202800\",\"title\":\"美国总统特朗普：金融市场因中期选举结果下跌。\",\"link\":\"https://flash.jin10.com/detail/20261110055751202800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110055626725800\",\"title\":\"美国总统特朗普：（关于伊朗）这场战争始于1979年。不是我们挑起了这场战争，是他们挑起的。\",\"link\":\"https://flash.jin10.com/detail/20261110055626725800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110055429500800\",\"title\":\"美国总统特朗普：伊朗正在与我们沟通，而且态度非常客气。\",\"link\":\"https://flash.jin10.com/detail/20261110055429500800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110055313660800\",\"title\":\"美国总统特朗普：美国已做好充分准备，随时待命，并拥有史上最精良的装备。不过，我们认为应该没有理由动用这些装备。目前一切进展顺利。过去六个月里，我们没有损失一名士兵。\",\"link\":\"https://flash.jin10.com/detail/20261110055313660800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110055256691800\",\"title\":\"美国总统特朗普：（谈委内瑞拉）我们完全掌控一切。委内瑞拉人民爱我们。\",\"link\":\"https://flash.jin10.com/detail/20261110055256691800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261110055254080800\",\"title\":\"特朗普：伊朗绝不会拥有核武器 伊朗不承认但已完全接受\",\"link\":\"https://flash.jin10.com/detail/20261110055254080800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 1163,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 1163
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 1163,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1163,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1163,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 1163,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 1163,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 1163
-        }
-      ]
-    }
-  }
+  "debug": null
 }
