@@ -117,7 +117,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 69书吧小说章节 | [rss/69shuba.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/69shuba.js) | `/69shuba/book/34567` | 1.2.0 | 自动复用加密验证状态，失效时需 BROWSER 刷新 |
 | Apple App Store 应用更新 | [rss/apple.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/apple.js) | `/apple/apps/update/us/id408709785` | 1.1.0 | 公开来源 |
 | Avmoo 演员作品 | [rss/avmoo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/avmoo.js) | `/avmoo/star/abc123` | 1.0.0 | 替换为实际演员 ID；可选 Cookie |
-| 哔哩哔哩用户动态 | [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) | `/bilibili/650898515/dynamic` | 1.1.0 | Cookie 授权 |
+| 哔哩哔哩用户动态 | [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) | `/bilibili/650898515/dynamic` | 1.1.1 | Cookie 授权 |
 | 抖音作者作品 | [rss/douyin.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/douyin.js) | `/douyin/user/MS4wLjABAAAAOE57npukdzs0SH_Fk5RHB-qfUlnZ5jQT2R_KPH4Sd8s` | 1.1.1 | Cookie 授权 |
 | 番茄小说章节 | [rss/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fanqienovel.js) | `/fanqienovel/book/7143038691944959011` | 1.1.0 | 公开来源 |
 | GitHub 发布列表 | [rss/github.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/github.js) | `/github/ltaoo/wx_channels_download/release` | 1.0.0 | 公开来源 |

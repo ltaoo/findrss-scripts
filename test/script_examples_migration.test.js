@@ -84,7 +84,7 @@ for (const fixture of content_cases) test('迁移脚本保留内容与媒体：'
     assert.equal(value.updated, items[0].published);
   }
   if (fixture.file === 'bilibili' && !fixture.route_index) assert.equal(items[0].images.length, 2);
-  if (fixture.file === 'bilibili' && fixture.route_index === 1) assert.equal(items[0].enclosure.length, 456);
+  if (fixture.file === 'bilibili' && fixture.route_index === 1) assert.equal(items[0].enclosure, undefined);
   if (fixture.file === 'douyin') { assert.equal(items[1].images.length, 2); assert.equal(items[0].media_group, true); }
   if (fixture.file === 'wxchannels') { assert.equal(items[0].live_photos[0].key, 'photo-key'); assert.equal(items[1].enclosure.key, 'key-1'); }
   if (fixture.file === 'wxmp') assert.equal(items[0].live_photos[0].key, 'live-key');

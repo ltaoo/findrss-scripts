@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.0";
+export const version = "1.1.1";
 export const platform = {
   name: "哔哩哔哩",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" data-n="bilibili-platform-icon"><path fill="none" stroke="#00a1d6" stroke-linecap="round" stroke-width="3" d="m8 7-3-5m16 5 3-5" data-n="bilibili-icon-path-1" /><path fill="#00a1d6" d="M7 6h18a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7Z" data-n="bilibili-icon-path-2" /><path fill="#fff" d="M6 10h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z" data-n="bilibili-icon-path-3" /><rect x="8" y="14" width="4" height="6" rx="2" fill="#00a1d6" data-n="bilibili-icon-rect-4" /><rect x="20" y="14" width="4" height="6" rx="2" fill="#00a1d6" data-n="bilibili-icon-rect-5" /></svg>',
@@ -596,8 +596,6 @@ export class BilibiliUserVideoRSS extends BilibiliRSS {
       }
       const list_author = String(videos[0]?.author || uid);
       const items = [];
-      let playable = 0;
-      let playback_error;
       let snapshot = 0;
       let face = BilibiliUserVideoRSS.avatar_url(videos[0]?.face);
       for (const video of videos) {
@@ -633,98 +631,19 @@ export class BilibiliUserVideoRSS extends BilibiliRSS {
             ? "<p>" + description.replace(/\r?\n/g, "<br>") + "</p>"
             : undefined,
           image: cover || undefined,
-          media_group: true,
         };
-        try {
-          const identity = is_bvid
-            ? "bvid=" + encodeURIComponent(bvid)
-            : "aid=" + aid;
-          const result_8 = await request(
-            "https://api.bilibili.com/x/web-interface/view?" + identity,
-          );
-          if (result_8.error) throw result_8.error;
-          const view = result_8.data;
-          if (view.code !== 0) {
-            throw new Error(
-              "视频详情接口错误：" + view.code + " " + (view.message || ""),
-            );
-          }
-          const detail = String(view.data?.desc || "");
-          if (detail) {
-            item.description = detail;
-            item.content = "<p>" + detail.replace(/\r?\n/g, "<br>") + "</p>";
-          }
-          const result_9 = utils.timestamp(view.data?.pubdate);
-          if (result_9.error) throw result_9.error;
-          item.updated = result_9.data || item.updated;
-          if (!face) {
-            face = BilibiliUserVideoRSS.avatar_url(view.data?.owner?.face);
-          }
-          const cid = String(
-            view.data?.pages?.[0]?.cid || view.data?.cid || "",
-          );
-          if (!/^\d+$/.test(cid)) {
-            throw new Error("视频详情缺少 cid");
-          }
-          const result_10 = await request(
-            "https://api.bilibili.com/x/player/playurl?otype=json&fnver=0&fnval=0&qn=80&" +
-              identity +
-              "&cid=" +
-              cid +
-              "&platform=html5",
-          );
-          if (result_10.error) throw result_10.error;
-          const play = result_10.data;
-          if (play.code !== 0) {
-            throw new Error(
-              "播放接口错误：" + play.code + " " + (play.message || ""),
-            );
-          }
-          const streams = play.data?.durl;
-          if (!Array.isArray(streams) || streams.length !== 1) {
-            throw new Error("播放接口未返回单文件 MP4，无法作为完整视频附件");
-          }
-          const stream = streams[0];
-          const url = String(stream.url || "");
-          if (!/^https?:\/\//.test(url)) {
-            throw new Error("播放接口缺少有效视频地址");
-          }
-          const size = Number(stream.size);
-          item.enclosure = {
-            url,
-            type: "video/mp4",
-            length: Number.isFinite(size) && size > 0 ? size : undefined,
-          };
-          playable++;
-        } catch (error) {
-          playback_error ||= error;
-          if (ctx.log) {
-            ctx.log("视频地址获取失败", id, error.message);
-          }
-        }
-        const latest = item.updated || item.published;
-        if (latest && latest > snapshot) {
-          snapshot = latest;
+        if (published && published > snapshot) {
+          snapshot = published;
         }
         items.push(item);
       }
-      if (items.length > 0 && playable === 0) {
-        return Result.Err(
-          new Error(
-            "本页所有视频地址获取失败：" +
-              playback_error.message +
-              "；详情见脚本执行日志",
-          ),
-          playback_error?.code ?? "UPSTREAM_INVALID_RESPONSE",
-        );
-      }
       if (!face) {
         try {
-          const result_11 = await request(
+          const result_8 = await request(
             "https://api.bilibili.com/x/web-interface/card?mid=" + uid,
           );
-          if (result_11.error) throw result_11.error;
-          const card = result_11.data;
+          if (result_8.error) throw result_8.error;
+          const card = result_8.data;
           face = BilibiliUserVideoRSS.avatar_url(card.data?.card?.face);
         } catch (error) {
           if (ctx.log) {
@@ -787,7 +706,7 @@ export const routes = [
       ps: "每页视频数量，默认 30，最多 50",
     },
     description:
-      "通过 WBI 签名接口获取 UP 主投稿视频；登录 Cookie 由脚本显式申请并经管理员确认授权。",
+      "通过 WBI 签名接口获取 UP 主投稿列表，保留标题、简介、封面与视频页面链接；登录 Cookie 由脚本显式申请并经管理员确认授权。",
     handler: (ctx) => video_script.run(ctx),
   },
 ];

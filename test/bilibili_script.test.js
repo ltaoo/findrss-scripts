@@ -98,9 +98,53 @@ for (const fixture of fixtures) test("Bilibili QuickJS 保留内容和媒体："
   assert.equal(t.tcp.connections.length, calls, "全部网页 API 请求应使用 TCP");
   assert.equal(feed.link, "https://space.bilibili.com/" + fixture.params.userid + (index ? "/upload/video" : "/dynamic"));
   assert.deepEqual(feed.items.map(item => item.id), fixture.expected_ids);
-  if (index) assert.equal(feed.items[0].enclosure.length, 456);
+  if (index) {
+    assert.equal(feed.items[0].enclosure, undefined);
+    assert.equal(feed.items[0].description, "<测试>&\n内容");
+    assert.equal(feed.items[0].image, "https://i0.hdslb.com/a.jpg");
+  }
   else assert.equal(feed.items[0].images.length, 2);
   for (const format of ["rss", "atom"]) assert.ok(FeedModel.fromValue(feed).render(format).includes(fixture.expected_ids[0]));
+});
+
+test("视频列表无论返回 30 或 50 条都只请求列表及必要头像，不读取详情或播放地址", async t => {
+  const fixture = fixtures.find(fixture => fixture.route_index === 1);
+  const avatar = "https://i0.hdslb.com/face.jpg";
+  for (const { count, face, avatar_status } of [
+    { count: 30, face: avatar + "@100w_100h", avatar_status: 200 },
+    { count: 50, face: "", avatar_status: 200 },
+    { count: 30, face: "", avatar_status: 503 },
+  ]) {
+    const paths = [];
+    t.mock.method(globalThis, "fetch", async input => {
+      const url = new URL(input);
+      paths.push(url.pathname);
+      if (url.pathname.endsWith("/nav")) return new Response(fixture.responses[0].body);
+      if (url.pathname.endsWith("/arc/search")) {
+        assert.equal(url.searchParams.get("ps"), String(count));
+        return Response.json({ code: 0, data: { list: { vlist: Array.from({ length: count }, (_, index) => ({
+          aid: index + 1, title: "视频 " + index, author: "UP 主", created: 1720000000 + index,
+          description: "列表简介 " + index, pic: "//i0.hdslb.com/cover.jpg", face,
+        })) } } });
+      }
+      assert.equal(url.pathname, "/x/web-interface/card", "只允许额外查询头像");
+      return Response.json({ code: 0, data: { card: { face: avatar } } }, { status: avatar_status });
+    });
+    const feed = JSON.parse((await run(1, { userid: "123" }, count === 30 ? {} : { ps: String(count) })).output);
+    assert.deepEqual(paths, ["/x/web-interface/nav", "/x/space/wbi/arc/search",
+      ...(!face ? ["/x/web-interface/card"] : [])]);
+    assert.equal(feed.items.length, count);
+    const first = feed.items.find(item => item.id === "bilibili:av1");
+    assert.equal(first.title, "视频 0");
+    assert.equal(first.description, "列表简介 0");
+    assert.equal(first.link, "https://www.bilibili.com/video/av1");
+    assert.equal(first.image, "https://i0.hdslb.com/cover.jpg");
+    assert.equal(first.published, new Date(1720000000000).toISOString());
+    assert.equal(feed.updated, new Date((1720000000 + count - 1) * 1000).toISOString());
+    assert.ok(feed.items.every(item => item.enclosure === undefined));
+    assert.equal(feed.image?.url, avatar_status === 200 ? avatar : undefined);
+    for (const format of ["rss", "atom"]) assert.doesNotMatch(FeedModel.fromValue(feed).render(format), /<enclosure\b|rel="enclosure"|video\/mp4/);
+  }
 });
 
 test("视频脚本对齐网络测试成功请求的 Safari 请求头及通用 Cookie，并逐个 API 比较 TCP 请求", async t => {
@@ -128,9 +172,9 @@ test("视频脚本对齐网络测试成功请求的 Safari 请求头及通用 Co
   }
 });
 
-test("视频脚本保留必需及播放接口的上游错误码，并显示具体失败接口", async t => {
+test("视频脚本保留必需接口的上游错误码，并显示具体失败接口", async t => {
   const fixture = fixtures.find(fixture => fixture.route_index === 1);
-  for (const path of ["/nav", "/arc/search", "/view", "/playurl"]) {
+  for (const path of ["/nav", "/arc/search"]) {
     for (const [status, code] of [[500, "UPSTREAM_FETCH_FAILED"], [429, "UPSTREAM_RATE_LIMITED"], [504, "UPSTREAM_TIMEOUT"]]) {
       t.mock.method(globalThis, "fetch", async input => new URL(input).pathname.endsWith(path)
         ? new Response(null, { status })
