@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T07:31:39.991Z",
+  "checked_at": "2026-11-10T19:52:58.042Z",
   "inspection": {
     "file": "hot/hatena.js",
     "path": "/api/hot/hatena/hotentry/:topic?",
@@ -12,12 +12,157 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 377
+    "duration_ms": 84
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 42
+    "status": 200,
+    "duration_ms": 887
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/hatena.js",
+      "name": "Hatena · 热门书签",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/hatena/hotentry/:topic?",
+      "request_path": "/api/hot/hatena/hotentry/:topic?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/hatena/hotentry/all",
+      "params": {
+        "topic": "all"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a58799c2ffa7f06c"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 347,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":40}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://b.hatena.ne.jp/hotentry/all.rss",
+        "method": "GET",
+        "host": "b.hatena.ne.jp",
+        "pathname": "/hotentry/all.rss",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 347,
+        "timings": {
+          "response_ms": 346,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"はてなブックマーク · 综合\",\"link\":\"https://b.hatena.ne.jp/hotentry/all\",\"category\":\"社交\",\"observed_at\":\"2026-11-10T19:52:58.424Z\",\"entries\":[{\"id\":\"hatena:https://togetter.com/li/2768784\",\"title\":\"「3日で全て無になった」クックパッドで見つけたレシピで作った豚汁が普通の作り方に戻れなくなりそうなほど美味しい\",\"link\":\"https://togetter.com/li/2768784\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":707,\"unit\":\"书签\",\"text\":\"707\"}},{\"id\":\"hatena:https://anond.hatelabo.jp/20261110212134\",\"title\":\"レジスタと薬屋を一緒にするな\",\"link\":\"https://anond.hatelabo.jp/20261110212134\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":126,\"unit\":\"书签\",\"text\":\"126\"}},{\"id\":\"hatena:https://togetter.com/li/2768860\",\"title\":\"「言い切っちゃった…」乳化について様々な議論があるペペロンチーノだが、キユーピー3分クッキングのレシピが卒倒しそう\",\"link\":\"https://togetter.com/li/2768860\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":216,\"unit\":\"书签\",\"text\":\"216\"}},{\"id\":\"hatena:https://newsdig.tbs.co.jp/articles/-/3074420\",\"title\":\"【速報】実業家・前澤友作さんが敗訴 SNSでのなりすましニセ広告で「メタ社」に差し止め求めた訴訟 東京地裁が請求退ける判決「メタ社は広告掲載に直接関与せず」 | TBS NEWS DIG\",\"link\":\"https://newsdig.tbs.co.jp/articles/-/3074420\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":407,\"unit\":\"书签\",\"text\":\"407\"}},{\"id\":\"hatena:https://zenn.dev/oikon/articles/claude-code-recipe\",\"title\":\"Claude Codeで最近使っているTips【2026/11】\",\"link\":\"https://zenn.dev/oikon/articles/claude-code-recipe\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":429,\"unit\":\"书签\",\"text\":\"429\"}},{\"id\":\"hatena:https://www.47news.jp/15209962.html\",\"title\":\"【速報】国民健康保険料、27年度に3万円引き上げ\",\"link\":\"https://www.47news.jp/15209962.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":241,\"unit\":\"书签\",\"text\":\"241\"}},{\"id\":\"hatena:https://www.youtube.com/watch?v=9YH9C8mlyqk\",\"title\":\"【3分クッキング公式】アーリオ・オーリオ・ぺペロンチーノ\",\"link\":\"https://www.youtube.com/watch?v=9YH9C8mlyqk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":110,\"unit\":\"书签\",\"text\":\"110\"}},{\"id\":\"hatena:https://kai-you.net/article/97109\",\"title\":\"タカラトミー、合併以来初のロゴ刷新 新デザインは「アソビ」がモチーフ\",\"link\":\"https://kai-you.net/article/97109\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":83,\"unit\":\"书签\",\"text\":\"83\"}},{\"id\":\"hatena:https://jisin.jp/domestic/2608634/\",\"title\":\"「開戦前提おかしい」高市首相 “戦争を続ける体力”強化が物議…政界各所から「憲法を忘れたのか」「高市支持を冷静に考えるべき」の声 | 女性自身\",\"link\":\"https://jisin.jp/domestic/2608634/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":49,\"unit\":\"书签\",\"text\":\"49\"}},{\"id\":\"hatena:https://www.afpbb.com/articles/-/3661744\",\"title\":\"米カリフォルニア州の「超富裕層課税案」、否決へ 約200人のビリオネアの資産に5％課税\",\"link\":\"https://www.afpbb.com/articles/-/3661744\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":171,\"unit\":\"书签\",\"text\":\"171\"}},{\"id\":\"hatena:https://qiita.com/Retro-Maid/items/d99e436fe0b19e151709\",\"title\":\"【国のデータをしゃぶり尽くせ！】無料で使える公共データ100選【永久保存版】 - Qiita\",\"link\":\"https://qiita.com/Retro-Maid/items/d99e436fe0b19e151709\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":67,\"unit\":\"书签\",\"text\":\"67\"}},{\"id\":\"hatena:https://www.watch.impress.co.jp/docs/news/2155153.html\",\"title\":\"次世代Suica「ウォークスルー改札」、首都圏40駅で28年春導入\",\"link\":\"https://www.watch.impress.co.jp/docs/news/2155153.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":221,\"unit\":\"书签\",\"text\":\"221\"}},{\"id\":\"hatena:https://www.sra-chiki-lab.com/notification/1544/\",\"title\":\"衆院議員定数の削減に反対します ｜ チキラボ\",\"link\":\"https://www.sra-chiki-lab.com/notification/1544/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":70,\"unit\":\"书签\",\"text\":\"70\"}},{\"id\":\"hatena:https://av.watch.impress.co.jp/docs/news/2155116.html\",\"title\":\"在京民放ラジオ5社、放送設備の集約・共同利用を検討\",\"link\":\"https://av.watch.impress.co.jp/docs/news/2155116.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":65,\"unit\":\"书签\",\"text\":\"65\"}},{\"id\":\"hatena:https://www.ryuzee.com/contents/blog/14628\",\"title\":\"【資料公開】「自分の仕事はここまで」はどこから来るのか\",\"link\":\"https://www.ryuzee.com/contents/blog/14628\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":74,\"unit\":\"书签\",\"text\":\"74\"}},{\"id\":\"hatena:https://www.sankei.com/article/20261110-J5GSCPM52ZKA3CE65BKP7Z2A74/\",\"title\":\"石破前首相らの採決退席「看過できず」自民・萩生田氏「早くけじめをつけるべき」\",\"link\":\"https://www.sankei.com/article/20261110-J5GSCPM52ZKA3CE65BKP7Z2A74/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":124,\"unit\":\"书签\",\"text\":\"124\"}},{\"id\":\"hatena:https://bookplus.nikkei.com/atcl/column/102000797/110400003/\",\"title\":\"ヤマザキマリの脳裏に刻まれた、『ジョジョ』荒木飛呂彦先生の出会いの言葉\",\"link\":\"https://bookplus.nikkei.com/atcl/column/102000797/110400003/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":44,\"unit\":\"书签\",\"text\":\"44\"}},{\"id\":\"hatena:https://www.youtube.com/watch?v=TVZtZAPrQy8\",\"title\":\"『ドラゴンクエストRPG 魔界樹と導かれし島』アナウンストレーラー\",\"link\":\"https://www.youtube.com/watch?v=TVZtZAPrQy8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":47,\"unit\":\"书签\",\"text\":\"47\"}},{\"id\":\"hatena:https://www.yomiuri.co.jp/national/20261110-GYT1T00367/\",\"title\":\"「５万人集客」見込んだ鳥取のグルメイベント、２０００人にも届かず…赤字の出店者「地元荒らされた気分」\",\"link\":\"https://www.yomiuri.co.jp/national/20261110-GYT1T00367/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":68,\"unit\":\"书签\",\"text\":\"68\"}},{\"id\":\"hatena:https://posfie.com/@waterpear121873/p/qFJjr6s\",\"title\":\"BL作家のメアドを使ってなりすましながらクレカ会社や版権元にBL作品を通報する輩が現れる\",\"link\":\"https://posfie.com/@waterpear121873/p/qFJjr6s\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":57,\"unit\":\"书签\",\"text\":\"57\"}},{\"id\":\"hatena:https://togetter.com/li/2768779\",\"title\":\"家系ラーメンのスープを飲み干したら店員に声をかけられ「まくり証明書」をゲット そのアイデアが商売上手だが、悪魔の発想すぎる\",\"link\":\"https://togetter.com/li/2768779\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":126,\"unit\":\"书签\",\"text\":\"126\"}},{\"id\":\"hatena:https://note.com/paolomazzarino/n/nc51b0983a377\",\"title\":\"『一九八四年』を読んで落ち込み、アメリカ中間選挙結果で癒される｜パオロ・マッツァリーノ公式ブログ\",\"link\":\"https://note.com/paolomazzarino/n/nc51b0983a377\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":48,\"unit\":\"书签\",\"text\":\"48\"}},{\"id\":\"hatena:https://www.gizmodo.jp/article/2611-claude-fable-5-2-release/\",\"title\":\"Anthropicが新AI「Claude Fable 5.2」をリリース。ぶっちぎりの高性能、実用例はもはや異次元 | ギズモード・ジャパン\",\"link\":\"https://www.gizmodo.jp/article/2611-claude-fable-5-2-release/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":64,\"unit\":\"书签\",\"text\":\"64\"}},{\"id\":\"hatena:https://jisin.jp/domestic/2608663/\",\"title\":\"「なぜ初めから言わなかったのか」高市首相 G7首脳会議欠席の“飲酒疑惑”…木原官房長官が“今さら”否定も野党議員は猛反発 | 女性自身\",\"link\":\"https://jisin.jp/domestic/2608663/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11,\"unit\":\"书签\",\"text\":\"11\"}},{\"id\":\"hatena:https://automaton-media.com/articles/newsjp/20261110-478520/\",\"title\":\"ゲーム日本語化ツール「PCOT」次のアプデで開発終了へ。AIの進化で“セルフ直接日本語化”の未来が見えたため - AUTOMATON\",\"link\":\"https://automaton-media.com/articles/newsjp/20261110-478520/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4,\"unit\":\"书签\",\"text\":\"4\"}},{\"id\":\"hatena:https://togetter.com/li/2768783\",\"title\":\"「バングラデシュではかつてドラえもんが国家レベルで問題になり放送禁止された」当時を過ごした人たちの話を聞くと、いくつかの現実的な理由が判明した\",\"link\":\"https://togetter.com/li/2768783\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":163,\"unit\":\"书签\",\"text\":\"163\"}},{\"id\":\"hatena:https://news.web.nhk/newsweb/na/nd-20261110de73268\",\"title\":\"9月家計調査 実質の消費支出6.8％減 10か月連続の減少 | NHKニュース\",\"link\":\"https://news.web.nhk/newsweb/na/nd-20261110de73268\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17,\"unit\":\"书签\",\"text\":\"17\"}},{\"id\":\"hatena:https://bigcomics.jp/episodes/1b02e2cc8080b\",\"title\":\"アンダースクリプト(青年漫画賞・編集長賞)・アンダースクリプト | ビッコミ（ビッグコミックス）\",\"link\":\"https://bigcomics.jp/episodes/1b02e2cc8080b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":60,\"unit\":\"书签\",\"text\":\"60\"}},{\"id\":\"hatena:https://zenn.dev/watany/articles/342b9815dd0553\",\"title\":\"退屈なCoding AgentはMuseにやらせよう\",\"link\":\"https://zenn.dev/watany/articles/342b9815dd0553\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":167,\"unit\":\"书签\",\"text\":\"167\"}},{\"id\":\"hatena:https://posfie.com/@SeanKy_/p/5L2UPZa\",\"title\":\"釣り見出し（クリックベイト）の常習犯扱いされる共同通信\",\"link\":\"https://posfie.com/@SeanKy_/p/5L2UPZa\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17,\"unit\":\"书签\",\"text\":\"17\"}},{\"id\":\"hatena:https://togetter.com/li/2767990\",\"title\":\"「40から50くらいの人材が現場にいない」高齢化した職人の大量離脱待ったなしの建設業界だが、『解体屋ゲン』は7年前にその問題を描いていた\",\"link\":\"https://togetter.com/li/2767990\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":105,\"unit\":\"书签\",\"text\":\"105\"}},{\"id\":\"hatena:https://levtech.jp/media/detail_965/\",\"title\":\"大学1年生がつくったOSSがGitHub Star 1万超。AIに渡す「画面の設計図」はどう生まれた？ - レバテックLAB\",\"link\":\"https://levtech.jp/media/detail_965/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":249,\"unit\":\"书签\",\"text\":\"249\"}},{\"id\":\"hatena:https://dailyportalz.jp/kiji/coffee-no-saiten-scaj\",\"title\":\"日本最大のコーヒーの祭典「SCAJ」が楽しい あらゆるコーヒーが試飲でき高価な機械も触れる展示会\",\"link\":\"https://dailyportalz.jp/kiji/coffee-no-saiten-scaj\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":279,\"unit\":\"书签\",\"text\":\"279\"}},{\"id\":\"hatena:https://www.sunday-webry.com/episode/12207421984504574421\",\"title\":\"第82話 王都の戦い2 / ロードマギアの弟子 - FLIPFLOPs | サンデーうぇぶり\",\"link\":\"https://www.sunday-webry.com/episode/12207421984504574421\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13,\"unit\":\"书签\",\"text\":\"13\"}},{\"id\":\"hatena:https://dot.asahi.com/articles/-/297119?page=1\",\"title\":\"G7をドタキャンした「高市首相」今度は中国開催「APEC首脳会談」でも窮地に？ 信用失墜で習近平国家主席との会談も絶望的 古賀茂明 | AERA DIGITAL（アエラデジタル）\",\"link\":\"https://dot.asahi.com/articles/-/297119?page=1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18,\"unit\":\"书签\",\"text\":\"18\"}},{\"id\":\"hatena:https://gigazine.net/news/20261110-claude-opus-nerf/\",\"title\":\"Claude Opus 5.5の推論能力が11月3日から急激に低下したとの指摘、1400件の利用履歴から変化が判明\",\"link\":\"https://gigazine.net/news/20261110-claude-opus-nerf/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":66,\"unit\":\"书签\",\"text\":\"66\"}},{\"id\":\"hatena:https://www.47news.jp/15210591.html\",\"title\":\"【独自】万博のEVバス補助金、返還半分 国や府・市が58億円交付\",\"link\":\"https://www.47news.jp/15210591.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":19,\"unit\":\"书签\",\"text\":\"19\"}},{\"id\":\"hatena:https://news.jp/i/1492727126385918949\",\"title\":\"維新、区議選24行政区を維持へ 大選挙区制から転換、大阪都構想 | NEWSjp\",\"link\":\"https://news.jp/i/1492727126385918949\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":41,\"unit\":\"书签\",\"text\":\"41\"}},{\"id\":\"hatena:https://togetter.com/li/2768906\",\"title\":\"シャトレーゼで研修中っぽい人にチョコプレートをお願いしたことがある「ほ、本当にこちらでよろしいでしょうか…？」と緊張した様子で出てきたのがこれ\",\"link\":\"https://togetter.com/li/2768906\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":32,\"unit\":\"书签\",\"text\":\"32\"}},{\"id\":\"hatena:https://www.asahi.com/articles/ASVCB1BVGVCBUTIL02HM.html\",\"title\":\"Xで14回「いいね」、ストーカー行為と認める 東京地裁が有罪判決：朝日新聞\",\"link\":\"https://www.asahi.com/articles/ASVCB1BVGVCBUTIL02HM.html\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":111,\"unit\":\"书签\",\"text\":\"111\"}}]}",
+    "timing": {
+      "elapsed_ms": 347,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 347
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 347,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 347,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 347,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 347,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 347,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 347
+        }
+      ]
+    }
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T07:31:40.537Z",
+  "checked_at": "2026-11-10T19:53:59.440Z",
   "inspection": {
     "file": "hot/mktnews_flash.js",
     "path": "/api/hot/mktnews/api/flash",
@@ -9,15 +9,160 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 21
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60001
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 20
+    "status": 200,
+    "duration_ms": 621
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/mktnews_flash.js",
+      "name": "MKTNews · 快讯",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/mktnews/api/flash",
+      "request_path": "/api/hot/mktnews/api/flash",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/mktnews/api/flash",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5879b4288c699d0"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 296,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"mktnews-flash\",\"count\":50,\"missing_rank\":50}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":50}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api.mktnews.net/api/flash?type=0&limit=50",
+        "method": "GET",
+        "host": "api.mktnews.net",
+        "pathname": "/api/flash",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 296,
+        "timings": {
+          "response_ms": 219,
+          "body_read_ms": 77,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"MKTNews · 快讯\",\"link\":\"https://mktnews.net\",\"category\":\"财经\",\"observed_at\":\"2026-11-10T19:53:59.934Z\",\"entries\":[{\"id\":\"mktnews-flash:01a1c6ff-ab63-7bbc-ab91-f9d0feb5eb06\",\"title\":\"Brent crude futures settled at $91.49 a barrel, down $1.08, or 1.17%.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ff-ab63-7bbc-ab91-f9d0feb5eb06\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6fe-ce75-7bbc-ab91-f2ceb9980d61\",\"title\":\"ABC News reports U.S. Republicans are seeking a closed-door briefing with NVIDIA (NVDA.O) CEO.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6fe-ce75-7bbc-ab91-f2ceb9980d61\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6fc-548c-7bbc-ab91-e9cc4033ab3b\",\"title\":\"ABC News reports U.S. House Republicans are considering subpoenaing NVIDIA (NVDA.O) CEO Jensen Huang.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6fc-548c-7bbc-ab91-e9cc4033ab3b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6f4-642f-7bbc-ab91-e441c80e6591\",\"title\":\"Iranian outlet Fars News says the platform fire may have been caused either by a gas leak or by an operational accident.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6f4-642f-7bbc-ab91-e441c80e6591\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6f3-0541-7bbc-ab91-d96ab3fde540\",\"title\":\"Iranian media Fars News reported the affected platform's gas output was 14.5 million cubic meters, while total South Pars field output was 700 million cubic meters.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6f3-0541-7bbc-ab91-d96ab3fde540\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6f2-91b6-7bbc-ab91-d117e51ae864\",\"title\":\"WTI crude oil futures settled at $86.04 per barrel, down $0.81, or 0.93%.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6f2-91b6-7bbc-ab91-d117e51ae864\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6f2-7138-7bbc-ab91-cf6365c7667a\",\"title\":\"Iranian media outlet Fars News reports a fire on a platform at the oilfield; the cause is under investigation.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6f2-7138-7bbc-ab91-cf6365c7667a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6f0-f959-7bbc-ab91-c330ace85bca\",\"title\":\"Iranian outlet Fars News reported a fire on a platform at the South Pars gas field and said the situation is under control.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6f0-f959-7bbc-ab91-c330ace85bca\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ef-3022-7bbc-ab91-beb6380c162c\",\"title\":\"Jim Jordan elected House Republican minority leader\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ef-3022-7bbc-ab91-beb6380c162c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6eb-5f88-7bbc-ab91-b042a8bcd33f\",\"title\":\"ABC News reported UK police said a senior US Army officer was arrested in the UK on suspicion of assisting Russian intelligence services.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6eb-5f88-7bbc-ab91-b042a8bcd33f\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6e8-2484-7bbc-ab91-a80e909f01ef\",\"title\":\"Punchbowl reports the House Republican conference elected Jim Jordan as its leader for the next Congress.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6e8-2484-7bbc-ab91-a80e909f01ef\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6e2-44ad-7bbc-ab91-a4ac7a056c84\",\"title\":\"Google (GOOG.O): Google Fi \\\"super network\\\" begins gradual rollout today to Pixel 9 and later models.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6e2-44ad-7bbc-ab91-a4ac7a056c84\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6e1-be26-7bbc-ab91-9b30465d6e02\",\"title\":\"Google (GOOG.O): Google Fi Wireless launched \\\"Super Network\\\" service that can simultaneously connect to 5G and Wi‑Fi networks.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6e1-be26-7bbc-ab91-9b30465d6e02\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6df-1327-7bbc-ab91-91ff9b73728e\",\"title\":\"The Daily Telegraph reports Nscale is considering delaying a dlr35bn IPO after an AI-themed stock sell-off.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6df-1327-7bbc-ab91-91ff9b73728e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6dd-8704-7bbc-ab91-8f48d28f0b9e\",\"title\":\"Kansas City Fed's Schmid: current rates 'fairly accommodative'; inflation still top concern\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6dd-8704-7bbc-ab91-8f48d28f0b9e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6db-472c-7bbc-ab91-86f066b08eec\",\"title\":\"Canada's Globe and Mail reports Rio Tinto (RIO.N) is cutting dozens of jobs at a Quebec lithium processing plant, citing weaker lithium demand.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6db-472c-7bbc-ab91-86f066b08eec\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6da-965d-7bbc-ab91-7898a030a253\",\"title\":\"The New York Times reports NVIDIA (NVDA.O) has retained Wachtell, Lipton, Rosen & Katz to investigate an alleged extramarital affair involving its CEO.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6da-965d-7bbc-ab91-7898a030a253\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6d9-a49a-7bbc-ab91-75b86720d847\",\"title\":\"Qatari PM said in Paris he discussed diplomatic mediation efforts and regional de-escalation with counterparts from Saudi Arabia, France, Germany, Italy and the UK.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6d9-a49a-7bbc-ab91-75b86720d847\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6d8-ef10-7bbc-ab91-6dff7166c54d\",\"title\":\"Fed's Schmid said there will be many interesting data points between now and the Fed's December meeting.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6d8-ef10-7bbc-ab91-6dff7166c54d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6d6-1f95-7bbc-ab91-65a2536cc75a\",\"title\":\"Hang Seng Index futures closed down 0.95% in the night session at 24,346, trading 211 points below the spot index.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6d6-1f95-7bbc-ab91-65a2536cc75a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6d2-2c17-7bbc-ab91-5f97dd42f573\",\"title\":\"Brazil's National Association of Grain Exporters (ANEC) estimates November soybean exports at 437 mln tonnes, versus 333 mln tonnes in the prior-week estimate.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6d2-2c17-7bbc-ab91-5f97dd42f573\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6d1-ec68-7bbc-ab91-5124d29414df\",\"title\":\"NYT: Syria weighs sending thousands of troops to Saudi Arabia, Yemen to counter Houthi forces\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6d1-ec68-7bbc-ab91-5124d29414df\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6cf-5618-7bbc-ab91-4b4647a5ed2d\",\"title\":\"The Information reports OpenAI has acquired Odessia, an AI travel-planning assistant.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6cf-5618-7bbc-ab91-4b4647a5ed2d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6cc-cae2-7bbc-ab91-40daca45247d\",\"title\":\"Fed official Schmid said demand is strong and interest rates are not a reason to hesitate.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6cc-cae2-7bbc-ab91-40daca45247d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6cc-381b-7bbc-ab91-3ee4bf99948d\",\"title\":\"Kushner said he was encouraged by constructive talks in Abu Dhabi and, at President Trump's direction, is working to end the war and establish security arrangements to ensure a sovereign, secure and prosperous Ukraine and lasting peace in Europe.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6cc-381b-7bbc-ab91-3ee4bf99948d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6cb-2cf7-7bbc-ab91-3504bb5dc8de\",\"title\":\"Fed's Schmid says inf is the primary concern.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6cb-2cf7-7bbc-ab91-3504bb5dc8de\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ca-d127-7bbc-ab91-2d3e68e1d86f\",\"title\":\"Fed's Schmid says US hiring has been quite strong recently.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ca-d127-7bbc-ab91-2d3e68e1d86f\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ca-8053-7bbc-ab91-231f7f08b575\",\"title\":\"Federal Reserve's Schmid said the housing sector is experiencing an 'interesting dynamic', but he does not see any constraints elsewhere.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ca-8053-7bbc-ab91-231f7f08b575\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6c9-0f2d-7bbc-ab91-1a03cb5e9bc8\",\"title\":\"Fed official Schmid said he did not view last year’s rates as restrictive, but now regards current policy rates as quite accommodative.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6c9-0f2d-7bbc-ab91-1a03cb5e9bc8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6c6-fdab-7bbc-ab91-106482fbf3e4\",\"title\":\"Fed official Schmid said energy-related factors have produced some concerning price trends.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6c6-fdab-7bbc-ab91-106482fbf3e4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6c6-5d3a-7bbc-ab91-0d6f2f0f54ba\",\"title\":\"Qatar says it secured at least two-week window to push US-Iran understanding to avert further US strikes\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6c6-5d3a-7bbc-ab91-0d6f2f0f54ba\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6c3-115f-7bbc-ab91-075bfd071089\",\"title\":\"The Jerusalem Post reported Qatar's prime minister told G7 foreign ministers in Paris that Doha has secured at least two weeks to press US-Iran diplomatic talks aimed at averting a new US military strike on Iran.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6c3-115f-7bbc-ab91-075bfd071089\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6bb-6b78-7bbc-ab90-f9f22af8a4fd\",\"title\":\"Night session main contracts close\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6bb-6b78-7bbc-ab90-f9f22af8a4fd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6bb-3a66-7bbc-ab90-f10c14ff84b4\",\"title\":\"BOC minutes: rising cost pressures will ultimately feed through to core inflation.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6bb-3a66-7bbc-ab90-f10c14ff84b4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6bb-1276-7bbc-ab90-e8d011b5fcb3\",\"title\":\"BOC minutes: Governing Council acknowledged that inf expectations may have become more sensitive to recent price movements.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6bb-1276-7bbc-ab90-e8d011b5fcb3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ba-c0a7-7bbc-ab90-e4625e173bd8\",\"title\":\"BOC minutes: Governing Council agreed a careful assessment is required of how the economic situation will affect the outlook.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ba-c0a7-7bbc-ab90-e4625e173bd8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ba-4fc3-7bbc-ab90-ded41408d27b\",\"title\":\"BOC minutes: risk of inf becoming more persistent and broad-based has shifted.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ba-4fc3-7bbc-ab90-ded41408d27b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ba-4b16-7bbc-ab90-d75812b9ae91\",\"title\":\"BOC minutes: pandemic-driven inf effects \\\"remain fresh in memory\\\".\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ba-4b16-7bbc-ab90-d75812b9ae91\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ba-2f7c-7bbc-ab90-cb9deb94a81f\",\"title\":\"BOC minutes: further rate hikes may be necessary; committed to a 'meeting-by-meeting' approach.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ba-2f7c-7bbc-ab90-cb9deb94a81f\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ba-1efd-7bbc-ab90-c79cb2d7e12a\",\"title\":\"Bank of Canada meeting minutes said increased uncertainty \\\"does not mean\\\" policy inaction.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ba-1efd-7bbc-ab90-c79cb2d7e12a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ba-062b-7bbc-ab90-be5c6223e23b\",\"title\":\"Shanghai Gold Exchange Gold T+D closed down 2.31% at 863.69 yuan/gram in the Nov. 10 evening session; Silver T+D closed down 3.56% at 12,264.0 yuan/kg.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ba-062b-7bbc-ab90-be5c6223e23b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6b9-fb91-7bbc-ab90-b396b503771f\",\"title\":\"BOC minutes: policymakers agreed to proceed cautiously on further rate hikes.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6b9-fb91-7bbc-ab90-b396b503771f\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6b9-abc6-7bbc-ab90-acb6198c5ec6\",\"title\":\"Fed rate-hike odds rise; US 10-year Treasury yield tops 5%\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6b9-abc6-7bbc-ab90-acb6198c5ec6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6b7-1188-7bbc-ab90-a79d42a1f03d\",\"title\":\"OpenAI says eligible U.S. organisations can now build, test and deploy Business Agents on ChatGPT to answer queries.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6b7-1188-7bbc-ab90-a79d42a1f03d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6b5-774c-7bbc-ab90-9e804b5b666a\",\"title\":\"IRIB said Iran's president will travel to Turkey to attend an environmental summit.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6b5-774c-7bbc-ab90-9e804b5b666a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6b3-0f0b-7bbc-ab90-933cd4365060\",\"title\":\"Brazil's central bank governor: issuing debt in local currency is an advantage for creditors but a risk for investors.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6b3-0f0b-7bbc-ab90-933cd4365060\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6b0-5736-7bbc-ab90-8c9c36e0a6db\",\"title\":\"BOC to release monetary policy meeting minutes in 10 minutes; Federal Reserve's Schmid to speak in 10 minutes.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6b0-5736-7bbc-ab90-8c9c36e0a6db\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6b0-1a5f-7bbc-ab90-81d362b7c31c\",\"title\":\"Ukraine foreign minister says direct Zelenskiy–Putin meeting could speed end to conflict\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6b0-1a5f-7bbc-ab90-81d362b7c31c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ad-23e2-7bbc-ab90-7f8e8c164f91\",\"title\":\"The Fed accepted bids from three counterparties totaling $152 mln in its fixed-rate reverse repo operation.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ad-23e2-7bbc-ab90-7f8e8c164f91\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1c6ac-af99-7bbc-ab90-76c1bab9fc91\",\"title\":\"OpenAI released the Businesses in ChatGPT beta.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1c6ac-af99-7bbc-ab90-76c1bab9fc91\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 296,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 296
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 296,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 296,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 296,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 296,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 296,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 296
+        }
+      ]
+    }
+  }
 }

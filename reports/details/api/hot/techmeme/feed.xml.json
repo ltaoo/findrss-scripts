@@ -1,166 +1,22 @@
 {
-  "checked_at": "2026-11-10T07:31:50.780Z",
+  "checked_at": "2026-11-10T19:53:10.949Z",
   "inspection": {
     "file": "hot/techmeme.js",
     "path": "/api/hot/techmeme/feed.xml",
     "example": "/api/hot/techmeme/feed.xml",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 123
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/techmeme/feed.xml.json",
+    "duration_ms": 322
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 105
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 219
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/techmeme.js",
-      "name": "Techmeme · 科技头条",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/techmeme/feed.xml",
-      "request_path": "/api/hot/techmeme/feed.xml",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/techmeme/feed.xml",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5835c226cf0eb26"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 32,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":15}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.techmeme.com/feed.xml",
-        "method": "GET",
-        "host": "www.techmeme.com",
-        "pathname": "/feed.xml",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 32,
-        "timings": {
-          "response_ms": 30,
-          "body_read_ms": 2,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Techmeme · 科技头条\",\"link\":\"https://www.techmeme.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-10T07:31:50.819Z\",\"entries\":[{\"id\":\"techmeme:https://www.techmeme.com/261110/p4#a261110p4\",\"title\":\"SoftBank reports Q2 net loss of $7B vs. a ~$15.8B profit a year ago, on ~$14B revenue vs. ~$12.8B est. as tech selloff weighs on results; shares close up 13.9% (Jenny Lee/CNBC)\",\"link\":\"https://www.techmeme.com/261110/p4#a261110p4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p3#a261110p3\",\"title\":\"GeniosAI, which develops AI software for financial analysis and modeling, raised $19.1M across seed and Series A rounds; FactSet led the Series A (Ryan Lawler/Axios)\",\"link\":\"https://www.techmeme.com/261110/p3#a261110p3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p2#a261110p2\",\"title\":\"Filings: Moonshot signed a deal in August to rent 32 China-based Super Micro servers with Nvidia B300, the most powerful AI chip, possibly in breach of US rules (Andy Lin/Bloomberg)\",\"link\":\"https://www.techmeme.com/261110/p2#a261110p2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p1#a261110p1\",\"title\":\"The White House picks Palantir CISO Michael LoSapio to lead the DHS' Cybersecurity and Infrastructure Security Agency, replacing Acting Director Nick Andersen (Reuters)\",\"link\":\"https://www.techmeme.com/261110/p1#a261110p1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p53#a261109p53\",\"title\":\"Australia is drafting legislation for an AI safety regulator empowered to impose \\\"significant penalties\\\" after an OpenAI model hacked a government site in Sept. (James Mayger/Bloomberg)\",\"link\":\"https://www.techmeme.com/261109/p53#a261109p53\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p52#a261109p52\",\"title\":\"Analysis: Nvidia's 2025 figures to the US government undercounted chips sold to Megaspeed via partners by 50K; Nvidia did not give Bloomberg an exact figure (Mackenzie Hawkins/Bloomberg)\",\"link\":\"https://www.techmeme.com/261109/p52#a261109p52\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p51#a261109p51\",\"title\":\"The US DOJ sues Lyft for allegedly discriminating against riders with disabilities, seeking $53M in compensation; Lyft disputes the allegations (Kanishka Singh/Reuters)\",\"link\":\"https://www.techmeme.com/261109/p51#a261109p51\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p50#a261109p50\",\"title\":\"California voters reject Proposition 40, which would have imposed a one-time 5% tax on residents with a net worth above $1B to mostly help fund health care (Associated Press)\",\"link\":\"https://www.techmeme.com/261109/p50#a261109p50\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p49#a261109p49\",\"title\":\"Trump Media Q3: $409.7M profit fueled by gains on digital assets, vs. a Q3 2025 $54.8M loss, and sales of $3M, $1.8M from subscriptions like Truth API, Truth+ (Elias Schisgall/Wall Street Journal)\",\"link\":\"https://www.techmeme.com/261109/p49#a261109p49\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p48#a261109p48\",\"title\":\"Emails: Anthropic sent bankers a copy of its IPO filing showing plans to raise up to ~$69B, then followed up saying the pricing details were inaccurate (Echo Wang/Reuters)\",\"link\":\"https://www.techmeme.com/261109/p48#a261109p48\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p47#a261109p47\",\"title\":\"Take-Two reiterates FY 2027 outlook, says Q2 total net bookings fell 18% YoY to $1.6B, vs. $1.65B est., and NBA 2K27 missed sales forecast partly due to GTA VI (Jason Schreier/Bloomberg)\",\"link\":\"https://www.techmeme.com/261109/p47#a261109p47\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p46#a261109p46\",\"title\":\"A report by short seller Culper Research from May is resurfacing because it had flagged Jensen Huang's relationship with Alice Huang as \\\"uncomfortably close\\\" (Sarah Perez/TechCrunch)\",\"link\":\"https://www.techmeme.com/261109/p46#a261109p46\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p45#a261109p45\",\"title\":\"Apple is now offering additional AI access via one-time $50 \\\"intelligence usage packs\\\" when monthly usage caps are met, starting in its Creator Studio apps (Ryan Christoffel/9to5Mac)\",\"link\":\"https://www.techmeme.com/261109/p45#a261109p45\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p44#a261109p44\",\"title\":\"Trump says the FBI is \\\"looking into\\\" Jensen Huang's affair, and the Nvidia CEO told him he \\\"had absolutely no idea that the person in question was a spy\\\" (Associated Press)\",\"link\":\"https://www.techmeme.com/261109/p44#a261109p44\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261109/p43#a261109p43\",\"title\":\"Jensen Huang's affair shines a spotlight on Nvidia's weak board and opaque succession planning at what has become the world's most important company (Semafor)\",\"link\":\"https://www.techmeme.com/261109/p43#a261109p43\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 32,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 32
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 32,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 32,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 32,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 32,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 32,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 32
-        }
-      ]
-    }
-  }
+  "debug": null
 }

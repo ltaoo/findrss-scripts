@@ -1,22 +1,170 @@
 {
-  "checked_at": "2026-11-10T07:31:40.508Z",
+  "checked_at": "2026-11-10T19:52:57.759Z",
   "inspection": {
     "file": "hot/hackernews.js",
     "path": "/api/hot/hackernews",
     "example": "/api/hot/hackernews",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/hackernews.json",
-    "duration_ms": 1012
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 119
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 31
+    "status": 200,
+    "duration_ms": 912
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/hackernews.js",
+      "name": "Hacker News",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/hackernews",
+      "request_path": "/api/hot/hackernews",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/hackernews",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a58799c13dbdb65c"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 229,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"hackernews\",\"count\":30,\"missing_rank\":0}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://news.ycombinator.com/",
+        "method": "GET",
+        "host": "news.ycombinator.com",
+        "pathname": "/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 229,
+        "timings": {
+          "response_ms": 229,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Hacker News\",\"link\":\"https://news.ycombinator.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-10T19:52:58.044Z\",\"entries\":[{\"id\":\"hackernews:50442736\",\"title\":\".name Grandfathered\",\"link\":\"https://news.ycombinator.com/item?id=50442736\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":406,\"unit\":\"积分\",\"text\":\"406\"}},{\"id\":\"hackernews:50441707\",\"title\":\"Smart home devices should work without the internet\",\"link\":\"https://news.ycombinator.com/item?id=50441707\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":341,\"unit\":\"积分\",\"text\":\"341\"}},{\"id\":\"hackernews:50443824\",\"title\":\"Synaptics patent claims stop work on DisplayLink drivers\",\"link\":\"https://news.ycombinator.com/item?id=50443824\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":104,\"unit\":\"积分\",\"text\":\"104\"}},{\"id\":\"hackernews:50443427\",\"title\":\"Val Town is winding down\",\"link\":\"https://news.ycombinator.com/item?id=50443427\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":142,\"unit\":\"积分\",\"text\":\"142\"}},{\"id\":\"hackernews:50439193\",\"title\":\"AlphaProof Code\",\"link\":\"https://news.ycombinator.com/item?id=50439193\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":500,\"unit\":\"积分\",\"text\":\"500\"}},{\"id\":\"hackernews:50444129\",\"title\":\"Starlink Mini 2\",\"link\":\"https://news.ycombinator.com/item?id=50444129\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":106,\"unit\":\"积分\",\"text\":\"106\"}},{\"id\":\"hackernews:50443090\",\"title\":\"AMD's Zen 6 Family: Feeding the Beast\",\"link\":\"https://news.ycombinator.com/item?id=50443090\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":93,\"unit\":\"积分\",\"text\":\"93\"}},{\"id\":\"hackernews:50443812\",\"title\":\"Show HN: Get your coding agent off ~2019 JavaScript, onto modern web primitives\",\"link\":\"https://news.ycombinator.com/item?id=50443812\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":75,\"unit\":\"积分\",\"text\":\"75\"}},{\"id\":\"hackernews:50433216\",\"title\":\"Process Explorer for macOS\",\"link\":\"https://news.ycombinator.com/item?id=50433216\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":53,\"unit\":\"积分\",\"text\":\"53\"}},{\"id\":\"hackernews:50442426\",\"title\":\"Blender 5.3 released with Gaussian Splat support\",\"link\":\"https://news.ycombinator.com/item?id=50442426\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":306,\"unit\":\"积分\",\"text\":\"306\"}},{\"id\":\"hackernews:50443716\",\"title\":\"Claude Whiteboards, Claude Sheets, and Claude Data\",\"link\":\"https://news.ycombinator.com/item?id=50443716\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":31,\"unit\":\"积分\",\"text\":\"31\"}},{\"id\":\"hackernews:50439695\",\"title\":\"Ableton Live 13\",\"link\":\"https://news.ycombinator.com/item?id=50439695\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":199,\"unit\":\"积分\",\"text\":\"199\"}},{\"id\":\"hackernews:50382401\",\"title\":\"I deleted all my SSH keys\",\"link\":\"https://news.ycombinator.com/item?id=50382401\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":123,\"unit\":\"积分\",\"text\":\"123\"}},{\"id\":\"hackernews:50441518\",\"title\":\"Show HN: Valencia, Spain in Sim City/Isometric View\",\"link\":\"https://news.ycombinator.com/item?id=50441518\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":107,\"unit\":\"积分\",\"text\":\"107\"}},{\"id\":\"hackernews:50436640\",\"title\":\"Amazon saves millions by replacing Sonnet 4.6 with Strands Decider\",\"link\":\"https://news.ycombinator.com/item?id=50436640\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":649,\"unit\":\"积分\",\"text\":\"649\"}},{\"id\":\"hackernews:50439284\",\"title\":\"What's new in the .NET 11 runtime\",\"link\":\"https://news.ycombinator.com/item?id=50439284\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":171,\"unit\":\"积分\",\"text\":\"171\"}},{\"id\":\"hackernews:50404079\",\"title\":\"Twelve things you could build on a live index of internet radio\",\"link\":\"https://news.ycombinator.com/item?id=50404079\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":12,\"unit\":\"积分\",\"text\":\"12\"}},{\"id\":\"hackernews:50441338\",\"title\":\"The Hardest Tarball?\",\"link\":\"https://news.ycombinator.com/item?id=50441338\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":128,\"unit\":\"积分\",\"text\":\"128\"}},{\"id\":\"hackernews:50438318\",\"title\":\"AI usage generates a fragile codebase\",\"link\":\"https://news.ycombinator.com/item?id=50438318\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":224,\"unit\":\"积分\",\"text\":\"224\"}},{\"id\":\"hackernews:50412554\",\"title\":\"NetBSD 11 desktop on a Raspberry Pi 4\",\"link\":\"https://news.ycombinator.com/item?id=50412554\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":106,\"unit\":\"积分\",\"text\":\"106\"}},{\"id\":\"hackernews:50443714\",\"title\":\"An Open Field Guide to Inference Engineering\",\"link\":\"https://news.ycombinator.com/item?id=50443714\",\"rank\":21,\"pinned\":false,\"heat\":{\"value\":15,\"unit\":\"积分\",\"text\":\"15\"}},{\"id\":\"hackernews:50444684\",\"title\":\"A comprehensive study of how fingerprintable users are\",\"link\":\"https://news.ycombinator.com/item?id=50444684\",\"rank\":22,\"pinned\":false,\"heat\":{\"value\":4,\"unit\":\"积分\",\"text\":\"4\"}},{\"id\":\"hackernews:50438480\",\"title\":\"What constant surveillance is doing to children and parents\",\"link\":\"https://news.ycombinator.com/item?id=50438480\",\"rank\":23,\"pinned\":false,\"heat\":{\"value\":144,\"unit\":\"积分\",\"text\":\"144\"}},{\"id\":\"hackernews:50426294\",\"title\":\"Taking another shot at the cheap IP camera, part 2\",\"link\":\"https://news.ycombinator.com/item?id=50426294\",\"rank\":24,\"pinned\":false,\"heat\":{\"value\":97,\"unit\":\"积分\",\"text\":\"97\"}},{\"id\":\"hackernews:50437790\",\"title\":\"Queens Public Library under ransomware attack\",\"link\":\"https://news.ycombinator.com/item?id=50437790\",\"rank\":25,\"pinned\":false,\"heat\":{\"value\":174,\"unit\":\"积分\",\"text\":\"174\"}},{\"id\":\"hackernews:50423664\",\"title\":\"Variable-width Bézier curves (2025)\",\"link\":\"https://news.ycombinator.com/item?id=50423664\",\"rank\":26,\"pinned\":false,\"heat\":{\"value\":12,\"unit\":\"积分\",\"text\":\"12\"}},{\"id\":\"hackernews:50445013\",\"title\":\"What objective is reasoning solving?\",\"link\":\"https://news.ycombinator.com/item?id=50445013\",\"rank\":27,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"积分\",\"text\":\"3\"}},{\"id\":\"hackernews:50437242\",\"title\":\"M John Harrison becomes first science fiction author to win the Booker\",\"link\":\"https://news.ycombinator.com/item?id=50437242\",\"rank\":28,\"pinned\":false,\"heat\":{\"value\":85,\"unit\":\"积分\",\"text\":\"85\"}},{\"id\":\"hackernews:50441074\",\"title\":\"The death knell of digital search\",\"link\":\"https://news.ycombinator.com/item?id=50441074\",\"rank\":29,\"pinned\":false,\"heat\":{\"value\":57,\"unit\":\"积分\",\"text\":\"57\"}},{\"id\":\"hackernews:50437752\",\"title\":\"Fossil CO2 emissions decrease in 2026\",\"link\":\"https://news.ycombinator.com/item?id=50437752\",\"rank\":30,\"pinned\":false,\"heat\":{\"value\":148,\"unit\":\"积分\",\"text\":\"148\"}}]}",
+    "timing": {
+      "elapsed_ms": 229,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 229
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 229,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 229,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 229,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 229,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 229,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 229
+        }
+      ]
+    }
+  }
 }
