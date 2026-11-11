@@ -1,169 +1,22 @@
 {
-  "checked_at": "2026-11-11T06:49:12.196Z",
+  "checked_at": "2026-11-11T19:45:38.049Z",
   "inspection": {
     "file": "hot/wallstreetcn.js",
     "path": "/api/hot/wallstreetcn/apiv1/content/articles/hot",
     "example": "/api/hot/wallstreetcn/apiv1/content/articles/hot",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/wallstreetcn/apiv1/content/articles/hot.json",
-    "duration_ms": 1023
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 49
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 582
+    "error": "Debug 请求超时或已取消",
+    "duration_ms": 60001
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/wallstreetcn.js",
-      "name": "华尔街见闻 · 最热",
-      "kind": "hot",
-      "version": "1.0.2",
-      "path": "/wallstreetcn/apiv1/content/articles/hot",
-      "request_path": "/api/hot/wallstreetcn/apiv1/content/articles/hot",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/wallstreetcn/apiv1/content/articles/hot",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a58b5b0b4ef2e587"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 498,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"wallstreetcn-hot\",\"count\":10,\"missing_rank\":10}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":10}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://api-one.wallstcn.com/apiv1/content/articles/hot?period=all",
-        "method": "GET",
-        "host": "api-one.wallstcn.com",
-        "pathname": "/apiv1/content/articles/hot",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 498,
-        "timings": {
-          "response_ms": 498,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"华尔街见闻 · 最热\",\"link\":\"https://wallstreetcn.com/\",\"category\":\"财经\",\"observed_at\":\"2026-11-11T06:49:12.727Z\",\"entries\":[{\"id\":\"wallstreetcn-hot:3785652\",\"title\":\"纳指期货跳水！沃勒释放美联储“最鹰信号”：若通胀居高不下，12月应加息50基点，需收回此前“三次预防性降息”\",\"link\":\"https://wallstreetcn.com/articles/3785652\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785613\",\"title\":\"美CPI超预期叠加美联储放鹰，美债重挫，美股指承压，英伟达两日跌10%，黄金大跌\",\"link\":\"https://wallstreetcn.com/articles/3785613\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785664\",\"title\":\"美国10月核心CPI环比上涨0.3%超预期，12月加息50基点预期骤然升温\",\"link\":\"https://wallstreetcn.com/articles/3785664\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785657\",\"title\":\"冲击美国科技IPO融资纪录！Anthropic最高募资904亿美元、完全稀释估值1.4万亿美元\",\"link\":\"https://wallstreetcn.com/articles/3785657\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785684\",\"title\":\"华尔街见闻早餐FM-Radio | 2026年11月11日\",\"link\":\"https://wallstreetcn.com/articles/3785684\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785630\",\"title\":\"美联储12月会加息吗？今晚CPI一锤定音！\",\"link\":\"https://wallstreetcn.com/articles/3785630\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785683\",\"title\":\"CoreWeave季报暂缓AI放缓担忧：营收暴增168%、全年指引上调，但债务依然高企｜财报见闻\",\"link\":\"https://wallstreetcn.com/articles/3785683\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785661\",\"title\":\"阿里巴巴：拟分拆平头哥在港股独立上市\",\"link\":\"https://wallstreetcn.com/articles/3785661\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785662\",\"title\":\"美国人民不是在反对AI，他们只是想睡个整觉\",\"link\":\"https://wallstreetcn.com/articles/3785662\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-hot:3785686\",\"title\":\"CoreWeave电话会：拒绝无担保发债，算力需求推动大幅提价，2028年实现盈利\",\"link\":\"https://wallstreetcn.com/articles/3785686\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 498,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 498
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 498,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 498,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 498,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 498,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 498,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 498
-        }
-      ]
-    }
-  }
+  "debug": null
 }

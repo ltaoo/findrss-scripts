@@ -1,22 +1,170 @@
 {
-  "checked_at": "2026-11-11T06:49:05.388Z",
+  "checked_at": "2026-11-11T19:44:39.722Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/update",
     "example": "/api/hot/qidian/update",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/qidian/update.json",
-    "duration_ms": 1320
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 32
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 64
+    "status": 200,
+    "duration_ms": 788
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/qidian.js",
+      "name": "起点 · 更新榜",
+      "kind": "hot",
+      "version": "1.3.1",
+      "path": "/qidian/update",
+      "request_path": "/api/hot/qidian/update",
+      "route_index": 5
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/qidian/update",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a58fcaf84a4a38c7"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 715,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "起点榜单解析完成 {\"type\":\"update\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://m.qidian.com/rank/update/",
+        "method": "GET",
+        "host": "m.qidian.com",
+        "pathname": "/rank/update/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 715,
+        "timings": {
+          "response_ms": 624,
+          "body_read_ms": 91,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 更新榜\",\"link\":\"https://m.qidian.com/rank/update/\",\"category\":\"小说\",\"observed_at\":\"2026-11-11T19:44:40.465Z\",\"entries\":[{\"id\":\"qidian:book:1044119887\",\"title\":\"我在俄国当文豪\",\"link\":\"https://m.qidian.com/book/1044119887/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044119887/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1039533135\",\"title\":\"至真\",\"link\":\"https://m.qidian.com/book/1039533135/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1039533135/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049944520\",\"title\":\"崩铁：我的身份每日刷新\",\"link\":\"https://m.qidian.com/book/1049944520/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049944520/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050939401\",\"title\":\"港综：警察首富，从拒当卧底开始\",\"link\":\"https://m.qidian.com/book/1050939401/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050939401/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049175528\",\"title\":\"拔剑\",\"link\":\"https://m.qidian.com/book/1049175528/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049175528/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048675924\",\"title\":\"尸祸一六四四\",\"link\":\"https://m.qidian.com/book/1048675924/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048675924/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050992880\",\"title\":\"东京1996，从警校生开始\",\"link\":\"https://m.qidian.com/book/1050992880/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050992880/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050471316\",\"title\":\"成龙历险记：我，大反派咒蓝\",\"link\":\"https://m.qidian.com/book/1050471316/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050471316/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1047617292\",\"title\":\"每周海克斯，但是龙族\",\"link\":\"https://m.qidian.com/book/1047617292/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047617292/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1047355802\",\"title\":\"重生的我做空半岛\",\"link\":\"https://m.qidian.com/book/1047355802/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047355802/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050640344\",\"title\":\"我的世界：开局惊变一百天\",\"link\":\"https://m.qidian.com/book/1050640344/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050640344/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050724718\",\"title\":\"绝世：邪火凤凰，绑定收徒返利\",\"link\":\"https://m.qidian.com/book/1050724718/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050724718/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048666497\",\"title\":\"诸天穿越从古墓派开始\",\"link\":\"https://m.qidian.com/book/1048666497/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048666497/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049331176\",\"title\":\"人在斗罗，万蛊化身\",\"link\":\"https://m.qidian.com/book/1049331176/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049331176/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1042186117\",\"title\":\"西线无兽娘\",\"link\":\"https://m.qidian.com/book/1042186117/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1042186117/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1044896870\",\"title\":\"蒸汽世界的奥秘侦探\",\"link\":\"https://m.qidian.com/book/1044896870/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044896870/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050208156\",\"title\":\"1980潮起潮落\",\"link\":\"https://m.qidian.com/book/1050208156/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050208156/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1046906767\",\"title\":\"美利坚大网红从无耻之徒开始\",\"link\":\"https://m.qidian.com/book/1046906767/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1046906767/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1046069659\",\"title\":\"同穿，但全是低武？\",\"link\":\"https://m.qidian.com/book/1046069659/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1046069659/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050579574\",\"title\":\"斗罗：九真一假，他们信了！\",\"link\":\"https://m.qidian.com/book/1050579574/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050579574/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}}]}",
+    "timing": {
+      "elapsed_ms": 715,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 715
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 715,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 715,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 715,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 715,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 715,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 715
+        }
+      ]
+    }
+  }
 }

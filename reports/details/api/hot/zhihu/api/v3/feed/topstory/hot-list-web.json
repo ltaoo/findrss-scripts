@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-11T06:49:14.812Z",
+  "checked_at": "2026-11-11T19:47:37.597Z",
   "inspection": {
     "file": "hot/zhihu_hot.js",
     "path": "/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
@@ -9,145 +9,12 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 37
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 59999
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 528
+    "error": "Debug 请求超时或已取消",
+    "duration_ms": 60001
   },
-  "debug": {
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
-    "script": {
-      "file": "hot/zhihu_hot.js",
-      "name": "知乎",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/zhihu/api/v3/feed/topstory/hot-list-web",
-      "request_path": "/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a58b5b1b9aeb857d"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "runtime",
-    "elapsed_ms": 494,
-    "invoked": false,
-    "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 www.zhihu.com 返回 HTTP 403",
-    "error_text": "脚本执行失败：脚本上游 www.zhihu.com 返回 HTTP 403\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
-    "upstream_requests": [
-      {
-        "url": "https://www.zhihu.com/api/v3/feed/topstory/hot-list-web?limit=20&desktop=true",
-        "method": "GET",
-        "host": "www.zhihu.com",
-        "pathname": "/api/v3/feed/topstory/hot-list-web",
-        "status": 403,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 494,
-        "timings": {
-          "response_ms": 494
-        }
-      }
-    ],
-    "timing": {
-      "elapsed_ms": 494,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 494
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 494,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 494,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 494,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 494,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 494
-        }
-      ]
-    }
-  }
+  "debug": null
 }

@@ -1,165 +1,23 @@
 {
-  "checked_at": "2026-11-11T06:49:06.972Z",
+  "checked_at": "2026-11-11T19:44:45.271Z",
   "inspection": {
     "file": "hot/techmeme.js",
     "path": "/api/hot/techmeme/feed.xml",
     "example": "/api/hot/techmeme/feed.xml",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/techmeme/feed.xml.json",
-    "duration_ms": 365
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 24
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 294
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 50
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/techmeme.js",
-      "name": "Techmeme · 科技头条",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/techmeme/feed.xml",
-      "request_path": "/api/hot/techmeme/feed.xml",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/techmeme/feed.xml",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a58b5aea9bda7be5"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 227,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":15}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.techmeme.com/feed.xml",
-        "method": "GET",
-        "host": "www.techmeme.com",
-        "pathname": "/feed.xml",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 227,
-        "timings": {
-          "response_ms": 185,
-          "body_read_ms": 42,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Techmeme · 科技头条\",\"link\":\"https://www.techmeme.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-11T06:49:07.208Z\",\"entries\":[{\"id\":\"techmeme:https://www.techmeme.com/261111/p6#a261111p6\",\"title\":\"Sources: Rapidus has yet to produce functioning SRAM, a key step that needed to be completed by summer 2026 to meet its March 2028 deadline for making 2nm chips (Takashi Mochizuki/Bloomberg)\",\"link\":\"https://www.techmeme.com/261111/p6#a261111p6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261111/p5#a261111p5\",\"title\":\"A profile of Alice Huang, an alleged Chinese spy who founded Megaspeed with her business partner Kang Wei, who sources say was often introduced as her husband (New York Times)\",\"link\":\"https://www.techmeme.com/261111/p5#a261111p5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261111/p4#a261111p4\",\"title\":\"Records show China's Northwestern Polytechnical University, which has close PLA ties, has access to Nvidia H200 AI chips despite being on a US export blacklist (Eduardo Baptista/Reuters)\",\"link\":\"https://www.techmeme.com/261111/p4#a261111p4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261111/p3#a261111p3\",\"title\":\"Researchers find that Grok Build is leaking data of over 35,000 apps via shareable links, including proprietary information, some belonging to SpaceXSI (Dan Goodin/Ars Technica)\",\"link\":\"https://www.techmeme.com/261111/p3#a261111p3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261111/p2#a261111p2\",\"title\":\"Apple says its Apple Support Community forum will close permanently on November 20 and starting today the site is read-only and no longer accepts new posts (Marcus Mendes/9to5Mac)\",\"link\":\"https://www.techmeme.com/261111/p2#a261111p2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261111/p1#a261111p1\",\"title\":\"Sources: Jensen Huang's affair has significantly raised the chances of Congress enacting chip export limits this year via the National Defense Authorization Act (Politico)\",\"link\":\"https://www.techmeme.com/261111/p1#a261111p1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p66#a261110p66\",\"title\":\"Nvidia's stock fell 5.47% on Tuesday, following a 4%+ drop on Monday after the revelation of Jensen Huang's affair with Alice Huang, an alleged Chinese spy (April Roach/CNBC)\",\"link\":\"https://www.techmeme.com/261110/p66#a261110p66\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p65#a261110p65\",\"title\":\"Source: CFTC warned Kalshi of possible imminent charges over failure to notify the regulator of certain products; Kalshi says it is addressing the issue (Declan Harty/Politico)\",\"link\":\"https://www.techmeme.com/261110/p65#a261110p65\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p64#a261110p64\",\"title\":\"Tech consultant Nima Momeni was sentenced to 16 years to life in prison for the second-degree murder of Cash App founder Bob Lee in 2023 (Heather Knight/New York Times)\",\"link\":\"https://www.techmeme.com/261110/p64#a261110p64\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p63#a261110p63\",\"title\":\"Anthropic opens its Australian retail IPO, giving individual investors access to Class A shares ahead of the company's planned Nasdaq listing (Jenny Lee/CNBC)\",\"link\":\"https://www.techmeme.com/261110/p63#a261110p63\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p62#a261110p62\",\"title\":\"How US-based game publishers are losing ground in the $121B mobile gaming market to Chinese rivals, which can make games quicker, cheaper, and more profitably (Bloomberg)\",\"link\":\"https://www.techmeme.com/261110/p62#a261110p62\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p61#a261110p61\",\"title\":\"An analysis of the tech job market in late 2026: product managers seem to be benefiting most in the AI era, demand for engineers is plateauing, and more (Lenny Rachitsky/Lenny's Newsletter)\",\"link\":\"https://www.techmeme.com/261110/p61#a261110p61\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p60#a261110p60\",\"title\":\"Sources: Anthropic's bankers are weighing plans to raise its IPO price following heavy demand, which could increase the valuation target to $1.5T or more (Financial Times)\",\"link\":\"https://www.techmeme.com/261110/p60#a261110p60\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p59#a261110p59\",\"title\":\"A deep dive into AMD's Zen 6 EPYC Venice: it uses TSMC's N2P, the 9686F often beats Nvidia's Vera, a dual 9996 is up to 93% faster than a dual Zen 5 9965, more (Jake Roach/Tom's Hardware)\",\"link\":\"https://www.techmeme.com/261110/p59#a261110p59\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261110/p58#a261110p58\",\"title\":\"NY-based Daylight, which provides AI-powered managed security, raised an $80M Series B led by Goldman Sachs Alternatives, sources say at a ~$400M valuation (Maria Armental/Wall Street Journal)\",\"link\":\"https://www.techmeme.com/261110/p58#a261110p58\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
-    "timing": {
-      "elapsed_ms": 227,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 227
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 227,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 227,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 227,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 227,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 227,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 227
-        }
-      ]
-    }
-  }
+  "debug": null
 }

@@ -1,169 +1,22 @@
 {
-  "checked_at": "2026-11-11T06:49:10.902Z",
+  "checked_at": "2026-11-11T19:44:46.894Z",
   "inspection": {
     "file": "hot/toutiao_hot.js",
     "path": "/api/hot/toutiao/hot-event/hot-board",
     "example": "/api/hot/toutiao/hot-event/hot-board",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/toutiao/hot-event/hot-board.json",
-    "duration_ms": 861
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 67
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 538
+    "error": "Debug 请求超时或已取消",
+    "duration_ms": 60000
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/toutiao_hot.js",
-      "name": "今日头条",
-      "kind": "hot",
-      "version": "1.0.1",
-      "path": "/toutiao/hot-event/hot-board",
-      "request_path": "/api/hot/toutiao/hot-event/hot-board",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/toutiao/hot-event/hot-board",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a58b5b032e347be5"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 486,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"toutiao\",\"count\":50,\"missing_rank\":50}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":50}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
-        "method": "GET",
-        "host": "www.toutiao.com",
-        "pathname": "/hot-event/hot-board/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 486,
-        "timings": {
-          "response_ms": 450,
-          "body_read_ms": 36,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"今日头条\",\"link\":\"https://www.toutiao.com\",\"category\":\"综合\",\"observed_at\":\"2026-11-11T06:49:11.403Z\",\"entries\":[{\"id\":\"toutiao:7706746485031633417\",\"title\":\"油价预计下调440元/吨\",\"link\":\"https://www.toutiao.com/trending/7706746485031633417/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":39156658,\"unit\":\"热度\",\"text\":\"39156658\"}},{\"id\":\"toutiao:7706683297081999882\",\"title\":\"5个上门维修师傅只有2个说了实话\",\"link\":\"https://www.toutiao.com/trending/7706683297081999882/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":35430410,\"unit\":\"热度\",\"text\":\"35430410\"}},{\"id\":\"toutiao:7706729986228735539\",\"title\":\"一组数据看进博“成绩单”\",\"link\":\"https://www.toutiao.com/trending/7706729986228735539/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":32058760,\"unit\":\"热度\",\"text\":\"32058760\"}},{\"id\":\"toutiao:7706434048268648489\",\"title\":\"山姆超市一羽绒服卖断货\",\"link\":\"https://www.toutiao.com/trending/7706434048268648489/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":29007966,\"unit\":\"热度\",\"text\":\"29007966\"}},{\"id\":\"toutiao:7706731142883852324\",\"title\":\"“包子2元停车10元”成历史\",\"link\":\"https://www.toutiao.com/trending/7706731142883852324/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":26247493,\"unit\":\"热度\",\"text\":\"26247493\"}},{\"id\":\"toutiao:7706515721819570697\",\"title\":\"女士取20万给儿子当彩礼 柜员报警\",\"link\":\"https://www.toutiao.com/trending/7706515721819570697/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":23749714,\"unit\":\"热度\",\"text\":\"23749714\"}},{\"id\":\"toutiao:7706772274233216566\",\"title\":\"中国人为什么曾经靠买房积累财富\",\"link\":\"https://www.toutiao.com/trending/7706772274233216566/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21489629,\"unit\":\"热度\",\"text\":\"21489629\"}},{\"id\":\"toutiao:7706747029136998426\",\"title\":\"台当局要求陆客删中国台湾字样被批\",\"link\":\"https://www.toutiao.com/trending/7706747029136998426/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":19444621,\"unit\":\"热度\",\"text\":\"19444621\"}},{\"id\":\"toutiao:7706681086532652570\",\"title\":\"扬州地震\",\"link\":\"https://www.toutiao.com/trending/7706681086532652570/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17594220,\"unit\":\"热度\",\"text\":\"17594220\"}},{\"id\":\"toutiao:7706355468922683435\",\"title\":\"罗大佑炮轰赖清德：不要脸到家了\",\"link\":\"https://www.toutiao.com/trending/7706355468922683435/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":15919909,\"unit\":\"热度\",\"text\":\"15919909\"}},{\"id\":\"toutiao:7706718932622671923\",\"title\":\"护航消费季│三国营中逢诡计\",\"link\":\"https://www.toutiao.com/trending/7706718932622671923/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14404929,\"unit\":\"热度\",\"text\":\"14404929\"}},{\"id\":\"toutiao:7706719314442814002\",\"title\":\"83岁奶奶分享长寿秘诀：每天梳头200次\",\"link\":\"https://www.toutiao.com/trending/7706719314442814002/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13034119,\"unit\":\"热度\",\"text\":\"13034119\"}},{\"id\":\"toutiao:7706560085522301450\",\"title\":\"鲁比奥：俄美乌三方会谈卓有成效\",\"link\":\"https://www.toutiao.com/trending/7706560085522301450/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11793758,\"unit\":\"热度\",\"text\":\"11793758\"}},{\"id\":\"toutiao:7705565349990780479\",\"title\":\"梁家辉拒绝工作人员帮拿金鸡奖杯\",\"link\":\"https://www.toutiao.com/trending/7705565349990780479/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10671434,\"unit\":\"热度\",\"text\":\"10671434\"}},{\"id\":\"toutiao:7706278514051498038\",\"title\":\"深圳进入APEC时间\",\"link\":\"https://www.toutiao.com/trending/7706278514051498038/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":9655913,\"unit\":\"热度\",\"text\":\"9655913\"}},{\"id\":\"toutiao:7706758708969357874\",\"title\":\"76人用乔治换杰伦·布朗谁赚谁赔\",\"link\":\"https://www.toutiao.com/trending/7706758708969357874/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8737031,\"unit\":\"热度\",\"text\":\"8737031\"}},{\"id\":\"toutiao:7706771089430708787\",\"title\":\"国内金饰克价跌至1210元附近\",\"link\":\"https://www.toutiao.com/trending/7706771089430708787/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7905593,\"unit\":\"热度\",\"text\":\"7905593\"}},{\"id\":\"toutiao:7706682888330248730\",\"title\":\"拜登访问爱尔兰时遭抗议者投掷物品\",\"link\":\"https://www.toutiao.com/trending/7706682888330248730/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7153276,\"unit\":\"热度\",\"text\":\"7153276\"}},{\"id\":\"toutiao:7705772413099114559\",\"title\":\"网友谈扬州地震：躺床上直接被摇醒\",\"link\":\"https://www.toutiao.com/trending/7705772413099114559/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6472552,\"unit\":\"热度\",\"text\":\"6472552\"}},{\"id\":\"toutiao:7706538707142230579\",\"title\":\"朱一龙看到高叶获奖激动到忘词哽咽\",\"link\":\"https://www.toutiao.com/trending/7706538707142230579/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5856607,\"unit\":\"热度\",\"text\":\"5856607\"}},{\"id\":\"toutiao:7706471511054336539\",\"title\":\"显卡降价：有型号直降4000\",\"link\":\"https://www.toutiao.com/trending/7706471511054336539/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5299277,\"unit\":\"热度\",\"text\":\"5299277\"}},{\"id\":\"toutiao:7706133030653706303\",\"title\":\"苏群：塔图姆放下了布朗还没放下\",\"link\":\"https://www.toutiao.com/trending/7706133030653706303/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4794984,\"unit\":\"热度\",\"text\":\"4794984\"}},{\"id\":\"toutiao:7705788770301722665\",\"title\":\"内塔尼亚胡妻子与以前总理激烈争吵\",\"link\":\"https://www.toutiao.com/trending/7705788770301722665/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4338681,\"unit\":\"热度\",\"text\":\"4338681\"}},{\"id\":\"toutiao:7705644641064058921\",\"title\":\"立陶宛要求所谓“台湾代表处”改名\",\"link\":\"https://www.toutiao.com/trending/7705644641064058921/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3925801,\"unit\":\"热度\",\"text\":\"3925801\"}},{\"id\":\"toutiao:7706539680761921579\",\"title\":\"金鸡最佳导演爆冷\",\"link\":\"https://www.toutiao.com/trending/7706539680761921579/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3552211,\"unit\":\"热度\",\"text\":\"3552211\"}},{\"id\":\"toutiao:7706551821753680393\",\"title\":\"张雪冠军车拍卖款不再捐给韩红基金会\",\"link\":\"https://www.toutiao.com/trending/7706551821753680393/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3214174,\"unit\":\"热度\",\"text\":\"3214174\"}},{\"id\":\"toutiao:7706783309673532937\",\"title\":\"为啥合肥肥东连发小地震\",\"link\":\"https://www.toutiao.com/trending/7706783309673532937/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2908305,\"unit\":\"热度\",\"text\":\"2908305\"}},{\"id\":\"toutiao:7706521714359910427\",\"title\":\"人民日报评画地为牢出圈\",\"link\":\"https://www.toutiao.com/trending/7706521714359910427/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2631543,\"unit\":\"热度\",\"text\":\"2631543\"}},{\"id\":\"toutiao:7706752324101754422\",\"title\":\"绿军大胜76人登顶东部\",\"link\":\"https://www.toutiao.com/trending/7706752324101754422/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2381118,\"unit\":\"热度\",\"text\":\"2381118\"}},{\"id\":\"toutiao:7706736403111264777\",\"title\":\"国台办回应“闪身步”走红两岸\",\"link\":\"https://www.toutiao.com/trending/7706736403111264777/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2154525,\"unit\":\"热度\",\"text\":\"2154525\"}},{\"id\":\"toutiao:7706543302224609318\",\"title\":\"《南京照相馆》编剧：高叶演得非常好\",\"link\":\"https://www.toutiao.com/trending/7706543302224609318/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1949495,\"unit\":\"热度\",\"text\":\"1949495\"}},{\"id\":\"toutiao:7706504352940523546\",\"title\":\"伊朗革命卫队新建“导弹城”亮相\",\"link\":\"https://www.toutiao.com/trending/7706504352940523546/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1763976,\"unit\":\"热度\",\"text\":\"1763976\"}},{\"id\":\"toutiao:7706657875929662003\",\"title\":\"普京邀请卢卡申科在家中共进晚餐\",\"link\":\"https://www.toutiao.com/trending/7706657875929662003/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1596111,\"unit\":\"热度\",\"text\":\"1596111\"}},{\"id\":\"toutiao:7705831483910553638\",\"title\":\"早餐记得吃够20g蛋白质\",\"link\":\"https://www.toutiao.com/trending/7705831483910553638/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1444221,\"unit\":\"热度\",\"text\":\"1444221\"}},{\"id\":\"toutiao:7706173708683198985\",\"title\":\"孙中山后人：统一是孙中山一生的信念\",\"link\":\"https://www.toutiao.com/trending/7706173708683198985/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1306785,\"unit\":\"热度\",\"text\":\"1306785\"}},{\"id\":\"toutiao:7705932494260011035\",\"title\":\"哈工大硕士卖气球是浪费资源吗\",\"link\":\"https://www.toutiao.com/trending/7705932494260011035/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1182428,\"unit\":\"热度\",\"text\":\"1182428\"}},{\"id\":\"toutiao:7706438652036923435\",\"title\":\"张雪机车第10万台整车下线\",\"link\":\"https://www.toutiao.com/trending/7706438652036923435/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1069905,\"unit\":\"热度\",\"text\":\"1069905\"}},{\"id\":\"toutiao:7706539843211264550\",\"title\":\"妈妈去学校探望儿子 儿子举动太暖了\",\"link\":\"https://www.toutiao.com/trending/7706539843211264550/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":968090,\"unit\":\"热度\",\"text\":\"968090\"}},{\"id\":\"toutiao:7706706397869818419\",\"title\":\"杨幂出任鸿蒙折叠电脑先锋大使\",\"link\":\"https://www.toutiao.com/trending/7706706397869818419/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":875964,\"unit\":\"热度\",\"text\":\"875964\"}},{\"id\":\"toutiao:7706536458273751066\",\"title\":\"颜丹晨：要守住表演的活人感\",\"link\":\"https://www.toutiao.com/trending/7706536458273751066/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":792605,\"unit\":\"热度\",\"text\":\"792605\"}},{\"id\":\"toutiao:7706396817633788443\",\"title\":\"APEC峰会临近开幕民进党有些人急了\",\"link\":\"https://www.toutiao.com/trending/7706396817633788443/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":717179,\"unit\":\"热度\",\"text\":\"717179\"}},{\"id\":\"toutiao:7706706339027750436\",\"title\":\"以色列的军工实力究竟有多强\",\"link\":\"https://www.toutiao.com/trending/7706706339027750436/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":648930,\"unit\":\"热度\",\"text\":\"648930\"}},{\"id\":\"toutiao:7706681520362520619\",\"title\":\"双11里的消费迁移\",\"link\":\"https://www.toutiao.com/trending/7706681520362520619/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":587176,\"unit\":\"热度\",\"text\":\"587176\"}},{\"id\":\"toutiao:7706534662088359946\",\"title\":\"青年演员认真聆听梁家辉发言\",\"link\":\"https://www.toutiao.com/trending/7706534662088359946/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":531299,\"unit\":\"热度\",\"text\":\"531299\"}},{\"id\":\"toutiao:7706772612981984818\",\"title\":\"攻击11秀出两个大弹舱能看出什么\",\"link\":\"https://www.toutiao.com/trending/7706772612981984818/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":480739,\"unit\":\"热度\",\"text\":\"480739\"}},{\"id\":\"toutiao:7706438734723694646\",\"title\":\"霍华德预测NBA总决赛对阵\",\"link\":\"https://www.toutiao.com/trending/7706438734723694646/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":434991,\"unit\":\"热度\",\"text\":\"434991\"}},{\"id\":\"toutiao:7706752117901476390\",\"title\":\"创作者回应手搓“枯枝大圣”爆火\",\"link\":\"https://www.toutiao.com/trending/7706752117901476390/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":393596,\"unit\":\"热度\",\"text\":\"393596\"}},{\"id\":\"toutiao:7706739003860664870\",\"title\":\"国台办回应大陆微短剧火到台湾\",\"link\":\"https://www.toutiao.com/trending/7706739003860664870/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":356140,\"unit\":\"热度\",\"text\":\"356140\"}},{\"id\":\"toutiao:7706737086044553779\",\"title\":\"司南投顾关注商品定价的双重压制\",\"link\":\"https://www.toutiao.com/trending/7706737086044553779/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":322249,\"unit\":\"热度\",\"text\":\"322249\"}},{\"id\":\"toutiao:7706046881356513318\",\"title\":\"数说APEC：中国贡献有目共睹\",\"link\":\"https://www.toutiao.com/trending/7706046881356513318/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":291583,\"unit\":\"热度\",\"text\":\"291583\"}}]}",
-    "timing": {
-      "elapsed_ms": 486,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 486
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 486,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 486,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 486,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 486,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 486,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 486
-        }
-      ]
-    }
-  }
+  "debug": null
 }
