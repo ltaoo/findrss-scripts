@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.1";
+export const version = "1.1.2";
 export const platform = {
   name: "哔哩哔哩",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" data-n="bilibili-platform-icon"><path fill="none" stroke="#00a1d6" stroke-linecap="round" stroke-width="3" d="m8 7-3-5m16 5 3-5" data-n="bilibili-icon-path-1" /><path fill="#00a1d6" d="M7 6h18a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7Z" data-n="bilibili-icon-path-2" /><path fill="#fff" d="M6 10h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z" data-n="bilibili-icon-path-3" /><rect x="8" y="14" width="4" height="6" rx="2" fill="#00a1d6" data-n="bilibili-icon-rect-4" /><rect x="20" y="14" width="4" height="6" rx="2" fill="#00a1d6" data-n="bilibili-icon-rect-5" /></svg>',
@@ -398,13 +398,13 @@ export class BilibiliUserVideoRSS extends BilibiliRSS {
       })
       .join("");
   }
-  static headers(url) {
+  static headers(referer) {
     return {
       Accept: "text/html,application/xhtml+xml",
       "Accept-Language": "zh-CN,zh;q=0.9",
       "User-Agent":
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
-      Referer: url,
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+      Referer: referer,
     };
   }
   static integer(value, fallback, max, name) {
@@ -467,7 +467,7 @@ export class BilibiliUserVideoRSS extends BilibiliRSS {
         const options = {
           transport: "tcp",
           timeout_ms: 10000,
-          headers: BilibiliUserVideoRSS.headers(url),
+          headers: BilibiliUserVideoRSS.headers(link),
         };
         try {
           const result_3 = await BilibiliUserVideoRSS.request_text(

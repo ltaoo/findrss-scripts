@@ -27,7 +27,7 @@ const compiled = await compile_script_module(source);
 assert.equal(compiled.error, "");
 const fixtures = JSON.parse(await readFile(new URL("./fixtures/script_migration.json", import.meta.url)))
   .filter(fixture => fixture.file === "bilibili");
-// 网络测试成功请求的通用请求头及 Cookie 名称；查询参数沿用 upload_video.har。
+// 实测可用的桌面请求头及 Cookie 名称；查询参数沿用 upload_video.har。
 const video_request = JSON.parse(await readFile(new URL("./fixtures/bilibili_video_request.json", import.meta.url)));
 const saved_cookies = video_request.cookie_names.map(name => ({ name, value: name === "SESSDATA" ? "test-cookie" : "fixture-" + name,
   domain: ".bilibili.com", path: "/", secure: true }));
@@ -65,7 +65,7 @@ for (const fixture of fixtures) test("Bilibili QuickJS 保留内容和媒体："
     if (index) {
       const headers = new Headers(options.headers);
       for (const [name, value] of Object.entries(video_request.headers)) {
-        assert.equal(headers.get(name), name === "referer" ? input : value, name);
+        assert.equal(headers.get(name), name === "referer" ? "https://space.bilibili.com/" + fixture.params.userid + "/upload/video" : value, name);
       }
     }
     if (url.pathname.includes("/feed/space")) {
@@ -147,18 +147,18 @@ test("视频列表无论返回 30 或 50 条都只请求列表及必要头像，
   }
 });
 
-test("视频脚本对齐网络测试成功请求的 Safari 请求头及通用 Cookie，并逐个 API 比较 TCP 请求", async t => {
+test("视频脚本使用桌面 UA 和用户空间 Referer，并逐个 API 比较 TCP 请求", async t => {
   const fixture = fixtures.find(fixture => fixture.route_index === 1);
   t.mock.method(globalThis, "fetch", async input => new Response(
     fixture.responses.find(response => input.includes(response.contains)).body,
   ));
-  await run(1, { userid: "3707051406527347" }, { ps: "1" });
+  await run(1, { userid: "946974" }, { ps: "1" });
   const requests = [...t.tcp.requests];
   assert.equal(requests.some(request => request.url.startsWith("https://space.bilibili.com/")), false);
   assert.ok(requests.some(request => request.url.includes("/nav")));
   assert.ok(requests.some(request => request.url.includes("/arc/search?")));
   for (const original of requests) {
-    const headers = { ...video_request.headers, referer: original.url };
+    const headers = { ...video_request.headers };
     const request = new Request("https://app.example/admin/api/network-test", { method: "POST", body: JSON.stringify({
       url: original.url, transport: "tcp", headers, timeout_ms: 10000, cookie_domains: [".bilibili.com"],
     }) });
