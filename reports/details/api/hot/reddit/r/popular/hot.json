@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T19:53:07.699Z",
+  "checked_at": "2026-11-11T06:49:05.799Z",
   "inspection": {
     "file": "hot/reddit.js",
     "path": "/api/hot/reddit/r/:subreddit?/:sort?",
@@ -9,148 +9,15 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
-    "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-    "duration_ms": 254
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 47
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 153
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 30
   },
-  "debug": {
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
-    "script": {
-      "file": "hot/reddit.js",
-      "name": "Reddit · 社区热门",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/reddit/r/:subreddit?/:sort?",
-      "request_path": "/api/hot/reddit/r/:subreddit?/:sort?",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/reddit/r/popular/hot",
-      "params": {
-        "subreddit": "popular",
-        "sort": "hot"
-      },
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a58799ff4bbbf06c"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "runtime",
-    "elapsed_ms": 59,
-    "invoked": false,
-    "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 www.reddit.com 返回 HTTP 403",
-    "error_text": "脚本执行失败：脚本上游 www.reddit.com 返回 HTTP 403\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
-    "upstream_requests": [
-      {
-        "url": "https://www.reddit.com/r/popular/hot.json?limit=30&raw_json=1",
-        "method": "GET",
-        "host": "www.reddit.com",
-        "pathname": "/r/popular/hot.json",
-        "status": 403,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 59,
-        "timings": {
-          "response_ms": 59
-        }
-      }
-    ],
-    "timing": {
-      "elapsed_ms": 59,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 59
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 59,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 59,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 59,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 59,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 59
-        }
-      ]
-    }
-  }
+  "debug": null
 }

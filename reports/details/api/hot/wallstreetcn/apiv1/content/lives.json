@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T19:53:11.809Z",
+  "checked_at": "2026-11-11T06:49:12.059Z",
   "inspection": {
     "file": "hot/wallstreetcn.js",
     "path": "/api/hot/wallstreetcn/apiv1/content/lives",
@@ -12,12 +12,159 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 79
+    "duration_ms": 32
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 88
+    "status": 200,
+    "duration_ms": 965
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/wallstreetcn.js",
+      "name": "华尔街见闻 · 快讯",
+      "kind": "hot",
+      "version": "1.0.2",
+      "path": "/wallstreetcn/apiv1/content/lives",
+      "request_path": "/api/hot/wallstreetcn/apiv1/content/lives",
+      "route_index": 2
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/wallstreetcn/apiv1/content/lives",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a58b5b0a686a857d"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 925,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"wallstreetcn-quick\",\"count\":30,\"missing_rank\":30}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api-one.wallstcn.com/apiv1/content/lives?channel=global-channel&limit=30",
+        "method": "GET",
+        "host": "api-one.wallstcn.com",
+        "pathname": "/apiv1/content/lives",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 925,
+        "timings": {
+          "response_ms": 925,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"华尔街见闻 · 快讯\",\"link\":\"https://wallstreetcn.com/\",\"category\":\"财经\",\"observed_at\":\"2026-11-11T06:49:13.005Z\",\"entries\":[{\"id\":\"wallstreetcn-quick:3198186\",\"title\":\"创业板ETF易方达成交额100亿 多只宽基ETF较昨日放量\",\"link\":\"https://wallstreetcn.com/livenews/3198186\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198185\",\"title\":\"日经225指数收盘上涨1.3%，报61,248.59点。\\n\\n日本东证指数收盘上涨0.9%，报3,929.39点。\\n\\n韩国首尔综指收盘上涨2.6%，报5,375.36点。\",\"link\":\"https://wallstreetcn.com/livenews/3198185\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198183\",\"title\":\"日产汽车第二财季经营利润21.2亿日元，预估492.7亿日元。\\n\\n第二财季净亏损434.7亿日元，预估收益20.8亿日元。\\n\\n第二财季销售净额3.11万亿日元，预估3.07万亿日元。\\n\\n日产汽车仍然预测全年经营利润2,000.0亿日元，预估1,980.7亿日元。\\n\\n日产汽车仍然预测全年净利润200.0亿日元，预估345亿日元。\\n\\n日产汽车仍然预测全年销售净额13.00万亿日元，预估12.74万亿日元。\\n\\n日产汽车仍然预测全年股息0.0日元，预估0.00日元。\\n\\n日产汽车预计全年全球汽车销量297万至300万辆，此前预计315万。\",\"link\":\"https://wallstreetcn.com/livenews/3198183\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198182\",\"title\":\"两项二氧化碳捕集、利用与封存国家标准正式发布\",\"link\":\"https://wallstreetcn.com/livenews/3198182\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198181\",\"title\":\"特斯拉中国回应网传特斯拉召回车辆并赔偿2800元：系诈骗 切勿点击相关链接\",\"link\":\"https://wallstreetcn.com/livenews/3198181\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198179\",\"title\":\"昆仑芯完成MiniMax H3-Image首发适配\",\"link\":\"https://wallstreetcn.com/livenews/3198179\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198178\",\"title\":\"港珠澳大桥口岸经海关跨境电商平台出口破千亿元\",\"link\":\"https://wallstreetcn.com/livenews/3198178\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198176\",\"title\":\"软银股价重挫11%后小涨 巨额减记疑虑与AI乐观情绪升温相互角力\",\"link\":\"https://wallstreetcn.com/livenews/3198176\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198175\",\"title\":\"日本计划增强海上保安厅能力。（读卖新闻）\",\"link\":\"https://wallstreetcn.com/livenews/3198175\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198170\",\"title\":\"国泰航空集团增购14架空客飞机。（彭博）\",\"link\":\"https://wallstreetcn.com/livenews/3198170\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198168\",\"title\":\"源杰科技触及涨停，成交额70.09亿元，涨幅20%。\",\"link\":\"https://wallstreetcn.com/livenews/3198168\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198167\",\"title\":\"中越金水河—马鹿塘公路口岸升级为国际口岸\",\"link\":\"https://wallstreetcn.com/livenews/3198167\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198164\",\"title\":\"会计改革与发展“十五五”规划：推动财务造假存量加快出清、增量得到有效遏制\",\"link\":\"https://wallstreetcn.com/livenews/3198164\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198161\",\"title\":\"我国新能源汽车销量占比持续走高\",\"link\":\"https://wallstreetcn.com/livenews/3198161\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198152\",\"title\":\"我国首款商用级中小型纯太阳能无人机首飞成功\",\"link\":\"https://wallstreetcn.com/livenews/3198152\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198149\",\"title\":\"10年期日本国债收益率上升10.5个基点至2.795%。\",\"link\":\"https://wallstreetcn.com/livenews/3198149\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198147\",\"title\":\"苹果宣布官方社区将于11月20日永久关闭\",\"link\":\"https://wallstreetcn.com/livenews/3198147\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198146\",\"title\":\"创业板指涨超3%，新易盛涨超15%，中际旭创涨超13%，算力硬件、短剧、游戏、机器人等方向涨幅居前，沪深京三市上涨个股超3800只。\",\"link\":\"https://wallstreetcn.com/livenews/3198146\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198143\",\"title\":\"A股存储芯片板块短线拉升，利扬芯片、泰瑞机器涨停，南亚新材涨超10%，联讯仪器、普冉股份、深南电路、杭州柯林、炬光科技跟涨。\",\"link\":\"https://wallstreetcn.com/livenews/3198143\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198140\",\"title\":\"现货钯金上涨3%，报1056.58美元/盎司。\",\"link\":\"https://wallstreetcn.com/livenews/3198140\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198138\",\"title\":\"存储又在酝酿新一轮涨价\",\"link\":\"https://wallstreetcn.com/livenews/3198138\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198135\",\"title\":\"台交所加权股价指数收高3.6%报44,257.15点。\",\"link\":\"https://wallstreetcn.com/livenews/3198135\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198134\",\"title\":\"纽约期金日内涨1%，现报4070.73美元/盎司。\",\"link\":\"https://wallstreetcn.com/livenews/3198134\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198154\",\"title\":\"野村控股正考虑在中国香港地区招聘银行家，以重建其在当地的股票资本市场业务。（路透）\",\"link\":\"https://wallstreetcn.com/livenews/3198154\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198133\",\"title\":\"《中非标准化合作发展蓝皮书》发布\",\"link\":\"https://wallstreetcn.com/livenews/3198133\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198125\",\"title\":\"创业板指涨幅扩大至2%，CPO概念、元件、半导体等板块涨幅居前。沪深京三市上涨个股超3200只。\",\"link\":\"https://wallstreetcn.com/livenews/3198125\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198122\",\"title\":\"A股游戏股震荡拉升，电魂网络午后涨停，中青宝涨超15%，富春股份、顺网科技、大晟文化、盛天网络、汤姆猫跟涨。\",\"link\":\"https://wallstreetcn.com/livenews/3198122\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198121\",\"title\":\"A股CPO概念股涨势扩大，中际旭创、新易盛、衡东光、太辰光、源杰科技等多股涨超10%，剑桥科技、青山纸业等此前涨停。\",\"link\":\"https://wallstreetcn.com/livenews/3198121\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198118\",\"title\":\"中国台湾证交所加权股价指数上涨3%至43,999.09点。\",\"link\":\"https://wallstreetcn.com/livenews/3198118\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-quick:3198116\",\"title\":\"大模型厂商今日5折卖Token\",\"link\":\"https://wallstreetcn.com/livenews/3198116\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 925,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 925
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 925,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 925,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 925,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 925,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 925,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 925
+        }
+      ]
+    }
+  }
 }

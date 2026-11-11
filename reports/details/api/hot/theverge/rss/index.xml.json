@@ -1,23 +1,165 @@
 {
-  "checked_at": "2026-11-10T19:53:11.258Z",
+  "checked_at": "2026-11-11T06:49:08.309Z",
   "inspection": {
     "file": "hot/theverge.js",
     "path": "/api/hot/theverge/rss/index.xml",
     "example": "/api/hot/theverge/rss/index.xml",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 90
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/theverge/rss/index.xml.json",
+    "duration_ms": 189
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 74
+    "status": 200,
+    "duration_ms": 233
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/theverge.js",
+      "name": "The Verge · 最新资讯",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/theverge/rss/index.xml",
+      "request_path": "/api/hot/theverge/rss/index.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/theverge/rss/index.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a58b5af2fa10e587"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 12,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":10}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.theverge.com/rss/index.xml",
+        "method": "GET",
+        "host": "www.theverge.com",
+        "pathname": "/rss/index.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 12,
+        "timings": {
+          "response_ms": 12,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"The Verge · 最新资讯\",\"link\":\"https://www.theverge.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-11T06:49:08.353Z\",\"entries\":[{\"id\":\"theverge:https://www.theverge.com/?p=1031446\",\"title\":\"Microsoft’s DLSS competitor is out for the Xbox Ally X and works in handheld mode\",\"link\":\"https://www.theverge.com/tech/1031446/microsoft-automatic-super-resolution-auto-sr-upscaling\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1031256\",\"title\":\"The VR Disney Plus app on Meta Quest now has 3D movies\",\"link\":\"https://www.theverge.com/tech/1031256/meta-quest-disney-plus-vr-3d-movies\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1031284\",\"title\":\"Oura is acquiring medical AI chatbot startup Counsel Health\",\"link\":\"https://www.theverge.com/gadgets/1031284/oura-counsel-health-acquisition\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1031242\",\"title\":\"Sony cancels live-service shooter Fairgames\",\"link\":\"https://www.theverge.com/games/1031242/sony-playstation-fairgames-canceled\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1031144\",\"title\":\"The PlayStation Plus PC app is shutting down next month\",\"link\":\"https://www.theverge.com/games/1031144/sony-playstation-plus-windows-pc-app-shutting-down\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1031028\",\"title\":\"Starlink Mini 2 adds a swappable battery\",\"link\":\"https://www.theverge.com/tech/1031028/spacex-starlink-mini-2-satellite-internet-terminal-hot-swap-battery\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1031063\",\"title\":\"The US is winning the AI race. Jensen Huang could have blown it\",\"link\":\"https://www.theverge.com/ai-artificial-intelligence/1031063/jensen-huang-ai-race-us-china-spy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030766\",\"title\":\"Google’s Pixel Tag tracker is now available\",\"link\":\"https://www.theverge.com/tech/1030766/google-pixel-tag-tracker-find-hub-uwb-bluetooth-sounding\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1031089\",\"title\":\"Google is making Pixel HiLight slightly more useful\",\"link\":\"https://www.theverge.com/tech/1031089/google-pixel-drop-november-2026-hilight\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"theverge:https://www.theverge.com/?p=1030970\",\"title\":\"One of our favorite multi-filament 3D printers is $100 off\",\"link\":\"https://www.theverge.com/gadgets/1030970/bambu-p2s-combo-3d-printer-deal-sale\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 12,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 12
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 12,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 12,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 12,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 12,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 12,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 12
+        }
+      ]
+    }
+  }
 }

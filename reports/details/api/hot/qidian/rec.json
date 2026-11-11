@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T19:54:02.286Z",
+  "checked_at": "2026-11-11T06:49:04.024Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/rec",
@@ -9,160 +9,15 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 35
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1234
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 44
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/qidian.js",
-      "name": "起点 · 推荐榜",
-      "kind": "hot",
-      "version": "1.3.1",
-      "path": "/qidian/rec",
-      "request_path": "/api/hot/qidian/rec",
-      "route_index": 4
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/qidian/rec",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a5879b545fdaffeb"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 1142,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "起点榜单解析完成 {\"type\":\"rec\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":20}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://m.qidian.com/rank/rec/",
-        "method": "GET",
-        "host": "m.qidian.com",
-        "pathname": "/rank/rec/",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 1142,
-        "timings": {
-          "response_ms": 1142,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 推荐榜\",\"link\":\"https://m.qidian.com/rank/rec/\",\"category\":\"小说\",\"observed_at\":\"2026-11-10T19:54:03.476Z\",\"entries\":[{\"id\":\"qidian:book:1040765595\",\"title\":\"夜无疆\",\"link\":\"https://m.qidian.com/book/1040765595/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1040765595/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":27500,\"unit\":\"推荐\",\"text\":\"2.75万推荐\"}},{\"id\":\"qidian:book:1035420986\",\"title\":\"玄鉴仙族\",\"link\":\"https://m.qidian.com/book/1035420986/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1035420986/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":20600,\"unit\":\"推荐\",\"text\":\"2.06万推荐\"}},{\"id\":\"qidian:book:1048862481\",\"title\":\"剑烛大荒\",\"link\":\"https://m.qidian.com/book/1048862481/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048862481/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":14400,\"unit\":\"推荐\",\"text\":\"1.44万推荐\"}},{\"id\":\"qidian:book:1050460263\",\"title\":\"神宠供应商\",\"link\":\"https://m.qidian.com/book/1050460263/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050460263/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":10800,\"unit\":\"推荐\",\"text\":\"1.08万推荐\"}},{\"id\":\"qidian:book:1049898328\",\"title\":\"请勿高考时渡劫\",\"link\":\"https://m.qidian.com/book/1049898328/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049898328/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":9663,\"unit\":\"推荐\",\"text\":\"9663推荐\"}},{\"id\":\"qidian:book:1041604040\",\"title\":\"异度旅社\",\"link\":\"https://m.qidian.com/book/1041604040/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1041604040/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":9509,\"unit\":\"推荐\",\"text\":\"9509推荐\"}},{\"id\":\"qidian:book:1010868264\",\"title\":\"诡秘之主\",\"link\":\"https://m.qidian.com/book/1010868264/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1010868264/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":9321,\"unit\":\"推荐\",\"text\":\"9321推荐\"}},{\"id\":\"qidian:book:1049003034\",\"title\":\"有仙则名\",\"link\":\"https://m.qidian.com/book/1049003034/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049003034/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":8339,\"unit\":\"推荐\",\"text\":\"8339推荐\"}},{\"id\":\"qidian:book:1033014772\",\"title\":\"青山\",\"link\":\"https://m.qidian.com/book/1033014772/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1033014772/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":7980,\"unit\":\"推荐\",\"text\":\"7980推荐\"}},{\"id\":\"qidian:book:1051494950\",\"title\":\"无人死寂\",\"link\":\"https://m.qidian.com/book/1051494950/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051494950/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":7948,\"unit\":\"推荐\",\"text\":\"7948推荐\"}},{\"id\":\"qidian:book:1042256511\",\"title\":\"没钱修什么仙？\",\"link\":\"https://m.qidian.com/book/1042256511/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1042256511/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":6500,\"unit\":\"推荐\",\"text\":\"6500推荐\"}},{\"id\":\"qidian:book:1047881102\",\"title\":\"廓晋\",\"link\":\"https://m.qidian.com/book/1047881102/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047881102/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":6484,\"unit\":\"推荐\",\"text\":\"6484推荐\"}},{\"id\":\"qidian:book:1042108416\",\"title\":\"元始法则\",\"link\":\"https://m.qidian.com/book/1042108416/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1042108416/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":6083,\"unit\":\"推荐\",\"text\":\"6083推荐\"}},{\"id\":\"qidian:book:1048859382\",\"title\":\"夜夜行歌\",\"link\":\"https://m.qidian.com/book/1048859382/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048859382/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":5458,\"unit\":\"推荐\",\"text\":\"5458推荐\"}},{\"id\":\"qidian:book:1050046338\",\"title\":\"千秋契\",\"link\":\"https://m.qidian.com/book/1050046338/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050046338/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":5170,\"unit\":\"推荐\",\"text\":\"5170推荐\"}},{\"id\":\"qidian:book:1048640442\",\"title\":\"临圣\",\"link\":\"https://m.qidian.com/book/1048640442/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048640442/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":4801,\"unit\":\"推荐\",\"text\":\"4801推荐\"}},{\"id\":\"qidian:book:1044818845\",\"title\":\"1984：从川菜馆开始\",\"link\":\"https://m.qidian.com/book/1044818845/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044818845/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":4682,\"unit\":\"推荐\",\"text\":\"4682推荐\"}},{\"id\":\"qidian:book:1039449163\",\"title\":\"山海提灯\",\"link\":\"https://m.qidian.com/book/1039449163/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1039449163/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":4444,\"unit\":\"推荐\",\"text\":\"4444推荐\"}},{\"id\":\"qidian:book:1033999771\",\"title\":\"九君齐天\",\"link\":\"https://m.qidian.com/book/1033999771/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1033999771/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":4371,\"unit\":\"推荐\",\"text\":\"4371推荐\"}},{\"id\":\"qidian:book:1044750637\",\"title\":\"北望江山\",\"link\":\"https://m.qidian.com/book/1044750637/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044750637/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":4291,\"unit\":\"推荐\",\"text\":\"4291推荐\"}}]}",
-    "timing": {
-      "elapsed_ms": 1142,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 1142
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 1142,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1142,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1142,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 1142,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 1142,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 1142
-        }
-      ]
-    }
-  }
+  "debug": null
 }

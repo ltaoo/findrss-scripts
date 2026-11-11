@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T19:52:58.942Z",
+  "checked_at": "2026-11-11T06:49:01.579Z",
   "inspection": {
     "file": "hot/kakuyomu.js",
     "path": "/api/hot/kakuyomu/rankings/:genre?/:period?",
@@ -12,145 +12,12 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 30
+    "duration_ms": 34
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 486
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 28
   },
-  "debug": {
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
-    "script": {
-      "file": "hot/kakuyomu.js",
-      "name": "カクヨム · 小说排行榜",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/kakuyomu/rankings/:genre?/:period?",
-      "request_path": "/api/hot/kakuyomu/rankings/:genre?/:period?",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/kakuyomu/rankings/all/daily",
-      "params": {
-        "genre": "all",
-        "period": "daily"
-      },
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a58799c898bdf06c"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "runtime",
-    "elapsed_ms": 343,
-    "invoked": false,
-    "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 kakuyomu.jp 返回 HTTP 403",
-    "error_text": "脚本执行失败：脚本上游 kakuyomu.jp 返回 HTTP 403\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
-    "upstream_requests": [
-      {
-        "url": "https://kakuyomu.jp/rankings/all/daily?work_variation=long",
-        "method": "GET",
-        "host": "kakuyomu.jp",
-        "pathname": "/rankings/all/daily",
-        "status": 403,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 343,
-        "timings": {
-          "response_ms": 343
-        }
-      }
-    ],
-    "timing": {
-      "elapsed_ms": 343,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 343
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 343,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 343,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 343,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 343,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 343
-        }
-      ]
-    }
-  }
+  "debug": null
 }

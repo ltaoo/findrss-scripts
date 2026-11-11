@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T19:52:56.851Z",
+  "checked_at": "2026-11-11T06:48:58.165Z",
   "inspection": {
     "file": "hot/douban_hot.js",
     "path": "/api/hot/douban/rexxar/api/v2/subject/recent_hot/movie",
@@ -11,12 +11,159 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/douban/rexxar/api/v2/subject/recent_hot/movie.json",
-    "duration_ms": 1510
+    "duration_ms": 1380
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 74
+    "status": 200,
+    "duration_ms": 895
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/douban_hot.js",
+      "name": "豆瓣 · 热门电影",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/douban/rexxar/api/v2/subject/recent_hot/movie",
+      "request_path": "/api/hot/douban/rexxar/api/v2/subject/recent_hot/movie",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/douban/rexxar/api/v2/subject/recent_hot/movie",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a58b5ab39edd3518"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 858,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"douban\",\"count\":20,\"missing_rank\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://m.douban.com/rexxar/api/v2/subject/recent_hot/movie",
+        "method": "GET",
+        "host": "m.douban.com",
+        "pathname": "/rexxar/api/v2/subject/recent_hot/movie",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 858,
+        "timings": {
+          "response_ms": 858,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"豆瓣 · 热门电影\",\"link\":\"https://www.douban.com\",\"category\":\"娱乐\",\"observed_at\":\"2026-11-11T06:48:59.034Z\",\"entries\":[{\"id\":\"douban:36847425\",\"title\":\"可能的爱\",\"link\":\"https://movie.douban.com/subject/36847425/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8.7,\"unit\":\"评分\",\"text\":\"8.7\"}},{\"id\":\"douban:37067800\",\"title\":\"阿尔法：初次猎杀\",\"link\":\"https://movie.douban.com/subject/37067800/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6.2,\"unit\":\"评分\",\"text\":\"6.2\"}},{\"id\":\"douban:37363852\",\"title\":\"入夜不再\",\"link\":\"https://movie.douban.com/subject/37363852/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6.5,\"unit\":\"评分\",\"text\":\"6.5\"}},{\"id\":\"douban:39016966\",\"title\":\"小丑回魂：德里故事\",\"link\":\"https://movie.douban.com/subject/39016966/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"评分\",\"text\":\"6\"}},{\"id\":\"douban:37342630\",\"title\":\"突如其来\",\"link\":\"https://movie.douban.com/subject/37342630/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7.7,\"unit\":\"评分\",\"text\":\"7.7\"}},{\"id\":\"douban:35244246\",\"title\":\"敦煌英雄\",\"link\":\"https://movie.douban.com/subject/35244246/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"评分\",\"text\":\"6\"}},{\"id\":\"douban:37124892\",\"title\":\"不存在的罪人\",\"link\":\"https://movie.douban.com/subject/37124892/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5.7,\"unit\":\"评分\",\"text\":\"5.7\"}},{\"id\":\"douban:36828393\",\"title\":\"野兽之心\",\"link\":\"https://movie.douban.com/subject/36828393/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7.3,\"unit\":\"评分\",\"text\":\"7.3\"}},{\"id\":\"douban:37446297\",\"title\":\"逃出布迪秀\",\"link\":\"https://movie.douban.com/subject/37446297/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7.3,\"unit\":\"评分\",\"text\":\"7.3\"}},{\"id\":\"douban:36882191\",\"title\":\"八仙！\",\"link\":\"https://movie.douban.com/subject/36882191/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8.2,\"unit\":\"评分\",\"text\":\"8.2\"}},{\"id\":\"douban:37508847\",\"title\":\"空枪\",\"link\":\"https://movie.douban.com/subject/37508847/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7.2,\"unit\":\"评分\",\"text\":\"7.2\"}},{\"id\":\"douban:37087760\",\"title\":\"黄金时段\",\"link\":\"https://movie.douban.com/subject/37087760/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6.2,\"unit\":\"评分\",\"text\":\"6.2\"}},{\"id\":\"douban:37068446\",\"title\":\"生化危机：爆发夜\",\"link\":\"https://movie.douban.com/subject/37068446/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7.3,\"unit\":\"评分\",\"text\":\"7.3\"}},{\"id\":\"douban:37516455\",\"title\":\"杯雪·一战成名\",\"link\":\"https://movie.douban.com/subject/37516455/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7.5,\"unit\":\"评分\",\"text\":\"7.5\"}},{\"id\":\"douban:35863074\",\"title\":\"复活男\",\"link\":\"https://movie.douban.com/subject/35863074/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5.5,\"unit\":\"评分\",\"text\":\"5.5\"}},{\"id\":\"douban:36903929\",\"title\":\"燃烧吧！爸爸\",\"link\":\"https://movie.douban.com/subject/36903929/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6.8,\"unit\":\"评分\",\"text\":\"6.8\"}},{\"id\":\"douban:36179101\",\"title\":\"希望\",\"link\":\"https://movie.douban.com/subject/36179101/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5.5,\"unit\":\"评分\",\"text\":\"5.5\"}},{\"id\":\"douban:35322132\",\"title\":\"罗斯\",\"link\":\"https://movie.douban.com/subject/35322132/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8.5,\"unit\":\"评分\",\"text\":\"8.5\"}},{\"id\":\"douban:37657706\",\"title\":\"余命一年买男人\",\"link\":\"https://movie.douban.com/subject/37657706/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6.1,\"unit\":\"评分\",\"text\":\"6.1\"}},{\"id\":\"douban:35765242\",\"title\":\"茫然女王\",\"link\":\"https://movie.douban.com/subject/35765242/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7.9,\"unit\":\"评分\",\"text\":\"7.9\"}}]}",
+    "timing": {
+      "elapsed_ms": 858,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 858
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 858,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 858,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 858,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 858,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 858,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 858
+        }
+      ]
+    }
+  }
 }

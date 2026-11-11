@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T19:53:11.010Z",
+  "checked_at": "2026-11-11T06:50:06.672Z",
   "inspection": {
     "file": "hot/tencent_hot.js",
     "path": "/api/hot/tencent/web_backend/v2/getTagInfo",
@@ -9,15 +9,160 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 73
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60001
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 68
+    "status": 200,
+    "duration_ms": 1611
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/tencent_hot.js",
+      "name": "腾讯新闻 · 综合早报",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/tencent/web_backend/v2/getTagInfo",
+      "request_path": "/api/hot/tencent/web_backend/v2/getTagInfo",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/tencent/web_backend/v2/getTagInfo",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a58b5c5fbab7ddaf"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1358,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"tencent-hot\",\"count\":15,\"missing_rank\":15}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":15}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://i.news.qq.com/web_backend/v2/getTagInfo?tagId=aEWqxLtdgmQ%3D",
+        "method": "GET",
+        "host": "i.news.qq.com",
+        "pathname": "/web_backend/v2/getTagInfo",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1358,
+        "timings": {
+          "response_ms": 1144,
+          "body_read_ms": 214,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"腾讯新闻 · 综合早报\",\"link\":\"https://news.qq.com/tag/aEWqxLtdgmQ=\",\"category\":\"综合\",\"observed_at\":\"2026-11-11T06:50:08.217Z\",\"entries\":[{\"id\":\"tencent-hot:20261111A03ECQ00\",\"title\":\"美国众议院阻止推进对美防长赫格塞思的弹劾\",\"link\":\"https://view.inews.qq.com/a/20261111A03ECQ00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261111A0371400\",\"title\":\"俄美乌时隔9个月再谈 欧洲争取上桌 俄乌互袭不止\",\"link\":\"https://view.inews.qq.com/a/20261111A0371400\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A081PG00\",\"title\":\"国家发改委：幼儿园、小学、初中学龄人口已经达峰\",\"link\":\"https://view.inews.qq.com/a/20261110A081PG00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A09LQO00\",\"title\":\"村田晃大被日本检方求刑18个月\",\"link\":\"https://view.inews.qq.com/a/20261110A09LQO00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0BOSV00\",\"title\":\"“不同寻常”！以媒披露视频：俄罗斯军机降落以色列本-古里安机场\",\"link\":\"https://view.inews.qq.com/a/20261110A0BOSV00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0DALX00\",\"title\":\"金鸡奖获奖名单：高叶拿下最佳女主角，梁家辉获影帝\",\"link\":\"https://view.inews.qq.com/a/20261110A0DALX00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261111A0342F00\",\"title\":\"美股收盘：加息担忧压制三大指数齐跌 英伟达两天蒸发2.85万亿元\",\"link\":\"https://view.inews.qq.com/a/20261111A0342F00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0DUVY00\",\"title\":\"鲸鱼APP疑暴雷，提现无门仍可充值，警方已立案\",\"link\":\"https://view.inews.qq.com/a/20261110A0DUVY00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0DJCH00\",\"title\":\"贾国龙将其直接持有的西贝股权全部质押，出质股权数额超2660万元\",\"link\":\"https://view.inews.qq.com/a/20261110A0DJCH00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0EO3K00\",\"title\":\"Anthropic启动IPO路演，七家科技巨头联手下注\",\"link\":\"https://view.inews.qq.com/a/20261110A0EO3K00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0E5GB00\",\"title\":\"阿里巴巴拟分拆平头哥在港股独立上市\",\"link\":\"https://view.inews.qq.com/a/20261110A0E5GB00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0DLKT00\",\"title\":\"欧盟将首次在乌境内设立“军事援助团”机构\",\"link\":\"https://view.inews.qq.com/a/20261110A0DLKT00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0AX4100\",\"title\":\"波兰恐袭事件枪手已身亡，造成6死15伤\",\"link\":\"https://view.inews.qq.com/a/20261110A0AX4100\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0798V00\",\"title\":\"外媒：法航客机起飞后违规转向 险与另一架飞机相撞\",\"link\":\"https://view.inews.qq.com/a/20261110A0798V00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261110A0E9ZX00\",\"title\":\"争议？山东泰山0人进中超年度最佳阵！成都蓉城丢冠罪人入选，挤掉22球银靴\",\"link\":\"https://view.inews.qq.com/a/20261110A0E9ZX00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 1358,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1358
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1358,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1358,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1358,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1358,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1358,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1358
+        }
+      ]
+    }
+  }
 }
