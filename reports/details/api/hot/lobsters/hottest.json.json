@@ -1,165 +1,23 @@
 {
-  "checked_at": "2026-11-12T07:27:20.978Z",
+  "checked_at": "2026-11-12T20:10:12.362Z",
   "inspection": {
     "file": "hot/lobsters.js",
     "path": "/api/hot/lobsters/hottest.json",
     "example": "/api/hot/lobsters/hottest.json",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/lobsters/hottest.json.json",
-    "duration_ms": 432
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 39
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 71
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 49
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/lobsters.js",
-      "name": "Lobsters · 热门讨论",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/lobsters/hottest.json",
-      "request_path": "/api/hot/lobsters/hottest.json",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/lobsters/hottest.json",
-      "params": {},
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a593d04c2c364aa8"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 21,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":25}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://lobste.rs/hottest.json",
-        "method": "GET",
-        "host": "lobste.rs",
-        "pathname": "/hottest.json",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 21,
-        "timings": {
-          "response_ms": 21,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Lobsters · 热门讨论\",\"link\":\"https://lobste.rs/\",\"category\":\"科技\",\"observed_at\":\"2026-11-12T07:27:21.024Z\",\"entries\":[{\"id\":\"lobsters:lnau2d\",\"title\":\"How I accidentally became a millionaire\",\"link\":\"https://lobste.rs/s/lnau2d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":74,\"unit\":\"得分\",\"text\":\"74\"}},{\"id\":\"lobsters:m43bas\",\"title\":\"How do you actually self-host securely?\",\"link\":\"https://lobste.rs/s/m43bas\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":103,\"unit\":\"得分\",\"text\":\"103\"}},{\"id\":\"lobsters:nld6x3\",\"title\":\"What are some \\\"No AI\\\" apps/companies/resources you know of?\",\"link\":\"https://lobste.rs/s/nld6x3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":74,\"unit\":\"得分\",\"text\":\"74\"}},{\"id\":\"lobsters:ii1gzp\",\"title\":\"How a false smoke alarm almost drowned Jane Street's only NYC datacenter\",\"link\":\"https://lobste.rs/s/ii1gzp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":52,\"unit\":\"得分\",\"text\":\"52\"}},{\"id\":\"lobsters:romf5e\",\"title\":\"In Memoriam: Tim Peters 1952–2026\",\"link\":\"https://lobste.rs/s/romf5e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":79,\"unit\":\"得分\",\"text\":\"79\"}},{\"id\":\"lobsters:lrpb0m\",\"title\":\"For the first time, a C++ standard failed to pass the national bodies\",\"link\":\"https://lobste.rs/s/lrpb0m\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16,\"unit\":\"得分\",\"text\":\"16\"}},{\"id\":\"lobsters:zy4p7f\",\"title\":\"Using voltage glitching to unleash the A100 in my mining card\",\"link\":\"https://lobste.rs/s/zy4p7f\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":42,\"unit\":\"得分\",\"text\":\"42\"}},{\"id\":\"lobsters:wfr0b4\",\"title\":\"About the downtime and security incident\",\"link\":\"https://lobste.rs/s/wfr0b4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17,\"unit\":\"得分\",\"text\":\"17\"}},{\"id\":\"lobsters:v3uidx\",\"title\":\"Lock your GitHub Actions\",\"link\":\"https://lobste.rs/s/v3uidx\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18,\"unit\":\"得分\",\"text\":\"18\"}},{\"id\":\"lobsters:vkkbwo\",\"title\":\".name grandfathered\",\"link\":\"https://lobste.rs/s/vkkbwo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":186,\"unit\":\"得分\",\"text\":\"186\"}},{\"id\":\"lobsters:pdzud6\",\"title\":\"Andrew Kensler's permute(), a function for stateless, constant-time pseudorandom-order array iteration\",\"link\":\"https://lobste.rs/s/pdzud6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11,\"unit\":\"得分\",\"text\":\"11\"}},{\"id\":\"lobsters:sdtcvv\",\"title\":\"I deleted all my SSH keys\",\"link\":\"https://lobste.rs/s/sdtcvv\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":61,\"unit\":\"得分\",\"text\":\"61\"}},{\"id\":\"lobsters:miyll7\",\"title\":\"London meetup - update\",\"link\":\"https://lobste.rs/s/miyll7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16,\"unit\":\"得分\",\"text\":\"16\"}},{\"id\":\"lobsters:uz2j2h\",\"title\":\"Google Summer of Code 2026 results\",\"link\":\"https://lobste.rs/s/uz2j2h\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":15,\"unit\":\"得分\",\"text\":\"15\"}},{\"id\":\"lobsters:sc7qkv\",\"title\":\"The Myth of Neutral Code\",\"link\":\"https://lobste.rs/s/sc7qkv\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10,\"unit\":\"得分\",\"text\":\"10\"}},{\"id\":\"lobsters:pfscsm\",\"title\":\"eMudhra Statement on Recent Certificate Security Incident\",\"link\":\"https://lobste.rs/s/pfscsm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"得分\",\"text\":\"8\"}},{\"id\":\"lobsters:idktfu\",\"title\":\"Go Turns 17\",\"link\":\"https://lobste.rs/s/idktfu\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":44,\"unit\":\"得分\",\"text\":\"44\"}},{\"id\":\"lobsters:quicny\",\"title\":\"Monads in Lean\",\"link\":\"https://lobste.rs/s/quicny\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10,\"unit\":\"得分\",\"text\":\"10\"}},{\"id\":\"lobsters:3rydtk\",\"title\":\"No Effect Before Its Cause: From Einstein to Lamport\",\"link\":\"https://lobste.rs/s/3rydtk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4,\"unit\":\"得分\",\"text\":\"4\"}},{\"id\":\"lobsters:t7qkjb\",\"title\":\"The hardest tarball\",\"link\":\"https://lobste.rs/s/t7qkjb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":82,\"unit\":\"得分\",\"text\":\"82\"}},{\"id\":\"lobsters:fdnic2\",\"title\":\"Synaptics patent claims stop work on DisplayLink drivers\",\"link\":\"https://lobste.rs/s/fdnic2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":60,\"unit\":\"得分\",\"text\":\"60\"}},{\"id\":\"lobsters:x4kaac\",\"title\":\"30 years of Internet transfers with curl\",\"link\":\"https://lobste.rs/s/x4kaac\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":36,\"unit\":\"得分\",\"text\":\"36\"}},{\"id\":\"lobsters:793ecg\",\"title\":\"Writing a SIGGRAPH paper from scratch\",\"link\":\"https://lobste.rs/s/793ecg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"得分\",\"text\":\"8\"}},{\"id\":\"lobsters:ifecer\",\"title\":\"The Web Is More Than Enough\",\"link\":\"https://lobste.rs/s/ifecer\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5,\"unit\":\"得分\",\"text\":\"5\"}},{\"id\":\"lobsters:zingk1\",\"title\":\"Announcing .NET 11\",\"link\":\"https://lobste.rs/s/zingk1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":34,\"unit\":\"得分\",\"text\":\"34\"}}]}",
-    "timing": {
-      "elapsed_ms": 21,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 21
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 21,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 21,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 21,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 21,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 21,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 21
-        }
-      ]
-    }
-  }
+  "debug": null
 }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-12T07:36:19.740Z",
+  "checked_at": "2026-11-12T20:18:15.318Z",
   "inspection": {
     "file": "hot/zhihu_hot.js",
     "path": "/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
@@ -10,11 +10,159 @@
     "format_valid": false,
     "output_valid": false,
     "error": "The operation was aborted due to timeout",
-    "duration_ms": 60000
+    "duration_ms": 60001
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 59999
+    "status": 200,
+    "duration_ms": 824
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/zhihu_hot.js",
+      "name": "知乎",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/zhihu/api/v3/feed/topstory/hot-list-web",
+      "request_path": "/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/zhihu/api/v3/feed/topstory/hot-list-web",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a598398ddf3724c6"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 772,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"zhihu\",\"count\":20,\"missing_rank\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.zhihu.com/api/v3/feed/topstory/hot-list-web?limit=20&desktop=true",
+        "method": "GET",
+        "host": "www.zhihu.com",
+        "pathname": "/api/v3/feed/topstory/hot-list-web",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 772,
+        "timings": {
+          "response_ms": 772,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"知乎\",\"link\":\"https://www.zhihu.com\",\"category\":\"社区\",\"observed_at\":\"2026-11-12T20:18:16.110Z\",\"entries\":[{\"id\":\"zhihu:https://www.zhihu.com/question/2104195756106019708\",\"title\":\"荷兰法院已驳回捷豹路虎突击调取比亚迪研发资料的申请，还有哪些信息值得关注？这一裁定意味着什么？\",\"link\":\"https://www.zhihu.com/question/2104195756106019708\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"439 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104319975074656932\",\"title\":\"刘欢死因首次曝光，系感染性休克，生前与膀胱癌斗争十几年，膀胱癌有多危险？该怎样预防？\",\"link\":\"https://www.zhihu.com/question/2104319975074656932\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"327 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104239650290098778\",\"title\":\"德芙因七夕广告宣扬错误婚恋观，代运营方被罚 80 万，怎样看待这一结果？\",\"link\":\"https://www.zhihu.com/question/2104239650290098778\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"308 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104342766322808640\",\"title\":\"黄仁勋辞去英伟达 CEO 职务，会给中国 AI 芯片厂商带来新的发展机会吗？\",\"link\":\"https://www.zhihu.com/question/2104342766322808640\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"260 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104132164308530649\",\"title\":\"网传腾讯裁员 15-20%，腾讯辟谣「裁员 50%」的说法，实际什么情况？可能涉及哪些业务？\",\"link\":\"https://www.zhihu.com/question/2104132164308530649\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"225 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104110182112482058\",\"title\":\"女子在西西弗书店买了 200 元的书，想坐咖啡区却被拒，店方称需另行消费才能入座，这一规定合理吗？\",\"link\":\"https://www.zhihu.com/question/2104110182112482058\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"183 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2103997936267019794\",\"title\":\"如何看待 28 岁中国留学毕业生在墨尔本遇袭，两根手指被砍断，膝盖被砍伤，还遭朋友卷走 5.4 万澳元医药费？\",\"link\":\"https://www.zhihu.com/question/2103997936267019794\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"148 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104130661825122762\",\"title\":\"杨世光 2026-11-11 确切的说国产 EUV2027 年 8 月发布，如何看待这个消息？\",\"link\":\"https://www.zhihu.com/question/2104130661825122762\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"138 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2075640740537963785\",\"title\":\"房子已经过剩，为什么一直还在新盖楼盘？\",\"link\":\"https://www.zhihu.com/question/2075640740537963785\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"122 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2103431538201384541\",\"title\":\"如何看待院士称剑桥大学 50 张病床配 600 位科学家，国内配 5 个大夫就超编了，是否应该大力扩编医生?\",\"link\":\"https://www.zhihu.com/question/2103431538201384541\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"105 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104153189284931494\",\"title\":\"蒂姆·库克被提名为英伟达一把手潜在继任者，特朗普也建议其担任 CEO，库克成为英伟达新掌门的概率大吗？\",\"link\":\"https://www.zhihu.com/question/2104153189284931494\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"104 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104232899662669796\",\"title\":\"如何看待马化腾在腾讯 28 周年庆全员会上的讲话？\",\"link\":\"https://www.zhihu.com/question/2104232899662669796\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"104 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2103258099138172807\",\"title\":\"如何看待 2026 年 10 月特斯拉国内销量暴跌？\",\"link\":\"https://www.zhihu.com/question/2103258099138172807\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"102 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2103125335730669300\",\"title\":\"GPT-6.2 开启首测，有网友称其性能可压倒 Opus5.5，二者实际体验差距有多大？\",\"link\":\"https://www.zhihu.com/question/2103125335730669300\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"96 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2101800244514121260\",\"title\":\"成都成中国唯一入选美国《国家地理》全球最佳旅行地城市，凭什么吸引世界目光？\",\"link\":\"https://www.zhihu.com/question/2101800244514121260\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"91 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2103921611434939660\",\"title\":\"港媒曝霍启山与娜然喜帖，二人 12 月 12 日将在香港办婚礼，哪些细节值得关注？\",\"link\":\"https://www.zhihu.com/question/2103921611434939660\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"90 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2104242987278546098\",\"title\":\"如何评价黄仁勋任职英伟达 CEO 期间的全部贡献？\",\"link\":\"https://www.zhihu.com/question/2104242987278546098\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"90 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2103957347660051158\",\"title\":\"如何看待马志明收郭德纲为义子？\",\"link\":\"https://www.zhihu.com/question/2103957347660051158\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"89 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2103879116948771823\",\"title\":\"怎么看 Anthropic IPO 提到 Claude 适配全芯片训练和推理，接入 AMD 只用 3 天？\",\"link\":\"https://www.zhihu.com/question/2103879116948771823\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"88 万热度\"}},{\"id\":\"zhihu:https://www.zhihu.com/question/2089365159668093568\",\"title\":\"你支持小区取消物业，实行业主自治管理吗？\",\"link\":\"https://www.zhihu.com/question/2089365159668093568\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"83 万热度\"}}]}",
+    "timing": {
+      "elapsed_ms": 772,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 772
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 772,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 772,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 772,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 772,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 772,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 772
+        }
+      ]
+    }
+  }
 }

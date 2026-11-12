@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-12T07:36:20.191Z",
+  "checked_at": "2026-11-12T20:18:16.886Z",
   "inspection": {
     "file": "rss/69shuba.js",
     "path": "/api/rss/69shuba/book/:book_id",
@@ -10,11 +10,151 @@
     "format_valid": false,
     "output_valid": false,
     "error": "The operation was aborted due to timeout",
-    "duration_ms": 60000
+    "duration_ms": 60001
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60000
+    "status": 503,
+    "duration_ms": 9502
   },
-  "debug": null
+  "debug": {
+    "status": 503,
+    "code": "COOKIE_STORAGE_UNAVAILABLE",
+    "script": {
+      "file": "rss/69shuba.js",
+      "name": "69书吧小说章节",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/69shuba/book/:book_id",
+      "request_path": "/api/rss/69shuba/book/:book_id",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/69shuba/book/34567",
+      "params": {
+        "book_id": "34567"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a59839979db720af"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 8934,
+    "invoked": false,
+    "upstream_error": "COOKIE_STORAGE_UNAVAILABLE: Cookie 存储暂不可用，请检查 KV 绑定、加密密钥或稍后重试",
+    "error_text": "FeedError: Cookie 存储暂不可用，请检查 KV 绑定、加密密钥或稍后重试\n    at script_error (index.js:26381:24)\n    at save_browser_session (index.js:26653:11)\n    at async Promise.all (index 0)\n    at async Object.commit (index.js:46306:7)\n    at async execute_route (index.js:46373:5)\n    at async Object.fetch (index.js:47025:30)",
+    "lines": [],
+    "upstream_requests": [],
+    "timing": {
+      "elapsed_ms": 8934,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 178
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 178,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 178,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 178,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 178,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 178,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 178,
+          "duration_ms": 8213
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 8391,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 8391,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 8391,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 8391,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 8391,
+          "duration_ms": 543
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 8934,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 178,
+          "duration_ms": 21
+        },
+        {
+          "name": "浏览器页面获取",
+          "started_ms": 199,
+          "duration_ms": 5382
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 5581,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器页面获取",
+          "started_ms": 5582,
+          "duration_ms": 2809
+        }
+      ]
+    }
+  }
 }

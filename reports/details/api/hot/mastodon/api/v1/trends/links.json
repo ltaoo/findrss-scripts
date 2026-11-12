@@ -1,167 +1,20 @@
 {
-  "checked_at": "2026-11-12T07:27:23.280Z",
+  "checked_at": "2026-11-12T20:11:12.412Z",
   "inspection": {
     "file": "hot/mastodon.js",
     "path": "/api/hot/mastodon/api/v1/trends/:type?",
     "example": "/api/hot/mastodon/api/v1/trends/links",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/mastodon/api/v1/trends/links.json",
-    "duration_ms": 699
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60001
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 253
+    "error": "Debug 请求超时或已取消",
+    "duration_ms": 60000
   },
-  "debug": {
-    "status": 200,
-    "code": null,
-    "script": {
-      "file": "hot/mastodon.js",
-      "name": "Mastodon · 社媒趋势",
-      "kind": "hot",
-      "version": "1.0.0",
-      "path": "/mastodon/api/v1/trends/:type?",
-      "request_path": "/api/hot/mastodon/api/v1/trends/:type?",
-      "route_index": 0
-    },
-    "request": {
-      "method": "GET",
-      "pathname": "/debug/api/hot/mastodon/api/v1/trends/links",
-      "params": {
-        "type": "links"
-      },
-      "query": {},
-      "public_origin": "https://script.findrss.cloud",
-      "headers": {
-        "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a593d05a8bfa54a3"
-      },
-      "authentication": {
-        "required": true,
-        "credential_present": true,
-        "authenticated": true
-      }
-    },
-    "phase": "ok",
-    "elapsed_ms": 26,
-    "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":20}"
-      }
-    ],
-    "upstream_requests": [
-      {
-        "url": "https://mastodon.social/api/v1/trends/links?limit=20",
-        "method": "GET",
-        "host": "mastodon.social",
-        "pathname": "/api/v1/trends/links",
-        "status": 200,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 0,
-        "duration_ms": 26,
-        "timings": {
-          "response_ms": 26,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
-        }
-      }
-    ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"Mastodon · 热门链接\",\"link\":\"https://mastodon.social/explore/links\",\"category\":\"社交\",\"observed_at\":\"2026-11-12T07:27:23.429Z\",\"entries\":[{\"id\":\"mastodon.social:links:https://www.mdr.de/nachrichten/sachsen-anhalt/landespolitik/brandmauer-debatte,schulze-afd-antraege-zustimmung-100.html\",\"title\":\"CDU-Chef Schulze schließt Zustimmung zu AfD-Anträgen nicht aus — CDU-Mitglieder üben Kritik\",\"link\":\"https://www.mdr.de/nachrichten/sachsen-anhalt/landespolitik/brandmauer-debatte,schulze-afd-antraege-zustimmung-100.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/212/048/original/f7ea9d5e88d553e6.webp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5,\"unit\":\"当日分享次数\",\"text\":\"5\"}},{\"id\":\"mastodon.social:links:https://www.laquadrature.net/2025/11/24/la-police-detourne-le-fichier-des-passeports-et-des-cartes-didentite/\",\"title\":\"La police détourne le fichier des passeports et des cartes d’identité\",\"link\":\"https://www.laquadrature.net/2025/11/24/la-police-detourne-le-fichier-des-passeports-et-des-cartes-didentite/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/171/907/984/original/249b752428e82559.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":35,\"unit\":\"当日分享次数\",\"text\":\"35\"}},{\"id\":\"mastodon.social:links:https://www.propublica.org/article/east-orange-va-hospital-veterans-decline-new-jersey\",\"title\":\"Trump Promised to Care for America’s Veterans. The VA Is Now “Collapsing From the Inside.”\",\"link\":\"https://www.propublica.org/article/east-orange-va-hospital-veterans-decline-new-jersey\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/353/062/original/ac0b4373a53f2f8d.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27,\"unit\":\"当日分享次数\",\"text\":\"27\"}},{\"id\":\"mastodon.social:links:https://www.propublica.org/article/election-challenge-forsyth-county-georgia\",\"title\":\"A Tool Built by Election Deniers Said These Voters Were Dead. We Found Them Alive.\",\"link\":\"https://www.propublica.org/article/election-challenge-forsyth-county-georgia\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/405/425/original/3bbf3f379075cef1.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":22,\"unit\":\"当日分享次数\",\"text\":\"22\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/commentisfree/2026/nov/11/britain-streets-polluted-car-industry-electric-vehicles-transition\",\"title\":\"Why are Britain’s streets still so polluted? Because the car industry dinosaurs do what they like, and politicians let them\",\"link\":\"https://www.theguardian.com/commentisfree/2026/nov/11/britain-streets-polluted-car-industry-electric-vehicles-transition\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/328/304/original/dac439dc70cd0948.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2,\"unit\":\"当日分享次数\",\"text\":\"2\"}},{\"id\":\"mastodon.social:links:https://theconversation.com/the-police-beating-that-opened-americas-eyes-to-jim-crows-brutality-53932\",\"title\":\"The police beating that opened America’s eyes to Jim Crow’s brutality\",\"link\":\"https://theconversation.com/the-police-beating-that-opened-americas-eyes-to-jim-crows-brutality-53932\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/325/266/original/3b8c9fa270f1f62e.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"当日分享次数\",\"text\":\"1\"}},{\"id\":\"mastodon.social:links:https://www.zdf.de/video/shows/die-anstalt-104/die-anstalt-vom-10-november-2026-100\",\"title\":\"Die Geheimdienst-Anstalt: Braucht Deutschland einen James BND? | Polit-Satire im ZDF\",\"link\":\"https://www.zdf.de/video/shows/die-anstalt-104/die-anstalt-vom-10-november-2026-100\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/284/704/original/ecd1235fbb562e4a.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4,\"unit\":\"当日分享次数\",\"text\":\"4\"}},{\"id\":\"mastodon.social:links:https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html\",\"title\":\"Jensen Huang Said to Have Had Relationship With Nvidia Executive Who Reports to Him\",\"link\":\"https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/431/582/original/e0bd816a6522c4bd.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":62,\"unit\":\"当日分享次数\",\"text\":\"62\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator\",\"title\":\"AI has made it ‘close to impossible’ to assess university coursework, regulator says\",\"link\":\"https://www.theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/333/224/original/1ddb65f73e0f0094.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2,\"unit\":\"当日分享次数\",\"text\":\"2\"}},{\"id\":\"mastodon.social:links:https://www.404media.co/reverse-engineer-anything-ai-companies-crack-down-on-the-coolest-thing-people-were-doing-with-ai/\",\"title\":\"'Reverse Engineer Anything': AI Companies Crack Down on the Coolest Thing People Were Doing With AI\",\"link\":\"https://www.404media.co/reverse-engineer-anything-ai-companies-crack-down-on-the-coolest-thing-people-were-doing-with-ai/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/236/267/original/c0a0fc3bf3a1c7b1.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":38,\"unit\":\"当日分享次数\",\"text\":\"38\"}},{\"id\":\"mastodon.social:links:https://www.cnn.com/2026/11/11/politics/hegseth-reprimanded-guard-tomb-unknown-soldier\",\"title\":\"Video shows soldier reprimanding Hegseth and advisers at Tomb of the Unknown Soldier\",\"link\":\"https://www.cnn.com/2026/11/11/politics/hegseth-reprimanded-guard-tomb-unknown-soldier\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/420/180/original/9005f528b4304d2b.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":46,\"unit\":\"当日分享次数\",\"text\":\"46\"}},{\"id\":\"mastodon.social:links:https://www.commondreams.org/news/hegseth-impeachment-fails\",\"title\":\"Jeffries Dragged for 'Serious Leadership Problem' as Hegseth Impeachment Bid Falls 7 Votes Short With 11 Dem No-Shows | Common Dreams\",\"link\":\"https://www.commondreams.org/news/hegseth-impeachment-fails\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/313/745/original/a85f009e344ccefc.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"当日分享次数\",\"text\":\"1\"}},{\"id\":\"mastodon.social:links:https://www.cnn.com/2026/11/11/politics/live-news/hegseth-impeachment-congress\",\"title\":\"Democrat Scott Colom will win a US Senate seat in deep-red Mississippi, CNN projects\",\"link\":\"https://www.cnn.com/2026/11/11/politics/live-news/hegseth-impeachment-congress\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/432/990/original/8b19036037019b79.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":36,\"unit\":\"当日分享次数\",\"text\":\"36\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/us-news/ng-interactive/2026/nov/11/project-2025-federal-data-trump-administration\",\"title\":\"Project 2025 had a plan to target federal data. The Trump administration obeyed\",\"link\":\"https://www.theguardian.com/us-news/ng-interactive/2026/nov/11/project-2025-federal-data-trump-administration\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/359/346/original/8c9c730021822fdf.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10,\"unit\":\"当日分享次数\",\"text\":\"10\"}},{\"id\":\"mastodon.social:links:https://www.yahoo.com/news/politics/articles/palantir-ceo-alex-karp-says-123708781.html\",\"title\":\"Palantir CEO Alex Karp Says Its Products Are ‘Essentially Progressive’\",\"link\":\"https://www.yahoo.com/news/politics/articles/palantir-ceo-alex-karp-says-123708781.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/454/376/original/b1e281df671c20f6.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":48,\"unit\":\"当日分享次数\",\"text\":\"48\"}},{\"id\":\"mastodon.social:links:https://thehackernews.com/2026/11/emudhra-revokes-8-more-cas-it.html\",\"title\":\"eMudhra Revokes 8 More CAs It Previously Declared Unaffected by Key Compromise\",\"link\":\"https://thehackernews.com/2026/11/emudhra-revokes-8-more-cas-it.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/366/947/original/7def7b305575ba36.webp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":9,\"unit\":\"当日分享次数\",\"text\":\"9\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/world/2026/nov/11/spain-general-strike-housing-costs\",\"title\":\"Millions join Spain’s first general strike in 14 years in protest at housing crisis\",\"link\":\"https://www.theguardian.com/world/2026/nov/11/spain-general-strike-housing-costs\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/379/259/original/f547e863400c61e2.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"当日分享次数\",\"text\":\"6\"}},{\"id\":\"mastodon.social:links:https://www.zeit.de/wissenschaft/umwelt/2026-11/klimaschutz-index-germanwatch-newclimate-institute-deutschland-gxe\",\"title\":\"Klimaschutz-Index: Deutschland sinkt im internationalen Klimaschutz-Index ins Mittelmaß\",\"link\":\"https://www.zeit.de/wissenschaft/umwelt/2026-11/klimaschutz-index-germanwatch-newclimate-institute-deutschland-gxe\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/326/212/original/2f9d6bb0c4b22c7d.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"当日分享次数\",\"text\":\"1\"}},{\"id\":\"mastodon.social:links:https://volksverpetzer.de/faktencheck/kassenzettel-ki-fakes/\",\"title\":\"Diese Kassenzettel sind KI-Fakes – es ist aber komplizierter, als du denkst!\",\"link\":\"https://volksverpetzer.de/faktencheck/kassenzettel-ki-fakes/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/353/590/original/80cba6bf3de83233.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"当日分享次数\",\"text\":\"1\"}},{\"id\":\"mastodon.social:links:https://www.nytimes.com/2026/11/11/us/david-brouillette-ice-maine-shooting-anti-immigrant-hatred.html\",\"title\":\"ICE Officer Involved in Maine Shooting Expressed Hatred of Immigrants\",\"link\":\"https://www.nytimes.com/2026/11/11/us/david-brouillette-ice-maine-shooting-anti-immigrant-hatred.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/352/500/original/06c82683fc002799.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"当日分享次数\",\"text\":\"8\"}}]}",
-    "timing": {
-      "elapsed_ms": 26,
-      "stages": [
-        {
-          "name": "鉴权与路由",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "宿主能力准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱参数准备",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 26
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 26,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 26,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 26,
-          "duration_ms": 0
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 26,
-          "duration_ms": 0
-        },
-        {
-          "name": "调试信息整理",
-          "started_ms": 26,
-          "duration_ms": 0
-        }
-      ],
-      "operations": [
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 26
-        }
-      ]
-    }
-  }
+  "debug": null
 }

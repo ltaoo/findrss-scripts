@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-12T07:28:17.176Z",
+  "checked_at": "2026-11-12T20:10:11.603Z",
   "inspection": {
     "file": "hot/jin10.js",
     "path": "/api/hot/jin10/flash_newest.js",
@@ -9,12 +9,162 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 48
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 1291
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/jin10.js",
+      "name": "金十数据",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/jin10/flash_newest.js",
+      "request_path": "/api/hot/jin10/flash_newest.js",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/jin10/flash_newest.js",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5982dbe982e24c6"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1237,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"jin10\",\"count\":25,\"missing_rank\":25}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":25}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.jin10.com/flash_newest.js?t=1794514211622",
+        "method": "GET",
+        "host": "www.jin10.com",
+        "pathname": "/flash_newest.js",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 1237,
+        "timings": {
+          "response_ms": 1232,
+          "body_read_ms": 5,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"金十数据\",\"link\":\"https://www.jin10.com\",\"category\":\"财经\",\"observed_at\":\"2026-11-12T20:10:12.859Z\",\"entries\":[{\"id\":\"jin10:20261113040543905800\",\"title\":\"中国地震台网自动测定：11月13日04时03分在贵州毕节市威宁县附近发生4.2级左右地震，最终结果以正式速报为准。\",\"link\":\"https://flash.jin10.com/detail/20261113040543905800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113040140843800\",\"title\":\"在预测市场上，黄仁勋在年底前离婚的概率上升至26%。\",\"link\":\"https://flash.jin10.com/detail/20261113040140843800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113035540859800\",\"title\":\"郭明𫓹：库克擅长供应链 但能把尖端芯片做好的只有黄仁勋\",\"link\":\"https://flash.jin10.com/detail/20261113035540859800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113035434636800\",\"title\":\"伊朗驻英使馆：坚决否认英国司法部门将伊朗与英国境内暴力活动联系起来的指控，以及伊朗参与相关间谍活动的说法。\",\"link\":\"https://flash.jin10.com/detail/20261113035434636800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113034507620800\",\"title\":\"布伦特原油期货结算价为每桶95.82美元，上涨3.06美元，涨幅3.3%。\",\"link\":\"https://flash.jin10.com/detail/20261113034507620800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113034329160800\",\"title\":\"WTI原油突破89美元/桶，日内涨3.00%。\",\"link\":\"https://flash.jin10.com/detail/20261113034329160800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113033438294800\",\"title\":\"微软(MSFT.O)：负载升高并非由流量增加所致，而是由于多台服务器意外不可用。\",\"link\":\"https://flash.jin10.com/detail/20261113033438294800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113033434918800\",\"title\":\"美国司法部调查英伟达 涉及反垄断问题等\",\"link\":\"https://flash.jin10.com/detail/20261113033434918800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113033223202800\",\"title\":\"沙特联军：在东部地区拦截并摧毁了一架无人机。\",\"link\":\"https://flash.jin10.com/detail/20261113033223202800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113033105759800\",\"title\":\"WTI原油期货结算价为每桶88.74美元，上涨2.21美元，涨幅2.55%。\",\"link\":\"https://flash.jin10.com/detail/20261113033105759800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113032910508800\",\"title\":\"第三段婚外情被曝光？黄仁勋被曝与第二名英伟达员工存在亲密关系\",\"link\":\"https://flash.jin10.com/detail/20261113032910508800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113032500751800\",\"title\":\"据路透：消息人士称，英伟达(NVDA.O)前CEO黄仁勋曾与第二名员工存在亲密关系。\",\"link\":\"https://flash.jin10.com/detail/20261113032500751800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113032337378800\",\"title\":\"俄罗斯总统普京正在举行俄罗斯联邦安全会议。\",\"link\":\"https://flash.jin10.com/detail/20261113032337378800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113031722054800\",\"title\":\"消息人士称伊朗霍尔木兹甘省锡里克遭敌方袭击\",\"link\":\"https://flash.jin10.com/detail/20261113031722054800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113031424545800\",\"title\":\"微软(MSFT.O)：已暂停所有部署，正在将更多流量从受影响的基础设施上转移，并重启受影响的服务器以使其恢复服务。\",\"link\":\"https://flash.jin10.com/detail/20261113031424545800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113031348975800\",\"title\":\"沙特联军：拦截并摧毁了一架也门胡塞武装向利雅得地区发射的无人机。\",\"link\":\"https://flash.jin10.com/detail/20261113031348975800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113031324544800\",\"title\":\"白宫讨论商务部长卢特尼克去留 特朗普仍表示信任\",\"link\":\"https://flash.jin10.com/detail/20261113031324544800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113031206988800\",\"title\":\"美国民主党参议员里德：国会需要评估英伟达(NVDA.O)是否“大而不能倒”，以及这可能对银行体系产生何种影响。\",\"link\":\"https://flash.jin10.com/detail/20261113031206988800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113030550289800\",\"title\":\"据伊通社（IRNA）：官方消息人士称，数分钟前，伊朗霍尔木兹甘省锡里克（Sirik）遭到敌方打击。报道称，此次袭击属于军事性质。\",\"link\":\"https://flash.jin10.com/detail/20261113030550289800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113031926404800\",\"title\":\"恒指期货夜盘收跌0.29%，报23914点，低水95点。\",\"link\":\"https://flash.jin10.com/detail/20261113031926404800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113030124250800\",\"title\":\"美国财政部：美国10月预算赤字为4040亿美元，2025年10月赤字为2840亿美元。\",\"link\":\"https://flash.jin10.com/detail/20261113030124250800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113030106876800\",\"title\":\"美国财政部：美国10月预算支出7730亿美元，2025年10月为6890亿美元；收入3690亿美元，2025年10月为4040亿美元。\",\"link\":\"https://flash.jin10.com/detail/20261113030106876800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113030044998800\",\"title\":\"美国财政部：美国10月海关净收入192.2亿美元，2025年10月为313.5亿美元。\",\"link\":\"https://flash.jin10.com/detail/20261113030044998800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113030028180800\",\"title\":\"美国财政部：美国10月预算赤字和支出均创该月历史纪录。\",\"link\":\"https://flash.jin10.com/detail/20261113030028180800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"jin10:20261113030002315800\",\"title\":\"美国10月政府预算 -4040亿美元，前值-270亿美元。\",\"link\":\"https://flash.jin10.com/detail/20261113030002315800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 1237,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 1237
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1237,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1237,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1237,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1237,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1237,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 1237
+        }
+      ]
+    }
+  }
 }

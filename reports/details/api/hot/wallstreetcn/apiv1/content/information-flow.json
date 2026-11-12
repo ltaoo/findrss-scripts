@@ -1,21 +1,168 @@
 {
-  "checked_at": "2026-11-12T07:34:23.817Z",
+  "checked_at": "2026-11-12T20:17:15.138Z",
   "inspection": {
     "file": "hot/wallstreetcn.js",
     "path": "/api/hot/wallstreetcn/apiv1/content/information-flow",
     "example": "/api/hot/wallstreetcn/apiv1/content/information-flow",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/wallstreetcn/apiv1/content/information-flow.json",
-    "duration_ms": 5115
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "error": "The operation was aborted due to timeout",
+    "duration_ms": 60000
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 2654
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/wallstreetcn.js",
+      "name": "华尔街见闻 · 最新",
+      "kind": "hot",
+      "version": "1.0.2",
+      "path": "/wallstreetcn/apiv1/content/information-flow",
+      "request_path": "/api/hot/wallstreetcn/apiv1/content/information-flow",
+      "route_index": 1
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/wallstreetcn/apiv1/content/information-flow",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5983815bf51732d"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 2609,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"wallstreetcn-news\",\"count\":25,\"missing_rank\":25}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":25}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api-one.wallstcn.com/apiv1/content/information-flow?channel=global-channel&accept=article&limit=30",
+        "method": "GET",
+        "host": "api-one.wallstcn.com",
+        "pathname": "/apiv1/content/information-flow",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 2609,
+        "timings": {
+          "response_ms": 2399,
+          "body_read_ms": 210,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"华尔街见闻 · 最新\",\"link\":\"https://wallstreetcn.com/\",\"category\":\"财经\",\"observed_at\":\"2026-11-12T20:17:17.766Z\",\"entries\":[{\"id\":\"wallstreetcn-news:3785837\",\"title\":\"黄仁勋再次被曝与第二名女员工有染\",\"link\":\"https://wallstreetcn.com/articles/3785837\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785834\",\"title\":\"英伟达新任董事会主席致全体员工：公司实力源于团队、技术和生态\",\"link\":\"https://wallstreetcn.com/articles/3785834\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785727\",\"title\":\"通胀就业双重暴击！12月到底加25还是50bp？\",\"link\":\"https://wallstreetcn.com/member/articles/3785727\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785806\",\"title\":\"黄仁勋辞职，英伟达跌5%，美股三大指数转涨，油价短线上扬\",\"link\":\"https://wallstreetcn.com/articles/3785806\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3782813\",\"title\":\"见闻历11.11大促最后1天！买日历送超千元知识礼包，送什么都不如送“搞钱的智慧”！\",\"link\":\"https://wallstreetcn.com/articles/3782813\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785831\",\"title\":\"美国成屋销售跌至16年低点，高利率与通胀持续压制购房需求\",\"link\":\"https://wallstreetcn.com/articles/3785831\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785832\",\"title\":\"英伟达关于黄仁勋辞职及领导团队调整的声明全文\",\"link\":\"https://wallstreetcn.com/articles/3785832\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785828\",\"title\":\"美联储哈马克：需进一步加息以压制通胀\",\"link\":\"https://wallstreetcn.com/articles/3785828\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785830\",\"title\":\"OpenAI融资缩水新证？据称新一轮已融150亿美元，最初目标300亿\",\"link\":\"https://wallstreetcn.com/articles/3785830\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785829\",\"title\":\"黄仁勋辞职！英伟达CFO兼任临时CEO\",\"link\":\"https://wallstreetcn.com/articles/3785829\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785826\",\"title\":\"Nebius Q3业绩超预期，资本开支升至270亿美元、ARR目标延期，股价盘前跌逾14% | 财报见闻\",\"link\":\"https://wallstreetcn.com/articles/3785826\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785827\",\"title\":\"特朗普称美国不需要与伊朗达成协议，油价直线拉升\",\"link\":\"https://wallstreetcn.com/articles/3785827\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785824\",\"title\":\"伊朗强硬派高官：美军若再袭击，其欧洲基地也将成为打击目标\",\"link\":\"https://wallstreetcn.com/articles/3785824\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785825\",\"title\":\"百度想重构大模型调度的入口\",\"link\":\"https://wallstreetcn.com/articles/3785825\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785823\",\"title\":\"失去黄仁勋，英伟达会怎样？\",\"link\":\"https://wallstreetcn.com/articles/3785823\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785822\",\"title\":\"马斯克喊话“真男人自己管理内存”，三十年系统老将警告：Rust也拦不住AI制造复杂性\",\"link\":\"https://wallstreetcn.com/articles/3785822\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785821\",\"title\":\"长鑫科技副总裁骆晓东：算力超级周期迈入“分层时代”，存储竞争转向全场景布局\",\"link\":\"https://wallstreetcn.com/articles/3785821\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785818\",\"title\":\"霍华德·马克斯：一个外行对AI的思考，谁能从AI投资中赚到钱？\",\"link\":\"https://wallstreetcn.com/articles/3785818\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785820\",\"title\":\"中国三季度货政报告关注全球风险，中国AI硬件处于尾声加速上涨初期，华发事件冲击债市与信用分化---1112宏观脱水\",\"link\":\"https://wallstreetcn.com/member/articles/3785820\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785819\",\"title\":\"国务院：强化社保基金安全监管和保值增值，扩大企业年金覆盖面\",\"link\":\"https://wallstreetcn.com/articles/3785819\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785817\",\"title\":\"伯恩斯坦：为什么现在绝对不能抄底英伟达？\",\"link\":\"https://wallstreetcn.com/articles/3785817\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785815\",\"title\":\"山姆399元羽绒服的采购账\",\"link\":\"https://wallstreetcn.com/articles/3785815\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785814\",\"title\":\"机器人泡沫在老股市场漏了气\",\"link\":\"https://wallstreetcn.com/articles/3785814\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785813\",\"title\":\"Alice开始走出wind终端\",\"link\":\"https://wallstreetcn.com/articles/3785813\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"wallstreetcn-news:3785812\",\"title\":\"10月新能源重卡渗透率超50%，快充和换电向干线延伸\",\"link\":\"https://wallstreetcn.com/articles/3785812\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 2609,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 2609
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 2609,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2609,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 2609,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 2609,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 2609,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 2609
+        }
+      ]
+    }
+  }
 }

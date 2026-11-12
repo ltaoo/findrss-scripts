@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-12T07:27:23.141Z",
+  "checked_at": "2026-11-12T20:10:12.888Z",
   "inspection": {
     "file": "hot/mktnews_flash.js",
     "path": "/api/hot/mktnews/api/flash",
@@ -12,12 +12,159 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 29
+    "duration_ms": 51
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 36
+    "status": 200,
+    "duration_ms": 394
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/mktnews_flash.js",
+      "name": "MKTNews · 快讯",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/mktnews/api/flash",
+      "request_path": "/api/hot/mktnews/api/flash",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/mktnews/api/flash",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a5982dc6a8df3b52"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 104,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"mktnews-flash\",\"count\":50,\"missing_rank\":50}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":50}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api.mktnews.net/api/flash?type=0&limit=50",
+        "method": "GET",
+        "host": "api.mktnews.net",
+        "pathname": "/api/flash",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 104,
+        "timings": {
+          "response_ms": 92,
+          "body_read_ms": 12,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"MKTNews · 快讯\",\"link\":\"https://mktnews.net\",\"category\":\"财经\",\"observed_at\":\"2026-11-12T20:10:13.158Z\",\"entries\":[{\"id\":\"mktnews-flash:01a1d15d-ff8a-7bbc-abbf-3644b710d53b\",\"title\":\"CENC automatic determination: at 04:03 Beijing time on Nov 13 an approximately M4.2 earthquake occurred near Weining County, Bijie, Guizhou; final parameters subject to the official rapid bulletin.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d15d-ff8a-7bbc-abbf-3644b710d53b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d154-cb58-7bbc-abbf-2bf90f1a465c\",\"title\":\"Kuo: Cook strong on supply‑chain; only Jensen Huang proven at delivering cutting‑edge AI chips\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d154-cb58-7bbc-abbf-2bf90f1a465c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d153-a59e-7bbc-abbf-271840854e6d\",\"title\":\"Iran's embassy in the UK categorically denied allegations by UK judicial authorities linking Iran to violent activity in the UK and claims of Iranian involvement in related espionage.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d153-a59e-7bbc-abbf-271840854e6d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d14a-eff9-7bbc-abbf-1d95c38b0312\",\"title\":\"Brent crude futures settled at $95.82 a barrel, up $3.06 or 3.3%.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d14a-eff9-7bbc-abbf-1d95c38b0312\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d149-7f8f-7bbc-abbf-12c2c56d4294\",\"title\":\"WTI crude oil rose 3.00% intraday to trade above $89/barrel.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d149-7f8f-7bbc-abbf-12c2c56d4294\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d141-6ba7-7bbc-abbf-0df00903a096\",\"title\":\"DOJ probes NVIDIA, including antitrust issues\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d141-6ba7-7bbc-abbf-0df00903a096\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d141-5b0c-7bbc-abbf-01b099420480\",\"title\":\"Microsoft (MSFT.O) said the higher load was not caused by increased traffic but by multiple servers unexpectedly becoming unavailable.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d141-5b0c-7bbc-abbf-01b099420480\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d13f-4be1-7bbc-abbe-fbf228f1183c\",\"title\":\"Saudi-led coalition said it intercepted and destroyed a drone in the eastern region.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d13f-4be1-7bbc-abbe-fbf228f1183c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d13e-1787-7bbc-abbe-f6cc8d6f232c\",\"title\":\"WTI crude futures settled at $88.74/bbl, up $2.21 or 2.55%.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d13e-1787-7bbc-abbe-f6cc8d6f232c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d13c-8ab7-7bbc-abbe-eebec5254194\",\"title\":\"Reuters: Resigned NVIDIA CEO Huang reported to have additional intimate relationship with employee\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d13c-8ab7-7bbc-abbe-eebec5254194\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d138-a38c-7bbc-abbe-e1b80f161d20\",\"title\":\"Reuters sources say NVIDIA (NVDA.O) former CEO Jensen Huang had an intimate relationship with the company's No.2 executive.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d138-a38c-7bbc-abbe-e1b80f161d20\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d137-47bd-7bbc-abbe-d8298b4386e2\",\"title\":\"Putin is holding a meeting of the Russian Security Council.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d137-47bd-7bbc-abbe-d8298b4386e2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d131-9e16-7bbc-abbe-cb35f6caa73b\",\"title\":\"Sources: Sirik in Iran's Hormozgan province hit by hostile attack\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d131-9e16-7bbc-abbe-cb35f6caa73b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d12e-e12d-7bbc-abbe-c4022fb1c33e\",\"title\":\"Microsoft (MSFT.O): paused all deployments, is rerouting additional traffic off affected infrastructure and rebooting impacted servers to restore service.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d12e-e12d-7bbc-abbe-c4022fb1c33e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d12e-502f-7bbc-abbe-bfa339ab44c3\",\"title\":\"Saudi-led coalition said it intercepted and destroyed a drone launched by Yemen's Houthi movement toward the Riyadh region.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d12e-502f-7bbc-abbe-bfa339ab44c3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d12e-22cd-7bbc-abbe-b6d4e00d3237\",\"title\":\"White House weighing asking Commerce Secretary Lutnick to step down; Trump says he still trusts him\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d12e-22cd-7bbc-abbe-b6d4e00d3237\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d12c-cdaf-7bbc-abbe-aeec63485c35\",\"title\":\"U.S. Democratic Senator Reid said Congress needs to assess whether NVIDIA (NVDA.O) is \\\"too big to fail\\\" and what that could mean for the banking system.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d12c-cdaf-7bbc-abbe-aeec63485c35\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d127-01e0-7bbc-abbe-a484f9770f3d\",\"title\":\"IRNA, citing official sources, said minutes ago that Sirik in Iran's Hormozgan province was struck by hostile forces; the report described the attack as military in nature.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d127-01e0-7bbc-abbe-a484f9770f3d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d133-848c-7bbc-abbe-d7cdb6acaef9\",\"title\":\"Hong Kong Hang Seng Index futures night session closed down 0.29% at 23,914, trading 95 points below the cash index.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d133-848c-7bbc-abbe-d7cdb6acaef9\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d123-2693-7bbc-abbe-9e4761128a07\",\"title\":\"U.S. Treasury: U.S. October budget deficit $404.0 bln; October 2025 deficit $284.0 bln.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d123-2693-7bbc-abbe-9e4761128a07\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d122-ba8a-7bbc-abbe-929059ec7a7d\",\"title\":\"U.S. Treasury: October budget outlays $773 bln vs $689 bln in Oct 2025; receipts $369 bln vs $404 bln in Oct 2025.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d122-ba8a-7bbc-abbe-929059ec7a7d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d122-6e23-7bbc-abbe-89f21802cf0b\",\"title\":\"U.S. Treasury said net customs receipts were $19.22 bln in October and $31.35 bln in October 2025.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d122-6e23-7bbc-abbe-89f21802cf0b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d122-1803-7bbc-abbe-8081c11573ea\",\"title\":\"U.S. Treasury: October budget deficit and outlays hit monthly records.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d122-1803-7bbc-abbe-8081c11573ea\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d121-c5f6-7bbc-abbe-7c35955aa04d\",\"title\":\"U.S. government budget deficit widened to $404 billion in October, versus a $27 billion deficit previously.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d121-c5f6-7bbc-abbe-7c35955aa04d\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d121-912c-7bbc-abbe-7006a1e1b560\",\"title\":\"Government Budget (Oct)\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d121-912c-7bbc-abbe-7006a1e1b560\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d11e-a1de-7bbc-abbe-6ab887fb2f06\",\"title\":\"Chicago Fed's Goolsbee: US inf at 'dangerous moment'; data-center demand a watchpoint\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d11e-a1de-7bbc-abbe-6ab887fb2f06\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d118-1503-7bbc-abbe-629ae63ec66b\",\"title\":\"Microsoft (MSFT.O) said it has begun redistributing connection traffic across a wider set of global infrastructure to help balance load.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d118-1503-7bbc-abbe-629ae63ec66b\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d117-72ea-7bbc-abbe-5a56255832ba\",\"title\":\"DALY said AI, elevated uncertainty and rising input costs are weighing on hiring.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d117-72ea-7bbc-abbe-5a56255832ba\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d117-5db6-7bbc-abbe-5294f570fe19\",\"title\":\"DALY says U.S. hiring is in a perfect storm.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d117-5db6-7bbc-abbe-5294f570fe19\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d115-7699-7bbc-abbe-4ca8bbf82145\",\"title\":\"Fed's Schmid says the Fed has not yet defeated the inf enemy.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d115-7699-7bbc-abbe-4ca8bbf82145\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d115-3265-7bbc-abbe-4717e4366dba\",\"title\":\"Nasdaq Trading Services is investigating an issue with its email system.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d115-3265-7bbc-abbe-4717e4366dba\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d113-3f33-7bbc-abbe-3c95ce0fb76e\",\"title\":\"Daly: You can slow the economy while still maintaining solid growth.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d113-3f33-7bbc-abbe-3c95ce0fb76e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d112-d183-7bbc-abbe-3134df32f924\",\"title\":\"Fed issues revised 2027 FOMC calendar; Oct meeting will not deliver routine rate decision\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d112-d183-7bbc-abbe-3134df32f924\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d111-9c27-7bbc-abbe-2cee35bf8e9c\",\"title\":\"Iranian media Fars News says the cause of reported explosions is unclear; sources suggest the noises may have been warning shots fired at vessels breaching regulations.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d111-9c27-7bbc-abbe-2cee35bf8e9c\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d110-84b8-7bbc-abbe-24634910a46e\",\"title\":\"Fars News reports explosions heard in Sirik, Iran.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d110-84b8-7bbc-abbe-24634910a46e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d110-466d-7bbc-abbe-1a924571675a\",\"title\":\"DALY: We have many, many quarters to make policy decisions.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d110-466d-7bbc-abbe-1a924571675a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d110-2c77-7bbc-abbe-11a9dada93fa\",\"title\":\"Daly said the Fed does not need to decide now on the exact magnitude or timing of further tightening.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d110-2c77-7bbc-abbe-11a9dada93fa\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10e-6af2-7bbc-abbe-0a87bfb675e7\",\"title\":\"Fed's Daly says markets are providing support.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10e-6af2-7bbc-abbe-0a87bfb675e7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10e-3c56-7bbc-abbe-032c30ff89ab\",\"title\":\"Fed's Daly said she is increasingly hearing firms say they will pass on higher costs.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10e-3c56-7bbc-abbe-032c30ff89ab\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10d-f556-7bbc-abbd-fbb135d94247\",\"title\":\"DALY: Tightening financial conditions have bought the Fed more time for policy decisions.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10d-f556-7bbc-abbd-fbb135d94247\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10d-f157-7bbc-abbd-f35589d1f77e\",\"title\":\"Fed's Daly said tighter financial conditions are welcome but markets will not do the Fed's work; maintaining price stability is the Fed's responsibility. Financial market conditions are consistent with the policy stance the Fed seeks to achieve.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10d-f157-7bbc-abbd-f35589d1f77e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10c-a4a0-7bbc-abbd-ef021b50c198\",\"title\":\"Kushner says multilateral Russia-Ukraine talks slated for next week\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10c-a4a0-7bbc-abbd-ef021b50c198\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10c-2916-7bbc-abbd-e199c0f6c0c6\",\"title\":\"Microsoft (MSFT.O) said it has identified increased load on parts of its infrastructure in multiple regions, which may have caused connection errors.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10c-2916-7bbc-abbd-e199c0f6c0c6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10c-014a-7bbc-abbd-dd9ae9e660fb\",\"title\":\"Daly said she is satisfied with the Fed's September rate hike.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10c-014a-7bbc-abbd-dd9ae9e660fb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10b-b2b4-7bbc-abbd-d79b46c2b41a\",\"title\":\"ANTHROPIC identified an upstream provider issue affecting its Microsoft 365 connector.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10b-b2b4-7bbc-abbd-d79b46c2b41a\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10b-7fdc-7bbc-abbd-ccde5d889c93\",\"title\":\"DALY said the Fed is inclined to need further policy tightening.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10b-7fdc-7bbc-abbd-ccde5d889c93\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10b-2a94-7bbc-abbd-c327624a79dd\",\"title\":\"DALY: Once services inflation rises, it tends to be sticky.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10b-2a94-7bbc-abbd-c327624a79dd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10b-1c71-7bbc-abbd-b9b8a49fd815\",\"title\":\"DALY said inf is seeping into the services sector.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10b-1c71-7bbc-abbd-b9b8a49fd815\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10a-7ae3-7bbc-abbd-b5302eda53ec\",\"title\":\"DALY said inf shocks may compound and must not be taken lightly.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10a-7ae3-7bbc-abbd-b5302eda53ec\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"mktnews-flash:01a1d10a-3d3e-7bbc-abbd-ad8cab2d6732\",\"title\":\"OpenAI says it is investigating an issue with the Microsoft connector; new connections may be interrupted and tools may not function as expected.\",\"link\":\"https://mktnews.net/flashDetail.html?id=01a1d10a-3d3e-7bbc-abbd-ad8cab2d6732\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 104,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 104
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 104,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 104,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 104,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 104,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 104,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 104
+        }
+      ]
+    }
+  }
 }
