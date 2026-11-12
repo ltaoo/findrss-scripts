@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-11T19:44:35.737Z",
+  "checked_at": "2026-11-12T07:27:15.999Z",
   "inspection": {
     "file": "hot/gutenberg.js",
     "path": "/api/hot/gutenberg/browse/scores/top/:period?",
@@ -12,12 +12,157 @@
     "status": 503,
     "code": "EXCEEDED_RESOURCES",
     "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 558
+    "duration_ms": 63
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 31
+    "status": 200,
+    "duration_ms": 755
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/gutenberg.js",
+      "name": "Project Gutenberg · 热门图书",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/gutenberg/browse/scores/top/:period?",
+      "request_path": "/api/hot/gutenberg/browse/scores/top/:period?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/gutenberg/browse/scores/top/day",
+      "params": {
+        "period": "day"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a593d02d0ae754a3"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 575,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":100}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.gutenberg.org/browse/scores/top",
+        "method": "GET",
+        "host": "www.gutenberg.org",
+        "pathname": "/browse/scores/top",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 575,
+        "timings": {
+          "response_ms": 575,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Project Gutenberg · 昨日下载 Top 100\",\"link\":\"https://www.gutenberg.org/browse/scores/top#books-last1\",\"category\":\"小说\",\"observed_at\":\"2026-11-12T07:27:16.597Z\",\"entries\":[{\"id\":\"gutenberg:book:1342\",\"title\":\"Pride and Prejudice by Jane Austen\",\"link\":\"https://www.gutenberg.org/ebooks/1342\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8605,\"unit\":\"下载\",\"text\":\"8605\"}},{\"id\":\"gutenberg:book:84\",\"title\":\"Frankenstein; or, The modern Prometheus by Mary Wollstonecraft Shelley\",\"link\":\"https://www.gutenberg.org/ebooks/84\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7975,\"unit\":\"下载\",\"text\":\"7975\"}},{\"id\":\"gutenberg:book:2701\",\"title\":\"Moby Dick; Or, The Whale by Herman Melville\",\"link\":\"https://www.gutenberg.org/ebooks/2701\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6349,\"unit\":\"下载\",\"text\":\"6349\"}},{\"id\":\"gutenberg:book:11\",\"title\":\"Alice's Adventures in Wonderland by Lewis Carroll\",\"link\":\"https://www.gutenberg.org/ebooks/11\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5755,\"unit\":\"下载\",\"text\":\"5755\"}},{\"id\":\"gutenberg:book:1661\",\"title\":\"The Adventures of Sherlock Holmes by Arthur Conan Doyle\",\"link\":\"https://www.gutenberg.org/ebooks/1661\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3700,\"unit\":\"下载\",\"text\":\"3700\"}},{\"id\":\"gutenberg:book:345\",\"title\":\"Dracula by Bram Stoker\",\"link\":\"https://www.gutenberg.org/ebooks/345\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3614,\"unit\":\"下载\",\"text\":\"3614\"}},{\"id\":\"gutenberg:book:98\",\"title\":\"A Tale of Two Cities by Charles Dickens\",\"link\":\"https://www.gutenberg.org/ebooks/98\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2879,\"unit\":\"下载\",\"text\":\"2879\"}},{\"id\":\"gutenberg:book:100\",\"title\":\"The Complete Works of William Shakespeare by William Shakespeare\",\"link\":\"https://www.gutenberg.org/ebooks/100\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2771,\"unit\":\"下载\",\"text\":\"2771\"}},{\"id\":\"gutenberg:book:64317\",\"title\":\"The Great Gatsby by F. Scott Fitzgerald\",\"link\":\"https://www.gutenberg.org/ebooks/64317\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2688,\"unit\":\"下载\",\"text\":\"2688\"}},{\"id\":\"gutenberg:book:1513\",\"title\":\"Romeo and Juliet by William Shakespeare\",\"link\":\"https://www.gutenberg.org/ebooks/1513\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2630,\"unit\":\"下载\",\"text\":\"2630\"}},{\"id\":\"gutenberg:book:145\",\"title\":\"Middlemarch by George Eliot\",\"link\":\"https://www.gutenberg.org/ebooks/145\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2584,\"unit\":\"下载\",\"text\":\"2584\"}},{\"id\":\"gutenberg:book:174\",\"title\":\"The Picture of Dorian Gray by Oscar Wilde\",\"link\":\"https://www.gutenberg.org/ebooks/174\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2566,\"unit\":\"下载\",\"text\":\"2566\"}},{\"id\":\"gutenberg:book:43\",\"title\":\"The strange case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson\",\"link\":\"https://www.gutenberg.org/ebooks/43\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2508,\"unit\":\"下载\",\"text\":\"2508\"}},{\"id\":\"gutenberg:book:1260\",\"title\":\"Jane Eyre: An Autobiography by Charlotte Brontë\",\"link\":\"https://www.gutenberg.org/ebooks/1260\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2330,\"unit\":\"下载\",\"text\":\"2330\"}},{\"id\":\"gutenberg:book:5200\",\"title\":\"Metamorphosis by Franz Kafka\",\"link\":\"https://www.gutenberg.org/ebooks/5200\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2325,\"unit\":\"下载\",\"text\":\"2325\"}},{\"id\":\"gutenberg:book:2600\",\"title\":\"War and Peace by graf Leo Tolstoy\",\"link\":\"https://www.gutenberg.org/ebooks/2600\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2280,\"unit\":\"下载\",\"text\":\"2280\"}},{\"id\":\"gutenberg:book:1232\",\"title\":\"The Prince by Niccolò Machiavelli\",\"link\":\"https://www.gutenberg.org/ebooks/1232\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2199,\"unit\":\"下载\",\"text\":\"2199\"}},{\"id\":\"gutenberg:book:46\",\"title\":\"A Christmas Carol in Prose; Being a Ghost Story of Christmas by Charles Dickens\",\"link\":\"https://www.gutenberg.org/ebooks/46\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2149,\"unit\":\"下载\",\"text\":\"2149\"}},{\"id\":\"gutenberg:book:205\",\"title\":\"Walden, and On The Duty Of Civil Disobedience by Henry David Thoreau\",\"link\":\"https://www.gutenberg.org/ebooks/205\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2149,\"unit\":\"下载\",\"text\":\"2149\"}},{\"id\":\"gutenberg:book:2554\",\"title\":\"Crime and Punishment by Fyodor Dostoyevsky\",\"link\":\"https://www.gutenberg.org/ebooks/2554\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2142,\"unit\":\"下载\",\"text\":\"2142\"}},{\"id\":\"gutenberg:book:1400\",\"title\":\"Great Expectations by Charles Dickens\",\"link\":\"https://www.gutenberg.org/ebooks/1400\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2086,\"unit\":\"下载\",\"text\":\"2086\"}},{\"id\":\"gutenberg:book:844\",\"title\":\"The Importance of Being Earnest: A Trivial Comedy for Serious People by Oscar Wilde\",\"link\":\"https://www.gutenberg.org/ebooks/844\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1995,\"unit\":\"下载\",\"text\":\"1995\"}},{\"id\":\"gutenberg:book:1952\",\"title\":\"The Yellow Wallpaper by Charlotte Perkins Gilman\",\"link\":\"https://www.gutenberg.org/ebooks/1952\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1987,\"unit\":\"下载\",\"text\":\"1987\"}},{\"id\":\"gutenberg:book:1184\",\"title\":\"The Count of Monte Cristo by Alexandre Dumas and Auguste Maquet\",\"link\":\"https://www.gutenberg.org/ebooks/1184\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1962,\"unit\":\"下载\",\"text\":\"1962\"}},{\"id\":\"gutenberg:book:2641\",\"title\":\"A Room with a View by E. M. Forster\",\"link\":\"https://www.gutenberg.org/ebooks/2641\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1950,\"unit\":\"下载\",\"text\":\"1950\"}},{\"id\":\"gutenberg:book:135\",\"title\":\"Les Misérables by Victor Hugo\",\"link\":\"https://www.gutenberg.org/ebooks/135\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1948,\"unit\":\"下载\",\"text\":\"1948\"}},{\"id\":\"gutenberg:book:2680\",\"title\":\"Meditations by Emperor of Rome Marcus Aurelius\",\"link\":\"https://www.gutenberg.org/ebooks/2680\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1925,\"unit\":\"下载\",\"text\":\"1925\"}},{\"id\":\"gutenberg:book:37106\",\"title\":\"Little Women; Or, Meg, Jo, Beth, and Amy by Louisa May Alcott\",\"link\":\"https://www.gutenberg.org/ebooks/37106\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1832,\"unit\":\"下载\",\"text\":\"1832\"}},{\"id\":\"gutenberg:book:74\",\"title\":\"The Adventures of Tom Sawyer, Complete by Mark Twain\",\"link\":\"https://www.gutenberg.org/ebooks/74\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1814,\"unit\":\"下载\",\"text\":\"1814\"}},{\"id\":\"gutenberg:book:768\",\"title\":\"Wuthering Heights by Emily Brontë\",\"link\":\"https://www.gutenberg.org/ebooks/768\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1772,\"unit\":\"下载\",\"text\":\"1772\"}},{\"id\":\"gutenberg:book:1080\",\"title\":\"A Modest Proposal by Jonathan Swift\",\"link\":\"https://www.gutenberg.org/ebooks/1080\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1769,\"unit\":\"下载\",\"text\":\"1769\"}},{\"id\":\"gutenberg:book:1727\",\"title\":\"The Odyssey by Homer\",\"link\":\"https://www.gutenberg.org/ebooks/1727\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1716,\"unit\":\"下载\",\"text\":\"1716\"}},{\"id\":\"gutenberg:book:67979\",\"title\":\"The Blue Castle: a novel by L. M. Montgomery\",\"link\":\"https://www.gutenberg.org/ebooks/67979\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1702,\"unit\":\"下载\",\"text\":\"1702\"}},{\"id\":\"gutenberg:book:2542\",\"title\":\"A Doll's House : a play by Henrik Ibsen\",\"link\":\"https://www.gutenberg.org/ebooks/2542\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1687,\"unit\":\"下载\",\"text\":\"1687\"}},{\"id\":\"gutenberg:book:16389\",\"title\":\"The Enchanted April by Elizabeth Von Arnim\",\"link\":\"https://www.gutenberg.org/ebooks/16389\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1622,\"unit\":\"下载\",\"text\":\"1622\"}},{\"id\":\"gutenberg:book:76\",\"title\":\"Adventures of Huckleberry Finn by Mark Twain\",\"link\":\"https://www.gutenberg.org/ebooks/76\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1612,\"unit\":\"下载\",\"text\":\"1612\"}},{\"id\":\"gutenberg:book:394\",\"title\":\"Cranford by Elizabeth Cleghorn Gaskell\",\"link\":\"https://www.gutenberg.org/ebooks/394\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1604,\"unit\":\"下载\",\"text\":\"1604\"}},{\"id\":\"gutenberg:book:25344\",\"title\":\"The Scarlet Letter by Nathaniel Hawthorne\",\"link\":\"https://www.gutenberg.org/ebooks/25344\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1594,\"unit\":\"下载\",\"text\":\"1594\"}},{\"id\":\"gutenberg:book:45\",\"title\":\"Anne of Green Gables by L. M. Montgomery\",\"link\":\"https://www.gutenberg.org/ebooks/45\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1573,\"unit\":\"下载\",\"text\":\"1573\"}},{\"id\":\"gutenberg:book:3207\",\"title\":\"Leviathan by Thomas Hobbes\",\"link\":\"https://www.gutenberg.org/ebooks/3207\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1565,\"unit\":\"下载\",\"text\":\"1565\"}},{\"id\":\"gutenberg:book:23\",\"title\":\"Narrative of the Life of Frederick Douglass, an American Slave by Frederick Douglass\",\"link\":\"https://www.gutenberg.org/ebooks/23\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1521,\"unit\":\"下载\",\"text\":\"1521\"}},{\"id\":\"gutenberg:book:55\",\"title\":\"The Wonderful Wizard of Oz by L. Frank Baum\",\"link\":\"https://www.gutenberg.org/ebooks/55\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1520,\"unit\":\"下载\",\"text\":\"1520\"}},{\"id\":\"gutenberg:book:6593\",\"title\":\"History of Tom Jones, a Foundling by Henry Fielding\",\"link\":\"https://www.gutenberg.org/ebooks/6593\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1508,\"unit\":\"下载\",\"text\":\"1508\"}},{\"id\":\"gutenberg:book:2160\",\"title\":\"The Expedition of Humphry Clinker by T. Smollett\",\"link\":\"https://www.gutenberg.org/ebooks/2160\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1488,\"unit\":\"下载\",\"text\":\"1488\"}},{\"id\":\"gutenberg:book:6761\",\"title\":\"The Adventures of Ferdinand Count Fathom — Complete by T. Smollett\",\"link\":\"https://www.gutenberg.org/ebooks/6761\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1478,\"unit\":\"下载\",\"text\":\"1478\"}},{\"id\":\"gutenberg:book:4085\",\"title\":\"The Adventures of Roderick Random by T. Smollett\",\"link\":\"https://www.gutenberg.org/ebooks/4085\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1436,\"unit\":\"下载\",\"text\":\"1436\"}},{\"id\":\"gutenberg:book:35\",\"title\":\"The Time Machine by H. G. Wells\",\"link\":\"https://www.gutenberg.org/ebooks/35\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1432,\"unit\":\"下载\",\"text\":\"1432\"}},{\"id\":\"gutenberg:book:120\",\"title\":\"Treasure Island by Robert Louis Stevenson\",\"link\":\"https://www.gutenberg.org/ebooks/120\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1424,\"unit\":\"下载\",\"text\":\"1424\"}},{\"id\":\"gutenberg:book:1259\",\"title\":\"Twenty years after by Alexandre Dumas and Auguste Maquet\",\"link\":\"https://www.gutenberg.org/ebooks/1259\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1418,\"unit\":\"下载\",\"text\":\"1418\"}},{\"id\":\"gutenberg:book:3296\",\"title\":\"The Confessions of St. Augustine by Saint of Hippo Augustine\",\"link\":\"https://www.gutenberg.org/ebooks/3296\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1414,\"unit\":\"下载\",\"text\":\"1414\"}},{\"id\":\"gutenberg:book:28054\",\"title\":\"The Brothers Karamazov by Fyodor Dostoyevsky\",\"link\":\"https://www.gutenberg.org/ebooks/28054\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1412,\"unit\":\"下载\",\"text\":\"1412\"}},{\"id\":\"gutenberg:book:408\",\"title\":\"The Souls of Black Folk by W. E. B. Du Bois\",\"link\":\"https://www.gutenberg.org/ebooks/408\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1368,\"unit\":\"下载\",\"text\":\"1368\"}},{\"id\":\"gutenberg:book:4300\",\"title\":\"Ulysses by James Joyce\",\"link\":\"https://www.gutenberg.org/ebooks/4300\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1367,\"unit\":\"下载\",\"text\":\"1367\"}},{\"id\":\"gutenberg:book:2591\",\"title\":\"Grimms' Fairy Tales by Jacob Grimm and Wilhelm Grimm\",\"link\":\"https://www.gutenberg.org/ebooks/2591\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1360,\"unit\":\"下载\",\"text\":\"1360\"}},{\"id\":\"gutenberg:book:5740\",\"title\":\"Tractatus Logico-Philosophicus by Ludwig Wittgenstein\",\"link\":\"https://www.gutenberg.org/ebooks/5740\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1344,\"unit\":\"下载\",\"text\":\"1344\"}},{\"id\":\"gutenberg:book:10\",\"title\":\"The King James Version of the Bible\",\"link\":\"https://www.gutenberg.org/ebooks/10\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1339,\"unit\":\"下载\",\"text\":\"1339\"}},{\"id\":\"gutenberg:book:16328\",\"title\":\"Beowulf: An Anglo-Saxon Epic Poem\",\"link\":\"https://www.gutenberg.org/ebooks/16328\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1334,\"unit\":\"下载\",\"text\":\"1334\"}},{\"id\":\"gutenberg:book:5197\",\"title\":\"My Life — Volume 1 by Richard Wagner\",\"link\":\"https://www.gutenberg.org/ebooks/5197\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1332,\"unit\":\"下载\",\"text\":\"1332\"}},{\"id\":\"gutenberg:book:219\",\"title\":\"Heart of Darkness by Joseph Conrad\",\"link\":\"https://www.gutenberg.org/ebooks/219\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1320,\"unit\":\"下载\",\"text\":\"1320\"}},{\"id\":\"gutenberg:book:514\",\"title\":\"Little Women by Louisa May Alcott\",\"link\":\"https://www.gutenberg.org/ebooks/514\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1253,\"unit\":\"下载\",\"text\":\"1253\"}},{\"id\":\"gutenberg:book:1998\",\"title\":\"Thus Spake Zarathustra: A Book for All and None by Friedrich Wilhelm Nietzsche\",\"link\":\"https://www.gutenberg.org/ebooks/1998\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1237,\"unit\":\"下载\",\"text\":\"1237\"}},{\"id\":\"gutenberg:book:158\",\"title\":\"Emma by Jane Austen\",\"link\":\"https://www.gutenberg.org/ebooks/158\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1226,\"unit\":\"下载\",\"text\":\"1226\"}},{\"id\":\"gutenberg:book:1497\",\"title\":\"The Republic by Plato\",\"link\":\"https://www.gutenberg.org/ebooks/1497\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1226,\"unit\":\"下载\",\"text\":\"1226\"}},{\"id\":\"gutenberg:book:8492\",\"title\":\"The King in Yellow by Robert W. Chambers\",\"link\":\"https://www.gutenberg.org/ebooks/8492\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1207,\"unit\":\"下载\",\"text\":\"1207\"}},{\"id\":\"gutenberg:book:4363\",\"title\":\"Beyond Good and Evil by Friedrich Wilhelm Nietzsche\",\"link\":\"https://www.gutenberg.org/ebooks/4363\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1165,\"unit\":\"下载\",\"text\":\"1165\"}},{\"id\":\"gutenberg:book:41\",\"title\":\"The Legend of Sleepy Hollow by Washington Irving\",\"link\":\"https://www.gutenberg.org/ebooks/41\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1163,\"unit\":\"下载\",\"text\":\"1163\"}},{\"id\":\"gutenberg:book:34901\",\"title\":\"On Liberty by John Stuart Mill\",\"link\":\"https://www.gutenberg.org/ebooks/34901\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1154,\"unit\":\"下载\",\"text\":\"1154\"}},{\"id\":\"gutenberg:book:16\",\"title\":\"Peter Pan : by J. M. Barrie\",\"link\":\"https://www.gutenberg.org/ebooks/16\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1087,\"unit\":\"下载\",\"text\":\"1087\"}},{\"id\":\"gutenberg:book:3300\",\"title\":\"An Inquiry into the Nature and Causes of the Wealth of Nations by Adam Smith\",\"link\":\"https://www.gutenberg.org/ebooks/3300\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1086,\"unit\":\"下载\",\"text\":\"1086\"}},{\"id\":\"gutenberg:book:132\",\"title\":\"The Art of War by active 6th century B.C. Sunzi\",\"link\":\"https://www.gutenberg.org/ebooks/132\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1081,\"unit\":\"下载\",\"text\":\"1081\"}},{\"id\":\"gutenberg:book:600\",\"title\":\"Notes from the Underground by Fyodor Dostoyevsky\",\"link\":\"https://www.gutenberg.org/ebooks/600\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1076,\"unit\":\"下载\",\"text\":\"1076\"}},{\"id\":\"gutenberg:book:7370\",\"title\":\"Second Treatise of Government by John Locke\",\"link\":\"https://www.gutenberg.org/ebooks/7370\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1052,\"unit\":\"下载\",\"text\":\"1052\"}},{\"id\":\"gutenberg:book:161\",\"title\":\"Sense and Sensibility by Jane Austen\",\"link\":\"https://www.gutenberg.org/ebooks/161\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1051,\"unit\":\"下载\",\"text\":\"1051\"}},{\"id\":\"gutenberg:book:2000\",\"title\":\"Don Quijote by Miguel de Cervantes Saavedra\",\"link\":\"https://www.gutenberg.org/ebooks/2000\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1031,\"unit\":\"下载\",\"text\":\"1031\"}},{\"id\":\"gutenberg:book:1228\",\"title\":\"On the Origin of Species By Means of Natural Selection by Charles Darwin\",\"link\":\"https://www.gutenberg.org/ebooks/1228\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1022,\"unit\":\"下载\",\"text\":\"1022\"}},{\"id\":\"gutenberg:book:42324\",\"title\":\"Frankenstein; or, The modern Prometheus by Mary Wollstonecraft Shelley\",\"link\":\"https://www.gutenberg.org/ebooks/42324\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":995,\"unit\":\"下载\",\"text\":\"995\"}},{\"id\":\"gutenberg:book:41445\",\"title\":\"Frankenstein; or, The modern Prometheus by Mary Wollstonecraft Shelley\",\"link\":\"https://www.gutenberg.org/ebooks/41445\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":992,\"unit\":\"下载\",\"text\":\"992\"}},{\"id\":\"gutenberg:book:67098\",\"title\":\"Winnie-the-Pooh by A. A. Milne\",\"link\":\"https://www.gutenberg.org/ebooks/67098\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":987,\"unit\":\"下载\",\"text\":\"987\"}},{\"id\":\"gutenberg:book:36\",\"title\":\"The war of the worlds by H. G. Wells\",\"link\":\"https://www.gutenberg.org/ebooks/36\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":980,\"unit\":\"下载\",\"text\":\"980\"}},{\"id\":\"gutenberg:book:79961\",\"title\":\"...Divided we fall by Raymond F. Jones\",\"link\":\"https://www.gutenberg.org/ebooks/79961\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":961,\"unit\":\"下载\",\"text\":\"961\"}},{\"id\":\"gutenberg:book:2852\",\"title\":\"The Hound of the Baskervilles by Arthur Conan Doyle\",\"link\":\"https://www.gutenberg.org/ebooks/2852\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":953,\"unit\":\"下载\",\"text\":\"953\"}},{\"id\":\"gutenberg:book:12\",\"title\":\"Through the Looking-Glass by Lewis Carroll\",\"link\":\"https://www.gutenberg.org/ebooks/12\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":944,\"unit\":\"下载\",\"text\":\"944\"}},{\"id\":\"gutenberg:book:244\",\"title\":\"A Study in Scarlet by Arthur Conan Doyle\",\"link\":\"https://www.gutenberg.org/ebooks/244\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":933,\"unit\":\"下载\",\"text\":\"933\"}},{\"id\":\"gutenberg:book:24869\",\"title\":\"The Rámáyan of Válmíki, translated into English verse by Valmiki\",\"link\":\"https://www.gutenberg.org/ebooks/24869\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":922,\"unit\":\"下载\",\"text\":\"922\"}},{\"id\":\"gutenberg:book:20203\",\"title\":\"Autobiography of Benjamin Franklin by Benjamin Franklin\",\"link\":\"https://www.gutenberg.org/ebooks/20203\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":916,\"unit\":\"下载\",\"text\":\"916\"}},{\"id\":\"gutenberg:book:113\",\"title\":\"The Secret Garden by Frances Hodgson Burnett\",\"link\":\"https://www.gutenberg.org/ebooks/113\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":904,\"unit\":\"下载\",\"text\":\"904\"}},{\"id\":\"gutenberg:book:22367\",\"title\":\"Die Verwandlung by Franz Kafka\",\"link\":\"https://www.gutenberg.org/ebooks/22367\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":903,\"unit\":\"下载\",\"text\":\"903\"}},{\"id\":\"gutenberg:book:2148\",\"title\":\"The Works of Edgar Allan Poe — Volume 2 by Edgar Allan Poe\",\"link\":\"https://www.gutenberg.org/ebooks/2148\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":891,\"unit\":\"下载\",\"text\":\"891\"}},{\"id\":\"gutenberg:book:36034\",\"title\":\"White nights, and other stories by Fyodor Dostoyevsky\",\"link\":\"https://www.gutenberg.org/ebooks/36034\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":889,\"unit\":\"下载\",\"text\":\"889\"}},{\"id\":\"gutenberg:book:105\",\"title\":\"Persuasion by Jane Austen\",\"link\":\"https://www.gutenberg.org/ebooks/105\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":872,\"unit\":\"下载\",\"text\":\"872\"}},{\"id\":\"gutenberg:book:79960\",\"title\":\"The mysterious Miss Morrisot by Valentine Williams\",\"link\":\"https://www.gutenberg.org/ebooks/79960\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":871,\"unit\":\"下载\",\"text\":\"871\"}},{\"id\":\"gutenberg:book:996\",\"title\":\"Don Quixote by Miguel de Cervantes Saavedra\",\"link\":\"https://www.gutenberg.org/ebooks/996\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":862,\"unit\":\"下载\",\"text\":\"862\"}},{\"id\":\"gutenberg:book:8800\",\"title\":\"The divine comedy by Dante Alighieri\",\"link\":\"https://www.gutenberg.org/ebooks/8800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":849,\"unit\":\"下载\",\"text\":\"849\"}},{\"id\":\"gutenberg:book:33283\",\"title\":\"Calculus Made Easy by Silvanus P. Thompson\",\"link\":\"https://www.gutenberg.org/ebooks/33283\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":849,\"unit\":\"下载\",\"text\":\"849\"}},{\"id\":\"gutenberg:book:1399\",\"title\":\"Anna Karenina by graf Leo Tolstoy\",\"link\":\"https://www.gutenberg.org/ebooks/1399\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":847,\"unit\":\"下载\",\"text\":\"847\"}},{\"id\":\"gutenberg:book:829\",\"title\":\"Gulliver's Travels into Several Remote Nations of the World by Jonathan Swift\",\"link\":\"https://www.gutenberg.org/ebooks/829\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":840,\"unit\":\"下载\",\"text\":\"840\"}},{\"id\":\"gutenberg:book:2814\",\"title\":\"Dubliners by James Joyce\",\"link\":\"https://www.gutenberg.org/ebooks/2814\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":813,\"unit\":\"下载\",\"text\":\"813\"}},{\"id\":\"gutenberg:book:45109\",\"title\":\"The Enchiridion by Epictetus\",\"link\":\"https://www.gutenberg.org/ebooks/45109\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":802,\"unit\":\"下载\",\"text\":\"802\"}},{\"id\":\"gutenberg:book:10007\",\"title\":\"Carmilla by Joseph Sheridan Le Fanu\",\"link\":\"https://www.gutenberg.org/ebooks/10007\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":800,\"unit\":\"下载\",\"text\":\"800\"}},{\"id\":\"gutenberg:book:730\",\"title\":\"Oliver Twist by Charles Dickens\",\"link\":\"https://www.gutenberg.org/ebooks/730\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":799,\"unit\":\"下载\",\"text\":\"799\"}}]}",
+    "timing": {
+      "elapsed_ms": 575,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 575
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 575,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 575,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 575,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 575,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 575,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 575
+        }
+      ]
+    }
+  }
 }

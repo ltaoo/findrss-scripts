@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-11T19:51:39.088Z",
+  "checked_at": "2026-11-12T07:40:22.021Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -13,8 +13,156 @@
     "duration_ms": 60001
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60000
+    "status": 200,
+    "duration_ms": 3114
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/zhihuribao",
+      "params": {
+        "account": "zhihuribao"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a593e35dabb59181"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 3070,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 0,
+        "duration_ms": 3070,
+        "timings": {
+          "response_ms": 2466,
+          "body_read_ms": 604,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:zhihuribao\",\"title\":\"知乎日报\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=1&sn=00aaf0da68a2377195661205b30e794b&chksm=8abd533727017fa5418e20537fd17e3db1924fd5ecd820c10f150b093d6a6b1ca804fa5f328d&scene=126&sessionid=1794469224#rd\",\"description\":\"知乎官方订阅号，每日精选知乎热门、有趣内容\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"知乎日报\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FUOCHvzUGAIWg6z2Qs1yTHicbpqJwAUFRtJ5nhXPMb35XhGb6OESOg9OianbhYibThkZQiclOv5GN4z8%2F0\",\"updated\":\"2026-11-11T12:00:54.000Z\",\"items\":[{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:1\",\"title\":\"热议丨影帝影后实至名归，最佳导演爆冷？这届金鸡奖你满意吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=1&sn=00aaf0da68a2377195661205b30e794b&chksm=8abd533727017fa5418e20537fd17e3db1924fd5ecd820c10f150b093d6a6b1ca804fa5f328d&scene=126&sessionid=1794469224#rd\",\"description\":\"为什么有人说影帝影后都选对了，最佳导演却选错了？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGuuUTOO80TCnFQElHxLic3bQ1trqGVlqliaicSWx3eSdBe6IeMZ6RebfCpyhntWgufdoGpOTBBfHSTMvouUWjf3VdKFTy1MPN4Mc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:2\",\"title\":\"科技丨DeepSeek Harness 有 3.5 万个第三方插件了，有哪些值得一试？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=2&sn=a3530908cde97435dc81a4c8af35dcd9&chksm=8a4d3a626ce0961acc040cbdeeb169e0f21c4c2044192ce5c1e68be07ca47c0bcaab210cbae0&scene=126&sessionid=1794469224#rd\",\"description\":\"DeepSeek Harness 产品负责人& 热门插件作者齐聚知乎。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEHCcVKmNJ3Q4PIOhGwGCQ2HTp8GfhI2xYDc37Var25eFAz0sJvkBDO4icfYACVsJ8ibqjDOykHicOkIlh5FTKMrK8rtYmrYP6l9g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658154:1\",\"title\":\"脑洞丨鱼从来没上过陆地，为什么知道玉米粒可以吃？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658154&idx=1&sn=5ced725b6d23ba7d59b771db6fea3dfd&chksm=8a4615940f18c887e82775ebc728dc70fcd31a9d19210609f4b851439484be0c5289cdb67808&scene=126&sessionid=1794469224#rd\",\"description\":\"鱼：好吃就行。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFlS5nYvKh9rOywNYmwQ8jnvfm0JkdOP1c0DG8UzJ8SsHRz856SibvhBtQJDXYyeZvJFH4p0adzl0lGomyl7pPtictkbgicRktHXQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658154:2\",\"title\":\"科普丨国际空间站的氧气是怎么来的？为什么一直都用不完？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658154&idx=2&sn=236fb678fbf7ce90cafa16c7b96b7834&chksm=8a0b5580598a43f24e6f74922344823ff44b51c71ee5774bf095c81f3b6f38475e453610944a&scene=126&sessionid=1794469224#rd\",\"description\":\"阿波罗一号的惨痛教训让航天大国放弃纯氧环境。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGaicTYM3BOM16siavJ2v20icNA2ibEn3abedv0mCr2QliamkA7kEvqWz0cJJTebF9ibptibsYicTQ1EKzjX1dzJia3Q8qoIDIiaoKj3Vsia0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658109:1\",\"title\":\"如果重来一次，你会怎样过考研最后两个月？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658109&idx=1&sn=2ea14b39e7963d19c63fb9195bc7891e&chksm=8a995be6819b4f8255b6bd6fddfd6779bc798bd88ddbaa57ea37d389f7a18a26e0a2ce9ccd81&scene=126&sessionid=1794469224#rd\",\"description\":\"复习计划赶不上变化，背过的知识点又忘了，想休息一下，却总觉得自己不够努力……\\n\\n考完以后才明白的事，如果当时有人告诉你，会不会不一样？\\n\\n知乎校园联合半月谈发起「研途各有招·知乎考研季」，邀请考研英语名师周思成、考研规划鸟山学长、高校老师和考研过来人，一起聊聊备考中的具体难题。\\n\\n已经考过研的你，欢迎回来分享；正在备考的你，也可以带着困惑加入。\\n\\n🗓 即日起—2026 年 12 月 31 日\\n在知乎「研途各有招」圆桌收录问题下，发布 500 字及以上原创回答，结合亲身经历或专业实践，分享备考经验、实用方法与避坑建议，即可参与评选。\\n不必写成面面俱到的攻略，可以从一件小事讲起：\\n▫️哪个调整，让你的复习终于有了起色？\\n▫️哪些看似重要的事，后来发现可以不做？\\n▫️学不进去时，你是怎样找回状态的？\\n▫️什么让你当时很焦虑，后来才发现不必那么担心？\\n\\n🎁 优质回答奖：评选 30 篇，每篇奖励 5,000 盐粒。\\n🎁 千赞加码奖：符合圆桌收录要求、获赞 1,000 及以上的回答，可额外获得星巴克保温杯 1 个。\\n\\n💬 也欢迎记录正在发生的考研生活\\n加入知乎「考研交流圈」，带主话题「研途各有招」及任意当期活动子话题发布想法，并同步至圈子，即可参与。\\n\\n学习打卡、备考小方法、今天的心情都可以，不设最低字数和发布数量要求。\\n🔍 上知乎搜索「考研季」，查看完整规则。\\n\\n你想对两个月前的自己说什么？评论区也想听听。\\n\\n<a class=\\\"wx_topic_link\\\" topic-id=\\\"mw8w9g8g-id8n4z\\\" style=\\\"color: #576B95 !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#知乎考研季</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mw8w9g8g-0ieceg\\\" style=\\\"color: #576B95 !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#考研经验</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mw8w9g8g-ksqoe7\\\" style=\\\"color: #576B95 !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#考研冲刺</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mw8w9g8g-xh4533\\\" style=\\\"color: #576B95 !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#考研日常</a>\",\"content\":\"<p>复习计划赶不上变化，背过的知识点又忘了，想休息一下，却总觉得自己不够努力……<br /><br />考完以后才明白的事，如果当时有人告诉你，会不会不一样？<br /><br />知乎校园联合半月谈发起「研途各有招·知乎考研季」，邀请考研英语名师周思成、考研规划鸟山学长、高校老师和考研过来人，一起聊聊备考中的具体难题。<br /><br />已经考过研的你，欢迎回来分享；正在备考的你，也可以带着困惑加入。<br /><br />🗓 即日起—2026 年 12 月 31 日<br />在知乎「研途各有招」圆桌收录问题下，发布 500 字及以上原创回答，结合亲身经历或专业实践，分享备考经验、实用方法与避坑建议，即可参与评选。<br />不必写成面面俱到的攻略，可以从一件小事讲起：<br />▫️哪个调整，让你的复习终于有了起色？<br />▫️哪些看似重要的事，后来发现可以不做？<br />▫️学不进去时，你是怎样找回状态的？<br />▫️什么让你当时很焦虑，后来才发现不必那么担心？<br /><br />🎁 优质回答奖：评选 30 篇，每篇奖励 5,000 盐粒。<br />🎁 千赞加码奖：符合圆桌收录要求、获赞 1,000 及以上的回答，可额外获得星巴克保温杯 1 个。<br /><br />💬 也欢迎记录正在发生的考研生活<br />加入知乎「考研交流圈」，带主话题「研途各有招」及任意当期活动子话题发布想法，并同步至圈子，即可参与。<br /><br />学习打卡、备考小方法、今天的心情都可以，不设最低字数和发布数量要求。<br />🔍 上知乎搜索「考研季」，查看完整规则。<br /><br />你想对两个月前的自己说什么？评论区也想听听。<br /><br /><a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#知乎考研季</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#考研经验</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#考研冲刺</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#考研日常</a></p>\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlFu8b8gSbYMmj4HnSoAL4aneNnU3EX1YqCv0RcMuwzPLKAjuRsU2sxdUoQDJiaYtPay1WOXaK3P0bF11CIyxXyibLSiappKfhgRsQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlFu4Wd66J7XYHxIYVjX9I5Z32EAesicODQx0vYNIly6iaibFWDw7XSZYJK56XdicAMB7MIvpvZX2IibLgPZUibsZjcamK6C0VfPdT9oE%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlHYWSSvS3QHy4zdUiaVUZz2ZFG0896gybYnPR5YVVlhH8iaw5ApJXp33pAuJIjZzskxlelsfDToJHV3TGWHTib2MDZia7jJlCsGia6A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlFu8b8gSbYMmj4HnSoAL4aneNnU3EX1YqCv0RcMuwzPLKAjuRsU2sxdUoQDJiaYtPay1WOXaK3P0bF11CIyxXyibLSiappKfhgRsQ%2F0\",\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlFu4Wd66J7XYHxIYVjX9I5Z32EAesicODQx0vYNIly6iaibFWDw7XSZYJK56XdicAMB7MIvpvZX2IibLgPZUibsZjcamK6C0VfPdT9oE%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-10T04:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658117:1\",\"title\":\"跑自己的马拉松｜来聊聊你的马拉松故事\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658117&idx=1&sn=0d041fb977345fa35a526a58ced1ceae&chksm=8ae5be8904b83f6247c1c6b5b0faf458bf9e36d961f555e19aad6c951991284da6d95d234b2c&scene=126&sessionid=1794469224#rd\",\"description\":\"🏃当前正值马拉松赛季，大众跑步热情持续高涨，赛事参与度和成绩不断提升，但随之而来的盲目追求成绩、忽视身体健康等问题也值得关注。作为理性探讨运动的知乎社区，知乎运动特别发起 「跑自己的马拉松」 活动，邀请跑者、运动爱好者以及所有关注马拉松的朋友，一起分享跑步经历、交流运动心得，发现更多有意思的故事。\\n\\n第一次跑马是什么体验？备赛过程中有哪些难忘的经历？跑步给你的生活带来了什么改变？那些发生在赛道上的意外、感动与惊喜，又是否值得被记录？\\n\\n无论你是资深跑者，还是刚刚开始接触跑步，都欢迎加入这场讨论！\\n\\n⏰活动时间\\n即日起— 2026 年 12 月 20 日\\n\\n❓参与方式\\n\\n一、跑个明白｜写回答\\n回答「跑自己的马拉松」话题下活动问题，写≧ 500 字的回答（不限制篇数），即参与成功，回答内容最好包括但不限于提及个人与马拉松的缘起、个人训练和比赛故事、个人马拉松参赛感悟、过往马拉松成绩证书、马拉松轨迹图、个人马拉松赛中照片等文字和图片信息，展示个人立体的马拉松经历经验。\\n\\n二、跑个痛快｜发想法\\n先加入 跑马人圈，再发想法：带话题「跑自己的马拉松」发布 ≧ 50 字、≧ 3 张图的想法，即参与成功。\\n\\nps. 配上跑步照片、赛事现场图、训练记录、比赛故事、跑步轨迹图、成绩证书等内容，更容易被我们看到噢。\\n\\n三、跑者集合｜招募计划\\n本次活动还特别发马拉松跑者「招募计划」，如果你曾参与过马拉松赛事，欢迎你带着你的跑友一起加入我们，分享你的跑马经历、训练心得与个人跑步哲学。\\n\\n🥇活动奖励\\n「跑马观察家奖」分享真实的马拉松经验和故事，优质回答、想法,有机会获得官方流量扶持、话题收录等，符合活动要求的优质内容瓜分 150000 盐粒；\\n「跑圈宝藏人奖」晒出你的马拉松独家经历内容，优质回答、想法,还有机会获得软水壶、肌内效贴共 70 份。\\n\\n期待在知乎，遇见更多热爱运动、认真生活的你！\\n\\n扫描图中二维码查看活动详情~\",\"content\":\"<p>🏃当前正值马拉松赛季，大众跑步热情持续高涨，赛事参与度和成绩不断提升，但随之而来的盲目追求成绩、忽视身体健康等问题也值得关注。作为理性探讨运动的知乎社区，知乎运动特别发起 「跑自己的马拉松」 活动，邀请跑者、运动爱好者以及所有关注马拉松的朋友，一起分享跑步经历、交流运动心得，发现更多有意思的故事。<br /><br />第一次跑马是什么体验？备赛过程中有哪些难忘的经历？跑步给你的生活带来了什么改变？那些发生在赛道上的意外、感动与惊喜，又是否值得被记录？<br /><br />无论你是资深跑者，还是刚刚开始接触跑步，都欢迎加入这场讨论！<br /><br />⏰活动时间<br />即日起— 2026 年 12 月 20 日<br /><br />❓参与方式<br /><br />一、跑个明白｜写回答<br />回答「跑自己的马拉松」话题下活动问题，写≧ 500 字的回答（不限制篇数），即参与成功，回答内容最好包括但不限于提及个人与马拉松的缘起、个人训练和比赛故事、个人马拉松参赛感悟、过往马拉松成绩证书、马拉松轨迹图、个人马拉松赛中照片等文字和图片信息，展示个人立体的马拉松经历经验。<br /><br />二、跑个痛快｜发想法<br />先加入 跑马人圈，再发想法：带话题「跑自己的马拉松」发布 ≧ 50 字、≧ 3 张图的想法，即参与成功。<br /><br />ps. 配上跑步照片、赛事现场图、训练记录、比赛故事、跑步轨迹图、成绩证书等内容，更容易被我们看到噢。<br /><br />三、跑者集合｜招募计划<br />本次活动还特别发马拉松跑者「招募计划」，如果你曾参与过马拉松赛事，欢迎你带着你的跑友一起加入我们，分享你的跑马经历、训练心得与个人跑步哲学。<br /><br />🥇活动奖励<br />「跑马观察家奖」分享真实的马拉松经验和故事，优质回答、想法,有机会获得官方流量扶持、话题收录等，符合活动要求的优质内容瓜分 150000 盐粒；<br />「跑圈宝藏人奖」晒出你的马拉松独家经历内容，优质回答、想法,还有机会获得软水壶、肌内效贴共 70 份。<br /><br />期待在知乎，遇见更多热爱运动、认真生活的你！<br /><br />扫描图中二维码查看活动详情~</p>\\n<img src=\\\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFibxBexlT1YjhPWIGYGjTRBsaRFA3icKf5WsehYicP6Xaykl6e3oLAIwmYJgajXicdHXGr6DlIysFic0mB7QqqgxUaialicib319GxeOI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH2eF569ia42tEubs0WNibfEY6GYGiaChp6QYm3HoauG46zUL43lfhg2Kn4zns4icu5y0DYdvSmUgBIjiaWtnd9zfo7wGocQOwjjyLc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFibxBexlT1YjhPWIGYGjTRBsaRFA3icKf5WsehYicP6Xaykl6e3oLAIwmYJgajXicdHXGr6DlIysFic0mB7QqqgxUaialicib319GxeOI%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-10T04:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658144:1\",\"title\":\"游戏丨《影之刃零》最全技术分析：从地图到打斗，武侠感是怎样炼成的？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658144&idx=1&sn=29d4b57726a52c88c1cc83f80cf56907&chksm=8a65adbc98bfc3a89bdc850a68f038bd5b5c64b4b073cdab4b3e0c2f3b6226389f4d9e1b38a4&scene=126&sessionid=1794469224#rd\",\"description\":\"从杀气塔到庞镇，《影之刃零》的地图和战斗是怎么设计的？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEqxU55icxYlibRmmy0ju9a4rllIrIPZ3ffy0iaaGUXXRL7As35YcexZsqMpCHsHv2xjelcQFksj0LiccP7YC3A5u1IUuDgiaTsArPI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658144:2\",\"title\":\"热议丨黄仁勋承认「婚外情」，会对英伟达产生多大影响？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658144&idx=2&sn=3571f47318142897adc289dfedc3dc09&chksm=8a80ec52e8628d7a2c5fc58c09de7f9cd3cd7be4fd8159bd6322bd6bd51d7ed7c191c750c062&scene=126&sessionid=1794469224#rd\",\"description\":\"这个时间点有什么说法吗？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHLPdptfVFw1ldIz4oQSB9HS3MAytxEgdTArS8y8Rl3O2z5ky8jYOpOxiaE2zXlvPxTlXN0XESMUwBTKgZZSBU38bqIpqe1PY98%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658093:1\",\"title\":\"瞎扯丨花小钱办大事是一种怎样的体验？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658093&idx=1&sn=e776bbfc09ab9dce6548eeb25fcab37d&chksm=8a57b394ccff08e3b92b583fdac2b5b3460c480fcb5891ad5cd1d4a89f20abf7812e3094cd04&scene=126&sessionid=1794469224#rd\",\"description\":\"瞎扯一下，轻松一下～\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHkpEiawGNLicibEI8YGEo9dWJdZJHpv5HoVSDYicDMEiaANgw1FdQrWVUDW9icxMSMorsKwqb9Qs2SuQyDsic5v9ibrWn6wgLoUeErwuo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658058:1\",\"title\":\"影视丨《后会友期》里的「画地为牢」是什么意思？为什么会爆火？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658058&idx=1&sn=4efeadb7818c0aad0f0445259e656587&chksm=8af8ac6ca05371a4b6726aa119f479860cb4fcde0402a92ea6277dd10136a7b81642e8d171b4&scene=126&sessionid=1794469224#rd\",\"description\":\"比精心设计的剧情更抓人的，可能是真实关系里的遗憾。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHAdZD4Liaic1tkx8ibUcm2131IJibCjiaMapo7dXmB3ibqs81bJzo7pGl34amgkQDTQ0WrtCicnV3vtZWkS12oT8qeMTeXdjIl024q6I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658024:1\",\"title\":\"瞎问丨脑子正在被吃的人会有什么感觉？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658024&idx=1&sn=e56cf5184a44fd7bcaf8bc9ec608c8e7&chksm=8a8d98f3cd55d474041f39cecb7bbb53426451c78d52aede90573721badc7195ca019d420ec1&scene=126&sessionid=1794469224#rd\",\"description\":\"\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEhr1DsiayLzBbJfibepUuzGY52BPPBVhILNmibTXcwvE1y6rOnFqUn5kMAgefEpibv9kr2g5NHJ1Ef7ibxKiaKSWTZxtHCQmE7iamqGs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658024:2\",\"title\":\"科技｜Unknown Unknowns：防不住的AI 「闪身步」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658024&idx=2&sn=5d14c7fef9043a95783643b739e8df66&chksm=8ae2167849c7537ce8e762b8213fdf92ab95d203010c4bea640e5ebaa3b14502c06b2d26df5b&scene=126&sessionid=1794469224#rd\",\"description\":\"\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlF2GATLQoCEoR0uqF0ia7JPAL6YL79PgoYex8PSYdMNL6FDeV6fjyL6YlQ6viarOmlMF0RlbMjRdSjh55Sa48ib9NpfcfMN9xWW7k%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657965:1\",\"title\":\"经验丨和好朋友渐行渐远是必然的吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657965&idx=1&sn=064526b8837c470cb3a6d9b108bfd3c9&chksm=8a3a9d5d028a8026162964110b431b3935b2b9b379ef8f1d4501c2d70b0bf515915d6ddda17b&scene=126&sessionid=1794469224#rd\",\"description\":\"我画地为牢，朋友！\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGTWaWFTRyYI6xy3bUsqIJ1bEtkPVMTsqSD2zYh27uBVFJymesArGibUmRt2ymiag6QyCR8r9DYib7AqDicMbJjk2RQgpTeVcKubPU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657965:2\",\"title\":\"科普丨哪段代码最能代表程序员的暴力美学？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657965&idx=2&sn=297fcf6695f2fee6be01b7041a65b479&chksm=8aec02c04e64c86d7d4237422234623db2c05a81c54969dd3d74304a7979b03e229456504826&scene=126&sessionid=1794469224#rd\",\"description\":\"50 年了，从没被取代。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlFianmKTvjBO7PEF8og1Iwo9laYNzaM9LjgbVHo0A1cwiaiaAAalbKmxc7ibAPycSMTH3RseBCa2yVvNQfoEIlEfOwh8Iw9vW15S0w%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657854:1\",\"title\":\"脑洞丨古代穷人为什么不搬到海边去？海边鱼多不是饿不死吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657854&idx=1&sn=fa0fcb134d5818106ec7e7c025ab1495&chksm=8aee3507618e3fa4b7a971bb1be8f26eeaf060588b4baac8b1511007582b6a924fbd24fde026&scene=126&sessionid=1794469224#rd\",\"description\":\"「有东西吃」和「能够活下去」并不是一回事？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFdw4gMj9E4dFow0iaOgTsy748By7YWMvpOgw8tR7m2xSnhVzRacvplTLmfjspv11S1Jga17SfV8ZF3AOBpVL9AvZFTSmJ9siaVM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657854:2\",\"title\":\"科普丨为什么牧羊犬能指挥羊群进退？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657854&idx=2&sn=cd007691f7baba7c2d64d7b04e6ad898&chksm=8a5f0583795d66fecb946278e674d545d9027e4f2f51aeceb70dc3fa1be61b8b2c23666cf35b&scene=126&sessionid=1794469224#rd\",\"description\":\"牧羊犬和羊群之间：没有交流，却高度协同；没有理性，却呈现出理性的秩序。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFee0mibXDYico4v012fcDTzMCM1fTs4cylgYQZUuwhaLotqQRgy0FdEfqIibibvwibiccXnmIPfMFvVLs7RXLwINjgVRNLnrDcZgNko%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657787:1\",\"title\":\"科普丨为什么现在的人不爱接电话了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657787&idx=1&sn=22c68384847b95b70e84363c247c9157&chksm=8a42317160c1e3a9b80d1954a57976e61e6a86d3f661f868dcf4604d08f70b74559bd55e6d70&scene=126&sessionid=1794469224#rd\",\"description\":\"你现在还会接陌生电话吗？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGvw6JUiclABrV3KAco5plzB2Lsu1aw34JP8kVeIXSkicPBsIy35QHgCHOmPziaXiah7JhtqMEy0vBicXDme5bGduBAXicVoebwPnHYc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657787:2\",\"title\":\"人文丨你认同「国内访古需趁早」这句话吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657787&idx=2&sn=87fd97e5af201d1f8d55ba165f96356c&chksm=8ab903efbfa3ad1294c8fb9cd51f3c4090743164b9fccf7531c052aea1902388697a61bb9895&scene=126&sessionid=1794469224#rd\",\"description\":\"访古不仅要趁早，而且什么时候都不晚。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEOxBX48mbRBbgexwOhLfeLK183QBnejrBcPqQWCT6gia8l7P7HV0TeUDiaMpJucNiad8MY6oKWwVk43HZjtmcj0b9ra8JYSthbhc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657705:1\",\"title\":\"高赞丨为什么短剧一看就停不下来？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657705&idx=1&sn=7f9a34e0548fd8a263f6c19945c16105&chksm=8a14de4907164bd7e8ea592e268efd6f33c6b6d259d8cb28dc19a45d1e3d9cda879cc1544bb9&scene=126&sessionid=1794469224#rd\",\"description\":\"让你你点开观看 / 不看的原因是什么？\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlH5VYrMN3tpicXVCria9eQImtYDqR66tU6w2WajI13kJpJEl3J3vXyjaq6YmkGyV2Tcq2mLhXIz6sEsu5hrnN8pAkqJG7tUwcWDU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832657705:2\",\"title\":\"亲自答丨如何评价 DeepSeek Harness 发布的 Super-agent 构想？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832657705&idx=2&sn=780d510f24e42fdb9839c3ce409dd6c2&chksm=8ab7dbb86887a142dff19f2540a4a067e1dcf05b2994a9e1bae734e2980d272f1ced36efb338&scene=126&sessionid=1794469224#rd\",\"description\":\"DeepSeek 产品部负责人、原文章最终审稿人之一崔添翼亲自答。\",\"image\":\"https://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEFDvsMy83rCiaR2kPMkUdbKAqhRSjOYBufOhfbExj5hpjj01gUGYlYUOHsvUIibOS7QCFoJ8gT5cbaiaxnoic40UGX381Msdias2kg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T12:00:00.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 3070,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 3070
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 3070,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 3070,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 3070,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 3070,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 3070,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 3070
+        }
+      ]
+    }
+  }
 }
