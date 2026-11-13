@@ -1,21 +1,23 @@
 {
-  "checked_at": "2026-11-12T20:20:34.607Z",
+  "checked_at": "2026-11-13T06:59:11.066Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/zhihuribao",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/zhihuribao.json",
-    "duration_ms": 1266
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 29
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 503,
+    "error": "Debug 返回了无效的诊断结构",
+    "duration_ms": 23
   },
   "debug": null
 }

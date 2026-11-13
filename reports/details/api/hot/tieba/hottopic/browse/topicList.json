@@ -1,20 +1,169 @@
 {
-  "checked_at": "2026-11-12T20:15:17.558Z",
+  "checked_at": "2026-11-13T06:58:53.748Z",
   "inspection": {
     "file": "hot/tieba_hot.js",
     "path": "/api/hot/tieba/hottopic/browse/topicList",
     "example": "/api/hot/tieba/hottopic/browse/topicList",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/tieba/hottopic/browse/topicList.json",
+    "duration_ms": 2323
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60000
+    "status": 200,
+    "duration_ms": 364
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/tieba_hot.js",
+      "name": "百度贴吧 · 热议",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/tieba/hottopic/browse/topicList",
+      "request_path": "/api/hot/tieba/hottopic/browse/topicList",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/tieba/hottopic/browse/topicList",
+      "params": {},
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a59be3fdeda9eae7"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 317,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"tieba\",\"count\":30,\"missing_rank\":30}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://tieba.baidu.com/hottopic/browse/topicList",
+        "method": "GET",
+        "host": "tieba.baidu.com",
+        "pathname": "/hottopic/browse/topicList",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 317,
+        "timings": {
+          "response_ms": 311,
+          "body_read_ms": 6,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"百度贴吧 · 热议\",\"link\":\"https://tieba.baidu.com\",\"category\":\"社区\",\"observed_at\":\"2026-11-13T06:58:54.077Z\",\"entries\":[{\"id\":\"tieba:28369804\",\"title\":\"飞雪吧替厉娜把超女物料存了20年\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369804&amp;topic_name=%E9%A3%9E%E9%9B%AA%E5%90%A7%E6%9B%BF%E5%8E%89%E5%A8%9C%E6%8A%8A%E8%B6%85%E5%A5%B3%E7%89%A9%E6%96%99%E5%AD%98%E4%BA%8620%E5%B9%B4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1888980,\"unit\":\"讨论量\",\"text\":\"1888980\"}},{\"id\":\"tieba:28369747\",\"title\":\"吧友连续14年盖楼支持诺基亚\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369747&amp;topic_name=%E5%90%A7%E5%8F%8B%E8%BF%9E%E7%BB%AD14%E5%B9%B4%E7%9B%96%E6%A5%BC%E6%94%AF%E6%8C%81%E8%AF%BA%E5%9F%BA%E4%BA%9A\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1709695,\"unit\":\"讨论量\",\"text\":\"1709695\"}},{\"id\":\"tieba:28369783\",\"title\":\"盘点Bin古早发言吧友来打分\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369783&amp;topic_name=%E7%9B%98%E7%82%B9Bin%E5%8F%A4%E6%97%A9%E5%8F%91%E8%A8%80%E5%90%A7%E5%8F%8B%E6%9D%A5%E6%89%93%E5%88%86\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1398600,\"unit\":\"讨论量\",\"text\":\"1398600\"}},{\"id\":\"tieba:28369800\",\"title\":\"LCK选手AI性转视频走红韩网\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369800&amp;topic_name=LCK%E9%80%89%E6%89%8BAI%E6%80%A7%E8%BD%AC%E8%A7%86%E9%A2%91%E8%B5%B0%E7%BA%A2%E9%9F%A9%E7%BD%91\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1190619,\"unit\":\"讨论量\",\"text\":\"1190619\"}},{\"id\":\"tieba:28369801\",\"title\":\"日本上司被中国下属的OK整不爽了\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369801&amp;topic_name=%E6%97%A5%E6%9C%AC%E4%B8%8A%E5%8F%B8%E8%A2%AB%E4%B8%AD%E5%9B%BD%E4%B8%8B%E5%B1%9E%E7%9A%84OK%E6%95%B4%E4%B8%8D%E7%88%BD%E4%BA%86\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":905736,\"unit\":\"讨论量\",\"text\":\"905736\"}},{\"id\":\"tieba:28369799\",\"title\":\"朝鲜新宪法将韩国列为独立国家\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369799&amp;topic_name=%E6%9C%9D%E9%B2%9C%E6%96%B0%E5%AE%AA%E6%B3%95%E5%B0%86%E9%9F%A9%E5%9B%BD%E5%88%97%E4%B8%BA%E7%8B%AC%E7%AB%8B%E5%9B%BD%E5%AE%B6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":697775,\"unit\":\"讨论量\",\"text\":\"697775\"}},{\"id\":\"tieba:28369795\",\"title\":\"多兰海边悟道 本人or粉丝\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369795&amp;topic_name=%E5%A4%9A%E5%85%B0%E6%B5%B7%E8%BE%B9%E6%82%9F%E9%81%93%20%E6%9C%AC%E4%BA%BAor%E7%B2%89%E4%B8%9D\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":493584,\"unit\":\"讨论量\",\"text\":\"493584\"}},{\"id\":\"tieba:28369796\",\"title\":\"德芙宣扬错误婚恋观被罚80万\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369796&amp;topic_name=%E5%BE%B7%E8%8A%99%E5%AE%A3%E6%89%AC%E9%94%99%E8%AF%AF%E5%A9%9A%E6%81%8B%E8%A7%82%E8%A2%AB%E7%BD%9A80%E4%B8%87\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":366827,\"unit\":\"讨论量\",\"text\":\"366827\"}},{\"id\":\"tieba:28369779\",\"title\":\"日本动画巨头中国版权卖不动了\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369779&amp;topic_name=%E6%97%A5%E6%9C%AC%E5%8A%A8%E7%94%BB%E5%B7%A8%E5%A4%B4%E4%B8%AD%E5%9B%BD%E7%89%88%E6%9D%83%E5%8D%96%E4%B8%8D%E5%8A%A8%E4%BA%86\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":354816,\"unit\":\"讨论量\",\"text\":\"354816\"}},{\"id\":\"tieba:28369784\",\"title\":\"菲菲想把Hope换成Elk\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369784&amp;topic_name=%E8%8F%B2%E8%8F%B2%E6%83%B3%E6%8A%8AHope%E6%8D%A2%E6%88%90Elk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":289842,\"unit\":\"讨论量\",\"text\":\"289842\"}},{\"id\":\"tieba:28369782\",\"title\":\"英国人吐槽中国医院不如泰国\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369782&amp;topic_name=%E8%8B%B1%E5%9B%BD%E4%BA%BA%E5%90%90%E6%A7%BD%E4%B8%AD%E5%9B%BD%E5%8C%BB%E9%99%A2%E4%B8%8D%E5%A6%82%E6%B3%B0%E5%9B%BD\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":257140,\"unit\":\"讨论量\",\"text\":\"257140\"}},{\"id\":\"tieba:28369778\",\"title\":\"TheShy世界赛后采访视频被下架\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369778&amp;topic_name=TheShy%E4%B8%96%E7%95%8C%E8%B5%9B%E5%90%8E%E9%87%87%E8%AE%BF%E8%A7%86%E9%A2%91%E8%A2%AB%E4%B8%8B%E6%9E%B6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":194047,\"unit\":\"讨论量\",\"text\":\"194047\"}},{\"id\":\"tieba:28369780\",\"title\":\"日本男子沉车逃生全靠柯南救命\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369780&amp;topic_name=%E6%97%A5%E6%9C%AC%E7%94%B7%E5%AD%90%E6%B2%89%E8%BD%A6%E9%80%83%E7%94%9F%E5%85%A8%E9%9D%A0%E6%9F%AF%E5%8D%97%E6%95%91%E5%91%BD\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":178488,\"unit\":\"讨论量\",\"text\":\"178488\"}},{\"id\":\"tieba:28369775\",\"title\":\"吧友给大肥鱼装内分泌系统\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369775&amp;topic_name=%E5%90%A7%E5%8F%8B%E7%BB%99%E5%A4%A7%E8%82%A5%E9%B1%BC%E8%A3%85%E5%86%85%E5%88%86%E6%B3%8C%E7%B3%BB%E7%BB%9F\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":152031,\"unit\":\"讨论量\",\"text\":\"152031\"}},{\"id\":\"tieba:28369777\",\"title\":\"提名你心中的战力天花板\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369777&amp;topic_name=%E6%8F%90%E5%90%8D%E4%BD%A0%E5%BF%83%E4%B8%AD%E7%9A%84%E6%88%98%E5%8A%9B%E5%A4%A9%E8%8A%B1%E6%9D%BF\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":134704,\"unit\":\"讨论量\",\"text\":\"134704\"}},{\"id\":\"tieba:28369774\",\"title\":\"全国多地中小学取消早读\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369774&amp;topic_name=%E5%85%A8%E5%9B%BD%E5%A4%9A%E5%9C%B0%E4%B8%AD%E5%B0%8F%E5%AD%A6%E5%8F%96%E6%B6%88%E6%97%A9%E8%AF%BB\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":132735,\"unit\":\"讨论量\",\"text\":\"132735\"}},{\"id\":\"tieba:28369751\",\"title\":\"三家抢奶油两家抢Gala好戏开场\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369751&amp;topic_name=%E4%B8%89%E5%AE%B6%E6%8A%A2%E5%A5%B6%E6%B2%B9%E4%B8%A4%E5%AE%B6%E6%8A%A2Gala%E5%A5%BD%E6%88%8F%E5%BC%80%E5%9C%BA\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":115780,\"unit\":\"讨论量\",\"text\":\"115780\"}},{\"id\":\"tieba:28369762\",\"title\":\"樊振东祝贺LPL进决赛\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369762&amp;topic_name=%E6%A8%8A%E6%8C%AF%E4%B8%9C%E7%A5%9D%E8%B4%BALPL%E8%BF%9B%E5%86%B3%E8%B5%9B\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":108992,\"unit\":\"讨论量\",\"text\":\"108992\"}},{\"id\":\"tieba:28369376\",\"title\":\"2026TGA提名游戏预测\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369376&amp;topic_name=2026TGA%E6%8F%90%E5%90%8D%E6%B8%B8%E6%88%8F%E9%A2%84%E6%B5%8B\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":85200,\"unit\":\"讨论量\",\"text\":\"85200\"}},{\"id\":\"tieba:28369741\",\"title\":\"大肥鱼在贴吧开避难所收同类\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369741&amp;topic_name=%E5%A4%A7%E8%82%A5%E9%B1%BC%E5%9C%A8%E8%B4%B4%E5%90%A7%E5%BC%80%E9%81%BF%E9%9A%BE%E6%89%80%E6%94%B6%E5%90%8C%E7%B1%BB\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":75999,\"unit\":\"讨论量\",\"text\":\"75999\"}},{\"id\":\"tieba:28369668\",\"title\":\"6000块耳机线扒开是棉布\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369668&amp;topic_name=6000%E5%9D%97%E8%80%B3%E6%9C%BA%E7%BA%BF%E6%89%92%E5%BC%80%E6%98%AF%E6%A3%89%E5%B8%83\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":65540,\"unit\":\"讨论量\",\"text\":\"65540\"}},{\"id\":\"tieba:28369734\",\"title\":\"印度游客抢占残疾人免费轮椅\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369734&amp;topic_name=%E5%8D%B0%E5%BA%A6%E6%B8%B8%E5%AE%A2%E6%8A%A2%E5%8D%A0%E6%AE%8B%E7%96%BE%E4%BA%BA%E5%85%8D%E8%B4%B9%E8%BD%AE%E6%A4%85\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":62136,\"unit\":\"讨论量\",\"text\":\"62136\"}},{\"id\":\"tieba:28369673\",\"title\":\"Knight换爱音头像玄学冲冠\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369673&amp;topic_name=Knight%E6%8D%A2%E7%88%B1%E9%9F%B3%E5%A4%B4%E5%83%8F%E7%8E%84%E5%AD%A6%E5%86%B2%E5%86%A0\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":49728,\"unit\":\"讨论量\",\"text\":\"49728\"}},{\"id\":\"tieba:28369764\",\"title\":\"双十一凑单就服垃圾佬\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369764&amp;topic_name=%E5%8F%8C%E5%8D%81%E4%B8%80%E5%87%91%E5%8D%95%E5%B0%B1%E6%9C%8D%E5%9E%83%E5%9C%BE%E4%BD%AC\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":42560,\"unit\":\"讨论量\",\"text\":\"42560\"}},{\"id\":\"tieba:28369708\",\"title\":\"吧友自创鲸鱼娘遭外网审判\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369708&amp;topic_name=%E5%90%A7%E5%8F%8B%E8%87%AA%E5%88%9B%E9%B2%B8%E9%B1%BC%E5%A8%98%E9%81%AD%E5%A4%96%E7%BD%91%E5%AE%A1%E5%88%A4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":38556,\"unit\":\"讨论量\",\"text\":\"38556\"}},{\"id\":\"tieba:28369656\",\"title\":\"花坛藏尸案一审判死刑\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369656&amp;topic_name=%E8%8A%B1%E5%9D%9B%E8%97%8F%E5%B0%B8%E6%A1%88%E4%B8%80%E5%AE%A1%E5%88%A4%E6%AD%BB%E5%88%91\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":37060,\"unit\":\"讨论量\",\"text\":\"37060\"}},{\"id\":\"tieba:28369586\",\"title\":\"GTA6预载开启谁是完整版\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369586&amp;topic_name=GTA6%E9%A2%84%E8%BD%BD%E5%BC%80%E5%90%AF%E8%B0%81%E6%98%AF%E5%AE%8C%E6%95%B4%E7%89%88\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":32872,\"unit\":\"讨论量\",\"text\":\"32872\"}},{\"id\":\"tieba:28369667\",\"title\":\"吧友做第一条船就翻了两本文献\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369667&amp;topic_name=%E5%90%A7%E5%8F%8B%E5%81%9A%E7%AC%AC%E4%B8%80%E6%9D%A1%E8%88%B9%E5%B0%B1%E7%BF%BB%E4%BA%86%E4%B8%A4%E6%9C%AC%E6%96%87%E7%8C%AE\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":25080,\"unit\":\"讨论量\",\"text\":\"25080\"}},{\"id\":\"tieba:28369569\",\"title\":\"韩网倒戈力挺BLG夺冠\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369569&amp;topic_name=%E9%9F%A9%E7%BD%91%E5%80%92%E6%88%88%E5%8A%9B%E6%8C%BABLG%E5%A4%BA%E5%86%A0\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":22694,\"unit\":\"讨论量\",\"text\":\"22694\"}},{\"id\":\"tieba:28369568\",\"title\":\"海地黑帮挨揍求助联合国\",\"link\":\"https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28369568&amp;topic_name=%E6%B5%B7%E5%9C%B0%E9%BB%91%E5%B8%AE%E6%8C%A8%E6%8F%8D%E6%B1%82%E5%8A%A9%E8%81%94%E5%90%88%E5%9B%BD\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21523,\"unit\":\"讨论量\",\"text\":\"21523\"}}]}",
+    "timing": {
+      "elapsed_ms": 317,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 317
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 317,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 317,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 317,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 317,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 317,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 317
+        }
+      ]
+    }
+  }
 }

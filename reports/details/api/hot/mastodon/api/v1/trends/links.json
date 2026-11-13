@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-12T20:11:12.412Z",
+  "checked_at": "2026-11-13T06:58:38.674Z",
   "inspection": {
     "file": "hot/mastodon.js",
     "path": "/api/hot/mastodon/api/v1/trends/:type?",
@@ -9,12 +9,160 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "status": 503,
+    "code": "EXCEEDED_RESOURCES",
+    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
+    "duration_ms": 24
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60000
+    "status": 200,
+    "duration_ms": 2199
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/mastodon.js",
+      "name": "Mastodon · 社媒趋势",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/mastodon/api/v1/trends/:type?",
+      "request_path": "/api/hot/mastodon/api/v1/trends/:type?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/mastodon/api/v1/trends/links",
+      "params": {
+        "type": "links"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a59be39faa20871c"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 2179,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://mastodon.social/api/v1/trends/links?limit=20",
+        "method": "GET",
+        "host": "mastodon.social",
+        "pathname": "/api/v1/trends/links",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 0,
+        "duration_ms": 2179,
+        "timings": {
+          "response_ms": 2179,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Mastodon · 热门链接\",\"link\":\"https://mastodon.social/explore/links\",\"category\":\"社交\",\"observed_at\":\"2026-11-13T06:58:40.853Z\",\"entries\":[{\"id\":\"mastodon.social:links:https://theinitium.com/20261112-mainland-conversation-with-anti-feminists-zh-hans/\",\"title\":\"“一定要跟女权主义斗争到底”：对话中国GenZ“反女权者”\",\"link\":\"https://theinitium.com/20261112-mainland-conversation-with-anti-feminists-zh-hans/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/480/960/original/173453c73ef1c5f2.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"当日分享次数\",\"text\":\"0\"}},{\"id\":\"mastodon.social:links:https://www.der-postillon.com/2023/11/leistungsloses-einkommen.html\",\"title\":\"\\\"Geld ohne Arbeit setzt völlig falsche Anreize\\\" – Union will offenbar Aktiendividenden, Erbschaften und Mieteinnahmen verbieten\",\"link\":\"https://www.der-postillon.com/2023/11/leistungsloses-einkommen.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/079/102/815/original/e0f254a7397e6151.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13,\"unit\":\"当日分享次数\",\"text\":\"13\"}},{\"id\":\"mastodon.social:links:https://projects.propublica.org/us-citizens-detained-immigration-photo-essay/\",\"title\":\"More Than Numbers: Portraits of U.S. Citizens Detained by Immigration Agents\",\"link\":\"https://projects.propublica.org/us-citizens-detained-immigration-photo-essay/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/487/190/original/344eb3a6391dc984.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":38,\"unit\":\"当日分享次数\",\"text\":\"38\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/environment/2026/nov/12/world-heading-for-irrevocable-overshoot-of-global-temperature-thresholds-analysis-warns\",\"title\":\"World heading for ‘irrevocable overshoot’ of global temperature thresholds, analysis warns\",\"link\":\"https://www.theguardian.com/environment/2026/nov/12/world-heading-for-irrevocable-overshoot-of-global-temperature-thresholds-analysis-warns\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/453/011/original/3f10614ccb329c23.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2,\"unit\":\"当日分享次数\",\"text\":\"2\"}},{\"id\":\"mastodon.social:links:https://newrepublic.com/post/217852/van-hollen-calls-out-schumer-aipac-crypto-democrats-senate-leader\",\"title\":\"Van Hollen Calls Out Schumer for Siding With AIPAC and Crypto\",\"link\":\"https://newrepublic.com/post/217852/van-hollen-calls-out-schumer-aipac-crypto-democrats-senate-leader\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/292/807/original/0d42db10129424bc.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":98,\"unit\":\"当日分享次数\",\"text\":\"98\"}},{\"id\":\"mastodon.social:links:https://www.nbcnews.com/politics/congress/sen-chris-van-hollen-says-will-challenge-sen-chuck-schumer-majority-le-rcna609100\",\"title\":\"Sen. Chris Van Hollen says he will challenge Sen. Chuck Schumer for majority leader\",\"link\":\"https://www.nbcnews.com/politics/congress/sen-chris-van-hollen-says-will-challenge-sen-chuck-schumer-majority-le-rcna609100\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/591/279/original/8e20d5b3f089c1cf.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":92,\"unit\":\"当日分享次数\",\"text\":\"92\"}},{\"id\":\"mastodon.social:links:https://www.tagesspiegel.de/politik/entschadigung-an-firmen-plus-geld-fur-anwalte-maut-affare-kostet-mehr-als-300-millionen-euro-16247101.html\",\"title\":\"Entschädigung an Firmen plus Geld für Anwälte: Maut-Affäre kostet mehr als 300 Millionen Euro\",\"link\":\"https://www.tagesspiegel.de/politik/entschadigung-an-firmen-plus-geld-fur-anwalte-maut-affare-kostet-mehr-als-300-millionen-euro-16247101.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/484/763/original/83f678f7b66f1ca7.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"当日分享次数\",\"text\":\"3\"}},{\"id\":\"mastodon.social:links:https://netzpolitik.org/2026/brief-an-abgeordnete-28-organisationen-wehren-sich-gegen-geheimdienstreform/\",\"title\":\"28 Organisationen wehren sich gegen Geheimdienstreform\",\"link\":\"https://netzpolitik.org/2026/brief-an-abgeordnete-28-organisationen-wehren-sich-gegen-geheimdienstreform/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/519/064/original/e466be616fbbb076.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10,\"unit\":\"当日分享次数\",\"text\":\"10\"}},{\"id\":\"mastodon.social:links:https://kyivindependent.com/starshield-speed-restrictions-return-hampering-efforts-to-intercept-russian-drones-zelensky-says/\",\"title\":\"Starshield speed restrictions return, hampering efforts to intercept Russian drones, Zelensky says\",\"link\":\"https://kyivindependent.com/starshield-speed-restrictions-return-hampering-efforts-to-intercept-russian-drones-zelensky-says/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/490/742/original/cded429fc3657dea.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"当日分享次数\",\"text\":\"1\"}},{\"id\":\"mastodon.social:links:https://www.fastcompany.com/91640992/can-we-please-stop-calling-it-a-honey-trap\",\"title\":\"Can we please stop calling it a 'honey trap'?\",\"link\":\"https://www.fastcompany.com/91640992/can-we-please-stop-calling-it-a-honey-trap\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/544/647/original/df55c24b40a44b73.webp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":74,\"unit\":\"当日分享次数\",\"text\":\"74\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/us-news/2026/nov/12/california-nurse-release-ice-custody\",\"title\":\"Calls grow for release of beloved California nurse detained by ICE: ‘We want her home’\",\"link\":\"https://www.theguardian.com/us-news/2026/nov/12/california-nurse-release-ice-custody\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/585/091/original/1a23cb86ab9b1bef.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":72,\"unit\":\"当日分享次数\",\"text\":\"72\"}},{\"id\":\"mastodon.social:links:https://www.der-postillon.com/2026/11/nvidia-trump.html\",\"title\":\"Nächster Skandal: Nvidia-Chef Huang mit russischem Spion gesichtet\",\"link\":\"https://www.der-postillon.com/2026/11/nvidia-trump.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/498/128/original/2e2e7e16b1c193e8.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11,\"unit\":\"当日分享次数\",\"text\":\"11\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/technology/2026/nov/12/nvidia-ceo-jensen-huang-resigns\",\"title\":\"Jensen Huang resigns as Nvidia CEO after alleged affairs\",\"link\":\"https://www.theguardian.com/technology/2026/nov/12/nvidia-ceo-jensen-huang-resigns\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/514/261/original/4c89d5cc487b8212.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":8,\"unit\":\"当日分享次数\",\"text\":\"8\"}},{\"id\":\"mastodon.social:links:https://www.mdr.de/nachrichten/sachsen-anhalt/landespolitik/brandmauer-debatte,schulze-afd-antraege-zustimmung-100.html\",\"title\":\"CDU-Chef Schulze schließt Zustimmung zu AfD-Anträgen nicht aus — CDU-Mitglieder üben Kritik\",\"link\":\"https://www.mdr.de/nachrichten/sachsen-anhalt/landespolitik/brandmauer-debatte,schulze-afd-antraege-zustimmung-100.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/212/048/original/f7ea9d5e88d553e6.webp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"当日分享次数\",\"text\":\"1\"}},{\"id\":\"mastodon.social:links:https://newrepublic.com/post/217921/new-nevada-governor-calls-join-pact-overthrow-electoral-college\",\"title\":\"New Nevada Governor Calls to Join Pact to Overthrow Electoral College\",\"link\":\"https://newrepublic.com/post/217921/new-nevada-governor-calls-join-pact-overthrow-electoral-college\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/540/535/original/058811c77b695d7f.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":25,\"unit\":\"当日分享次数\",\"text\":\"25\"}},{\"id\":\"mastodon.social:links:https://www.bbc.com/news/live/c6zjry11v8w1t\",\"title\":\"Nvidia shares plunge as US tech giant's board reportedly weighs ousting CEO Jensen Huang - follow live\",\"link\":\"https://www.bbc.com/news/live/c6zjry11v8w1t\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/444/467/original/2e4976bb2fd15417.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1,\"unit\":\"当日分享次数\",\"text\":\"1\"}},{\"id\":\"mastodon.social:links:https://www.itmedia.co.jp/news/article/2611/12/2000003144/\",\"title\":\"無印良品「21年までクレカ番号で顧客を識別していた」　“全ケタ保有＆漏えい“巡り謝罪　削除漏れなぜ発生\",\"link\":\"https://www.itmedia.co.jp/news/article/2611/12/2000003144/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/474/489/original/d31568b5a374331e.jpeg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":6,\"unit\":\"当日分享次数\",\"text\":\"6\"}},{\"id\":\"mastodon.social:links:https://www.theguardian.com/world/2026/nov/12/oil-slicks-seen-from-space-the-devastating-impact-of-boat-strikes-on-fragile-gulf-ecosystems\",\"title\":\"Oil slicks seen from space: the devastating impact of boat strikes on fragile Gulf ecosystems\",\"link\":\"https://www.theguardian.com/world/2026/nov/12/oil-slicks-seen-from-space-the-devastating-impact-of-boat-strikes-on-fragile-gulf-ecosystems\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/452/571/original/08ff668e3ce7f126.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3,\"unit\":\"当日分享次数\",\"text\":\"3\"}},{\"id\":\"mastodon.social:links:https://www.yahoo.com/news/politics/articles/palantir-ceo-alex-karp-says-123708781.html\",\"title\":\"Palantir CEO Alex Karp Says Its Products Are ‘Essentially Progressive’\",\"link\":\"https://www.yahoo.com/news/politics/articles/palantir-ceo-alex-karp-says-123708781.html\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/454/376/original/b1e281df671c20f6.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2,\"unit\":\"当日分享次数\",\"text\":\"2\"}},{\"id\":\"mastodon.social:links:https://techcrunch.com/2026/11/12/microsofts-outlook-email-hit-by-new-outage/\",\"title\":\"Microsoft's Outlook email hit by new outage | TechCrunch\",\"link\":\"https://techcrunch.com/2026/11/12/microsofts-outlook-email-hit-by-new-outage/\",\"thumbnail\":\"https://files.mastodon.social/cache/preview_cards/images/214/554/527/original/b8f6ce07874cea67.webp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10,\"unit\":\"当日分享次数\",\"text\":\"10\"}}]}",
+    "timing": {
+      "elapsed_ms": 2179,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 0,
+          "duration_ms": 2179
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 2179,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2179,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 2179,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 2179,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 2179,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 0,
+          "duration_ms": 2179
+        }
+      ]
+    }
+  }
 }

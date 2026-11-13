@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-12T20:19:26.390Z",
+  "checked_at": "2026-11-13T06:58:58.551Z",
   "inspection": {
     "file": "rss/instagram.js",
     "path": "/api/rss/instagram/:username",
@@ -9,12 +9,168 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "error": "The operation was aborted due to timeout",
-    "duration_ms": 60001
+    "status": 503,
+    "code": "UPSTREAM_RATE_LIMITED",
+    "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
+    "duration_ms": 318
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60000
+    "status": 503,
+    "duration_ms": 158
   },
-  "debug": null
+  "debug": {
+    "status": 503,
+    "code": "UPSTREAM_RATE_LIMITED",
+    "script": {
+      "file": "rss/instagram.js",
+      "name": "Instagram 用户作品",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/instagram/:username",
+      "request_path": "/api/rss/instagram/:username",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/instagram/katarinabluu",
+      "params": {
+        "username": "katarinabluu"
+      },
+      "query": {},
+      "public_origin": "https://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node",
+        "CF-Ray": "a59be41be937871c"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 123,
+    "invoked": false,
+    "upstream_error": "UPSTREAM_RATE_LIMITED: 脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429",
+    "error_text": "脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429\nat fetchText (rss-context.js:617:45)",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://www.instagram.com/katarinabluu/",
+        "method": "GET",
+        "host": "www.instagram.com",
+        "pathname": "/katarinabluu/",
+        "status": 302,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 5,
+        "duration_ms": 72,
+        "timings": {
+          "response_ms": 72
+        }
+      },
+      {
+        "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fkatarinabluu%2F&is_from_rle",
+        "method": "GET",
+        "host": "www.instagram.com",
+        "pathname": "/accounts/login/",
+        "status": 429,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 77,
+        "duration_ms": 46,
+        "timings": {
+          "response_ms": 46
+        }
+      }
+    ],
+    "timing": {
+      "elapsed_ms": 123,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 5
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 5,
+          "duration_ms": 0
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 5,
+          "duration_ms": 118
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 123,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 123,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 123,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 123,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 5,
+          "duration_ms": 118
+        }
+      ]
+    }
+  }
 }
