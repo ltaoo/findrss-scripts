@@ -84,7 +84,7 @@ try {
 } finally {
   await progress.close();
 }
-report.mode = local || is_loopback_url(base) ? "dev" : "release";
+report.mode = !process.argv.includes("--release") && (local || is_loopback_url(base)) ? "dev" : "release";
 report.scripts = scripts.map(({ file, metadata }) => ({
   file,
   version: metadata.version,

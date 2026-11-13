@@ -5,7 +5,7 @@ on:
     branches: [master]
   pull_request:
   schedule:
-    - cron: '23 */6 * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -32,7 +32,10 @@ jobs:
   routes:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 60
+    env:
+      INSTABOX_API_KEY: ${{ secrets.INSTABOX_API_KEY }}
+      INSTABOX_MACHINE: ${{ vars.INSTABOX_MACHINE }}
     permissions:
       contents: write
     concurrency:
@@ -46,16 +49,17 @@ jobs:
         with:
           node-version: '22.19.0'
           cache: npm
-      - run: npm ci
-      - run: npm run build
-      - run: |
-          npm run check:routes || true
-          test -f reports/index.html
+      - name: Install InstaBox CLI
+        run: npm install --global instabox@0.8.268
+      - name: Run local route checks on InstaBox
+        run: bash scripts/instabox_check.sh
         env:
-          ROUTE_CHECK_CONFIG: .github/route-checks.json
-          CHECK_BASE_URL: ${{ vars.CHECK_BASE_URL }}
-          CHECK_ACCESS_TOKEN: ${{ secrets.CHECK_ACCESS_TOKEN }}
+          INSTABOX_DEV_VARS: ${{ secrets.INSTABOX_DEV_VARS }}
           ROUTE_CHECK_CASES: ${{ secrets.ROUTE_CHECK_CASES }}
+      - name: Ensure InstaBox is stopped
+        if: ${{ always() && env.INSTABOX_MACHINE != '' && env.INSTABOX_API_KEY != '' }}
+        timeout-minutes: 5
+        run: instabox stop "$INSTABOX_MACHINE"
       - name: Publish route reports
         if: ${{ !cancelled() && hashFiles('reports/routes.json') != '' && hashFiles('reports/routes.md') != '' && hashFiles('reports/index.html') != '' && hashFiles('reports/README.md') != '' }}
         timeout-minutes: 5

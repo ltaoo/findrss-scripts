@@ -242,15 +242,18 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 
 ## 定时巡检
 
-GitHub Actions 在推送、PR 时运行夹具测试和 Wrangler 打包检查；定时或手动运行时，每 6 小时请求已部署 Worker 的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由，逐项检查请求、非空响应、格式和输出内容。
+GitHub Actions 在推送、PR 时运行夹具测试和 Wrangler 打包检查；每小时第 23 分钟或手动运行时，启动专用 InstaBox 机器，在机器内运行本地 Worker，先从管理接口获取 Cookie 并写入加密 KV，再用 Chrome 巡检，取回报告后关机。逐项检查 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由的请求、非空响应、格式和输出内容。
 
 在仓库 **Settings → Secrets and variables → Actions** 设置：
 
 | 类型 | 名称 | 用途 |
 | --- | --- | --- |
-| Variable | `CHECK_BASE_URL` | 已部署的 Worker 地址 |
-| Secret | `CHECK_ACCESS_TOKEN` | Worker 的 `ACCESS_TOKEN`；未配置鉴权时可留空 |
+| Variable | `INSTABOX_MACHINE` | 专用巡检机器名称或 ID |
+| Secret | `INSTABOX_API_KEY` | InstaBox API Key |
+| Secret | `INSTABOX_DEV_VARS` | 本地 Worker 的 `.dev.vars` 完整内容 |
 | Secret | `NOTIFY_TOKEN` | 失败汇总通知接口的令牌 |
+
+首次部署、凭据迁移和超时关机说明见 [InstaBox 每小时巡检](docs/instabox.md)。GitHub 调度可能延迟，不保证准点开机。
 
 首次发布脚本市场时，在 **Settings → Pages → Source** 选择 **GitHub Actions**。检查样本维护在 [`.github/route-checks.json`](.github/route-checks.json)，仅供巡检读取，修改样本无需重新部署 Worker。
 

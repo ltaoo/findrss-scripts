@@ -159,14 +159,15 @@ RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKE
 
 ## GitHub Actions
 
-`.github/workflows/scripts.yml` 在推送、PR 时运行夹具测试和 Wrangler 打包检查。定时和手动运行还会检查部署站点：每 6 小时的 UTC 00:23 / 06:23 / 12:23 / 18:23（北京时间 08:23 / 14:23 / 20:23 / 次日 02:23）。GitHub 的定时任务需要工作流位于默认分支，执行时间可能延后，见 [GitHub 定时事件说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)。
+`.github/workflows/scripts.yml` 在推送、PR 时运行夹具测试和 Wrangler 打包检查。定时和手动巡检已移到 InstaBox：每小时第 23 分钟启动机器，在本地 Worker 上巡检，取回报告后关机；部署步骤见 [InstaBox 每小时巡检](instabox.md)。GitHub 的定时任务需要工作流位于默认分支，执行时间可能延后，见 [GitHub 定时事件说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)。
 
 在仓库 Settings → Secrets and variables → Actions 设置：
 
 | 类型 | 名称 | 值 |
 | --- | --- | --- |
-| Variable | `CHECK_BASE_URL` | 已部署的 Worker 完整地址，例如 `https://findrss-scripts.example.workers.dev` |
-| Secret | `CHECK_ACCESS_TOKEN` | Worker 的 `ACCESS_TOKEN`；未配置鉴权时留空 |
+| Variable | `INSTABOX_MACHINE` | 专用巡检机器名称或 ID，例如 `findrss-checks` |
+| Secret | `INSTABOX_API_KEY` | 有权读取、启动、执行、传输文件和关闭该机器的 API Key |
+| Secret | `INSTABOX_DEV_VARS` | `.dev.vars` 完整内容；包括访问令牌、Cookie 等本地配置 |
 | Secret | `ROUTE_CHECK_CASES` | 可选的路由样本及预期覆盖 JSON，见下文 |
 | Secret | `NOTIFY_TOKEN` | 通知接口的 Bearer 令牌，仅填写令牌值，不包含 `Bearer ` 前缀 |
 
