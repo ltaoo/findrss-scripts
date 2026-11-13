@@ -50,6 +50,7 @@ if [[ $status -gt 1 ]]; then
   exit "$status"
 fi
 instabox cp "$machine:/data/home/findrss-checks/reports.tar.gz" "$temporary/reports.tar.gz"
+rm -rf reports/routes.json reports/routes.md reports/README.md reports/index.html reports/responses reports/details reports/icons
 tar -xzf "$temporary/reports.tar.gz"
 for report in routes.json routes.md README.md index.html; do
   test -s "reports/$report"

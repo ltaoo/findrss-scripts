@@ -53,9 +53,14 @@ if (args[0] === 'cp') {
 
 test("远端路由失败仍取回完整报告，凭据不进入源码包，最后关机", async t => {
   const f = await fixture(t);
+  await mkdir(join(f.source, "reports/responses"), { recursive: true });
+  await writeFile(join(f.source, "reports/responses/stale.txt"), "old response");
+  await writeFile(join(f.source, "reports/cookie-sync-setup.json"), "private setup");
   const result = f.run({ FAKE_STATUS: "1" });
   assert.equal(result.status, 0, result.stderr);
   assert.equal(await readFile(join(f.source, "reports/index.html"), "utf8"), "new report\n");
+  await assert.rejects(readFile(join(f.source, "reports/responses/stale.txt")), { code: "ENOENT" });
+  assert.equal(await readFile(join(f.source, "reports/cookie-sync-setup.json"), "utf8"), "private setup");
   const files = execFileSync("tar", ["-tzf", join(f.root, "uploaded.tar.gz")], { encoding: "utf8" });
   assert.ok(!files.includes(".dev.vars"));
   assert.ok(!files.split("\n").some(file => file.split("/").at(-1).startsWith("._")));
