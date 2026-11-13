@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-13T16:36:08.110Z",
+  "checked_at": "2026-11-13T22:44:25.664Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/update",
     "example": "/api/hot/qidian/update",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 5268
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/qidian/update.json",
+    "duration_ms": 1381
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 5279
+    "status": 200,
+    "duration_ms": 415
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "hot/qidian.js",
       "name": "起点 · 更新榜",
@@ -46,97 +45,114 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 5275,
+    "phase": "ok",
+    "elapsed_ms": 393,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游连接失败，请稍后重试",
-    "error_text": "脚本执行失败：脚本上游连接失败，请稍后重试\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "起点榜单解析完成 {\"type\":\"update\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":20}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://m.qidian.com/rank/update/",
         "method": "GET",
         "host": "m.qidian.com",
         "pathname": "/rank/update/",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
         "started_ms": 9,
-        "duration_ms": 5265,
+        "duration_ms": 379,
         "timings": {
-          "response_ms": 5265
+          "response_ms": 377,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 更新榜\",\"link\":\"https://m.qidian.com/rank/update/\",\"category\":\"小说\",\"observed_at\":\"2026-11-13T22:44:26.076Z\",\"entries\":[{\"id\":\"qidian:book:1048647044\",\"title\":\"四合院：何大洪开局被认成何大清\",\"link\":\"https://m.qidian.com/book/1048647044/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048647044/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050726313\",\"title\":\"诸天：从灵异版港综捉妖开始\",\"link\":\"https://m.qidian.com/book/1050726313/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050726313/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048377573\",\"title\":\"你才修行几年，就说修仙\",\"link\":\"https://m.qidian.com/book/1048377573/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048377573/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050317952\",\"title\":\"足球：从小罗天赋开始\",\"link\":\"https://m.qidian.com/book/1050317952/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050317952/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050082124\",\"title\":\"林冲模板：从武田家开始崛起\",\"link\":\"https://m.qidian.com/book/1050082124/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050082124/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051079452\",\"title\":\"致命代游\",\"link\":\"https://m.qidian.com/book/1051079452/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051079452/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1029224058\",\"title\":\"乱战异世之召唤群雄\",\"link\":\"https://m.qidian.com/book/1029224058/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1029224058/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1041260341\",\"title\":\"没钱上学的我只能去当邪神了\",\"link\":\"https://m.qidian.com/book/1041260341/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1041260341/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1044997824\",\"title\":\"高达：开新人类机在种系当天人\",\"link\":\"https://m.qidian.com/book/1044997824/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044997824/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1047919337\",\"title\":\"华娱：分手之后当巨星\",\"link\":\"https://m.qidian.com/book/1047919337/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047919337/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051036198\",\"title\":\"港娱情报王\",\"link\":\"https://m.qidian.com/book/1051036198/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051036198/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049911247\",\"title\":\"凡人修仙之我是墨彩环？\",\"link\":\"https://m.qidian.com/book/1049911247/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049911247/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050579574\",\"title\":\"斗罗：九真一假，他们信了！\",\"link\":\"https://m.qidian.com/book/1050579574/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050579574/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049741263\",\"title\":\"洪荒：从斩三世身成就太一帝尊\",\"link\":\"https://m.qidian.com/book/1049741263/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049741263/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1048354339\",\"title\":\"1997：一个警察的晋级之旅\",\"link\":\"https://m.qidian.com/book/1048354339/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1048354339/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051211918\",\"title\":\"妖神记：破境三选一，我吞噬诸天\",\"link\":\"https://m.qidian.com/book/1051211918/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051211918/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1046656381\",\"title\":\"好莱坞1952\",\"link\":\"https://m.qidian.com/book/1046656381/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1046656381/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049842705\",\"title\":\"吞噬星空：什么叫我早了82亿年\",\"link\":\"https://m.qidian.com/book/1049842705/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049842705/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1043512063\",\"title\":\"年代，二狗有个物品栏\",\"link\":\"https://m.qidian.com/book/1043512063/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1043512063/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049526683\",\"title\":\"夜魇住民\",\"link\":\"https://m.qidian.com/book/1049526683/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049526683/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}}]}",
     "timing": {
-      "elapsed_ms": 5275,
+      "elapsed_ms": 393,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 5268
+          "started_ms": 7,
+          "duration_ms": 385
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 5274,
+          "name": "输出读取与校验",
+          "started_ms": 392,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 392,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 5274,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 5274,
+          "started_ms": 392,
           "duration_ms": 1
         },
         {
+          "name": "浏览器状态保存",
+          "started_ms": 393,
+          "duration_ms": 0
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 5275,
+          "started_ms": 393,
           "duration_ms": 0
         }
       ],
@@ -144,7 +160,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 5265
+          "duration_ms": 379
         }
       ]
     }
