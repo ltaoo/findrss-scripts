@@ -1,25 +1,26 @@
 {
-  "checked_at": "2026-11-13T07:36:44.886Z",
+  "checked_at": "2026-11-13T16:36:08.110Z",
   "inspection": {
     "file": "hot/qidian.js",
     "path": "/api/hot/qidian/update",
     "example": "/api/hot/qidian/update",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/qidian/update.json",
-    "duration_ms": 1026
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 5268
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 644
+    "status": 502,
+    "duration_ms": 5279
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "hot/qidian.js",
       "name": "起点 · 更新榜",
@@ -45,122 +46,105 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 614,
+    "phase": "runtime",
+    "elapsed_ms": 5275,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "起点榜单解析完成 {\"type\":\"update\",\"gender\":\"male\",\"category\":\"-1\",\"period\":\"\",\"count\":20}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":20}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游连接失败，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游连接失败，请稍后重试\nat fetchText (rss-context.js:617:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://m.qidian.com/rank/update/",
         "method": "GET",
         "host": "m.qidian.com",
         "pathname": "/rank/update/",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 11,
-        "duration_ms": 597,
+        "started_ms": 9,
+        "duration_ms": 5265,
         "timings": {
-          "response_ms": 390,
-          "body_read_ms": 206,
-          "decode_and_transfer_ms": 1
+          "response_ms": 5265
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"起点 · 更新榜\",\"link\":\"https://m.qidian.com/rank/update/\",\"category\":\"小说\",\"observed_at\":\"2026-11-13T07:36:45.524Z\",\"entries\":[{\"id\":\"qidian:book:1047384307\",\"title\":\"柯南：小兰变小学生，还喊我爸爸\",\"link\":\"https://m.qidian.com/book/1047384307/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047384307/180\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1047325350\",\"title\":\"旧日成道\",\"link\":\"https://m.qidian.com/book/1047325350/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047325350/180\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049885526\",\"title\":\"从明星身上薅技能，我无敌了\",\"link\":\"https://m.qidian.com/book/1049885526/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049885526/180\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1051035187\",\"title\":\"斗罗绝世：从造反开始\",\"link\":\"https://m.qidian.com/book/1051035187/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1051035187/180\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050956376\",\"title\":\"这个女药师也太诡异了\",\"link\":\"https://m.qidian.com/book/1050956376/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050956376/180\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1044897808\",\"title\":\"这个超人叫建国\",\"link\":\"https://m.qidian.com/book/1044897808/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044897808/180\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049788204\",\"title\":\"斗罗：我的身后有尊神\",\"link\":\"https://m.qidian.com/book/1049788204/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049788204/180\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050919356\",\"title\":\"鬼灭：从拯救祢豆子开始\",\"link\":\"https://m.qidian.com/book/1050919356/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050919356/180\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1037260223\",\"title\":\"人生激荡四十年\",\"link\":\"https://m.qidian.com/book/1037260223/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1037260223/180\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050182023\",\"title\":\"吞噬：同时穿越了无数位面\",\"link\":\"https://m.qidian.com/book/1050182023/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050182023/180\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050285132\",\"title\":\"骑士精神？可我是死亡骑士啊\",\"link\":\"https://m.qidian.com/book/1050285132/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050285132/180\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1044231451\",\"title\":\"重生三角洲之霸道老太爱上我\",\"link\":\"https://m.qidian.com/book/1044231451/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044231451/180\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1040025277\",\"title\":\"人在洪武，从逆党做起\",\"link\":\"https://m.qidian.com/book/1040025277/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1040025277/180\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1049408604\",\"title\":\"胎穿富二代，我成了全球寡头\",\"link\":\"https://m.qidian.com/book/1049408604/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1049408604/180\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050322469\",\"title\":\"我能反转负面效果\",\"link\":\"https://m.qidian.com/book/1050322469/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050322469/180\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1047712403\",\"title\":\"从易书开始摘夺果位\",\"link\":\"https://m.qidian.com/book/1047712403/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1047712403/180\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1046621187\",\"title\":\"未知入侵\",\"link\":\"https://m.qidian.com/book/1046621187/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1046621187/180\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1044554717\",\"title\":\"战锤：孝出强大\",\"link\":\"https://m.qidian.com/book/1044554717/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1044554717/180\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1050155155\",\"title\":\"十案观心\",\"link\":\"https://m.qidian.com/book/1050155155/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1050155155/180\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}},{\"id\":\"qidian:book:1026923465\",\"title\":\"原神我是史莱姆\",\"link\":\"https://m.qidian.com/book/1026923465/\",\"thumbnail\":\"https://bookcover.yuewen.com/qdbimg/349573/1026923465/180\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":0,\"unit\":\"更新字数\",\"text\":\"0月更字\"}}]}",
     "timing": {
-      "elapsed_ms": 614,
+      "elapsed_ms": 5275,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 7
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 605
+          "started_ms": 6,
+          "duration_ms": 5268
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 613,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 613,
+          "name": "错误诊断收集",
+          "started_ms": 5274,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 613,
+          "started_ms": 5274,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 613,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 5274,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 613,
-          "duration_ms": 1
+          "started_ms": 5275,
+          "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 598
+          "started_ms": 9,
+          "duration_ms": 5265
         }
       ]
     }

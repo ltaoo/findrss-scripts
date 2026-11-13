@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-13T07:37:06.807Z",
+  "checked_at": "2026-11-13T16:36:27.420Z",
   "inspection": {
     "file": "rss/kuaishou.js",
     "path": "/api/rss/kuaishou/profile/:user_id",
@@ -9,14 +9,14 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
-    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-    "duration_ms": 14606
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 7002
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 1231
+    "duration_ms": 1089
   },
   "debug": {
     "status": 502,
@@ -49,14 +49,14 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 1212,
+    "elapsed_ms": 1082,
     "invoked": false,
     "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：快手作品接口返回失败状态（result=109）；上游未提供错误说明",
     "error_text": "脚本执行失败：快手作品接口返回失败状态（result=109）；上游未提供错误说明\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:93:28)",
     "lines": [],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_150a92f7f57ce6888dff5fe6cb3fc1f6855f5e5e5e5f81c6f2e4448c78e82131c245ff5fc5086084250860b65e&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_2837afcac8d2e3a7b6c2627c6eaa3103f06263636362bcfbcfd979b145d58e34ed7ec262f8355db918355d8b63&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
@@ -69,17 +69,17 @@
             "kww"
           ]
         },
-        "started_ms": 50,
-        "duration_ms": 1159,
+        "started_ms": 29,
+        "duration_ms": 1052,
         "timings": {
-          "response_ms": 1159,
+          "response_ms": 1052,
           "body_read_ms": 0,
           "decode_and_transfer_ms": 0
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 1212,
+      "elapsed_ms": 1082,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -89,69 +89,69 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
-          "duration_ms": 1
+          "started_ms": 0,
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 3,
-          "duration_ms": 17
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 20,
-          "duration_ms": 1190
+          "started_ms": 7,
+          "duration_ms": 1075
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 1210,
+          "started_ms": 1082,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1210,
+          "started_ms": 1082,
           "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 1210,
-          "duration_ms": 2
+          "started_ms": 1082,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1212,
+          "started_ms": 1082,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 23,
-          "duration_ms": 1186
+          "started_ms": 10,
+          "duration_ms": 1071
         }
       ]
     }
