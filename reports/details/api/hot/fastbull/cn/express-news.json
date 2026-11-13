@@ -1,23 +1,168 @@
 {
-  "checked_at": "2026-11-13T06:58:37.406Z",
+  "checked_at": "2026-11-13T07:36:34.810Z",
   "inspection": {
     "file": "hot/fastbull.js",
     "path": "/api/hot/fastbull/cn/express-news",
     "example": "/api/hot/fastbull/cn/express-news",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 3240
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/fastbull/cn/express-news.json",
+    "duration_ms": 1442
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 46
+    "status": 200,
+    "duration_ms": 2289
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/fastbull.js",
+      "name": "法布财经 · 快讯",
+      "kind": "hot",
+      "version": "1.0.2",
+      "path": "/fastbull/cn/express-news",
+      "request_path": "/api/hot/fastbull/cn/express-news",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/fastbull/cn/express-news",
+      "params": {},
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1913,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"fastbull-express\",\"count\":50,\"missing_rank\":50}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":50}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.fastbull.com/cn/express-news",
+        "method": "GET",
+        "host": "www.fastbull.com",
+        "pathname": "/cn/express-news",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 9,
+        "duration_ms": 1397,
+        "timings": {
+          "response_ms": 512,
+          "body_read_ms": 879,
+          "decode_and_transfer_ms": 6
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"法布财经 · 快讯\",\"link\":\"https://www.fastbull.cn\",\"category\":\"财经\",\"observed_at\":\"2026-11-13T07:36:37.082Z\",\"entries\":[{\"id\":\"fastbull-express:/cn/fastshort/4354267_204_1\",\"title\":\"LME伦铜跌破13500美元/吨，最新报13499.945美元/吨，日内下跌0.65%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354267_204_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354265_212_1\",\"title\":\"印尼和菲律宾中央银行签署合作谅解备忘录。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354265_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354261_1_1\",\"title\":\"上期所：本周铜库存减少6206吨，铝库存减少3932吨，锌库存减少6275吨，铅库存减少3994吨，镍库存增加625吨，锡库存增加290吨，天然橡胶库存减少5000吨。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354261_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354260_1_1\",\"title\":\"定价文件显示，卡塔尔将12月海运原油官方售价定为较阿曼/迪拜原油基准价每桶贴水10美元，陆上原油官方售价定为较该基准价每桶贴水9.5美元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354260_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354251_1_1\",\"title\":\"中国国防部：中美两国防务部门就各层级交流对话保持沟通协调。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354251_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354246_1_1\",\"title\":\"土耳其央行调查显示，24个月后政策利率预计为21.92%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354246_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354245_1_1\",\"title\":\"土耳其央行调查显示，12个月后政策利率预计为28.90%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354245_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354244_1_1\",\"title\":\"土耳其央行调查显示，2026年底CPI预计为30.04%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354244_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354243_1_1\",\"title\":\"土耳其央行调查显示，预计2026年底GDP增长率为2.9%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354243_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354240_1_1\",\"title\":\"聚氯乙烯（PVC）月均价主力合约涨超2%，现报5215元/吨。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354240_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354234_204_1\",\"title\":\"上期所原油期货主力合约日内涨4%，报632.4元/桶。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354234_204_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354233_101_1\",\"title\":\"分析：比特币估值触及历史极端低估，仅占全周期3.4%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354233_101_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354229_1_1\",\"title\":\"烧碱主力合约日内跌超2.00%，现报1516元/吨。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354229_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354225_212_1\",\"title\":\"低硫燃料油连续主力合约日内涨4%，现报5115.00元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354225_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354222_212_1\",\"title\":\"燃料油连续主力合约日内涨4%，现报4198.00元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354222_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354220_101_1\",\"title\":\"比特币过去30分钟反弹1.84%，现报68,800美元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354220_101_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354219_204_1\",\"title\":\"日经225指数收涨0.53%，报61142.35点；韩国KOSPI指数收跌0.98%，报5290.37点。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354219_204_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354215_1_1\",\"title\":\"据泰晤士报：英国财政大臣表示，如果人工智能用于我们的安全事务，我希望相关数据留在英国、服务于英国，而不是存放在国外。为此，我们必须建设更多数据中心。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354215_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354214_1_1\",\"title\":\"据泰晤士报：英国财政大臣表示，英国可以从美国围绕数据中心无序扩张所引发的激烈争论中吸取教训，确保数据中心项目获得当地社区支持。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354214_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354213_1_1\",\"title\":\"据泰晤士报：英国财政大臣表示，英国需要“最大限度地把握”人工智能带来的机遇。人工智能有望为英国吸引大规模投资，并认为英国需要发展自主可控的人工智能，以促进经济增长并加强国家安全。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354213_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354212_212_1\",\"title\":\"惠誉评级给予哈萨克斯坦国家石油天然气公司“3”的实体评级。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354212_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354211_1_1\",\"title\":\"据泰晤士报：英国财政大臣表示，英国需要拥抱人工智能并投资数据中心，因为这将为国家带来“生产力革命”，并提升普通工人的工资。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354211_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354209_1_1\",\"title\":\"马来西亚林吉特兑美元走弱至4.085。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354209_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354208_212_1\",\"title\":\"荷兰央行行长斯莱彭：在气候问题上不作为的代价远高于转型成本。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354208_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354203_1_1\",\"title\":\"塑料主力合约日内涨幅扩大至2.00%，现报8538.00元/吨。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354203_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354202_1_1\",\"title\":\"SC原油主力合约涨超3%，现报626.2元/桶。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354202_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354201_1_1\",\"title\":\"对二甲苯（PX）主力合约涨超3%，现报8636元/吨。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354201_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354200_1_1\",\"title\":\"燃料油主力合约涨超3%，现报4158元/吨。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354200_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354199_212_1\",\"title\":\"PVC连续主力合约日内涨2%，现报5029.00元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354199_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354194_212_1\",\"title\":\"乌克兰袭击俄罗斯伏尔加格勒州，造成四人死亡。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354194_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354192_212_1\",\"title\":\"比特币跌破68000美元，日内跌5.17%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354192_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354187_212_1\",\"title\":\"纽约期银日内跌1%，现报49.56美元/盎司。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354187_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354180_1_1\",\"title\":\"美大豆日内涨幅达1.00%，现报1231.25美分/蒲式耳。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354180_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354169_1_1\",\"title\":\"据英国金融时报：欧洲央行首席经济学家连恩警告称，长期利率上升正拖累欧洲人工智能部署。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354169_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354167_212_1\",\"title\":\"文件显示，德国2027年核心预算包括1230亿欧元借款。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354167_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354166_212_1\",\"title\":\"文件显示，德国2027年预算规定总支出为5610亿欧元，投资为620亿欧元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354166_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354165_1_1\",\"title\":\"文件显示，德国预算委员会批准2027年预算，为议会批准扫清障碍。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354165_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354164_212_1\",\"title\":\"三井住友金融集团首席执行官：今年我们对数据中心融资的信贷发放采取了更严格的标准，例如仅限于信用资质良好的超大规模云服务商。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354164_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354157_212_1\",\"title\":\"三井住友金融集团首席执行官：个人认为日本央行到明年夏季前加息两次至1.75%的可能性很大。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354157_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354155_212_1\",\"title\":\"日本首相高市早苗：没有计划使用个人政府债券作为消费税减免的资金来源。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354155_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354153_212_1\",\"title\":\"日本首相高市早苗：负责任的扩张性财政政策将有助于维持市场对日元的信心。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354153_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354152_212_1\",\"title\":\"日本首相高市早苗：日本和美国将进行沟通和努力，以维护有序的外汇市场。很难说汇率受到的影响完全是由某些特定因素造成的。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354152_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354150_212_1\",\"title\":\"日本首相高市早苗：会仔细考虑何时宣布通货紧缩结束。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354150_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354149_1_1\",\"title\":\"日本首相高市早苗：外汇由多种因素决定。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354149_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354148_1_1\",\"title\":\"日本首相高市早苗：将努力维持外汇市场有序运行。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354148_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354147_1_1\",\"title\":\"日本首相高市早苗：不置评外汇问题。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354147_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354146_212_1\",\"title\":\"日本财务大臣片山皋月：将根据现有联合声明协议与日本央行开展合作。期望货币政策朝着2%的物价目标努力。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354146_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354145_212_1\",\"title\":\"日本央行副行长冰见野良三：目前暂无计划改变出售ETF的方式。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354145_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354144_212_1\",\"title\":\"日本央行副行长冰见野良三：目前为止，ETF出售尚未对市场造成重大影响。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354144_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4354143_212_1\",\"title\":\"日本央行副行长冰见野良三：我们已经做好了财务准备，例如为负利差扩大的可能性预留了资金。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4354143_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 1913,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 1901
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1907,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1908,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1908,
+          "duration_ms": 5
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1913,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1913,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 1397
+        }
+      ]
+    }
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-13T06:58:37.225Z",
+  "checked_at": "2026-11-13T07:36:39.543Z",
   "inspection": {
     "file": "hot/hupu_hot.js",
     "path": "/api/hot/hupu/topic-daily-hot",
@@ -9,15 +9,144 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 45
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 3306
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 61
+    "status": 502,
+    "duration_ms": 4594
   },
-  "debug": null
+  "debug": {
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "script": {
+      "file": "hot/hupu_hot.js",
+      "name": "虎扑 · 主干道热帖",
+      "kind": "hot",
+      "version": "1.0.1",
+      "path": "/hupu/topic-daily-hot",
+      "request_path": "/api/hot/hupu/topic-daily-hot",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/hupu/topic-daily-hot",
+      "params": {},
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 4588,
+    "invoked": false,
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 bbs.hupu.com 返回 HTTP 405",
+    "error_text": "脚本执行失败：脚本上游 bbs.hupu.com 返回 HTTP 405\nat fetchText (rss-context.js:617:45)",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://bbs.hupu.com/topic-daily-hot",
+        "method": "GET",
+        "host": "bbs.hupu.com",
+        "pathname": "/topic-daily-hot",
+        "status": 405,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 9,
+        "duration_ms": 4578,
+        "timings": {
+          "response_ms": 4577
+        }
+      }
+    ],
+    "timing": {
+      "elapsed_ms": 4588,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 1,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 4580
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 4587,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 4587,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 4587,
+          "duration_ms": 1
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 4588,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 4578
+        }
+      ]
+    }
+  }
 }

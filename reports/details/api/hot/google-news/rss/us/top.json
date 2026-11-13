@@ -1,23 +1,167 @@
 {
-  "checked_at": "2026-11-13T06:58:45.304Z",
+  "checked_at": "2026-11-13T07:36:35.589Z",
   "inspection": {
     "file": "hot/google_news.js",
     "path": "/api/hot/google-news/rss/:edition?/:topic?",
     "example": "/api/hot/google-news/rss/us/top",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 9383
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/google-news/rss/us/top.json",
+    "duration_ms": 315
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 21
+    "status": 200,
+    "duration_ms": 108
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/google_news.js",
+      "name": "Google News · 英语/日语头条",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/google-news/rss/:edition?/:topic?",
+      "request_path": "/api/hot/google-news/rss/:edition?/:topic?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/google-news/rss/us/top",
+      "params": {
+        "edition": "us",
+        "topic": "top"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 99,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":38}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en",
+        "method": "GET",
+        "host": "news.google.com",
+        "pathname": "/rss",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 9,
+        "duration_ms": 22,
+        "timings": {
+          "response_ms": 13,
+          "body_read_ms": 7,
+          "decode_and_transfer_ms": 2
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Google News · 美国 · 头条\",\"link\":\"https://news.google.com/?hl=en-US&gl=US&ceid=US:en\",\"category\":\"新闻\",\"observed_at\":\"2026-11-13T07:36:35.691Z\",\"entries\":[{\"id\":\"google-news:CBMiW0FVX3lxTE9HY0g2NTA4UDg1bGFHUXhyZkJCeGJsYXdGeVFFWXNBWHlSNGlDYzVXQkw5YkxheFhEbG1jNGRpXzVVeThsMkJYWENEQ3ZtNi1SZkZfT0RZWnNrckE\",\"title\":\"Ex-Nvidia CEO Jensen Huang summoned to testify before Congress about affair with alleged Chinese spy - BBC\",\"link\":\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE9HY0g2NTA4UDg1bGFHUXhyZkJCeGJsYXdGeVFFWXNBWHlSNGlDYzVXQkw5YkxheFhEbG1jNGRpXzVVeThsMkJYWENEQ3ZtNi1SZkZfT0RZWnNrckE?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMilAFBVV95cUxOUXM4dWlNNFZsQ1lCaE9fQmZrVWJyVjYzN3hNU3VrX0pCZlVCUkIxT1lORXhOWnhYNjZQREpGajJ2NHZOU1Y2WHE4Y2ZnVEdHdmpmemNNVURQNzlLWFBabnRWMEU4blpqZlZvR0FmeW9tcWJfa1c3T3ZZUVFiWWNfcWI0VXQ4X0lFaVVDVjk3dGxOcV9Z\",\"title\":\"Meet the 27-year old behind the protein ad that helped flip Mississippi - Politico\",\"link\":\"https://news.google.com/rss/articles/CBMilAFBVV95cUxOUXM4dWlNNFZsQ1lCaE9fQmZrVWJyVjYzN3hNU3VrX0pCZlVCUkIxT1lORXhOWnhYNjZQREpGajJ2NHZOU1Y2WHE4Y2ZnVEdHdmpmemNNVURQNzlLWFBabnRWMEU4blpqZlZvR0FmeW9tcWJfa1c3T3ZZUVFiWWNfcWI0VXQ4X0lFaVVDVjk3dGxOcV9Z?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMinAFBVV95cUxOeE1ydjlwSE1Mc2hyektqU214alFSdTQ0cEhhV1ZMaFhHNFFaUkJzZ0FCSDlxZXBNcUZOSU5OaXJBVFJDSzBTc1B4c2xtaWd6WWo4ODd3Y1BENUNPRUdkdVVZY1Y3eGRoRnR3U1dwQXpFQWVOT084YmJ6ME9SUllKLVFnTUlWZk0taTk1QUdQclNFZWVuTlVVck15MUM\",\"title\":\"Van Hollen Says He Will Challenge Schumer for Senate Majority Leader - The New York Times\",\"link\":\"https://news.google.com/rss/articles/CBMinAFBVV95cUxOeE1ydjlwSE1Mc2hyektqU214alFSdTQ0cEhhV1ZMaFhHNFFaUkJzZ0FCSDlxZXBNcUZOSU5OaXJBVFJDSzBTc1B4c2xtaWd6WWo4ODd3Y1BENUNPRUdkdVVZY1Y3eGRoRnR3U1dwQXpFQWVOT084YmJ6ME9SUllKLVFnTUlWZk0taTk1QUdQclNFZWVuTlVVck15MUM?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMia0FVX3lxTFBWWUFFVjY5Z3BrdDd6b2JaRDlvME50cGpLeUR4U2lPVU1tNnM1TjlrX3MtaVRrR3dsTmxoa2tmRGotVUdTYjhVTG5OV0k4U0ViTWRDM01vZExzZzFRLVY0UDA3a1lQWVNtT0Y4\",\"title\":\"Lutnick should have prevented the diversion of sensitive Nvidia AI chips to China, critics charge - CBS News\",\"link\":\"https://news.google.com/rss/articles/CBMia0FVX3lxTFBWWUFFVjY5Z3BrdDd6b2JaRDlvME50cGpLeUR4U2lPVU1tNnM1TjlrX3MtaVRrR3dsTmxoa2tmRGotVUdTYjhVTG5OV0k4U0ViTWRDM01vZExzZzFRLVY0UDA3a1lQWVNtT0Y4?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMizAFBVV95cUxOMFk3YjF3a3pUaGttVHBHa3hEaEcyRF9sRUpnS1A5UFBPSkJpQXpBUzF2UmJ2dDBJN3dvd3E4RFQwOENJV3E3cHY3Z0xNZ09KeWl3QzJNYkJxT0hmOXlRWnJQUm15andsbEVnb0U2TURWNlNfNFBQWUowVy1UaERibWtXTndHZFFMdlM3VlloRzV0YkNhbnZQaFFHVXlQN1pUY2I4RHotbTZTOW9pN2RLc056SlVNZ2NjM01Ob0VYN2hEb2xaMXVhTnlfdGo\",\"title\":\"D.C. gunman attributed attack to frustrations with building maintenance - The Washington Post\",\"link\":\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOMFk3YjF3a3pUaGttVHBHa3hEaEcyRF9sRUpnS1A5UFBPSkJpQXpBUzF2UmJ2dDBJN3dvd3E4RFQwOENJV3E3cHY3Z0xNZ09KeWl3QzJNYkJxT0hmOXlRWnJQUm15andsbEVnb0U2TURWNlNfNFBQWUowVy1UaERibWtXTndHZFFMdlM3VlloRzV0YkNhbnZQaFFHVXlQN1pUY2I4RHotbTZTOW9pN2RLc056SlVNZ2NjM01Ob0VYN2hEb2xaMXVhTnlfdGo?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMijwFBVV95cUxQblNkYWQtS3otVHhSOEhKODE5NjZPWGlYc0JfLV8tRno3RDNWWVJ6enp4UGpCMkRYVGxNLWZJZ2Roa3JXQWRJX0xoMW1McW5MSy10NXlNQ3g1Y09rWWFjRlZWSnhKdTNPaW14ZmNMRWhiaWpzU2szVTc2aFNyT1VYVmRlbHVPRlo2QTdNbVhKaw\",\"title\":\"Cindy Holscher wins in Kansas, holding governor’s office for Democrats - NPR\",\"link\":\"https://news.google.com/rss/articles/CBMijwFBVV95cUxQblNkYWQtS3otVHhSOEhKODE5NjZPWGlYc0JfLV8tRno3RDNWWVJ6enp4UGpCMkRYVGxNLWZJZ2Roa3JXQWRJX0xoMW1McW5MSy10NXlNQ3g1Y09rWWFjRlZWSnhKdTNPaW14ZmNMRWhiaWpzU2szVTc2aFNyT1VYVmRlbHVPRlo2QTdNbVhKaw?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiW0FVX3lxTFBaR2NJSnEtNGdGS05uaU94T05ULXIyQW4yYXdzYnpZMWdGOTU5b1JnSEhfdWNNRjBlNkxwNVZhLXI3aWktSlVkeHlvQ2p3Skg3UUlLLW9HTkd3c2s\",\"title\":\"What we know about Brooklyn building collapse that killed eight people - BBC\",\"link\":\"https://news.google.com/rss/articles/CBMiW0FVX3lxTFBaR2NJSnEtNGdGS05uaU94T05ULXIyQW4yYXdzYnpZMWdGOTU5b1JnSEhfdWNNRjBlNkxwNVZhLXI3aWktSlVkeHlvQ2p3Skg3UUlLLW9HTkd3c2s?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMikwFBVV95cUxQQ3hucVhKWVM3X1M0clZMcFVrTFA0UU9ReE9RVW5LVWV2eUY1czdQcnJval9iU3ljNHVoZ0lvdV84Rm5adEFHby1EMnM1d0VfenNTOTBEM1FZczBwRVdVUG9raUF1Q2hqZnpHOFQ4SnZoMkdHZlBLUGtUME1aUmVHVFppZ0dxM2I2MEZCRGpNdzNrNm8\",\"title\":\"Trump bluntly tells JD Vance to shift focus from Iran to targeting 'corruption and crime' at home - AP News\",\"link\":\"https://news.google.com/rss/articles/CBMikwFBVV95cUxQQ3hucVhKWVM3X1M0clZMcFVrTFA0UU9ReE9RVW5LVWV2eUY1czdQcnJval9iU3ljNHVoZ0lvdV84Rm5adEFHby1EMnM1d0VfenNTOTBEM1FZczBwRVdVUG9raUF1Q2hqZnpHOFQ4SnZoMkdHZlBLUGtUME1aUmVHVFppZ0dxM2I2MEZCRGpNdzNrNm8?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMihAFBVV95cUxNTFhoYW43V1Z4ZjQ4bnU0NDRoMzZxUVo1RGY2UEtNMFlMcElHaEhaSnZaN3AwME5kbk5tT3VqbUpsM3A4aXQ1RmRpYmJPSDVJb1lzRzIzSmRQTFJQZkEybzM3clc1Y0VFOWZPM2VrTzVaYl9ETDZFeEtXZnZJZTVNbkFLSDg\",\"title\":\"Pete Hegseth, a Soldier’s Scolding and a Lesson at the Tomb of Unknowns - The New York Times\",\"link\":\"https://news.google.com/rss/articles/CBMihAFBVV95cUxNTFhoYW43V1Z4ZjQ4bnU0NDRoMzZxUVo1RGY2UEtNMFlMcElHaEhaSnZaN3AwME5kbk5tT3VqbUpsM3A4aXQ1RmRpYmJPSDVJb1lzRzIzSmRQTFJQZkEybzM3clc1Y0VFOWZPM2VrTzVaYl9ETDZFeEtXZnZJZTVNbkFLSDg?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMifEFVX3lxTE9lQUZIN3NlTkFRRllhcUV1aGhNcnNHRzJUd0FXLTJ5b1F2QXVxUU42bndITENhOVFmRXVCSVhuQzBOd2p6a0RrRVBhRm9BZTFJZ0tkb2h1aFphWWNMclJfUnVtb2pCay1ETE10N0NCb2dqeHMzdGVLc2tZZmw\",\"title\":\"Oklahoma Drops Murder Charge Against Richard Glossip, Avoiding Third Trial - The Intercept\",\"link\":\"https://news.google.com/rss/articles/CBMifEFVX3lxTE9lQUZIN3NlTkFRRllhcUV1aGhNcnNHRzJUd0FXLTJ5b1F2QXVxUU42bndITENhOVFmRXVCSVhuQzBOd2p6a0RrRVBhRm9BZTFJZ0tkb2h1aFphWWNMclJfUnVtb2pCay1ETE10N0NCb2dqeHMzdGVLc2tZZmw?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiuwFBVV95cUxNaWdyUWhPQnRiR210eElwazFOZ2pyWWgxN2FWX09VU0ZSZUpFcVlweFllV2E4aF9CcXpwQkhybkVzMjkwdTBOY3JTRFBXdlZBOXVvU2l5cjBKX1Znel9XR2JJb0gwbVlQOV9TenpJUkY2ZG1YcXEtRWdNWTQ0MDJTM3pQdnRHSkE0WXlWQjA5Y2JXQkpUN2hoSkkyTXhrTE1FdnUyblFjWDdqWHZTMGM1LVU4V2oxZnpqZzBj\",\"title\":\"After meeting Putin, U.S. envoys say Europe to join talks on ending Ukraine war - The Washington Post\",\"link\":\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxNaWdyUWhPQnRiR210eElwazFOZ2pyWWgxN2FWX09VU0ZSZUpFcVlweFllV2E4aF9CcXpwQkhybkVzMjkwdTBOY3JTRFBXdlZBOXVvU2l5cjBKX1Znel9XR2JJb0gwbVlQOV9TenpJUkY2ZG1YcXEtRWdNWTQ0MDJTM3pQdnRHSkE0WXlWQjA5Y2JXQkpUN2hoSkkyTXhrTE1FdnUyblFjWDdqWHZTMGM1LVU4V2oxZnpqZzBj?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMijwFBVV95cUxPVEw1Z2g3UFNXUThRcHRlYmcySkpxLWlLNG1aOGdOandjNDdwVnBHOFEtblZTaFpmWXp0RWZYUndrTk1kdTRYLTJYRXE5TmF0RlJxcHkyZW5UZjk1djNWMHhYLXg1ZmxicU1kc3lYdmFJNnBRdGRXcnRFNkxyUHhKZkZvZVJhSUd4VGJvRVJkd9IBlAFBVV95cUxQeEZTZEFQMkR6M2ZVSXhIOUdKbmVRRnNraG5iM1M2ekRuMlBCRUdFNE9vUkFLSzFHV1c5ZGppWjJqYnBHaWE1cTBYeTdYSmUwczFGemdiOXNubGlSUXcxWDMwYXVKN01TMjAzSHFManVnTFFaMnZuSXFRR1Y4aThobEthN1k4OXhfS09pM1NqTW5mMWxM\",\"title\":\"US Army officer involved in alleged Russian spying scheme identified: Reports - The Hill\",\"link\":\"https://news.google.com/rss/articles/CBMijwFBVV95cUxPVEw1Z2g3UFNXUThRcHRlYmcySkpxLWlLNG1aOGdOandjNDdwVnBHOFEtblZTaFpmWXp0RWZYUndrTk1kdTRYLTJYRXE5TmF0RlJxcHkyZW5UZjk1djNWMHhYLXg1ZmxicU1kc3lYdmFJNnBRdGRXcnRFNkxyUHhKZkZvZVJhSUd4VGJvRVJkd9IBlAFBVV95cUxQeEZTZEFQMkR6M2ZVSXhIOUdKbmVRRnNraG5iM1M2ekRuMlBCRUdFNE9vUkFLSzFHV1c5ZGppWjJqYnBHaWE1cTBYeTdYSmUwczFGemdiOXNubGlSUXcxWDMwYXVKN01TMjAzSHFManVnTFFaMnZuSXFRR1Y4aThobEthN1k4OXhfS09pM1NqTW5mMWxM?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMixwFBVV95cUxQcEx2eTdicmVJdWI5Y2JyUVhiN1psV0dacm9RNzFvU29MVWZ0UGxwUWtrMzNNaDFUNWRCMGFyd2F5TUtabzFEdnRjNDFpd2pIbkFlbUFPb3RXTjNIU01iN0RCOVpOV3VyZmY4Uml1anpPYjdwSVFGR3hpemx2WVl6Zms5M3FSOXdBS3pSeVA1eWlLcEJRank5c0lxeGRSR0NUeThJWUc5Nlk0Smw5VWpWczdBRkZXZGNEc3I1ZkxPdWxSQU1mVENN\",\"title\":\"China stages unannounced Pacific drills in 'silent intimidation' of Taiwan, officials say - Reuters\",\"link\":\"https://news.google.com/rss/articles/CBMixwFBVV95cUxQcEx2eTdicmVJdWI5Y2JyUVhiN1psV0dacm9RNzFvU29MVWZ0UGxwUWtrMzNNaDFUNWRCMGFyd2F5TUtabzFEdnRjNDFpd2pIbkFlbUFPb3RXTjNIU01iN0RCOVpOV3VyZmY4Uml1anpPYjdwSVFGR3hpemx2WVl6Zms5M3FSOXdBS3pSeVA1eWlLcEJRank5c0lxeGRSR0NUeThJWUc5Nlk0Smw5VWpWczdBRkZXZGNEc3I1ZkxPdWxSQU1mVENN?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiwAFBVV95cUxOM0Z1aFNoajI5YVNka3ZZVWZIRlNkZG1xclFBOVVjVlpGamV2b2xfeThReV96NkJ3V3dJN3I0TTNKQ19PS2lGQUU1amVsZmdpMThOSVpMYkFaWlF6OGY4OUloajVJeGJJNnpuMm9BU2k4WERRcFV5OXczN1lfVzJuVHIwRHItV3NuYmdVUU1JNXJYU1NzQzFVa2g4eTlsMEZwNWFpTC1mbU5NWEI5VFpaVDVlLUdIRHQzUW5aRWMxTXA\",\"title\":\"Indonesia's VP resigns as his eligibility and academic credentials are questioned - NPR\",\"link\":\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxOM0Z1aFNoajI5YVNka3ZZVWZIRlNkZG1xclFBOVVjVlpGamV2b2xfeThReV96NkJ3V3dJN3I0TTNKQ19PS2lGQUU1amVsZmdpMThOSVpMYkFaWlF6OGY4OUloajVJeGJJNnpuMm9BU2k4WERRcFV5OXczN1lfVzJuVHIwRHItV3NuYmdVUU1JNXJYU1NzQzFVa2g4eTlsMEZwNWFpTC1mbU5NWEI5VFpaVDVlLUdIRHQzUW5aRWMxTXA?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMihAFBVV95cUxPRlBZMEhVQzRCSXVHeERpUHl6bXFFcmVWQ281TVJWMjRlU1ptOVJtYThTejV0RGY5V29lSHNUengydW96cWZEUDZlcUVKU2ZPQlRISmlJZFNPeGhBbU1fRlZ4OFlYc0xZR3J6SzVFLWNCX2luUWg3VzAtQ21GZVM5OUF1R1M\",\"title\":\"The downfall of Jensen Huang - Financial Times\",\"link\":\"https://news.google.com/rss/articles/CBMihAFBVV95cUxPRlBZMEhVQzRCSXVHeERpUHl6bXFFcmVWQ281TVJWMjRlU1ptOVJtYThTejV0RGY5V29lSHNUengydW96cWZEUDZlcUVKU2ZPQlRISmlJZFNPeGhBbU1fRlZ4OFlYc0xZR3J6SzVFLWNCX2luUWg3VzAtQ21GZVM5OUF1R1M?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMitAFBVV95cUxNcHViWEtYaGk5Uy1kTHhvMllyWWJPUWV4ak1LSFIySjNvYlBVbzNmRjZiZlFSNXN0Vmt3b1FrcEJUTjRZRVNYc1Zab2hrbXhFWjBaandFWFdjNUFBWkJHRHlDMlpDREVYemlEa2FGRUNUcGw4RGxXcUE5QXQyaVhpVHItWDk5dEtTbFBfYk41QzdqNkVIemQ1Z01ndVVzazFPU3VVa1pmLWZndnlHUlFPQmgzWWY\",\"title\":\"Microsoft outage live updates: What to know as Outlook, 365 and other apps remain down - ABC7 Los Angeles\",\"link\":\"https://news.google.com/rss/articles/CBMitAFBVV95cUxNcHViWEtYaGk5Uy1kTHhvMllyWWJPUWV4ak1LSFIySjNvYlBVbzNmRjZiZlFSNXN0Vmt3b1FrcEJUTjRZRVNYc1Zab2hrbXhFWjBaandFWFdjNUFBWkJHRHlDMlpDREVYemlEa2FGRUNUcGw4RGxXcUE5QXQyaVhpVHItWDk5dEtTbFBfYk41QzdqNkVIemQ1Z01ndVVzazFPU3VVa1pmLWZndnlHUlFPQmgzWWY?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMid0FVX3lxTE1DUGhtX3RkQk1tTVc3WFZQOGhSalVKd2RzNks0R1dHRlFMSUd1bUhOeVVmNTQxS09JQjhaaTBQVWVnY3RBblNRRlc3a21TVEJJUnZmVm9pYmJMSVNWazl5bU9lZkdyOVpSSXhoSUlfeEx1ZUdvakVR0gF8QVVfeXFMUEZVRDFwUjNBQ01QTjdQX0h5WXU5R3BqdDZwVFJiNU9obl9qYk1lWC1XTWUxbDhFaGR4V2x0cERQdDAyNFlJQk1fNXBqdFItb3FaTDdyV2R6WklkbExBZHNnQ3k1WFR4X0FaeGpRM09SZHprem0zajZXbEx6Vg\",\"title\":\"Stock futures edge lower after markets slide amid Nvidia woes: Live updates - CNBC\",\"link\":\"https://news.google.com/rss/articles/CBMid0FVX3lxTE1DUGhtX3RkQk1tTVc3WFZQOGhSalVKd2RzNks0R1dHRlFMSUd1bUhOeVVmNTQxS09JQjhaaTBQVWVnY3RBblNRRlc3a21TVEJJUnZmVm9pYmJMSVNWazl5bU9lZkdyOVpSSXhoSUlfeEx1ZUdvakVR0gF8QVVfeXFMUEZVRDFwUjNBQ01QTjdQX0h5WXU5R3BqdDZwVFJiNU9obl9qYk1lWC1XTWUxbDhFaGR4V2x0cERQdDAyNFlJQk1fNXBqdFItb3FaTDdyV2R6WklkbExBZHNnQ3k1WFR4X0FaeGpRM09SZHprem0zajZXbEx6Vg?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMixgFBVV95cUxNN0pUQzVjV3ltd2hkZ29PSjdjWElOb3dmUlNPSG5HMC01V1EzSnlQdUl0Tm9WNnhJdktOamVLa1JWOTF5SGJZYTFrNWpBbElkc1lGUklCUUNVLXhHNWM1M0JmaHZTTmVaODlldER3Ulc3Q19zVGtOUDl1NzdCQWNuYkR5LWRVcXFUOGFTQXFDUDlTb2VLVzE3Z1M2dnlfeFFwSVV0MEpNNzExRHNxTlpsZGcyTlE1bE5LbEdLNGVtczd3M2hra1E\",\"title\":\"Anthropic's IPO is about six times oversubscribed, Bloomberg News reports - Reuters\",\"link\":\"https://news.google.com/rss/articles/CBMixgFBVV95cUxNN0pUQzVjV3ltd2hkZ29PSjdjWElOb3dmUlNPSG5HMC01V1EzSnlQdUl0Tm9WNnhJdktOamVLa1JWOTF5SGJZYTFrNWpBbElkc1lGUklCUUNVLXhHNWM1M0JmaHZTTmVaODlldER3Ulc3Q19zVGtOUDl1NzdCQWNuYkR5LWRVcXFUOGFTQXFDUDlTb2VLVzE3Z1M2dnlfeFFwSVV0MEpNNzExRHNxTlpsZGcyTlE1bE5LbEdLNGVtczd3M2hra1E?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMizgFBVV95cUxOVTdhUTJ5ZzZLNjVYa2dxVDhUbjJVeTRQbUVKSFBiZ1JybGEtMWxYbXA5dGU4enlZalc0M2owSlJLM2ZOeXNicF9LZU11cFhDMHFnaEpuRFNmS2JnNENrNXdNbUhxWDVJQjdDa2VLWHFlOTZGcHI0OGlvSlZ6NDRHak1PWEJGRTNjR1BKYUpONFBfSXZjNEhXTW1lQ1RZSGd2ZHRncXdITFd6Um8xYW9waml2dGN5SnN6c2VpQ0Nqd1Z1LTlFRHJPcE5JSDBKUQ\",\"title\":\"Xbox Wants You to Revisit Halo: Campaign Evolved on PS5 as Free Co-Op Mode Update Is Announced - Push Square\",\"link\":\"https://news.google.com/rss/articles/CBMizgFBVV95cUxOVTdhUTJ5ZzZLNjVYa2dxVDhUbjJVeTRQbUVKSFBiZ1JybGEtMWxYbXA5dGU4enlZalc0M2owSlJLM2ZOeXNicF9LZU11cFhDMHFnaEpuRFNmS2JnNENrNXdNbUhxWDVJQjdDa2VLWHFlOTZGcHI0OGlvSlZ6NDRHak1PWEJGRTNjR1BKYUpONFBfSXZjNEhXTW1lQ1RZSGd2ZHRncXdITFd6Um8xYW9waml2dGN5SnN6c2VpQ0Nqd1Z1LTlFRHJPcE5JSDBKUQ?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiWkFVX3lxTE5jWU84d0tMQVBGUkV2b0FPSkJzNzQ1aTdoSDk2MWJ2ZWZXYnR5TkhieE1rVjVhOHBvNDlETkRQd2xyZjNUYzRMLXFOdTh5d1l4STNONVBoWFV5Zw\",\"title\":\"Apple TV 4K (2026) Review: Hands-Free Siri and an A19 Chip Justify the $300 Price Tag - PCMag\",\"link\":\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE5jWU84d0tMQVBGUkV2b0FPSkJzNzQ1aTdoSDk2MWJ2ZWZXYnR5TkhieE1rVjVhOHBvNDlETkRQd2xyZjNUYzRMLXFOdTh5d1l4STNONVBoWFV5Zw?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMic0FVX3lxTE80U3lxdXdGWm5KYVZDWXNnRm5wRXhSXzEyRHR6aFltREpzMnMteFppU21TbjVJQjhSd1BLRXl3Tl9QU0VGenZoRnVQZ1B5RWpvTnVXV2VqY2QwZ2tyb05vc25Zcjd4WlBYaUVhMzJ1aFllbTg\",\"title\":\"Xbox announces Wolfenstein 3 - The Verge\",\"link\":\"https://news.google.com/rss/articles/CBMic0FVX3lxTE80U3lxdXdGWm5KYVZDWXNnRm5wRXhSXzEyRHR6aFltREpzMnMteFppU21TbjVJQjhSd1BLRXl3Tl9QU0VGenZoRnVQZ1B5RWpvTnVXV2VqY2QwZ2tyb05vc25Zcjd4WlBYaUVhMzJ1aFllbTg?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiZkFVX3lxTE1yc2MtZ1d1c21MalB1cUt2V0R3eEJFb2huZ2hLUEVkaTVqQU5Oand3b29nWFlQdk5wR3NJazVHUUtWaEpHLTl6TDBqUE1HNWJycHpkX3NXLUtKcldoSG1UWEdOXzE4UQ\",\"title\":\"Apple HomeView Review: A Versatile Smart Display And Siri-Powered Home Hub - Engadget\",\"link\":\"https://news.google.com/rss/articles/CBMiZkFVX3lxTE1yc2MtZ1d1c21MalB1cUt2V0R3eEJFb2huZ2hLUEVkaTVqQU5Oand3b29nWFlQdk5wR3NJazVHUUtWaEpHLTl6TDBqUE1HNWJycHpkX3NXLUtKcldoSG1UWEdOXzE4UQ?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMivAFBVV95cUxORVBUZHRCdVNWTFVWaEhVZl9SemZBMFZ1dmJWeEVidUtpd0JJLW5CbnVyclVxUGhpVEJld3RUQW8yTGRvLXFtR0JZNmF5X2RwcHVaMmlIN3ZUaUY5dldmNmZEWXFpY01ZbVFCb1BKRk9Sa0l6VXNjNFF6VHp1REwzWnNfc0xrcFV1YzZPWkpsSW9oeXBTUkN0djBkVU5TNUtCUFRCM1J4VU5QQmR6WEtZcnNjeHo0S2dDd1ZGOQ\",\"title\":\"“Evil All Along”: How Russell Brand Got Caught - The Hollywood Reporter\",\"link\":\"https://news.google.com/rss/articles/CBMivAFBVV95cUxORVBUZHRCdVNWTFVWaEhVZl9SemZBMFZ1dmJWeEVidUtpd0JJLW5CbnVyclVxUGhpVEJld3RUQW8yTGRvLXFtR0JZNmF5X2RwcHVaMmlIN3ZUaUY5dldmNmZEWXFpY01ZbVFCb1BKRk9Sa0l6VXNjNFF6VHp1REwzWnNfc0xrcFV1YzZPWkpsSW9oeXBTUkN0djBkVU5TNUtCUFRCM1J4VU5QQmR6WEtZcnNjeHo0S2dDd1ZGOQ?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMisAFBVV95cUxQV2VZU3lRU3E1cGswY19YUTlGSHlEdm9ZRjUwSW1OLXdnWkM1S2loY2ZSUkdrYldyRGxTUDlKczlUUzZlaTJ0Mlo4TkVOTEhFZVlKRmFKUlp3Q1RHSFdfWGJmb044NzFfYmo1QzRBdHlGeVFWMlFiY0IzMHFJT19IeHlyamhac1VOQy1tMy1hNmNvSnFpVWVDT2l4QjVna2J1amZlUHRyMWNBcjg1RkYxMw\",\"title\":\"Cause of death for Anthony Clark, comedian and ‘Yes, Dear’ star, revealed - Los Angeles Times\",\"link\":\"https://news.google.com/rss/articles/CBMisAFBVV95cUxQV2VZU3lRU3E1cGswY19YUTlGSHlEdm9ZRjUwSW1OLXdnWkM1S2loY2ZSUkdrYldyRGxTUDlKczlUUzZlaTJ0Mlo4TkVOTEhFZVlKRmFKUlp3Q1RHSFdfWGJmb044NzFfYmo1QzRBdHlGeVFWMlFiY0IzMHFJT19IeHlyamhac1VOQy1tMy1hNmNvSnFpVWVDT2l4QjVna2J1amZlUHRyMWNBcjg1RkYxMw?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMivgFBVV95cUxNQ1RUMjVZRmRpXzU0Mlk0TVdYNzN6aWRqYmlWV0xncnBoNm5yV2JMOXE3OVRCWkJZdFd0N2R2cWdkSXhFeDJLQlVSR1R4dHdWTktjdVRBMEpzd2pLcmZ1NzBwS2NjUUV6UDZyM3hIeTBqZHAyY2FCcVpyRFhZamtQYUNvRUNhXzlQUko3RTI3c2Y4Q3NUcXZPeG91RW1pWExxSzJQN1M4emRmbVc5NDNHVUtXa3FzLWxuSWRkbnJB\",\"title\":\"Amanda Seyfried Eager to Campaign for ‘You Can See Everything’ as Awards Eligibility Comes Into Focus (Exclusive) - The Hollywood Reporter\",\"link\":\"https://news.google.com/rss/articles/CBMivgFBVV95cUxNQ1RUMjVZRmRpXzU0Mlk0TVdYNzN6aWRqYmlWV0xncnBoNm5yV2JMOXE3OVRCWkJZdFd0N2R2cWdkSXhFeDJLQlVSR1R4dHdWTktjdVRBMEpzd2pLcmZ1NzBwS2NjUUV6UDZyM3hIeTBqZHAyY2FCcVpyRFhZamtQYUNvRUNhXzlQUko3RTI3c2Y4Q3NUcXZPeG91RW1pWExxSzJQN1M4emRmbVc5NDNHVUtXa3FzLWxuSWRkbnJB?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMihAFBVV95cUxPeXROUWxpZzdDQUdnSzV6SlNpY1hIWEotZGZ6cVZlNDByRzUwZ2tJQ3VjdmwwdFRhcVN6Z0FuNlpmOGozajJpNVpZZEVUMEtSeG1KXzVYNFRqTlpDMVRPUVg5bmpqOUdaZm5GV2M5aG5QNzZVczZyMTA3YkxwbkVyU055dmc\",\"title\":\"Rosalía wins album of the year 2026 at the Latin Grammy Awards for 'Lux,' capping a thrilling night - AP News\",\"link\":\"https://news.google.com/rss/articles/CBMihAFBVV95cUxPeXROUWxpZzdDQUdnSzV6SlNpY1hIWEotZGZ6cVZlNDByRzUwZ2tJQ3VjdmwwdFRhcVN6Z0FuNlpmOGozajJpNVpZZEVUMEtSeG1KXzVYNFRqTlpDMVRPUVg5bmpqOUdaZm5GV2M5aG5QNzZVczZyMTA3YkxwbkVyU055dmc?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMizgFBVV95cUxOTUdrX0lEdjQ2YnpNLXFVbXdvMXpYX01ubHNfWmMyMEV1ODZGS3JLVmZVVDFJYmF0TzRQWHl4SXVjcmx1cUtheHBOU0VLQlZLcC1xbWJnOHlPX1JmWFJJMkxvOGVLb2tFa2wxQjM2by1iVm9USlhRSFZzaHZwR1piNHNkczVNVUdHaURWVnZ3TW83RjRkazJTaEZuem9EazZ2TUUxRE1hWm9wa1gyMExJdGxMS0gxN2FQUnJzWV9JbzFfaHdqQVd2eWpNa3pLZw\",\"title\":\"Thursday Night Football: Stefon Diggs’ late TD gives Commanders 24-21 win - NBC Sports\",\"link\":\"https://news.google.com/rss/articles/CBMizgFBVV95cUxOTUdrX0lEdjQ2YnpNLXFVbXdvMXpYX01ubHNfWmMyMEV1ODZGS3JLVmZVVDFJYmF0TzRQWHl4SXVjcmx1cUtheHBOU0VLQlZLcC1xbWJnOHlPX1JmWFJJMkxvOGVLb2tFa2wxQjM2by1iVm9USlhRSFZzaHZwR1piNHNkczVNVUdHaURWVnZ3TW83RjRkazJTaEZuem9EazZ2TUUxRE1hWm9wa1gyMExJdGxMS0gxN2FQUnJzWV9JbzFfaHdqQVd2eWpNa3pLZw?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiqgFBVV95cUxQaEFydXdWWlM2RlVKTk1CT0lVaHhubDFNdldWcmNGMHB4ellXb0lSSFZPd3VxRnlFc2RrbklJN3BsUVZxU0x1NGVKTnlYR2xvQldQNFpmZEtOcWpzcHpKZVhKOHFURFdnMXB2SFpDWW9rS1hvT1k4ZDNPd3AycHExX3RGVUdUMlVKU1FhSnJLXzd5VVZGbEVqdUNGaVNRWXl2MEJrYWhBQi1qQQ\",\"title\":\"Cubs' Pete Crow-Armstrong, Astros' Yordan Alvarez unanimous MVP winners - ESPN\",\"link\":\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxQaEFydXdWWlM2RlVKTk1CT0lVaHhubDFNdldWcmNGMHB4ellXb0lSSFZPd3VxRnlFc2RrbklJN3BsUVZxU0x1NGVKTnlYR2xvQldQNFpmZEtOcWpzcHpKZVhKOHFURFdnMXB2SFpDWW9rS1hvT1k4ZDNPd3AycHExX3RGVUdUMlVKU1FhSnJLXzd5VVZGbEVqdUNGaVNRWXl2MEJrYWhBQi1qQQ?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiqgFBVV95cUxNWWM3dDFyQjM0YnhlNld6d1Vfd05wclh3SHJEOUlHOW9EOE5oWll3NmlMTG5MMUtnb1Z4ZDNZSkVnRU9HcHNDZ0hqMjl5MkFmM083ejRJWkJpMldwMGVpWHFJMl9Bck9MbnVwckZBNXNZRHdHdndlR1lUQnA5cWtIeU1Jb2Zhd2ZmVFdGVzd3V2JsejhrU1RhSmcwZVZhczU3RGhsQlhWYzZnQQ\",\"title\":\"Mauricio Pochettino to sign two-and-a-half year contract at Manchester United - The Athletic - The New York Times\",\"link\":\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxNWWM3dDFyQjM0YnhlNld6d1Vfd05wclh3SHJEOUlHOW9EOE5oWll3NmlMTG5MMUtnb1Z4ZDNZSkVnRU9HcHNDZ0hqMjl5MkFmM083ejRJWkJpMldwMGVpWHFJMl9Bck9MbnVwckZBNXNZRHdHdndlR1lUQnA5cWtIeU1Jb2Zhd2ZmVFdGVzd3V2JsejhrU1RhSmcwZVZhczU3RGhsQlhWYzZnQQ?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiywFBVV95cUxPT0J3WlE5TmVqRjFIZGMzR21HUktEemw1TDBjaUxjLTJjTFR0NXB5NzBhSTByUWNMdml4LWtNMUpuQTF1OG5uenZiVjA0VU83WEhydktvM3lOendpQW4tWkhPbEIwZnJzY1Vscms4d1V3XzI4c0MwblNmYnQtdWFZVmQxWnA3ZVlpX1FGVjNIQ1Zqb3JabHlNRUtBd1hIcVMzLVgxWWVtYzM4RnpMN25xcEMzd2wwSmdHMHhXNnZUU25yRHVfSjI0V2Jmaw\",\"title\":\"Houston Rockets guard Marcus Smart handed 3-game ban after swinging at Warriors center Charles Bassey - Fox News\",\"link\":\"https://news.google.com/rss/articles/CBMiywFBVV95cUxPT0J3WlE5TmVqRjFIZGMzR21HUktEemw1TDBjaUxjLTJjTFR0NXB5NzBhSTByUWNMdml4LWtNMUpuQTF1OG5uenZiVjA0VU83WEhydktvM3lOendpQW4tWkhPbEIwZnJzY1Vscms4d1V3XzI4c0MwblNmYnQtdWFZVmQxWnA3ZVlpX1FGVjNIQ1Zqb3JabHlNRUtBd1hIcVMzLVgxWWVtYzM4RnpMN25xcEMzd2wwSmdHMHhXNnZUU25yRHVfSjI0V2Jmaw?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMi0gFBVV95cUxPd3N1QTVmUWk0TFBfQjVfTGZKeTR4b1pheGlIajJTclVKdmZqdWhBUmlSZG1UeC1pVTNwZVBvU1NWUWlqdDBGbXd0Z2NUWXZuTFZ6Q2NGWVJQVXduRGhuc2R5Ymh0VmF1T3dNSnZNcmM1VS1pa2lNUkdFX2thRmZQLW5aNnB5RkMxT2R4UGZxLTFBWkd0Z2N0cFFIYWs5c05LSXlYRlZtSWZaNWRyc3RKWjA4WmZvZ2U3V0JwNUR6TnRCN1ZoYVVlZXBRWHZBdWlmRUE\",\"title\":\"Dark matter breakthrough coming? Euclid space telescope unveils its 1st look into the dark universe (video) - Space\",\"link\":\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxPd3N1QTVmUWk0TFBfQjVfTGZKeTR4b1pheGlIajJTclVKdmZqdWhBUmlSZG1UeC1pVTNwZVBvU1NWUWlqdDBGbXd0Z2NUWXZuTFZ6Q2NGWVJQVXduRGhuc2R5Ymh0VmF1T3dNSnZNcmM1VS1pa2lNUkdFX2thRmZQLW5aNnB5RkMxT2R4UGZxLTFBWkd0Z2N0cFFIYWs5c05LSXlYRlZtSWZaNWRyc3RKWjA4WmZvZ2U3V0JwNUR6TnRCN1ZoYVVlZXBRWHZBdWlmRUE?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiuwFBVV95cUxNMnFhWUhqbTdZQUY5azdvem94anh4NGdSaXVjVFR4MVNSWUdyMndabnRuUERaejFJMjZfWTcxems5SU4zdjVXSXU0dV92Tmc2RDZfWlUwN3VWQ25hNVZtNnZJODQxMktxTmhsVGtSbmNYWFBOTkFMZUJxWUk5ZVJleVZIbzRROXZYLVdGZUVGZlB0dWtrWU1wUEVwdndSZmNjcFFPSXItQ1FvQkxPQ0NUZXRxMk1fSmx1YVVr\",\"title\":\"Earth is surrounded by millions of pieces of space junk and the problem is getting worse - WRAL\",\"link\":\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMnFhWUhqbTdZQUY5azdvem94anh4NGdSaXVjVFR4MVNSWUdyMndabnRuUERaejFJMjZfWTcxems5SU4zdjVXSXU0dV92Tmc2RDZfWlUwN3VWQ25hNVZtNnZJODQxMktxTmhsVGtSbmNYWFBOTkFMZUJxWUk5ZVJleVZIbzRROXZYLVdGZUVGZlB0dWtrWU1wUEVwdndSZmNjcFFPSXItQ1FvQkxPQ0NUZXRxMk1fSmx1YVVr?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMixgFBVV95cUxPNFZOWkJWdDJEZzdsNjAzVncwYzgzOVFHTk5JcHQ2TWQtVi1mZVBJLWRyLWFOZDY2SlFnbjlCV2VvTHlIZmdISHFmOTBieWpoYnMyNzNLV0VIZmtjX0tzd056aUxHQnpTSW9WUVFSTk9MSTNlNDhpMU1BN0t5c1plZzQwQ2RWTDdBREE1VFZ4QXNNY3FTQk5TU0l3RmN2dWtDRThjNEVLSVVDY2hJZmY3eldUTDhHZDNaODJYMmtpMmZSQ0pDRlE\",\"title\":\"A dead star is flashing radio waves every 8 minutes, and its partner looks a lot like the Sun - The Conversation\",\"link\":\"https://news.google.com/rss/articles/CBMixgFBVV95cUxPNFZOWkJWdDJEZzdsNjAzVncwYzgzOVFHTk5JcHQ2TWQtVi1mZVBJLWRyLWFOZDY2SlFnbjlCV2VvTHlIZmdISHFmOTBieWpoYnMyNzNLV0VIZmtjX0tzd056aUxHQnpTSW9WUVFSTk9MSTNlNDhpMU1BN0t5c1plZzQwQ2RWTDdBREE1VFZ4QXNNY3FTQk5TU0l3RmN2dWtDRThjNEVLSVVDY2hJZmY3eldUTDhHZDNaODJYMmtpMmZSQ0pDRlE?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMivgFBVV95cUxNeUx3emZucklDV3E3dVVDQVZPTmhYSXdDRFB5Q1dMUFBJUThuekNpX3JvU2VjazctZFdqSXZQMHV0ZDIwd1N5TFhpcldsVFBIWHdrbFJ1a19oY2VyZGl1QlViNGo4NVl4UXhkaVpnb1U2dkNhSGJVWTF1Mk9hMS1rVFJKM0tMQzFsUHQ4dEFFaTJZbWZYdnZ0bXBSX1dvRU1WVHhQVUhqWjJyRm9IckppUXlGZXFLc29fVkZyVWZn\",\"title\":\"NASA asks Earthlings to wave as Voyager 1 reaches a light-day away - The Register\",\"link\":\"https://news.google.com/rss/articles/CBMivgFBVV95cUxNeUx3emZucklDV3E3dVVDQVZPTmhYSXdDRFB5Q1dMUFBJUThuekNpX3JvU2VjazctZFdqSXZQMHV0ZDIwd1N5TFhpcldsVFBIWHdrbFJ1a19oY2VyZGl1QlViNGo4NVl4UXhkaVpnb1U2dkNhSGJVWTF1Mk9hMS1rVFJKM0tMQzFsUHQ4dEFFaTJZbWZYdnZ0bXBSX1dvRU1WVHhQVUhqWjJyRm9IckppUXlGZXFLc29fVkZyVWZn?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMitgFBVV95cUxOMGc2X2ZZMWhMTUppcFJodEt1Wk9qMTdJMHZMREpzaHdMZy1jY0RBTEhmYTI3VFMxTmk0UnpCSUtNXzkzRjJkXzJxTTF1akVlMDVSc0lQVUNwNHgzaGEwMmJPYUtSeWlvY0VqNWVMVUxKaVhrdzlYUzhMQmwtc0N2REpkM2YzalZ4QTg0Y0pOWDB3OFdKUXh0U3hfd05WV2R3LThQVmJjeUtNMlVId01Fcm1nVTFHUQ\",\"title\":\"In reversal, American Cancer Society urges routine prostate cancer screening - Ars Technica\",\"link\":\"https://news.google.com/rss/articles/CBMitgFBVV95cUxOMGc2X2ZZMWhMTUppcFJodEt1Wk9qMTdJMHZMREpzaHdMZy1jY0RBTEhmYTI3VFMxTmk0UnpCSUtNXzkzRjJkXzJxTTF1akVlMDVSc0lQVUNwNHgzaGEwMmJPYUtSeWlvY0VqNWVMVUxKaVhrdzlYUzhMQmwtc0N2REpkM2YzalZ4QTg0Y0pOWDB3OFdKUXh0U3hfd05WV2R3LThQVmJjeUtNMlVId01Fcm1nVTFHUQ?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMidEFVX3lxTFBROTRrdm55TzlLU2F4aU1FeFd2dDduM0hWNTNyZTFPRDRQMnRRMm13SERhTnB5a2EwM1p3NG1kb25jUWNlTW1HWU1TTjNvOGNsQ29RUzJSMFhXdU5nbVlSeG9odFowUHNlYThIdGw5UGFJWHVq\",\"title\":\"CDC reports six measles deaths in 2026 as US battles worst outbreak in 35 years - The Guardian\",\"link\":\"https://news.google.com/rss/articles/CBMidEFVX3lxTFBROTRrdm55TzlLU2F4aU1FeFd2dDduM0hWNTNyZTFPRDRQMnRRMm13SERhTnB5a2EwM1p3NG1kb25jUWNlTW1HWU1TTjNvOGNsQ29RUzJSMFhXdU5nbVlSeG9odFowUHNlYThIdGw5UGFJWHVq?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMiW0FVX3lxTE9LZHZGWnNNZUdtLXNjT2FXZEFQcXNiWkxsdzN1bHhXLXNBcFg5MlI1dzBuaXhYanp1N3JtSkNKMUY0VS1QRjNTcm9ES3pqNGhjNDIxNG9DSUJLajA\",\"title\":\"Ebola in DR Congo: Millions of dollars going missing as virus spreads, MSF warns - BBC\",\"link\":\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LZHZGWnNNZUdtLXNjT2FXZEFQcXNiWkxsdzN1bHhXLXNBcFg5MlI1dzBuaXhYanp1N3JtSkNKMUY0VS1QRjNTcm9ES3pqNGhjNDIxNG9DSUJLajA?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"google-news:CBMihAFBVV95cUxOTEFLcWZubzFkNjRxdEhQTWhuNy1qb1QtTG92aTltNGVTUXk4X1ZEbjladzFjZ2h1Y0pKZ1RWMnVzVXc4b2VPRkFrMGlaREpMRWRGdmtQMDR3QmFvMUp5cnlnbnlkQ3piRjJHakV4U1RfXy1KakEtejJVeW5yWlMzY1FWYks\",\"title\":\"New brain atlas promises disease breakthroughs - Financial Times\",\"link\":\"https://news.google.com/rss/articles/CBMihAFBVV95cUxOTEFLcWZubzFkNjRxdEhQTWhuNy1qb1QtTG92aTltNGVTUXk4X1ZEbjladzFjZ2h1Y0pKZ1RWMnVzVXc4b2VPRkFrMGlaREpMRWRGdmtQMDR3QmFvMUp5cnlnbnlkQ3piRjJHakV4U1RfXy1KakEtejJVeW5yWlMzY1FWYks?oc=5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 99,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 91
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 98,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 99,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 99,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 99,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 99,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 8,
+          "duration_ms": 23
+        }
+      ]
+    }
+  }
 }

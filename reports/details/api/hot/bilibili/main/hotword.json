@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-13T06:58:32.077Z",
+  "checked_at": "2026-11-13T07:36:31.632Z",
   "inspection": {
     "file": "hot/bilibili.js",
     "path": "/api/hot/bilibili/main/hotword",
@@ -11,15 +11,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/bilibili/main/hotword.json",
-    "duration_ms": 881
+    "duration_ms": 618
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 381
+    "status": 200,
+    "duration_ms": 65
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "hot/bilibili.js",
       "name": "哔哩哔哩 · 热搜",
@@ -34,11 +34,10 @@
       "pathname": "/debug/api/hot/bilibili/main/hotword",
       "params": {},
       "query": {},
-      "public_origin": "https://script.findrss.cloud",
+      "public_origin": "http://script.findrss.cloud",
       "headers": {
         "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a59be376798b871c"
+        "User-Agent": "node"
       },
       "authentication": {
         "required": true,
@@ -46,33 +45,45 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 330,
+    "phase": "ok",
+    "elapsed_ms": 51,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 s.search.bilibili.com 返回 HTTP 412",
-    "error_text": "脚本执行失败：脚本上游 s.search.bilibili.com 返回 HTTP 412\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"bilibili-hot-search\",\"count\":30,\"missing_rank\":30}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://s.search.bilibili.com/main/hotword?limit=30",
         "method": "GET",
         "host": "s.search.bilibili.com",
         "pathname": "/main/hotword",
-        "status": 412,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 0,
-        "duration_ms": 330,
+        "started_ms": 10,
+        "duration_ms": 38,
         "timings": {
-          "response_ms": 330
+          "response_ms": 37,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"哔哩哔哩 · 热搜\",\"link\":\"https://www.bilibili.com\",\"category\":\"娱乐\",\"observed_at\":\"2026-11-13T07:36:31.693Z\",\"entries\":[{\"id\":\"bilibili-hot-search:学前篇无限小黑重逢\",\"title\":\"学前篇无限小黑重逢\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%AD%A6%E5%89%8D%E7%AF%87%E6%97%A0%E9%99%90%E5%B0%8F%E9%BB%91%E9%87%8D%E9%80%A2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:LOL教练揭秘S赛BP思路\",\"title\":\"LOL教练揭秘S赛BP思路\",\"link\":\"https://search.bilibili.com/all?keyword=LOL%E6%95%99%E7%BB%83%E6%8F%AD%E7%A7%98S%E8%B5%9BBP%E6%80%9D%E8%B7%AF\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:1美元看S赛是什么体验\",\"title\":\"1美元看S赛是什么体验\",\"link\":\"https://search.bilibili.com/all?keyword=1%E7%BE%8E%E5%85%83%E7%9C%8BS%E8%B5%9B%E6%98%AF%E4%BB%80%E4%B9%88%E4%BD%93%E9%AA%8C\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:APEC时刻 华强北如何创造奇迹\",\"title\":\"APEC时刻 华强北如何创造奇迹\",\"link\":\"https://search.bilibili.com/all?keyword=APEC%E6%97%B6%E5%88%BB%20%E5%8D%8E%E5%BC%BA%E5%8C%97%E5%A6%82%E4%BD%95%E5%88%9B%E9%80%A0%E5%A5%87%E8%BF%B9\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:央视农业辟谣蒜薹热门谣言\",\"title\":\"央视农业辟谣蒜薹热门谣言\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%A4%AE%E8%A7%86%E5%86%9C%E4%B8%9A%E8%BE%9F%E8%B0%A3%E8%92%9C%E8%96%B9%E7%83%AD%E9%97%A8%E8%B0%A3%E8%A8%80\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:哥斯拉正式入驻B站\",\"title\":\"哥斯拉正式入驻B站\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%93%A5%E6%96%AF%E6%8B%89%E6%AD%A3%E5%BC%8F%E5%85%A5%E9%A9%BBB%E7%AB%99\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:S16余霜八强赛线下Vlog\",\"title\":\"S16余霜八强赛线下Vlog\",\"link\":\"https://search.bilibili.com/all?keyword=S16%E4%BD%99%E9%9C%9C%E5%85%AB%E5%BC%BA%E8%B5%9B%E7%BA%BF%E4%B8%8BVlog\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:IVL秋季赛\",\"title\":\"MRC vs ASC IVL秋季赛\",\"link\":\"https://search.bilibili.com/all?keyword=IVL%E7%A7%8B%E5%AD%A3%E8%B5%9B\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:坎宁安52分11助攻0失误\",\"title\":\"坎宁安52分11助攻0失误\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%9D%8E%E5%AE%81%E5%AE%8952%E5%88%8611%E5%8A%A9%E6%94%BB0%E5%A4%B1%E8%AF%AF\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:Xun诠释何为LPL队长\",\"title\":\"Xun诠释何为LPL队长\",\"link\":\"https://search.bilibili.com/all?keyword=Xun%E8%AF%A0%E9%87%8A%E4%BD%95%E4%B8%BALPL%E9%98%9F%E9%95%BF\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:灰太狼红太狼版非凡之爱\",\"title\":\"灰太狼红太狼版非凡之爱\",\"link\":\"https://search.bilibili.com/all?keyword=%E7%81%B0%E5%A4%AA%E7%8B%BC%E7%BA%A2%E5%A4%AA%E7%8B%BC%E7%89%88%E9%9D%9E%E5%87%A1%E4%B9%8B%E7%88%B1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:UP主对话奥斯卡金像奖团队\",\"title\":\"UP主对话奥斯卡金像奖团队\",\"link\":\"https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E5%AF%B9%E8%AF%9D%E5%A5%A5%E6%96%AF%E5%8D%A1%E9%87%91%E5%83%8F%E5%A5%96%E5%9B%A2%E9%98%9F\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:火影手游永夜扉间技能初爆料\",\"title\":\"火影手游永夜扉间技能初爆料\",\"link\":\"https://search.bilibili.com/all?keyword=%E7%81%AB%E5%BD%B1%E6%89%8B%E6%B8%B8%E6%B0%B8%E5%A4%9C%E6%89%89%E9%97%B4%E6%8A%80%E8%83%BD%E5%88%9D%E7%88%86%E6%96%99\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:洛克王国世界阿布上线\",\"title\":\"洛克王国世界阿布上线\",\"link\":\"https://search.bilibili.com/all?keyword=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD%E4%B8%96%E7%95%8C%E9%98%BF%E5%B8%83%E4%B8%8A%E7%BA%BF\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:山新刘旸揭秘罗小黑幕后\",\"title\":\"山新刘旸揭秘罗小黑幕后\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%B1%B1%E6%96%B0%E5%88%98%E6%97%B8%E6%8F%AD%E7%A7%98%E7%BD%97%E5%B0%8F%E9%BB%91%E5%B9%95%E5%90%8E\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:原神过场动画岩与契约\",\"title\":\"原神过场动画岩与契约\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%8E%9F%E7%A5%9E%E8%BF%87%E5%9C%BA%E5%8A%A8%E7%94%BB%E5%B2%A9%E4%B8%8E%E5%A5%91%E7%BA%A6\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:臣妾要线上告发熹贵妃\",\"title\":\"臣妾要线上告发熹贵妃2.0\",\"link\":\"https://search.bilibili.com/all?keyword=%E8%87%A3%E5%A6%BE%E8%A6%81%E7%BA%BF%E4%B8%8A%E5%91%8A%E5%8F%91%E7%86%B9%E8%B4%B5%E5%A6%83\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:疑似崩坏真人角色PV流出\",\"title\":\"疑似崩坏真人角色PV流出\",\"link\":\"https://search.bilibili.com/all?keyword=%E7%96%91%E4%BC%BC%E5%B4%A9%E5%9D%8F%E7%9C%9F%E4%BA%BA%E8%A7%92%E8%89%B2PV%E6%B5%81%E5%87%BA\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:杨澜播客首期嘉宾是傅园慧\",\"title\":\"杨澜播客首期嘉宾是傅园慧\",\"link\":\"https://search.bilibili.com/all?keyword=%E6%9D%A8%E6%BE%9C%E6%92%AD%E5%AE%A2%E9%A6%96%E6%9C%9F%E5%98%89%E5%AE%BE%E6%98%AF%E5%82%85%E5%9B%AD%E6%85%A7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:UP主回归原始手搓铁器\",\"title\":\"UP主回归原始手搓铁器\",\"link\":\"https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E5%9B%9E%E5%BD%92%E5%8E%9F%E5%A7%8B%E6%89%8B%E6%90%93%E9%93%81%E5%99%A8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:iPhone销量为何能逆势领跑\",\"title\":\"iPhone销量为何能逆势领跑\",\"link\":\"https://search.bilibili.com/all?keyword=iPhone%E9%94%80%E9%87%8F%E4%B8%BA%E4%BD%95%E8%83%BD%E9%80%86%E5%8A%BF%E9%A2%86%E8%B7%91\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:我的猫猫比我富\",\"title\":\"AI短片我的猫猫比我富更新\",\"link\":\"https://search.bilibili.com/all?keyword=%E6%88%91%E7%9A%84%E7%8C%AB%E7%8C%AB%E6%AF%94%E6%88%91%E5%AF%8C\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:为何Faker输给LPL仍获尊重\",\"title\":\"为何Faker输给LPL仍获尊重\",\"link\":\"https://search.bilibili.com/all?keyword=%E4%B8%BA%E4%BD%95Faker%E8%BE%93%E7%BB%99LPL%E4%BB%8D%E8%8E%B7%E5%B0%8A%E9%87%8D\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:世一上短剧之最后一战\",\"title\":\"世一上短剧之最后一战\",\"link\":\"https://search.bilibili.com/all?keyword=%E4%B8%96%E4%B8%80%E4%B8%8A%E7%9F%AD%E5%89%A7%E4%B9%8B%E6%9C%80%E5%90%8E%E4%B8%80%E6%88%98\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:星穹铁道最新EP无中生有\",\"title\":\"星穹铁道最新EP无中生有\",\"link\":\"https://search.bilibili.com/all?keyword=%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93%E6%9C%80%E6%96%B0EP%E6%97%A0%E4%B8%AD%E7%94%9F%E6%9C%89\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:回顾BLG晋级决赛之路\",\"title\":\"回顾BLG晋级决赛之路\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%9B%9E%E9%A1%BEBLG%E6%99%8B%E7%BA%A7%E5%86%B3%E8%B5%9B%E4%B9%8B%E8%B7%AF\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:许飞厉娜新对谈有多动人\",\"title\":\"许飞厉娜新对谈有多动人\",\"link\":\"https://search.bilibili.com/all?keyword=%E8%AE%B8%E9%A3%9E%E5%8E%89%E5%A8%9C%E6%96%B0%E5%AF%B9%E8%B0%88%E6%9C%89%E5%A4%9A%E5%8A%A8%E4%BA%BA\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:原神过场动画雷与永恒\",\"title\":\"原神过场动画雷与永恒\",\"link\":\"https://search.bilibili.com/all?keyword=%E5%8E%9F%E7%A5%9E%E8%BF%87%E5%9C%BA%E5%8A%A8%E7%94%BB%E9%9B%B7%E4%B8%8E%E6%B0%B8%E6%81%92\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:2027研究生报考人数347万\",\"title\":\"2027研究生报考人数347万\",\"link\":\"https://search.bilibili.com/all?keyword=2027%E7%A0%94%E7%A9%B6%E7%94%9F%E6%8A%A5%E8%80%83%E4%BA%BA%E6%95%B0347%E4%B8%87\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"bilibili-hot-search:S16决赛各选手对位胜率如何\",\"title\":\"S16决赛各选手对位胜率如何\",\"link\":\"https://search.bilibili.com/all?keyword=S16%E5%86%B3%E8%B5%9B%E5%90%84%E9%80%89%E6%89%8B%E5%AF%B9%E4%BD%8D%E8%83%9C%E7%8E%87%E5%A6%82%E4%BD%95\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
     "timing": {
-      "elapsed_ms": 330,
+      "elapsed_ms": 51,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -107,44 +118,49 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 330
+          "started_ms": 7,
+          "duration_ms": 43
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 330,
+          "name": "输出读取与校验",
+          "started_ms": 50,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 51,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 330,
+          "started_ms": 51,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 330,
+          "name": "浏览器状态保存",
+          "started_ms": 51,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 330,
+          "started_ms": 51,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 330
+          "started_ms": 10,
+          "duration_ms": 38
         }
       ]
     }

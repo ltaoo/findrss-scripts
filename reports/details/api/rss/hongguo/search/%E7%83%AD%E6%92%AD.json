@@ -1,22 +1,161 @@
 {
-  "checked_at": "2026-11-13T06:58:57.787Z",
+  "checked_at": "2026-11-13T07:36:52.937Z",
   "inspection": {
     "file": "rss/hongguo.js",
     "path": "/api/rss/hongguo/search/:keyword",
     "example": "/api/rss/hongguo/search/%E7%83%AD%E6%92%AD",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 31
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/hongguo/search/%E7%83%AD%E6%92%AD.json",
+    "duration_ms": 1550
   },
   "debug_request": {
-    "error": "Debug 请求超时或已取消",
-    "duration_ms": 60001
+    "status": 200,
+    "duration_ms": 538
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/hongguo.js",
+      "name": "红果短剧搜索",
+      "kind": "rss",
+      "version": "1.0.0",
+      "path": "/hongguo/search/:keyword",
+      "request_path": "/api/rss/hongguo/search/:keyword",
+      "route_index": 1
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/hongguo/search/%E7%83%AD%E6%92%AD",
+      "params": {
+        "keyword": "热播"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 493,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://hongguoduanju.com/api/search/result?aid=8662&query=%E7%83%AD%E6%92%AD&page=1",
+        "method": "GET",
+        "host": "hongguoduanju.com",
+        "pathname": "/api/search/result",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 16,
+        "duration_ms": 472,
+        "timings": {
+          "response_ms": 426,
+          "body_read_ms": 45,
+          "decode_and_transfer_ms": 1
+        }
+      }
+    ],
+    "output": "{\"id\":\"hongguo:search:热播:1\",\"title\":\"红果短剧搜索：热播\",\"link\":\"https://hongguoduanju.com/search?query=%E7%83%AD%E6%92%AD\",\"description\":\"搜索“热播”的第 1 页结果\",\"language\":\"zh-cn\",\"items\":[{\"id\":\"hongguo:series:7693071659686693913\",\"title\":\"山野春潮\",\"link\":\"https://hongguoduanju.com/detail?series_id=7693071659686693913\",\"description\":\"她本该是送去草原和亲的长乐公主，却在大婚途中坠崖，再睁眼，已不知这具身体是谁。集市上，人伢子将她推上木台叫卖，她浑身是伤，颤抖如入冬的雀。人群散开，一个黑衣少年穿过夕阳走来，十两白银买下了一整个命定的春天。他为她洗衣做饭，替她洗澡上药，背她走长长的山路。柴米油盐里藏着春潮暗涌，粗陶碗中盛满少年深情。山野的春天，漫出来了。“傅铮。”“嗯？”“我们回家啦。”\",\"image\":\"https://p3-novel.byteimg.com/novel-pic/5e8d3ec53f3f84612537531a0f1f7928~tplv-shrink:640:0.image\",\"published\":\"2026-10-05T06:47:06.000Z\",\"categories\":[\"恋爱\",\"古代\"]},{\"id\":\"hongguo:series:7671966197985856536\",\"title\":\"持械入宋：第一季\",\"link\":\"https://hongguoduanju.com/detail?series_id=7671966197985856536\",\"description\":\"宋末年，烽火连天。一支执行任务的现代五人小队，意外坠入时空隧道，全员携械穿越到大宋。队长林昭京片子冷静果决，统帅全局。狙击手谢长风、军械师马振邦-一口东北大碴子，战力拉满。通信兵王浩川-广东仔，情报组网，眼观六路。湘妹子医官陈素--妙手回春，战地玫瑰。以现代人的视角看大宋，这将是一场现代与古代的文化冲突，将是一场科技的降维碾压。大宋注定将不再平凡。\",\"image\":\"https://p3-novel.byteimg.com/novel-pic/3edbd9c6ab15ebff3fd0853ec74a4f27~tplv-shrink:640:0.image\",\"published\":\"2026-08-09T09:47:07.000Z\",\"categories\":[\"脑洞\",\"穿越\",\"古代\",\"乡村\"]},{\"id\":\"hongguo:series:7680564528135818302\",\"title\":\"急诊摸鱼王\",\"link\":\"https://hongguoduanju.com/detail?series_id=7680564528135818302\",\"description\":\"曾经站在世界之巅的外科天才贺知舟，隐姓埋名到急诊科躺平摸鱼。上班睡觉打游戏，病历潦草，被全科室当成废物关系户，主任限期将他开除。可每逢危重症人命垂危，他随手出手便起死回生。只想摆烂度日，奈何全院跪求他出手救人！\",\"image\":\"https://p3-novel.byteimg.com/novel-pic/cafa83f45325ece8897fc26f1172d79c~tplv-shrink:640:0.image\",\"published\":\"2026-09-01T13:53:02.000Z\",\"categories\":[\"剧情\",\"都市\",\"职场\"]},{\"id\":\"hongguo:series:7695625941778697241\",\"title\":\"初尝玫瑰！\",\"link\":\"https://hongguoduanju.com/detail?series_id=7695625941778697241\",\"description\":\"温薏成长于书香家庭，一直尊重家人的规划，接受了家里安排的联姻。一次偶然机缘，她结识了闺蜜的兄长韩沐宸，她本打算把这次相遇当作一段小插曲，保持适当距离，不愿产生过多纠葛。命运却另有安排，她才得知韩沐宸正是自己的直属领导。行事沉稳克制的韩沐宸，在相处之中慢慢注意到温薏。二人不断产生交集，情愫悄然滋生。一边是既定的婚约，一边是悄然心动，温薏陷入艰难的内心权衡，需要遵从本心做出属于自己的选择。\",\"image\":\"https://p3-novel.byteimg.com/novel-pic/83c166bfaadb3d87e79d606d3a954189~tplv-shrink:640:0.image\",\"published\":\"2026-10-12T03:59:01.000Z\",\"categories\":[\"恋爱\",\"都市\"]},{\"id\":\"hongguo:series:7688352674999176254\",\"title\":\"总裁是我前女友\",\"link\":\"https://hongguoduanju.com/detail?series_id=7688352674999176254\",\"description\":\"年少相爱却无奈分手，多年后再度重逢，重重误会横亘两人之间。普通工人陈叶默默扛起养育外甥女的重担，隐忍善良，坚守本心。历经职场打压、意外风波，真相终于揭开。亲情的担当与爱情的遗憾，坚守善良与正义，纵使命运多舛，真心终会被看见。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/091e1a4c74697bb342314423fd1b64dc~tplv-shrink:640:0.image\",\"published\":\"2026-09-22T13:35:01.000Z\",\"categories\":[\"恋爱\",\"都市\",\"职场\"]},{\"id\":\"hongguo:series:7701328280862854168\",\"title\":\"装穷提亲，娶到全家嫌弃的她\",\"link\":\"https://hongguoduanju.com/detail?series_id=7701328280862854168\",\"description\":\"顾承川装穷提亲，本想退掉爷爷定下的婚约，却被林家塞来不受待见的长女林小满。她不嫌他穷，甚至愿卖掉母亲遗镯替他还债。他被真心打动，决意护她一生。婚礼当天，百万彩礼、千万豪宅接连送到，嫌贫爱富的林家彻底傻眼！\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/dd47bf8f4357b931ef542a2f91478aed~tplv-shrink:640:0.image\",\"published\":\"2026-10-27T12:47:00.000Z\",\"categories\":[\"恋爱\",\"乡村\"]},{\"id\":\"hongguo:series:7700120452810673177\",\"title\":\"野草与荆棘鸟\",\"link\":\"https://hongguoduanju.com/detail?series_id=7700120452810673177\",\"description\":\"桑野像一株长在石缝里拼命生长的的野草，姜岁是一只向往自由却囚于尖刺上的荆棘鸟，两个满身伤痕的人却因为十块钱交汇，在日复一日的相处中暗生情愫，彼此约定。然而安稳的小镇生活终究被打破，意外与悲剧接踵而至，两人被迫分开四年。四年后，姜岁学成归来，成为律师，桑野执掌英徽集团，绯闻不断。再次重逢，他们要面对的是当年的误会与真相，以及那份从未消逝的深情。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/82b33276ac892169ba1ab0ac06cd2e0c~tplv-shrink:640:0.image\",\"published\":\"2026-10-24T06:40:01.000Z\",\"categories\":[\"爱情\",\"青春爱情\",\"日久生情\",\"圆满结局\",\"揭露阴谋\",\"逼婚\"]},{\"id\":\"hongguo:series:7638987534483082265\",\"title\":\"归墟第一季\",\"link\":\"https://hongguoduanju.com/detail?series_id=7638987534483082265\",\"description\":\"这是一部关于新物种诞生与末世灾难降临的原创长篇故事。一场异常黑雨之后，城市地下开始出现无法解释的生命变化。最初只是零星的失踪与异响，随后，巨型蚂蚁撕开地下空间的入口，隐藏在黑暗中的新生态逐渐显露。昆虫、鱼类与更多生物被未知力量改写，体型、习性与生存方式不断进化，原本熟悉的城市开始变成陌生的猎场。随着变异生物持续扩散，人类原有的生活秩序被迫改变。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/bedb12ff5b3716312f3b27b54d0c81cb~tplv-shrink:640:0.image\",\"published\":\"2026-05-12T12:53:04.000Z\",\"categories\":[\"末世\",\"求生\",\"都市\"]},{\"id\":\"hongguo:series:7685699444766952473\",\"title\":\"帐中香\",\"link\":\"https://hongguoduanju.com/detail?series_id=7685699444766952473\",\"description\":\"尚书府嫡女姒嫣做了一个预知梦——梦里她对落难的未婚夫江佑泽退婚弃之，日后江佑泽成了权倾朝野的九千岁，将她抓回金丝笼日夜折磨。梦醒后，她决意不退婚，变卖所有首饰替入宫为宦的落魄未婚夫打通关系，只求保命。然而江佑泽因自身残缺，一次次把她推开，她偏要一次次靠近。一个拼尽全力想给名分，一个赌上一切要救赎他，万般沉浮，皆我甘愿。\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/dcff5f2ad83bb40ad86f8b4c8303282b~tplv-shrink:640:0.image\",\"published\":\"2026-09-15T09:59:08.000Z\",\"categories\":[\"恋爱\",\"古代\"]},{\"id\":\"hongguo:series:7691983129149443134\",\"title\":\"帝金枝\",\"link\":\"https://hongguoduanju.com/detail?series_id=7691983129149443134\",\"description\":\"容夭六岁时中毒，毒坏了脑子，便成了蠢人，成为了盛平公主的贴身宫女，日日给盛平公主洗脚捶背，死后她才知，自己才是真公主。而陈贵妃顶替了她的娘亲，亲人都死于盛平公主和陈贵妃之手。再睁眼，容夭重生回到六岁，此时她头脑清醒，还没被毒傻。而害她痴傻的带毒吃食正摆在她的眼前。容夭将害她痴傻的带毒吃食一分两份，一份送给假祖母，一份送给假父亲\",\"image\":\"https://p6-novel.byteimg.com/novel-pic/592bb8445ccc782acc2c095ccba17ae5~tplv-shrink:640:0.image\",\"published\":\"2026-10-02T08:23:02.000Z\",\"categories\":[\"宫廷\",\"重生\",\"古代\"]}],\"extra\":{\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://hongguoduanju.com/\"},\"tags\":[\"短剧\",\"红果短剧\"],\"category\":[\"短剧\"]}}",
+    "timing": {
+      "elapsed_ms": 493,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 1,
+          "duration_ms": 1
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 2,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 2,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 2,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 2,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 2,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 3,
+          "duration_ms": 10
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 13,
+          "duration_ms": 479
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 492,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 492,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 492,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 492,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 492,
+          "duration_ms": 1
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 16,
+          "duration_ms": 472
+        }
+      ]
+    }
+  }
 }

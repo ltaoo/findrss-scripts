@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-13T06:59:45.248Z",
+  "checked_at": "2026-11-13T07:37:07.598Z",
   "inspection": {
     "file": "detect/website_text.js",
     "path": "/api/detect/web/text/detect",
@@ -11,11 +11,11 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/detect/web/text/detect.5204cf87dc2a69fc.json",
-    "duration_ms": 60
+    "duration_ms": 93
   },
   "debug_request": {
     "status": 200,
-    "duration_ms": 71
+    "duration_ms": 40
   },
   "debug": {
     "status": 200,
@@ -37,11 +37,10 @@
         "url": "https://example.com/",
         "selector": "body"
       },
-      "public_origin": "https://script.findrss.cloud",
+      "public_origin": "http://script.findrss.cloud",
       "headers": {
         "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a59be53fcf95e74c"
+        "User-Agent": "node"
       },
       "authentication": {
         "required": true,
@@ -50,7 +49,7 @@
       }
     },
     "phase": "ok",
-    "elapsed_ms": 6,
+    "elapsed_ms": 30,
     "invoked": false,
     "upstream_error": "",
     "error_text": "",
@@ -67,18 +66,18 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 0,
-        "duration_ms": 6,
+        "started_ms": 11,
+        "duration_ms": 16,
         "timings": {
-          "response_ms": 6,
+          "response_ms": 16,
           "body_read_ms": 0,
           "decode_and_transfer_ms": 0
         }
       }
     ],
-    "output": "{\"kind\":\"detect\",\"schema_version\":1,\"title\":\"网页正文检测\",\"link\":\"https://example.com/\",\"status\":\"initialized\",\"previous_id\":null,\"observed_at\":\"2026-11-13T06:59:45.272Z\",\"snapshot\":{\"body\":{\"type\":\"content\",\"present\":true,\"format\":\"text\",\"value\":\"This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.\"}},\"changes\":[],\"matches\":[],\"issues\":[]}",
+    "output": "{\"kind\":\"detect\",\"schema_version\":1,\"title\":\"网页正文检测\",\"link\":\"https://example.com/\",\"status\":\"initialized\",\"previous_id\":null,\"observed_at\":\"2026-11-13T07:37:07.630Z\",\"snapshot\":{\"body\":{\"type\":\"content\",\"present\":true,\"format\":\"text\",\"value\":\"This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.\"}},\"changes\":[],\"matches\":[],\"issues\":[]}",
     "timing": {
-      "elapsed_ms": 6,
+      "elapsed_ms": 30,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -103,59 +102,59 @@
         {
           "name": "沙箱排队",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
+          "started_ms": 1,
+          "duration_ms": 2
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
+          "started_ms": 3,
           "duration_ms": 6
         },
         {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 9,
+          "duration_ms": 20
+        },
+        {
           "name": "输出读取与校验",
-          "started_ms": 6,
+          "started_ms": 29,
           "duration_ms": 0
         },
         {
           "name": "执行日志收集",
-          "started_ms": 6,
+          "started_ms": 29,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 6,
+          "started_ms": 29,
           "duration_ms": 0
         },
         {
           "name": "浏览器状态保存",
-          "started_ms": 6,
+          "started_ms": 29,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 6,
-          "duration_ms": 0
+          "started_ms": 29,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 6
+          "started_ms": 11,
+          "duration_ms": 16
         }
       ]
     }

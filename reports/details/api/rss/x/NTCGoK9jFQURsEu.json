@@ -1,23 +1,252 @@
 {
-  "checked_at": "2026-11-13T06:59:11.324Z",
+  "checked_at": "2026-11-13T07:37:00.240Z",
   "inspection": {
     "file": "rss/x.js",
     "path": "/api/rss/x/:username",
     "example": "/api/rss/x/NTCGoK9jFQURsEu",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 235
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/x/NTCGoK9jFQURsEu.json",
+    "duration_ms": 1070
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 37
+    "status": 200,
+    "duration_ms": 825
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/x.js",
+      "name": "X 用户作品",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/x/:username",
+      "request_path": "/api/rss/x/:username",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/x/NTCGoK9jFQURsEu",
+      "params": {
+        "username": "NTCGoK9jFQURsEu"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 814,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://x.com/NTCGoK9jFQURsEu",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/NTCGoK9jFQURsEu",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 14,
+        "duration_ms": 172,
+        "timings": {
+          "response_ms": 116,
+          "body_read_ms": 52,
+          "decode_and_transfer_ms": 4
+        }
+      },
+      {
+        "url": "https://abs.twimg.com/responsive-web/client-web/main.9e6250206d8e17d4a.js",
+        "method": "GET",
+        "host": "abs.twimg.com",
+        "pathname": "/responsive-web/client-web/main.9e6250206d8e17d4a.js",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 207,
+        "duration_ms": 38,
+        "timings": {
+          "response_ms": 19,
+          "body_read_ms": 7,
+          "decode_and_transfer_ms": 12
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName?variables=%7B%22screen_name%22%3A%22NTCGoK9jFQURsEu%22%2C%22withSafetyModeUserFields%22%3Atrue%7D&features=%7B%22hidden_profile_subscriptions_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22subscriptions_verification_info_is_identity_verified_enabled%22%3Afalse%2C%22subscriptions_verification_info_verified_since_enabled%22%3Afalse%2C%22highlights_tweets_tab_ui_enabled%22%3Afalse%2C%22responsive_web_twitter_article_notes_tab_enabled%22%3Afalse%2C%22subscriptions_feature_can_gift_premium%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withAuxiliaryUserLabels%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 263,
+        "duration_ms": 84,
+        "timings": {
+          "response_ms": 83,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets?variables=%7B%22userId%22%3A%221452097352735477762%22%2C%22count%22%3A20%2C%22includePromotedContent%22%3Afalse%2C%22withQuickPromoteEligibilityTweetFields%22%3Atrue%2C%22withVoice%22%3Atrue%7D&features=%7B%22rweb_video_screen_enabled%22%3Atrue%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_enhance_cards_enabled%22%3Afalse%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 367,
+        "duration_ms": 434,
+        "timings": {
+          "response_ms": 408,
+          "body_read_ms": 21,
+          "decode_and_transfer_ms": 5
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"x:user:1452097352735477762\",\"title\":\"K- GIF Archive 的 X 作品\",\"link\":\"https://x.com/NTCGoK9jFQURsEu\",\"description\":\"English : https://t.co/zsVAvVVfbv\\n日本語 : https://t.co/yCGWGbIp7x\\nBahasa Indonesia: https://t.co/0p7bEdCMiN\",\"language\":\"\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"tags\":[\"X\"]},\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"image\":\"https://pbs.twimg.com/profile_images/1452097406099619844/dWUpEMPR_normal.jpg\",\"updated\":\"2026-11-13T07:26:27.000Z\",\"items\":[{\"id\":\"x:tweet:2121142633812934699\",\"title\":\"RT @NTCGoK9jFQURsEu: https://t.co/rg40qpCpLz https://t.co/TmQXn49QIQ\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2121142633812934699\",\"description\":\"RT @NTCGoK9jFQURsEu: https://t.co/rg40qpCpLz https://t.co/TmQXn49QIQ\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120789772360892416/img/VXYEOt5tH80gMNAi.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120789772360892416/vid/avc1/616x1036/wXeyXBb7rhIqP0S6.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-13T07:26:27.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2120789879529607180\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120789879529607180\",\"item\":{\"id\":\"x:tweet:2120789879529607180\",\"title\":\"https://t.co/rg40qpCpLz https://t.co/TmQXn49QIQ\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120789879529607180\",\"description\":\"https://t.co/rg40qpCpLz https://t.co/TmQXn49QIQ\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120789772360892416/img/VXYEOt5tH80gMNAi.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120789772360892416/vid/avc1/616x1036/wXeyXBb7rhIqP0S6.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-12T08:04:44.000Z\"}}]},{\"id\":\"x:tweet:2120876147735220316\",\"title\":\"RT @NTCGoK9jFQURsEu: https://t.co/rg40qpCpLz https://t.co/NDi3dH8LRR\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120876147735220316\",\"description\":\"RT @NTCGoK9jFQURsEu: https://t.co/rg40qpCpLz https://t.co/NDi3dH8LRR\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120526388394668032/img/Ot5iRx0K5giVp3dn.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120526388394668032/vid/avc1/1080x1920/JDAaiWAUXwhixzDT.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-12T13:47:32.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2120527946612134297\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120527946612134297\",\"item\":{\"id\":\"x:tweet:2120527946612134297\",\"title\":\"https://t.co/rg40qpCpLz https://t.co/NDi3dH8LRR\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120527946612134297\",\"description\":\"https://t.co/rg40qpCpLz https://t.co/NDi3dH8LRR\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120526388394668032/img/Ot5iRx0K5giVp3dn.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120526388394668032/vid/avc1/1080x1920/JDAaiWAUXwhixzDT.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T14:43:54.000Z\"}}]},{\"id\":\"x:tweet:2120789879529607180\",\"title\":\"https://t.co/rg40qpCpLz https://t.co/TmQXn49QIQ\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120789879529607180\",\"description\":\"https://t.co/rg40qpCpLz https://t.co/TmQXn49QIQ\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120789772360892416/img/VXYEOt5tH80gMNAi.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120789772360892416/vid/avc1/616x1036/wXeyXBb7rhIqP0S6.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-12T08:04:44.000Z\"},{\"id\":\"x:tweet:2120597737448284490\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ddcUq9bEAE\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120597737448284490\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ddcUq9bEAE\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120494317529911296/img/4DKl6mk5uWyQC25c.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120494317529911296/vid/avc1/1080x1920/cOEyrkIb7ZMFuyTR.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T19:21:14.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2120494348110586044\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120494348110586044\",\"item\":{\"id\":\"x:tweet:2120494348110586044\",\"title\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ddcUq9bEAE\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120494348110586044\",\"description\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ddcUq9bEAE\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120494317529911296/img/4DKl6mk5uWyQC25c.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120494317529911296/vid/avc1/1080x1920/cOEyrkIb7ZMFuyTR.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T12:30:24.000Z\"}}]},{\"id\":\"x:tweet:2120527946612134297\",\"title\":\"https://t.co/rg40qpCpLz https://t.co/NDi3dH8LRR\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120527946612134297\",\"description\":\"https://t.co/rg40qpCpLz https://t.co/NDi3dH8LRR\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120526388394668032/img/Ot5iRx0K5giVp3dn.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120526388394668032/vid/avc1/1080x1920/JDAaiWAUXwhixzDT.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T14:43:54.000Z\"},{\"id\":\"x:tweet:2120526047133471221\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ixGkGUj1p2\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120526047133471221\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ixGkGUj1p2\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120241019740725248/img/-p6-jsDV24btOpmg.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120241019740725248/vid/avc1/1080x1920/nNJALnI2YHWUw8Ha.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T14:36:21.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2120241090846773388\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120241090846773388\",\"item\":{\"id\":\"x:tweet:2120241090846773388\",\"title\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ixGkGUj1p2\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120241090846773388\",\"description\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ixGkGUj1p2\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120241019740725248/img/-p6-jsDV24btOpmg.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120241019740725248/vid/avc1/1080x1920/nNJALnI2YHWUw8Ha.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-10T19:44:02.000Z\"}}]},{\"id\":\"x:tweet:2120494407439044994\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/SAD5FTS8bK\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120494407439044994\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/SAD5FTS8bK\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119809165979955200/img/baSO5VBxUbWFG30p.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119809165979955200/vid/avc1/1080x1920/iIOUaWM6uzsYj-xJ.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T12:30:38.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2119809225794957510\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2119809225794957510\",\"item\":{\"id\":\"x:tweet:2119809225794957510\",\"title\":\"#kpopedt #famcam https://t.co/SAD5FTS8bK\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2119809225794957510\",\"description\":\"#kpopedt #famcam https://t.co/SAD5FTS8bK\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119809165979955200/img/baSO5VBxUbWFG30p.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119809165979955200/vid/avc1/1080x1920/iIOUaWM6uzsYj-xJ.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-09T15:07:58.000Z\"}}]},{\"id\":\"x:tweet:2120494348110586044\",\"title\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ddcUq9bEAE\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120494348110586044\",\"description\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ddcUq9bEAE\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120494317529911296/img/4DKl6mk5uWyQC25c.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120494317529911296/vid/avc1/1080x1920/cOEyrkIb7ZMFuyTR.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T12:30:24.000Z\"},{\"id\":\"x:tweet:2120241090846773388\",\"title\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ixGkGUj1p2\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120241090846773388\",\"description\":\"#kpopedt #famcam https://t.co/MbKRa9MAmP https://t.co/ixGkGUj1p2\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120241019740725248/img/-p6-jsDV24btOpmg.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120241019740725248/vid/avc1/1080x1920/nNJALnI2YHWUw8Ha.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-10T19:44:02.000Z\"},{\"id\":\"x:tweet:2120240648406393194\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/W1v5tJtVJ5\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2120240648406393194\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/W1v5tJtVJ5\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119650157587492864/img/UzKyb0pLqx_e4l8p.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119650157587492864/vid/avc1/1080x1920/m3h9L3NKadCMJ-6R.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-10T19:42:17.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2119650194988072966\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2119650194988072966\",\"item\":{\"id\":\"x:tweet:2119650194988072966\",\"title\":\"#kpopedt #famcam https://t.co/W1v5tJtVJ5\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2119650194988072966\",\"description\":\"#kpopedt #famcam https://t.co/W1v5tJtVJ5\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119650157587492864/img/UzKyb0pLqx_e4l8p.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119650157587492864/vid/avc1/1080x1920/m3h9L3NKadCMJ-6R.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-09T04:36:02.000Z\"}}]},{\"id\":\"x:tweet:2119809225794957510\",\"title\":\"#kpopedt #famcam https://t.co/SAD5FTS8bK\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2119809225794957510\",\"description\":\"#kpopedt #famcam https://t.co/SAD5FTS8bK\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119809165979955200/img/baSO5VBxUbWFG30p.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119809165979955200/vid/avc1/1080x1920/iIOUaWM6uzsYj-xJ.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-09T15:07:58.000Z\"},{\"id\":\"x:tweet:2119650194988072966\",\"title\":\"#kpopedt #famcam https://t.co/W1v5tJtVJ5\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2119650194988072966\",\"description\":\"#kpopedt #famcam https://t.co/W1v5tJtVJ5\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119650157587492864/img/UzKyb0pLqx_e4l8p.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119650157587492864/vid/avc1/1080x1920/m3h9L3NKadCMJ-6R.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-09T04:36:02.000Z\"},{\"id\":\"x:tweet:2117905033492869457\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/wVXDZWCI4i\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117905033492869457\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedt #famcam https://t.co/wVXDZWCI4i\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117820369281384448/img/O791J5efq3lc733X.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117820369281384448/vid/avc1/1072x1632/hfl7jmdKpYS_j5m7.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T09:01:23.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2117820395923665003\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117820395923665003\",\"item\":{\"id\":\"x:tweet:2117820395923665003\",\"title\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117820395923665003\",\"description\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117820369281384448/img/O791J5efq3lc733X.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117820369281384448/vid/avc1/1072x1632/hfl7jmdKpYS_j5m7.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T03:25:04.000Z\"}}]},{\"id\":\"x:tweet:2117820395923665003\",\"title\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117820395923665003\",\"description\":\"#kpopedt #famcam https://t.co/wVXDZWCI4i\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117820369281384448/img/O791J5efq3lc733X.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117820369281384448/vid/avc1/1072x1632/hfl7jmdKpYS_j5m7.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T03:25:04.000Z\"},{\"id\":\"x:tweet:2117778744584892784\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/B6gbjfK2K1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778744584892784\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/B6gbjfK2K1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108614289980624896/img/VzSpQGG-kxxEiqJw.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108614289980624896/vid/avc1/720x1280/kL4jzraJ1b0Nzdgt.mp4?tag=14\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:33.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2108614416585605534\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108614416585605534\",\"item\":{\"id\":\"x:tweet:2108614416585605534\",\"title\":\"#kpopedit #fancam https://t.co/B6gbjfK2K1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108614416585605534\",\"description\":\"#kpopedit #fancam https://t.co/B6gbjfK2K1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108614289980624896/img/VzSpQGG-kxxEiqJw.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108614289980624896/vid/avc1/720x1280/kL4jzraJ1b0Nzdgt.mp4?tag=14\",\"type\":\"video/mp4\"},\"published\":\"2026-10-09T17:43:47.000Z\"}}]},{\"id\":\"x:tweet:2117778730223620589\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/MSi1ndOvL1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778730223620589\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/MSi1ndOvL1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108987815904342016/img/DCx5yebMi7YVtSHb.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108987815904342016/vid/avc1/1080x1920/9TvkN4YVSJwbg-Kt.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:30.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2108987853086818652\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108987853086818652\",\"item\":{\"id\":\"x:tweet:2108987853086818652\",\"title\":\"#kpopedit #fancam https://t.co/MSi1ndOvL1\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2108987853086818652\",\"description\":\"#kpopedit #fancam https://t.co/MSi1ndOvL1\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2108987815904342016/img/DCx5yebMi7YVtSHb.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2108987815904342016/vid/avc1/1080x1920/9TvkN4YVSJwbg-Kt.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-10T18:27:41.000Z\"}}]},{\"id\":\"x:tweet:2117778710271279467\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/4X8XfxvPTu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778710271279467\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/4X8XfxvPTu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109286941174976512/img/U1f-Uu_epolfyjcG.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109286941174976512/vid/avc1/1192x1920/E2KEva7eJyatAhMx.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:25.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109287290522800143\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109287290522800143\",\"item\":{\"id\":\"x:tweet:2109287290522800143\",\"title\":\"#kpopedit #fancam https://t.co/4X8XfxvPTu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109287290522800143\",\"description\":\"#kpopedit #fancam https://t.co/4X8XfxvPTu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109286941174976512/img/U1f-Uu_epolfyjcG.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109286941174976512/vid/avc1/1192x1920/E2KEva7eJyatAhMx.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-11T14:17:33.000Z\"}}]},{\"id\":\"x:tweet:2117778703673696535\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/wlXmGiX1DF\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778703673696535\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/wlXmGiX1DF\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109405384045965312/img/f5eyTRQ_mBtooWcN.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109405384045965312/vid/avc1/1080x1920/lQ9u_9Sb_p-3AeG9.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:24.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109405536718614986\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109405536718614986\",\"item\":{\"id\":\"x:tweet:2109405536718614986\",\"title\":\"#kpopedit #fancam https://t.co/wlXmGiX1DF\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109405536718614986\",\"description\":\"#kpopedit #fancam https://t.co/wlXmGiX1DF\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109405384045965312/img/f5eyTRQ_mBtooWcN.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109405384045965312/vid/avc1/1080x1920/lQ9u_9Sb_p-3AeG9.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-11T22:07:25.000Z\"}}]},{\"id\":\"x:tweet:2117778695582777655\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xiVWoemuYu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778695582777655\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xiVWoemuYu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109464596981637120/img/I-46eTUek-2pDQG6.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109464596981637120/vid/avc1/1080x1920/jcG6-R-G_Kc4SMVe.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:22.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109464804700340651\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109464804700340651\",\"item\":{\"id\":\"x:tweet:2109464804700340651\",\"title\":\"#kpopedit #fancam https://t.co/xiVWoemuYu\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109464804700340651\",\"description\":\"#kpopedit #fancam https://t.co/xiVWoemuYu\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109464596981637120/img/I-46eTUek-2pDQG6.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109464596981637120/vid/avc1/1080x1920/jcG6-R-G_Kc4SMVe.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-12T02:02:56.000Z\"}}]},{\"id\":\"x:tweet:2117778674955255849\",\"title\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xRp1u7kAwo\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2117778674955255849\",\"description\":\"RT @NTCGoK9jFQURsEu: #kpopedit #fancam https://t.co/xRp1u7kAwo\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109767601777979392/img/0VWgH63ho1FVasI2.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109767601777979392/vid/avc1/2160x3840/-WJYh5pVAb-IaClQ.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-04T00:39:17.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2109768334820720661\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109768334820720661\",\"item\":{\"id\":\"x:tweet:2109768334820720661\",\"title\":\"#kpopedit #fancam https://t.co/xRp1u7kAwo\",\"link\":\"https://x.com/NTCGoK9jFQURsEu/status/2109768334820720661\",\"description\":\"#kpopedit #fancam https://t.co/xRp1u7kAwo\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2109767601777979392/img/0VWgH63ho1FVasI2.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"K- GIF Archive\",\"uri\":\"https://x.com/NTCGoK9jFQURsEu\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2109767601777979392/vid/avc1/2160x3840/-WJYh5pVAb-IaClQ.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-12T22:09:03.000Z\"}}]}]}",
+    "timing": {
+      "elapsed_ms": 814,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 3
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 3,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 3,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 3,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 3,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 3,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 3,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 4,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 10,
+          "duration_ms": 803
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 813,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 813,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 813,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 814,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 814,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 13,
+          "duration_ms": 173
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 207,
+          "duration_ms": 38
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 263,
+          "duration_ms": 84
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 367,
+          "duration_ms": 434
+        }
+      ]
+    }
+  }
 }

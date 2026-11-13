@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-13T06:59:45.120Z",
+  "checked_at": "2026-11-13T07:37:07.508Z",
   "inspection": {
     "file": "detect/github_releases.js",
     "path": "/api/detect/github/:owner/:repo/releases.atom",
@@ -12,11 +12,11 @@
     "status": 200,
     "output_file": "api/detect/github/ltaoo/findrss-worker/releases.atom.json",
     "error": "检测列表为空",
-    "duration_ms": 187
+    "duration_ms": 242
   },
   "debug_request": {
     "status": 200,
-    "duration_ms": 67
+    "duration_ms": 63
   },
   "debug": {
     "status": 200,
@@ -38,11 +38,10 @@
         "repo": "findrss-worker"
       },
       "query": {},
-      "public_origin": "https://script.findrss.cloud",
+      "public_origin": "http://script.findrss.cloud",
       "headers": {
         "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a59be53efdd1e74c"
+        "User-Agent": "node"
       },
       "authentication": {
         "required": true,
@@ -68,16 +67,16 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 0,
-        "duration_ms": 25,
+        "started_ms": 10,
+        "duration_ms": 13,
         "timings": {
-          "response_ms": 25,
-          "body_read_ms": 0,
+          "response_ms": 12,
+          "body_read_ms": 1,
           "decode_and_transfer_ms": 0
         }
       }
     ],
-    "output": "{\"kind\":\"detect\",\"schema_version\":1,\"title\":\"ltaoo/findrss-worker Releases 检测\",\"link\":\"https://github.com/ltaoo/findrss-worker/releases\",\"status\":\"initialized\",\"previous_id\":null,\"observed_at\":\"2026-11-13T06:59:45.145Z\",\"snapshot\":{\"releases\":{\"type\":\"list\",\"present\":true,\"coverage\":\"window\",\"scope\":\"releases-atom\",\"ordered\":false,\"items\":[]}},\"changes\":[],\"matches\":[],\"issues\":[]}",
+    "output": "{\"kind\":\"detect\",\"schema_version\":1,\"title\":\"ltaoo/findrss-worker Releases 检测\",\"link\":\"https://github.com/ltaoo/findrss-worker/releases\",\"status\":\"initialized\",\"previous_id\":null,\"observed_at\":\"2026-11-13T07:37:07.564Z\",\"snapshot\":{\"releases\":{\"type\":\"list\",\"present\":true,\"coverage\":\"window\",\"scope\":\"releases-atom\",\"ordered\":false,\"items\":[]}},\"changes\":[],\"matches\":[],\"issues\":[]}",
     "timing": {
       "elapsed_ms": 25,
       "stages": [
@@ -114,32 +113,32 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 25
+          "started_ms": 7,
+          "duration_ms": 17
         },
         {
           "name": "输出读取与校验",
-          "started_ms": 25,
+          "started_ms": 24,
           "duration_ms": 0
         },
         {
           "name": "执行日志收集",
-          "started_ms": 25,
+          "started_ms": 24,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 25,
-          "duration_ms": 0
+          "started_ms": 24,
+          "duration_ms": 1
         },
         {
           "name": "浏览器状态保存",
@@ -155,8 +154,8 @@
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 25
+          "started_ms": 9,
+          "duration_ms": 14
         }
       ]
     }

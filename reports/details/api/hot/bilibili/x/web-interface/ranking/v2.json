@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-13T06:58:32.044Z",
+  "checked_at": "2026-11-13T07:36:32.018Z",
   "inspection": {
     "file": "hot/bilibili.js",
     "path": "/api/hot/bilibili/x/web-interface/ranking/v2",
     "example": "/api/hot/bilibili/x/web-interface/ranking/v2",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 846
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/bilibili/x/web-interface/ranking/v2.json",
+    "duration_ms": 1003
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 510
+    "status": 200,
+    "duration_ms": 446
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "hot/bilibili.js",
       "name": "哔哩哔哩 · 排行榜",
@@ -35,11 +34,10 @@
       "pathname": "/debug/api/hot/bilibili/x/web-interface/ranking/v2",
       "params": {},
       "query": {},
-      "public_origin": "https://script.findrss.cloud",
+      "public_origin": "http://script.findrss.cloud",
       "headers": {
         "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a59be3763c25e894"
+        "User-Agent": "node"
       },
       "authentication": {
         "required": true,
@@ -47,105 +45,122 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 457,
+    "phase": "ok",
+    "elapsed_ms": 431,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 api.bilibili.com 返回 HTTP 412",
-    "error_text": "脚本执行失败：脚本上游 api.bilibili.com 返回 HTTP 412\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"bilibili-ranking\",\"count\":100,\"missing_rank\":100}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":100}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://api.bilibili.com/x/web-interface/ranking/v2",
         "method": "GET",
         "host": "api.bilibili.com",
         "pathname": "/x/web-interface/ranking/v2",
-        "status": 412,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 0,
-        "duration_ms": 457,
+        "started_ms": 10,
+        "duration_ms": 410,
         "timings": {
-          "response_ms": 457
+          "response_ms": 228,
+          "body_read_ms": 181,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"哔哩哔哩 · 排行榜\",\"link\":\"https://www.bilibili.com\",\"category\":\"娱乐\",\"observed_at\":\"2026-11-13T07:36:32.456Z\",\"entries\":[{\"id\":\"bilibili-ranking:BV1kZWX62ENY\",\"title\":\"为什么是最后一期？影视飓风1800万粉丝Q&A！\",\"link\":\"https://www.bilibili.com/video/BV1kZWX62ENY\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1gHWg6GEqj\",\"title\":\"《崩坏：星穹铁道》动画短片：「月下的欢快葬礼」\",\"link\":\"https://www.bilibili.com/video/BV1gHWg6GEqj\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1hrW367Emp\",\"title\":\"辽阔的土地生不出狭隘的爱\",\"link\":\"https://www.bilibili.com/video/BV1hrW367Emp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1sEW16cEJN\",\"title\":\"把旧发条装新身体上会发生什么？\",\"link\":\"https://www.bilibili.com/video/BV1sEW16cEJN\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1aNWm6UEeC\",\"title\":\"他真的太优雅了！灰太狼&红太狼【非凡之爱】\",\"link\":\"https://www.bilibili.com/video/BV1aNWm6UEeC\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1bwWu6KEaS\",\"title\":\"地牢酒馆-33《日常招待与地下湖》\",\"link\":\"https://www.bilibili.com/video/BV1bwWu6KEaS\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1aTWm6jEL8\",\"title\":\"《原神》过场动画-「岩与契约」\",\"link\":\"https://www.bilibili.com/video/BV1aTWm6jEL8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1z44n6bEpU\",\"title\":\"文明重启：耗时3年，我终于做出了我的第一件铁器\",\"link\":\"https://www.bilibili.com/video/BV1z44n6bEpU\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1kBWg68Ejf\",\"title\":\"千 万 别 开 911 去 川 西 ！\",\"link\":\"https://www.bilibili.com/video/BV1kBWg68Ejf\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1dGWg67Evr\",\"title\":\"养了大肥鱼以后，家里的米就没够吃过\",\"link\":\"https://www.bilibili.com/video/BV1dGWg67Evr\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1rnW16fE6v\",\"title\":\"《我的傲娇星神不可能这么可爱》\",\"link\":\"https://www.bilibili.com/video/BV1rnW16fE6v\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1aYW86vEte\",\"title\":\"Faker了一辈子的蹲方魂 终于…\",\"link\":\"https://www.bilibili.com/video/BV1aYW86vEte\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1PKWj62ERK\",\"title\":\"谁点名要看我cos德穆兰的？英语总监莅临还不快来迎接！\",\"link\":\"https://www.bilibili.com/video/BV1PKWj62ERK\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV14gW16iEq8\",\"title\":\"【烂奇迹】三毛：我的一生颠沛流离，活到现在算是个奇迹\",\"link\":\"https://www.bilibili.com/video/BV14gW16iEq8\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1THWM6eE9s\",\"title\":\"不要小瞧身边的任何一个唐人，系统的奖励丰厚的超乎你的想象\",\"link\":\"https://www.bilibili.com/video/BV1THWM6eE9s\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV13hWj68ELy\",\"title\":\"大肥鱼适合做女朋友吗？（3）\",\"link\":\"https://www.bilibili.com/video/BV13hWj68ELy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1zjW86jEXp\",\"title\":\"12岁虚报17岁当红军，91年后他是最后一位开国将军｜王扶之（1923—2026）\",\"link\":\"https://www.bilibili.com/video/BV1zjW86jEXp\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1BjWt6BEJd\",\"title\":\"《人皇步》\",\"link\":\"https://www.bilibili.com/video/BV1BjWt6BEJd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1i4W86zEUS\",\"title\":\"如何盗走《蒙娜丽莎》？【硬核狠人92】\",\"link\":\"https://www.bilibili.com/video/BV1i4W86zEUS\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1QAW36VEWg\",\"title\":\"【1酱赛评四强篇·上】BLG突破LPL对S赛T1不胜历史！几代人的夙愿！14年的等待！终于在S赛战胜T1！爽爽爽爽爽！！！！\",\"link\":\"https://www.bilibili.com/video/BV1QAW36VEWg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1EHWu6pE2E\",\"title\":\"爱莉希雅，生日快乐！\",\"link\":\"https://www.bilibili.com/video/BV1EHWu6pE2E\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1vDW963E3N\",\"title\":\"我是Tim，同事让我变装\",\"link\":\"https://www.bilibili.com/video/BV1vDW963E3N\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1v8WT6uEJH\",\"title\":\"THANK YOU Smoggy\",\"link\":\"https://www.bilibili.com/video/BV1v8WT6uEJH\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1CyW26wEad\",\"title\":\"疑似《崩坏：星穹铁道》星神★阿哈★真人角色PV流出\",\"link\":\"https://www.bilibili.com/video/BV1CyW26wEad\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1xsWQ6nE2v\",\"title\":\"“这是解锁了什么特殊CG吗？！”\",\"link\":\"https://www.bilibili.com/video/BV1xsWQ6nE2v\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1wrWg6bE5E\",\"title\":\"主包从小就喜欢长发\",\"link\":\"https://www.bilibili.com/video/BV1wrWg6bE5E\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1MdWL6WEiB\",\"title\":\"这都能还原！！？【MC阿哈篇】\",\"link\":\"https://www.bilibili.com/video/BV1MdWL6WEiB\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1TUW36kE2z\",\"title\":\"传奇历史人物志——麦克斯韦\",\"link\":\"https://www.bilibili.com/video/BV1TUW36kE2z\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV18GW76hEdg\",\"title\":\"耗时5个月，5万元成本，我用AI拍了一部68分钟的原创中国科幻长片《灰蚀危机》【ai全民制作人】\",\"link\":\"https://www.bilibili.com/video/BV18GW76hEdg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1gyW16VE28\",\"title\":\"《崩坏：星穹铁道》星旅一瞬：「皆大欢喜！」\",\"link\":\"https://www.bilibili.com/video/BV1gyW16VE28\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1ciWb6yEGv\",\"title\":\"灭霸宿舍卫生不合格，被叫回去重新值日\",\"link\":\"https://www.bilibili.com/video/BV1ciWb6yEGv\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1GJWy6rEQz\",\"title\":\"【带着AI穿越2018】#6 蓝色大肥鱼单刀赴会阿美莉卡\",\"link\":\"https://www.bilibili.com/video/BV1GJWy6rEQz\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV14NWu6PEfo\",\"title\":\"【手残联萌】12周年特别节目\",\"link\":\"https://www.bilibili.com/video/BV14NWu6PEfo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1W3Wu6FEmu\",\"title\":\"寰宇频道特别栏目 | 远行\",\"link\":\"https://www.bilibili.com/video/BV1W3Wu6FEmu\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1s9Wu6hE8m\",\"title\":\"真正的手法大帝！最弱的数值凭什么打出最强的战绩？\",\"link\":\"https://www.bilibili.com/video/BV1s9Wu6hE8m\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1NXWu6wE9P\",\"title\":\"热烈欢迎谢苗！听听新一代“功夫巨星”对自己的生活和工作什么评价？（有一说一，苗哥的夫人何彦霓女士做面包真的太好吃了！太好吃啦！！！\",\"link\":\"https://www.bilibili.com/video/BV1NXWu6wE9P\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1sCWx6GEsH\",\"title\":\"《阴阳师》笼梦祸津神CG丨祸至无日（CV：中野彩麻）\",\"link\":\"https://www.bilibili.com/video/BV1sCWx6GEsH\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1PZWR6xEqv\",\"title\":\"臣妾要线上告发熹贵妃 2.0\",\"link\":\"https://www.bilibili.com/video/BV1PZWR6xEqv\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV179WW6oESh\",\"title\":\"来东京，拍到了些怪东西\",\"link\":\"https://www.bilibili.com/video/BV179WW6oESh\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1WWWm6vEn4\",\"title\":\"冬日宿舍之写检讨\",\"link\":\"https://www.bilibili.com/video/BV1WWWm6vEn4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1x3Wu6FEcR\",\"title\":\"🥶“这个鲁鲁不太冷”🥶\",\"link\":\"https://www.bilibili.com/video/BV1x3Wu6FEcR\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1wMW56qENB\",\"title\":\"间谍过家家·福杰夫妇：非凡之爱\",\"link\":\"https://www.bilibili.com/video/BV1wMW56qENB\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1LxW863EaB\",\"title\":\"特厨探店|探店这么多年，没想到还是会震惊！\",\"link\":\"https://www.bilibili.com/video/BV1LxW863EaB\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1JnWT6LEVN\",\"title\":\"动态视频｜打败许昕，获得iPhone Duo！\",\"link\":\"https://www.bilibili.com/video/BV1JnWT6LEVN\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1FQWU6KErd\",\"title\":\"《再 试 一 次！》\",\"link\":\"https://www.bilibili.com/video/BV1FQWU6KErd\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1EZWt66EjR\",\"title\":\"旧衣服改造波士顿包\",\"link\":\"https://www.bilibili.com/video/BV1EZWt66EjR\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1ndWT6HEFW\",\"title\":\"致敬永不熄的传奇：Faker\",\"link\":\"https://www.bilibili.com/video/BV1ndWT6HEFW\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1LHWj6iEwU\",\"title\":\"【货币战争攻略】大洗牌后游戏节奏完全不同的货币战争S2究竟应该怎么玩？全网最详细最细节的货币战争S2运营教程与角色解析！看完直接领先同龄人一个大段\",\"link\":\"https://www.bilibili.com/video/BV1LHWj6iEwU\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1h4WW6LEEv\",\"title\":\"《虚环》PV03｜致过去与未来的歌\",\"link\":\"https://www.bilibili.com/video/BV1h4WW6LEEv\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1AcWG6eE1V\",\"title\":\"在公司修了个地铁…\",\"link\":\"https://www.bilibili.com/video/BV1AcWG6eE1V\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1G6WV6dEfh\",\"title\":\"老 兵 电 竞 2.0\",\"link\":\"https://www.bilibili.com/video/BV1G6WV6dEfh\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1UWWM6wEEz\",\"title\":\"黑客勒索，政企全沦陷，软盘仙人“日本”正在被黑客集中爆破？\",\"link\":\"https://www.bilibili.com/video/BV1UWWM6wEEz\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1FuWZ6dEjb\",\"title\":\"英伟达公司宣布：黄仁勋辞职\",\"link\":\"https://www.bilibili.com/video/BV1FuWZ6dEjb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1NvWg6YEjs\",\"title\":\"《你跟他废什么话》\",\"link\":\"https://www.bilibili.com/video/BV1NvWg6YEjs\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV12pWQ6QETV\",\"title\":\"三年之期已到，恭迎世一上归位！【第17集】\",\"link\":\"https://www.bilibili.com/video/BV12pWQ6QETV\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1FcWg6dEpa\",\"title\":\"这才是《灭霸全家福》原版MV，灭霸的爸爸是灭建国【AIMV大赛】\",\"link\":\"https://www.bilibili.com/video/BV1FcWg6dEpa\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1mVWm6GECM\",\"title\":\"听说新西兰卖1000一只的黑金鲍泛滥了！我临时起意…\",\"link\":\"https://www.bilibili.com/video/BV1mVWm6GECM\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV15eWu65Ee1\",\"title\":\"当队友拿不同击杀数时我的态度\",\"link\":\"https://www.bilibili.com/video/BV15eWu65Ee1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1ziWP6qENy\",\"title\":\"这是我等待了一生的巨浪\",\"link\":\"https://www.bilibili.com/video/BV1ziWP6qENy\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1uyWu6qEKs\",\"title\":\"半夜开店卖植物，但植物活过来了！\",\"link\":\"https://www.bilibili.com/video/BV1uyWu6qEKs\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1QUW46oEuT\",\"title\":\"给孩子做了一个半飞行的玩具车\",\"link\":\"https://www.bilibili.com/video/BV1QUW46oEuT\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1gjWb6tE8q\",\"title\":\"顺直大改造S2EP1—长发男与短发女的恨海情天\",\"link\":\"https://www.bilibili.com/video/BV1gjWb6tE8q\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV14sWM6aEya\",\"title\":\"小可爱龙X傲娇魔法师【AI全民制作人】\",\"link\":\"https://www.bilibili.com/video/BV14sWM6aEya\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1xcWt6SEhQ\",\"title\":\"【自制LPL首胜T1宣传片】这座山，这条河，我们走了多久？\",\"link\":\"https://www.bilibili.com/video/BV1xcWt6SEhQ\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1KpWb6WENA\",\"title\":\"上帝之光：当人类第一次拥有操纵大脑的能力\",\"link\":\"https://www.bilibili.com/video/BV1KpWb6WENA\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1wLWu6tE5N\",\"title\":\"背着180斤现金攀爬，爬上来就带走384000美金！💰\",\"link\":\"https://www.bilibili.com/video/BV1wLWu6tE5N\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1npW16tE1e\",\"title\":\"BLG 赛事语音 | 击败心魔，我们去决赛吧！\",\"link\":\"https://www.bilibili.com/video/BV1npW16tE1e\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1TgWp6MEHJ\",\"title\":\"【2026全球总决赛】11月9日 BLG vs T1\",\"link\":\"https://www.bilibili.com/video/BV1TgWp6MEHJ\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1XaWt6tEKw\",\"title\":\"「沉浸式第一人称」假如你是孙悟空的生死兄弟，远渡重洋拜菩提，从花果山一路打上天庭！【AI全民制作人】\",\"link\":\"https://www.bilibili.com/video/BV1XaWt6tEKw\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1SmWs6SEY7\",\"title\":\"mj宇宙当灭霸有了系统\",\"link\":\"https://www.bilibili.com/video/BV1SmWs6SEY7\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1WEWs66EBP\",\"title\":\"选举大败特朗普和马斯克这下惨了\",\"link\":\"https://www.bilibili.com/video/BV1WEWs66EBP\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1VmW46bEfC\",\"title\":\"《鸣潮》共鸣者「莉莉」PV |  忘记恐惧\",\"link\":\"https://www.bilibili.com/video/BV1VmW46bEfC\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1FTW26tEAC\",\"title\":\"泡面风波\",\"link\":\"https://www.bilibili.com/video/BV1FTW26tEAC\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV13zWn66EXB\",\"title\":\"谁一周后的播放量高，谁就是流量王！！！【流量王番外篇蓝队】\",\"link\":\"https://www.bilibili.com/video/BV13zWn66EXB\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1rJWu69EcL\",\"title\":\"【中文填词】因为太喜欢双11，所以轮回了\",\"link\":\"https://www.bilibili.com/video/BV1rJWu69EcL\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1tBWt6WEVw\",\"title\":\"【爱你】王力宏&王心凌「最好的地方Ⅱ」官摄 | 限定 “双王组合”首次同台，甜度加倍！\",\"link\":\"https://www.bilibili.com/video/BV1tBWt6WEVw\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1LVWy61ESo\",\"title\":\"某些软件为了盈利能干出多没下限的事\",\"link\":\"https://www.bilibili.com/video/BV1LVWy61ESo\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1J5WN6rEiH\",\"title\":\"爱是上古的遗物 人是漂泊的候鸟\",\"link\":\"https://www.bilibili.com/video/BV1J5WN6rEiH\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1tGW16NEpQ\",\"title\":\"也只有阿基维利能骗到阿哈了\",\"link\":\"https://www.bilibili.com/video/BV1tGW16NEpQ\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1XwWm6SEev\",\"title\":\"‘各 地 人 刻 板 印 象’\",\"link\":\"https://www.bilibili.com/video/BV1XwWm6SEev\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1jWWT6VEgx\",\"title\":\"别听这个怪叔叔的\",\"link\":\"https://www.bilibili.com/video/BV1jWWT6VEgx\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1xd4n6zEFk\",\"title\":\"【烂奇迹】|“当我不小心惹了上帝”\",\"link\":\"https://www.bilibili.com/video/BV1xd4n6zEFk\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1DnWM6PEMS\",\"title\":\"除了买瓜，原来还有这么多离谱事？！【一千零一部】\",\"link\":\"https://www.bilibili.com/video/BV1DnWM6PEMS\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1gyW16VEmc\",\"title\":\"🍎可以花30秒看看我10年动画历程吗？\",\"link\":\"https://www.bilibili.com/video/BV1gyW16VEmc\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1S9WL6REEb\",\"title\":\"聪明人绝对做不到的小挑战！\",\"link\":\"https://www.bilibili.com/video/BV1S9WL6REEb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1s1Wt6UEMj\",\"title\":\"把两只怀孕的蚁后分别放在不同生态，100天后谁发展的更厉害？\",\"link\":\"https://www.bilibili.com/video/BV1s1Wt6UEMj\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1WSW869EWq\",\"title\":\"印度街头大排档，鸡腿羊肉堆成山\",\"link\":\"https://www.bilibili.com/video/BV1WSW869EWq\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1CvWM69EcV\",\"title\":\"梦回首次卫戍协议！最折磨的？真—电表倒转它回来了！！！\",\"link\":\"https://www.bilibili.com/video/BV1CvWM69EcV\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1qp4j61Edm\",\"title\":\"\\\"2027年将至，提前祝大家新年快乐\\\"\",\"link\":\"https://www.bilibili.com/video/BV1qp4j61Edm\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1yBW26KEeQ\",\"title\":\"大家好，我是Smoggy！我入驻B站啦！\",\"link\":\"https://www.bilibili.com/video/BV1yBW26KEeQ\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1ZAWM61Evb\",\"title\":\"每 天 亿 遍 🔥 防 止 早 恋！\",\"link\":\"https://www.bilibili.com/video/BV1ZAWM61Evb\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1PoW16NEZN\",\"title\":\"《白银之城》角色PV - 馨西亚二世：到月下的城邦去\",\"link\":\"https://www.bilibili.com/video/BV1PoW16NEZN\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1r3WN6CESf\",\"title\":\"年度狠活！万人追更的童年阴影【寒蝉鸣泣之时】十万字精讲！\",\"link\":\"https://www.bilibili.com/video/BV1r3WN6CESf\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1uyWu6qEyH\",\"title\":\"【抢先版】7 元牛肉面结账竟要 26 元，少辣少葱都加价，不差那 19 块，只差一个说法：掏出手机那刻，老板脸先白了\",\"link\":\"https://www.bilibili.com/video/BV1uyWu6qEyH\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1MdWL6WEYg\",\"title\":\"BLG凭什么打破T1的不败神话？万字复盘BLG战胜T1挺进决赛！\",\"link\":\"https://www.bilibili.com/video/BV1MdWL6WEYg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1PDWT6REGU\",\"title\":\"大胃王网红去世这么多，为啥良子依旧活着？\",\"link\":\"https://www.bilibili.com/video/BV1PDWT6REGU\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1rZW86EE94\",\"title\":\"新人第二条视频\",\"link\":\"https://www.bilibili.com/video/BV1rZW86EE94\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1ogWy62Ed5\",\"title\":\"“由我来为这场大戏，写下开场的笑声！”\",\"link\":\"https://www.bilibili.com/video/BV1ogWy62Ed5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1qAWb6TEXY\",\"title\":\"中文要有魅力，真情不必美图！许飞厉娜、纯稚引发的时代感概\",\"link\":\"https://www.bilibili.com/video/BV1qAWb6TEXY\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}},{\"id\":\"bilibili-ranking:BV1RLWW6XEfn\",\"title\":\"谁一周后的播放量高，谁就是流量王！！！【流量王番外篇红队】\",\"link\":\"https://www.bilibili.com/video/BV1RLWW6XEfn\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"综合得分\",\"text\":\"\"}}]}",
     "timing": {
-      "elapsed_ms": 457,
+      "elapsed_ms": 431,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
+          "started_ms": 1,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
+          "started_ms": 2,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 457
+          "started_ms": 8,
+          "duration_ms": 422
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 457,
+          "name": "输出读取与校验",
+          "started_ms": 430,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 430,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 457,
-          "duration_ms": 0
+          "started_ms": 430,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 457,
+          "name": "浏览器状态保存",
+          "started_ms": 431,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 457,
+          "started_ms": 431,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 457
+          "started_ms": 10,
+          "duration_ms": 410
         }
       ]
     }

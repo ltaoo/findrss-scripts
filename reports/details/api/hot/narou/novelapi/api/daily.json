@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-13T06:58:40.340Z",
+  "checked_at": "2026-11-13T07:36:42.782Z",
   "inspection": {
     "file": "hot/narou.js",
     "path": "/api/hot/narou/novelapi/api/:period?",
     "example": "/api/hot/narou/novelapi/api/daily",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 26
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/narou/novelapi/api/daily.json",
+    "duration_ms": 1483
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 544
+    "status": 200,
+    "duration_ms": 624
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "hot/narou.js",
       "name": "小説家になろう · 小说积分榜",
@@ -37,11 +36,10 @@
         "period": "daily"
       },
       "query": {},
-      "public_origin": "https://script.findrss.cloud",
+      "public_origin": "http://script.findrss.cloud",
       "headers": {
         "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a59be3aa1ddb6d8d"
+        "User-Agent": "node"
       },
       "authentication": {
         "required": true,
@@ -49,105 +47,118 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 507,
+    "phase": "ok",
+    "elapsed_ms": 600,
     "invoked": false,
-    "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 api.syosetu.com 返回 HTTP 403",
-    "error_text": "脚本执行失败：脚本上游 api.syosetu.com 返回 HTTP 403\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://api.syosetu.com/novelapi/api/?out=json&lim=30&of=t-n-dp&order=dailypoint",
         "method": "GET",
         "host": "api.syosetu.com",
         "pathname": "/novelapi/api/",
-        "status": 403,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 0,
-        "duration_ms": 507,
+        "started_ms": 9,
+        "duration_ms": 589,
         "timings": {
-          "response_ms": 507
+          "response_ms": 549,
+          "body_read_ms": 40,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"小説家になろう · 日间积分榜\",\"link\":\"https://yomou.syosetu.com/\",\"category\":\"小说\",\"observed_at\":\"2026-11-13T07:36:43.391Z\",\"entries\":[{\"id\":\"narou:novel:n3214mz\",\"title\":\"社畜国王、二度目の婚約破棄にブチ切れる\",\"link\":\"https://ncode.syosetu.com/n3214mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":9100,\"unit\":\"日间积分\",\"text\":\"9100\"}},{\"id\":\"narou:novel:n5654mz\",\"title\":\"貴方が望む通り、二度と話しかけませんわ\",\"link\":\"https://ncode.syosetu.com/n5654mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":7390,\"unit\":\"日间积分\",\"text\":\"7390\"}},{\"id\":\"narou:novel:n5142mz\",\"title\":\"その顔が、その顔が見たかったのです\",\"link\":\"https://ncode.syosetu.com/n5142mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":5614,\"unit\":\"日间积分\",\"text\":\"5614\"}},{\"id\":\"narou:novel:n1074mw\",\"title\":\"幼馴染が妊娠したから？では、お子様を大切になさって\",\"link\":\"https://ncode.syosetu.com/n1074mw/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":4206,\"unit\":\"日间积分\",\"text\":\"4206\"}},{\"id\":\"narou:novel:n9627mr\",\"title\":\"価値観は近い方がいい\",\"link\":\"https://ncode.syosetu.com/n9627mr/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3908,\"unit\":\"日间积分\",\"text\":\"3908\"}},{\"id\":\"narou:novel:n0338mc\",\"title\":\"変わってしまったのはあなたの方でしょう？\",\"link\":\"https://ncode.syosetu.com/n0338mc/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3878,\"unit\":\"日间积分\",\"text\":\"3878\"}},{\"id\":\"narou:novel:n6518my\",\"title\":\"耳の聞こえない氷の王太子が、わたしにだけ指で「ありがとう」と言いました\",\"link\":\"https://ncode.syosetu.com/n6518my/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":3872,\"unit\":\"日间积分\",\"text\":\"3872\"}},{\"id\":\"narou:novel:n9147mq\",\"title\":\"『聖女なんだから当然でしょ？』――は？　ふざけんな\",\"link\":\"https://ncode.syosetu.com/n9147mq/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2846,\"unit\":\"日间积分\",\"text\":\"2846\"}},{\"id\":\"narou:novel:n6824mz\",\"title\":\"その呪いを知りたい\",\"link\":\"https://ncode.syosetu.com/n6824mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2666,\"unit\":\"日间积分\",\"text\":\"2666\"}},{\"id\":\"narou:novel:n7526my\",\"title\":\"【完結】今世こそ幸せになりたいと、二人目の妻を連れて帰ってきた（なお、私も彼女も妊娠中）転生者である夫は後悔する\",\"link\":\"https://ncode.syosetu.com/n7526my/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2602,\"unit\":\"日间积分\",\"text\":\"2602\"}},{\"id\":\"narou:novel:n8087my\",\"title\":\"捨てた国に勇者は還らない\",\"link\":\"https://ncode.syosetu.com/n8087my/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2424,\"unit\":\"日间积分\",\"text\":\"2424\"}},{\"id\":\"narou:novel:n5384mz\",\"title\":\"やらかした妹の代わりに貴族学院に通うことになりまして\",\"link\":\"https://ncode.syosetu.com/n5384mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2328,\"unit\":\"日间积分\",\"text\":\"2328\"}},{\"id\":\"narou:novel:n3583mz\",\"title\":\"私から婚約者を奪った彼女が、ひとり踊り狂っているらしい。なぁぜなぁぜ？\",\"link\":\"https://ncode.syosetu.com/n3583mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":2028,\"unit\":\"日间积分\",\"text\":\"2028\"}},{\"id\":\"narou:novel:n1644mz\",\"title\":\"父の看病で十年遅れましたが、二十八歳で社交界にデビューします\",\"link\":\"https://ncode.syosetu.com/n1644mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1760,\"unit\":\"日间积分\",\"text\":\"1760\"}},{\"id\":\"narou:novel:n7226ly\",\"title\":\"異世界転生した俺、チートも説明もないのでだいぶ困ってます\",\"link\":\"https://ncode.syosetu.com/n7226ly/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1722,\"unit\":\"日间积分\",\"text\":\"1722\"}},{\"id\":\"narou:novel:n3641ml\",\"title\":\"『最後に一言よろしいでしょうか。――あなたの事が嫌いでした』\",\"link\":\"https://ncode.syosetu.com/n3641ml/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1696,\"unit\":\"日间积分\",\"text\":\"1696\"}},{\"id\":\"narou:novel:n9353my\",\"title\":\"愛の祝福\",\"link\":\"https://ncode.syosetu.com/n9353my/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1666,\"unit\":\"日间积分\",\"text\":\"1666\"}},{\"id\":\"narou:novel:n3050my\",\"title\":\"素朴な妹の疑問\",\"link\":\"https://ncode.syosetu.com/n3050my/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1628,\"unit\":\"日间积分\",\"text\":\"1628\"}},{\"id\":\"narou:novel:n6221mz\",\"title\":\"婚約者様はお忙しいそうなので、いつも代わりに来てくださる方と結婚します\",\"link\":\"https://ncode.syosetu.com/n6221mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1622,\"unit\":\"日间积分\",\"text\":\"1622\"}},{\"id\":\"narou:novel:n2531mz\",\"title\":\"悪役令嬢の断罪現場に居合わせたので、合いの手を入れてみた\",\"link\":\"https://ncode.syosetu.com/n2531mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1604,\"unit\":\"日间积分\",\"text\":\"1604\"}},{\"id\":\"narou:novel:n4941mz\",\"title\":\"無実が証明された日、この国の終わりが決まった\",\"link\":\"https://ncode.syosetu.com/n4941mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1548,\"unit\":\"日间积分\",\"text\":\"1548\"}},{\"id\":\"narou:novel:n4812mz\",\"title\":\"わたくしは『偽物の勇者』ですから、当然魔王は倒せません、が……。\",\"link\":\"https://ncode.syosetu.com/n4812mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1548,\"unit\":\"日间积分\",\"text\":\"1548\"}},{\"id\":\"narou:novel:n6492mx\",\"title\":\"ダンジョン遺品整理士のおっさん、作業配信で深層を散歩していたら人類最深到達者だとバレました\",\"link\":\"https://ncode.syosetu.com/n6492mx/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1460,\"unit\":\"日间积分\",\"text\":\"1460\"}},{\"id\":\"narou:novel:n7912my\",\"title\":\"【書籍化進行中】ヒロインになれなかった私は、今日も旦那様のためにお茶を淹れる\",\"link\":\"https://ncode.syosetu.com/n7912my/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1426,\"unit\":\"日间积分\",\"text\":\"1426\"}},{\"id\":\"narou:novel:n2041mz\",\"title\":\"「実の母には一度も褒められなかった」と旦那様にこぼしたら、翌朝から義母様が毎日私を抱きしめてきます\",\"link\":\"https://ncode.syosetu.com/n2041mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1418,\"unit\":\"日间积分\",\"text\":\"1418\"}},{\"id\":\"narou:novel:n0589mz\",\"title\":\"お母様、私はもう我慢しません。――父が帰ってきた日、私は母を捨てました。\",\"link\":\"https://ncode.syosetu.com/n0589mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1400,\"unit\":\"日间积分\",\"text\":\"1400\"}},{\"id\":\"narou:novel:n2334mz\",\"title\":\"婚約者に婚約を考え直したいと言われたので、ベンチでクッキーを食べていた少女に相談しました\",\"link\":\"https://ncode.syosetu.com/n2334mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1396,\"unit\":\"日间积分\",\"text\":\"1396\"}},{\"id\":\"narou:novel:n1184mz\",\"title\":\"転生平民レティーナの婚約事情\",\"link\":\"https://ncode.syosetu.com/n1184mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1396,\"unit\":\"日间积分\",\"text\":\"1396\"}},{\"id\":\"narou:novel:n2697mz\",\"title\":\"【連載開始】旦那様が幼馴染を優先するたび、結婚指輪の数字が減っていくのですが\",\"link\":\"https://ncode.syosetu.com/n2697mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1366,\"unit\":\"日间积分\",\"text\":\"1366\"}},{\"id\":\"narou:novel:n2488mz\",\"title\":\"謝れば済むと思っているようですが、もう何度目でしょうか？\",\"link\":\"https://ncode.syosetu.com/n2488mz/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1348,\"unit\":\"日间积分\",\"text\":\"1348\"}}]}",
     "timing": {
-      "elapsed_ms": 507,
+      "elapsed_ms": 600,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 0
+          "started_ms": 1,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
+          "started_ms": 2,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
-          "duration_ms": 507
+          "started_ms": 7,
+          "duration_ms": 592
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 507,
+          "name": "输出读取与校验",
+          "started_ms": 599,
           "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 599,
+          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 507,
+          "started_ms": 600,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 507,
+          "name": "浏览器状态保存",
+          "started_ms": 600,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 507,
+          "started_ms": 600,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 507
+          "started_ms": 9,
+          "duration_ms": 589
         }
       ]
     }

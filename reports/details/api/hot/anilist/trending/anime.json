@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-13T06:58:31.459Z",
+  "checked_at": "2026-11-13T07:36:31.580Z",
   "inspection": {
     "file": "hot/anilist.js",
     "path": "/api/hot/anilist/trending/:type?",
     "example": "/api/hot/anilist/trending/anime",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
-    "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-    "duration_ms": 266
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/anilist/trending/anime.json",
+    "duration_ms": 567
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 379
+    "status": 200,
+    "duration_ms": 203
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "hot/anilist.js",
       "name": "AniList · 动漫趋势榜",
@@ -37,11 +36,10 @@
         "type": "anime"
       },
       "query": {},
-      "public_origin": "https://script.findrss.cloud",
+      "public_origin": "http://script.findrss.cloud",
       "headers": {
         "Accept": "application/json",
-        "User-Agent": "node",
-        "CF-Ray": "a59be372bf2fe894"
+        "User-Agent": "node"
       },
       "authentication": {
         "required": true,
@@ -49,33 +47,41 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 5,
+    "phase": "ok",
+    "elapsed_ms": 168,
     "invoked": false,
-    "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 graphql.anilist.co 返回 HTTP 403",
-    "error_text": "脚本执行失败：脚本上游 graphql.anilist.co 返回 HTTP 403\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":30}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://graphql.anilist.co/",
         "method": "POST",
         "host": "graphql.anilist.co",
         "pathname": "/",
-        "status": 403,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 0,
-        "duration_ms": 5,
+        "started_ms": 8,
+        "duration_ms": 157,
         "timings": {
-          "response_ms": 5
+          "response_ms": 108,
+          "body_read_ms": 49,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"AniList · 动画趋势榜\",\"link\":\"https://anilist.co/search/anime/trending\",\"category\":\"动漫\",\"observed_at\":\"2026-11-13T07:36:31.779Z\",\"entries\":[{\"id\":\"anilist:anime:180136\",\"title\":\"追放された転生重騎士はゲーム知識で無双する\",\"link\":\"https://anilist.co/anime/180136\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx180136-gtMTCRlOD4OE.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":239,\"unit\":\"趋势活跃度\",\"text\":\"239\"}},{\"id\":\"anilist:anime:21\",\"title\":\"ONE PIECE\",\"link\":\"https://anilist.co/anime/21\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21-ELSYx3yMPcKM.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":196,\"unit\":\"趋势活跃度\",\"text\":\"196\"}},{\"id\":\"anilist:anime:213805\",\"title\":\"氷の城壁 第2期\",\"link\":\"https://anilist.co/anime/213805\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx213805-Nokui3uWlIlw.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":179,\"unit\":\"趋势活跃度\",\"text\":\"179\"}},{\"id\":\"anilist:anime:97940\",\"title\":\"ブラッククローバー\",\"link\":\"https://anilist.co/anime/97940\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx97940-fyh8o7gNbha0.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":127,\"unit\":\"趋势活跃度\",\"text\":\"127\"}},{\"id\":\"anilist:anime:207329\",\"title\":\"追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。　～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～\",\"link\":\"https://anilist.co/anime/207329\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b207329-6VPeZIDfF4Sr.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":86,\"unit\":\"趋势活跃度\",\"text\":\"86\"}},{\"id\":\"anilist:anime:212503\",\"title\":\"冰剣の魔術師が世界を統べるⅡ\",\"link\":\"https://anilist.co/anime/212503\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx212503-sXBpRZr96c4e.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":78,\"unit\":\"趋势活跃度\",\"text\":\"78\"}},{\"id\":\"anilist:anime:212888\",\"title\":\"テムパル～アイテムの力～\",\"link\":\"https://anilist.co/anime/212888\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx212888-NhyvqPt5aIuJ.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":77,\"unit\":\"趋势活跃度\",\"text\":\"77\"}},{\"id\":\"anilist:anime:269\",\"title\":\"BLEACH\",\"link\":\"https://anilist.co/anime/269\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx269-d2GmRkJbMopq.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":72,\"unit\":\"趋势活跃度\",\"text\":\"72\"}},{\"id\":\"anilist:anime:206401\",\"title\":\"FX戦士くるみちゃん\",\"link\":\"https://anilist.co/anime/206401\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx206401-8cAebkI0i8BA.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":69,\"unit\":\"趋势活跃度\",\"text\":\"69\"}},{\"id\":\"anilist:anime:159042\",\"title\":\"転生したら剣でした 第2期\",\"link\":\"https://anilist.co/anime/159042\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx159042-GGFwlDskc5vR.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":68,\"unit\":\"趋势活跃度\",\"text\":\"68\"}},{\"id\":\"anilist:anime:195539\",\"title\":\"サイバーパンク: エッジランナーズ2\",\"link\":\"https://anilist.co/anime/195539\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx195539-4LdfmKIHzuxr.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":57,\"unit\":\"趋势活跃度\",\"text\":\"57\"}},{\"id\":\"anilist:anime:195516\",\"title\":\"薬屋のひとりごと 第3期\",\"link\":\"https://anilist.co/anime/195516\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx195516-MJpUZlOberqH.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":52,\"unit\":\"趋势活跃度\",\"text\":\"52\"}},{\"id\":\"anilist:anime:211778\",\"title\":\"世界最強の魔女、始めました\",\"link\":\"https://anilist.co/anime/211778\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx211778-0MXK5HqVFBYH.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":47,\"unit\":\"趋势活跃度\",\"text\":\"47\"}},{\"id\":\"anilist:anime:172192\",\"title\":\"帰還者の魔法は特別です 第2期\",\"link\":\"https://anilist.co/anime/172192\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx172192-W7P5xEUaxF3y.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":46,\"unit\":\"趋势活跃度\",\"text\":\"46\"}},{\"id\":\"anilist:anime:1735\",\"title\":\"NARUTO -ナルト- 疾風伝\",\"link\":\"https://anilist.co/anime/1735\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx1735-kGfVm0YqCPcu.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":45,\"unit\":\"趋势活跃度\",\"text\":\"45\"}},{\"id\":\"anilist:anime:195604\",\"title\":\"ブラッククローバー 第2期\",\"link\":\"https://anilist.co/anime/195604\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx195604-tSZcfKbVqSEG.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":45,\"unit\":\"趋势活跃度\",\"text\":\"45\"}},{\"id\":\"anilist:anime:189046\",\"title\":\"Re:ゼロから始める異世界生活 4th season\",\"link\":\"https://anilist.co/anime/189046\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx189046-yaHWtS5FII46.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":40,\"unit\":\"趋势活跃度\",\"text\":\"40\"}},{\"id\":\"anilist:anime:206949\",\"title\":\"凶乱令嬢ニア・リストン\",\"link\":\"https://anilist.co/anime/206949\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx206949-4HYI3YuP0eLI.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":39,\"unit\":\"趋势活跃度\",\"text\":\"39\"}},{\"id\":\"anilist:anime:11061\",\"title\":\"HUNTER×HUNTER (2011)\",\"link\":\"https://anilist.co/anime/11061\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx11061-y5gsT1hoHuHw.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":34,\"unit\":\"趋势活跃度\",\"text\":\"34\"}},{\"id\":\"anilist:anime:189123\",\"title\":\"アオのハコ Season２\",\"link\":\"https://anilist.co/anime/189123\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx189123-0secXELIhkIW.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":32,\"unit\":\"趋势活跃度\",\"text\":\"32\"}},{\"id\":\"anilist:anime:191656\",\"title\":\"生徒会にも穴はある！\",\"link\":\"https://anilist.co/anime/191656\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx191656-xFHtxM8SUTdU.png\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":32,\"unit\":\"趋势活跃度\",\"text\":\"32\"}},{\"id\":\"anilist:anime:20\",\"title\":\"NARUTO -ナルト-\",\"link\":\"https://anilist.co/anime/20\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":29,\"unit\":\"趋势活跃度\",\"text\":\"29\"}},{\"id\":\"anilist:anime:210482\",\"title\":\"ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd＆3rd STAGE\",\"link\":\"https://anilist.co/anime/210482\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx210482-P1VNKbqdJ6Zj.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":29,\"unit\":\"趋势活跃度\",\"text\":\"29\"}},{\"id\":\"anilist:anime:207191\",\"title\":\"どうも、好きな人に惚れ薬を依頼された魔女です。\",\"link\":\"https://anilist.co/anime/207191\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx207191-VgkIzfH92WoZ.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":28,\"unit\":\"趋势活跃度\",\"text\":\"28\"}},{\"id\":\"anilist:anime:120377\",\"title\":\"サイバーパンク エッジランナーズ\",\"link\":\"https://anilist.co/anime/120377\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx120377-ayZPoxiWt4Li.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27,\"unit\":\"趋势活跃度\",\"text\":\"27\"}},{\"id\":\"anilist:anime:196187\",\"title\":\"スーパーの裏でヤニ吸うふたり\",\"link\":\"https://anilist.co/anime/196187\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx196187-0dgFi2CPp3xn.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27,\"unit\":\"趋势活跃度\",\"text\":\"27\"}},{\"id\":\"anilist:anime:182205\",\"title\":\"転生したらスライムだった件 第4期 第1&2クール\",\"link\":\"https://anilist.co/anime/182205\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx182205-q2AeO1owuQbO.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":25,\"unit\":\"趋势活跃度\",\"text\":\"25\"}},{\"id\":\"anilist:anime:185874\",\"title\":\"BLEACH 千年血戦篇-禍進譚-\",\"link\":\"https://anilist.co/anime/185874\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx185874-aU3e6tBT6wwA.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":25,\"unit\":\"趋势活跃度\",\"text\":\"25\"}},{\"id\":\"anilist:anime:186497\",\"title\":\"氷の城壁\",\"link\":\"https://anilist.co/anime/186497\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx186497-uwPrNPphXvjP.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":25,\"unit\":\"趋势活跃度\",\"text\":\"25\"}},{\"id\":\"anilist:anime:161645\",\"title\":\"薬屋のひとりごと\",\"link\":\"https://anilist.co/anime/161645\",\"thumbnail\":\"https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx161645-QLbzHXiYRgV2.jpg\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":24,\"unit\":\"趋势活跃度\",\"text\":\"24\"}}]}",
     "timing": {
-      "elapsed_ms": 5,
+      "elapsed_ms": 168,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -110,44 +116,49 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 0,
-          "duration_ms": 0
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 5,
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 161
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 167,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 167,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 5,
+          "started_ms": 167,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 5,
+          "name": "浏览器状态保存",
+          "started_ms": 167,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 5,
-          "duration_ms": 0
+          "started_ms": 167,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 0,
-          "duration_ms": 5
+          "started_ms": 8,
+          "duration_ms": 157
         }
       ]
     }

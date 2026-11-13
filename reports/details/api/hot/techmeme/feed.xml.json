@@ -1,23 +1,164 @@
 {
-  "checked_at": "2026-11-13T06:58:50.955Z",
+  "checked_at": "2026-11-13T07:36:47.156Z",
   "inspection": {
     "file": "hot/techmeme.js",
     "path": "/api/hot/techmeme/feed.xml",
     "example": "/api/hot/techmeme/feed.xml",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 503,
-    "code": "EXCEEDED_RESOURCES",
-    "error": "HTTP 503: EXCEEDED_RESOURCES: Worker 资源超限（CPU 或内存），需查看 Workers Logs 确认",
-    "duration_ms": 49
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/techmeme/feed.xml.json",
+    "duration_ms": 497
   },
   "debug_request": {
-    "status": 503,
-    "error": "Debug 返回了无效的诊断结构",
-    "duration_ms": 22
+    "status": 200,
+    "duration_ms": 282
   },
-  "debug": null
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "hot/techmeme.js",
+      "name": "Techmeme · 科技头条",
+      "kind": "hot",
+      "version": "1.0.0",
+      "path": "/techmeme/feed.xml",
+      "request_path": "/api/hot/techmeme/feed.xml",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/hot/techmeme/feed.xml",
+      "params": {},
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 247,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":15}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.techmeme.com/feed.xml",
+        "method": "GET",
+        "host": "www.techmeme.com",
+        "pathname": "/feed.xml",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 9,
+        "duration_ms": 215,
+        "timings": {
+          "response_ms": 179,
+          "body_read_ms": 36,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Techmeme · 科技头条\",\"link\":\"https://www.techmeme.com/\",\"category\":\"科技\",\"observed_at\":\"2026-11-13T07:36:47.431Z\",\"entries\":[{\"id\":\"techmeme:https://www.techmeme.com/261113/p5#a261113p5\",\"title\":\"OpenAI launches Daybreak Red Team in early access to test web apps for flaws and Daybreak Defense Factory to automate finding, validating, and fixing them (Jessica Lyons/The Register)\",\"link\":\"https://www.techmeme.com/261113/p5#a261113p5\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261113/p4#a261113p4\",\"title\":\"Sources: Samsung is in talks to buy Modine Manufacturing, a US maker of data center cooling systems, as soon as the coming weeks; Modine's market value is $5.6B (Bloomberg)\",\"link\":\"https://www.techmeme.com/261113/p4#a261113p4\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261113/p3#a261113p3\",\"title\":\"Filing: Nscale says it needs more funding for its 2027 commitments after ordering Nvidia chips for a $45B Anthropic deal, casting doubt on its planned $35B IPO (Financial Times)\",\"link\":\"https://www.techmeme.com/261113/p3#a261113p3\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261113/p2#a261113p2\",\"title\":\"Nscale's updated IPO prospectus shows Q3 revenue up 1,344% YoY to $307.5M, up from $140.6M in Q2; net loss widened to $1.69B, up from $1.02B in Q2 (Jordan Novet/CNBC)\",\"link\":\"https://www.techmeme.com/261113/p2#a261113p2\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261113/p1#a261113p1\",\"title\":\"Meta launches an outbound calling feature for Muse, such as to businesses, available for paid US subscribers; Gemini and startup Instinct offer a similar option (Sarah Perez/TechCrunch)\",\"link\":\"https://www.techmeme.com/261113/p1#a261113p1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p74#a261112p74\",\"title\":\"Mirendil, founded by former Anthropic researchers to build tools for frontier AI R&D, raised a $1B Series A led by Kleiner Perkins and Clearlake Capital (Sarah Klearman/Wall Street Journal)\",\"link\":\"https://www.techmeme.com/261112/p74#a261112p74\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p73#a261112p73\",\"title\":\"Sources: social media companies' payouts in teen addiction suits mostly ranged from $2M-$2.5M; Meta agreed to pay two teens a combined $7M in the past two weeks (Olivia Carville/Bloomberg)\",\"link\":\"https://www.techmeme.com/261112/p73#a261112p73\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p72#a261112p72\",\"title\":\"Sources: US officials disagree on whether Alice Huang spied on Jensen Huang for China; some at ODNI and CIA say intelligence collected so far doesn't prove it (CNN)\",\"link\":\"https://www.techmeme.com/261112/p72#a261112p72\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p71#a261112p71\",\"title\":\"Letter: ByteDance plans to buy back up to $6B worth of shares from existing investors at a ~$400B valuation, a 20% increase in valuation from its 2025 buyback (The Information)\",\"link\":\"https://www.techmeme.com/261112/p71#a261112p71\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p70#a261112p70\",\"title\":\"Senate Banking Chair Tim Scott asks Jensen Huang and Howard Lutnick to testify at separate hearings in December over the Nvidia saga; Lutnick agrees to appear (Jasper Goodman/Politico)\",\"link\":\"https://www.techmeme.com/261112/p70#a261112p70\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p69#a261112p69\",\"title\":\"Sources: Nvidia faced pressure to boost its 25% residual value support backstop on a planned $500B AI financing vehicle with asset managers before Huang's exit (Bloomberg)\",\"link\":\"https://www.techmeme.com/261112/p69#a261112p69\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p68#a261112p68\",\"title\":\"Sources close to Jensen Huang say he has taken a penitent turn, castigated himself as a \\\"piece of shit\\\", and claims to not care what happens to himself (Bloomberg)\",\"link\":\"https://www.techmeme.com/261112/p68#a261112p68\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p67#a261112p67\",\"title\":\"Sources: President Trump's and Howard Lutnick's close relationship with Jensen Huang made officials wary of taking aggressive steps to rein in Nvidia chip sales (New York Times)\",\"link\":\"https://www.techmeme.com/261112/p67#a261112p67\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p66#a261112p66\",\"title\":\"Sources: President Trump urged Jensen Huang to keep fighting for his job in a Tuesday call; aides say Trump saw the company as essentially too big to fail (New York Times)\",\"link\":\"https://www.techmeme.com/261112/p66#a261112p66\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"techmeme:https://www.techmeme.com/261112/p65#a261112p65\",\"title\":\"New York-based Hatz AI, which makes tools for managed services providers to help small businesses adopt AI, raised a $24M Series A (CJ Fairfield/CRN)\",\"link\":\"https://www.techmeme.com/261112/p65#a261112p65\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
+    "timing": {
+      "elapsed_ms": 247,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 2
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 240
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 247,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 247,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 215
+        }
+      ]
+    }
+  }
 }
