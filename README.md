@@ -143,7 +143,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 脚本 | 文件 | 路由示例 | 版本 | 使用要求 |
 | --- | --- | --- | --- | --- |
 | 36氪 · 快讯 / 人气榜 | [hot/36kr.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/36kr.js) | `/36kr/newsflashes`、`/36kr/hot-list/renqi` | 1.0.3 | 人气榜需授权并同步 36kr.com 验证 Cookie |
-| AIHOT | [hot/aihot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/aihot.js) | `/aihot/feed/all.xml` | 1.0.1 | 公开来源 |
+| AIHOT | [hot/aihot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/aihot.js) | `/aihot/feed/all.xml` | 1.0.2 | 公开来源 |
 | AniList · 动漫趋势榜 | [hot/anilist.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/anilist.js) | `/anilist/trending/anime` | 1.0.0 | 公开来源 |
 | Apple · 播客/音乐榜 | [hot/apple_charts.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/apple_charts.js) | `/apple-charts/api/v2/us/podcasts` | 1.0.0 | 公开来源 |
 | Ars Technica · 最新资讯 | [hot/arstechnica.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/arstechnica.js) | `/arstechnica/arstechnica/index` | 1.0.0 | 公开来源 |
