@@ -1,8 +1,8 @@
-# 脚本路由巡检：108/142 通过
+# 脚本路由巡检：110/142 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-14T11:41:16.358Z
+巡检时间：2026-11-14T18:23:27.285Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -20,7 +20,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/36kr/hot-list/renqi | ❌ 失败 | UPSTREAM\_AUTH\_REQUIRED: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据 |
+| /api/hot/36kr/hot-list/renqi | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-15/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/36kr/newsflashes | ✅ 成功 |  |
 
 ## hot/apple\_charts.js（0/1 通过）
@@ -38,16 +38,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/bluesky/xrpc/app.bsky.unspecced.getTrendingTopics | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
-
-## hot/cls.js（2/3 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/cls/v1/roll/get\_roll\_list | ❌ 失败 | SCRIPT\_FAILED: HTTP 502: SCRIPT\_FAILED: 脚本执行失败，请结合 Worker 日志排查 |
-| /api/hot/cls/v2/article/hot/list | ✅ 成功 |  |
-| /api/hot/cls/v3/depth/home/assembled/1000 | ✅ 成功 |  |
 
 ## hot/fanqienovel.js（0/1 通过）
 
@@ -87,7 +77,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/kuaishou/hot | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/hot/kuaishou/hot | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
 
 ## hot/pcbeta\_windows11.js（0/1 通过）
 
@@ -150,7 +140,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/69shuba/book/:book\_id | ❌ 失败 | The operation was aborted due to timeout |
+| /api/rss/69shuba/book/:book\_id | ❌ 失败 | SCRIPT\_FAILED: HTTP 502: SCRIPT\_FAILED: 脚本执行失败，请结合 Worker 日志排查 |
 
 ## rss/avmoo.js（0/1 通过）
 
@@ -166,7 +156,15 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/douyin/user/:sec\_uid | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/rss/douyin/user/:sec\_uid | ❌ 失败 | SCRIPT\_FAILED: HTTP 502: SCRIPT\_FAILED: 脚本执行失败，请结合 Worker 日志排查 |
+
+## rss/instagram.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-91.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/instagram/:username | ❌ 失败 | UPSTREAM\_RATE\_LIMITED: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
 
 ## rss/javlibrary.js（0/1 通过）
 
@@ -215,21 +213,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/xiaohongshu/user/profile/:uid | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
-
-## rss/zhihu.js（6/8 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-105.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/zhihu/people/:user/asks | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
-| /api/rss/zhihu/people/:user/posts | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
-| /api/rss/zhihu/collection/:collection\_id | ✅ 成功 |  |
-| /api/rss/zhihu/column/:column\_id | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/answers | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/pins | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/zvideos | ✅ 成功 |  |
 
 ## clip/baidu\_weather.js（1/1 通过）
 
@@ -321,6 +304,16 @@
 | --- | --- | --- |
 | /api/hot/chongbuluo/forum.php/hot | ✅ 成功 |  |
 | /api/hot/chongbuluo/forum.php/latest | ✅ 成功 |  |
+
+## hot/cls.js（3/3 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/cls/v1/roll/get\_roll\_list | ✅ 成功 |  |
+| /api/hot/cls/v2/article/hot/list | ✅ 成功 |  |
+| /api/hot/cls/v3/depth/home/assembled/1000 | ✅ 成功 |  |
 
 ## hot/dailymotion.js（1/1 通过）
 
@@ -825,14 +818,6 @@
 | /api/rss/hongguo/search/:keyword | ✅ 成功 |  |
 | /api/rss/hongguo/series/:series\_id | ✅ 成功 |  |
 
-## rss/instagram.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-91.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/instagram/:username | ✅ 成功 |  |
-
 ## rss/javbus.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-92.svg" alt="" width="24" height="24"> [rss/javbus.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javbus.js) · 版本：1.0.0
@@ -889,3 +874,18 @@
 | --- | --- | --- |
 | /api/rss/youtube/:handle | ✅ 成功 |  |
 | /api/rss/youtube/:handle/shorts | ✅ 成功 |  |
+
+## rss/zhihu.js（8/8 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-105.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/zhihu/collection/:collection\_id | ✅ 成功 |  |
+| /api/rss/zhihu/column/:column\_id | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/answers | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/asks | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/pins | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/posts | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/zvideos | ✅ 成功 |  |
