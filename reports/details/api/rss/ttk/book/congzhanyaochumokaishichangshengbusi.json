@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-14T03:26:08.005Z",
+  "checked_at": "2026-11-14T11:39:36.422Z",
   "inspection": {
     "file": "rss/ttk.js",
     "path": "/api/rss/ttk/book/:book_id",
@@ -12,11 +12,11 @@
     "status": 502,
     "code": "UPSTREAM_ACCESS_DENIED",
     "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-    "duration_ms": 216
+    "duration_ms": 2180
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 106
+    "duration_ms": 90
   },
   "debug": {
     "status": 502,
@@ -49,7 +49,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 76,
+    "elapsed_ms": 78,
     "invoked": false,
     "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 ttks.tw 返回 HTTP 403",
     "error_text": "脚本执行失败：脚本上游 ttks.tw 返回 HTTP 403\nat fetchText (rss-context.js:617:45)",
@@ -66,15 +66,15 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 13,
-        "duration_ms": 61,
+        "started_ms": 11,
+        "duration_ms": 66,
         "timings": {
-          "response_ms": 61
+          "response_ms": 66
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 76,
+      "elapsed_ms": 78,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -114,39 +114,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 8
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
-          "duration_ms": 66
+          "started_ms": 8,
+          "duration_ms": 70
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 75,
+          "started_ms": 78,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 75,
-          "duration_ms": 1
+          "started_ms": 78,
+          "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 76,
+          "started_ms": 78,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 76,
+          "started_ms": 78,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 13,
-          "duration_ms": 61
+          "started_ms": 11,
+          "duration_ms": 66
         }
       ]
     }

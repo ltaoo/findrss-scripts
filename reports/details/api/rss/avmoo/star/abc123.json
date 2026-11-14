@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-14T03:26:04.549Z",
+  "checked_at": "2026-11-14T11:39:29.663Z",
   "inspection": {
     "file": "rss/avmoo.js",
     "path": "/api/rss/avmoo/star/:id",
@@ -12,11 +12,11 @@
     "status": 502,
     "code": "UPSTREAM_ACCESS_DENIED",
     "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
-    "duration_ms": 164
+    "duration_ms": 4346
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 78
+    "duration_ms": 143
   },
   "debug": {
     "status": 502,
@@ -49,7 +49,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 71,
+    "elapsed_ms": 82,
     "invoked": false,
     "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 avmoo.com 返回 HTTP 403",
     "error_text": "脚本执行失败：脚本上游 avmoo.com 返回 HTTP 403\nat fetchText (rss-context.js:617:45)",
@@ -66,15 +66,15 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 9,
-        "duration_ms": 61,
+        "started_ms": 11,
+        "duration_ms": 70,
         "timings": {
-          "response_ms": 61
+          "response_ms": 70
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 71,
+      "elapsed_ms": 82,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -84,69 +84,69 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 5
+          "started_ms": 2,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 64
+          "started_ms": 8,
+          "duration_ms": 73
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 70,
+          "started_ms": 81,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 70,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 70,
+          "started_ms": 81,
           "duration_ms": 1
         },
         {
+          "name": "失败后浏览器清理",
+          "started_ms": 82,
+          "duration_ms": 0
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 71,
+          "started_ms": 82,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 62
+          "started_ms": 10,
+          "duration_ms": 71
         }
       ]
     }

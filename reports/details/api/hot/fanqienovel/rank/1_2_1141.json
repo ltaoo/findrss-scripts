@@ -1,25 +1,26 @@
 {
-  "checked_at": "2026-11-14T03:25:49.052Z",
+  "checked_at": "2026-11-14T11:39:01.982Z",
   "inspection": {
     "file": "hot/fanqienovel.js",
     "path": "/api/hot/fanqienovel/rank/:rank_id?",
     "example": "/api/hot/fanqienovel/rank/1_2_1141",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/fanqienovel/rank/1_2_1141.json",
-    "duration_ms": 1036
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
+    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+    "duration_ms": 1216
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 658
+    "status": 502,
+    "duration_ms": 716
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "hot/fanqienovel.js",
       "name": "番茄小说排行榜",
@@ -47,21 +48,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 651,
+    "phase": "runtime",
+    "elapsed_ms": 705,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "番茄榜单解析完成 {\"rank_id\":\"1_2_1141\",\"count\":10}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":10}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：unexpected token: 'undefined'",
+    "error_text": "脚本执行失败：unexpected token: 'undefined'\nat <input>:1:3161\n    at parse (native)\n    at parseJSON (script-globals.js:25:38)\n    at embedded_json (@findrss/util:90:81)\n    at fetch (script-source.js:42:41)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://fanqienovel.com/rank/1_2_1141",
@@ -74,18 +66,17 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 9,
-        "duration_ms": 592,
+        "started_ms": 10,
+        "duration_ms": 659,
         "timings": {
-          "response_ms": 578,
-          "body_read_ms": 14,
-          "decode_and_transfer_ms": 0
+          "response_ms": 622,
+          "body_read_ms": 36,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"番茄小说 · 男频阅读榜 · 西方奇幻\",\"link\":\"https://fanqienovel.com/rank/1_2_1141\",\"category\":\"小说\",\"observed_at\":\"2026-11-14T03:25:49.704Z\",\"entries\":[{\"id\":\"fanqienovel:book:7654593151348247614\",\"title\":\"人在诡异，靠第四天灾登顶至高\",\"link\":\"https://fanqienovel.com/page/7654593151348247614\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/p2o38e0ac3221c93d255029503b040bb825~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=Bw8q5jkK5864mWJxB0t299Kzmug%3D\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":762249,\"unit\":\"在读\",\"text\":\"762249\"}},{\"id\":\"fanqienovel:book:7662321215717002264\",\"title\":\"魔女金词条？我反派先薅为敬！\",\"link\":\"https://fanqienovel.com/page/7662321215717002264\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/p2oe549d836b4385f4fd5e0c3028f74a0f6~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=cSEQWyohP%2FHrvREmEy9Jtc3aC8s%3D\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":426652,\"unit\":\"在读\",\"text\":\"426652\"}},{\"id\":\"fanqienovel:book:7320218217488600126\",\"title\":\"领主：我在苦痛世界，养成少女\",\"link\":\"https://fanqienovel.com/page/7320218217488600126\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/999c8a1d05578d7aec77def618f7f4e6~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=j1D8lKwC588zI9LqPIDyuMO2nlk%3D\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":309913,\"unit\":\"在读\",\"text\":\"309913\"}},{\"id\":\"fanqienovel:book:7572208200489896985\",\"title\":\"地下城冒险：从成为玩家开始\",\"link\":\"https://fanqienovel.com/page/7572208200489896985\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/11f2877421aeb9e010c347e07ce8c0c1~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=qRRtj%2BincIJHm%2BNQTI98NvARt%2FM%3D\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":285512,\"unit\":\"在读\",\"text\":\"285512\"}},{\"id\":\"fanqienovel:book:7601032456199736382\",\"title\":\"必死反派的学院地下城生存指南\",\"link\":\"https://fanqienovel.com/page/7601032456199736382\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/p2obb41711418ec9e4e5d48a99468b1bd94~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=pm5M4Cf%2BS33xQexZxdP%2FPQruBqQ%3D\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":228519,\"unit\":\"在读\",\"text\":\"228519\"}},{\"id\":\"fanqienovel:book:7675409793934167065\",\"title\":\"穿成恶役男配后被女主缠上了\",\"link\":\"https://fanqienovel.com/page/7675409793934167065\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/p2o7e182d3a50c2b3931011040b3c967101~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=K89NIB0XMQw8Njf5ri8wCU4y3aE%3D\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":213280,\"unit\":\"在读\",\"text\":\"213280\"}},{\"id\":\"fanqienovel:book:7625929936401878041\",\"title\":\"贵族大小姐下乡三年生七个跑路啦\",\"link\":\"https://fanqienovel.com/page/7625929936401878041\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/p2o6210f8b95b502b33e4abd88a73e10227~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=42WGTc22Q3BGkzuolBX%2FVchOLrU%3D\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":159108,\"unit\":\"在读\",\"text\":\"159108\"}},{\"id\":\"fanqienovel:book:7694533346310753304\",\"title\":\"全民领主：不给兵营，那就给钱吧\",\"link\":\"https://fanqienovel.com/page/7694533346310753304\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/p2o22f56eb4b784ca6f89b19765f6004e46~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=8dWTCIJJR047QF2EfzuxRtGDPGo%3D\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":155497,\"unit\":\"在读\",\"text\":\"155497\"}},{\"id\":\"fanqienovel:book:7583540512263506969\",\"title\":\"精灵女王审讯录\",\"link\":\"https://fanqienovel.com/page/7583540512263506969\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/p2o4b89e280d4615a8e3447369b29480983~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=JBsGwkw%2F7%2F%2BSQWHfTFfIwyavs6M%3D\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":143132,\"unit\":\"在读\",\"text\":\"143132\"}},{\"id\":\"fanqienovel:book:7080348306596957217\",\"title\":\"异世界：我的人生开了挂！\",\"link\":\"https://fanqienovel.com/page/7080348306596957217\",\"thumbnail\":\"https://p3-reading-sign.fqnovelpic.com/novel-pic/e340edb4574feb8218408b87334888c3~tplv-resize:225:0.image?lk3s=5b7047ff&x-expires=1795231549&x-signature=ybVgfMQLa4qnJFhcxdFELaePG5I%3D\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":137980,\"unit\":\"在读\",\"text\":\"137980\"}}]}",
     "timing": {
-      "elapsed_ms": 651,
+      "elapsed_ms": 705,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -120,49 +111,44 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 2
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 644
+          "started_ms": 7,
+          "duration_ms": 697
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 650,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 650,
+          "name": "错误诊断收集",
+          "started_ms": 704,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 650,
+          "started_ms": 704,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 651,
+          "name": "失败后浏览器清理",
+          "started_ms": 705,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 651,
+          "started_ms": 705,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 593
+          "started_ms": 10,
+          "duration_ms": 659
         }
       ]
     }
