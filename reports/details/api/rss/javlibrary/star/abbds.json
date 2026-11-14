@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-13T22:45:21.572Z",
+  "checked_at": "2026-11-14T03:26:54.924Z",
   "inspection": {
     "file": "rss/javlibrary.js",
     "path": "/api/rss/javlibrary/star/:id",
@@ -12,11 +12,11 @@
     "status": 502,
     "code": "SCRIPT_FAILED",
     "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 48589
+    "duration_ms": 49051
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 47023
+    "duration_ms": 48429
   },
   "debug": {
     "status": 502,
@@ -49,7 +49,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 47006,
+    "elapsed_ms": 48400,
     "invoked": false,
     "upstream_error": "SCRIPT_FAILED: 脚本执行失败：Waiting for selector `.videothumblist, .videotextlist` failed: Waiting failed: 45000ms exceeded",
     "error_text": "脚本执行失败：Waiting for selector `.videothumblist, .videotextlist` failed: Waiting failed: 45000ms exceeded\nat navigate (rss-context.js:631:49)",
@@ -61,7 +61,7 @@
     ],
     "upstream_requests": [],
     "timing": {
-      "elapsed_ms": 47006,
+      "elapsed_ms": 48400,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -96,49 +96,49 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 6
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 46997
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 47004,
           "duration_ms": 1
         },
         {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 12
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 14,
+          "duration_ms": 48385
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 48399,
+          "duration_ms": 0
+        },
+        {
           "name": "沙箱释放",
-          "started_ms": 47005,
+          "started_ms": 48399,
           "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 47005,
+          "started_ms": 48399,
           "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 47006,
+          "started_ms": 48400,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 0
+          "started_ms": 20,
+          "duration_ms": 2
         },
         {
           "name": "浏览器页面获取",
-          "started_ms": 10,
-          "duration_ms": 46994
+          "started_ms": 24,
+          "duration_ms": 48374
         }
       ]
     }
