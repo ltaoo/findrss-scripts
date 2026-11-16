@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-15T23:00:56.539Z",
+  "checked_at": "2026-11-16T02:54:54.474Z",
   "inspection": {
     "file": "hot/cls.js",
     "path": "/api/hot/cls/v3/depth/home/assembled/1000",
@@ -11,15 +11,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/hot/cls/v3/depth/home/assembled/1000.json",
-    "duration_ms": 1144
+    "duration_ms": 1124
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 316
+    "status": 504,
+    "duration_ms": 10057
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
     "script": {
       "file": "hot/cls.js",
       "name": "财联社 · 深度",
@@ -45,114 +45,97 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 277,
+    "phase": "runtime",
+    "elapsed_ms": 10033,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"cls-depth\",\"count\":35,\"missing_rank\":35}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":35}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:617:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.cls.cn/v3/depth/home/assembled/1000?appName=CailianpressWeb&os=web&sv=7.7.5&sign=9c11221af4f6b47b253098a8b9957b8f",
         "method": "GET",
         "host": "www.cls.cn",
         "pathname": "/v3/depth/home/assembled/1000",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 11,
-        "duration_ms": 263,
+        "started_ms": 10,
+        "duration_ms": 10022,
         "timings": {
-          "response_ms": 231,
-          "body_read_ms": 31,
-          "decode_and_transfer_ms": 1
+          "response_ms": 10022
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"财联社 · 深度\",\"link\":\"https://www.cls.cn\",\"category\":\"财经\",\"observed_at\":\"2026-11-15T23:00:56.848Z\",\"entries\":[{\"id\":\"cls-depth:2534675\",\"title\":\"周末要闻汇总：证监会主席吴清最新发声；新版国家医保商保“双目录”公布\",\"link\":\"https://www.cls.cn/detail/2534675\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":203675,\"unit\":\"阅读量\",\"text\":\"203675\"}},{\"id\":\"cls-depth:2534766\",\"title\":\"伊朗称两艘油轮在霍尔木兹海峡触雷爆炸\",\"link\":\"https://www.cls.cn/detail/2534766\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":135720,\"unit\":\"阅读量\",\"text\":\"135720\"}},{\"id\":\"cls-depth:2534745\",\"title\":\"出口暴涨116.6%！国产“新顶流”，全球爆单\",\"link\":\"https://www.cls.cn/detail/2534745\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":122334,\"unit\":\"阅读量\",\"text\":\"122334\"}},{\"id\":\"cls-depth:2534694\",\"title\":\"2026国谈结果出炉，一批上市药企“报喜”\",\"link\":\"https://www.cls.cn/detail/2534694\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":237699,\"unit\":\"阅读量\",\"text\":\"237699\"}},{\"id\":\"cls-depth:2534653\",\"title\":\"中专生拍出爆火AI短片 海外播放百万级、单集成本千元\",\"link\":\"https://www.cls.cn/detail/2534653\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":343071,\"unit\":\"阅读量\",\"text\":\"343071\"}},{\"id\":\"cls-depth:2534731\",\"title\":\"暴雪、大暴雪，来了\",\"link\":\"https://www.cls.cn/detail/2534731\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":238248,\"unit\":\"阅读量\",\"text\":\"238248\"}},{\"id\":\"cls-depth:2534732\",\"title\":\"研究显示全球冰冻圈正加速退化\",\"link\":\"https://www.cls.cn/detail/2534732\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":183123,\"unit\":\"阅读量\",\"text\":\"183123\"}},{\"id\":\"cls-depth:2534708\",\"title\":\"伊朗发布打击巴林美军基地视频\",\"link\":\"https://www.cls.cn/detail/2534708\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":301248,\"unit\":\"阅读量\",\"text\":\"301248\"}},{\"id\":\"cls-depth:2534714\",\"title\":\"并购潮中A股业绩补偿纠纷频发 市场探索破局新解法\",\"link\":\"https://www.cls.cn/detail/2534714\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":151176,\"unit\":\"阅读量\",\"text\":\"151176\"}},{\"id\":\"cls-depth:2534646\",\"title\":\"霸榜热搜 BLG拿下S16总冠军 千亿电竞市场迎高光时刻\",\"link\":\"https://www.cls.cn/detail/2534646\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":492087,\"unit\":\"阅读量\",\"text\":\"492087\"}},{\"id\":\"cls-depth:2534704\",\"title\":\"美团+京东+上汽，产业资本加码国产CPU\",\"link\":\"https://www.cls.cn/detail/2534704\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":260949,\"unit\":\"阅读量\",\"text\":\"260949\"}},{\"id\":\"cls-depth:2534664\",\"title\":\"全球半数重磅license-in项目来自中国 创新药“黄金时代”的创新与投资逻辑是什么？\",\"link\":\"https://www.cls.cn/detail/2534664\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":315992,\"unit\":\"阅读量\",\"text\":\"315992\"}},{\"id\":\"cls-depth:2534655\",\"title\":\"重仓AI硬件，让一批基金濒临清盘\",\"link\":\"https://www.cls.cn/detail/2534655\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":483016,\"unit\":\"阅读量\",\"text\":\"483016\"}},{\"id\":\"cls-depth:2534602\",\"title\":\"创投资本“转向”：撤离具身智能，回流半导体\",\"link\":\"https://www.cls.cn/detail/2534602\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":438630,\"unit\":\"阅读量\",\"text\":\"438630\"}},{\"id\":\"cls-depth:2534588\",\"title\":\"见证历史+1！SpaceX首次完成“筷子夹飞船”（附现场视频）\",\"link\":\"https://www.cls.cn/detail/2534588\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":517226,\"unit\":\"阅读量\",\"text\":\"517226\"}},{\"id\":\"cls-depth:2534591\",\"title\":\"环球下周看点：英伟达迎财报日大考 Anthropic、GTA VI同日上市\",\"link\":\"https://www.cls.cn/detail/2534591\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":479052,\"unit\":\"阅读量\",\"text\":\"479052\"}},{\"id\":\"cls-depth:2534592\",\"title\":\"【早报】吴清发声！深化市场稳定长效机制研究，有效防范市场异常波动\",\"link\":\"https://www.cls.cn/detail/2534592\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":472433,\"unit\":\"阅读量\",\"text\":\"472433\"}},{\"id\":\"cls-depth:2534577\",\"title\":\"一次施工如何让美国全国停飞？美交通部长：改造拨款得紧急加钱\",\"link\":\"https://www.cls.cn/detail/2534577\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":624126,\"unit\":\"阅读量\",\"text\":\"624126\"}},{\"id\":\"cls-depth:2534550\",\"title\":\"OpenAI解散独立机器人团队 具身智能不再需要“专属大脑”？\",\"link\":\"https://www.cls.cn/detail/2534550\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":822690,\"unit\":\"阅读量\",\"text\":\"822690\"}},{\"id\":\"cls-depth:2534565\",\"title\":\"12+107！百万级CAR-T首次进入医保 新版国家医保商保“双目录”公布\",\"link\":\"https://www.cls.cn/detail/2534565\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":635586,\"unit\":\"阅读量\",\"text\":\"635586\"}},{\"id\":\"cls-depth:2534581\",\"title\":\"游戏业“超级印钞机”下周上新！《GTA VI》缘何牵动华尔街？\",\"link\":\"https://www.cls.cn/detail/2534581\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":471964,\"unit\":\"阅读量\",\"text\":\"471964\"}},{\"id\":\"cls-depth:2534468\",\"title\":\"黄仁勋时代落幕 英伟达面临三重考验\",\"link\":\"https://www.cls.cn/detail/2534468\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1058469,\"unit\":\"阅读量\",\"text\":\"1058469\"}},{\"id\":\"cls-depth:2534533\",\"title\":\"特斯拉Cybercab开启个人订购 售价3万美元\",\"link\":\"https://www.cls.cn/detail/2534533\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":557213,\"unit\":\"阅读量\",\"text\":\"557213\"}},{\"id\":\"cls-depth:2534437\",\"title\":\"美联储重磅报告：“AI热”正推高资产估值 或对金融系统构成风险\",\"link\":\"https://www.cls.cn/detail/2534437\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1113881,\"unit\":\"阅读量\",\"text\":\"1113881\"}},{\"id\":\"cls-depth:2534433\",\"title\":\"我国10吨级电动商用飞机有人驾驶首飞成功\",\"link\":\"https://www.cls.cn/detail/2534433\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":651173,\"unit\":\"阅读量\",\"text\":\"651173\"}},{\"id\":\"cls-depth:2534435\",\"title\":\"又一轮券商罚单集中开出，有券商分支负责人遭数百万级罚没\",\"link\":\"https://www.cls.cn/detail/2534435\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":666848,\"unit\":\"阅读量\",\"text\":\"666848\"}},{\"id\":\"cls-depth:2534388\",\"title\":\"从“可选项”到“必选项”：国际资金圆桌共识——新兴市场看中国\",\"link\":\"https://www.cls.cn/detail/2534388\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":747042,\"unit\":\"阅读量\",\"text\":\"747042\"}},{\"id\":\"cls-depth:2534784\",\"title\":\"港股本周要闻前瞻｜科网股龙头集中披露业绩 恒生指数系列季检结果出炉\",\"link\":\"https://www.cls.cn/detail/2534784\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":1335,\"unit\":\"阅读量\",\"text\":\"1335\"}},{\"id\":\"cls-depth:2534772\",\"title\":\"荷兰法庭设最高3亿欧元罚金 *ST闻泰：不接受任何强制出售安世股权安排|速读公告\",\"link\":\"https://www.cls.cn/detail/2534772\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":98544,\"unit\":\"阅读量\",\"text\":\"98544\"}},{\"id\":\"cls-depth:2534767\",\"title\":\"2026年中国上市公司治理指数和绿色治理指数发布\",\"link\":\"https://www.cls.cn/detail/2534767\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":90652,\"unit\":\"阅读量\",\"text\":\"90652\"}},{\"id\":\"cls-depth:2534748\",\"title\":\"因内幕交易被监管部门行政处罚后 南卫股份实控人李平被刑事拘留|速读公告\",\"link\":\"https://www.cls.cn/detail/2534748\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":118615,\"unit\":\"阅读量\",\"text\":\"118615\"}},{\"id\":\"cls-depth:2534715\",\"title\":\"工业AI如何从概念验证走向价值兑现？ 科创板龙头公司同台共议\",\"link\":\"https://www.cls.cn/detail/2534715\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":160626,\"unit\":\"阅读量\",\"text\":\"160626\"}},{\"id\":\"cls-depth:2534716\",\"title\":\"1300亿光模块龙头再出手回购40万股|盘后公告集锦\",\"link\":\"https://www.cls.cn/detail/2534716\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":224394,\"unit\":\"阅读量\",\"text\":\"224394\"}},{\"id\":\"cls-depth:2534684\",\"title\":\"港股IPO周报：江丰电子递表冲刺“A+H”布局 远信储能首周累涨130%\",\"link\":\"https://www.cls.cn/detail/2534684\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":207645,\"unit\":\"阅读量\",\"text\":\"207645\"}},{\"id\":\"cls-depth:2533930\",\"title\":\"【明日主题前瞻】华为云宣布，首款昇腾原生具身世界模型来了\",\"link\":\"https://www.cls.cn/detail/2533930\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":686120,\"unit\":\"阅读量\",\"text\":\"686120\"}}]}",
     "timing": {
-      "elapsed_ms": 277,
+      "elapsed_ms": 10033,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 270
+          "started_ms": 6,
+          "duration_ms": 10026
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 277,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 277,
+          "name": "错误诊断收集",
+          "started_ms": 10032,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 277,
-          "duration_ms": 0
+          "started_ms": 10032,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 277,
+          "name": "失败后浏览器清理",
+          "started_ms": 10033,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 277,
+          "started_ms": 10033,
           "duration_ms": 0
         }
       ],
@@ -160,7 +143,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 264
+          "duration_ms": 10022
         }
       ]
     }
