@@ -2,17 +2,9 @@
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-16T02:56:53.192Z
+巡检时间：2026-11-16T11:52:01.208Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
-
-## clip/baidu\_weather.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-0.svg" alt="" width="24" height="24"> [clip/baidu\_weather.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/clip/baidu_weather.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/clip/baidu/s/weather/:city? | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
 ## detect/github\_releases.js（0/1 通过）
 
@@ -164,7 +156,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/instagram/:username | ❌ 失败 | UPSTREAM\_AUTH\_REQUIRED: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据 |
+| /api/rss/instagram/:username | ❌ 失败 | UPSTREAM\_RATE\_LIMITED: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
 
 ## rss/javlibrary.js（0/1 通过）
 
@@ -213,6 +205,29 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/xiaohongshu/user/profile/:uid | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+
+## rss/zhihu.js（7/8 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-105.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/zhihu/people/:user/answers | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/rss/zhihu/collection/:collection\_id | ✅ 成功 |  |
+| /api/rss/zhihu/column/:column\_id | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/asks | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/pins | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/posts | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/zvideos | ✅ 成功 |  |
+
+## clip/baidu\_weather.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-0.svg" alt="" width="24" height="24"> [clip/baidu\_weather.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/clip/baidu_weather.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/clip/baidu/s/weather/:city? | ✅ 成功 |  |
 
 ## clip/github.js（1/1 通过）
 
@@ -874,18 +889,3 @@
 | --- | --- | --- |
 | /api/rss/youtube/:handle | ✅ 成功 |  |
 | /api/rss/youtube/:handle/shorts | ✅ 成功 |  |
-
-## rss/zhihu.js（8/8 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-105.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/zhihu/collection/:collection\_id | ✅ 成功 |  |
-| /api/rss/zhihu/column/:column\_id | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/answers | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/asks | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/pins | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/posts | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/zvideos | ✅ 成功 |  |
