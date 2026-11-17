@@ -3,6 +3,7 @@ import { compile_script_module } from "findrss-worker/server/infra/script_sandbo
 import { read_script, script_names } from "../test/support/script_sources.js";
 import { route_cases, api_route_cases, debug_route_cases } from "../worker/catalog.js";
 import { generate_openapi } from "./generate_openapi.js";
+import { build } from "esbuild";
 
 const scripts = [];
 for (const kind of ["hot", "rss", "clip", "detect"]) {
@@ -24,6 +25,13 @@ for (const entry of [...route_cases(scripts), ...debug_route_cases(scripts)]) {
 // 巡检只覆盖 /api/rss、/api/hot、/api/clip、/api/detect 四个规范前缀。
 const cases = api_route_cases(scripts);
 await mkdir(new URL("../dist/", import.meta.url), { recursive: true });
+await build({
+  entryPoints: [new URL("./instabox_sign_douyin.js", import.meta.url).pathname],
+  outfile: new URL("../dist/douyin-signer.mjs", import.meta.url).pathname,
+  bundle: true, platform: "node", format: "esm", target: "node22",
+  nodePaths: [new URL("../.runtime/findrss-worker/node_modules", import.meta.url).pathname],
+  loader: { ".wasm": "binary" },
+});
 const report_assets = new URL("../dist/report-assets/", import.meta.url);
 await rm(report_assets, { recursive: true, force: true });
 await mkdir(report_assets, { recursive: true });

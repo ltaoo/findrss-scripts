@@ -84,6 +84,30 @@ test("持久化签名仍校验来源和凭据头，不向缓存中的其它来�
   assert.equal(new URL(signed.url).origin, "https://www-hj.douyin.com");
 });
 
+test("远端生成签名后跨实例读取加密 KV，失效重新远端生成且不初始化本地 SDK", async () => {
+  const env = environment();
+  let generations = 0;
+  const storage = create_signature_cache(env, async input => ({
+    url: input.url + "&a_bogus=remote-" + ++generations,
+    headers: { uifid: "fixture", "x-secsdk-web-signature": "signed", "x-secsdk-web-expire": "123" },
+  }));
+  const create = () => assert.fail("远端签名不应初始化本地 QuickJS");
+  const first = await (await fresh()).get_douyin_signature(create, request, storage);
+  const second_module = await fresh();
+  const second = await second_module.get_douyin_signature(create, request, storage);
+  assert.equal(first.url, second.url);
+  assert.equal(generations, 1);
+  await second_module.invalidate_douyin_signature(second);
+  const renewed = await second_module.get_douyin_signature(create, request, storage);
+  assert.notEqual(renewed.url, second.url);
+  assert.equal(generations, 2);
+  assert.doesNotMatch(JSON.stringify([...env.records.values()]), /remote-|fixture-private/);
+  const failing = create_signature_cache({}, async () => { throw new Error("remote unavailable"); });
+  await assert.rejects((await fresh()).get_douyin_signature(create, request, failing), /remote unavailable/);
+  await assert.rejects((await fresh()).get_douyin_signature(create, request,
+    create_signature_cache({}, async () => ({ url: "https://example.com/", headers: {} }))), /非法目标/);
+});
+
 test("正式 Worker 的 JSON 和 RSS 路由共用加密签名缓存", async t => {
   const env = { ...environment(), ACCESS_TOKEN: "fixture-access", SCRIPT_COOKIES: JSON.stringify([
     { name: "UIFID_TEMP", value: "fixture-worker-fingerprint", domain: ".douyin.com", path: "/", secure: true },
@@ -106,5 +130,35 @@ test("正式 Worker 的 JSON 和 RSS 路由共用加密签名缓存", async t =>
   }
   assert.equal(urls.length, 2);
   assert.equal(urls[0], urls[1]);
+  assert.equal([...env.records.keys()].filter(key => key.startsWith("douyin-signature:")).length, 1);
+});
+
+test("正式 Worker 在签名失效时通过 InstaBox 刷新，随后 JSON 和 RSS 直接复用 KV", async t => {
+  const env = { ...environment(), INSTABOX_API_KEY: "private-key", INSTABOX_MACHINE: "m_fixture",
+    ACCESS_TOKEN: "fixture-access", SCRIPT_COOKIES: JSON.stringify([
+      { name: "UIFID_TEMP", value: "remote-worker-fingerprint", domain: ".douyin.com", path: "/", secure: true },
+    ]) };
+  const fixture = JSON.parse(readFileSync(new URL("./fixtures/script_migration.json", import.meta.url)))
+    .find(entry => entry.file === "douyin");
+  let generations = 0, upstream_calls = 0;
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    if (url.startsWith("https://api.instabox.sh/")) {
+      if (!url.endsWith("/exec")) return Response.json({ state: "running" });
+      const input = JSON.parse(JSON.parse(options.body).stdin);
+      return Response.json({ exitCode: 0, stdout: JSON.stringify({ url: input.url + "&a_bogus=remote-" + ++generations,
+        headers: { uifid: "fixture", "x-secsdk-web-signature": "signed", "x-secsdk-web-expire": "123" } }) });
+    }
+    assert.ok(url.startsWith("https://www-hj.douyin.com/"), "不应下载或在 CF 执行 SDK");
+    return new Response(++upstream_calls === 1 ? "ArgusSecurityPlugin Sign Invalid" : fixture.responses[0].body);
+  });
+  const path = "/douyin/user/" + fixture.params.sec_uid + "?count=7";
+  for (const prefix of ["/api/rss", "/rss"]) {
+    const response = await worker.fetch(new Request("https://scripts.example" + prefix + path,
+      { headers: { Authorization: "Bearer fixture-access" } }), env);
+    assert.equal(response.status, 200, await response.clone().text());
+    assert.ok((await response.text()).includes("测试作者"));
+  }
+  assert.equal(generations, 2);
+  assert.equal(upstream_calls, 3);
   assert.equal([...env.records.keys()].filter(key => key.startsWith("douyin-signature:")).length, 1);
 });

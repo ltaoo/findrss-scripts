@@ -98,13 +98,14 @@ export async function save_browser_session(env, origin, session) {
   } catch { throw script_error("COOKIE_STORAGE_UNAVAILABLE"); }
 }
 
-export function create_signature_cache(env) {
-  if (!env.COOKIE_KV || !env.COOKIE_STORAGE_KEY) return undefined;
+export function create_signature_cache(env, generate) {
+  if (!env.COOKIE_KV || !env.COOKIE_STORAGE_KEY) return generate ? { generate } : undefined;
   const name = key => {
     if (!/^[0-9a-f]{64}$/.test(key)) throw new Error("签名缓存键无效");
     return "douyin-signature:" + key;
   };
   return {
+    generate,
     async read(key) {
       const id = name(key);
       const record = await env.COOKIE_KV.get(id, { type: "json" });

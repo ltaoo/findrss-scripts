@@ -77,7 +77,7 @@ npm run deploy
 
 RSS、Atom、`/api/rss` 及脚本声明路径的订阅入口与其它入口一样，在 HTTP 请求内直接运行 QuickJS：完成鉴权、路由匹配、POST 请求体和配置检查后执行脚本，并把结果渲染为 XML 或 JSON。没有队列、定时任务、R2 快照或缓存，首次访问即返回结果，响应中也不包含 `X-FindRSS-Cache`、`X-FindRSS-Updated-At`。
 
-执行受当前套餐 CPU 限制，不会因改为同步而提高额度。Free 套餐约 10ms；复杂脚本可能被平台终止并返回 1102，这是预期可能结果，不做降级或缓存。需要稳定执行较大页面解析时，应使用具备足够 CPU 预算的套餐。`npm run dev` 与线上运行同一套同步路径，但本地资源限制与线上不同。
+执行受当前套餐 CPU 限制，不会因改为同步而提高额度。Free 套餐约 10ms；复杂脚本可能被平台终止并返回 1102。抖音使用加密签名缓存，可通过 [InstaBox 按需签名](instabox.md#抖音按需签名) 将官方 SDK 的计算移到现有巡检机器，订阅内容仍实时获取。其他复杂脚本仍需足够 CPU 预算。`npm run dev` 与线上运行同一套同步路径，但本地资源限制与线上不同。
 
 ## 凭据与设备
 
@@ -283,7 +283,7 @@ npm run replay:routes -- --base http://127.0.0.1:8801 --dev-vars
 
 Workers Free 每个 HTTP 请求只有 10 ms CPU。订阅入口与其它入口一样在请求内同步执行，同样受这一额度限制；不能假定去掉队列就获得更多 CPU。Workers Paid 的默认 HTTP CPU 上限为 30 秒，CPU 配置是否可用由平台校验。`limits.cpu_ms` 不会升级账号套餐；`AbortSignal.timeout` 控制等待时长，同样不能提高 CPU 额度。额度和诊断字段见 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)。
 
-当前账号为 Free；2026-11-17 部署时，Cloudflare 以错误 `100328` 拒绝了 `limits.cpu_ms: 30000`，因此仓库不设置不受套餐支持的 CPU 配置。抖音签名使用加密 KV 缓存，后续实例复用已有签名以减少重复计算；首次生成仍可能超过免费额度。切换至 Paid 后才可显式配置 `limits.cpu_ms` 并重新验证冷请求。
+当前账号为 Free；2026-11-17 部署时，Cloudflare 以错误 `100328` 拒绝了 `limits.cpu_ms: 30000`，因此仓库不设置不受套餐支持的 CPU 配置。抖音签名使用加密 KV 缓存，配置 InstaBox 后首次生成和失效刷新在远端执行；未配置时仍在本地计算，可能超过免费额度。签名缓存命中时不启动远端机器，也不初始化签名 SDK；Cookie、UA、作者、条数或游标变化会使用独立缓存。切换至 Paid 后才可显式配置 `limits.cpu_ms`。
 
 2026-11-02 用生产同版本 QuickJS 实测：即使不计上游请求，每次执行先要实例化沙箱（约 4 ms）并编译运行内置工具与脚本（约 5 ms），已经接近 Free 的 10 ms 预算。`npm run replay:routes --all --concurrency 10` 复跑 140 条路由得到 40 条资源超限页，与巡检报告的 40 条无业务码 503 完全一致；旧分类器将它们全部记为 `exceeded_cpu`，该标签本身不能证明 CPU 超限。`wrangler tail` 捕获的终止事件中，kuaishou、mastodon、mktnews、tencent、thepaper 等路由均为 `cpuTime: 10`、`wallTime` 仅 12–23 ms，支持这些已捕获事件的 CPU 预算在脚本开始请求上游前就被沙箱初始化耗尽，不能据此外推所有 1102。同一批路由以 `--concurrency 5` 复跑时没有超限，通过的路由实测 33–161 ms CPU；这些是当次观测结果，不是平台保证。
 

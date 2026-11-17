@@ -54,7 +54,8 @@ export default {
       return env.ASSETS ? env.ASSETS.fetch(new Request(url, request)) : fail("NOT_FOUND");
     }
     // 配置凭据时必须同时设置令牌，避免将私人订阅或登录态采集开放给公网。
-    if ((syncing || env.COOKIE_KV || env.SCRIPT_CONFIG || env.SCRIPT_COOKIES || env.DEVICE_BRIDGE_URL) && !env.ACCESS_TOKEN) {
+    if ((syncing || env.COOKIE_KV || env.SCRIPT_CONFIG || env.SCRIPT_COOKIES || env.DEVICE_BRIDGE_URL
+      || env.INSTABOX_API_KEY || env.INSTABOX_MACHINE) && !env.ACCESS_TOKEN) {
       return fail("ACCESS_TOKEN_REQUIRED");
     }
     if (syncing) return update_cookies(request, env, cookie_origins, headers);

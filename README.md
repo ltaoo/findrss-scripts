@@ -82,7 +82,7 @@ npm run deploy
 
 默认配置包含 `COOKIE_KV` 绑定，必须同时设置 `ACCESS_TOKEN`，否则入口返回 503。需要登录态或 API 凭据的脚本还需配置 Cookie、`SCRIPT_CONFIG` 等，见[凭据与设备配置](docs/cloudflare.md#凭据与设备)。
 
-RSS、Atom、`/api/rss` 与其它入口一样在请求内同步执行脚本，不依赖队列、定时任务或 R2 快照。受当前套餐 CPU 限制：Free 套餐约 10ms，复杂脚本可能被平台终止并返回 1102，不做缓存或降级。
+RSS、Atom、`/api/rss` 与其它入口一样在请求内同步执行脚本，不依赖队列、定时任务或 R2 快照。受当前套餐 CPU 限制：Free 套餐约 10ms，复杂脚本可能被平台终止并返回 1102。抖音复用加密 KV 中的有效签名，配置 InstaBox 后只在缺失或失效时远端生成签名；订阅内容仍实时获取，见 [InstaBox 签名配置](docs/instabox.md#抖音按需签名)。
 
 后续更新运行 `npm test`、`npm run dry-run`、`npm run deploy` 即可，依赖变化时先执行 `npm ci`；无需重复设置已有 Secret。首次部署和上线检查见[部署流程](docs/cloudflare.md#首次部署)。
 

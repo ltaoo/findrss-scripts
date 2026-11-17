@@ -91,7 +91,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 -  const deadline = Date.now() + 3000;
 +  const deadline = Date.now() + 10000;
    runtime.setInterruptHandler(() => Date.now() > deadline);
-@@ -37,17 +17,220 @@
+@@ -37,17 +17,225 @@
      vm.setProp(vm.global, '__sdk_request', input); input.dispose();
 -    const bdms = sources[0].replace('return Y.set(t,n),V.set(n,[e,r]),n', 'n._v=[e,r];n._u=X;return Y.set(t,n),V.set(n,[e,r]),n');
 -    const result = vm.evalCode(DOUYIN_SDK_ENVIRONMENT + '\n' + bdms + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, 'douyin-sdk.js');
@@ -274,9 +274,14 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +            }
 +          } catch {}
 +        }
-+        const QuickJS = await create_quickjs();
-+        const sdk = await load_douyin_sdk(QuickJS, request.user_agent);
-+        const signed = sign_douyin_request(QuickJS, sdk, request);
++        let signed;
++        if (storage?.generate) {
++          signed = validated_signature(new URL(request.url), await storage.generate(request));
++        } else {
++          const QuickJS = await create_quickjs();
++          const sdk = await load_douyin_sdk(QuickJS, request.user_agent);
++          signed = sign_douyin_request(QuickJS, sdk, request);
++        }
 +        // 签名缓存不可用时仍返回本次有效签名；Cookie 授权与读取失败继续由宿主拒绝。
 +        if (storage) { try { await storage.write(key, signed); } catch {} }
 +        return { ...signed, key, entry, storage };

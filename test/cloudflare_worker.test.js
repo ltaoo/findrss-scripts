@@ -196,6 +196,8 @@ test("请求、配置及采集能力错误同样返回统一格式", async t => 
     ["/missing", {}, "NOT_FOUND"],
     ["/health", { ACCESS_TOKEN: "private-token" }, "UNAUTHORIZED"],
     ["/health", { SCRIPT_COOKIES: "[]" }, "ACCESS_TOKEN_REQUIRED"],
+    ["/health", { INSTABOX_API_KEY: "private-key" }, "ACCESS_TOKEN_REQUIRED"],
+    ["/health", { INSTABOX_MACHINE: "m_fixture" }, "ACCESS_TOKEN_REQUIRED"],
     ["/rss/instagram/invalid!", {}, "INVALID_PARAMETER"],
     ["/api/hot/youtube/hot/US/0", { ACCESS_TOKEN: "private-token", SCRIPT_CONFIG: '{"hot/youtube_hot.js":{"api_key":7}}' }, "CONFIG_INVALID"],
     ["/rss/github/example/repo/release", { FINDRSS_HOSTNAME: "data:text/plain,test" }, "CONFIG_INVALID"],

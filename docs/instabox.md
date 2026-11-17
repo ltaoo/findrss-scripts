@@ -53,6 +53,29 @@ INSTABOX_MACHINE=findrss-checks bash scripts/instabox_check.sh
 
 `scripts/instabox_task.sh` 是机器内的执行入口，由外部脚本调用，不应在本机直接运行。它执行现有 `check_routes.js --release`：检查目标仍为本机回环地址，报告中的产物链接按公开报告分支生成，保持 Pages 的原有链接行为。
 
+## 抖音按需签名
+
+生产 Worker 可以复用这台机器执行抖音官方 SDK，首次生成或签名被上游明确拒绝时才调用 InstaBox。完整签名 URL 与请求头由 Worker 加密写入现有 `COOKIE_KV`，持续复用至失效，不设置五分钟有效期；远端不接收 KV 密钥或 Cloudflare 凭据。作品接口仍由 CF 实时访问。2026-11-17 已用指定作者验证 InstaBox 生成、加密回填及 CF 跨出口复用，返回 11 条作品。
+
+先运行 `npm run build`，把独立程序上传到已启动的巡检机器：
+
+```bash
+instabox exec "$INSTABOX_MACHINE" -- mkdir -p /data/home/findrss-signing
+instabox cp dist/douyin-signer.mjs "$INSTABOX_MACHINE:/data/home/findrss-signing/douyin-signer.mjs"
+instabox exec "$INSTABOX_MACHINE" -- chmod 600 /data/home/findrss-signing/douyin-signer.mjs
+npx wrangler secret put INSTABOX_API_KEY
+npx wrangler secret put INSTABOX_MACHINE
+npm run deploy
+```
+
+Worker 的 `INSTABOX_MACHINE` 必须填写 `m_` 开头的机器 ID，可用 `instabox ls --json` 查询；巡检工作流的同名变量仍可使用名称。API Key 需要 `machines:read`、`machines:write`，仅作为 Worker Secret 保存，不提交或放入公开报告。两个 Secret 必须同时设置；均未设置时保留原来的本地签名行为。巡检上传的 `.dev.vars` 不需要包含这两个值，避免本地巡检再次调用远端。
+
+每轮巡检构建后会原子更新 `/data/home/findrss-signing/douyin-signer.mjs`。该目录独立于会被替换的 `source/`，并且程序自带 JS/Wasm 依赖。签名输入仅经 API 的 stdin 传输，不进入命令参数、磁盘或执行历史；错误不返回签名、Cookie 或 SDK 日志。
+
+缓存缺失时 Worker 自动启动或恢复机器，等待就绪后执行固定程序。若恰逢巡检关机导致执行返回 409/503，只重新启动并重试一次；启动和签名总计最多等待 110 秒。远端不可用会返回失败，不在 CF 退回高 CPU 签名。单次签名结束不会关闭共用机器，沿用机器已有的自动暂停与巡检关机策略；按需启动会产生套餐规定的运行用量。机器自动暂停后的下次冷请求可能需要等待启动。
+
+这里只缓存签名，不保存或回退订阅内容；签名有效也不能解决 Cookie 过期、上游限流或脚本本身的 CF CPU 超限。SDK 发现与执行规则沿用项目运行时，官方变更导致兼容性失败时需要更新代码并重新上传独立程序。
+
 ## 失败处理和费用
 
 - 巡检任务包含安装、构建、启动服务及检查，总计最多 40 分钟；超时后不发布不完整报告。

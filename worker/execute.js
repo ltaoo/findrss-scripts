@@ -5,6 +5,7 @@ import { WorkerCookieAccess } from "./cookies.js";
 import { load_cookies, validate_cookies, create_signature_cache } from "./cookie_sync.js";
 import { create_browser_session } from "./browser_session.js";
 import { script_error } from "./errors.js";
+import { create_instabox_signer } from "./instabox.js";
 
 export function script_configuration(entry, env, debugging = false) {
   try {
@@ -37,7 +38,9 @@ export async function execute_route(entry, context, env, { metadata, fallback },
       return response.json();
     } : null;
     const cookie_access = new WorkerCookieAccess({ permissions: metadata.permissions,
-      cookies: () => browser_session.cookies, assert_grant: () => {}, signature_cache: create_signature_cache(env) });
+      cookies: () => browser_session.cookies, assert_grant: () => {},
+      signature_cache: create_signature_cache(env, entry.file === "rss/douyin.js"
+        ? create_instabox_signer(env, signal) : undefined) });
     const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
       : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
     stage = "script";
