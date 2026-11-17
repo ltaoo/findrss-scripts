@@ -91,7 +91,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 -  const deadline = Date.now() + 3000;
 +  const deadline = Date.now() + 10000;
    runtime.setInterruptHandler(() => Date.now() > deadline);
-@@ -37,17 +17,184 @@
+@@ -37,17 +17,203 @@
      vm.setProp(vm.global, '__sdk_request', input); input.dispose();
 -    const bdms = sources[0].replace('return Y.set(t,n),V.set(n,[e,r]),n', 'n._v=[e,r];n._u=X;return Y.set(t,n),V.set(n,[e,r]),n');
 -    const result = vm.evalCode(DOUYIN_SDK_ENVIRONMENT + '\n' + bdms + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, 'douyin-sdk.js');
@@ -121,7 +121,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +
 +async function read_official_text(url, headers, limit) {
 +  const response = await fetch(url, { headers, redirect: 'manual', signal: AbortSignal.timeout(10000) });
-+  if (!response.ok) throw new Error('抖音页面或 SDK 下载失败：HTTP ' + response.status);
++  if (!response.ok) throw Object.assign(new Error('抖音页面或 SDK 下载失败：HTTP ' + response.status + ' (' + new URL(url).hostname + ')'), { status: response.status, url });
 +  const reader = response.body?.getReader();
 +  if (!reader) throw new Error('抖音页面或 SDK 响应为空');
 +  const chunks = [];
@@ -155,7 +155,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +  return url.href;
 +}
 +
-+async function download_sdk(QuickJS, user_agent) {
++async function discover_sdk_urls(QuickJS, user_agent) {
 +  const headers = {
 +    'User-Agent': user_agent,
 +    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -209,6 +209,25 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +  if (!Array.isArray(bdms_urls) || !bdms_urls.length || bdms_urls.some(url => typeof url !== 'string')) throw new Error('抖音首页未提供 BDMS SDK');
 +  const urls = bdms_urls.slice(0, 3).map(url => sdk_url(url, 'bdms'));
 +  const security_url = sdk_url(security.getAttribute('src'), 'security');
++  return { urls, security_url };
++}
++
++async function download_sdk(QuickJS, user_agent) {
++  let discovered;
++  try { discovered = await discover_sdk_urls(QuickJS, user_agent); }
++  catch (error) {
++    if (error.status !== 403 || error.url !== DOUYIN_HOME) throw error;
++    // shortcut: 首页被拒绝时使用最后核实的官方地址，官网停用此 BDMS 版本时需更新引导地址。
++    discovered = {
++      urls: [
++        'https://lf-c-flwb.bytetos.com/obj/rc-client-security/web/stable/1.0.1.19-fix.01/bdms.js',
++        'https://p-pc-weboff.byteimg.com/tos-cn-i-9r5gewecjs/bdms_1.0.1.19_fix.js',
++        'https://lf-headquarters-speed.yhgfb-cn-static.com/obj/rc-client-security/web/stable/1.0.1.19-fix.01/bdms.js',
++      ],
++      security_url: 'https://lf-security.bytegoofy.com/obj/security-secsdk/runtime_bundler_34.js',
++    };
++  }
++  const { urls, security_url } = discovered;
 +  const sdk_headers = { 'User-Agent': user_agent, Referer: DOUYIN_HOME };
 +  let bdms, failure;
 +  for (const url of urls) {

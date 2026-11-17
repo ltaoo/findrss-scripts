@@ -75,6 +75,22 @@ test("BDMS 主 CDN 在云端超时后按官网 srcList 尝试备用 CDN", async 
   ]);
 });
 
+test("正式出口对首页返回 403 时仍从核实的官方地址实时加载 SDK", async t => {
+  const load = await fresh_loader();
+  const downloads = [];
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    if (url === home_url) return new Response("", { status: 403 });
+    assert.equal(options.headers.Cookie, undefined);
+    downloads.push(url);
+    return new Response("live-sdk");
+  });
+  assert.deepEqual(await load(QuickJS, user_agent), ["live-sdk", "live-sdk"]);
+  assert.deepEqual(downloads, [
+    "https://lf-c-flwb.bytetos.com/obj/rc-client-security/web/stable/1.0.1.19-fix.01/bdms.js",
+    "https://lf-security.bytegoofy.com/obj/security-secsdk/runtime_bundler_34.js",
+  ]);
+});
+
 test("轻量页面执行前置校验和 SDK 初始化，按页面地址下载且不向 CDN 传 Cookie", async t => {
   const load = await fresh_loader();
   const calls = [];
