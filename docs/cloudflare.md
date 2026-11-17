@@ -283,6 +283,8 @@ npm run replay:routes -- --base http://127.0.0.1:8801 --dev-vars
 
 Workers Free 每个 HTTP 请求只有 10 ms CPU。订阅入口与其它入口一样在请求内同步执行，同样受这一额度限制；不能假定去掉队列就获得更多 CPU。Workers Paid 的默认 HTTP CPU 上限为 30 秒，CPU 配置是否可用由平台校验。`limits.cpu_ms` 不会升级账号套餐；`AbortSignal.timeout` 控制等待时长，同样不能提高 CPU 额度。额度和诊断字段见 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)。
 
+本仓库通过 `wrangler.jsonc` 显式设置 `limits.cpu_ms: 30000`，为首次加载和执行签名 SDK 等冷请求保留 CPU 预算；部署时仍由当前套餐校验是否允许此配置，不会自动升级套餐。抖音签名另使用加密 KV 缓存，后续实例复用已有签名，减少重复计算。
+
 2026-11-02 用生产同版本 QuickJS 实测：即使不计上游请求，每次执行先要实例化沙箱（约 4 ms）并编译运行内置工具与脚本（约 5 ms），已经接近 Free 的 10 ms 预算。`npm run replay:routes --all --concurrency 10` 复跑 140 条路由得到 40 条资源超限页，与巡检报告的 40 条无业务码 503 完全一致；旧分类器将它们全部记为 `exceeded_cpu`，该标签本身不能证明 CPU 超限。`wrangler tail` 捕获的终止事件中，kuaishou、mastodon、mktnews、tencent、thepaper 等路由均为 `cpuTime: 10`、`wallTime` 仅 12–23 ms，支持这些已捕获事件的 CPU 预算在脚本开始请求上游前就被沙箱初始化耗尽，不能据此外推所有 1102。同一批路由以 `--concurrency 5` 复跑时没有超限，通过的路由实测 33–161 ms CPU；这些是当次观测结果，不是平台保证。
 
 大页面解析会进一步放大差距：`hot/fastbull.js` 的头条页约 475 KB，`document_nodes` 建树约 307 ms，选择行约 111 ms，逐行取标题约 126 ms；线上 tail 记录到该路由 `cpuTime: 2019`、`outcome: exceededCpu`。这里的 CPU 结论来自 tail 日志，巡检仅凭通用 `text/html` 平台错误页仍标记为 `EXCEEDED_RESOURCES`。
