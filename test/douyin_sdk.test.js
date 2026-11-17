@@ -1,16 +1,79 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
+import { gunzipSync } from "node:zlib";
 import { get_quickjs_module } from "findrss-worker/server/infra/script_sandbox.js";
 
 const home_url = "https://www.douyin.com/";
 const home = readFileSync(new URL("./fixtures/douyin/home.html", import.meta.url), "utf8");
+const waf_page = readFileSync(new URL("./fixtures/douyin/waf.html", import.meta.url), "utf8");
+const waf_sdk = gunzipSync(readFileSync(new URL("./fixtures/douyin/waf-sha256.js.gz", import.meta.url)));
 const user_agent = "Mozilla/5.0 Chrome/156.0.0.0";
 const QuickJS = await get_quickjs_module();
 let module_index = 0;
 const fresh_loader = async () => (await import(
   "findrss-worker/server/infra/douyin_sdk.js?test=" + module_index++
 )).load_douyin_sdk;
+
+test("云端 WAF 校验执行官方脚本后继续 nonce 校验，直到得到包含 SDK 的首页", async t => {
+  const load = await fresh_loader();
+  let page_calls = 0;
+  let waf_calls = 0;
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    if (url === home_url) {
+      page_calls++;
+      if (page_calls === 1) return new Response(waf_page);
+      assert.match(options.headers.Cookie, /_wafchallengeid=/);
+      if (page_calls === 2) {
+        const pair = options.headers.Cookie.split("; ").find(pair => pair.startsWith("_wafchallengeid="));
+        const proof = JSON.parse(Buffer.from(pair.slice(pair.indexOf("=") + 1), "base64"));
+        assert.equal(Buffer.from(proof.d, "base64").toString(), "4");
+        return new Response(`<script data-n="nonce-check">var _$jsvmprt=true;document.cookie="__ac_signature="+sdk_cookies.get("__ac_nonce");</script>`,
+          { headers: { "Set-Cookie": "__ac_nonce=fixture; Path=/; Secure" } });
+      }
+      assert.match(options.headers.Cookie, /__ac_signature=fixture/);
+      return new Response(home);
+    }
+    assert.equal(options.headers.Cookie, undefined);
+    if (url === "https://lf-waf-js.byted-static.com/obj/waf-jschallenge/out-sha256.js") { waf_calls++; return new Response(waf_sdk); }
+    return new Response("sdk");
+  });
+  assert.deepEqual(await load(QuickJS, user_agent), ["sdk", "sdk"]);
+  assert.equal(page_calls, 3);
+  assert.equal(waf_calls, 1);
+});
+
+test("WAF 只执行官方来源并限制页面校验轮数", async t => {
+  const load = await fresh_loader();
+  let page = waf_page.replace("https://lf-waf-js.byted-static.com/", "https://other.example/");
+  let page_calls = 0;
+  t.mock.method(globalThis, "fetch", async url => {
+    if (url === home_url) { page_calls++; return new Response(page); }
+    assert.equal(url, "https://lf-waf-js.byted-static.com/obj/waf-jschallenge/out-sha256.js");
+    return new Response(waf_sdk);
+  });
+  await assert.rejects(load(QuickJS, user_agent), /非官方 WAF/);
+  page = waf_page;
+  page_calls = 0;
+  await assert.rejects(load(QuickJS, user_agent), /未提供签名 SDK/);
+  assert.equal(page_calls, 4);
+});
+
+test("BDMS 主 CDN 在云端超时后按官网 srcList 尝试备用 CDN", async t => {
+  const load = await fresh_loader();
+  const downloads = [];
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    if (url === home_url) return new Response(home);
+    assert.equal(options.headers.Cookie, undefined);
+    downloads.push(url);
+    if (url.startsWith("https://p-pc-weboff.byteimg.com/")) throw new DOMException("Timed out", "TimeoutError");
+    return new Response("sdk");
+  });
+  assert.deepEqual(await load(QuickJS, user_agent), ["sdk", "sdk"]);
+  assert.deepEqual(downloads.map(url => new URL(url).hostname), [
+    "p-pc-weboff.byteimg.com", "lf-c-flwb.bytetos.com", "lf-security.bytegoofy.com",
+  ]);
+});
 
 test("轻量页面执行前置校验和 SDK 初始化，按页面地址下载且不向 CDN 传 Cookie", async t => {
   const load = await fresh_loader();

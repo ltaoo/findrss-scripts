@@ -3,6 +3,8 @@
 - `bdms.js.gz`：https://p-pc-weboff.byteimg.com/tos-cn-i-9r5gewecjs/bdms_1.0.1.19_fix.js
 - `security.js.gz`：https://lf-security.bytegoofy.com/obj/security-secsdk/runtime_bundler_34.js
 - `home.html`：2026-11-17 抖音首页的安全 SDK 标签与 BDMS 初始化脚本，已移除页面其他内容和 CSP nonce。
+- `waf.html`：Cloudflare 出口收到的官方 WAF 页面，挑战值已替换为可重复验证的合成数据。
+- `waf-sha256.js.gz`：https://lf-waf-js.byted-static.com/obj/waf-jschallenge/out-sha256.js ，保留原始 Chromium 作者版权注释。
 
 SDK 下载于 2026-11-17。解压后 SHA-256：
 

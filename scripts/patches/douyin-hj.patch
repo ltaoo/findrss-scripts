@@ -91,7 +91,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 -  const deadline = Date.now() + 3000;
 +  const deadline = Date.now() + 10000;
    runtime.setInterruptHandler(() => Date.now() > deadline);
-@@ -37,17 +17,150 @@
+@@ -37,17 +17,184 @@
      vm.setProp(vm.global, '__sdk_request', input); input.dispose();
 -    const bdms = sources[0].replace('return Y.set(t,n),V.set(n,[e,r]),n', 'n._v=[e,r];n._u=X;return Y.set(t,n),V.set(n,[e,r]),n');
 -    const result = vm.evalCode(DOUYIN_SDK_ENVIRONMENT + '\n' + bdms + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, 'douyin-sdk.js');
@@ -156,17 +156,46 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +}
 +
 +async function download_sdk(QuickJS, user_agent) {
-+  const headers = { 'User-Agent': user_agent, Accept: 'text/html' };
-+  let page = await read_official_text(DOUYIN_HOME, headers, 2 * 1024 * 1024);
-+  if (page.text.includes('_$jsvmprt')) {
-+    const cookie = page.headers.getSetCookie().map(value => value.split(';')[0]).join('; ');
-+    const scripts = parse(page.text).querySelectorAll('script').filter(node => !node.getAttribute('src'));
-+    const cookies = execute_page_script(QuickJS,
-+      'location.reload=noop;location.replace=noop;\n' + scripts.map(node => node.textContent).join('\n;\n')
-+        + '\nJSON.stringify(document.cookie);',
++  const headers = {
++    'User-Agent': user_agent,
++    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
++    'Accept-Language': 'zh-CN,zh;q=0.9',
++    'Cache-Control': 'no-cache',
++    'sec-fetch-site': 'none',
++    'sec-fetch-mode': 'navigate',
++    'sec-fetch-dest': 'document',
++  };
++  let page, cookie = '';
++  for (let attempt = 0; attempt < 4; attempt++) {
++    page = await read_official_text(DOUYIN_HOME, { ...headers, ...(cookie ? { Cookie: cookie, Referer: DOUYIN_HOME } : {}) }, 2 * 1024 * 1024);
++    const nodes = parse(page.text).querySelectorAll('script');
++    const waf = nodes.find(node => node.textContent.includes('"_wafchallengeid"'));
++    if (!waf && !page.text.includes('_$jsvmprt')) break;
++    cookie = [cookie, ...page.headers.getSetCookie().map(value => value.split(';')[0])].filter(Boolean).join('; ');
++    let source;
++    if (waf) {
++      const script = nodes.find(node => (node.getAttribute('src') || '').includes('/obj/waf-jschallenge/'));
++      if (script?.getAttribute('src') !== 'https://lf-waf-js.byted-static.com/obj/waf-jschallenge/out-sha256.js') {
++        throw new Error('抖音页面返回了非官方 WAF 校验脚本');
++      }
++      const challenge = await read_official_text(script.getAttribute('src'), { 'User-Agent': user_agent, Referer: DOUYIN_HOME }, 512000);
++      source = `
++        var TextEncoder=function(){};
++        TextEncoder.prototype.encode=function(value){var text=unescape(encodeURIComponent(String(value)));return Uint8Array.from(text,function(c){return c.charCodeAt(0);});};
++        navigator.plugins=[];navigator.webdriver=false;navigator.vendor='Google Inc.';
++        window.WAFJS=noop;
++        var interval_callback;
++        setInterval=function(callback){interval_callback=callback;return 1;};
++        clearInterval=function(){interval_callback=null;};
++      ` + challenge.text + '\n' + waf.textContent + '\nreadygo();\n'
++        + 'for(var turn=0;interval_callback && turn<=1000000;turn++)interval_callback();';
++    } else {
++      source = nodes.filter(node => !node.getAttribute('src')).map(node => node.textContent).join('\n;\n');
++    }
++    cookie = execute_page_script(QuickJS,
++      'location.reload=noop;location.replace=noop;\n' + source + '\nJSON.stringify(document.cookie);',
 +      { url: DOUYIN_HOME, cookie, user_agent });
-+    if (typeof cookies !== 'string' || /[\r\n\0]/.test(cookies)) throw new Error('抖音首页返回了无效 Cookie');
-+    page = await read_official_text(DOUYIN_HOME, { ...headers, Cookie: cookies }, 2 * 1024 * 1024);
++    if (typeof cookie !== 'string' || /[\r\n\0]/.test(cookie)) throw new Error('抖音首页返回了无效 Cookie');
 +  }
 +  const scripts = parse(page.text).querySelectorAll('script');
 +  const security = scripts.find(node => /\/security-secsdk(?:-gray)?\//.test(node.getAttribute('src') || ''));
@@ -176,14 +205,19 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +    'var sdk_config;window._SdkGlueInit=function(config,files){sdk_config=files;};\n'
 +      + init.textContent + '\nJSON.stringify(sdk_config);',
 +    { url: DOUYIN_HOME, cookie: '', user_agent });
-+  const bdms = config?.bdms?.srcList?.[0];
-+  if (typeof bdms !== 'string') throw new Error('抖音首页未提供 BDMS SDK');
-+  const urls = [sdk_url(bdms, 'bdms'), sdk_url(security.getAttribute('src'), 'security')];
-+  const sources = [];
++  const bdms_urls = config?.bdms?.srcList;
++  if (!Array.isArray(bdms_urls) || !bdms_urls.length || bdms_urls.some(url => typeof url !== 'string')) throw new Error('抖音首页未提供 BDMS SDK');
++  const urls = bdms_urls.slice(0, 3).map(url => sdk_url(url, 'bdms'));
++  const security_url = sdk_url(security.getAttribute('src'), 'security');
++  const sdk_headers = { 'User-Agent': user_agent, Referer: DOUYIN_HOME };
++  let bdms, failure;
 +  for (const url of urls) {
-+    sources.push((await read_official_text(url, { 'User-Agent': user_agent, Referer: DOUYIN_HOME }, 512000)).text);
++    try { bdms = (await read_official_text(url, sdk_headers, 512000)).text; break; }
++    catch (error) { failure = error; }
 +  }
-+  return sources;
++  if (!bdms) throw failure;
++  const security_source = await read_official_text(security_url, sdk_headers, 512000);
++  return [bdms, security_source.text];
 +}
 +
 +export async function load_douyin_sdk(QuickJS, user_agent) {
@@ -243,7 +277,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +export function sign_douyin_request(QuickJS, sources, request) {
 +  const target = new URL(request.url);
 +  if (!['https://www.douyin.com', 'https://www-hj.douyin.com'].includes(target.origin) || !target.pathname.startsWith('/aweme/v1/web/')) throw new Error('抖音签名只允许 www.douyin.com 或 www-hj.douyin.com 作品接口');
-+  if (!request.cookie.split('; ').some(pair => pair.startsWith('UIFID='))) throw new Error('抖音签名需要已同步的 UIFID Cookie');
++  if (!request.cookie.split('; ').some(pair => /^(?:UIFID|UIFID_TEMP)=.+/.test(pair))) throw new Error('抖音签名需要已同步的 UIFID 或 UIFID_TEMP Cookie');
 +  const output = execute_page_script(QuickJS, sources[0] + '\n' + DOUYIN_BDMS_REQUEST + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, request);
 +  const signed = new URL(output.url);
 +  if (signed.origin !== target.origin || signed.pathname !== target.pathname) throw new Error('抖音 SDK 返回非法目标地址');
@@ -262,7 +296,7 @@ diff --git a/server/infra/douyin_sdk_environment.js b/server/infra/douyin_sdk_en
  // 仅供隔离的 SDK VM 使用；没有文件、网络、浏览器或宿主凭证访问能力。
 +// shortcut: 只模拟抖音页面校验和签名所用的浏览器 API，SDK 需要其他 API 时补齐环境。
  export const DOUYIN_SDK_ENVIRONMENT = String.raw`
-@@ -44,5 +45,11 @@
+@@ -44,9 +45,14 @@
  var XMLHttpRequest = function(){};
 -XMLHttpRequest.prototype.open=noop;XMLHttpRequest.prototype.send=noop;XMLHttpRequest.prototype.setRequestHeader=noop;
 +// 只捕获官方 SDK 改写后的请求，不在 VM 内联网。
@@ -276,7 +310,12 @@ diff --git a/server/infra/douyin_sdk_environment.js b/server/infra/douyin_sdk_en
  var fetch=noop;
 -var _sdkGlueVersionMap={sdkGlueVersion:'1.0.0.64-fix.01',bdmsVersion:'1.0.1.19-fix.01'};
  var onwheelx={_Ax:'0X21'};
-@@ -55,6 +62,5 @@
+ var gfdatav1={envName:'prod'};
+-var _secsdk_uifid=String(request.cookie).split('; ').find(function(p){return p.indexOf('UIFID=')===0;});
+-_secsdk_uifid=_secsdk_uifid?_secsdk_uifid.slice(6):'';
++var _secsdk_uifid=sdk_cookies.get('UIFID')||sdk_cookies.get('UIFID_TEMP')||'';
+ var SSR_RENDER_DATA={app:{envService:'prod',odin:{user_id:_secsdk_uifid}}};
+@@ -55,6 +61,5 @@
  `;
 -export const DOUYIN_SDK_RESULT = String.raw`
 +export const DOUYIN_BDMS_REQUEST = String.raw`
@@ -284,7 +323,7 @@ diff --git a/server/infra/douyin_sdk_environment.js b/server/infra/douyin_sdk_en
  target.searchParams.delete('a_bogus');
 -// SDK 下载后再确定时钟，避免 URL 时间戳与安全签名过期头不一致。
  var signing_time = Math.floor(Date.now()/1000);
-@@ -62,11 +68,12 @@
+@@ -62,11 +67,12 @@
  Date.now = function(){return signing_time*1000;};
 -var signing = bdms.init._v[1][37];
 -if(typeof signing !== 'function')throw new Error('Douyin signing SDK changed');

@@ -118,6 +118,23 @@ test("抖音参数和 Cookie 授权失败时不请求上游", async t => {
   await assert.rejects(run({}, { sec_uid }, null), /Cookie 权限/);
 });
 
+test("新版登录态只有 UIFID_TEMP 时仍可签名，Cookie 保留原名且不进入订阅输出", async t => {
+  const access = new ScriptCookieAccess({
+    permissions: compiled.metadata.permissions, assert_grant() {},
+    cookies: () => grant().cookies().filter(cookie => cookie.name !== "UIFID"),
+  });
+  upstream(t, (url, options) => {
+    assert.equal(options.headers.uifid, "fixture-UIFID_TEMP");
+    assert.match(options.headers.Cookie, /(?:^|; )UIFID_TEMP=fixture-UIFID_TEMP(?:;|$)/);
+    assert.doesNotMatch(options.headers.Cookie, /(?:^|; )UIFID=/);
+    return Response.json(response);
+  });
+  const result = await run({ count: "3" }, { sec_uid }, access);
+  assert.equal(JSON.parse(result.output).items.length, fixture.expected_ids.length);
+  assert.doesNotMatch(result.output, /fixture-UIFID_TEMP/);
+  assert.doesNotMatch(JSON.stringify(result.lines), /fixture-UIFID_TEMP/);
+});
+
 test("抖音上游空回包和拒绝响应不会误报为作品列表成功", async t => {
   let body;
   upstream(t, () => body());
