@@ -117,7 +117,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 69书吧小说章节 | [rss/69shuba.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/69shuba.js) | `/69shuba/book/34567` | 1.3.0 | 自动复用加密验证状态，BROWSER_ENABLED=true 时可刷新验证 |
 | 爱奇艺剧集 | [rss/iqiyi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/iqiyi.js) | `/iqiyi/series/3993682943621001` | 1.0.0 | 公开正片目录；参数为数字专辑 ID |
 | Apple App Store 应用更新 | [rss/apple.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/apple.js) | `/apple/apps/update/us/id408709785` | 1.1.0 | 公开来源 |
-| Avmoo 演员作品 | [rss/avmoo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/avmoo.js) | `/avmoo/star/abc123` | 1.1.0 | 实际演员 ID；可选 Cookie / BROWSER_ENABLED |
+| Avmoo 演员作品 | [rss/avmoo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/avmoo.js) | `/avmoo/star/jkzqbvn` | 1.2.0 | avmoo.shop 演员 ID；BROWSER_ENABLED=true |
 | 哔哩哔哩用户动态 | [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) | `/bilibili/650898515/dynamic` | 1.1.2 | Cookie 授权 |
 | 抖音作者作品 | [rss/douyin.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/douyin.js) | `/douyin/user/MS4wLjABAAAAOE57npukdzs0SH_Fk5RHB-qfUlnZ5jQT2R_KPH4Sd8s` | 1.2.3 | Cookie 授权 |
 | 番茄小说章节 | [rss/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fanqienovel.js) | `/fanqienovel/book/7143038691944959011` | 1.1.0 | 公开来源 |

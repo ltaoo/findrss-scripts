@@ -6,7 +6,7 @@ import { ScriptCookieAccess } from "findrss-worker/server/infra/script_cookie_ac
 import { FeedModel } from "findrss-worker/server/domain/feed_format.js";
 
 const sites = {
-  avmoo: { name: "Avmoo", origin: "https://avmoo.com", actor_path: "/cn/star/abc123", movie_path: "/cn/movie/movie1", actor_class: "pb-10" },
+  avmoo: { name: "Avmoo", origin: "https://avmoo.shop", actor_path: "/cn/actresses/abc123", movie_path: "/cn/movie/movie1", actor_class: "pb-10" },
   javbus: { name: "JavBus", origin: "https://www.javbus.com", actor_path: "/star/abc123", movie_path: "/ABC-123", actor_class: "pb10" },
   javlibrary: { name: "JAVLibrary", origin: "https://www.javlibrary.com", actor_path: "/cn/vl_star.php?s=abc123&mode=2&page=1", movie_path: "/cn/?v=movie1" },
 };
@@ -77,7 +77,7 @@ for (const [key, site] of Object.entries(sites)) {
   test(key + "：指定页码、缺封面/日期、合法空列表", async t => {
     mock(t, async url => {
       assert.equal(url, site.origin + (key === "javlibrary"
-        ? site.actor_path.replace("page=1", "page=2") : site.actor_path + "/2"));
+        ? site.actor_path.replace("page=1", "page=2") : site.actor_path + (key === "avmoo" ? "?page=2" : "/2")));
       return new Response(page(key, card(key, { date: "", image: false })));
     });
     const feed = await run({ query: { page: "2" } });
@@ -112,7 +112,7 @@ for (const [key, site] of Object.entries(sites)) {
     }
     for (const html of ["<html><title>Sign in</title></html>", page(key, card(key, { code: "" }))]) {
       mock(t, async () => new Response(html));
-      await assert.rejects(run(), invalid_response);
+      await assert.rejects(run({ navigate: async () => ({ html }) }), invalid_response);
     }
     mock(t, async () => new Response(page(key, '<div class="changed-card">ABC-123 作品</div>')));
     await assert.rejects(run(), invalid_response);
@@ -176,9 +176,10 @@ for (const [key, site] of Object.entries(sites)) {
         });
         const feed = await run({ query: { page: "2" }, navigate: async (url, options, evaluate) => {
           navigations++;
-          assert.equal(url, site.origin + (key === "javlibrary" ? site.actor_path.replace("page=1", "page=2") : site.actor_path + "/2"));
-          assert.deepEqual(options, { selector: key === "javlibrary" ? ".videothumblist, .videotextlist" : "#waterfall", wait_ms: 0 });
-          assert.equal(evaluate, undefined);
+          assert.equal(url, site.origin + (key === "javlibrary" ? site.actor_path.replace("page=1", "page=2") : site.actor_path + "?page=2"));
+          assert.deepEqual(options, key === "javlibrary" ? { selector: ".videothumblist, .videotextlist", wait_ms: 0 }
+            : { selector: ".movie-wall, #waterfall", wait_ms: 0, args: [2] });
+          assert.equal(typeof evaluate, key === "javlibrary" ? "undefined" : "string");
           return { html: page(key, card(key)) };
         } });
         assert.equal(requests, 1);
@@ -207,6 +208,24 @@ for (const [key, site] of Object.entries(sites)) {
         await assert.rejects(run({ browser_enabled: false, navigate: () => assert.fail("浏览器已关闭") }),
           error => error.problem?.code === (status === 403 ? "UPSTREAM_ACCESS_DENIED" : "UPSTREAM_AUTH_REQUIRED"));
       }
+    });
+  }
+
+  if (key === "avmoo") {
+    test("avmoo：新站渲染目录保留作品编号、封面及日期，空应用壳通过 Chrome 获取", async t => {
+      const modern = '<div class="profile-heading"><h1>演员甲</h1></div><div class="movie-wall">' +
+        '<a class="movie-card shadow-2" href="/cn/movies/movie1"><img class="poster" src="//cdn.example/cover.jpg" alt="作品 &amp; 测试">' +
+        '<div class="movie-name"><span>作品 &amp; 测试</span><i>file_download</i></div>' +
+        '<div class="movie-meta"><span>ABC-123</span><span>2026-10-20</span></div></a></div>';
+      mock(t, async () => new Response('<div id="q-app"></div>'));
+      const feed = await run({ navigate: async () => ({ html: modern }) });
+      assert.equal(feed.author.name, "演员甲");
+      assert.equal(feed.items[0].id, "avmoo:movie:movie1");
+      assert.equal(feed.items[0].link, site.origin + "/cn/movies/movie1");
+      assert.equal(feed.items[0].title, "ABC-123 作品 & 测试");
+      assert.equal(feed.items[0].published, "2026-10-20T00:00:00.000Z");
+      await assert.rejects(run({ query: { page: "6" } }), error => error.problem.code === "INVALID_PARAMETER");
+      await assert.rejects(run({ query: { page: "2" }, browser_enabled: false }), error => error.problem.code === "SOURCE_UNAVAILABLE");
     });
   }
 

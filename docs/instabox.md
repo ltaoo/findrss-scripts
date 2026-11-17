@@ -15,9 +15,9 @@ instabox create --name findrss-checks --template agent-browser
 instabox stop findrss-checks
 ```
 
-机器需要 Node >= 22.19、npm、git、curl、tar、timeout 和免密码 sudo。首次运行下载项目固定的 FindRSS 运行时、npm 依赖，以及 Wrangler 配套的 Chrome；随后保留运行时和浏览器缓存。浏览器由 Wrangler 的本地 Browser Rendering 绑定启动，无需把它设置为 `remote: true`。
+机器需要 Node >= 22.19、npm、git、curl、tar、timeout、setsid、Xvfb（含 xvfb-run / xauth）和免密码 sudo。首次运行下载项目固定的 FindRSS 运行时、npm 依赖，以及 Wrangler 配套的 Chrome；随后保留运行时和浏览器缓存。浏览器由 Wrangler 的本地 Browser Rendering 绑定启动，无需把它设置为 `remote: true`。巡检在 Xvfb 中运行有界面 Chrome（`X_BROWSER_HEADFUL=true`）；启动前仅修正当前 Miniflare 的本地浏览器版本与显示环境传递，不将访问令牌、Cookie 密钥等环境变量传入 Chrome。首次运行下载 Google 官方稳定版，后续复用缓存。
 
-巡检执行环境固定设置 `BROWSER_ENABLED=true`，并通过 Wrangler 的 `--var BROWSER_ENABLED:true` 传入本地 Worker。Avmoo、JAVLibrary、天天看书和 69书吧优先 HTTP 读取，遇到 401/403 或验证页时调用 `RSSScript.navigate(ctx, url, options)` 获取 Chrome 渲染的 HTML。该方法复用 `ctx.puppeteer.navigate`，返回 `Result<string>`，保留浏览器错误并拒绝空页面；关闭开关时不调用这四站的浏览器兜底。其他剪藏等浏览器能力不受此开关影响。
+巡检执行环境固定设置 `BROWSER_ENABLED=true`，并通过 Wrangler 的 `--var BROWSER_ENABLED:true` 传入本地 Worker。Avmoo、JAVLibrary、天天看书和 69书吧优先 HTTP 读取，遇到 401/403 或验证页时调用 `RSSScript.navigate(ctx, url, options, evaluate?)` 获取 Chrome 渲染的 HTML；Avmoo 的空应用壳也会触发浏览器读取。该方法复用 `ctx.puppeteer.navigate`，返回 `Result<string>`，保留浏览器错误并拒绝空页面；关闭开关时不调用这四站的浏览器兜底。其他剪藏等浏览器能力不受此开关影响。
 
 仅将此机器用于巡检。脚本使用 `/data/home/findrss-checks/`，每轮替换其中的 `source/`；保留 `runtime/`、`state/` 和机器上的浏览器缓存，不修改其他项目目录。内存和浏览器进程在关机时结束，KV 与已保存的浏览器验证状态保存在 `state/`。
 
@@ -90,3 +90,7 @@ Worker 的 `INSTABOX_MACHINE` 必须填写 `m_` 开头的机器 ID，可用 `ins
 - 关机后 Linux 机器不计 CPU / 内存运行时长，磁盘仍按套餐的存储规则计费。API Key 到期后需更新 GitHub Secret。
 
 官方文档：[机器生命周期](https://instabox.sh/docs/machines/lifecycle)、[CLI](https://instabox.sh/docs/reference/cli)、[计费](https://instabox.sh/docs/account/pricing)。
+
+Avmoo 当前入口为 `avmoo.shop`，演员路径为 `/cn/actresses/<ID>`，作品页为 `/cn/movies/<ID>`。旧域名会跳到导航页。脚本使用新站渲染目录，`page=2` 对应下一次滚动加载的作品批次，最多五批；新站忽略 URL 的 page 参数，因此不能直接把同一批作品当作第二页。示例演员 ID 为 `jkzqbvn`。
+
+2026-11-17 实际在 InstaBox Chrome 完成 Avmoo 和 69书吧抓取，另两站仍遇到 Cloudflare 验证；完整结果见[实测报告](2026-11-17-instabox-browser-check.md)。
