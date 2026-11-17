@@ -21,7 +21,7 @@ test("远端签名只执行固定程序，凭据走 API 请求头和 stdin，缓
   for (const { url, options } of calls) {
     assert.equal(new URL(url).origin, "https://api.instabox.sh");
     assert.equal(options.headers["X-API-Key"], env.INSTABOX_API_KEY);
-    assert.equal(options.redirect, "error");
+    assert.equal(options.redirect, "manual");
   }
   const command = JSON.parse(calls[1].options.body);
   assert.deepEqual(command.argv, ["node", "/data/home/findrss-signing/douyin-signer.mjs"]);
@@ -61,6 +61,8 @@ test("远端鉴权、执行、输出失败和取消不会降级成本地高 CPU 
   }
   t.mock.method(globalThis, "fetch", async () => response_with_status(401));
   await assert.rejects(create_instabox_signer(env)(request), { code: "SOURCE_UNAVAILABLE", status: 401 });
+  t.mock.method(globalThis, "fetch", async () => new Response(null, { status: 302, headers: { Location: "https://other.example/" } }));
+  await assert.rejects(create_instabox_signer(env)(request), { code: "SOURCE_UNAVAILABLE", status: 302 });
   const controller = new AbortController();
   controller.abort();
   t.mock.method(globalThis, "fetch", async (_, options) => { options.signal.throwIfAborted(); });

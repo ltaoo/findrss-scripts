@@ -9,7 +9,7 @@ export function create_instabox_signer(env, signal) {
     const deadline = AbortSignal.any([AbortSignal.timeout(110000), ...(signal ? [signal] : [])]);
     const api = async (path = "", body) => {
       const response = await fetch(base + path, {
-        method: body ? "POST" : "GET", redirect: "error", signal: deadline,
+        method: body ? "POST" : "GET", redirect: "manual", signal: deadline,
         headers: { "X-API-Key": env.INSTABOX_API_KEY, "Content-Type": "application/json",
           ...(path === "/start" ? { "Idempotency-Key": crypto.randomUUID() } : {}) },
         ...(body ? { body: JSON.stringify(body) } : {}),
