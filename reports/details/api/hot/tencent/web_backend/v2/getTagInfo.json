@@ -1,25 +1,26 @@
 {
-  "checked_at": "2026-11-17T04:43:33.586Z",
+  "checked_at": "2026-11-17T14:44:08.865Z",
   "inspection": {
     "file": "hot/tencent_hot.js",
     "path": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "example": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/tencent/web_backend/v2/getTagInfo.json",
-    "duration_ms": 1434
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
+    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+    "duration_ms": 1129
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 988
+    "status": 502,
+    "duration_ms": 457
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "hot/tencent_hot.js",
       "name": "腾讯新闻 · 综合早报",
@@ -45,21 +46,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 982,
+    "phase": "runtime",
+    "elapsed_ms": 434,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"tencent-hot\",\"count\":15,\"missing_rank\":15}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":15}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：缺少列表：data.tabs.0.articleList",
+    "error_text": "脚本执行失败：缺少列表：data.tabs.0.articleList\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at array_at (@findrss/util:50:64)\n    at fetch (script-source.js:56:34)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://i.news.qq.com/web_backend/v2/getTagInfo?tagId=aEWqxLtdgmQ%3D",
@@ -72,95 +64,89 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 11,
-        "duration_ms": 967,
+        "started_ms": 10,
+        "duration_ms": 422,
         "timings": {
-          "response_ms": 693,
-          "body_read_ms": 273,
-          "decode_and_transfer_ms": 1
+          "response_ms": 420,
+          "body_read_ms": 2,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"腾讯新闻 · 综合早报\",\"link\":\"https://news.qq.com/tag/aEWqxLtdgmQ=\",\"category\":\"综合\",\"observed_at\":\"2026-11-17T04:43:34.569Z\",\"entries\":[{\"id\":\"tencent-hot:20261116A0CJXX00\",\"title\":\"中俄美元首将举行历史性会晤，专家：重在加强大国战略沟通\",\"link\":\"https://view.inews.qq.com/a/20261116A0CJXX00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DO4A00\",\"title\":\"我国驻巴林使馆提醒在巴中国公民：加强安全防范，远离军事基地及敏感设施\",\"link\":\"https://view.inews.qq.com/a/20261116A0DO4A00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0EHEK00\",\"title\":\"特朗普：不介意黄仁勋重掌英伟达\",\"link\":\"https://view.inews.qq.com/a/20261116A0EHEK00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DMHE00\",\"title\":\"内塔尼亚胡被要求立刻下台\",\"link\":\"https://view.inews.qq.com/a/20261116A0DMHE00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DVGT00\",\"title\":\"欧盟通过新一批对俄制裁，并批准“史上最大”对乌援助\",\"link\":\"https://view.inews.qq.com/a/20261116A0DVGT00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DEUO00\",\"title\":\"山东省政府原参事袭燕受贿案一审宣判\",\"link\":\"https://view.inews.qq.com/a/20261116A0DEUO00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A02OP000\",\"title\":\"美股收盘：芯片板块遭血洗英伟达跌逾4% 纳指重挫约2.5%\",\"link\":\"https://view.inews.qq.com/a/20261117A02OP000\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DCKH00\",\"title\":\"四季度经济怎么走？10月经济数据释放关键信号\",\"link\":\"https://view.inews.qq.com/a/20261116A0DCKH00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0AVO700\",\"title\":\"逼近3800关口！美加息预期升温，黄金跌至逾一年新低\",\"link\":\"https://view.inews.qq.com/a/20261116A0AVO700\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0CWEX00\",\"title\":\"实测Hy4 flash：WorkBuddy限免，比旗舰便宜20倍的办公利器\",\"link\":\"https://view.inews.qq.com/a/20261116A0CWEX00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0CING00\",\"title\":\"苹果眼镜明年见：没有屏幕，全靠Siri撑场面？\",\"link\":\"https://view.inews.qq.com/a/20261116A0CING00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DDHO00\",\"title\":\"万斯“接班人”地位生变？克鲁兹已开始准备、德桑蒂斯也在考虑\",\"link\":\"https://view.inews.qq.com/a/20261116A0DDHO00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0AROG00\",\"title\":\"美媒：因军费开支等问题引发紧张关系，北约取消2027年峰会\",\"link\":\"https://view.inews.qq.com/a/20261116A0AROG00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DIGW00\",\"title\":\"韩国全北道将单独申办2036年夏季奥运会\",\"link\":\"https://view.inews.qq.com/a/20261116A0DIGW00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261116A0DCDM00\",\"title\":\"西甲向央视澄清，涉亚马尔种族歧视内容系伪造\",\"link\":\"https://view.inews.qq.com/a/20261116A0DCDM00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
     "timing": {
-      "elapsed_ms": 982,
+      "elapsed_ms": 434,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 7
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
-          "duration_ms": 972
+          "started_ms": 7,
+          "duration_ms": 425
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 981,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 981,
+          "name": "错误诊断收集",
+          "started_ms": 432,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 981,
+          "started_ms": 432,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 982,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 433,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 982,
+          "started_ms": 434,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 967
+          "started_ms": 10,
+          "duration_ms": 422
         }
       ]
     }
