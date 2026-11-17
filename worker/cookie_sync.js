@@ -98,6 +98,26 @@ export async function save_browser_session(env, origin, session) {
   } catch { throw script_error("COOKIE_STORAGE_UNAVAILABLE"); }
 }
 
+export function create_signature_cache(env) {
+  if (!env.COOKIE_KV || !env.COOKIE_STORAGE_KEY) return undefined;
+  const name = key => {
+    if (!/^[0-9a-f]{64}$/.test(key)) throw new Error("签名缓存键无效");
+    return "douyin-signature:" + key;
+  };
+  return {
+    async read(key) {
+      const id = name(key);
+      const record = await env.COOKIE_KV.get(id, { type: "json" });
+      return record === null ? null : (await open_record(await storage_key(env), id, record)).signature;
+    },
+    async write(key, signature) {
+      const id = name(key);
+      await env.COOKIE_KV.put(id, await seal(await storage_key(env), id, { cookies: [], signature }));
+    },
+    async remove(key) { await env.COOKIE_KV.delete(name(key)); },
+  };
+}
+
 export async function read_json_body(request, invalid_code = "INVALID_PARAMETER") {
   if (request.headers.get("Content-Type")?.split(";")[0].trim().toLowerCase() !== "application/json") throw script_error("UNSUPPORTED_MEDIA_TYPE");
   if (Number(request.headers.get("Content-Length")) > max_bytes) throw script_error("PAYLOAD_TOO_LARGE");

@@ -21,7 +21,7 @@ diff --git a/server/infra/script_sandbox.js b/server/infra/script_sandbox.js
 +        }
 +        douyin_signature = await get_douyin_signature(get_quickjs_module, {
 +          url: outgoing_url, cookie: request_cookie, user_agent: headers["user-agent"],
-+        });
++        }, cookie_access?.signature_cache);
 +        outgoing_url = douyin_signature.url; signed_headers = douyin_signature.headers;
        }
 @@ -532,3 +537,19 @@
@@ -37,7 +37,7 @@ diff --git a/server/infra/script_sandbox.js b/server/infra/script_sandbox.js
 +          }
 +          if (douyin_buffer.byteLength > SCRIPT_FETCH_BYTES) throw new Error("脚本上游响应超过 10MB 限制");
 +          if (douyin_signature_rejected(response.status, rss_response_text(douyin_buffer, response.headers.get("Content-Type") || ""))) {
-+            invalidate_douyin_signature(douyin_signature);
++            await invalidate_douyin_signature(douyin_signature);
 +            if (douyin_retries++ === 0) { redirects -= 1; continue; }
 +          }
 +          response = new Response(douyin_buffer, { status: response.status, statusText: response.statusText, headers: response.headers });
@@ -91,7 +91,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 -  const deadline = Date.now() + 3000;
 +  const deadline = Date.now() + 10000;
    runtime.setInterruptHandler(() => Date.now() > deadline);
-@@ -37,17 +17,203 @@
+@@ -37,17 +17,220 @@
      vm.setProp(vm.global, '__sdk_request', input); input.dispose();
 -    const bdms = sources[0].replace('return Y.set(t,n),V.set(n,[e,r]),n', 'n._v=[e,r];n._u=X;return Y.set(t,n),V.set(n,[e,r]),n');
 -    const result = vm.evalCode(DOUYIN_SDK_ENVIRONMENT + '\n' + bdms + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, 'douyin-sdk.js');
@@ -250,7 +250,7 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +  return sdk_flight;
 +}
 +
-+export async function get_douyin_signature(create_quickjs, request) {
++export async function get_douyin_signature(create_quickjs, request, storage) {
 +  const url = new URL(request.url);
 +  // timestamp 由签名器重写；复用时必须连同旧时间戳和全部签名请求头一起发送。
 +  url.searchParams.delete('timestamp');
@@ -259,16 +259,27 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +    JSON.stringify([url.href, request.cookie, request.user_agent])));
 +  const key = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
 +  let entry = signature_cache.get(key);
-+  if (!entry) {
-+    // shortcut: 缓存限于当前 Worker 实例的 256 组请求；需要跨实例复用时再接持久化存储。
-+    if (signature_cache.size >= 256) signature_cache.delete(signature_cache.keys().next().value);
++  if (!entry?.promise) {
++    const rejected_url = entry?.rejected_url;
++    if (signature_cache.size >= 256 && !entry) signature_cache.delete(signature_cache.keys().next().value);
 +    entry = {};
 +    signature_cache.set(key, entry);
 +    entry.promise = (async () => {
 +      try {
++        if (storage) {
++          try {
++            const saved = await storage.read(key);
++            if (saved && saved.url !== rejected_url) {
++              return { ...validated_signature(new URL(request.url), saved), key, entry, storage };
++            }
++          } catch {}
++        }
 +        const QuickJS = await create_quickjs();
 +        const sdk = await load_douyin_sdk(QuickJS, request.user_agent);
-+        return { ...sign_douyin_request(QuickJS, sdk, request), key, entry };
++        const signed = sign_douyin_request(QuickJS, sdk, request);
++        // 签名缓存不可用时仍返回本次有效签名；Cookie 授权与读取失败继续由宿主拒绝。
++        if (storage) { try { await storage.write(key, signed); } catch {} }
++        return { ...signed, key, entry, storage };
 +      } catch (error) {
 +        if (signature_cache.get(key) === entry) {
 +          signature_cache.delete(key);
@@ -281,10 +292,12 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +  return entry.promise;
 +}
 +
-+export function invalidate_douyin_signature(signature) {
++export async function invalidate_douyin_signature(signature) {
 +  if (signature_cache.get(signature.key) !== signature.entry) return;
-+  signature_cache.delete(signature.key);
++  // KV 删除可能尚未传播，当前实例不能再次接受刚被上游拒绝的旧签名。
++  signature_cache.set(signature.key, { rejected_url: signature.url });
 +  sdk_cache = undefined;
++  if (signature.storage) { try { await signature.storage.remove(signature.key); } catch {} }
 +}
 +
 +export function douyin_signature_rejected(status, text) {
@@ -298,6 +311,10 @@ diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
 +  if (!['https://www.douyin.com', 'https://www-hj.douyin.com'].includes(target.origin) || !target.pathname.startsWith('/aweme/v1/web/')) throw new Error('抖音签名只允许 www.douyin.com 或 www-hj.douyin.com 作品接口');
 +  if (!request.cookie.split('; ').some(pair => /^(?:UIFID|UIFID_TEMP)=.+/.test(pair))) throw new Error('抖音签名需要已同步的 UIFID 或 UIFID_TEMP Cookie');
 +  const output = execute_page_script(QuickJS, sources[0] + '\n' + DOUYIN_BDMS_REQUEST + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, request);
++  return validated_signature(target, output);
++}
++
++function validated_signature(target, output) {
 +  const signed = new URL(output.url);
 +  if (signed.origin !== target.origin || signed.pathname !== target.pathname) throw new Error('抖音 SDK 返回非法目标地址');
 +  const headers = {};

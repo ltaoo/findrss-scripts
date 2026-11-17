@@ -2,7 +2,7 @@ import { execute_script } from "../.runtime/findrss-worker/server/infra/script_s
 import { script_config_value } from "../.runtime/findrss-worker/server/lib/script_config.js";
 import { create_puppeteer_navigate } from "../.runtime/findrss-worker/server/infra/script_puppeteer.js";
 import { WorkerCookieAccess } from "./cookies.js";
-import { load_cookies, validate_cookies } from "./cookie_sync.js";
+import { load_cookies, validate_cookies, create_signature_cache } from "./cookie_sync.js";
 import { create_browser_session } from "./browser_session.js";
 import { script_error } from "./errors.js";
 
@@ -37,7 +37,7 @@ export async function execute_route(entry, context, env, { metadata, fallback },
       return response.json();
     } : null;
     const cookie_access = new WorkerCookieAccess({ permissions: metadata.permissions,
-      cookies: () => browser_session.cookies, assert_grant: () => {} });
+      cookies: () => browser_session.cookies, assert_grant: () => {}, signature_cache: create_signature_cache(env) });
     const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
       : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
     stage = "script";

@@ -31,6 +31,10 @@ function cookie_required_message(entry, target, cookies) {
 }
 
 export class WorkerCookieAccess extends ScriptCookieAccess {
+  constructor(options) {
+    super(options);
+    this.signature_cache = options.signature_cache;
+  }
   header(handle, target, derived = {}) {
     const header = super.header(handle, target, derived);
     if (!header) throw script_error("SCRIPT_COOKIE_PERMISSION_REQUIRED", cookie_required_message(this.entry(handle), target, this.cookies()));
