@@ -53,6 +53,10 @@
 
 抖音支持 `?count=18&max_cursor=0`（每页最多 30 条），Telegram 支持 `?before=<消息 ID>`，微信公众号和视频号支持 `?offset=<游标>`。微信公众号也可使用 `/rss/wxmp?username=wow36kr`，与 `/rss/wxmp/wow36kr` 等价；图片代理需配置 `FINDRSS_HOSTNAME`。
 
+抖音作者作品需要本仓库运行时补丁提供的动态 SDK 加载能力。宿主访问抖音首页，在隔离 QuickJS 模拟环境执行前置校验与 SDK 初始化，读取页面当前引用的 BDMS 和安全 SDK 后生成签名；无需启动 Chromium 或配置 `BROWSER`。相同请求参数、Cookie 和 User-Agent 复用完整的签名 URL、签名时间与请求头，缓存命中时跳过签名器初始化和 SDK 执行；作者、分页、数量或登录态变化时分别签名。签名与 SDK 持续缓存，收到明确的 Argus 签名拒绝或 HTTP 200 空回包时，清除对应签名、重新读取官网 SDK 并重签重试一次；登录错误、普通 403 和限流不会触发重签重试。签名生成失败后下次调用可重新加载 SDK。
+
+缓存只存在于当前 Worker 实例内，最多保留 256 组请求；实例重启或缓存容量淘汰后需重新生成。登录 Cookie 只用于已授权作品接口，不发送给 SDK CDN，缓存键使用请求、Cookie 与 UA 的 SHA-256。仍需有效的 `UIFID` 和登录 Cookie；若 SDK 执行接口或网页初始化结构发生变化，会明确报错，需要更新兼容代码。已有部署需重新构建并部署运行时，仅替换 RSS 脚本无法更新宿主签名能力。
+
 YouTube 普通视频根据页面中英文相对时间估算发布时间，月、年分别按 30、365 天计算；Shorts 页面未提供时间时不估算。小红书的用户 ID 不是小红书号。快手通过作品接口读取数据，需同步完整的登录与验证 Cookie，包括 `kuaishou.server.webday7_st`、`kuaishou.server.webday7_ph` 和 `kwfv1`；主页能打开不代表作品接口可用。
 
 番茄小说正文路径为 `/fanqienovel/chapter/:chapter_id`，起点正文路径为 `/qidian/chapter/:book_id/:chapter_id`，直接返回 HTML，无需加 `/rss` 或 `/atom` 前缀。

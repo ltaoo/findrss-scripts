@@ -3,7 +3,6 @@ import test from "node:test";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { read_script } from "./support/script_sources.js";
-import { DOUYIN_SDK_FILES } from "findrss-worker/server/infra/douyin_sdk.js";
 import { ScriptCookieAccess } from "findrss-worker/server/infra/script_cookie_access.js";
 import { compile_script_module, execute_script } from "findrss-worker/server/infra/script_sandbox.js";
 
@@ -17,12 +16,49 @@ const response = JSON.parse(fixture.responses[0].body);
 const sdk = ["bdms", "security"].map(name => gunzipSync(
   readFileSync(new URL("./fixtures/douyin/" + name + ".js.gz", import.meta.url)),
 ));
+const home = readFileSync(new URL("./fixtures/douyin/home.html", import.meta.url), "utf8");
+const sdk_urls = [
+  "https://p-pc-weboff.byteimg.com/tos-cn-i-9r5gewecjs/bdms_1.0.1.19_fix.js",
+  "https://lf-security.bytegoofy.com/obj/security-secsdk/runtime_bundler_34.js",
+];
 const names = compiled.metadata.permissions.cookies[0].names;
 const grant = () => new ScriptCookieAccess({
   permissions: compiled.metadata.permissions, assert_grant() {},
   cookies: () => [...names, "unrelated-secret"].map(name => ({
     name, value: "fixture-" + name, domain: ".douyin.com", path: "/", secure: true,
   })),
+});
+
+test("同一签名持续复用，上游拒绝后换签并重试一次，调试保留两次请求", async t => {
+  const urls = [];
+  upstream(t, url => {
+    urls.push(url.href);
+    return urls.length === 2
+      ? new Response("Blocked by ArgusSecurityPlugin Sign Invalid", { status: 403 })
+      : Response.json(response);
+  });
+  await run({ count: "7" });
+  const retried = await run({ count: "7" });
+  assert.equal(urls.length, 3);
+  assert.equal(urls[0], urls[1]);
+  assert.notEqual(urls[1], urls[2]);
+  assert.deepEqual(retried.upstream_requests.map(entry => entry.status), [403, 200]);
+  assert.equal(JSON.parse(retried.output).items.length, fixture.expected_ids.length);
+});
+
+test("持续拒绝最多重试一次；登录、普通拒绝和限流不会触发重签重试", async t => {
+  const urls = [];
+  let make_response = () => new Response("Blocked by ArgusSecurityPlugin Sign Invalid");
+  upstream(t, url => { urls.push(url.href); return make_response(); });
+  await assert.rejects(run({ count: "9" }), /抖音作品接口/);
+  assert.equal(urls.length, 2);
+  urls.length = 0;
+  for (const status of [401, 403, 429]) {
+    make_response = () => new Response("Forbidden", { status });
+    await assert.rejects(run({ count: "8" }), /抖音作品接口/);
+  }
+  assert.equal(urls.length, 3);
+  assert.ok(urls.every(url => url === urls[0]));
 });
 const run = (query = {}, params = { sec_uid }, access = grant()) => execute_script(
   source, { ...compiled.metadata, debug: true }, null,
@@ -32,7 +68,8 @@ function upstream(t, handler) {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   globalThis.fetch = async (url, options) => {
-    const index = DOUYIN_SDK_FILES.findIndex(file => file.url === url);
+    if (url === "https://www.douyin.com/") return new Response(home);
+    const index = sdk_urls.indexOf(url);
     return index >= 0 ? new Response(sdk[index]) : handler(new URL(url), options);
   };
 }

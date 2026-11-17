@@ -1,41 +1,306 @@
-diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
-index dd62e00..d0010c2 100644
---- a/server/infra/douyin_sdk.js
-+++ b/server/infra/douyin_sdk.js
-@@ -1,7 +1,7 @@
- import { DOUYIN_SDK_ENVIRONMENT, DOUYIN_SDK_RESULT } from './douyin_sdk_environment.js';
- export const DOUYIN_SDK_FILES = Object.freeze([
-   { url: 'https://p-pc-weboff.byteimg.com/tos-cn-i-9r5gewecjs/bdms_1.0.1.19_fix.js', sha256: 'a0e46f84476d63a1fa57bdcb47223e0e545c6ce0c3dacdd2818180dfa087909e' },
--  { url: 'https://lf-security.bytegoofy.com/obj/security-secsdk-gray/runtime_bundler_34.js', sha256: 'aac9a17e87c05f8be30e0a5ee5cb7d544b89749f6bb0da9e5df4b434b7c2de04' },
-+  { url: 'https://lf-security.bytegoofy.com/obj/security-secsdk-gray/runtime_bundler_34.js', sha256: '6d251977cbe2f421a217e9fecb1e1d2ad0aa7e5f6f7621fc84ebebc2a793209e' },
- ]);
- let sdk_flight;
- async function download_sdk() {
-@@ -24,7 +24,7 @@ export async function load_douyin_sdk() {
- }
- export function sign_douyin_request(QuickJS, sources, request) {
-   const target = new URL(request.url);
--  if (target.origin !== 'https://www.douyin.com' || !target.pathname.startsWith('/aweme/v1/web/')) throw new Error('抖音签名只允许 www.douyin.com 作品接口');
-+  if (!['https://www.douyin.com', 'https://www-hj.douyin.com'].includes(target.origin) || !target.pathname.startsWith('/aweme/v1/web/')) throw new Error('抖音签名只允许 www.douyin.com 或 www-hj.douyin.com 作品接口');
-   if (!request.cookie.split('; ').some(pair => pair.startsWith('UIFID='))) throw new Error('抖音签名需要已同步的 UIFID Cookie');
-   const runtime = QuickJS.newRuntime();
-   runtime.setMemoryLimit(32 * 1024 * 1024);
 diff --git a/server/infra/script_sandbox.js b/server/infra/script_sandbox.js
-index 4e1a1df..49d7a71 100644
 --- a/server/infra/script_sandbox.js
 +++ b/server/infra/script_sandbox.js
-@@ -488,9 +488,12 @@ export async function execute_script_inner(
-         // fetchText 正挂起主沙箱的 Asyncify 栈，签名必须使用独立 wasm 实例。
-         outgoing_url = sign_kuaishou_request(await get_quickjs_module(), sdk, { url: outgoing_url, method, body, cookie: request_cookie });
+@@ -1,2 +1,2 @@
+-import { load_douyin_sdk, sign_douyin_request } from './douyin_sdk.js';
++import { get_douyin_signature, invalidate_douyin_signature, douyin_signature_rejected } from './douyin_sdk.js';
+ import { load_kuaishou_sdk, sign_kuaishou_request } from './kuaishou_sdk.js';
+@@ -457,2 +457,3 @@
+       const timeout_ms = rss_fetch_timeout(fetch_options);
++      let douyin_signature, douyin_retries = 0;
+       let { method, body } = rss_fetch_request(fetch_options);
+@@ -490,6 +491,10 @@
        }
 -      if (fetch_options?.douyin_sign && parsed.origin === "https://www.douyin.com") {
+-        const sdk = await load_douyin_sdk();
+-        const signed = sign_douyin_request(QuickJS, sdk, { url: outgoing_url, cookie: request_cookie, user_agent: headers["user-agent"] });
+-        outgoing_url = signed.url; signed_headers = signed.headers;
 +      if (fetch_options?.douyin_sign) {
 +        if (method !== 'GET' || !['https://www.douyin.com', 'https://www-hj.douyin.com'].includes(parsed.origin) || !parsed.pathname.startsWith('/aweme/v1/web/')) {
 +          throw new Error('抖音签名只允许 GET www.douyin.com 或 www-hj.douyin.com 作品接口');
 +        }
-         const sdk = await load_douyin_sdk();
--        const signed = sign_douyin_request(QuickJS, sdk, { url: outgoing_url, cookie: request_cookie, user_agent: headers["user-agent"] });
-+        const signed = sign_douyin_request(await get_quickjs_module(), sdk, { url: outgoing_url, cookie: request_cookie, user_agent: headers["user-agent"] });
-         outgoing_url = signed.url; signed_headers = signed.headers;
++        douyin_signature = await get_douyin_signature(get_quickjs_module, {
++          url: outgoing_url, cookie: request_cookie, user_agent: headers["user-agent"],
++        });
++        outgoing_url = douyin_signature.url; signed_headers = douyin_signature.headers;
        }
-       signal ||= task_signal ? AbortSignal.any([AbortSignal.timeout(timeout_ms), task_signal]) : AbortSignal.timeout(timeout_ms);
+@@ -532,3 +537,19 @@
+       }
+-      if (![301, 302, 303, 307, 308].includes(response.status)) break;
++      if (![301, 302, 303, 307, 308].includes(response.status)) {
++        if (douyin_signature && [200, 403].includes(response.status)) {
++          const body_started_at = timing ? Date.now() : 0;
++          let douyin_buffer;
++          try { douyin_buffer = await response.arrayBuffer(); }
++          finally {
++            if (timing && trace) trace.timings.response_ms += Date.now() - body_started_at;
++          }
++          if (douyin_buffer.byteLength > SCRIPT_FETCH_BYTES) throw new Error("脚本上游响应超过 10MB 限制");
++          if (douyin_signature_rejected(response.status, rss_response_text(douyin_buffer, response.headers.get("Content-Type") || ""))) {
++            invalidate_douyin_signature(douyin_signature);
++            if (douyin_retries++ === 0) { redirects -= 1; continue; }
++          }
++          response = new Response(douyin_buffer, { status: response.status, statusText: response.statusText, headers: response.headers });
++        }
++        break;
++      }
+       if (redirects >= 5) throw new Error("脚本上游重定向过多");
+diff --git a/server/infra/douyin_sdk.js b/server/infra/douyin_sdk.js
+--- a/server/infra/douyin_sdk.js
++++ b/server/infra/douyin_sdk.js
+@@ -1,29 +1,9 @@
+-import { DOUYIN_SDK_ENVIRONMENT, DOUYIN_SDK_RESULT } from './douyin_sdk_environment.js';
+-export const DOUYIN_SDK_FILES = Object.freeze([
+-  { url: 'https://p-pc-weboff.byteimg.com/tos-cn-i-9r5gewecjs/bdms_1.0.1.19_fix.js', sha256: 'a0e46f84476d63a1fa57bdcb47223e0e545c6ce0c3dacdd2818180dfa087909e' },
+-  { url: 'https://lf-security.bytegoofy.com/obj/security-secsdk-gray/runtime_bundler_34.js', sha256: 'aac9a17e87c05f8be30e0a5ee5cb7d544b89749f6bb0da9e5df4b434b7c2de04' },
+-]);
+-let sdk_flight;
+-async function download_sdk() {
+-  const sources = [];
+-  for (const file of DOUYIN_SDK_FILES) {
+-    const response = await fetch(file.url, { redirect: 'manual', signal: AbortSignal.timeout(10000) });
+-    if (!response.ok) throw new Error('抖音签名 SDK 下载失败：HTTP ' + response.status);
+-    const bytes = await response.arrayBuffer();
+-    if (bytes.byteLength > 512000) throw new Error('抖音签名 SDK 文件过大');
+-    const digest = await crypto.subtle.digest('SHA-256', bytes);
+-    const hash = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2,'0')).join('');
+-    if (hash !== file.sha256) throw new Error('抖音官方 SDK 内容已变更，需要重新审核版本');
+-    sources.push(new TextDecoder().decode(bytes));
+-  }
+-  return sources;
+-}
+-export async function load_douyin_sdk() {
+-  if (!sdk_flight) sdk_flight = download_sdk().catch(error => { sdk_flight = undefined; throw error; });
+-  return sdk_flight;
+-}
+-export function sign_douyin_request(QuickJS, sources, request) {
+-  const target = new URL(request.url);
+-  if (target.origin !== 'https://www.douyin.com' || !target.pathname.startsWith('/aweme/v1/web/')) throw new Error('抖音签名只允许 www.douyin.com 作品接口');
+-  if (!request.cookie.split('; ').some(pair => pair.startsWith('UIFID='))) throw new Error('抖音签名需要已同步的 UIFID Cookie');
++import { parse } from 'node-html-parser';
++import { DOUYIN_SDK_ENVIRONMENT, DOUYIN_BDMS_REQUEST, DOUYIN_SDK_RESULT } from './douyin_sdk_environment.js';
++
++export const DOUYIN_HOME = 'https://www.douyin.com/';
++let sdk_cache, sdk_flight;
++const signature_cache = new Map();
++
++function execute_page_script(QuickJS, source, request) {
+   const runtime = QuickJS.newRuntime();
+@@ -31,3 +11,3 @@
+   runtime.setMaxStackSize(64 * 1024);
+-  const deadline = Date.now() + 3000;
++  const deadline = Date.now() + 10000;
+   runtime.setInterruptHandler(() => Date.now() > deadline);
+@@ -37,17 +17,150 @@
+     vm.setProp(vm.global, '__sdk_request', input); input.dispose();
+-    const bdms = sources[0].replace('return Y.set(t,n),V.set(n,[e,r]),n', 'n._v=[e,r];n._u=X;return Y.set(t,n),V.set(n,[e,r]),n');
+-    const result = vm.evalCode(DOUYIN_SDK_ENVIRONMENT + '\n' + bdms + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, 'douyin-sdk.js');
+-    if (result.error) { result.error.dispose(); throw new Error('抖音官方 SDK 签名执行失败，需检查 SDK 版本'); }
+-    const text = vm.getString(result.value); result.value.dispose();
+-    const output = JSON.parse(text);
+-    const signed = new URL(output.url);
+-    if (signed.origin !== target.origin || signed.pathname !== target.pathname) throw new Error('抖音 SDK 返回非法目标地址');
+-    const headers = {};
+-    for (const name of ['uifid','x-secsdk-web-signature','x-secsdk-web-expire']) {
+-      const value = output.headers?.[name];
+-      if (typeof value !== 'string' || /[\r\n\0]/.test(value) || value.length > 4096) throw new Error('抖音 SDK 返回非法签名请求头');
+-      headers[name] = value;
++    const result = vm.evalCode(DOUYIN_SDK_ENVIRONMENT + '\n' + source, 'douyin-page.js');
++    if (result.error) {
++      const error = vm.dump(result.error);
++      result.error.dispose();
++      throw new Error(error?.message?.includes('interrupted')
++        ? '抖音官方页面或 SDK 执行超时'
++        : '抖音官方页面或 SDK 执行失败，请检查兼容性');
+     }
+-    return { url: signed.toString(), headers };
++    try { return JSON.parse(vm.getString(result.value)); }
++    finally { result.value.dispose(); }
+   } finally { vm.dispose(); runtime.dispose(); }
+ }
++
++async function read_official_text(url, headers, limit) {
++  const response = await fetch(url, { headers, redirect: 'manual', signal: AbortSignal.timeout(10000) });
++  if (!response.ok) throw new Error('抖音页面或 SDK 下载失败：HTTP ' + response.status);
++  const reader = response.body?.getReader();
++  if (!reader) throw new Error('抖音页面或 SDK 响应为空');
++  const chunks = [];
++  let size = 0;
++  try {
++    while (true) {
++      const { value, done } = await reader.read();
++      if (done) break;
++      size += value.byteLength;
++      if (size > limit) throw new Error('抖音页面或 SDK 文件过大');
++      chunks.push(value);
++    }
++  } finally { await reader.cancel().catch(() => {}); }
++  if (!size) throw new Error('抖音页面或 SDK 响应为空');
++  const bytes = new Uint8Array(size);
++  let offset = 0;
++  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
++  return { text: new TextDecoder().decode(bytes), headers: response.headers };
++}
++
++function sdk_url(value, kind) {
++  const url = new URL(value, DOUYIN_HOME);
++  const allowed = kind === 'security'
++    ? url.hostname === 'lf-security.bytegoofy.com' && /^\/obj\/security-secsdk(?:-gray)?\/runtime_bundler_[\w.-]+\.js$/.test(url.pathname)
++    : url.hostname === 'p-pc-weboff.byteimg.com' && /^\/tos-cn-i-9r5gewecjs\/bdms_[\w.-]+\.js$/.test(url.pathname)
++      || ['lf-c-flwb.bytetos.com', 'lf-headquarters-speed.yhgfb-cn-static.com'].includes(url.hostname)
++        && /^\/obj\/rc-client-security\/web\/stable\/[\w.-]+\/bdms\.js$/.test(url.pathname);
++  if (!allowed || url.protocol !== 'https:' || url.username || url.password || url.port || url.hash) {
++    throw new Error('抖音页面返回了非官方 SDK 地址');
++  }
++  return url.href;
++}
++
++async function download_sdk(QuickJS, user_agent) {
++  const headers = { 'User-Agent': user_agent, Accept: 'text/html' };
++  let page = await read_official_text(DOUYIN_HOME, headers, 2 * 1024 * 1024);
++  if (page.text.includes('_$jsvmprt')) {
++    const cookie = page.headers.getSetCookie().map(value => value.split(';')[0]).join('; ');
++    const scripts = parse(page.text).querySelectorAll('script').filter(node => !node.getAttribute('src'));
++    const cookies = execute_page_script(QuickJS,
++      'location.reload=noop;location.replace=noop;\n' + scripts.map(node => node.textContent).join('\n;\n')
++        + '\nJSON.stringify(document.cookie);',
++      { url: DOUYIN_HOME, cookie, user_agent });
++    if (typeof cookies !== 'string' || /[\r\n\0]/.test(cookies)) throw new Error('抖音首页返回了无效 Cookie');
++    page = await read_official_text(DOUYIN_HOME, { ...headers, Cookie: cookies }, 2 * 1024 * 1024);
++  }
++  const scripts = parse(page.text).querySelectorAll('script');
++  const security = scripts.find(node => /\/security-secsdk(?:-gray)?\//.test(node.getAttribute('src') || ''));
++  const init = scripts.find(node => !node.getAttribute('src') && node.textContent.includes('window._SdkGlueInit('));
++  if (!security || !init) throw new Error('抖音首页未提供签名 SDK，请检查上游页面或访问校验');
++  const config = execute_page_script(QuickJS,
++    'var sdk_config;window._SdkGlueInit=function(config,files){sdk_config=files;};\n'
++      + init.textContent + '\nJSON.stringify(sdk_config);',
++    { url: DOUYIN_HOME, cookie: '', user_agent });
++  const bdms = config?.bdms?.srcList?.[0];
++  if (typeof bdms !== 'string') throw new Error('抖音首页未提供 BDMS SDK');
++  const urls = [sdk_url(bdms, 'bdms'), sdk_url(security.getAttribute('src'), 'security')];
++  const sources = [];
++  for (const url of urls) {
++    sources.push((await read_official_text(url, { 'User-Agent': user_agent, Referer: DOUYIN_HOME }, 512000)).text);
++  }
++  return sources;
++}
++
++export async function load_douyin_sdk(QuickJS, user_agent) {
++  if (sdk_cache) return sdk_cache;
++  if (!sdk_flight) {
++    sdk_flight = download_sdk(QuickJS, user_agent).then(sources => {
++      sdk_cache = sources;
++      return sources;
++    }).finally(() => { sdk_flight = undefined; });
++  }
++  return sdk_flight;
++}
++
++export async function get_douyin_signature(create_quickjs, request) {
++  const url = new URL(request.url);
++  // timestamp 由签名器重写；复用时必须连同旧时间戳和全部签名请求头一起发送。
++  url.searchParams.delete('timestamp');
++  url.searchParams.delete('a_bogus');
++  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(
++    JSON.stringify([url.href, request.cookie, request.user_agent])));
++  const key = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
++  let entry = signature_cache.get(key);
++  if (!entry) {
++    // shortcut: 缓存限于当前 Worker 实例的 256 组请求；需要跨实例复用时再接持久化存储。
++    if (signature_cache.size >= 256) signature_cache.delete(signature_cache.keys().next().value);
++    entry = {};
++    signature_cache.set(key, entry);
++    entry.promise = (async () => {
++      try {
++        const QuickJS = await create_quickjs();
++        const sdk = await load_douyin_sdk(QuickJS, request.user_agent);
++        return { ...sign_douyin_request(QuickJS, sdk, request), key, entry };
++      } catch (error) {
++        if (signature_cache.get(key) === entry) {
++          signature_cache.delete(key);
++          sdk_cache = undefined;
++        }
++        throw error;
++      }
++    })();
++  }
++  return entry.promise;
++}
++
++export function invalidate_douyin_signature(signature) {
++  if (signature_cache.get(signature.key) !== signature.entry) return;
++  signature_cache.delete(signature.key);
++  sdk_cache = undefined;
++}
++
++export function douyin_signature_rejected(status, text) {
++  const body = text.trim();
++  return status === 200 && !body
++    || [200, 403].includes(status) && /^(?:Blocked by\s+)?ArgusSecurityPlugin\s+Sign\s+Invalid[.!]?$/i.test(body);
++}
++
++export function sign_douyin_request(QuickJS, sources, request) {
++  const target = new URL(request.url);
++  if (!['https://www.douyin.com', 'https://www-hj.douyin.com'].includes(target.origin) || !target.pathname.startsWith('/aweme/v1/web/')) throw new Error('抖音签名只允许 www.douyin.com 或 www-hj.douyin.com 作品接口');
++  if (!request.cookie.split('; ').some(pair => pair.startsWith('UIFID='))) throw new Error('抖音签名需要已同步的 UIFID Cookie');
++  const output = execute_page_script(QuickJS, sources[0] + '\n' + DOUYIN_BDMS_REQUEST + '\n' + sources[1] + '\n' + DOUYIN_SDK_RESULT, request);
++  const signed = new URL(output.url);
++  if (signed.origin !== target.origin || signed.pathname !== target.pathname) throw new Error('抖音 SDK 返回非法目标地址');
++  const headers = {};
++  for (const name of ['uifid','x-secsdk-web-signature','x-secsdk-web-expire']) {
++    const value = output.headers?.[name];
++    if (typeof value !== 'string' || /[\r\n\0]/.test(value) || value.length > 4096) throw new Error('抖音 SDK 返回非法签名请求头');
++    headers[name] = value;
++  }
++  return { url: signed.toString(), headers };
++}
+diff --git a/server/infra/douyin_sdk_environment.js b/server/infra/douyin_sdk_environment.js
+--- a/server/infra/douyin_sdk_environment.js
++++ b/server/infra/douyin_sdk_environment.js
+@@ -1,2 +1,3 @@
+ // 仅供隔离的 SDK VM 使用；没有文件、网络、浏览器或宿主凭证访问能力。
++// shortcut: 只模拟抖音页面校验和签名所用的浏览器 API，SDK 需要其他 API 时补齐环境。
+ export const DOUYIN_SDK_ENVIRONMENT = String.raw`
+@@ -44,5 +45,11 @@
+ var XMLHttpRequest = function(){};
+-XMLHttpRequest.prototype.open=noop;XMLHttpRequest.prototype.send=noop;XMLHttpRequest.prototype.setRequestHeader=noop;
++// 只捕获官方 SDK 改写后的请求，不在 VM 内联网。
++var signed_request_url;
++XMLHttpRequest.prototype.open=function(method,url){this.url=String(url);this.headers={};};
++XMLHttpRequest.prototype.send=function(){
++  var url=new URL(this.url),target=new URL(request.url);
++  if(url.origin===target.origin && url.pathname===target.pathname)signed_request_url=url.href;
++};
++XMLHttpRequest.prototype.setRequestHeader=function(name,value){this.headers[name]=value;};
+ var fetch=noop;
+-var _sdkGlueVersionMap={sdkGlueVersion:'1.0.0.64-fix.01',bdmsVersion:'1.0.1.19-fix.01'};
+ var onwheelx={_Ax:'0X21'};
+@@ -55,6 +62,5 @@
+ `;
+-export const DOUYIN_SDK_RESULT = String.raw`
++export const DOUYIN_BDMS_REQUEST = String.raw`
+ var target = new URL(request.url);
+ target.searchParams.delete('a_bogus');
+-// SDK 下载后再确定时钟，避免 URL 时间戳与安全签名过期头不一致。
+ var signing_time = Math.floor(Date.now()/1000);
+@@ -62,11 +68,12 @@
+ Date.now = function(){return signing_time*1000;};
+-var signing = bdms.init._v[1][37];
+-if(typeof signing !== 'function')throw new Error('Douyin signing SDK changed');
+-var signing_query = [];
+-// 浏览器原始请求用 %20；表单编码的 + 会改变 a_bogus 的输入。
+-target.searchParams.forEach(function(value,key){signing_query.push(encodeURIComponent(key)+'='+encodeURIComponent(value));});
+-target.searchParams.set('a_bogus',signing(signing_query.join('&'),'',request.user_agent));
+ var verify_fp = sdk_cookies.get('s_v_web_id');
+ if(verify_fp){target.searchParams.set('verifyFp',verify_fp);target.searchParams.set('fp',verify_fp);}
+-var secured = use('webSignUrl')(target.href);
++bdms.init({aid:6383,pageId:6241,boe:false,paths:['^/aweme/v1/'],ddrt:8.5,ic:8.5});
++var xhr=new XMLHttpRequest();
++xhr.open('GET',target.href,true);
++xhr.send();
++if(!signed_request_url || !new URL(signed_request_url).searchParams.get('a_bogus'))throw new Error('Douyin BDMS did not sign the request');
++`;
++export const DOUYIN_SDK_RESULT = String.raw`
++var secured = use('webSignUrl')(signed_request_url);
+ if(!secured.headers['x-secsdk-web-signature'])throw new Error('Douyin security SDK did not generate signature');

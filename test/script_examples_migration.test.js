@@ -4,7 +4,6 @@ import { readFile } from 'node:fs/promises';
 import { read_script, script_names } from './support/script_sources.js';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
-import { DOUYIN_SDK_FILES } from 'findrss-worker/server/infra/douyin_sdk.js';
 import { KUAISHOU_SDK_FILE } from 'findrss-worker/server/infra/kuaishou_sdk.js';
 import { ScriptCookieAccess } from 'findrss-worker/server/infra/script_cookie_access.js';
 import { FeedModel } from 'findrss-worker/server/domain/feed_format.js';
@@ -45,7 +44,11 @@ for (const fixture of content_cases) test('迁移脚本保留内容与媒体：'
   const calls = [];
   globalThis.fetch = async (url, options) => {
     if (url === KUAISHOU_SDK_FILE.url) return new Response(gunzipSync(await readFile(new URL('./fixtures/kuaishou/web-sdk.js.gz', import.meta.url))));
-    const sdk_index = DOUYIN_SDK_FILES.findIndex(file => file.url === url);
+    if (url === 'https://www.douyin.com/') return new Response(await readFile(new URL('./fixtures/douyin/home.html', import.meta.url)));
+    const sdk_index = [
+      'https://p-pc-weboff.byteimg.com/tos-cn-i-9r5gewecjs/bdms_1.0.1.19_fix.js',
+      'https://lf-security.bytegoofy.com/obj/security-secsdk/runtime_bundler_34.js',
+    ].indexOf(url);
     if (sdk_index >= 0) return new Response(gunzipSync(await readFile(new URL('./fixtures/douyin/' + ['bdms.js.gz','security.js.gz'][sdk_index], import.meta.url))));
     calls.push({ url, options });
     const response = fixture.responses.find(response => url.includes(response.contains));

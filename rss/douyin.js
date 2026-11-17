@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.1";
+export const version = "1.2.1";
 export const platform = {
   name: "抖音",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512" data-n="douyin-platform-icon"><rect width="512" height="512" rx="15%" data-n="douyin-icon-rect-1" /><defs data-n="douyin-icon-defs-2"><path id="douyin-note" d="M219 200a117 117 0 1 0 101 115v-128a150 150 0 0 0 88 28v-63a88 88 0 0 1-88-88h-64v252a54 54 0 1 1-37-51z" data-n="douyin-icon-path-3" /></defs><use href="#douyin-note" fill="#ff0050" x="18" y="15" data-n="douyin-icon-use-4" /><use href="#douyin-note" fill="#00faf0" x="-10" data-n="douyin-icon-use-5" /><use href="#douyin-note" fill="#fff" x="4" y="7" data-n="douyin-icon-use-6" /></svg>',
@@ -318,6 +318,6 @@ export const route = {
     max_cursor: "分页游标，默认 0；下一页游标见执行日志",
   },
   description:
-    "获取抖音作者投稿视频与图集，输出 Media RSS 分组和视频附件，Cookie 由脚本显式申请并经管理员确认授权。",
+    "获取抖音作者投稿视频与图集，宿主缓存并复用同一请求的完整签名，上游拒绝签名时重新发现官网 SDK 并重签重试一次；Cookie 由脚本显式申请并经管理员确认授权。",
   handler: (ctx) => script.run(ctx),
 };
