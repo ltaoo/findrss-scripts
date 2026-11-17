@@ -46,6 +46,10 @@
 | [Apple App Store](../rss/apple.js) | `/apple/apps/update/:country/:id/:platform?` | 应用版本更新；使用 App Store 链接中的地区与应用 ID |
 | [GitHub](../rss/github.js) | `/github/:org/:pro/release` | 公开仓库最近的发布列表、版本标题与更新说明；无需 Cookie 或 API Token |
 | [红果短剧](../rss/hongguo.js) | `/hongguo/series/:series_id`、`/hongguo/search/:keyword` | 按集数倒序的分集订阅与剧集搜索；`series_id` 来自官网详情页 `/detail?series_id=` 或播放页。条目附件指向 `/hongguo/video/:series_id/:vid` 媒体代理，转发官网公开的 360p MP4 并附带 Referer；付费/加密集官网只提供预览或不提供直链，播放会返回明确错误 |
+| [爱奇艺剧集](../rss/iqiyi.js) | `/iqiyi/series/:album_id` | 数字专辑 ID，来自接口的 `albumId` / `qipu_id`；自动展开惰性选集目录 |
+| [腾讯视频剧集](../rss/vqq.js) | `/vqq/series/:cover_id` | 官网 `/x/cover/<ID>.html` 中的剧集 ID；自动加载选集标签和后续分页 |
+| [优酷剧集](../rss/youku.js) | `/youku/series/:show_id` | 官网 `/v_nextstage/id_<ID>.html` 中的剧集 ID；页面目录有后续分页时需要 BROWSER 绑定 |
+| [芒果TV剧集](../rss/mgtv.js) | `/mgtv/series/:collection_id/:video_id` | 官网 `/b/<专辑 ID>/<视频 ID>.html` 中的两个 ID；自动加载已发布完整视频的分页目录 |
 
 抖音支持 `?count=18&max_cursor=0`（每页最多 30 条），Telegram 支持 `?before=<消息 ID>`，微信公众号和视频号支持 `?offset=<游标>`。微信公众号也可使用 `/rss/wxmp?username=wow36kr`，与 `/rss/wxmp/wow36kr` 等价；图片代理需配置 `FINDRSS_HOSTNAME`。
 
@@ -54,6 +58,10 @@ YouTube 普通视频根据页面中英文相对时间估算发布时间，月、
 番茄小说正文路径为 `/fanqienovel/chapter/:chapter_id`，起点正文路径为 `/qidian/chapter/:book_id/:chapter_id`，直接返回 HTML，无需加 `/rss` 或 `/atom` 前缀。
 
 ## 路由与参数说明
+
+四个长视频平台的剧集订阅均返回官网分集链接，保留 VIP 正片；播放仍需在官网登录并具备相应权限。没有视频直链或媒体代理。目录按集序倒序排列，有真实发行日期时按日期排序；不使用采集时间补造发布日期。发现错剧、集序冲突、目录缺页或分页不推进时返回错误。
+
+例如订阅 `/rss/iqiyi/series/3993682943621001`、`/rss/vqq/series/mzc002001w361jz`、`/rss/youku/series/bcaa87c7834c46f99e7b`、`/rss/mgtv/series/914227/24771585`；同一路径将 `/rss` 换成 `/atom` 或 `/api/rss` 即可切换格式。爱奇艺参数是数字专辑 ID，不能直接填写 `a_` 后的短码；优酷参数是剧集 ID，不能填写 `X` 开头的视频 ID。脚本只读取公开目录，无需同步登录 Cookie；优酷需要翻页时由浏览器中的官网 SDK 创建匿名会话并签名请求，未配置 BROWSER 时会明确报错。
 
 `rss/github.js` 读取 GitHub 的 Releases Atom 订阅。例如 `/rss/github/ltaoo/wx_channels_download/release`，Atom 地址为 `/atom/github/ltaoo/wx_channels_download/release`；`org` 为用户或组织名，`pro` 为仓库名。返回上游订阅包含的最近发布，保留预发布条目、更新说明 HTML、代码缩进及原文链接；上游仅提供更新时间时保留 `updated`，不补造发布时间。只读取公开仓库，不需要导入 GitHub Cookie。
 

@@ -56,6 +56,20 @@ test("示例脚本保留品牌 SVG，Hot 来源内嵌 favicon 且在 QuickJS 中
         continue;
       }
       const stem = name.replace(/\.js$/, "");
+      const series_platforms = { iqiyi: "iqiyi_hot", vqq: "qqvideo_hot", mgtv: "mango_hot" };
+      if (kind === "rss" && Object.hasOwn(series_platforms, stem)) {
+        const hot = await compile_script_module(read_script("hot/" + series_platforms[stem] + ".js"));
+        assert.deepEqual(compiled.metadata.platform, hot.metadata.platform);
+        continue;
+      }
+      if (kind === "rss" && stem === "youku") {
+        const svg = compiled.metadata.platform.icon;
+        assert.equal(compiled.metadata.platform.name, "优酷");
+        assert.equal(XMLValidator.validate(svg), true);
+        assert.match(svg, /data:image\/png;base64,/);
+        assert.match(svg, /viewBox="0 0 32 32"/);
+        continue;
+      }
       if (kind === "rss" && stem === "qimao") {
         const hot = await compile_script_module(read_script("hot/qimao.js"));
         assert.deepEqual(compiled.metadata.platform, hot.metadata.platform);

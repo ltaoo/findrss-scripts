@@ -11,7 +11,7 @@ const media_types = { rss: "application/rss+xml", atom: "application/atom+xml", 
 const script_categories = new Map([
   ["小说", ["rss/69shuba.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/qimao.js", "rss/ttk.js"]],
   ["科技", ["rss/apple.js", "rss/github.js", "clip/github.js", "detect/github_releases.js"]],
-  ["视频", ["rss/bilibili.js", "rss/douyin.js", "rss/hongguo.js", "rss/kuaishou.js", "rss/wxchannels.js", "rss/youtube.js"]],
+  ["视频", ["rss/bilibili.js", "rss/douyin.js", "rss/hongguo.js", "rss/iqiyi.js", "rss/kuaishou.js", "rss/mgtv.js", "rss/vqq.js", "rss/wxchannels.js", "rss/youku.js", "rss/youtube.js"]],
   ["影视", ["rss/avmoo.js", "rss/javbus.js", "rss/javlibrary.js"]],
   ["社交", ["rss/instagram.js", "rss/telegram.js", "rss/weibo.js", "rss/x.js", "rss/xiaohongshu.js"]],
   ["社区", ["rss/zhihu.js"]],

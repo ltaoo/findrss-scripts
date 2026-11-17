@@ -14,7 +14,7 @@
   <a data-n="documentation-link" href="#更多文档">更多文档</a>
 </p>
 
-本仓库集中维护 [FindRSS](https://github.com/ltaoo/findrss-worker) 的 **104 个采集脚本**，覆盖文章、视频、作者动态、小说章节、排行榜、网页剪藏与内容变化检测。
+本仓库集中维护 [FindRSS](https://github.com/ltaoo/findrss-worker) 的 **110 个采集脚本**，覆盖文章、视频、作者动态、小说章节、排行榜、网页剪藏与内容变化检测。
 
 **已有 FindRSS 站点，复制脚本到后台调试、发布即可使用；需要直接通过 HTTP 调用，可将本仓库独立部署为 Worker。** 独立部署自动加载全部脚本，不包含管理后台、订阅管理或检测历史存储。
 
@@ -22,7 +22,7 @@
 
 | 类型 | 数量 | 用途 | 请求路径前缀 |
 | --- | --- | --- | --- |
-| [RSS](#rss23-个) | 23 | 将文章、视频、动态、章节等转换为订阅源 | `/rss`、`/atom`、`/api/rss`（JSON） |
+| [RSS](#rss27-个) | 27 | 将文章、视频、动态、章节等转换为订阅源 | `/rss`、`/atom`、`/api/rss`（JSON） |
 | [Hot](#hot78-个) | 78 | 获取排行榜、热点、快讯与最新资讯 JSON | `/api/hot`、`/hot` |
 | [Clip 剪藏](#clip-剪藏3-个) | 3 | 提取网页区域或生成卡片，返回包含静态 HTML 的 JSON | `/api/clip`、`/clip` |
 | [Detect 内容检测](#detect-内容检测2-个) | 2 | 采集内容快照，供后台检测任务持续比较变化 | `/api/detect`、`/detect` |
@@ -110,11 +110,12 @@ RSS、Atom、`/api/rss` 与其它入口一样在请求内同步执行脚本，�
 
 Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在一个文件，通过 `routes` 导出。每个文件只列一次。没有明确数字排名的内容保留上游顺序，`rank` 为 `null`；新闻、最新资讯及精选源按实际用途命名。热榜详细字段见 [hot/README.md](hot/README.md)。
 
-### RSS（23 个）
+### RSS（27 个）
 
 | 脚本 | 文件 | 路由示例 | 版本 | 使用要求 |
 | --- | --- | --- | --- | --- |
 | 69书吧小说章节 | [rss/69shuba.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/69shuba.js) | `/69shuba/book/34567` | 1.2.0 | 自动复用加密验证状态，失效时需 BROWSER 刷新 |
+| 爱奇艺剧集 | [rss/iqiyi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/iqiyi.js) | `/iqiyi/series/3993682943621001` | 1.0.0 | 公开正片目录；参数为数字专辑 ID |
 | Apple App Store 应用更新 | [rss/apple.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/apple.js) | `/apple/apps/update/us/id408709785` | 1.1.0 | 公开来源 |
 | Avmoo 演员作品 | [rss/avmoo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/avmoo.js) | `/avmoo/star/abc123` | 1.0.0 | 替换为实际演员 ID；可选 Cookie |
 | 哔哩哔哩用户动态 | [rss/bilibili.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bilibili.js) | `/bilibili/650898515/dynamic` | 1.1.2 | Cookie 授权 |
@@ -128,6 +129,8 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 快手用户作品 | [rss/kuaishou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/kuaishou.js) | `/kuaishou/profile/3xuxw5yhgr6f4um` | 1.1.0 | Cookie 授权 |
 | 起点中文网章节列表 | [rss/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qidian.js) | `/qidian/book/1036526469` | 1.1.0 | Cookie 授权 |
 | 七猫小说章节 | [rss/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qimao.js) | `/qimao/book/13030701` | 1.0.2 | 可选 Cookie；章节链接指向官网；TCP 传输兼容折行响应头 |
+| 芒果TV剧集 | [rss/mgtv.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/mgtv.js) | `/mgtv/series/914227/24771585` | 1.0.0 | 公开分集目录；参数来自官网播放页 |
+| 腾讯视频剧集 | [rss/vqq.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/vqq.js) | `/vqq/series/mzc002001w361jz` | 1.0.0 | 公开正片目录，自动加载选集分页 |
 | Telegram 公开频道 | [rss/telegram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/telegram.js) | `/telegram/channel/telegram` | 1.1.0 | 公开来源 |
 | 天天看书小说章节 | [rss/ttk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ttk.js) | `/ttk/book/congzhanyaochumokaishichangshengbusi` | 1.1.1 | 公开来源 |
 | 微博用户列表 | [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) | `/weibo/u/1992429663` | 1.1.1 | Cookie 授权（同步完整登录 Cookie，包含 SCF、WBPSESS、XSRF-TOKEN） |
@@ -136,6 +139,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | X 用户作品 | [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) | `/x/NTCGoK9jFQURsEu` | 1.1.0 | Cookie 授权 |
 | 小红书用户笔记 | [rss/xiaohongshu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xiaohongshu.js) | `/xiaohongshu/user/profile/5d2aec020000000012037401` | 1.1.0 | Cookie 授权 |
 | YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.1 | Cookie 授权 |
+| 优酷剧集 | [rss/youku.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youku.js) | `/youku/series/bcaa87c7834c46f99e7b` | 1.0.0 | 公开正片目录；后续分页需要 BROWSER |
 | 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.0 | Cookie 授权 |
 
 ### Hot（78 个）
