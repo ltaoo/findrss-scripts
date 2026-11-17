@@ -70,6 +70,7 @@ test("远端路由失败仍取回完整报告，凭据不进入源码包，最�
   assert.deepEqual(calls.at(-1), ["stop", "test-box"]);
   assert.ok(calls.some(args => args[0] === "exec" && args.at(-1).includes("shutdown -h +50")));
   assert.ok(calls.some(args => args[0] === "cp" && args.at(-1).endsWith("/.dev.vars")));
+  assert.ok(calls.some(args => args[0] === "exec" && args.includes("BROWSER_ENABLED=true")));
 });
 
 test("开机响应失败仍尝试关机，且不继续运行巡检", async t => {

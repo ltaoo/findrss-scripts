@@ -1,0 +1,31 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { execFileSync } from "node:child_process";
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+test("旧巡检运行时可重复安装当前补丁，保留依赖缓存和未受管理文件", async t => {
+  const root = await mkdtemp(join(tmpdir(), "findrss-runtime-setup-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const runtime = join(root, ".runtime/findrss-worker");
+  await mkdir(join(root, "scripts"), { recursive: true });
+  await mkdir(join(root, ".runtime"));
+  await cp(new URL("../scripts/prepare_runtime.js", import.meta.url), join(root, "scripts/prepare_runtime.mjs"));
+  await cp(new URL("../scripts/patches", import.meta.url), join(root, "scripts/patches"), { recursive: true });
+  execFileSync("git", ["clone", "--shared", fileURLToPath(new URL("../.runtime/findrss-worker", import.meta.url)), runtime], { stdio: "pipe" });
+  await mkdir(join(runtime, "node_modules"));
+  const lock = await readFile(join(runtime, "package-lock.json"), "utf8");
+  await writeFile(join(runtime, "node_modules/.findrss-runtime-lock"), lock);
+  await writeFile(join(runtime, "local-cache.txt"), "preserve");
+  const run = () => execFileSync(process.execPath, [join(root, "scripts/prepare_runtime.mjs")], { stdio: "pipe" });
+  run();
+  const source = join(runtime, "server/infra/script_sources.js");
+  const expected = await readFile(source, "utf8");
+  await writeFile(source, expected.replace("  env: Object.freeze({ BROWSER_ENABLED: __requestContext.env?.BROWSER_ENABLED === true }),\n", ""));
+  run();
+  assert.equal(await readFile(source, "utf8"), expected);
+  assert.equal(await readFile(join(runtime, "node_modules/.findrss-runtime-lock"), "utf8"), lock);
+  assert.equal(await readFile(join(runtime, "local-cache.txt"), "utf8"), "preserve");
+});

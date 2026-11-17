@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.2.0";
+export const version = "1.3.0";
 export const config_schema = {
   type: "object",
   properties: {
@@ -184,23 +184,20 @@ export class Source69shubaChaptersRSS extends RSSScript {
       });
       const challenge = /<title>\s*(?:Just a moment|Attention Required)|_cf_chl_opt|id=["']challenge-form["']/i;
       if (
-        ["UPSTREAM_ACCESS_DENIED", "UPSTREAM_AUTH_REQUIRED", "SCRIPT_COOKIE_PERMISSION_REQUIRED", "COOKIE_REQUIRED"].includes(result_7.code) ||
-        (!result_7.error && challenge.test(result_7.data))
+        ctx.env?.BROWSER_ENABLED && (["UPSTREAM_ACCESS_DENIED", "UPSTREAM_AUTH_REQUIRED", "SCRIPT_COOKIE_PERMISSION_REQUIRED", "COOKIE_REQUIRED"].includes(result_7.code) ||
+        (!result_7.error && challenge.test(result_7.data)))
       ) {
         ctx.log("69书吧访问验证，改用浏览器读取", { url });
-        const rendered = await ctx.puppeteer.navigate(url, {
+        const rendered = await Source69shubaChaptersRSS.navigate(ctx, url, {
           selector: url.endsWith(".htm") ? ".bookbox" : "#catalog, .mu_contain, #chapterlist, .mulu_list",
           wait_ms: 0,
         });
         if (rendered.error) return rendered;
-        if (typeof rendered.data?.html !== "string" || !rendered.data.html.trim()) {
-          return Result.Err("69书吧浏览器未返回页面", "UPSTREAM_INVALID_RESPONSE");
-        }
-        result_7 = Result.Ok(rendered.data.html);
+        result_7 = rendered;
       }
       if (result_7.error) return result_7;
       if (challenge.test(result_7.data)) {
-        return Result.Err("69书吧浏览器仍被访问验证拦截，请稍后重试", "UPSTREAM_AUTH_REQUIRED");
+        return Result.Err("69书吧仍需完成访问验证，请启用 BROWSER_ENABLED 或同步有效 Cookie", "UPSTREAM_AUTH_REQUIRED");
       }
       const result_8 = utils.document_nodes(result_7.data);
       if (result_8.error) return result_8;

@@ -21,6 +21,8 @@ export function script_configuration(entry, env, debugging = false) {
 }
 
 export async function execute_route(entry, context, env, { metadata, fallback }, signal, timing = null) {
+  const browser_enabled = env.BROWSER_ENABLED === true || env.BROWSER_ENABLED === "true";
+  const browser_gated = ["rss/avmoo.js", "rss/javlibrary.js", "rss/ttk.js", "rss/69shuba.js"].includes(entry.file);
   let browser_session;
   let invoked = false;
   let stage = "cookies";
@@ -41,13 +43,15 @@ export async function execute_route(entry, context, env, { metadata, fallback },
       cookies: () => browser_session.cookies, assert_grant: () => {},
       signature_cache: create_signature_cache(env, entry.file === "rss/douyin.js"
         ? create_instabox_signer(env, signal) : undefined) });
-    const navigate = env.BROWSER ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
+    const navigate = env.BROWSER && (!browser_gated || browser_enabled)
+      ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
       : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
     stage = "script";
     timing?.mark("沙箱排队");
     const result = await execute_script(entry.script.source, metadata, invoke, {
       method: context.method, pathname: context.pathname, params: context.params,
       query: context.query, public_origin: context.public_origin,
+      env: { BROWSER_ENABLED: browser_enabled },
     }, [], "", cookie_access, signal, navigate, undefined, timing);
     timing?.mark("浏览器状态保存");
     await browser_session.commit(signal);

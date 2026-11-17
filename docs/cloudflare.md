@@ -71,7 +71,7 @@ npm run deploy
 
 所有脚本默认注册，不需要后台导入、发布或数据库。当前 110 个脚本生成 146 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。RSS/Atom/订阅 JSON 与其它入口一样在请求内同步执行；Detect 为无状态采样，不保存历史基线。没有管理后台或订阅管理。
 
-`npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，69书吧和 JAVLibrary 优先复用已保存的验证状态，失效时通过浏览器兜底，配置已声明 `BROWSER` 绑定。Wrangler 本地开发通过 Miniflare 启动本机 Chrome，首次调用可能需要下载浏览器；使用 `X_BROWSER_HEADFUL=true npm run dev` 可显示浏览器窗口。若要让本地服务调用云端浏览器，可在 `browser` 配置中添加 `"remote": true`，这会使用 Cloudflare 账号的浏览器额度。只有声明 Cookie 权限的站点会恢复已授权 Cookie 和匹配的 User-Agent，其他页面仍为匿名会话；本地浏览器的网络环境和风控结果可能与云端不同。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/s/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
+`npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，Avmoo、JAVLibrary、天天看书和 69书吧在 `BROWSER_ENABLED=true` 时允许验证失败后调用浏览器；配置已声明 `BROWSER` 绑定。该开关默认关闭，InstaBox 巡检固定开启；本地可运行 `npm run dev -- --var BROWSER_ENABLED:true`。开关只作为布尔值传入 `ctx.env.BROWSER_ENABLED`，不向脚本公开其他环境变量。69书吧和 JAVLibrary 继续优先复用已保存的验证状态。Wrangler 本地开发通过 Miniflare 启动本机 Chrome，首次调用可能需要下载浏览器；使用 `X_BROWSER_HEADFUL=true npm run dev` 可显示浏览器窗口。若要让本地服务调用云端浏览器，可在 `browser` 配置中添加 `"remote": true`，这会使用 Cloudflare 账号的浏览器额度。只有声明 Cookie 权限的站点会恢复已授权 Cookie 和匹配的 User-Agent，其他页面仍为匿名会话；本地浏览器的网络环境和风控结果可能与云端不同。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/s/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
 
 ## 订阅同步执行
 
@@ -83,7 +83,7 @@ RSS、Atom、`/api/rss` 及脚本声明路径的订阅入口与其它入口一�
 
 69书吧和 JAVLibrary 的浏览器验证状态按站点保存到 `COOKIE_KV` 的独立 `browser-session:<origin>` 记录，使用 `COOKIE_STORAGE_KEY` 进行 AES-GCM 加密，同时保存 Cookie 的域名、路径、Secure、HttpOnly、过期时间和对应 User-Agent。只保存脚本 Cookie 权限允许的名称，凭据不返回脚本、Debug 或巡检报告。只有整条脚本成功返回有效内容后才提交记录，失败或取消不覆盖旧状态；普通 Cookie 同步不会覆盖浏览器记录。
 
-后续请求（包括本地服务重启后）自动读取验证状态，优先用普通 HTTP 请求；Cookie 过期、缺失、被拒绝或返回验证页时再使用浏览器。部分站点不向浏览器下发可供 HTTP 复用的清关 Cookie，此时连接同站点已验证的浏览器会话，不重新启动。会话保活 10 分钟，关闭、过期或不可连接时重建；云端保活期间仍计入浏览器使用时长。本地开发服务重启会关闭本机浏览器，UA 和 Cookie 的加密记录仍保留。Debug 日志中的 `cached_state`、`browser_launches`、`browser_reuses` 可区分状态复用、启动和重连，不显示凭据或会话 ID。[Cloudflare 会话复用说明](https://developers.cloudflare.com/browser-run/features/reuse-sessions/)。
+后续请求（包括本地服务重启后）自动读取验证状态，优先用普通 HTTP 请求；Cookie 过期、缺失、被拒绝或返回验证页时，仅在 `BROWSER_ENABLED=true` 时再使用浏览器。部分站点不向浏览器下发可供 HTTP 复用的清关 Cookie，此时连接同站点已验证的浏览器会话，不重新启动。会话保活 10 分钟，关闭、过期或不可连接时重建；云端保活期间仍计入浏览器使用时长。本地开发服务重启会关闭本机浏览器，UA 和 Cookie 的加密记录仍保留。Debug 日志中的 `cached_state`、`browser_launches`、`browser_reuses` 可区分状态复用、启动和重连，不显示凭据或会话 ID。[Cloudflare 会话复用说明](https://developers.cloudflare.com/browser-run/features/reuse-sessions/)。
 
 本地首次验证或刷新可使用 `X_BROWSER_HEADFUL=true npm run dev`。若站点仍要求人工验证，可在普通浏览器完成后同步 Cookie，并在 `SCRIPT_CONFIG["rss/javlibrary.js"]` 设置 `use_cookies: true` 和对应 `user_agent`。浏览器渲染不保证通过上游风控，不能将验证页当作成功内容。
 
@@ -98,6 +98,7 @@ YouTube 热门视频的 `/youtube/hot/US/0` 是有效路径；`hot/youtube_hot.j
 | `ACCESS_TOKEN` | 访问令牌；设置后所有入口需 `Authorization: Bearer <令牌>` 或 `?token=<令牌>`，同时提供时请求头优先 |
 | `SCRIPT_CONFIG` | 按脚本相对文件名索引的配置 JSON |
 | `SCRIPT_COOKIES` | 浏览器 Cookie 对象数组 JSON，含 `name/value/domain/path/secure/expirationDate` 等字段 |
+| `BROWSER_ENABLED` | Avmoo、JAVLibrary、天天看书和 69书吧是否可用 Chrome 兜底；布尔值 `true` 或字符串 `"true"` 启用，默认 `false`，InstaBox 巡检设为 `true` |
 | `COOKIE_KV` | Wrangler KV 绑定，按脚本声明的站点保存加密 Cookie 快照 |
 | `COOKIE_STORAGE_KEY` | 64 位十六进制 AES-256-GCM 存储密钥，使用 Secret 配置 |
 | `COOKIE_PUSH_UUID` | 与 dm 配置相同的 UUID，使用 Secret 配置 |

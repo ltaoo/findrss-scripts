@@ -2,7 +2,7 @@
 # 仅在专用 InstaBox 内运行；状态和运行时缓存在 source 目录外保留。
 set -euo pipefail
 cd /data/home/findrss-checks/source
-export CI=1
+export CI=1 BROWSER_ENABLED=true
 node -e 'const [major, minor] = process.versions.node.split(".").map(Number); if (major < 22 || (major === 22 && minor < 19)) throw new Error("需要 Node >= 22.19")'
 npm ci --no-audit --no-fund
 npm run build
@@ -10,7 +10,7 @@ mkdir -p /data/home/findrss-signing
 install -m 600 dist/douyin-signer.mjs /data/home/findrss-signing/douyin-signer.mjs.next
 mv /data/home/findrss-signing/douyin-signer.mjs.next /data/home/findrss-signing/douyin-signer.mjs
 
-npm run dev -- --ip 127.0.0.1 --port 8801 --persist-to /data/home/findrss-checks/state > /data/home/findrss-checks/worker.log 2>&1 &
+npm run dev -- --ip 127.0.0.1 --port 8801 --var "BROWSER_ENABLED:$BROWSER_ENABLED" --persist-to /data/home/findrss-checks/state > /data/home/findrss-checks/worker.log 2>&1 &
 server=$!
 trap 'kill "$server" 2>/dev/null || true' EXIT
 ready=false

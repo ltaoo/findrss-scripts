@@ -1,0 +1,33 @@
+diff --git a/server/infra/script_sources.js b/server/infra/script_sources.js
+--- a/server/infra/script_sources.js
++++ b/server/infra/script_sources.js
+@@ -158,6 +158,7 @@
+ const ctx = {
+   route: JSON.parse(__routeMetadataJSON),
+   config: JSON.parse(__routeMetadataJSON).config || {},
++  env: Object.freeze({ BROWSER_ENABLED: __requestContext.env?.BROWSER_ENABLED === true }),
+   method: __requestContext.method,
+   pathname: __requestContext.pathname,
+   params: __requestContext.params,
+diff --git a/server/infra/script_classes.js b/server/infra/script_classes.js
+--- a/server/infra/script_classes.js
++++ b/server/infra/script_classes.js
+@@ -8,6 +8,18 @@
+ class RSSScript {
+   async fetch(ctx) {
+     return Result.Err("子类必须实现 fetch(ctx)，返回 Result<feed JSON>", "UPSTREAM_INVALID_RESPONSE");
++  }
++
++  static async navigate(ctx, url, options = {}) {
++    if (ctx.env?.BROWSER_ENABLED !== true) return Result.Err("浏览器未启用，请设置 BROWSER_ENABLED=true", "SOURCE_UNAVAILABLE");
++    try {
++      const rendered = await ctx.puppeteer.navigate(url, options);
++      if (rendered.error) return rendered;
++      if (typeof rendered.data?.html !== "string" || !rendered.data.html.trim()) {
++        return Result.Err("浏览器未返回有效页面", "UPSTREAM_INVALID_RESPONSE");
++      }
++      return Result.Ok(rendered.data.html);
++    } catch (error) { return Result.Err(error, error?.code ?? "SOURCE_UNAVAILABLE"); }
+   }
+ 
+   static timestamp(value) {

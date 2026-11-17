@@ -17,9 +17,10 @@ const directory = rows => '<div class="catalog"><ul><li data-num="7"><a id="book
   '<div class="catalog" id="catalog"><h1><a href="' + detail_url + '">坐忘长生最新章节</a></h1><ul>' + rows + '</ul></div>';
 const rows = chapter(2022, "第2012章 路途之上") + chapter(2021, "第2011章 收矿脉") + chapter(1, "第1章 宁为太平犬，不为乱世人");
 const challenge = '<title>Just a moment...</title><script>window._cf_chl_opt = {};</script>';
-const run = async (navigate = null, book_id = "34567") => {
+const run = async (navigate = null, book_id = "34567", browser_enabled = true) => {
   const result = await execute_script(source, compiled.metadata, null, {
     method: "GET", pathname: "/69shuba/book/" + book_id, params: { book_id }, query: {},
+    env: { BROWSER_ENABLED: browser_enabled },
   }, [], "", null, undefined, navigate);
   return JSON.parse(result.output);
 };

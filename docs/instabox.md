@@ -17,7 +17,11 @@ instabox stop findrss-checks
 
 机器需要 Node >= 22.19、npm、git、curl、tar、timeout 和免密码 sudo。首次运行下载项目固定的 FindRSS 运行时、npm 依赖，以及 Wrangler 配套的 Chrome；随后保留运行时和浏览器缓存。浏览器由 Wrangler 的本地 Browser Rendering 绑定启动，无需把它设置为 `remote: true`。
 
+巡检执行环境固定设置 `BROWSER_ENABLED=true`，并通过 Wrangler 的 `--var BROWSER_ENABLED:true` 传入本地 Worker。Avmoo、JAVLibrary、天天看书和 69书吧优先 HTTP 读取，遇到 401/403 或验证页时调用 `RSSScript.navigate(ctx, url, options)` 获取 Chrome 渲染的 HTML。该方法复用 `ctx.puppeteer.navigate`，返回 `Result<string>`，保留浏览器错误并拒绝空页面；关闭开关时不调用这四站的浏览器兜底。其他剪藏等浏览器能力不受此开关影响。
+
 仅将此机器用于巡检。脚本使用 `/data/home/findrss-checks/`，每轮替换其中的 `source/`；保留 `runtime/`、`state/` 和机器上的浏览器缓存，不修改其他项目目录。内存和浏览器进程在关机时结束，KV 与已保存的浏览器验证状态保存在 `state/`。
+
+构建会从固定提交恢复补丁管理的运行时文件，再应用当前补丁，因此保留的旧运行时也能升级浏览器开关和签名逻辑；依赖缓存、KV 和其他文件不受影响。
 
 ## 配置外部定时任务
 

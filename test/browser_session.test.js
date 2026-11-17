@@ -20,7 +20,7 @@ test.beforeEach(clear_cookie_read_cache);
 
 function environment(values = new Map()) {
   const reads = new Map();
-  return { ACCESS_TOKEN: "fixture-access-token", COOKIE_STORAGE_KEY: "12".repeat(32), BROWSER: {},
+  return { ACCESS_TOKEN: "fixture-access-token", COOKIE_STORAGE_KEY: "12".repeat(32), BROWSER: {}, BROWSER_ENABLED: "true",
     COOKIE_KV: { values, reads,
       async get(key) { reads.set(key, (reads.get(key) || 0) + 1); return values.has(key) ? JSON.parse(values.get(key)) : null; },
       async put(key, value) { values.set(key, value); } } };

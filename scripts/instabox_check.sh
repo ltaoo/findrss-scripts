@@ -41,7 +41,7 @@ else
 fi
 instabox cp "$temporary/dev.vars" "$machine:/data/home/findrss-checks/.dev.vars"
 instabox exec "$machine" -- 'set -eu; cd /data/home/findrss-checks; rm -rf source; mkdir -p source runtime; tar -xzf source.tar.gz -C source; ln -s ../runtime source/.runtime; if test -f .dev.vars; then chmod 600 .dev.vars; ln -s ../.dev.vars source/.dev.vars; fi'
-job=$(instabox exec --background "$machine" --env "ROUTE_CHECK_CASES=${ROUTE_CHECK_CASES:-}" -- timeout --kill-after=30s 40m bash /data/home/findrss-checks/source/scripts/instabox_task.sh)
+job=$(instabox exec --background "$machine" --env BROWSER_ENABLED=true --env "ROUTE_CHECK_CASES=${ROUTE_CHECK_CASES:-}" -- timeout --kill-after=30s 40m bash /data/home/findrss-checks/source/scripts/instabox_task.sh)
 status=0
 instabox jobs wait "$machine" "$job" --timeout 45m || status=$?
 instabox jobs logs "$machine" "$job" || true

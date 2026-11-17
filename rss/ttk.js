@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.1";
+export const version = "1.2.0";
 // Favicon: https://ttks.tw/favicon.ico
 // 保留原图像素网格，确保颜色、透明度和轮廓与上游一致。
 export const platform = {
@@ -136,7 +136,7 @@ export class TtkChaptersRSS extends RSSScript {
   }
   static async fetch_document(ctx, url, referer) {
     try {
-      const result_5 = await TtkChaptersRSS.request_text(ctx, url, {
+      let result_5 = await TtkChaptersRSS.request_text(ctx, url, {
         headers: {
           Referer: referer,
           Accept: "text/html,application/xhtml+xml",
@@ -145,7 +145,17 @@ export class TtkChaptersRSS extends RSSScript {
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
         },
       });
+      const challenge = /<title>\s*(?:Just a moment|Attention Required)|_cf_chl_opt|id=["']challenge-form["']/i;
+      if (ctx.env?.BROWSER_ENABLED && (["UPSTREAM_ACCESS_DENIED", "UPSTREAM_AUTH_REQUIRED"].includes(result_5.code) ||
+          (!result_5.error && challenge.test(result_5.data)))) {
+        ctx.log("天天看书访问验证，改用浏览器读取", { url });
+        result_5 = await TtkChaptersRSS.navigate(ctx, url, {
+          selector: ".chapters_frame, #chapters_frame, #chapter_list, .chapter-list, .chapters, .catalog, .book-chapters",
+          wait_ms: 0,
+        });
+      }
       if (result_5.error) return result_5;
+      if (challenge.test(result_5.data)) return Result.Err("天天看书仍需完成访问验证，请启用 BROWSER_ENABLED", "UPSTREAM_AUTH_REQUIRED");
       const result_6 = utils.document_nodes(result_5.data);
       if (result_6.error) return result_6;
       return Result.Ok(result_6.data);

@@ -27,10 +27,11 @@ for (const [key, site] of Object.entries(sites)) {
   const source = read_script("rss/" + key + ".js");
   const compiled = await compile_script_module(source);
   assert.equal(compiled.error, "", key);
-  const run = async ({ id = "abc123", query = {}, use_cookies = false, access = null, user_agent, navigate = null } = {}) => {
+  const run = async ({ id = "abc123", query = {}, use_cookies = false, access = null, user_agent, navigate = null, browser_enabled = true } = {}) => {
     const config = { use_cookies, ...(user_agent ? { user_agent } : {}) };
     const result = await execute_script(source, { ...compiled.metadata, config }, null, {
       method: "GET", pathname: "/" + key + "/star/" + id, params: { id }, query,
+      env: { BROWSER_ENABLED: browser_enabled },
     }, [], "", access, undefined, navigate);
     return JSON.parse(result.output);
   };
@@ -99,7 +100,7 @@ for (const [key, site] of Object.entries(sites)) {
 
   test(key + "：HTTP 错误、验证页和结构变化不会伪装成空列表", async t => {
     const errors = [[429, "UPSTREAM_RATE_LIMITED"], [404, "UPSTREAM_FETCH_FAILED"]];
-    if (key !== "javlibrary") errors.push([403, "UPSTREAM_ACCESS_DENIED"]);
+    if (key === "javbus") errors.push([403, "UPSTREAM_ACCESS_DENIED"]);
     for (const [status, code] of errors) {
       mock(t, async () => new Response("Unavailable", { status }));
       await assert.rejects(run(), error => error.problem?.code === code);
@@ -164,8 +165,8 @@ for (const [key, site] of Object.entries(sites)) {
     });
   }
 
-  if (key === "javlibrary") {
-    test("javlibrary：HTTP 拒绝或验证页通过浏览器恢复，并保留页码与作品解析", async t => {
+  if (["javlibrary", "avmoo"].includes(key)) {
+    test(key + "：HTTP 拒绝或验证页通过浏览器恢复，并保留页码与作品解析", async t => {
       for (const [status, html] of [[401, "Unavailable"], [403, "Unavailable"],
         [200, "<title>Just a moment...</title>"], [200, '<form id="challenge-form"></form>']]) {
         let requests = 0, navigations = 0;
@@ -175,21 +176,21 @@ for (const [key, site] of Object.entries(sites)) {
         });
         const feed = await run({ query: { page: "2" }, navigate: async (url, options, evaluate) => {
           navigations++;
-          assert.equal(url, site.origin + site.actor_path.replace("page=1", "page=2"));
-          assert.deepEqual(options, { selector: ".videothumblist, .videotextlist", wait_ms: 0 });
+          assert.equal(url, site.origin + (key === "javlibrary" ? site.actor_path.replace("page=1", "page=2") : site.actor_path + "/2"));
+          assert.deepEqual(options, { selector: key === "javlibrary" ? ".videothumblist, .videotextlist" : "#waterfall", wait_ms: 0 });
           assert.equal(evaluate, undefined);
           return { html: page(key, card(key)) };
         } });
         assert.equal(requests, 1);
         assert.equal(navigations, 1);
-        assert.equal(feed.title, "演员甲 - JAVLibrary 作品");
+        assert.equal(feed.title, "演员甲 - " + site.name + " 作品");
         assert.equal(feed.items.length, 1);
-        assert.equal(feed.items[0].id, "javlibrary:movie:movie1");
+        assert.equal(feed.items[0].id, key + ":movie:movie1");
         assert.equal(feed.items[0].title, "ABC-123 作品 & 测试");
       }
     });
 
-    test("javlibrary：浏览器不可用、调用失败或无有效 HTML 时返回错误", async t => {
+    test(key + "：浏览器不可用、调用失败或无有效 HTML 时返回错误", async t => {
       mock(t, async () => new Response("Unavailable", { status: 403 }));
       await assert.rejects(run(), /BROWSER/);
       await assert.rejects(run({ navigate: async () => {
@@ -199,6 +200,17 @@ for (const [key, site] of Object.entries(sites)) {
         await assert.rejects(run({ navigate: async () => ({ html }) }), invalid_response);
       }
     });
+
+    test(key + "：关闭浏览器时保留 HTTP 错误和验证提示，不调用 Chrome", async t => {
+      for (const status of [403, 200]) {
+        mock(t, async () => new Response("<title>Just a moment...</title>", { status }));
+        await assert.rejects(run({ browser_enabled: false, navigate: () => assert.fail("浏览器已关闭") }),
+          error => error.problem?.code === (status === 403 ? "UPSTREAM_ACCESS_DENIED" : "UPSTREAM_AUTH_REQUIRED"));
+      }
+    });
+  }
+
+  if (key === "javlibrary") {
 
     test("javlibrary：兼容官网 .html 作品链接和当前演员标题，保留稳定 ID", async t => {
       const html = page(key, card(key)).replace("演员甲的影片", "演员甲 所演出的影片")
