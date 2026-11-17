@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-16T22:23:59.540Z",
+  "checked_at": "2026-11-17T04:43:46.557Z",
   "inspection": {
     "file": "rss/kuaishou.js",
     "path": "/api/rss/kuaishou/profile/:user_id",
     "example": "/api/rss/kuaishou/profile/3xuxw5yhgr6f4um",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 4031
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/kuaishou/profile/3xuxw5yhgr6f4um.json",
+    "duration_ms": 8655
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 279
+    "status": 200,
+    "duration_ms": 2240
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/kuaishou.js",
       "name": "快手用户作品",
@@ -48,15 +47,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 244,
+    "phase": "ok",
+    "elapsed_ms": 2233,
     "invoked": false,
-    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：快手作品接口返回失败状态（result=109）；上游未提供错误说明",
-    "error_text": "脚本执行失败：快手作品接口返回失败状态（result=109）；上游未提供错误说明\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:93:28)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_5c43dbbebc7ed562f1b6162b3b504414ec1617171716c88fbbad0dc531a120022839b6168c4129cd6c4129ff17&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_5847dfbab80a65c2f4b2127a0b1e05ebbc1213131312cc8bbfa909c135a555b2883cb21288452dc968452dfb13&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
@@ -69,17 +77,18 @@
             "kww"
           ]
         },
-        "started_ms": 42,
-        "duration_ms": 200,
+        "started_ms": 38,
+        "duration_ms": 2188,
         "timings": {
-          "response_ms": 199,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 1
+          "response_ms": 327,
+          "body_read_ms": 1858,
+          "decode_and_transfer_ms": 3
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"kuaishou:user:3xuxw5yhgr6f4um\",\"title\":\"中国新闻网 的快手作品\",\"link\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\",\"description\":\"\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"video\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.kuaishou.com/\"},\"tags\":[\"快手\"]},\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"image\":\"https://p22.a.yximgs.com/uhead/AB/2025/09/02/19/BMjAyNTA5MDIxOTQzNTlfMTMxMjExOTkyNV8yX2hkMjIyXzQ5_s.jpg\",\"updated\":\"2026-11-17T04:38:32.553Z\",\"items\":[{\"id\":\"kuaishou:photo:3x8y2v4hk5xtscq\",\"title\":\"360集团副总裁卜思南被带走调查，公司：涉嫌经济问题，正在接受调查\",\"link\":\"https://www.kuaishou.com/short-video/3x8y2v4hk5xtscq\",\"description\":\"360集团副总裁卜思南被带走调查，公司：涉嫌经济问题，正在接受调查\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/12/BMjAyNjExMTcxMjMzMTdfMTMxMjExOTkyNV8yMTYwMjU2MDM0ODNfMF8z_ccc_Be79642a02f12d2354f0b29d5010a10b4.jpg?tag=1-1794890627-xpcwebprofile-0-tkqi9u31db-bd17a0fb0a81c0be&clientCacheKey=3x8y2v4hk5xtscq_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/rM37wNSjKfvLFFnCctugT9JFZezQD0QhDsmLxc5S55lJmCMBNEn7l8Qq-Gh_nJRFExWdvLxOBRLhJSYIGfO33uGRw5iXLcAsmspTrwa4Z2_xvaYZkOOXi1J8l362ET7ZFdhsP_bz7VXSWXXo-lyxAKXdjRzvQEMLnfmzBAcmX-dCXmEmlZ54_flSRK7PCb5W.mp4?pkey=AAXoWcsUd727-H3uPOuN5-u7OqHX-mVwrVTrYr74r14cTn0Pqq5Y705rTeuZuq86L2sKjyov7RgJPLsc8-vAvDE2S3WxY7CCnhJpkstCsaYdpKJZieAPLfrYWYPbukMdbSc&tag=1-1794890627-unknown-0-zrgjborrqk-010b73f45b6325d9&clientCacheKey=3x8y2v4hk5xtscq_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T04:38:32.553Z\"},{\"id\":\"kuaishou:photo:3xzntk9rpztwcmg\",\"title\":\"火是假的，眼泪是真的。天津消防暖心教育谎报火情的小女孩。   #天津  （来源： @中国新闻社(O3xtszwcjndjy5ek) ）\",\"link\":\"https://www.kuaishou.com/short-video/3xzntk9rpztwcmg\",\"description\":\"火是假的，眼泪是真的。天津消防暖心教育谎报火情的小女孩。   #天津  （来源： @中国新闻社(O3xtszwcjndjy5ek) ）\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/12/BMjAyNjExMTcxMjMzNDJfMTMxMjExOTkyNV8yMTYwMjU3ODQxNDRfMF8z_ccc_B688f918932135a1661dd209c1a468564.jpg?tag=1-1794890627-xpcwebprofile-0-cbrrmnq7hw-f25782c93830b86f&clientCacheKey=3xzntk9rpztwcmg_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/12/BMjAyNjExMTcxMjMzNDJfMTMxMjExOTkyNV8yMTYwMjU3ODQxNDRfMF8z_b_B7f8c35f24b356fa6c932b39d9ac9a08b.mp4?pkey=AAW0iQrzGkSjs2WiOJP5tJkkP8lrJpV8C3o5zRlh55c0u1fGG36WyrotdPwMnYFPxfGPlVtSKRAQNMHzaxrTJkOqZPtMvmvQPtH7bjgVzgP-7QzcnXIyg8IsPTFuu4iqkaI&tag=1-1794890627-unknown-0-c173cpmopq-1a36f4eb8097ac04&clientCacheKey=3xzntk9rpztwcmg_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T04:37:18.101Z\"},{\"id\":\"kuaishou:photo:3xp7v4pkw7jg2be\",\"title\":\"习近平对人民法院工作作出重要指示\",\"link\":\"https://www.kuaishou.com/short-video/3xp7v4pkw7jg2be\",\"description\":\"习近平对人民法院工作作出重要指示\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/17/12/BMjAyNjExMTcxMjE0MTZfMTMxMjExOTkyNV8yMTYwMjM3MTkyNDZfMF8z_ccc_B1cd8b3edbd9c95c6efdd89de88e1d57c.jpg?tag=1-1794890627-xpcwebprofile-0-nwyikcuup3-fb1425175e8dfbc9&clientCacheKey=3xp7v4pkw7jg2be_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/12/BMjAyNjExMTcxMjE0MTZfMTMxMjExOTkyNV8yMTYwMjM3MTkyNDZfMF8z_b_B4084ac4aec58ca63c85501ca0bf21d76.mp4?pkey=AAVI9Af3Jq4zS-05-LOujbLMNU54RaZREvCJI6WisU16TRJOhQ4BucU7xxKts5pdqVnbfXYzN5ytYBsTRlGJZLyqOGg90kYasziRxOIzxCU2xcv7t-s76yWkgNjlHblA8vI&tag=1-1794890627-unknown-0-qshoxqldkx-96c6a0e5a20323e9&clientCacheKey=3xp7v4pkw7jg2be_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T04:28:23.447Z\"},{\"id\":\"kuaishou:photo:3xdw9xvikgkd2c6\",\"title\":\"习近平会见越共中央总书记、国家主席苏林\",\"link\":\"https://www.kuaishou.com/short-video/3xdw9xvikgkd2c6\",\"description\":\"习近平会见越共中央总书记、国家主席苏林\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/11/BMjAyNjExMTcxMTQ1MzBfMTMxMjExOTkyNV8yMTYwMjA5NzkyMjhfMF8z_ccc_B59c6e84e7b0535600efbff35a6841d4f.jpg?tag=1-1794890627-xpcwebprofile-0-qazeih2ih4-a0bd053f45c3c7fb&clientCacheKey=3xdw9xvikgkd2c6_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/11/BMjAyNjExMTcxMTQ1MzBfMTMxMjExOTkyNV8yMTYwMjA5NzkyMjhfMF8z_b_B4d6d970b78e3ad61b861038a012d1a46.mp4?pkey=AAUFvG15Qx0rkAMqLxDdrWQPUN_Q6U3NCTaMXnz-WuwEe6cNBHusB35IXufDdh_Ca6WwRHkcy5YBfMH3_E-5ToK356ugm6iKCeWiR9oF9U_Ow-VxQ9_Iy3UY2cPo-3qAR3Q&tag=1-1794890627-unknown-0-ygsykczsk3-b5ede573a417c869&clientCacheKey=3xdw9xvikgkd2c6_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T04:15:49.363Z\"},{\"id\":\"kuaishou:photo:3x62me44qkcmu56\",\"title\":\"当APEC来到深圳 120秒速览亚太合作里的“中国力量” #微观深圳APEC  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3x62me44qkcmu56\",\"description\":\"当APEC来到深圳 120秒速览亚太合作里的“中国力量” #微观深圳APEC  #媒体原创 \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/11/BMjAyNjExMTcxMTMzNDRfMTMxMjExOTkyNV8yMTYwMTk3OTc5NzBfMF8z_ccc_B9c1570e8ab106ad157ac7e6c002cc7b8.jpg?tag=1-1794890627-xpcwebprofile-0-u0fkberjr9-6a8c5339a0525ada&clientCacheKey=3x62me44qkcmu56_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/11/BMjAyNjExMTcxMTMzNDRfMTMxMjExOTkyNV8yMTYwMTk3OTc5NzBfMF8z_b_Bcb480493319cdabbbfbc029c8794fc4c.mp4?pkey=AAXZPXFetz_h8O8EpQTE4iAC8WdeiiixSDMeNSeRn4jizDUA3qRnowDHEcKNFhdw2vkiJjA7zEIEEaTBVnUaZ3jZ_DQrT20UShv6F03DBRgOXbkddCB6B5UWJZ0_KnpAUiI&tag=1-1794890627-unknown-0-oicnad0stk-db45fff038216b47&clientCacheKey=3x62me44qkcmu56_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T04:02:17.064Z\"},{\"id\":\"kuaishou:photo:3xvdhm8g6hnyzvk\",\"title\":\"现场画面！智利总统卡斯特乘机抵达深圳 驾驶舱前插两国国旗 总统夫人与献花儿童拥抱 #微观深圳APEC #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xvdhm8g6hnyzvk\",\"description\":\"现场画面！智利总统卡斯特乘机抵达深圳 驾驶舱前插两国国旗 总统夫人与献花儿童拥抱 #微观深圳APEC #媒体原创 \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/17/11/BMjAyNjExMTcxMTQ1MDhfMTMxMjExOTkyNV8yMTYwMjA5MTk3NzhfMF8z_ccc_Be510247cf950732d10c9253578d37540.jpg?tag=1-1794890627-xpcwebprofile-0-ifahn5iw0w-ffb6072bf110c017&clientCacheKey=3xvdhm8g6hnyzvk_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/6gGi6Ph8VS5LV_brXLhhYPRBX8Ji3yNSxJ-t8MUmpvUvFF6GaTLLMhZaxyNvm2AkuFj_NT_xp7zasmCPT-rtiScpMl1a1FT3FgVpBSOaAGbMdtgh5HHp6eEHGtWdyHv9OqqTRJGUMkIaIM7kDVxWHK1mGbRmXXRHsc8q6jaNUzZeIriaPm7xKYfKvYoPEXwm.mp4?pkey=AAUYE_-qJNoS3DGLSziHdVpdJFnbp4Vfpw1yLCfkvs7dnXUTB_YoZrngn0G0DlB2Vj-zUNVaHLhXGiiG8GtasV98BbxeARxGjakZzBEuOi9jy5mZBxKIPizsS0BTLL93qVw&tag=1-1794890627-unknown-0-ncwufpy6zc-aadb0f0ae38f2c2a&clientCacheKey=3xvdhm8g6hnyzvk_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T03:47:02.455Z\"},{\"id\":\"kuaishou:photo:3xifwch8s7b9g89\",\"title\":\"现场视频！智利总统卡斯特抵达深圳 总统夫人与中方女保镖互动 #微观深圳APEC #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xifwch8s7b9g89\",\"description\":\"现场视频！智利总统卡斯特抵达深圳 总统夫人与中方女保镖互动 #微观深圳APEC #媒体原创  \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/17/11/BMjAyNjExMTcxMTMzNDJfMTMxMjExOTkyNV8yMTYwMTk3OTc5NjVfMF8z_ccc_Bccc0a9123001de834dad2513fe806963.jpg?tag=1-1794890627-xpcwebprofile-0-w4jebbgdsx-93087ca0e4b2855e&clientCacheKey=3xifwch8s7b9g89_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/11/BMjAyNjExMTcxMTMzNDJfMTMxMjExOTkyNV8yMTYwMTk3OTc5NjVfMF8z_b_Bc5ee5f5a1c1f669d71b2df6c667eb261.mp4?pkey=AAXbQIfEx-QToUa_RRn66f4Yhg1bW6WzLuFWvQMGFbbV_6WPrlKK623mX91qCUFJBncO1ZrutNWFi8i3NRA784dHJocOLL3xZWGoh_Xaz0Bh9aULw71PWHQw9pGASM9u_Wg&tag=1-1794890627-unknown-0-r6kh2wjwwx-9fcc3e58a7011f15&clientCacheKey=3xifwch8s7b9g89_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T03:35:32.191Z\"},{\"id\":\"kuaishou:photo:3x3jy3pcmc8nutw\",\"title\":\"现场画面！越共中央总书记、国家主席苏林携夫人抵达深圳 随行人员拎着大包小包走下舷梯 #微观深圳APEC （来源：@中国新闻社(O3xtszwcjndjy5ek) ）\",\"link\":\"https://www.kuaishou.com/short-video/3x3jy3pcmc8nutw\",\"description\":\"现场画面！越共中央总书记、国家主席苏林携夫人抵达深圳 随行人员拎着大包小包走下舷梯 #微观深圳APEC （来源：@中国新闻社(O3xtszwcjndjy5ek) ）\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/17/11/BMjAyNjExMTcxMTEyMjBfMTMxMjExOTkyNV8yMTYwMTc2MTUxMjlfMF8z_ccc_B1e58b578adf7a645fce4c7b0bf6529b8.jpg?tag=1-1794890627-xpcwebprofile-0-1okrztuoqy-74e94b9722e2076a&clientCacheKey=3x3jy3pcmc8nutw_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/ggxKvPW5_MAeE1tpaTDMpnnQ3dw6WCYkC8iegPBzAXDHEsianDKqWTYGdOTOb43XrQnsNRz9LNMamVQbZA0RzfRd81i9KsSBVVZgSc4apKd7MAxTtTaV_2ym4MFGZF80zSBA-fdmaU3qSSzeoSCEZ7DkMRWa09OIOjRF9FsclKxqtaLXxeOHi_70OJc43pPY.mp4?pkey=AAWfsPGVFAnGPLwS5_jTzZfChnDXxrwbXxomoepZPtvhdsexfY321vY47bcWnDypS3GALBKe3UCMQvHQcvKD60I6PxF9KYADe9v3bFbUXxRIo2zy5o6i0mBo5qtuxjhFOC4&tag=1-1794890627-unknown-0-tkhvnc1dsm-8a6b6a78a1d3aa86&clientCacheKey=3x3jy3pcmc8nutw_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T03:17:57.951Z\"},{\"id\":\"kuaishou:photo:3xkghpid6de8kew\",\"title\":\"外交部发言人毛宁发布视频：深圳已准备好迎接历史性时刻 #微观深圳APEC\",\"link\":\"https://www.kuaishou.com/short-video/3xkghpid6de8kew\",\"description\":\"外交部发言人毛宁发布视频：深圳已准备好迎接历史性时刻 #微观深圳APEC\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/17/11/BMjAyNjExMTcxMTEyMzFfMTMxMjExOTkyNV8yMTYwMTc2MjY3MjZfMF8z_ccc_B1c3fa5ff2f57e8b8cc9ac49222de08c7.jpg?tag=1-1794890627-xpcwebprofile-0-2koxz4etgy-0be11ae2e7808895&clientCacheKey=3xkghpid6de8kew_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/11/BMjAyNjExMTcxMTEyMzFfMTMxMjExOTkyNV8yMTYwMTc2MjY3MjZfMF8z_b_B2d12ee82c235deb1e0a930962f333e7d.mp4?pkey=AAVwXXVkOnnXLvgbMps-9IKiZD0NLguNZJXNvbMnp4Wodl_pJrqT4xw9JsBv9EyTWWNZFLTWbFC5YcqOfd2w6BdfJv_bBZM0PUchVIKTlnakA1PQk4RjIuVJFRzLr70L9c8&tag=1-1794890627-unknown-0-9jr8hk9xwt-0f7485fdc2acf445&clientCacheKey=3xkghpid6de8kew_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T03:13:44.905Z\"},{\"id\":\"kuaishou:photo:3xwqzkuksyptmyw\",\"title\":\"【一年5亿人次都在查的体检，在查什么？】目前，我国居民年度健康检查人次数已突破5亿。血压、血糖、血脂，还有 CT、核磁，过去只记录某一个时间点的状态。如今，连续血糖监测、智能手表、影像云把原本孤立的“点”连成一条线，你的身体，正在被科技“读懂”。 #青春华章向新而行  #AI眼中的中国  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xwqzkuksyptmyw\",\"description\":\"【一年5亿人次都在查的体检，在查什么？】目前，我国居民年度健康检查人次数已突破5亿。血压、血糖、血脂，还有 CT、核磁，过去只记录某一个时间点的状态。如今，连续血糖监测、智能手表、影像云把原本孤立的“点”连成一条线，你的身体，正在被科技“读懂”。 #青春华章向新而行  #AI眼中的中国  #媒体原创\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/10/BMjAyNjExMTcxMDUyMzVfMTMxMjExOTkyNV8yMTYwMTU2MTk1OTFfMF8z_ccc_B2ef767af4ba03fe515b464f779b7ea10.jpg?tag=1-1794890627-xpcwebprofile-0-lpsh1li4hk-887124115e35ad0a&clientCacheKey=3xwqzkuksyptmyw_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/b9FzpM-qGfgyuxM82DyVzyTRXim5M2qd_neBAdR_9wMgIf_Tv1Gy9ogUxR53oM1O5WYj16Rhvr6bcOXOEA7nVKgI6jgFW5BFOaWw8vbDk8y4e-EIS8LzZmicQgKgaBijrDBBOtfhXOW2UppB3g4bdo-80eq2qCJDorDx-w9lNfZGVqXtzmoVEf0YqSQog0dd.mp4?pkey=AAUViJqG1VHiRqif6pC-sbH2BTRBRvFe2FRa30_L51AO_HSAMdUDjYZa8tAeIfIFBnMe8PE0ReHjjCvhiUYM0EgoXxZgho_axQkKuOp-9O_eIQEvkUPGe-fPYjuO7AvsrOg&tag=1-1794890627-unknown-0-hg6yjkuasn-6624b328fc461a1f&clientCacheKey=3xwqzkuksyptmyw_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T03:12:51.670Z\"},{\"id\":\"kuaishou:photo:3xqi33fcsg3djwe\",\"title\":\"就任以来首次来华 智利总统卡斯特抵达深圳 记者现场直击 #微观深圳APEC  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xqi33fcsg3djwe\",\"description\":\"就任以来首次来华 智利总统卡斯特抵达深圳 记者现场直击 #微观深圳APEC  #媒体原创  \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/17/11/BMjAyNjExMTcxMTA4NDRfMTMxMjExOTkyNV8yMTYwMTcyNTY3MjdfMF8z_ccc_B8ad2624c1b02988077bff754b5ee24e7.jpg?tag=1-1794890627-xpcwebprofile-0-z0lhrhqleb-cb96bc51f1ecf5e6&clientCacheKey=3xqi33fcsg3djwe_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/xtbxptvL2LpnnlEk7kiEPYY3xrBrrg7LhGauMSpRVe3jv82ikjNaxJBoq5yTKZTLy42q22CYctenYgYbplorj0q6lT4dDSTGoqPqlR4G9PZUlRjCcyYPROuX8w6niEJPVw7c5DCp3puAa9rEx5QJRYWykk7hbvVfGFcrV8FcB4OFaExJ98jtY0GWKCyik5N8.mp4?pkey=AAXtOrX_ziVJ7FWPERl464pKX6HE4t2Y6PM0ekqUysaQJKYNwl-1OnFwRdRYXXaoZXEKUcEjsDIk-lKRrDY6GKoDXxmlTHq2Tx5Fx-tZj8BGKj4ehPSY06RWlbFULquhVPA&tag=1-1794890627-unknown-0-riahvnpien-e10767ba6c2a5d95&clientCacheKey=3xqi33fcsg3djwe_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T03:10:35.167Z\"},{\"id\":\"kuaishou:photo:3xjszx5f6qiqiwe\",\"title\":\"【习言道｜60秒了解APEC为何如此重要】亚太经合组织（APEC）第三十三次领导人非正式会议将于2026年11月18日至19日在广东省深圳市举行。这是中国第三次，也是时隔12年再次担任APEC东道主。APEC是什么？为何如此重要？ #微观深圳APEC  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xjszx5f6qiqiwe\",\"description\":\"【习言道｜60秒了解APEC为何如此重要】亚太经合组织（APEC）第三十三次领导人非正式会议将于2026年11月18日至19日在广东省深圳市举行。这是中国第三次，也是时隔12年再次担任APEC东道主。APEC是什么？为何如此重要？ #微观深圳APEC  #媒体原创\",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/17/10/BMjAyNjExMTcxMDEwMThfMTMxMjExOTkyNV8yMTYwMTE2MjQxMDdfMF8z_ccc_Be4a56ccbebe470aeae5d9ffa89ab5970.jpg?tag=1-1794890627-xpcwebprofile-0-iifmpovrd0-fcbc210bb476612e&clientCacheKey=3xjszx5f6qiqiwe_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/10/BMjAyNjExMTcxMDEwMThfMTMxMjExOTkyNV8yMTYwMTE2MjQxMDdfMF8z_b_Bee92ebdfe82caf42d13c67095c717661.mp4?pkey=AAXMN9NUdrdPNa2X4bL6EDFo_kUIsxwEOlQ-xd60qcqhl8qhEVEtmcmJpPT_a9XS7D6dTWXTJXHtZ53Jd4k52kDxhlL59MMh1TkCr9LHHLd0Vz_Qm69_s8TiCr2K1-46btQ&tag=1-1794890627-unknown-0-h0swuj1xsg-7abeb6dac89a7b59&clientCacheKey=3xjszx5f6qiqiwe_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T02:53:50.466Z\"},{\"id\":\"kuaishou:photo:3xizzdp3amk9vqi\",\"title\":\"习近平会见加拿大总理卡尼 #微观深圳APEC\",\"link\":\"https://www.kuaishou.com/short-video/3xizzdp3amk9vqi\",\"description\":\"习近平会见加拿大总理卡尼 #微观深圳APEC \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/17/10/BMjAyNjExMTcxMDMzMjRfMTMxMjExOTkyNV8yMTYwMTM3NjA3MjVfMF8z_ccc_B39c1bd0bfed6b2fe4c0c4911a2ba7a62.jpg?tag=1-1794890627-xpcwebprofile-0-lkqeraa49x-2ebb166c8124bad2&clientCacheKey=3xizzdp3amk9vqi_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/iH-BHf8AjDhdK7DShGWH7istvupKvbC5Pnranf-cbPL1Qb6iUN7m7z0QjwyCpgMJD9STyQVIrm0dby2XmpkjOVPtbp0oS_z2eiOAecCgwr3s7CR4O3SKdh134RipcdhcxYmA-szk2R-Y1M04FykiEE7UKdVQaWzHQ_WxK-C2Obn-dnjKAi5BzHexCTrCdbKk.mp4?pkey=AAXqZje9WMT2aL66ed8MGcFw6VaIvtgpsXWOP1mi72zvRXxBqxXrWfOstqnvqOC46viXegt_tH-tMONQAbj-P1l2D30L3RXRA8vpijSMt_Zk8foLG5Epe9PYdMu_5vma-lI&tag=1-1794890627-unknown-0-rfgdt9zkwn-366e5b2a1da94095&clientCacheKey=3xizzdp3amk9vqi_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T02:38:01.160Z\"},{\"id\":\"kuaishou:photo:3xu7yhcdab2dezm\",\"title\":\"“来了就是深圳人”越南在华留学生手拿两国国旗 热情迎接苏林 #微观深圳APEC  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xu7yhcdab2dezm\",\"description\":\"“来了就是深圳人”越南在华留学生手拿两国国旗 热情迎接苏林 #微观深圳APEC  #媒体原创  \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/10/BMjAyNjExMTcxMDM2MDJfMTMxMjExOTkyNV8yMTYwMTQwMzkyMzBfMF8z_ccc_B0bcbb04f20ef056a707ac6ed26c636ac.jpg?tag=1-1794890627-xpcwebprofile-0-6lmpccczoe-0806cd23815203c2&clientCacheKey=3xu7yhcdab2dezm_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/10/BMjAyNjExMTcxMDM2MDJfMTMxMjExOTkyNV8yMTYwMTQwMzkyMzBfMF8z_b_B78868f50242aed63eb962ca4e2501da2.mp4?pkey=AAU7Lh_Kx9GrbA7FNLdIHdhAWAqOQZXdW4v0wiTPdkwDGdEZklQwGIK8zKwFwHZS6tvolfdOFqDm-JRzsK231uABIQg_qzMsIN_VhzvghdUc-5wBV2O7Cs-EwJqmFczatrQ&tag=1-1794890627-unknown-0-9mblxoiycb-3528156b053114bb&clientCacheKey=3xu7yhcdab2dezm_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T02:37:55.738Z\"},{\"id\":\"kuaishou:photo:3xx5mwxm97g2fps\",\"title\":\"现场画面！越共中央总书记、国家主席苏林走出舱门 同现场欢迎人员亲切打招呼 #微观深圳APEC #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xx5mwxm97g2fps\",\"description\":\"现场画面！越共中央总书记、国家主席苏林走出舱门 同现场欢迎人员亲切打招呼 #微观深圳APEC #媒体原创 \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/10/BMjAyNjExMTcxMDEyMTlfMTMxMjExOTkyNV8yMTYwMTE3ODQ1NTJfMF8z_ccc_B77623f1b6fff70caeb039ab0b4734ccf.jpg?tag=1-1794890627-xpcwebprofile-0-cegpwmatf0-d0eceaeb4781f904&clientCacheKey=3xx5mwxm97g2fps_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/10/BMjAyNjExMTcxMDEyMTlfMTMxMjExOTkyNV8yMTYwMTE3ODQ1NTJfMF8z_b_B79e54476b2af70d5f9c7ecc58453d1ee.mp4?pkey=AAUpvetTVnZhgVX7sAl35mVAiRd2nDZ2QL2_IqBRDze2jmx3Kn1uVKLirBgpWv1pHDdhE4D1Pv60REC3baiu3xlMscTvP-kl0BEN_lKCvRyO_2j1JarKM2KR6DpEsatiMFI&tag=1-1794890627-unknown-0-kqyixop5vx-8b4fcf9c389cbe11&clientCacheKey=3xx5mwxm97g2fps_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T02:15:07.413Z\"},{\"id\":\"kuaishou:photo:3xmbpcxk7526j4k\",\"title\":\"现场视频！ #APEC工商领导人峰会  #何超琼  出席 #深圳 #微观深圳APEC （来源：@中国新闻社(O3xtszwcjndjy5ek) ）\",\"link\":\"https://www.kuaishou.com/short-video/3xmbpcxk7526j4k\",\"description\":\"现场视频！ #APEC工商领导人峰会  #何超琼  出席 #深圳 #微观深圳APEC （来源：@中国新闻社(O3xtszwcjndjy5ek) ）\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/10/BMjAyNjExMTcxMDAzMTZfMTMxMjExOTkyNV8yMTYwMTA5MzI3NzdfMF8z_ccc_Bb2d03111ad34deeac77641bd267816af.jpg?tag=1-1794890627-xpcwebprofile-0-qmf3u1qw2a-d001a92dff86fe60&clientCacheKey=3xmbpcxk7526j4k_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/10/BMjAyNjExMTcxMDAzMTZfMTMxMjExOTkyNV8yMTYwMTA5MzI3NzdfMF8z_b_B9b171930209749baa6e3cc12d177d1ea.mp4?pkey=AAUUyTReE8IcJIlEaqUGVfWHInt0HH8DIKjD4GmAn_127Dx1O23l8VtflMeFB6xKiVcxITvL3AEtEJ1_t3Il4O0tt-NhAyvC8NKfAYNnlFe4nz59S3nmLkyS9D9fx6bnkuw&tag=1-1794890627-unknown-0-h4kxek4rpy-9193af3332ac106b&clientCacheKey=3xmbpcxk7526j4k_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T02:09:30.537Z\"},{\"id\":\"kuaishou:photo:3x7ez5b68pmrd69\",\"title\":\"越共中央总书记、国家主席苏林抵达深圳 记者现场直击 #微观深圳APEC  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3x7ez5b68pmrd69\",\"description\":\"越共中央总书记、国家主席苏林抵达深圳 记者现场直击 #微观深圳APEC  #媒体原创 \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/09/BMjAyNjExMTcwOTU4MDVfMTMxMjExOTkyNV8yMTYwMTA0NjM1ODBfMF8z_ccc_B039b5615d8af0eabe0ad9e368e419d6c.jpg?tag=1-1794890627-xpcwebprofile-0-b4zscrtldq-5b6f433a728fa63b&clientCacheKey=3x7ez5b68pmrd69_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/Fd7PQYFAYyEDhNNY9UCXAxqcRc6DRl9-xe0kUH7ugXXVkkuHnHt8vx0ue3YdoI0LfUeUYKGYWr4K69EFEy3UEKZYD6v77rDe17BPQ0Ahyzz4TxnT0_pJx6dPl0-8B0Xj7IbaTcLy3JJX6ZTOZ2faxHe-RhSmJvbfGabqm486ayX3BuHjpVEcJJKpUok8Pso0.mp4?pkey=AAVsCylM9QGRmRDFL2Ns9N8MWhrOy79pmclvMGiuJd0dXsJRjsbpXTGLE1I9BFFxENjVF9OpVscBNDc-BIibSl_8SWtsB3CrJk07J5e6jifpUYpyi6KfrRsmXG1G0w8AWkk&tag=1-1794890627-unknown-0-lf3qyiamaq-8cef61c86b1e5f7c&clientCacheKey=3x7ez5b68pmrd69_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T02:02:37.311Z\"},{\"id\":\"kuaishou:photo:3xigx5mn6p2bnqy\",\"title\":\"【习言道｜中国将坚定不移扩大对外开放，同世界和亚太各成员分享中国发展机遇】“当前，中国已经开启全面建设社会主义现代化国家新征程。中国将坚定不移扩大对外开放，同世界和亚太各成员分享中国发展机遇。”今年是中国加入APEC的35周年。11月18日至19日，亚太经合组织（APEC）第三十三次领导人非正式会议将在中国深圳举行。聆听习近平主席声音，感受与时偕行的中国力量。 #微观深圳APEC  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xigx5mn6p2bnqy\",\"description\":\"【习言道｜中国将坚定不移扩大对外开放，同世界和亚太各成员分享中国发展机遇】“当前，中国已经开启全面建设社会主义现代化国家新征程。中国将坚定不移扩大对外开放，同世界和亚太各成员分享中国发展机遇。”今年是中国加入APEC的35周年。11月18日至19日，亚太经合组织（APEC）第三十三次领导人非正式会议将在中国深圳举行。聆听习近平主席声音，感受与时偕行的中国力量。 #微观深圳APEC  #媒体原创\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/17/09/BMjAyNjExMTcwOTIxNTdfMTMxMjExOTkyNV8yMTYwMDc0NjMzOTNfMF8z_ccc_B55423bb0ee4feb73b277dcdbcc039427.jpg?tag=1-1794890627-xpcwebprofile-0-tbfwmgz7zq-b6d2012dd8134b77&clientCacheKey=3xigx5mn6p2bnqy_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/GFZYzYLHLDc1rV2-0EPLMyROg6rPkxqaTU9EFDQuknBWZalDMJk5ylPdUfZCh9gWxwG1ULulI2N7rWJX159iM3L41fNDIx3-ESROReerBjxlI8NsGsz8VsV7Pwpz8ZABehlxgGJVCjfnwPK6vpT97OpxNZP0aaeN_vXXiN3BETMLQ2ENIP4qXKo9hPL50jjY.mp4?pkey=AAXBm-BzBAKYOVPPKaG_Q9e34awOku3lQYx7rIJrs44xTiTAFTq5OacArCxAHO1ONDoTQBnU43Uy2rTvnvkib7BBaUTzHEeEAC0iq7Cyw2GC_KfXCWr8hnzMTdSD-b6PGOs&tag=1-1794890627-unknown-0-xiovxkajfr-8653a0f2e4706a61&clientCacheKey=3xigx5mn6p2bnqy_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T01:56:34.574Z\"},{\"id\":\"kuaishou:photo:3x9wd3kj3rf67qg\",\"title\":\"现场画面！越共中央总书记、国家主席苏林抵达深圳 #媒体原创 #微观深圳APEC\",\"link\":\"https://www.kuaishou.com/short-video/3x9wd3kj3rf67qg\",\"description\":\"现场画面！越共中央总书记、国家主席苏林抵达深圳 #媒体原创 #微观深圳APEC \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/17/09/BMjAyNjExMTcwOTUwMzVfMTMxMjExOTkyNV8yMTYwMDk4NDM4MzFfMF8z_ccc_B4e70c26cc5906775c3870958fa623b72.jpg?tag=1-1794890627-xpcwebprofile-0-7blmil3rai-100f5c9af918301d&clientCacheKey=3x9wd3kj3rf67qg_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/HeXf2x9fS-8EroN4-JcF9sLJHCxpTgsnX0zY-pI8EtUwopipRlJ6RjB3BQCjjtJkRjmPaqI6H5uSTTGlvo36nEs9mbMmkOfMgdX2b3S0vcXLnmGw59G4TXbnh3gVk8QGGCFtAy6R3we2hPxeI344G1G01Bi13fpzlXQvLEtQI40hSrxR9F8IvgQ_OoZc4Ty1.mp4?pkey=AAWdazvP3raLyyHQTwkH0y5Bn8dg0WriJYNjHgF2RRDxX5EVIkTffbzWhPxGwjmb-9cK3W5VS0YywKwTfbPDiAz-Ww_AzT6CcOzP0hABLUYyD1Ri70K78qFZ8DDnZnUQSnM&tag=1-1794890627-unknown-0-t3xfjq4ta0-410b202433e08f22&clientCacheKey=3x9wd3kj3rf67qg_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T01:51:25.703Z\"},{\"id\":\"kuaishou:photo:3xtmjibshmyppwc\",\"title\":\"夜幕下的“中国排面”！APEC与会领导人陆续抵达深圳 中国仪仗兵每一个角度都笔直如线 #微观深圳APEC  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xtmjibshmyppwc\",\"description\":\"夜幕下的“中国排面”！APEC与会领导人陆续抵达深圳 中国仪仗兵每一个角度都笔直如线 #微观深圳APEC  #媒体原创  \",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/17/09/BMjAyNjExMTcwOTQwNTRfMTMxMjExOTkyNV8yMTYwMDkwMDI0NzJfMF8z_ccc_B740a396f77c96ee3131a4a7ee0e9e1f4.jpg?tag=1-1794890627-xpcwebprofile-0-2i8cbmmo0n-0a52f1a388db3f35&clientCacheKey=3xtmjibshmyppwc_ccc.jpg&di=36d47d9b&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/17/09/BMjAyNjExMTcwOTQwNTRfMTMxMjExOTkyNV8yMTYwMDkwMDI0NzJfMF8z_b_Bf48a81fac058ddee1708b055b8f347ba.mp4?pkey=AAWXMFjwHPSRYo76eoVAs6pzT01IWTKSBTJ7VmgP-ekQjTmoCr_rB7FXaTrc7tjyZU0OZ0AT-fD5xvXPrS81AEqE1teZEjFhB5xLOJCAMDuJMywHeeg-p1QGQ80zy2bqJpY&tag=1-1794890627-unknown-0-62lifpydtm-b4b8a060113b74f3&clientCacheKey=3xtmjibshmyppwc_b.mp4&di=36d47d9b&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T01:42:45.977Z\"}]}",
     "timing": {
-      "elapsed_ms": 244,
+      "elapsed_ms": 2233,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -89,69 +98,74 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 2
+          "started_ms": 1,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 9
+          "duration_ms": 8
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 11,
-          "duration_ms": 231
+          "started_ms": 10,
+          "duration_ms": 2222
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 242,
+          "name": "输出读取与校验",
+          "started_ms": 2232,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2233,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 242,
-          "duration_ms": 1
+          "started_ms": 2233,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 243,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 2233,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 244,
+          "started_ms": 2233,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 15,
-          "duration_ms": 227
+          "started_ms": 13,
+          "duration_ms": 2213
         }
       ]
     }

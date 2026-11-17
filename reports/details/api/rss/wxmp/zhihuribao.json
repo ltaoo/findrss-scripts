@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-16T22:24:01.917Z",
+  "checked_at": "2026-11-17T04:43:45.069Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/zhihuribao",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 777
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/zhihuribao.json",
+    "duration_ms": 2568
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 565
+    "status": 200,
+    "duration_ms": 1026
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,19 +47,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 550,
+    "phase": "ok",
+    "elapsed_ms": 1006,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:617:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":17,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -68,40 +72,43 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 536,
+        "started_ms": 12,
+        "duration_ms": 988,
         "timings": {
-          "response_ms": 536
+          "response_ms": 974,
+          "body_read_ms": 12,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:zhihuribao\",\"title\":\"知乎日报\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658479&idx=1&sn=05ea6e38d4bb29bc0fb3bdcd75a2ced7&chksm=8a7c3fe9f7db20af704df90ed63d8356312bdd1cd1d1e0d4a3dd5bf8e43843af57c87a86462c&scene=126&sessionid=1794890627#rd\",\"description\":\"知乎官方订阅号，每日精选知乎热门、有趣内容\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"知乎日报\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FUOCHvzUGAIWg6z2Qs1yTHicbpqJwAUFRtJ5nhXPMb35XhGb6OESOg9OianbhYibThkZQiclOv5GN4z8%2F0\",\"updated\":\"2026-11-17T03:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658479:1\",\"title\":\"有没有一个地方，曾让你印象深刻？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658479&idx=1&sn=05ea6e38d4bb29bc0fb3bdcd75a2ced7&chksm=8a7c3fe9f7db20af704df90ed63d8356312bdd1cd1d1e0d4a3dd5bf8e43843af57c87a86462c&scene=126&sessionid=1794890627#rd\",\"description\":\"什么是地方？\\n\\n地方是一个人的故乡，是一群人记忆中的一段时光，也是承载一代代历史痕迹的那片土地。\\n\\n我们记住一个地方，常常是从某个具体的瞬间开始的。\\n\\n可能是清晨走进菜市场，尝到一口叫不出名字的早点；可能是在陌生的街巷里，听见一句熟悉的乡音；也可能是路过一座老屋，听当地人讲起，才知道眼前的寻常风景里，藏着怎样的往事。\\n\\n有些地方只去过一次，却让人惦记了很多年。有些地方生活了很久，离开后才发现，那里的一餐一饭、一草一木，早已成了理解世界的起点。\\n\\n知乎发起风土季「吃一口风土食粮」，邀请你一起，认真研究一个地方！在乡土、田野、方言和菜市场的烟火气里，找回一种可叙述的具体。\\n\\n🚩第一波风土向导上线，一起跟着他们的提问，走近一处地方！\\n\\n我们也想邀请你，来评论区做一次风土向导，聊聊：有没有一个地方，曾让你印象深刻？\\n\\n它可以是一座城、一个村庄，也可以是一条街、一间小店，或是地图上不太起眼的角落。你可以说说：\\n\\n📍 那是哪里？ 你与它是怎样相遇的？\\n🥢 那里有什么让你念念不忘？ 一口滋味、一句方言、一种风俗，或是一个人？\\n🌾 如果由你带路，你最想带大家去看什么、吃什么、体验什么？\\n\\n在评论区留下「地方名＋你的故事」，让我们跟着你的记忆，认识这个地方。\",\"content\":\"<p>什么是地方？<br /><br />地方是一个人的故乡，是一群人记忆中的一段时光，也是承载一代代历史痕迹的那片土地。<br /><br />我们记住一个地方，常常是从某个具体的瞬间开始的。<br /><br />可能是清晨走进菜市场，尝到一口叫不出名字的早点；可能是在陌生的街巷里，听见一句熟悉的乡音；也可能是路过一座老屋，听当地人讲起，才知道眼前的寻常风景里，藏着怎样的往事。<br /><br />有些地方只去过一次，却让人惦记了很多年。有些地方生活了很久，离开后才发现，那里的一餐一饭、一草一木，早已成了理解世界的起点。<br /><br />知乎发起风土季「吃一口风土食粮」，邀请你一起，认真研究一个地方！在乡土、田野、方言和菜市场的烟火气里，找回一种可叙述的具体。<br /><br />🚩第一波风土向导上线，一起跟着他们的提问，走近一处地方！<br /><br />我们也想邀请你，来评论区做一次风土向导，聊聊：有没有一个地方，曾让你印象深刻？<br /><br />它可以是一座城、一个村庄，也可以是一条街、一间小店，或是地图上不太起眼的角落。你可以说说：<br /><br />📍 那是哪里？ 你与它是怎样相遇的？<br />🥢 那里有什么让你念念不忘？ 一口滋味、一句方言、一种风俗，或是一个人？<br />🌾 如果由你带路，你最想带大家去看什么、吃什么、体验什么？<br /><br />在评论区留下「地方名＋你的故事」，让我们跟着你的记忆，认识这个地方。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGNqPJH3jsgupBlg9uBic0JdPxdUicD7tiaFWW4hluIl0B0P5SMMbIyR7BNafNkAP4Q8XPia9zvwhibLqk7pk3wDxYc3taMUM30suIo%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH4AkEUY7CRtciaoOibyXlrql0fA4hMNGgfN8v4Zckje5f7oYibicpLt9TBDnuvbcopOpLR6sIuGBYmZb3IoZKXoeicdRfRcfQ1sQ20%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGh9xTUU5HQFeFjn4jhyd807CoCvfYDrFLLlj3IU8DXR5keLxW0N22NoJ29QF2g0ibwD69eIq4outdy3fBiaevJxjVOibibbw7JpOs%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGjSfK5MfI8jHuEyEciaN6V6ZIkHWWeN9WxglRmgWNkxFkF2k2K5NdGzKM1D4Yhv4DEIuYwstxicF66E6PsnjbS6JPnTIz6npwjw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHjKeAuOZw77UtFWAXql5HibQiaSPI38m1VFx4RkUiciaeyyRESxUva4lHscJZlRSV5lRw3fvgpSaosmeMv98bzmlR0TngHSIGzTG8%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHqGfHKicCkdhIhQ7avYtmiclUa7oCVibWRGNDOhjshEiaynnBZgVsfxficSmRbTOX7OK8u3ZU23SNpQKtt3yPxsic0PmwC3kcJyibRa8%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGQAfDlSTQypYCIFjicswib4nf3SLYJIAvJ0FtzTiaibbue402gRgPtLhybcQ8I4NtF9jEYKmKErdaz0qmBtYXVcExdkubezzVdjYQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGNqPJH3jsgupBlg9uBic0JdPxdUicD7tiaFWW4hluIl0B0P5SMMbIyR7BNafNkAP4Q8XPia9zvwhibLqk7pk3wDxYc3taMUM30suIo%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH4AkEUY7CRtciaoOibyXlrql0fA4hMNGgfN8v4Zckje5f7oYibicpLt9TBDnuvbcopOpLR6sIuGBYmZb3IoZKXoeicdRfRcfQ1sQ20%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGh9xTUU5HQFeFjn4jhyd807CoCvfYDrFLLlj3IU8DXR5keLxW0N22NoJ29QF2g0ibwD69eIq4outdy3fBiaevJxjVOibibbw7JpOs%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGjSfK5MfI8jHuEyEciaN6V6ZIkHWWeN9WxglRmgWNkxFkF2k2K5NdGzKM1D4Yhv4DEIuYwstxicF66E6PsnjbS6JPnTIz6npwjw%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHjKeAuOZw77UtFWAXql5HibQiaSPI38m1VFx4RkUiciaeyyRESxUva4lHscJZlRSV5lRw3fvgpSaosmeMv98bzmlR0TngHSIGzTG8%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHqGfHKicCkdhIhQ7avYtmiclUa7oCVibWRGNDOhjshEiaynnBZgVsfxficSmRbTOX7OK8u3ZU23SNpQKtt3yPxsic0PmwC3kcJyibRa8%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-17T03:30:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658458:1\",\"title\":\"📝 写给正在秋招的你：一封不提供建议的信\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658458&idx=1&sn=ebc281004aca2d18eb1c2bbb292f7c44&chksm=8ac5f94b97470a8391058815391bfa61f76dec8f355242c29b4be05f073f91fd1f28d504131f&scene=126&sessionid=1794890627#rd\",\"description\":\"秋招时，消息列表很容易变成一天的心情：投递有没有回音，面试有没有下一轮，身边的人是不是已经收到了 Offer。\\n\\n关于简历和面试的建议已经很多了。这一次，我们想听听那些走进职场的人，当年是怎样走过第一次找工作的日子。\\n\\n✏️ 知乎职场「2027 秋招季」圆桌提出了一个问题：\\n如果给正在秋招的应届生写一封信，但这封信里「不许出现任何建议」，你会怎么写？\\n\\n清华大学心理与认知科学系教授@彭凯平 写起博士毕业时，导师问他的那句「什么是你心灵的呼唤」；智联招聘 CEO @康雁 想起自己揣着简历站在北京国贸的秋风里；复旦大学社会学系副教授@杜世超 谈起学者生涯中经历的拒绝；英国大律师、马来西亚律师@丘紫情 回望自己的第一份工作。\\n\\n他们没有替谁决定该去哪里，只是把走过的路写下来。读到某一处，你或许会发现，第一次找工作时的犹豫和期待，也曾有人经历过。\\n\\n📃 滑动海报读信，扫码可读对应的完整回答。\\n\\n📚 你也可以加入「2027 秋招季」：提出正在困扰你的问题，回答自己了解的行业和岗位，或记录此刻的秋招经历。\\n\\n📅 活动持续至 11 月 30 日，在知乎搜索「2027 秋招季」查看参与方式。\",\"content\":\"<p>秋招时，消息列表很容易变成一天的心情：投递有没有回音，面试有没有下一轮，身边的人是不是已经收到了 Offer。<br /><br />关于简历和面试的建议已经很多了。这一次，我们想听听那些走进职场的人，当年是怎样走过第一次找工作的日子。<br /><br />✏️ 知乎职场「2027 秋招季」圆桌提出了一个问题：<br />如果给正在秋招的应届生写一封信，但这封信里「不许出现任何建议」，你会怎么写？<br /><br />清华大学心理与认知科学系教授@彭凯平 写起博士毕业时，导师问他的那句「什么是你心灵的呼唤」；智联招聘 CEO @康雁 想起自己揣着简历站在北京国贸的秋风里；复旦大学社会学系副教授@杜世超 谈起学者生涯中经历的拒绝；英国大律师、马来西亚律师@丘紫情 回望自己的第一份工作。<br /><br />他们没有替谁决定该去哪里，只是把走过的路写下来。读到某一处，你或许会发现，第一次找工作时的犹豫和期待，也曾有人经历过。<br /><br />📃 滑动海报读信，扫码可读对应的完整回答。<br /><br />📚 你也可以加入「2027 秋招季」：提出正在困扰你的问题，回答自己了解的行业和岗位，或记录此刻的秋招经历。<br /><br />📅 活动持续至 11 月 30 日，在知乎搜索「2027 秋招季」查看参与方式。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlEpWF8Xr6oPUhFBykqTtvVJKh2JowGpMOrBRlzcRSygdPEkUp1ibcSoLwibK7lwBibYHY8h0J4XzLWN2u7YYYhu3IPicWribhU9p92g%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlFeWNAZMEiaW5TXenFgBTxvbUC7OGFLMrlNoeubwsR5aJvVcPvQ8iciaLIUJ6e9ys6eNjYT39TdeB6syd60WSu0lsviaokR5dBt4iaA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHOkWg4mAgv2BVhXXibkFaQAWnh2ubkAXtQx0fjLhu8sZ1f8whsyzGNNsyeJBQCibJbV5vlJfXiaua9MHKZKOHhhxj8tCmCNJawRM%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlEmGN3x1MDOmAQc4AZ1UPDaHAlCnfJFX4z3aHW4ILs5sdfDhIWqP9Dgc9cgvnjG1ibFgGfFicsNDNEQLeicKLYIOrVkOLqk7iap2G4%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlH3nia662FOdRoq7aEathtolYEa0z8u072Qs5uSR37JZ96dQ90YLa716leicKpIYaN1AdaWGbjJ3JzeByqYwdFF4nbdunz1BgLqY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlEpWF8Xr6oPUhFBykqTtvVJKh2JowGpMOrBRlzcRSygdPEkUp1ibcSoLwibK7lwBibYHY8h0J4XzLWN2u7YYYhu3IPicWribhU9p92g%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlFeWNAZMEiaW5TXenFgBTxvbUC7OGFLMrlNoeubwsR5aJvVcPvQ8iciaLIUJ6e9ys6eNjYT39TdeB6syd60WSu0lsviaokR5dBt4iaA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHOkWg4mAgv2BVhXXibkFaQAWnh2ubkAXtQx0fjLhu8sZ1f8whsyzGNNsyeJBQCibJbV5vlJfXiaua9MHKZKOHhhxj8tCmCNJawRM%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlEmGN3x1MDOmAQc4AZ1UPDaHAlCnfJFX4z3aHW4ILs5sdfDhIWqP9Dgc9cgvnjG1ibFgGfFicsNDNEQLeicKLYIOrVkOLqk7iap2G4%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-17T03:30:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658468:1\",\"title\":\"所有人问丨如果去掉社会标签，你会如何介绍自己？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658468&idx=1&sn=a480288fe009dba9b655fbc05577b47e&chksm=8abdd5850c7972a33951dee28118425061124ee4f5b6a0bb263e3e0a9b7a49a0e28616ce3fa2&scene=126&sessionid=1794890627#rd\",\"description\":\"你会说些什么？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGpHHAytoZzeQGKH061MqiapFp03H96rCpZMWlibh95fE4q7VgSLqQY73oAdkmtpugMibe1ho1mvDScddU7YFP0pDN8lAsWicTbuv4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658468:2\",\"title\":\"科技丨知乎智能搜索服务上新后，答主们做出了哪些好用的 Skill？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658468&idx=2&sn=df630c2de8a1ea286d739d38696b1b8f&chksm=8afba7b45023b0c117b77bc98b4d94d92aae8bbe7cf0bbf291fc8cb80103e748c8b36010e302&scene=126&sessionid=1794890627#rd\",\"description\":\"干货来袭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGHfMHgkPd1HEbMmVpxTqhoFnB7fmoRSEffoTLAAFhdvQvGNqQ5xxqq1yZRU2dAvNgf5urUZ3ibEIO2srrYER0v4NzOtneeOy70%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658380:1\",\"title\":\"瞎扯丨可以莫名其妙教我一个技能吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658380&idx=1&sn=ee45c04ac53f90e931aaa2ff5ca90ad5&chksm=8aeee6604bda5a49e8681f6241f6f4b97abb78a5fe5b8b1f762f6941dca84f0bd9eb99cc68a0&scene=126&sessionid=1794890627#rd\",\"description\":\"瞎扯一下，轻松一下～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH2JOqEpb0u4iaGrNVSSMxV02gFMdv0lELQ4VzwVMGLayRTRAbXZjmIRPe0d3n1QmUTibBW0KCSf7HUWAaFINUTobeqrOTqQ94Ps%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658379:1\",\"title\":\"高赞丨为什么中餐很少用柠檬？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658379&idx=1&sn=fea10d05983558bb40f0b18db7b1107f&chksm=8a5837624e2360a2f20537c1b5c4f4f1addff44645ff38985d883d723aae529559f740142f97&scene=126&sessionid=1794890627#rd\",\"description\":\"感觉好像上了好几堂烹饪理论课程！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEsaLuPoQ1KmiaKNhPTicYs7psibibtV4VpPKyvfjhpp8YDfaelWibXKxyySezKfhk38IN11BI7KQWxbTicGPOB0GSib0V6v7Hy6Gdu1g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658346:1\",\"title\":\"热议丨黄仁勋辞职，会带来哪些影响？英伟达的优势还能维持多久？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658346&idx=1&sn=f8f4b341c744208075b8022558fc2e5f&chksm=8a7b29d8a130a41c5dd9dc031b0d012c9874e5a8bbce836998cd450a6135b96d8e9c76f4f7d7&scene=126&sessionid=1794890627#rd\",\"description\":\"「当一家四万亿美元的公司，失去了它的大脑。」\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHJxIicKJJnqFIPdt1yxzqs1PDk7x69tWWcSibXyg6cibaq2ApPX8eNCicgbek30VjUC0RUG9lXnlneB2IeN8z7XUvgq6SoYSR0fjU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T16:41:48.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658311:1\",\"title\":\"经验丨为什么说「人不要长期待在家里」？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658311&idx=1&sn=93b48cb389aa017ce93e2256595da4cd&chksm=8af8985ce4c7fe4b591d19fa89330d274ab2535961ebd78da80d173d35f5a2718cb05e16bfed&scene=126&sessionid=1794890627#rd\",\"description\":\"出门，就现在！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGUrBB8mk9sL3vNM7hYbafRD0l3lxribwn14uDlGrfSRUnbpFCdP9ySQLpZ82ER3ianWZKNKYbjqWWvMF5XS6DDkAaJvKba2icbyI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658311:2\",\"title\":\"科技丨大模型们在集体做知乎答主出的卷子？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658311&idx=2&sn=a9793d6a90c93a5e9b1aa84ade173d25&chksm=8aac7eb9b2dc25424a74503fb67a0cc87b233221cec4841f4de8696151bca70875f6e56ba8a7&scene=126&sessionid=1794890627#rd\",\"description\":\"知乎答主给 AI 出了什么题？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEGWQGhyy8aqeRUVhBDRv4f2g204T2j1sJIvckSdC49ukp2tdrYgnOKQc7y5msFwicibCKIsBt4Ug9xAWFaias9tRpFvA5M7T9r04%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:1\",\"title\":\"热议丨影帝影后实至名归，最佳导演爆冷？这届金鸡奖你满意吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=1&sn=00aaf0da68a2377195661205b30e794b&chksm=8a0791bfcbdd921c1819d253578e3ae681a87076f6970950e769503ea056fe0f21cb59371634&scene=126&sessionid=1794890627#rd\",\"description\":\"为什么有人说影帝影后都选对了，最佳导演却选错了？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGuuUTOO80TCnFQElHxLic3bQ1trqGVlqliaicSWx3eSdBe6IeMZ6RebfCpyhntWgufdoGpOTBBfHSTMvouUWjf3VdKFTy1MPN4Mc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:2\",\"title\":\"科技丨DeepSeek Harness 有 3.5 万个第三方插件了，有哪些值得一试？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=2&sn=a3530908cde97435dc81a4c8af35dcd9&chksm=8a11c35ae5b50a3748cc8da38053d1aaa40b1d40854d990e755177cf18bbda635973fd7d091f&scene=126&sessionid=1794890627#rd\",\"description\":\"DeepSeek Harness 产品负责人& 热门插件作者齐聚知乎。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEHCcVKmNJ3Q4PIOhGwGCQ2HTp8GfhI2xYDc37Var25eFAz0sJvkBDO4icfYACVsJ8ibqjDOykHicOkIlh5FTKMrK8rtYmrYP6l9g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658154:1\",\"title\":\"脑洞丨鱼从来没上过陆地，为什么知道玉米粒可以吃？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658154&idx=1&sn=5ced725b6d23ba7d59b771db6fea3dfd&chksm=8ac85708c9bc912549ec7a1eb6b85e2a7f23d2930283e72879645650f905dedebc9c0955cee6&scene=126&sessionid=1794890627#rd\",\"description\":\"鱼：好吃就行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFlS5nYvKh9rOywNYmwQ8jnvfm0JkdOP1c0DG8UzJ8SsHRz856SibvhBtQJDXYyeZvJFH4p0adzl0lGomyl7pPtictkbgicRktHXQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658154:2\",\"title\":\"科普丨国际空间站的氧气是怎么来的？为什么一直都用不完？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658154&idx=2&sn=236fb678fbf7ce90cafa16c7b96b7834&chksm=8aebc16e2dbec9da1c734216a8667c3179b9b44276fbbca3aa8d5c15174ff72206095ef4fad2&scene=126&sessionid=1794890627#rd\",\"description\":\"阿波罗一号的惨痛教训让航天大国放弃纯氧环境。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGaicTYM3BOM16siavJ2v20icNA2ibEn3abedv0mCr2QliamkA7kEvqWz0cJJTebF9ibptibsYicTQ1EKzjX1dzJia3Q8qoIDIiaoKj3Vsia0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658144:1\",\"title\":\"游戏丨《影之刃零》最全技术分析：从地图到打斗，武侠感是怎样炼成的？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658144&idx=1&sn=29d4b57726a52c88c1cc83f80cf56907&chksm=8a65c47d95defe0cdd74f9a7d09b715f720267e975eb16b12b6ac688eed02d32ccbc60996bcc&scene=126&sessionid=1794890627#rd\",\"description\":\"从杀气塔到庞镇，《影之刃零》的地图和战斗是怎么设计的？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEqxU55icxYlibRmmy0ju9a4rllIrIPZ3ffy0iaaGUXXRL7As35YcexZsqMpCHsHv2xjelcQFksj0LiccP7YC3A5u1IUuDgiaTsArPI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658144:2\",\"title\":\"热议丨黄仁勋承认「婚外情」，会对英伟达产生多大影响？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658144&idx=2&sn=3571f47318142897adc289dfedc3dc09&chksm=8a6c196dd0e6178e6fc0c5f85e0d863ab57feaf5b31322066f4df3f7aa4d5af5bd2f5f3af072&scene=126&sessionid=1794890627#rd\",\"description\":\"这个时间点有什么说法吗？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHLPdptfVFw1ldIz4oQSB9HS3MAytxEgdTArS8y8Rl3O2z5ky8jYOpOxiaE2zXlvPxTlXN0XESMUwBTKgZZSBU38bqIpqe1PY98%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658093:1\",\"title\":\"瞎扯丨花小钱办大事是一种怎样的体验？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658093&idx=1&sn=e776bbfc09ab9dce6548eeb25fcab37d&chksm=8a3b1d73237666c757327d0f1b293fb21ef6dfe84bb778572172b50bf13f9edfb29ba545358c&scene=126&sessionid=1794890627#rd\",\"description\":\"瞎扯一下，轻松一下～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHkpEiawGNLicibEI8YGEo9dWJdZJHpv5HoVSDYicDMEiaANgw1FdQrWVUDW9icxMSMorsKwqb9Qs2SuQyDsic5v9ibrWn6wgLoUeErwuo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658058:1\",\"title\":\"影视丨《后会友期》里的「画地为牢」是什么意思？为什么会爆火？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658058&idx=1&sn=4efeadb7818c0aad0f0445259e656587&chksm=8abf15afabdafb5a7df4247f482a29cd14c413c6e15b8fc8fe0dc128f826122c75b2caf1a678&scene=126&sessionid=1794890627#rd\",\"description\":\"比精心设计的剧情更抓人的，可能是真实关系里的遗憾。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHAdZD4Liaic1tkx8ibUcm2131IJibCjiaMapo7dXmB3ibqs81bJzo7pGl34amgkQDTQ0WrtCicnV3vtZWkS12oT8qeMTeXdjIl024q6I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T12:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 550,
+      "elapsed_ms": 1006,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱参数准备",
@@ -121,34 +128,39 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 8,
-          "duration_ms": 540
+          "duration_ms": 998
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 548,
+          "name": "输出读取与校验",
+          "started_ms": 1006,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1006,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 548,
-          "duration_ms": 1
+          "started_ms": 1006,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 549,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 1006,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 550,
+          "started_ms": 1006,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 537
+          "started_ms": 11,
+          "duration_ms": 989
         }
       ]
     }
