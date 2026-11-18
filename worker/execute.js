@@ -6,6 +6,7 @@ import { load_cookies, validate_cookies, create_signature_cache } from "./cookie
 import { create_browser_session } from "./browser_session.js";
 import { script_error } from "./errors.js";
 import { create_instabox_signer } from "./instabox.js";
+import { create_bypass_navigate } from "./browser_bypass.js";
 
 export function script_configuration(entry, env, debugging = false) {
   try {
@@ -43,7 +44,8 @@ export async function execute_route(entry, context, env, { metadata, fallback },
       cookies: () => browser_session.cookies, assert_grant: () => {},
       signature_cache: create_signature_cache(env, entry.file === "rss/douyin.js"
         ? create_instabox_signer(env, signal) : undefined) });
-    const navigate = env.BROWSER && (!browser_gated || browser_enabled)
+    const bypass = browser_enabled && env.BROWSER_BYPASS_URL && ["rss/javlibrary.js", "rss/ttk.js"].includes(entry.file);
+    const navigate = bypass ? create_bypass_navigate(env) : env.BROWSER && (!browser_gated || browser_enabled)
       ? create_puppeteer_navigate(env.BROWSER, undefined, browser_session.navigation)
       : async () => { throw script_error("SOURCE_UNAVAILABLE"); };
     stage = "script";

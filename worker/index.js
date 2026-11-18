@@ -55,7 +55,7 @@ export default {
     }
     // 配置凭据时必须同时设置令牌，避免将私人订阅或登录态采集开放给公网。
     if ((syncing || env.COOKIE_KV || env.SCRIPT_CONFIG || env.SCRIPT_COOKIES || env.DEVICE_BRIDGE_URL
-      || env.INSTABOX_API_KEY || env.INSTABOX_MACHINE) && !env.ACCESS_TOKEN) {
+      || env.INSTABOX_API_KEY || env.INSTABOX_MACHINE || env.BROWSER_BYPASS_URL || env.BROWSER_BYPASS_TOKEN) && !env.ACCESS_TOKEN) {
       return fail("ACCESS_TOKEN_REQUIRED");
     }
     if (syncing) return update_cookies(request, env, cookie_origins, headers);
