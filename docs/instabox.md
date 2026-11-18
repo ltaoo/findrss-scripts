@@ -4,6 +4,8 @@ GitHub Actions 每小时第 23 分钟启动专用 Linux 机器，上传当前工
 
 报告正文和 Debug 详情继续公开到 `route-reports` 分支。`.dev.vars` 单独加密传输，保存在机器的私有目录，不进入源码包和报告包。Cookie 从配置的管理接口读取，写入机器上的独立加密 KV；不直接复制 Cloudflare 生产 KV。
 
+2026-11-18 已切换到当前账号的 `findrss-scripts`，机器 ID 为 `m_agq6zr3ojodnbgvgomapci6ft4`。GitHub 的 `INSTABOX_MACHINE` 变量和 CF 的同名 Secret 均使用该 ID，两个环境的 `INSTABOX_API_KEY` 使用当前账号的正式受限凭据。CF 的 `BROWSER_ENABLED` 已开启；CF 使用自己的 Browser Rendering 绑定，Python 浏览器服务仍在 InstaBox 巡检内启动。
+
 ## 创建专用机器
 
 安装 CLI 并登录，使用默认带浏览器的 Linux 模板：
