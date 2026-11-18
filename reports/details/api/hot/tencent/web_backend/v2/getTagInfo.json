@@ -1,25 +1,26 @@
 {
-  "checked_at": "2026-11-18T04:36:58.674Z",
+  "checked_at": "2026-11-18T14:23:28.501Z",
   "inspection": {
     "file": "hot/tencent_hot.js",
     "path": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "example": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/tencent/web_backend/v2/getTagInfo.json",
-    "duration_ms": 1301
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
+    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+    "duration_ms": 918
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1281
+    "status": 502,
+    "duration_ms": 484
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "hot/tencent_hot.js",
       "name": "腾讯新闻 · 综合早报",
@@ -45,21 +46,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1274,
+    "phase": "runtime",
+    "elapsed_ms": 479,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"tencent-hot\",\"count\":18,\"missing_rank\":18}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":18}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：缺少列表：data.tabs.0.articleList",
+    "error_text": "脚本执行失败：缺少列表：data.tabs.0.articleList\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at array_at (@findrss/util:50:64)\n    at fetch (script-source.js:56:34)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://i.news.qq.com/web_backend/v2/getTagInfo?tagId=aEWqxLtdgmQ%3D",
@@ -72,18 +64,17 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 9,
-        "duration_ms": 1262,
+        "started_ms": 8,
+        "duration_ms": 470,
         "timings": {
-          "response_ms": 509,
-          "body_read_ms": 752,
-          "decode_and_transfer_ms": 1
+          "response_ms": 460,
+          "body_read_ms": 10,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"腾讯新闻 · 综合早报\",\"link\":\"https://news.qq.com/tag/aEWqxLtdgmQ=\",\"category\":\"综合\",\"observed_at\":\"2026-11-18T04:36:59.950Z\",\"entries\":[{\"id\":\"tencent-hot:20261118A03CKX00\",\"title\":\"普京抵达深圳 在华行程值得关注\",\"link\":\"https://view.inews.qq.com/a/20261118A03CKX00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A046N600\",\"title\":\"英伟达爆赚653亿美元，黄仁勋：“很愿意回来担任CEO”\",\"link\":\"https://view.inews.qq.com/a/20261118A046N600\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0CLN300\",\"title\":\"美商务部发布限制远程获取先进半导体相关措施 中方回应\",\"link\":\"https://view.inews.qq.com/a/20261117A0CLN300\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0BHS000\",\"title\":\"美媒梳理特朗普出访亚洲团队名单：鲁比奥、贝森特等在列\",\"link\":\"https://view.inews.qq.com/a/20261117A0BHS000\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0AZMP00\",\"title\":\"APEC周：深圳街头现整齐小白鞋，有市民呼吁脱下人字拖改穿运动鞋\",\"link\":\"https://view.inews.qq.com/a/20261117A0AZMP00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0C9E300\",\"title\":\"6G试点来了，8省份入选\",\"link\":\"https://view.inews.qq.com/a/20261117A0C9E300\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0D19K00\",\"title\":\"俄方确认克里米亚大桥“结构损坏”，已向普京汇报\",\"link\":\"https://view.inews.qq.com/a/20261117A0D19K00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0DSGZ00\",\"title\":\"英伟达董事会设立国家安全与出口管制监督委员会\",\"link\":\"https://view.inews.qq.com/a/20261117A0DSGZ00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A081F500\",\"title\":\"段永平最新调仓曝光，减持英伟达、谷歌、苹果\",\"link\":\"https://view.inews.qq.com/a/20261117A081F500\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A07M9N00\",\"title\":\"高盛一个月内第二次下调年底黄金目标价，金价会跌到哪儿？\",\"link\":\"https://view.inews.qq.com/a/20261117A07M9N00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0D77200\",\"title\":\"Altimeter CEO透露Anthropic IPO超购10至20倍\",\"link\":\"https://view.inews.qq.com/a/20261117A0D77200\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0BB3Y00\",\"title\":\"三大厂内存涨价7倍的锅，AI不背了\",\"link\":\"https://view.inews.qq.com/a/20261117A0BB3Y00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0C9HX00\",\"title\":\"雷军谈AI商业化：真正挣钱的公司仍然较少，机会在物理世界\",\"link\":\"https://view.inews.qq.com/a/20261117A0C9HX00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A00UBL00\",\"title\":\"消息人士：美国国家安全局高度机密网络瘫痪\",\"link\":\"https://view.inews.qq.com/a/20261118A00UBL00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0CX7X00\",\"title\":\"伊朗外长访问阿曼，讨论建立海峡安全通道\",\"link\":\"https://view.inews.qq.com/a/20261117A0CX7X00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0D4A800\",\"title\":\"特朗普声称：美国稀土产量将在10个月内追平中国\",\"link\":\"https://view.inews.qq.com/a/20261117A0D4A800\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0DZZQ00\",\"title\":\"法国总统候选人勒庞：如果我当选，大家能提前退休\",\"link\":\"https://view.inews.qq.com/a/20261117A0DZZQ00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261117A0BQ1B00\",\"title\":\"国足连追2球2比2巴林！40年交手不败、王钰栋造2球、张玉宁连场破门\",\"link\":\"https://view.inews.qq.com/a/20261117A0BQ1B00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
     "timing": {
-      "elapsed_ms": 1274,
+      "elapsed_ms": 479,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -123,36 +114,31 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1267
+          "started_ms": 6,
+          "duration_ms": 473
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1274,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1274,
+          "name": "错误诊断收集",
+          "started_ms": 479,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1274,
+          "started_ms": 479,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1274,
+          "name": "失败后浏览器清理",
+          "started_ms": 479,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1274,
+          "started_ms": 479,
           "duration_ms": 0
         }
       ],
@@ -160,7 +146,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 1263
+          "duration_ms": 470
         }
       ]
     }
