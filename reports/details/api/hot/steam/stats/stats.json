@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-17T23:02:44.754Z",
+  "checked_at": "2026-11-18T04:36:57.095Z",
   "inspection": {
     "file": "hot/steam.js",
     "path": "/api/hot/steam/stats/stats",
     "example": "/api/hot/steam/stats/stats",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 3338
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/steam/stats/stats.json",
+    "duration_ms": 325
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 281
+    "status": 200,
+    "duration_ms": 277
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "hot/steam.js",
       "name": "Steam · 在线人数",
@@ -46,12 +45,21 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 213,
+    "phase": "ok",
+    "elapsed_ms": 252,
     "invoked": false,
-    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：页面缺少内容列表：#detailStats tr.player_count_row",
-    "error_text": "脚本执行失败：页面缺少内容列表：#detailStats tr.player_count_row\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at rows (@findrss/util:151:56)\n    at fetch (script-source.js:54:30)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"steam\",\"count\":100,\"missing_rank\":100}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":100}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://store.steampowered.com/stats/stats/",
@@ -65,80 +73,86 @@
           "headers_sent": []
         },
         "started_ms": 9,
-        "duration_ms": 185,
+        "duration_ms": 88,
         "timings": {
-          "response_ms": 183,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 1
+          "response_ms": 82,
+          "body_read_ms": 4,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"Steam · 在线人数\",\"link\":\"https://store.steampowered.com\",\"category\":\"游戏\",\"observed_at\":\"2026-11-18T04:36:57.366Z\",\"entries\":[{\"id\":\"steam:https://store.steampowered.com/app/730/CounterStrike_2/\",\"title\":\"Counter-Strike 2\",\"link\":\"https://store.steampowered.com/app/730/CounterStrike_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":442290,\"unit\":\"当前在线人数\",\"text\":\"442,290\"}},{\"id\":\"steam:https://store.steampowered.com/app/570/Dota_2/\",\"title\":\"Dota 2\",\"link\":\"https://store.steampowered.com/app/570/Dota_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":371333,\"unit\":\"当前在线人数\",\"text\":\"371,333\"}},{\"id\":\"steam:https://store.steampowered.com/app/4262460/ROB_RUN/\",\"title\":\"ROB RUN\",\"link\":\"https://store.steampowered.com/app/4262460/ROB_RUN/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":277298,\"unit\":\"当前在线人数\",\"text\":\"277,298\"}},{\"id\":\"steam:https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/\",\"title\":\"PUBG: BATTLEGROUNDS\",\"link\":\"https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":157906,\"unit\":\"当前在线人数\",\"text\":\"157,906\"}},{\"id\":\"steam:https://store.steampowered.com/app/3419430/Bongo_Cat/\",\"title\":\"Bongo Cat\",\"link\":\"https://store.steampowered.com/app/3419430/Bongo_Cat/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":154725,\"unit\":\"当前在线人数\",\"text\":\"154,725\"}},{\"id\":\"steam:https://store.steampowered.com/app/1938090/使命召唤/\",\"title\":\"Call of Duty®\",\"link\":\"https://store.steampowered.com/app/1938090/使命召唤/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":102696,\"unit\":\"当前在线人数\",\"text\":\"102,696\"}},{\"id\":\"steam:https://store.steampowered.com/app/2868840/Slay_the_Spire_2/\",\"title\":\"Slay the Spire 2\",\"link\":\"https://store.steampowered.com/app/2868840/Slay_the_Spire_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":102438,\"unit\":\"当前在线人数\",\"text\":\"102,438\"}},{\"id\":\"steam:https://store.steampowered.com/app/3393110/AION_2/\",\"title\":\"AION 2\",\"link\":\"https://store.steampowered.com/app/3393110/AION_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":102065,\"unit\":\"当前在线人数\",\"text\":\"102,065\"}},{\"id\":\"steam:https://store.steampowered.com/app/440/Team_Fortress_2/\",\"title\":\"Team Fortress 2\",\"link\":\"https://store.steampowered.com/app/440/Team_Fortress_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":92417,\"unit\":\"当前在线人数\",\"text\":\"92,417\"}},{\"id\":\"steam:https://store.steampowered.com/app/4115450/影之刃零/\",\"title\":\"Phantom Blade Zero\",\"link\":\"https://store.steampowered.com/app/4115450/影之刃零/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":84224,\"unit\":\"当前在线人数\",\"text\":\"84,224\"}},{\"id\":\"steam:https://store.steampowered.com/app/1172470/Apex_Legends/\",\"title\":\"Apex Legends\",\"link\":\"https://store.steampowered.com/app/1172470/Apex_Legends/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":69452,\"unit\":\"当前在线人数\",\"text\":\"69,452\"}},{\"id\":\"steam:https://store.steampowered.com/app/431960/Wallpaper_Engine壁纸引擎/\",\"title\":\"Wallpaper Engine\",\"link\":\"https://store.steampowered.com/app/431960/Wallpaper_Engine壁纸引擎/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":68066,\"unit\":\"当前在线人数\",\"text\":\"68,066\"}},{\"id\":\"steam:https://store.steampowered.com/app/1091500/赛博朋克_2077/\",\"title\":\"Cyberpunk 2077\",\"link\":\"https://store.steampowered.com/app/1091500/赛博朋克_2077/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":59110,\"unit\":\"当前在线人数\",\"text\":\"59,110\"}},{\"id\":\"steam:https://store.steampowered.com/app/4348910/深空当铺可能是偷的/\",\"title\":\"Probably Stolen\",\"link\":\"https://store.steampowered.com/app/4348910/深空当铺可能是偷的/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":57870,\"unit\":\"当前在线人数\",\"text\":\"57,870\"}},{\"id\":\"steam:https://store.steampowered.com/app/2767030/漫威争锋/\",\"title\":\"Marvel Rivals\",\"link\":\"https://store.steampowered.com/app/2767030/漫威争锋/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":55915,\"unit\":\"当前在线人数\",\"text\":\"55,915\"}},{\"id\":\"steam:https://store.steampowered.com/app/1867240/WARDOGS/\",\"title\":\"WARDOGS\",\"link\":\"https://store.steampowered.com/app/1867240/WARDOGS/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":55278,\"unit\":\"当前在线人数\",\"text\":\"55,278\"}},{\"id\":\"steam:https://store.steampowered.com/app/3678970/TBH_塔斯克巴英雄/\",\"title\":\"TBH: Task Bar Hero\",\"link\":\"https://store.steampowered.com/app/3678970/TBH_塔斯克巴英雄/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":53598,\"unit\":\"当前在线人数\",\"text\":\"53,598\"}},{\"id\":\"steam:https://store.steampowered.com/app/359550/彩虹六号围攻/\",\"title\":\"Tom Clancy's Rainbow Six Siege\",\"link\":\"https://store.steampowered.com/app/359550/彩虹六号围攻/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":49996,\"unit\":\"当前在线人数\",\"text\":\"49,996\"}},{\"id\":\"steam:https://store.steampowered.com/app/230410/Warframe_星际战甲/\",\"title\":\"Warframe\",\"link\":\"https://store.steampowered.com/app/230410/Warframe_星际战甲/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":48107,\"unit\":\"当前在线人数\",\"text\":\"48,107\"}},{\"id\":\"steam:https://store.steampowered.com/app/252490/Rust/\",\"title\":\"Rust\",\"link\":\"https://store.steampowered.com/app/252490/Rust/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":47287,\"unit\":\"当前在线人数\",\"text\":\"47,287\"}},{\"id\":\"steam:https://store.steampowered.com/app/1973530/Limbus_Company/\",\"title\":\"Limbus Company\",\"link\":\"https://store.steampowered.com/app/1973530/Limbus_Company/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":44491,\"unit\":\"当前在线人数\",\"text\":\"44,491\"}},{\"id\":\"steam:https://store.steampowered.com/app/438100/VRChat/\",\"title\":\"VRChat\",\"link\":\"https://store.steampowered.com/app/438100/VRChat/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":41536,\"unit\":\"当前在线人数\",\"text\":\"41,536\"}},{\"id\":\"steam:https://store.steampowered.com/app/238960/Path_of_Exile/\",\"title\":\"Path of Exile\",\"link\":\"https://store.steampowered.com/app/238960/Path_of_Exile/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":41532,\"unit\":\"当前在线人数\",\"text\":\"41,532\"}},{\"id\":\"steam:https://store.steampowered.com/app/2507950/三角洲行动/\",\"title\":\"Delta Force\",\"link\":\"https://store.steampowered.com/app/2507950/三角洲行动/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":41077,\"unit\":\"当前在线人数\",\"text\":\"41,077\"}},{\"id\":\"steam:https://store.steampowered.com/app/3240220/Grand_Theft_Auto_V_增强版/\",\"title\":\"Grand Theft Auto V Enhanced\",\"link\":\"https://store.steampowered.com/app/3240220/Grand_Theft_Auto_V_增强版/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":40026,\"unit\":\"当前在线人数\",\"text\":\"40,026\"}},{\"id\":\"steam:https://store.steampowered.com/app/2357570/守望先锋/\",\"title\":\"Overwatch®\",\"link\":\"https://store.steampowered.com/app/2357570/守望先锋/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":39207,\"unit\":\"当前在线人数\",\"text\":\"39,207\"}},{\"id\":\"steam:https://store.steampowered.com/app/413150/Stardew_Valley/\",\"title\":\"Stardew Valley\",\"link\":\"https://store.steampowered.com/app/413150/Stardew_Valley/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":38456,\"unit\":\"当前在线人数\",\"text\":\"38,456\"}},{\"id\":\"steam:https://store.steampowered.com/app/236390/战争雷霆/\",\"title\":\"War Thunder\",\"link\":\"https://store.steampowered.com/app/236390/战争雷霆/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":35393,\"unit\":\"当前在线人数\",\"text\":\"35,393\"}},{\"id\":\"steam:https://store.steampowered.com/app/5052450/挂币英雄/\",\"title\":\"Desktop Wallet Heroes\",\"link\":\"https://store.steampowered.com/app/5052450/挂币英雄/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":33759,\"unit\":\"当前在线人数\",\"text\":\"33,759\"}},{\"id\":\"steam:https://store.steampowered.com/app/381210/黎明杀机/\",\"title\":\"Dead by Daylight\",\"link\":\"https://store.steampowered.com/app/381210/黎明杀机/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":32445,\"unit\":\"当前在线人数\",\"text\":\"32,445\"}},{\"id\":\"steam:https://store.steampowered.com/app/1366800/Crosshair_X/\",\"title\":\"Crosshair X\",\"link\":\"https://store.steampowered.com/app/1366800/Crosshair_X/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":30698,\"unit\":\"当前在线人数\",\"text\":\"30,698\"}},{\"id\":\"steam:https://store.steampowered.com/app/108600/Project_Zomboid/\",\"title\":\"Project Zomboid\",\"link\":\"https://store.steampowered.com/app/108600/Project_Zomboid/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":30278,\"unit\":\"当前在线人数\",\"text\":\"30,278\"}},{\"id\":\"steam:https://store.steampowered.com/app/1808500/ARC_Raiders/\",\"title\":\"ARC Raiders\",\"link\":\"https://store.steampowered.com/app/1808500/ARC_Raiders/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":29660,\"unit\":\"当前在线人数\",\"text\":\"29,660\"}},{\"id\":\"steam:https://store.steampowered.com/app/1086940/博德之门3/\",\"title\":\"Baldur's Gate 3\",\"link\":\"https://store.steampowered.com/app/1086940/博德之门3/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":28529,\"unit\":\"当前在线人数\",\"text\":\"28,529\"}},{\"id\":\"steam:https://store.steampowered.com/app/892970/Valheim_英灵神殿/\",\"title\":\"Valheim\",\"link\":\"https://store.steampowered.com/app/892970/Valheim_英灵神殿/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":27567,\"unit\":\"当前在线人数\",\"text\":\"27,567\"}},{\"id\":\"steam:https://store.steampowered.com/app/550/Left_4_Dead_2/\",\"title\":\"Left 4 Dead 2\",\"link\":\"https://store.steampowered.com/app/550/Left_4_Dead_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":26857,\"unit\":\"当前在线人数\",\"text\":\"26,857\"}},{\"id\":\"steam:https://store.steampowered.com/app/322170/Geometry_Dash/\",\"title\":\"Geometry Dash\",\"link\":\"https://store.steampowered.com/app/322170/Geometry_Dash/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":26631,\"unit\":\"当前在线人数\",\"text\":\"26,631\"}},{\"id\":\"steam:https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/\",\"title\":\"The Binding of Isaac: Rebirth\",\"link\":\"https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":26374,\"unit\":\"当前在线人数\",\"text\":\"26,374\"}},{\"id\":\"steam:https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/\",\"title\":\"The Elder Scrolls V: Skyrim Special Edition\",\"link\":\"https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":25754,\"unit\":\"当前在线人数\",\"text\":\"25,754\"}},{\"id\":\"steam:https://store.steampowered.com/app/271590/Grand_Theft_Auto_V_传承版/\",\"title\":\"Grand Theft Auto V Legacy\",\"link\":\"https://store.steampowered.com/app/271590/Grand_Theft_Auto_V_传承版/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":24617,\"unit\":\"当前在线人数\",\"text\":\"24,617\"}},{\"id\":\"steam:https://store.steampowered.com/app/216150/MapleStory/\",\"title\":\"MapleStory\",\"link\":\"https://store.steampowered.com/app/216150/MapleStory/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":23261,\"unit\":\"当前在线人数\",\"text\":\"23,261\"}},{\"id\":\"steam:https://store.steampowered.com/app/4530370/足球经理27/\",\"title\":\"Football Manager 27\",\"link\":\"https://store.steampowered.com/app/4530370/足球经理27/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21819,\"unit\":\"当前在线人数\",\"text\":\"21,819\"}},{\"id\":\"steam:https://store.steampowered.com/app/294100/边缘世界_RimWorld/\",\"title\":\"RimWorld\",\"link\":\"https://store.steampowered.com/app/294100/边缘世界_RimWorld/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21639,\"unit\":\"当前在线人数\",\"text\":\"21,639\"}},{\"id\":\"steam:https://store.steampowered.com/app/4623570/桌面破坏神挂机ARPG/\",\"title\":\"Deskrawl: Idle ARPG\",\"link\":\"https://store.steampowered.com/app/4623570/桌面破坏神挂机ARPG/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21408,\"unit\":\"当前在线人数\",\"text\":\"21,408\"}},{\"id\":\"steam:https://store.steampowered.com/app/1203620/雾锁王国_Enshrouded/\",\"title\":\"Enshrouded\",\"link\":\"https://store.steampowered.com/app/1203620/雾锁王国_Enshrouded/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21056,\"unit\":\"当前在线人数\",\"text\":\"21,056\"}},{\"id\":\"steam:https://store.steampowered.com/app/394360/Hearts_of_Iron_IV/\",\"title\":\"Hearts of Iron IV\",\"link\":\"https://store.steampowered.com/app/394360/Hearts_of_Iron_IV/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":21052,\"unit\":\"当前在线人数\",\"text\":\"21,052\"}},{\"id\":\"steam:https://store.steampowered.com/app/553850/HELLDIVERS_绝地潜兵2/\",\"title\":\"HELLDIVERS™ 2\",\"link\":\"https://store.steampowered.com/app/553850/HELLDIVERS_绝地潜兵2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":20898,\"unit\":\"当前在线人数\",\"text\":\"20,898\"}},{\"id\":\"steam:https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/\",\"title\":\"Sid Meier's Civilization VI\",\"link\":\"https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":20142,\"unit\":\"当前在线人数\",\"text\":\"20,142\"}},{\"id\":\"steam:https://store.steampowered.com/app/4459590/转运军团_Slotbound/\",\"title\":\"Slotbound\",\"link\":\"https://store.steampowered.com/app/4459590/转运军团_Slotbound/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":19851,\"unit\":\"当前在线人数\",\"text\":\"19,851\"}},{\"id\":\"steam:https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/\",\"title\":\"Red Dead Redemption 2\",\"link\":\"https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":19585,\"unit\":\"当前在线人数\",\"text\":\"19,585\"}},{\"id\":\"steam:https://store.steampowered.com/app/1623730/Palworld_幻兽帕鲁/\",\"title\":\"Palworld\",\"link\":\"https://store.steampowered.com/app/1623730/Palworld_幻兽帕鲁/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":19282,\"unit\":\"当前在线人数\",\"text\":\"19,282\"}},{\"id\":\"steam:https://store.steampowered.com/app/1085660/命运2/\",\"title\":\"Destiny 2\",\"link\":\"https://store.steampowered.com/app/1085660/命运2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18810,\"unit\":\"当前在线人数\",\"text\":\"18,810\"}},{\"id\":\"steam:https://store.steampowered.com/app/221100/DayZ/\",\"title\":\"DayZ\",\"link\":\"https://store.steampowered.com/app/221100/DayZ/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18736,\"unit\":\"当前在线人数\",\"text\":\"18,736\"}},{\"id\":\"steam:https://store.steampowered.com/app/2807960/战地风云_6/\",\"title\":\"Battlefield™ 6\",\"link\":\"https://store.steampowered.com/app/2807960/战地风云_6/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18715,\"unit\":\"当前在线人数\",\"text\":\"18,715\"}},{\"id\":\"steam:https://store.steampowered.com/app/105600/Terraria/\",\"title\":\"Terraria\",\"link\":\"https://store.steampowered.com/app/105600/Terraria/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18637,\"unit\":\"当前在线人数\",\"text\":\"18,637\"}},{\"id\":\"steam:https://store.steampowered.com/app/5335510/Moon_Sweepers/\",\"title\":\"Moon Sweepers\",\"link\":\"https://store.steampowered.com/app/5335510/Moon_Sweepers/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18293,\"unit\":\"当前在线人数\",\"text\":\"18,293\"}},{\"id\":\"steam:https://store.steampowered.com/app/1158310/Crusader_Kings_III/\",\"title\":\"Crusader Kings III\",\"link\":\"https://store.steampowered.com/app/1158310/Crusader_Kings_III/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":18171,\"unit\":\"当前在线人数\",\"text\":\"18,171\"}},{\"id\":\"steam:https://store.steampowered.com/app/4126040/伊莫/\",\"title\":\"Aniimo\",\"link\":\"https://store.steampowered.com/app/4126040/伊莫/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17927,\"unit\":\"当前在线人数\",\"text\":\"17,927\"}},{\"id\":\"steam:https://store.steampowered.com/app/304930/Unturned/\",\"title\":\"Unturned\",\"link\":\"https://store.steampowered.com/app/304930/Unturned/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17784,\"unit\":\"当前在线人数\",\"text\":\"17,784\"}},{\"id\":\"steam:https://store.steampowered.com/app/3218350/Melvor_Idle_2_A_RuneScape_Adventure/\",\"title\":\"Melvor Idle 2: A RuneScape Adventure\",\"link\":\"https://store.steampowered.com/app/3218350/Melvor_Idle_2_A_RuneScape_Adventure/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17656,\"unit\":\"当前在线人数\",\"text\":\"17,656\"}},{\"id\":\"steam:https://store.steampowered.com/app/39210/FINAL_FANTASY_XIV_Online/\",\"title\":\"FINAL FANTASY XIV Online\",\"link\":\"https://store.steampowered.com/app/39210/FINAL_FANTASY_XIV_Online/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17502,\"unit\":\"当前在线人数\",\"text\":\"17,502\"}},{\"id\":\"steam:https://store.steampowered.com/app/322330/饥荒联机版/\",\"title\":\"Don't Starve Together\",\"link\":\"https://store.steampowered.com/app/322330/饥荒联机版/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17460,\"unit\":\"当前在线人数\",\"text\":\"17,460\"}},{\"id\":\"steam:https://store.steampowered.com/app/3241660/REPO/\",\"title\":\"R.E.P.O.\",\"link\":\"https://store.steampowered.com/app/3241660/REPO/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17426,\"unit\":\"当前在线人数\",\"text\":\"17,426\"}},{\"id\":\"steam:https://store.steampowered.com/app/1142710/全面战争战锤3/\",\"title\":\"Total War: WARHAMMER III\",\"link\":\"https://store.steampowered.com/app/1142710/全面战争战锤3/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17238,\"unit\":\"当前在线人数\",\"text\":\"17,238\"}},{\"id\":\"steam:https://store.steampowered.com/app/1222670/The_Sims_4/\",\"title\":\"The Sims™ 4\",\"link\":\"https://store.steampowered.com/app/1222670/The_Sims_4/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":17133,\"unit\":\"当前在线人数\",\"text\":\"17,133\"}},{\"id\":\"steam:https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/\",\"title\":\"Euro Truck Simulator 2\",\"link\":\"https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16992,\"unit\":\"当前在线人数\",\"text\":\"16,992\"}},{\"id\":\"steam:https://steamcommunity.com/app/480\",\"title\":\"Spacewar\",\"link\":\"https://steamcommunity.com/app/480\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16483,\"unit\":\"当前在线人数\",\"text\":\"16,483\"}},{\"id\":\"steam:https://store.steampowered.com/app/1245620/艾尔登法环/\",\"title\":\"ELDEN RING\",\"link\":\"https://store.steampowered.com/app/1245620/艾尔登法环/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16435,\"unit\":\"当前在线人数\",\"text\":\"16,435\"}},{\"id\":\"steam:https://store.steampowered.com/app/3321460/红色沙漠增强版/\",\"title\":\"Crimson Desert Enhanced\",\"link\":\"https://store.steampowered.com/app/3321460/红色沙漠增强版/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":16052,\"unit\":\"当前在线人数\",\"text\":\"16,052\"}},{\"id\":\"steam:https://store.steampowered.com/app/261550/Mount_Blade_II_Bannerlord/\",\"title\":\"Mount & Blade II: Bannerlord\",\"link\":\"https://store.steampowered.com/app/261550/Mount_Blade_II_Bannerlord/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":15739,\"unit\":\"当前在线人数\",\"text\":\"15,739\"}},{\"id\":\"steam:https://store.steampowered.com/app/3932890/Escape_from_Tarkov/\",\"title\":\"Escape from Tarkov\",\"link\":\"https://store.steampowered.com/app/3932890/Escape_from_Tarkov/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":15682,\"unit\":\"当前在线人数\",\"text\":\"15,682\"}},{\"id\":\"steam:https://store.steampowered.com/app/252950/Rocket_League/\",\"title\":\"Rocket League\",\"link\":\"https://store.steampowered.com/app/252950/Rocket_League/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":15566,\"unit\":\"当前在线人数\",\"text\":\"15,566\"}},{\"id\":\"steam:https://store.steampowered.com/app/2399830/方舟_生存飞升/\",\"title\":\"ARK: Survival Ascended\",\"link\":\"https://store.steampowered.com/app/2399830/方舟_生存飞升/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":15118,\"unit\":\"当前在线人数\",\"text\":\"15,118\"}},{\"id\":\"steam:https://store.steampowered.com/app/1905180/OBS_Studio/\",\"title\":\"OBS Studio\",\"link\":\"https://store.steampowered.com/app/1905180/OBS_Studio/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":15089,\"unit\":\"当前在线人数\",\"text\":\"15,089\"}},{\"id\":\"steam:https://store.steampowered.com/app/4000/Garrys_Mod/\",\"title\":\"Garry's Mod\",\"link\":\"https://store.steampowered.com/app/4000/Garrys_Mod/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14681,\"unit\":\"当前在线人数\",\"text\":\"14,681\"}},{\"id\":\"steam:https://store.steampowered.com/app/1203220/永劫无间/\",\"title\":\"NARAKA: BLADEPOINT\",\"link\":\"https://store.steampowered.com/app/1203220/永劫无间/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14518,\"unit\":\"当前在线人数\",\"text\":\"14,518\"}},{\"id\":\"steam:https://store.steampowered.com/app/2406770/Bodycam/\",\"title\":\"Bodycam\",\"link\":\"https://store.steampowered.com/app/2406770/Bodycam/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":14466,\"unit\":\"当前在线人数\",\"text\":\"14,466\"}},{\"id\":\"steam:https://store.steampowered.com/app/4080220/EA_SPORTS_FC_27/\",\"title\":\"EA SPORTS FC™ 27\",\"link\":\"https://store.steampowered.com/app/4080220/EA_SPORTS_FC_27/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13831,\"unit\":\"当前在线人数\",\"text\":\"13,831\"}},{\"id\":\"steam:https://store.steampowered.com/app/251570/7_Days_to_Die/\",\"title\":\"7 Days to Die\",\"link\":\"https://store.steampowered.com/app/251570/7_Days_to_Die/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13276,\"unit\":\"当前在线人数\",\"text\":\"13,276\"}},{\"id\":\"steam:https://store.steampowered.com/app/284160/BeamNGdrive/\",\"title\":\"BeamNG.drive\",\"link\":\"https://store.steampowered.com/app/284160/BeamNGdrive/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13191,\"unit\":\"当前在线人数\",\"text\":\"13,191\"}},{\"id\":\"steam:https://store.steampowered.com/app/4891320/WoG_War_of_Genesis_Idle_Loot/\",\"title\":\"[WoG] War of Genesis: Idle Loot\",\"link\":\"https://store.steampowered.com/app/4891320/WoG_War_of_Genesis_Idle_Loot/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13166,\"unit\":\"当前在线人数\",\"text\":\"13,166\"}},{\"id\":\"steam:https://store.steampowered.com/app/813780/Age_of_Empires_II_Definitive_Edition/\",\"title\":\"Age of Empires II: Definitive Edition\",\"link\":\"https://store.steampowered.com/app/813780/Age_of_Empires_II_Definitive_Edition/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":13053,\"unit\":\"当前在线人数\",\"text\":\"13,053\"}},{\"id\":\"steam:https://store.steampowered.com/app/218620/PAYDAY_2/\",\"title\":\"PAYDAY 2\",\"link\":\"https://store.steampowered.com/app/218620/PAYDAY_2/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12461,\"unit\":\"当前在线人数\",\"text\":\"12,461\"}},{\"id\":\"steam:https://store.steampowered.com/app/2073850/THE_FINALS/\",\"title\":\"THE FINALS\",\"link\":\"https://store.steampowered.com/app/2073850/THE_FINALS/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12399,\"unit\":\"当前在线人数\",\"text\":\"12,399\"}},{\"id\":\"steam:https://store.steampowered.com/app/3527290/PEAK/\",\"title\":\"PEAK\",\"link\":\"https://store.steampowered.com/app/3527290/PEAK/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12291,\"unit\":\"当前在线人数\",\"text\":\"12,291\"}},{\"id\":\"steam:https://store.steampowered.com/app/582660/Black_Desert/\",\"title\":\"Black Desert\",\"link\":\"https://store.steampowered.com/app/582660/Black_Desert/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12267,\"unit\":\"当前在线人数\",\"text\":\"12,267\"}},{\"id\":\"steam:https://store.steampowered.com/app/2139460/七日世界/\",\"title\":\"Once Human\",\"link\":\"https://store.steampowered.com/app/2139460/七日世界/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12236,\"unit\":\"当前在线人数\",\"text\":\"12,236\"}},{\"id\":\"steam:https://store.steampowered.com/app/376210/The_Isle/\",\"title\":\"The Isle\",\"link\":\"https://store.steampowered.com/app/376210/The_Isle/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12149,\"unit\":\"当前在线人数\",\"text\":\"12,149\"}},{\"id\":\"steam:https://store.steampowered.com/app/292030/巫师3狂猎_重制版/\",\"title\":\"The Witcher 3: Wild Hunt — Remastered\",\"link\":\"https://store.steampowered.com/app/292030/巫师3狂猎_重制版/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":12128,\"unit\":\"当前在线人数\",\"text\":\"12,128\"}},{\"id\":\"steam:https://store.steampowered.com/app/1449850/YuGiOh_Master_Duel/\",\"title\":\"Yu-Gi-Oh! Master Duel\",\"link\":\"https://store.steampowered.com/app/1449850/YuGiOh_Master_Duel/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11702,\"unit\":\"当前在线人数\",\"text\":\"11,702\"}},{\"id\":\"steam:https://store.steampowered.com/app/1281930/tModLoader/\",\"title\":\"tModLoader\",\"link\":\"https://store.steampowered.com/app/1281930/tModLoader/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11611,\"unit\":\"当前在线人数\",\"text\":\"11,611\"}},{\"id\":\"steam:https://store.steampowered.com/app/4356430/NBA_2K27/\",\"title\":\"NBA 2K27\",\"link\":\"https://store.steampowered.com/app/4356430/NBA_2K27/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11136,\"unit\":\"当前在线人数\",\"text\":\"11,136\"}},{\"id\":\"steam:https://store.steampowered.com/app/365670/Blender/\",\"title\":\"Blender\",\"link\":\"https://store.steampowered.com/app/365670/Blender/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11135,\"unit\":\"当前在线人数\",\"text\":\"11,135\"}},{\"id\":\"steam:https://store.steampowered.com/app/2300320/Farming_Simulator_25/\",\"title\":\"Farming Simulator 25\",\"link\":\"https://store.steampowered.com/app/2300320/Farming_Simulator_25/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11102,\"unit\":\"当前在线人数\",\"text\":\"11,102\"}},{\"id\":\"steam:https://store.steampowered.com/app/1364780/Street_Fighter_6/\",\"title\":\"Street Fighter™ 6\",\"link\":\"https://store.steampowered.com/app/1364780/Street_Fighter_6/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":11007,\"unit\":\"当前在线人数\",\"text\":\"11,007\"}},{\"id\":\"steam:https://store.steampowered.com/app/3405690/EA_SPORTS_FC_26/\",\"title\":\"EA SPORTS FC™ 26\",\"link\":\"https://store.steampowered.com/app/3405690/EA_SPORTS_FC_26/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10918,\"unit\":\"当前在线人数\",\"text\":\"10,918\"}},{\"id\":\"steam:https://store.steampowered.com/app/427520/Factorio/\",\"title\":\"Factorio\",\"link\":\"https://store.steampowered.com/app/427520/Factorio/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10884,\"unit\":\"当前在线人数\",\"text\":\"10,884\"}},{\"id\":\"steam:https://store.steampowered.com/app/2073620/暗区突围无限/\",\"title\":\"Arena Breakout: Infinite\",\"link\":\"https://store.steampowered.com/app/2073620/暗区突围无限/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10812,\"unit\":\"当前在线人数\",\"text\":\"10,812\"}},{\"id\":\"steam:https://store.steampowered.com/app/526870/幸福工厂/\",\"title\":\"Satisfactory\",\"link\":\"https://store.steampowered.com/app/526870/幸福工厂/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10465,\"unit\":\"当前在线人数\",\"text\":\"10,465\"}},{\"id\":\"steam:https://store.steampowered.com/app/1942280/土豆兄弟Brotato/\",\"title\":\"Brotato\",\"link\":\"https://store.steampowered.com/app/1942280/土豆兄弟Brotato/\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":10410,\"unit\":\"当前在线人数\",\"text\":\"10,410\"}}]}",
     "timing": {
-      "elapsed_ms": 213,
+      "elapsed_ms": 252,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 6
+          "started_ms": 2,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 205
+          "duration_ms": 243
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 212,
+          "name": "输出读取与校验",
+          "started_ms": 250,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 251,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 212,
+          "started_ms": 251,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 213,
+          "name": "浏览器状态保存",
+          "started_ms": 252,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 213,
+          "started_ms": 252,
           "duration_ms": 0
         }
       ],
@@ -146,7 +160,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 185
+          "duration_ms": 88
         }
       ]
     }
