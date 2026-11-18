@@ -1,26 +1,25 @@
 {
-  "checked_at": "2026-11-18T14:23:28.501Z",
+  "checked_at": "2026-11-18T22:14:46.356Z",
   "inspection": {
     "file": "hot/tencent_hot.js",
     "path": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "example": "/api/hot/tencent/web_backend/v2/getTagInfo",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 918
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/tencent/web_backend/v2/getTagInfo.json",
+    "duration_ms": 1351
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 484
+    "status": 200,
+    "duration_ms": 6364
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "hot/tencent_hot.js",
       "name": "腾讯新闻 · 综合早报",
@@ -46,12 +45,21 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 479,
+    "phase": "ok",
+    "elapsed_ms": 6356,
     "invoked": false,
-    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：缺少列表：data.tabs.0.articleList",
-    "error_text": "脚本执行失败：缺少列表：data.tabs.0.articleList\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at array_at (@findrss/util:50:64)\n    at fetch (script-source.js:56:34)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "榜单解析完成 {\"source\":\"tencent-hot\",\"count\":15,\"missing_rank\":15}"
+      },
+      {
+        "level": "info",
+        "text": "热榜快照完成 {\"count\":15}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://i.news.qq.com/web_backend/v2/getTagInfo?tagId=aEWqxLtdgmQ%3D",
@@ -65,16 +73,17 @@
           "headers_sent": []
         },
         "started_ms": 8,
-        "duration_ms": 470,
+        "duration_ms": 6345,
         "timings": {
-          "response_ms": 460,
-          "body_read_ms": 10,
-          "decode_and_transfer_ms": 0
+          "response_ms": 466,
+          "body_read_ms": 5878,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"hot_rank\",\"title\":\"腾讯新闻 · 综合早报\",\"link\":\"https://news.qq.com/tag/aEWqxLtdgmQ=\",\"category\":\"综合\",\"observed_at\":\"2026-11-18T22:14:52.714Z\",\"entries\":[{\"id\":\"tencent-hot:20261118A0FMRP00\",\"title\":\"习近平和彭丽媛为来宾举行欢迎宴会\",\"link\":\"https://view.inews.qq.com/a/20261118A0FMRP00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0FGOB00\",\"title\":\"普京与特朗普将在APEC峰会期间多次会面\",\"link\":\"https://view.inews.qq.com/a/20261118A0FGOB00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0FPZK00\",\"title\":\"澳大利亚总理：中国是澳最大贸易伙伴，期待在深圳为澳企创造更多机遇\",\"link\":\"https://view.inews.qq.com/a/20261118A0FPZK00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A07B0J00\",\"title\":\"岛内人士提议两岸2032年统一货币，国台办回应\",\"link\":\"https://view.inews.qq.com/a/20261118A07B0J00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0HXH700\",\"title\":\"商务部就实质性完成中韩自贸协定第二阶段谈判有关情况答记者问\",\"link\":\"https://view.inews.qq.com/a/20261118A0HXH700\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0GWM900\",\"title\":\"美联储理事沃勒再提加息50基点：必要时需要“震惊市场”\",\"link\":\"https://view.inews.qq.com/a/20261118A0GWM900\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0FXUB00\",\"title\":\"俄炼油厂持续遭袭，10月海运汽油进口量创下历史新高\",\"link\":\"https://view.inews.qq.com/a/20261118A0FXUB00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0D65T00\",\"title\":\"宗馥莉再掀人事风暴：173名管理人员被免职\",\"link\":\"https://view.inews.qq.com/a/20261118A0D65T00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0E13300\",\"title\":\"成交额创16个月新低！市场出现几个积极现象\",\"link\":\"https://view.inews.qq.com/a/20261118A0E13300\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0C5M300\",\"title\":\"用量暴增，Hy4 flash上线首日Token使用量突破50万亿，登顶OpenRouter\",\"link\":\"https://view.inews.qq.com/a/20261118A0C5M300\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0FMR200\",\"title\":\"美国AI音乐巨头进军视频生成，底层模型来自中国\",\"link\":\"https://view.inews.qq.com/a/20261118A0FMR200\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0E2YZ00\",\"title\":\"Gemini新模型Neon箭在弦上，网友：遍历元素周期表？\",\"link\":\"https://view.inews.qq.com/a/20261118A0E2YZ00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0BU5000\",\"title\":\"美国悬赏1000万美金，征集缅甸电诈园区洗钱线索\",\"link\":\"https://view.inews.qq.com/a/20261118A0BU5000\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0H86Z00\",\"title\":\"沙特据称准备与胡塞武装打到2027年，计划先取得战场优势再谈判\",\"link\":\"https://view.inews.qq.com/a/20261118A0H86Z00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"tencent-hot:20261118A0F0WR00\",\"title\":\"世预赛36强赛分档出炉：国足第二档！日韩第一档，印尼印度第三档\",\"link\":\"https://view.inews.qq.com/a/20261118A0F0WR00\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
     "timing": {
-      "elapsed_ms": 479,
+      "elapsed_ms": 6356,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -119,26 +128,31 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 473
+          "duration_ms": 6349
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 479,
+          "name": "输出读取与校验",
+          "started_ms": 6355,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 6356,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 479,
+          "started_ms": 6356,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 479,
+          "name": "浏览器状态保存",
+          "started_ms": 6356,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 479,
+          "started_ms": 6356,
           "duration_ms": 0
         }
       ],
@@ -146,7 +160,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 470
+          "duration_ms": 6345
         }
       ]
     }

@@ -1,25 +1,26 @@
 {
-  "checked_at": "2026-11-18T14:23:28.559Z",
+  "checked_at": "2026-11-18T22:14:48.761Z",
   "inspection": {
     "file": "hot/kuaishou_hot.js",
     "path": "/api/hot/kuaishou/hot",
     "example": "/api/hot/kuaishou/hot",
     "format": "hot",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/hot/kuaishou/hot.json",
-    "duration_ms": 8296
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
+    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
+    "duration_ms": 10020
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2609
+    "status": 504,
+    "duration_ms": 10377
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
     "script": {
       "file": "hot/kuaishou_hot.js",
       "name": "快手",
@@ -45,45 +46,33 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2590,
+    "phase": "runtime",
+    "elapsed_ms": 10363,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"kuaishou\",\"count\":50,\"missing_rank\":0}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":50}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.kuaishou.com/?isHome=1",
         "method": "GET",
         "host": "www.kuaishou.com",
         "pathname": "/",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 9,
-        "duration_ms": 2563,
+        "started_ms": 10,
+        "duration_ms": 10352,
         "timings": {
-          "response_ms": 1072,
-          "body_read_ms": 1489,
-          "decode_and_transfer_ms": 2
+          "response_ms": 10352
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"快手\",\"link\":\"https://www.kuaishou.com\",\"category\":\"娱乐\",\"observed_at\":\"2026-11-18T14:23:31.150Z\",\"entries\":[{\"id\":\"kuaishou:共创亚太光明未来\",\"title\":\"共创亚太光明未来\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%85%B1%E5%88%9B%E4%BA%9A%E5%A4%AA%E5%85%89%E6%98%8E%E6%9C%AA%E6%9D%A5\",\"rank\":null,\"pinned\":true,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"kuaishou:APEC欢迎宴会\",\"title\":\"APEC欢迎宴会\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=APEC%E6%AC%A2%E8%BF%8E%E5%AE%B4%E4%BC%9A\",\"rank\":1,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1146.8万\"}},{\"id\":\"kuaishou:特朗普出席APEC会议欢迎宴会\",\"title\":\"特朗普出席APEC会议欢迎宴会\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%89%B9%E6%9C%97%E6%99%AE%E5%87%BA%E5%B8%ADAPEC%E4%BC%9A%E8%AE%AE%E6%AC%A2%E8%BF%8E%E5%AE%B4%E4%BC%9A\",\"rank\":2,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1146.3万\"}},{\"id\":\"kuaishou:从鹏城深圳看亚太印记\",\"title\":\"从鹏城深圳看亚太印记\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BB%8E%E9%B9%8F%E5%9F%8E%E6%B7%B1%E5%9C%B3%E7%9C%8B%E4%BA%9A%E5%A4%AA%E5%8D%B0%E8%AE%B0\",\"rank\":3,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1146.1万\"}},{\"id\":\"kuaishou:李在明夫妇在深圳同韩侨见面\",\"title\":\"李在明夫妇在深圳同韩侨见面\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%9D%8E%E5%9C%A8%E6%98%8E%E5%A4%AB%E5%A6%87%E5%9C%A8%E6%B7%B1%E5%9C%B3%E5%90%8C%E9%9F%A9%E4%BE%A8%E8%A7%81%E9%9D%A2\",\"rank\":4,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1146万\"}},{\"id\":\"kuaishou:狮子座流星雨今晚凌晨降临\",\"title\":\"狮子座流星雨今晚凌晨降临\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%8B%AE%E5%AD%90%E5%BA%A7%E6%B5%81%E6%98%9F%E9%9B%A8%E4%BB%8A%E6%99%9A%E5%87%8C%E6%99%A8%E9%99%8D%E4%B8%B4\",\"rank\":5,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1145.9万\"}},{\"id\":\"kuaishou:普京出席APEC会议欢迎宴会\",\"title\":\"普京出席APEC会议欢迎宴会\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%99%AE%E4%BA%AC%E5%87%BA%E5%B8%ADAPEC%E4%BC%9A%E8%AE%AE%E6%AC%A2%E8%BF%8E%E5%AE%B4%E4%BC%9A\",\"rank\":6,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1145.9万\"}},{\"id\":\"kuaishou:中国军人再现空军一号旁名场面\",\"title\":\"中国军人再现空军一号旁名场面\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%AD%E5%9B%BD%E5%86%9B%E4%BA%BA%E5%86%8D%E7%8E%B0%E7%A9%BA%E5%86%9B%E4%B8%80%E5%8F%B7%E6%97%81%E5%90%8D%E5%9C%BA%E9%9D%A2\",\"rank\":7,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1145.8万\"}},{\"id\":\"kuaishou:国内金饰克价七连跌\",\"title\":\"国内金饰克价七连跌\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%9B%BD%E5%86%85%E9%87%91%E9%A5%B0%E5%85%8B%E4%BB%B7%E4%B8%83%E8%BF%9E%E8%B7%8C\",\"rank\":8,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1124万\"}},{\"id\":\"kuaishou:外媒相聚深圳共探科创合作新机遇\",\"title\":\"外媒相聚深圳共探科创合作新机遇\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A4%96%E5%AA%92%E7%9B%B8%E8%81%9A%E6%B7%B1%E5%9C%B3%E5%85%B1%E6%8E%A2%E7%A7%91%E5%88%9B%E5%90%88%E4%BD%9C%E6%96%B0%E6%9C%BA%E9%81%87\",\"rank\":9,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1093.2万\"}},{\"id\":\"kuaishou:藏在中国古诗里的母爱\",\"title\":\"藏在中国古诗里的母爱\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%97%8F%E5%9C%A8%E4%B8%AD%E5%9B%BD%E5%8F%A4%E8%AF%97%E9%87%8C%E7%9A%84%E6%AF%8D%E7%88%B1\",\"rank\":10,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1062.4万\"}},{\"id\":\"kuaishou:河南一家三口接连心梗\",\"title\":\"河南一家三口接连心梗\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%B2%B3%E5%8D%97%E4%B8%80%E5%AE%B6%E4%B8%89%E5%8F%A3%E6%8E%A5%E8%BF%9E%E5%BF%83%E6%A2%97\",\"rank\":11,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"1020.1万\"}},{\"id\":\"kuaishou:李在明携夫人出席欢迎晚宴\",\"title\":\"李在明携夫人出席欢迎晚宴\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%9D%8E%E5%9C%A8%E6%98%8E%E6%90%BA%E5%A4%AB%E4%BA%BA%E5%87%BA%E5%B8%AD%E6%AC%A2%E8%BF%8E%E6%99%9A%E5%AE%B4\",\"rank\":12,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"997.1万\"}},{\"id\":\"kuaishou:哈尔滨冰雪大世界造雪人\",\"title\":\"哈尔滨冰雪大世界造雪人\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%93%88%E5%B0%94%E6%BB%A8%E5%86%B0%E9%9B%AA%E5%A4%A7%E4%B8%96%E7%95%8C%E9%80%A0%E9%9B%AA%E4%BA%BA\",\"rank\":13,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"991.7万\"}},{\"id\":\"kuaishou:腾讯资本开支增527%\",\"title\":\"腾讯资本开支增527%\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%85%BE%E8%AE%AF%E8%B5%84%E6%9C%AC%E5%BC%80%E6%94%AF%E5%A2%9E527%25\",\"rank\":14,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"984.7万\"}},{\"id\":\"kuaishou:中央纪委通报3人被处分\",\"title\":\"中央纪委通报3人被处分\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%AD%E5%A4%AE%E7%BA%AA%E5%A7%94%E9%80%9A%E6%8A%A53%E4%BA%BA%E8%A2%AB%E5%A4%84%E5%88%86\",\"rank\":15,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"981.2万\"}},{\"id\":\"kuaishou:吃到咒语糖葫芦太幸福了\",\"title\":\"吃到咒语糖葫芦太幸福了\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%90%83%E5%88%B0%E5%92%92%E8%AF%AD%E7%B3%96%E8%91%AB%E8%8A%A6%E5%A4%AA%E5%B9%B8%E7%A6%8F%E4%BA%86\",\"rank\":16,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"977.8万\"}},{\"id\":\"kuaishou:为什么要放秋假\",\"title\":\"为什么要放秋假\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%94%BE%E7%A7%8B%E5%81%87\",\"rank\":17,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"968.9万\"}},{\"id\":\"kuaishou:美国总统特朗普抵达深圳\",\"title\":\"美国总统特朗普抵达深圳\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E7%89%B9%E6%9C%97%E6%99%AE%E6%8A%B5%E8%BE%BE%E6%B7%B1%E5%9C%B3\",\"rank\":18,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"960.1万\"}},{\"id\":\"kuaishou:东方证券加上海证券进入实施阶段\",\"title\":\"东方证券加上海证券进入实施阶段\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%9C%E6%96%B9%E8%AF%81%E5%88%B8%E5%8A%A0%E4%B8%8A%E6%B5%B7%E8%AF%81%E5%88%B8%E8%BF%9B%E5%85%A5%E5%AE%9E%E6%96%BD%E9%98%B6%E6%AE%B5\",\"rank\":19,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"954.4万\"}},{\"id\":\"kuaishou:金价或重返5600美元\",\"title\":\"金价或重返5600美元\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%87%91%E4%BB%B7%E6%88%96%E9%87%8D%E8%BF%945600%E7%BE%8E%E5%85%83\",\"rank\":20,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"953.1万\"}},{\"id\":\"kuaishou:妈妈穿睡衣送学拉链没拉\",\"title\":\"妈妈穿睡衣送学拉链没拉\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A6%88%E5%A6%88%E7%A9%BF%E7%9D%A1%E8%A1%A3%E9%80%81%E5%AD%A6%E6%8B%89%E9%93%BE%E6%B2%A1%E6%8B%89\",\"rank\":21,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"952.4万\"}},{\"id\":\"kuaishou:马斯克现身特朗普随行大巴车\",\"title\":\"马斯克现身特朗普随行大巴车\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E9%A9%AC%E6%96%AF%E5%85%8B%E7%8E%B0%E8%BA%AB%E7%89%B9%E6%9C%97%E6%99%AE%E9%9A%8F%E8%A1%8C%E5%A4%A7%E5%B7%B4%E8%BD%A6\",\"rank\":22,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"952万\"}},{\"id\":\"kuaishou:中方回应英伟达向中国停供H200\",\"title\":\"中方回应英伟达向中国停供H200\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%AD%E6%96%B9%E5%9B%9E%E5%BA%94%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%90%91%E4%B8%AD%E5%9B%BD%E5%81%9C%E4%BE%9BH200\",\"rank\":23,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"951.7万\"}},{\"id\":\"kuaishou:中国排面仪仗队雨中接机身姿挺拔\",\"title\":\"中国排面仪仗队雨中接机身姿挺拔\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%AD%E5%9B%BD%E6%8E%92%E9%9D%A2%E4%BB%AA%E4%BB%97%E9%98%9F%E9%9B%A8%E4%B8%AD%E6%8E%A5%E6%9C%BA%E8%BA%AB%E5%A7%BF%E6%8C%BA%E6%8B%94\",\"rank\":24,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"949.1万\"}},{\"id\":\"kuaishou:男子戴泳帽泳镜吃海底捞\",\"title\":\"男子戴泳帽泳镜吃海底捞\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%94%B7%E5%AD%90%E6%88%B4%E6%B3%B3%E5%B8%BD%E6%B3%B3%E9%95%9C%E5%90%83%E6%B5%B7%E5%BA%95%E6%8D%9E\",\"rank\":25,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"946.1万\"}},{\"id\":\"kuaishou:哈尔滨糖葫芦卷到考研\",\"title\":\"哈尔滨糖葫芦卷到考研\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%93%88%E5%B0%94%E6%BB%A8%E7%B3%96%E8%91%AB%E8%8A%A6%E5%8D%B7%E5%88%B0%E8%80%83%E7%A0%94\",\"rank\":26,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"939.7万\"}},{\"id\":\"kuaishou:中国天宫将迎首位外籍航天员\",\"title\":\"中国天宫将迎首位外籍航天员\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%AD%E5%9B%BD%E5%A4%A9%E5%AE%AB%E5%B0%86%E8%BF%8E%E9%A6%96%E4%BD%8D%E5%A4%96%E7%B1%8D%E8%88%AA%E5%A4%A9%E5%91%98\",\"rank\":27,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"937.1万\"}},{\"id\":\"kuaishou:有人炒股避损7万被罚60万\",\"title\":\"有人炒股避损7万被罚60万\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%9C%89%E4%BA%BA%E7%82%92%E8%82%A1%E9%81%BF%E6%8D%9F7%E4%B8%87%E8%A2%AB%E7%BD%9A60%E4%B8%87\",\"rank\":28,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"934.8万\"}},{\"id\":\"kuaishou:特朗普成首位访深的在任美国总统\",\"title\":\"特朗普成首位访深的在任美国总统\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%89%B9%E6%9C%97%E6%99%AE%E6%88%90%E9%A6%96%E4%BD%8D%E8%AE%BF%E6%B7%B1%E7%9A%84%E5%9C%A8%E4%BB%BB%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F\",\"rank\":29,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"932.4万\"}},{\"id\":\"kuaishou:片仔癀回收价跌破500元\",\"title\":\"片仔癀回收价跌破500元\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%89%87%E4%BB%94%E7%99%80%E5%9B%9E%E6%94%B6%E4%BB%B7%E8%B7%8C%E7%A0%B4500%E5%85%83\",\"rank\":30,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"929.8万\"}},{\"id\":\"kuaishou:小猫被指秒开战斗模式\",\"title\":\"小猫被指秒开战斗模式\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%B0%8F%E7%8C%AB%E8%A2%AB%E6%8C%87%E7%A7%92%E5%BC%80%E6%88%98%E6%96%97%E6%A8%A1%E5%BC%8F\",\"rank\":31,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"927.2万\"}},{\"id\":\"kuaishou:两高一部严惩借离婚转移财产行为\",\"title\":\"两高一部严惩借离婚转移财产行为\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%B8%A4%E9%AB%98%E4%B8%80%E9%83%A8%E4%B8%A5%E6%83%A9%E5%80%9F%E7%A6%BB%E5%A9%9A%E8%BD%AC%E7%A7%BB%E8%B4%A2%E4%BA%A7%E8%A1%8C%E4%B8%BA\",\"rank\":32,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"924.3万\"}},{\"id\":\"kuaishou:李在明夫妇穿韩服出席午餐会\",\"title\":\"李在明夫妇穿韩服出席午餐会\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%9D%8E%E5%9C%A8%E6%98%8E%E5%A4%AB%E5%A6%87%E7%A9%BF%E9%9F%A9%E6%9C%8D%E5%87%BA%E5%B8%AD%E5%8D%88%E9%A4%90%E4%BC%9A\",\"rank\":33,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"921.7万\"}},{\"id\":\"kuaishou:彝族过年吃坨坨肉有多豪横\",\"title\":\"彝族过年吃坨坨肉有多豪横\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%BD%9D%E6%97%8F%E8%BF%87%E5%B9%B4%E5%90%83%E5%9D%A8%E5%9D%A8%E8%82%89%E6%9C%89%E5%A4%9A%E8%B1%AA%E6%A8%AA\",\"rank\":34,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"918.8万\"}},{\"id\":\"kuaishou:王者荣耀故氏露脸\",\"title\":\"王者荣耀故氏露脸\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E6%95%85%E6%B0%8F%E9%9C%B2%E8%84%B8\",\"rank\":35,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"915万\"}},{\"id\":\"kuaishou:普京到访深圳高校并发表演讲\",\"title\":\"普京到访深圳高校并发表演讲\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E6%99%AE%E4%BA%AC%E5%88%B0%E8%AE%BF%E6%B7%B1%E5%9C%B3%E9%AB%98%E6%A0%A1%E5%B9%B6%E5%8F%91%E8%A1%A8%E6%BC%94%E8%AE%B2\",\"rank\":36,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"911.3万\"}},{\"id\":\"kuaishou:胖东来鞋服价签公示进价\",\"title\":\"胖东来鞋服价签公示进价\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%83%96%E4%B8%9C%E6%9D%A5%E9%9E%8B%E6%9C%8D%E4%BB%B7%E7%AD%BE%E5%85%AC%E7%A4%BA%E8%BF%9B%E4%BB%B7\",\"rank\":37,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"908.9万\"}},{\"id\":\"kuaishou:二蛋叔叔哄娃全国行\",\"title\":\"二蛋叔叔哄娃全国行\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BA%8C%E8%9B%8B%E5%8F%94%E5%8F%94%E5%93%84%E5%A8%83%E5%85%A8%E5%9B%BD%E8%A1%8C\",\"rank\":38,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"906.4万\"}},{\"id\":\"kuaishou:官方通报烤全羊被指剥不出1两肉\",\"title\":\"官方通报烤全羊被指剥不出1两肉\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%AE%98%E6%96%B9%E9%80%9A%E6%8A%A5%E7%83%A4%E5%85%A8%E7%BE%8A%E8%A2%AB%E6%8C%87%E5%89%A5%E4%B8%8D%E5%87%BA1%E4%B8%A4%E8%82%89\",\"rank\":39,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"904万\"}},{\"id\":\"kuaishou:6岁女孩弄坏玩具主动道歉\",\"title\":\"6岁女孩弄坏玩具主动道歉\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=6%E5%B2%81%E5%A5%B3%E5%AD%A9%E5%BC%84%E5%9D%8F%E7%8E%A9%E5%85%B7%E4%B8%BB%E5%8A%A8%E9%81%93%E6%AD%89\",\"rank\":40,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"900.9万\"}},{\"id\":\"kuaishou:哈尔滨冰雪大世界又放大招了\",\"title\":\"哈尔滨冰雪大世界又放大招了\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%93%88%E5%B0%94%E6%BB%A8%E5%86%B0%E9%9B%AA%E5%A4%A7%E4%B8%96%E7%95%8C%E5%8F%88%E6%94%BE%E5%A4%A7%E6%8B%9B%E4%BA%86\",\"rank\":41,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"897.8万\"}},{\"id\":\"kuaishou:和平精英覆面系\",\"title\":\"和平精英覆面系\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%92%8C%E5%B9%B3%E7%B2%BE%E8%8B%B1%E8%A6%86%E9%9D%A2%E7%B3%BB\",\"rank\":42,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"897.1万\"}},{\"id\":\"kuaishou:外宾刚下飞机就被中国仪仗队圈粉\",\"title\":\"外宾刚下飞机就被中国仪仗队圈粉\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%A4%96%E5%AE%BE%E5%88%9A%E4%B8%8B%E9%A3%9E%E6%9C%BA%E5%B0%B1%E8%A2%AB%E4%B8%AD%E5%9B%BD%E4%BB%AA%E4%BB%97%E9%98%9F%E5%9C%88%E7%B2%89\",\"rank\":43,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"896.2万\"}},{\"id\":\"kuaishou:冯薪朵钟正未婚先孕\",\"title\":\"冯薪朵钟正未婚先孕\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%86%AF%E8%96%AA%E6%9C%B5%E9%92%9F%E6%AD%A3%E6%9C%AA%E5%A9%9A%E5%85%88%E5%AD%95\",\"rank\":44,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"895.4万\"}},{\"id\":\"kuaishou:佛山拍到绿色狮子座流星\",\"title\":\"佛山拍到绿色狮子座流星\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BD%9B%E5%B1%B1%E6%8B%8D%E5%88%B0%E7%BB%BF%E8%89%B2%E7%8B%AE%E5%AD%90%E5%BA%A7%E6%B5%81%E6%98%9F\",\"rank\":45,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"894.6万\"}},{\"id\":\"kuaishou:博主回村拍老人涨粉400万\",\"title\":\"博主回村拍老人涨粉400万\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%8D%9A%E4%B8%BB%E5%9B%9E%E6%9D%91%E6%8B%8D%E8%80%81%E4%BA%BA%E6%B6%A8%E7%B2%89400%E4%B8%87\",\"rank\":46,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"894万\"}},{\"id\":\"kuaishou:俄罗斯总统普京抵达深圳\",\"title\":\"俄罗斯总统普京抵达深圳\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E4%BF%84%E7%BD%97%E6%96%AF%E6%80%BB%E7%BB%9F%E6%99%AE%E4%BA%AC%E6%8A%B5%E8%BE%BE%E6%B7%B1%E5%9C%B3\",\"rank\":47,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"893.1万\"}},{\"id\":\"kuaishou:媳妇调侃婆婆儿子睡整觉\",\"title\":\"媳妇调侃婆婆儿子睡整觉\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E5%AA%B3%E5%A6%87%E8%B0%83%E4%BE%83%E5%A9%86%E5%A9%86%E5%84%BF%E5%AD%90%E7%9D%A1%E6%95%B4%E8%A7%89\",\"rank\":48,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"892.3万\"}},{\"id\":\"kuaishou:越早实现统一越有利于台湾发展\",\"title\":\"越早实现统一越有利于台湾发展\",\"link\":\"https://www.kuaishou.com/search/video?searchKey=%E8%B6%8A%E6%97%A9%E5%AE%9E%E7%8E%B0%E7%BB%9F%E4%B8%80%E8%B6%8A%E6%9C%89%E5%88%A9%E4%BA%8E%E5%8F%B0%E6%B9%BE%E5%8F%91%E5%B1%95\",\"rank\":49,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"891.5万\"}}]}",
     "timing": {
-      "elapsed_ms": 2590,
+      "elapsed_ms": 10363,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -128,39 +117,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 2582
+          "duration_ms": 10355
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2589,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2589,
+          "name": "错误诊断收集",
+          "started_ms": 10362,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2589,
-          "duration_ms": 1
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 2590,
+          "started_ms": 10362,
           "duration_ms": 0
         },
         {
+          "name": "失败后浏览器清理",
+          "started_ms": 10362,
+          "duration_ms": 1
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 2590,
+          "started_ms": 10363,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 2563
+          "started_ms": 10,
+          "duration_ms": 10352
         }
       ]
     }
