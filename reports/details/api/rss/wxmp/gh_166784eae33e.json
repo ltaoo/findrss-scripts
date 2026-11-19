@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:42:54.525Z",
+  "checked_at": "2026-11-19T22:21:52.154Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_166784eae33e",
     "name": "奇安信威胁情报中心",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10029
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_166784eae33e.json",
+    "duration_ms": 1626
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10037
+    "status": 200,
+    "duration_ms": 1231
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10022,
+    "phase": "ok",
+    "elapsed_ms": 1228,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":15,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 10011,
+        "started_ms": 9,
+        "duration_ms": 1215,
         "timings": {
-          "response_ms": 1936,
-          "body_read_ms": 8075
+          "response_ms": 1027,
+          "body_read_ms": 187,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_166784eae33e\",\"title\":\"奇安信威胁情报中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521438&idx=1&sn=98af9520c1b6ac0521333092818857b7&chksm=eb161f245289961e6ffc2df8d7ec1915ab43ede7b03ccbf98b6eea922ca07b1b008cb64ae95c&scene=126&sessionid=1795126914#rd\",\"description\":\"威胁情报信息共享，事件预警通报，攻击事件分析报告，恶意软件分析报告\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"奇安信威胁情报中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7I8QeMG3CujdN79zxbczFS3XAMP0KcY9YcqkRIHEy7CQ%2F0\",\"updated\":\"2026-11-19T03:56:41.000Z\",\"items\":[{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521438:1\",\"title\":\"36,411 次蜜罐 API 调用：AI 安全测试为何打到真实网站？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521438&idx=1&sn=98af9520c1b6ac0521333092818857b7&chksm=eb161f245289961e6ffc2df8d7ec1915ab43ede7b03ccbf98b6eea922ca07b1b008cb64ae95c&scene=126&sessionid=1795126914#rd\",\"description\":\"一场旨在检验模型安全性的压力测试，最终演变为真实网站上的路径探测、SQL 注入尝试与身份冒充。事件没有造成已知的私密信息泄露，却完整展示了智能体测试外溢为外部安全事件的过程。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOqibqzGibwJwQ0Rf3jsspRBDILMpfsrjhUppWlMH8VQODwyh2IxJxqxIWyHzH24LP7gUwEMMo51BuDu97UuW1Iel4R6PCmWGuTKv8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T03:56:41.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521438:2\",\"title\":\"一次受控接管，撕开 AI 模型供应链的信任缺口：Kokoro 事件复盘\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521438&idx=2&sn=53f9ad80331e7fdcf02f27f63fb5ebe8&chksm=ebf81b45851a519ea3b0812b911f6e95f07e0cc8587af8ee34dad08e0f8aeb2ad543772fc085&scene=126&sessionid=1795126914#rd\",\"description\":\"安全研究员Alon Hertz及其团队通过重新注册过期域名，完成Hugging Face密码重置并取得发布者账号控制权。团队随后在本地验证了两类模型权重篡改，但没有上传修改后的模型。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOq9KfhYUEL3ynPVf21RUlEyUbP3WXvlNqPRBb1YvJJwIxnYsgBh4Yic4grtB7gGq1JS2PicOeHX00DGZkdniaiaSRyXlDesjW5g3hv8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T03:56:41.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521414:1\",\"title\":\"GTIG首次观测无人在环的漏洞发现与利用：拆解 exploit_agent 自动化漏洞利用链\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521414&idx=1&sn=7b5cca3655051388b0ed7f1343fa8cb8&chksm=eb62beaa38df12df7f80b6e90340f1933c8e02b5f21500a5b73c379771ae588fcd6963712290&scene=126&sessionid=1795126914#rd\",\"description\":\"多智能体漏洞研究与武器化框架：持续比较补丁前后代码，识别潜在漏洞，起草并自动执行漏洞利用程序。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOq9mbr3TibYWC9jLibdeDeia2536D3QYEUmW88IJPVtOH78G6kHbezyMQM2Nr0DcxfbrPa1Q8tx7ngyMaicibC54GyWplHicUv4GeSmxg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T04:59:01.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521414:2\",\"title\":\"OPTIMJACK事件：178家组织的受信任脚本，如何变成窃密入口\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521414&idx=2&sn=52f8eabd719231015b8c3f32d759b021&chksm=ebf3d09abd92c050a8f44c3700a97802b54c1380dcfc5ea85adc4ba2a052f7d433428ea0bb2c&scene=126&sessionid=1795126914#rd\",\"description\":\"一段用于网站实验与个性化展示的第三方 JavaScript，被写入恶意代码后，沿既有信任链进入访问者浏览器。它既能替换加密货币地址，也能窃取支付卡信息，还会按条件收集页面截图与 Cookie，并针对 iOS 设备加载后续攻击代码。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOq8Ria5O8XU3ibpa8ZCsiciclGI3EZWcTCewQmWVcmqBCW0YekZHH8ViaAXqg7cjbzZNg6TnRpoyeL4RoZmBcf0IcF4pVN10kGD57BHU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T04:59:01.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521402:1\",\"title\":\"当“面试作业”成为入侵入口：AccuraSoftHire 虚假招聘活动分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521402&idx=1&sn=04366c3249b6d20f738c045e83a0ee46&chksm=ebb17cd849020a3020d7f98a1d5ad4d884182a03784244b85696ce7da4a9d1e8bce287a8f888&scene=126&sessionid=1795126914#rd\",\"description\":\"JFrog披露AccuraSoftHire虚假招聘活动，还原了招聘网站、社交账号、代码仓库和恶意npm包之间的关联。StepSecurity随后核查npm注册表与公开链上记录，发现其中两个恶意包分别存在了211天和169天，并从同一以太坊地址的609笔交易中解析出8个历史服务器地址。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FodcL3w4qOq980pXfvqBYtyBibmXibnRCaEtlyV5gxsPt4obMWXKfTiaH27YBH6pBlvicBTLmQteHTVPDVqdgBgBcjiaDXbic4fM3l9X0eIUCqhu2w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:33:34.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521402:2\",\"title\":\"微软服务中断遭“二次利用”：大规模钓鱼邮件以“恢复邮件”为饵\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521402&idx=2&sn=7922444ea20dccf00b2e6fc94d82c2b6&chksm=eb367a77461af2391919168b5b66e5f8508ff4074c994731f7b50074edf84ba28ba17f108ec2&scene=126&sessionid=1795126914#rd\",\"description\":\"事件预警 · 钓鱼活动分析 · 威胁研判微软服务中断遭“二次利用”：大规模钓鱼邮件以“恢复邮件”为饵真实的 M\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOqicKu1NBj6EmrmJ2L1vtdibIf2SlEgOGyrehoneSHCvJKtW92tQmrOkXE0ufIjq47tSOgzuXjmey5Rvh0L6uqv84dgowicNymFg9k%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:33:34.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521382:1\",\"title\":\"运维通道里的“回马枪”：SCKit 如何滥用 ScreenConnect\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521382&idx=1&sn=cfaa2d062081b12bf5df8006bfc516f8&chksm=eb55c57260d8b1d06556ce0ca3fb62c326c4ba0ffa5bc511b38d12f8a4b17438182576a8e0b3&scene=126&sessionid=1795126914#rd\",\"description\":\"2026 年 11 月，ConnectWise、Microsoft、Huntress 等相继披露针对 ScreenConnect 使用环境的攻击活动。攻击者通过 MSP 的 ScreenConnect 管理通道，在客户终端安装连接到攻击者基础设施的额外远程访问客户端，并投放名为 **SCKit** 的恶意工具包。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FodcL3w4qOq9PibjvibHqYA7t1YSdTribxnWuYQT4x5wjoYLYJAP3GicE9WNy0nicdDuYZ2puA8EGPFicSAiaq75vzxrGb7zpEcmzCMlYJJQgqfSShE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T08:57:01.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521370:1\",\"title\":\"每周高级威胁情报解读(2026.11.06~11.12)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521370&idx=1&sn=66e07d88c53ade99d8c61488f6eaf8d9&chksm=eba546220f6e4e38771524fde39e783c4c69276be81435cfc8ed2fc304f8093e8133f2acd882&scene=126&sessionid=1795126914#rd\",\"description\":\"本周 4 起事件分别落在 npm 与桌面端发布、GitHub Actions、PyPI 软件包和第三方云信任。攻击者直接复用合法 CI、被盗 Token 与既有 IAM 角色，因此版本核对之外，还需审查发布提交、生命周期脚本、跨账号角色和凭证暴露范围。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FodcL3w4qOq9GcseAKwE7R2Oyibcz8OZBlS4lR0yrJAPG7qy2yqyhUg81g0icCv1HyqSHw7WU6DoJdVfWXqXsorGeD9a4bA8fQ8mPA5ZL1kPmQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T10:08:17.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521370:2\",\"title\":\"供应链安全威胁档案周报——W46\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521370&idx=2&sn=3ff8802d5533bc48a7d5474def5ebd52&chksm=eb80d2add8e348848669202a556f76d51a9d7a94c5c69f7dee217c428f08cd0d99ea88cdfd81&scene=126&sessionid=1795126914#rd\",\"description\":\"本周 4 起事件分别落在 npm 与桌面端发布、GitHub Actions、PyPI 软件包和第三方云信任。攻击者直接复用合法 CI、被盗 Token 与既有 IAM 角色，因此版本核对之外，还需审查发布提交、生命周期脚本、跨账号角色和凭证暴露范围。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FodcL3w4qOqibVC2UcP0JueB7RictEreez5xANIRxmsG6ckCpeMCicVGoKw56Jch7e8Cka6zPCYa7Tibbfpic99hbsicpDuY8kSiaCxKL4bwKvveKTs%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T10:08:17.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521340:1\",\"title\":\"四次阻断，四次改道：AI 自主入侵已经走到哪一步\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521340&idx=1&sn=d86adafc458a77cf2854f7e3ea8aef5f&chksm=eb1d12ce5a0841a097b289534533743b790dc1d6cf4318f01fcb0913b0f1dd8ed619db958adc&scene=126&sessionid=1795126914#rd\",\"description\":\"一名中文操作者通过自定义智能体框架，将侦察、漏洞利用、权限提升、横向移动和数据获取等大量技术工作交由 AI 执行——四次被拦截后，它能自行分析原因、替换路径并验证结果。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOqibjic7az3pvNlicjicDOm9icIO8SEySCJl9GJT0ibNB3b2loYOt1Pc3VQeW6MCvgBicbD3Euf3z4pFBF7icYgT1cDB7c6d72ZxYyAtZ9Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T06:21:46.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521326:1\",\"title\":\"从构建逃逸到 AI 密钥窃取：Railway“10·21”攻击全链路复盘\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521326&idx=1&sn=d7f96e14e7dd16cb73491a6e7680d4a5&chksm=ebff884649ccf7ca62bea767fd39b23c3c01ed880af2fd66e7877b2d4035c99c7fb024e4ea80&scene=126&sessionid=1795126914#rd\",\"description\":\"Railway 于 2026 年 11 月 10 日公布详细调查结果：最多 1.85%、约 10 万个工作区的部分环境变量可能被解密，被盗密钥造成的未经授权消费估计约 74 万美元。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOq9IwoVHrTHFpvbAMWUHK6A35SyLQUsrDKM08unQVCRzGE5VrG9h1OdKLyenJlmnabdpzQNWaOlhkcribSo51l9pVzaMjzDFFVDI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:02:06.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521313:1\",\"title\":\"出厂即失陷：XCPE 如何把 130 万台 Android 设备变成“可出租”的后门\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521313&idx=1&sn=1bd52ac3229fa18e781a8aac3c4553ab&chksm=ebf1941ed7fcab0a31dce7a602539f2f1dab3351ce13ed040eff1f1019a17f60ba3748a837c6&scene=126&sessionid=1795126914#rd\",\"description\":\"一台 Android 机顶盒，即使用户从未安装过来路不明的应用，也可能在第一次开机后就接入攻击者控制的消息通道；即使用户删除了可疑组件，重启后它仍会回来。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FodcL3w4qOqicJYqFoMWbZySN2nJUEzDlxiaZt2KcicmYvEicOAEWicC4ibB7kfR2dXR0BwpXKiaG5PHWFx5o1uuScxMWDgJcK523ZOuZwMC8iahgrWk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T07:35:15.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521297:1\",\"title\":\"欧洲制冷系统攻击复盘：当温度设定成为攻击目标\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521297&idx=1&sn=6a6eef9c97fc3d49ce58036988f6f573&chksm=eb9329738a321e10874b8502bec64ef448a3a7b5bc12050c59aa7bebd6c18f38b0928f862e2f&scene=126&sessionid=1795126914#rd\",\"description\":\"从法国超市到欧洲多国零售门店，再到法国血液服务机构冷库，攻击者滥用的不是“冰箱里的病毒”，而是远程管理权限。本文基于截至2026年11月9日的公开信息，梳理事件链、攻击方式、归因边界与冷链OT防护重点。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FodcL3w4qOqic29llPickWyHtbvbRWj38pcdRXsLrelMdKnicrEsk8JOov2negqblbWCnrtFoxpTd1jib3icnib3sT2icib3icKCMDUYCyANwSJe7J1tc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T08:23:51.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521285:1\",\"title\":\"每周高级威胁情报解读(2026.10.30~11.05)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521285&idx=1&sn=c7c885808357561d9b283ba9a137a26a&chksm=eb85f257875a99bf833b7bf9bbd145b3a554b412095eed84b0751337d85e9299e9f9b3c7b813&scene=126&sessionid=1795126914#rd\",\"description\":\"Poisoned Source：APT29 利用 N-Day 瞄准移动设备；币安披露：虚假求职面试引发 63 亿美元加密资产劫案；Gorbag：轻量速采间谍团伙，专门收割乌克兰前线机构的签名密钥与 VPN；BITTER武器库新增 Rust 版 PapRAT\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOq9W4FeyPBRCQNYaibysPWicPCcUwbbx8wiaaYh9H62xdHF30lXyLyCKCFXP3HKiagNcEFWFfVbuNJoePGTAQaaZexCsP6ZBFibZCKWU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:06:51.000Z\"},{\"id\":\"wxmp:MzI2MDc2MDA4OA%3D%3D:2247521285:2\",\"title\":\"供应链安全威胁档案周报——W45\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MDc2MDA4OA==&mid=2247521285&idx=2&sn=d9338c1cc007f3b41f185bc29a06671a&chksm=eb59db02c3a562630d3fadbe4221861582098f61e21472dbf10600a8c3004dcab372e96c596d&scene=126&sessionid=1795126914#rd\",\"description\":\"本周 4 起事件分别落在小型软件更新通道、GitHub 源码仓库、游戏启动器 CDN 和安全软件自动更新。官方下载、正常更新与合法账号都不能替代持续验证；版本、提交、脚本完整性以及已暴露凭证仍需逐项核查。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FodcL3w4qOq9M7mafFou9sEL2Z6wlNwlfEEicKw5LwVzdH9RDUpTlibbaykxx0iaVG6TiaJjicl8HdCqRFicwJaqriaFpsIiamTAm9tAv5EibjPP0rXpU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:06:51.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10022,
+      "elapsed_ms": 1228,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -118,39 +124,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 6
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 10013
+          "started_ms": 6,
+          "duration_ms": 1221
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10021,
+          "name": "输出读取与校验",
+          "started_ms": 1227,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1227,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10021,
+          "started_ms": 1227,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10021,
+          "name": "浏览器状态保存",
+          "started_ms": 1227,
           "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10022,
+          "started_ms": 1228,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 10011
+          "started_ms": 8,
+          "duration_ms": 1216
         }
       ]
     }

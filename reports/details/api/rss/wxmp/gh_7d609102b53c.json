@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:49:29.337Z",
+  "checked_at": "2026-11-19T22:23:27.252Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_7d609102b53c",
     "name": "浅黑科技",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10020
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_7d609102b53c.json",
+    "duration_ms": 4227
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10020
+    "status": 200,
+    "duration_ms": 3572
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10013,
+    "phase": "ok",
+    "elapsed_ms": 3561,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 3550,
         "timings": {
-          "response_ms": 2966,
-          "body_read_ms": 7036
+          "response_ms": 1850,
+          "body_read_ms": 1699,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_7d609102b53c\",\"title\":\"浅黑科技\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247527372&idx=1&sn=bc7de8071b57ddea95ffe9f6ed28e010&chksm=fa9420e4a88bf933d9ae73558838777549a845f92f8595990193d15cf80345f5399a2b23aa93&scene=126&sessionid=1795127009#rd\",\"description\":\"在未来面前，我们都是孩子。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"浅黑科技\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6uW3q1FTaGHiaLiarsQ0T8al0egs2SST7APDRTCWpbv79w%2F0\",\"updated\":\"2026-06-01T02:03:41.000Z\",\"items\":[{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247527372:1\",\"title\":\"《洛克王国：世界》背后，我发现了一个腾讯攒了六年的“秘密武器”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247527372&idx=1&sn=bc7de8071b57ddea95ffe9f6ed28e010&chksm=fa9420e4a88bf933d9ae73558838777549a845f92f8595990193d15cf80345f5399a2b23aa93&scene=126&sessionid=1795127009#rd\",\"description\":\"千万个玩家手中的黎明汇聚，点亮的正是整个游戏时代的下一个黎明。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fmg4ib8bGiazbLiaM39xxNYbKARwNsNiawGDL7JBIjhTnGQQ6hxKBoiaEnwPrAL5ibBx8OOHU84D6RZufx5AXugCSjl9EpQjthhZeeaVeykfC3MMuM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-01T02:03:41.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247527147:1\",\"title\":\"百年缠斗：比特币野兽、通胀牢笼与从未被拯救的普通人\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247527147&idx=1&sn=2f78a373c1ddfd29a2a0fd04aff90c41&chksm=faed15beef0c949b49b399fd322f1542a04340006a74bf7b08c3851f8fa7e0031985756f9d32&scene=126&sessionid=1795127009#rd\",\"description\":\"我们正坐在时速六十英里的火车上，其他人则站在轨道边，一动不动。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fmg4ib8bGiazbLRw8SQYZUYxeRet5u8WPDB8b7dSJQzO4iahKTyDFhKoWU1XMiasXTxVEAQsZrGGVe2FfwywiaoGaVpZVQHkic4mp0rP4lkyYZBqSg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-17T00:51:39.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247527137:1\",\"title\":\"OPPO 猎杀“折叠线”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247527137&idx=1&sn=70ced3d1bed7016126292acafe655b4f&chksm=fa88969a04c7e8cc6004b9e4557a2a07af350c200160b6030ba0b9a0c2ebfe70288d6b8e2c8b&scene=126&sessionid=1795127009#rd\",\"description\":\"为了消灭折叠线，这帮“变态”闹翻了供应链。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fmg4ib8bGiazbLg0ufLKBUfz1bNlyRG3VyCoDCoqVRyxlFpPClAOseorngBia61iad9rdjrNgFgExF613G1bjI4SaFZEgicWQKOLRNHXGwviaaeNxs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-17T12:20:21.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247527044:1\",\"title\":\"人类正在翻越“风险墙”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247527044&idx=1&sn=097a904e2f8d03662557019cd7c9219c&chksm=fa892759e52e51e2a35ab648c2356a595dc383df1f0af3e2ea9c10ac5590b02269c31d48f9e6&scene=126&sessionid=1795127009#rd\",\"description\":\"AI 带着机器人坐火箭，这个宏大的时代和你有什么关系？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fmg4ib8bGiazbJAVaqfibvQPH4WLu5oOicLwibyTlh01wr59YrzKxMqZXxk5Ox6P6pDoBKbSAFvRBM7jcJpKWuE0ypIuWDD7F6Tb6nS7DpreczXGY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-24T05:02:07.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247526986:1\",\"title\":\"绝密档案：一台“纯血国产笔记本”身后的历史洪流\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247526986&idx=1&sn=a8fe32fd9068dc099417f99ec72ab9e1&chksm=faf707046d78cab0dc2eddff0c82f769c45a47b549c04854abc7b4d1e2ba3a7dd27bde959a4a&scene=126&sessionid=1795127009#rd\",\"description\":\"其实地上本没有路，走的人多了，也便成了路。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdZODkqM6bj5JNG8RdSC6hIlI0AfO0dG0s6KOp5wRbIcwm2dZHmScvqsYB0MZnYESjIp2liaOOsickGvODMXLFXjA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-22T00:55:45.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247526854:1\",\"title\":\"2025：一代人冲出战壕\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247526854&idx=1&sn=1affd962fcf7d75700cf2306a83a5698&chksm=fa1d411f4dc4f8825d5e1e5f30a6f59252e03d0b978e905d3d15f6901b521d4368203253d1a0&scene=126&sessionid=1795127009#rd\",\"description\":\"人和 AI 都在船上，但只有人心里有远方。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdZODkqM6bj4TDpOJJC8SOkcWP3SZOU8vouPSlAKJYFfgp6PLRpwItQCuuUjicIzPtKM00zUPnueHtlTMx8mXhgw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-29T01:03:09.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247526850:1\",\"title\":\"夜里，我偷偷用“千问AI小剧场”演了十五部短剧。。。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247526850&idx=1&sn=2cd3c1e530e59266149c1873fa9f1852&chksm=fa88c35aa76344b088c0d21c26fe6a05aa5395178e7593a10c05ca92ecc44fe19160eba27fad&scene=126&sessionid=1795127009#rd\",\"description\":\"一晚上，四大名著被我演完了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdZODkqM6bj71wE3tIs93BXHnbcgmchC0iaxLk7RQNHYgWNyJznFFLSRpjc8j93WCFAAys6IBPMxgktyCOc683Gw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-16T11:28:57.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247526707:1\",\"title\":\"15 年前为双11“渡劫”的技术，却打通了AI的任督二脉\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247526707&idx=1&sn=ef342a773dac287f466f13fe5f8f1ebe&chksm=fa5c8761b46550670ef0eca8eef20f3e94aeb55ab53136a40deea438e1211350811070965623&scene=126&sessionid=1795127009#rd\",\"description\":\"计算是一场深刻的模拟。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdZODkqM6bj6yo2ZRyMBXLibktXKLsiaHpejHYmTAb4gwq77duD7Q6F3Nu3uZQjES9ND4WQq8BSvXm6n0CAhykFFg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-10T02:42:08.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247526615:1\",\"title\":\"做手机的 OPPO，悄悄改写了中国精密制造\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247526615&idx=1&sn=8e1273310e2787b11a2f2d03b780aac5&chksm=faf8482762f7308f50b84362a50aa87bd48ed37079fcb6c63c5d0179c836bc98317aac9b8095&scene=126&sessionid=1795127009#rd\",\"description\":\"一个精致野心，一群手机犟人。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdZODkqM6bj6YtW5MfRftbZtc80bUXw5Igh7sEPVTNzlXiauEtosAMGovzBa7WmTM0L3ibHiasWnkewJzcq3b0bpSw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-10-09T02:59:43.000Z\"},{\"id\":\"wxmp:MzU0NDEwMTc1MA%3D%3D:2247526510:1\",\"title\":\"纳米 AI：红衣大叔的新战刀\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NDEwMTc1MA==&mid=2247526510&idx=1&sn=8e3895c655db3133dc5d55d82cf914af&chksm=fa56a2589e52761d4011558ccc77ed7ec0f96cc87dcc2f1297f70bd0f3c978bb7bb0f080450d&scene=126&sessionid=1795127009#rd\",\"description\":\"人们想念的，是每一次站出来与高耸的技术壁垒对峙，抽出 40 米大刀的那个人。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdZODkqM6bj6myIPPiamqQLagch2qUYCLIqOEdM8xkKCwvVALx5Kyu5OPDqImWA3741U0dspOH07XKhaWTeuYu9Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-15T03:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10013,
+      "elapsed_ms": 3561,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -113,44 +119,49 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10006
+          "started_ms": 6,
+          "duration_ms": 3554
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10013,
+          "name": "输出读取与校验",
+          "started_ms": 3560,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 3560,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10013,
-          "duration_ms": 0
+          "started_ms": 3560,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10013,
+          "name": "浏览器状态保存",
+          "started_ms": 3561,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10013,
+          "started_ms": 3561,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 3550
         }
       ]
     }

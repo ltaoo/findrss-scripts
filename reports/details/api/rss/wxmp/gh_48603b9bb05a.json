@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:45:50.159Z",
+  "checked_at": "2026-11-19T22:22:34.074Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_48603b9bb05a",
     "name": "专注安管平台",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10026
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_48603b9bb05a.json",
+    "duration_ms": 1789
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10023
+    "status": 200,
+    "duration_ms": 1152
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10016,
+    "phase": "ok",
+    "elapsed_ms": 1144,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,88 +73,95 @@
             "authorization"
           ]
         },
-        "started_ms": 13,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 1133,
         "timings": {
-          "response_ms": 1042,
-          "body_read_ms": 8960
+          "response_ms": 961,
+          "body_read_ms": 171,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_48603b9bb05a\",\"title\":\"专注安管平台\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485272&idx=1&sn=23b93580c35d1e4305fd74792b26c07c&chksm=fb6febac5d7d14e1b41e4cc7d681ebaff6dc64cf05c5ba89e61c73cde78207e86e5b00468044&scene=126&sessionid=1795126956#rd\",\"description\":\"专注安管平台、SIEM、SOC、SOAR、大数据安全分析、态势感知等平台类安全领域。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"专注安管平台\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM71RQ1HaxJicSGyATLsDs0ssAr30EsfZbDibWJnMib8kbpuA%2F0\",\"updated\":\"2026-08-11T04:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485272:1\",\"title\":\"Agentic SOC的真相：不是AI替代人，而是重新定义安全团队\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485272&idx=1&sn=23b93580c35d1e4305fd74792b26c07c&chksm=fb6febac5d7d14e1b41e4cc7d681ebaff6dc64cf05c5ba89e61c73cde78207e86e5b00468044&scene=126&sessionid=1795126956#rd\",\"description\":\"基于24年安全运营实战经验，系统解析SOC四代演进、全球头部厂商和标杆企业落地案例，以及国产化完整架构方案\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYOptcHklHZIEzEJtJgvf6PUZiaqrSekM8PQjo5FRfj0KAibsaV9xH4iauI1ofzkAibMVhtibvUa3wW0c92hna35QAA8Pp8WibZ9vxvBHhhSXDH21g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-11T04:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485258:1\",\"title\":\"从RSAC2026看安全运营技术发展趋势(4)：综合观察与反思\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485258&idx=1&sn=db3a87cbb89dceaebb763ebef592a256&chksm=fbe7692454e67ce40a2717948e9f581aa269068e016dcf5254ad483708ba9a124c00c94f3708&scene=126&sessionid=1795126956#rd\",\"description\":\"Agentic SOC的冷思考，在不确定的AI时找到确定的前行路径\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FYOptcHklHZJpDzaMiaYgv8ungibdYxGDGJFITgibtGsn1Kibs87Z7eASU831SrdBmUmI3wziaGusx6xibSSYttRogl8sQa08VsFNsicWE8XNyaT9qc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-18T04:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485252:1\",\"title\":\"从RSAC2026看安全运营技术发展趋势(3)：Agnetic SOC实战经验分享\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485252&idx=1&sn=6b115c838243a9310b3e0c18bb8ed68b&chksm=fbca3540f12c2850a6072ca63c89af0b211a31e88b445e3fd8976fb56702813088f26e8bd5d4&scene=126&sessionid=1795126956#rd\",\"description\":\"实战化的Agentic SOC应坚持“人类主导、AI支撑”的核心原则，不仅要靠应用场景，还要考虑智能体安全与AI运行维护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FYOptcHklHZLqJzy4RN14jLvicMIbygPcTKUBSLoOtKYrR0FIZibHwVs5icEc6rOib3m66LoktZe7Jqwg1a4oR2UsSiaL2upGWPiaaG1NzmibaHWXZA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-17T04:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485251:1\",\"title\":\"从RSAC2026看安全运营技术发展趋势(2)：Agentic SOC厂商最新进展\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485251&idx=1&sn=6f8b171faf8babd326c5a8f5d23c0519&chksm=fbc3f21dc57826f46a7242dcc66dfdc54bdccd5aa1e956098690b4cfe19f22ee85436ae9aaf7&scene=126&sessionid=1795126956#rd\",\"description\":\"Agentic SOC技术路线逐渐清晰，技术架构逐渐明朗，厂商侧和用户侧都将迎来变革。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FYOptcHklHZL3YKtVFzS6nbhdXhic5KY606tEzVkdfu8rBWQlP8iaj53vib7reIfTMOev9c5Mp9KbwqvRLJJtWNxB8NXicDRKoS5GDBIT8DjeevI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-16T04:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485249:1\",\"title\":\"从RSAC2026看安全运营技术发展趋势(1)：Agentic AI重塑安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485249&idx=1&sn=4275bc18a9ca429c7bbd2744d5420914&chksm=fbf4ecf351fd524d1842a61227594228baa314f0fa7820460f0f7f0ed08734714f97b0406b06&scene=126&sessionid=1795126956#rd\",\"description\":\"智能体落地的关键在于信任，而信任的根基是安全。AI 对抗 AI 已成既定趋势。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FYOptcHklHZIIuK7h8O4atHfj6QH7WThWsRvJTHj3CicqaicKkSYaapmNGJJyaKg0hU7hWMQMZHKNzSFgBAzCr9fUve8tT5z2uMFia5oZibXT1ic0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-15T04:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485098:1\",\"title\":\"数据就绪：AI SOC平台隐秘的死穴\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485098&idx=1&sn=13d77822f173455187e755ef46e05d44&chksm=fb33f1ac5e7c2f8bf82cc255bd174f76d9f5032692ba833b745f02ff1f90c126777953355835&scene=126&sessionid=1795126956#rd\",\"description\":\"AI SOC的成功钥匙不在AI算法，而在数据平台的重构。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYOptcHklHZIaLqXoUbhCrHy1sB11H0xHICRIFg6PYVjg2SoUq6GJ72YdLfWfyxsAic6hDN7N0oiaEG6g0ENgnDvFTNPr97WlaR1XvWbMYGCCY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-06T10:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485094:1\",\"title\":\"AI SOP市场划分和AI SOC类型划分\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485094&idx=1&sn=8a353a198556536e7e3018366f82c0ef&chksm=fba3ab775842071a48f3175ba804bc508f86150f33259b850af026235647dfe1068097a535a4&scene=126&sessionid=1795126956#rd\",\"description\":\"三种AI SOP，三类AI SOC，您选择哪一种？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ft7v7zyOTkMcMqXjdGgt7eGJPqJmS00pH9a8NStgEnpd2HrnQjJqHCRhwYPQib5cGdhD9ECBz1EB5JUc9C3HJhEA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-18T04:10:15.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485087:1\",\"title\":\"Gartner：2025年SIEM（安全信息与事态管理）市场分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485087&idx=1&sn=ebfdc5516d2df161f0f1e745bb554691&chksm=fbc47b0722488f03d9e6d7e891af560d564e357038d08845fb7926b14f66b6fb4c77fbbe268a&scene=126&sessionid=1795126956#rd\",\"description\":\"深度分析Gartner SIEM魔力象限，掌握未来SIEM/SOC平台发展趋势\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ft7v7zyOTkMemaicDV0hQPp4aL3qKS2wMfLx25P3zX29jRl71Uu50OKhJndicEibxdjruA1VEoKnoOweiaXZb9lmJhQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-11T00:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485080:1\",\"title\":\"国外Agentic SOC平台落地实践经验\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485080&idx=1&sn=c6c4509a6ce51a7dfbfd0e2219200751&chksm=fb91f52cabd54cd5e1317a30b61c2c02a143758fb1fbeec1a2390d8e271a3d16236ae12bf4da&scene=126&sessionid=1795126956#rd\",\"description\":\"探讨自主式SOC平台的优势、局限、部署模式、治理变革、风险、价值评估。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ft7v7zyOTkMfvsj8NibPia0GaGjmlHJMlr3no7Kb0gIIkGDahic64HicXOakyXGd6keAaaGo8SgFZhcdEiacsqNV5ZWA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-06T04:00:00.000Z\"},{\"id\":\"wxmp:MzUyNzMxOTAwMw%3D%3D:2247485079:1\",\"title\":\"Gartner分析师谈AI Agent和Agentic AI\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyNzMxOTAwMw==&mid=2247485079&idx=1&sn=86c2df034a23791da7b39aa42cba0fc6&chksm=fb9ad7128d1c2c295afcc3ad2a4261bc6730d09df04a2527d860a22307daa61026cbf1cf66dc&scene=126&sessionid=1795126956#rd\",\"description\":\"Agentic AI和AI Agent的关系，智能体开发原则和应用风险\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ft7v7zyOTkMfvsj8NibPia0GaGjmlHJMlr3no7Kb0gIIkGDahic64HicXOakyXGd6keAaaGo8SgFZhcdEiacsqNV5ZWA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-03T04:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10016,
+      "elapsed_ms": 1144,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 7
+          "started_ms": 1,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
-          "duration_ms": 10006
+          "started_ms": 6,
+          "duration_ms": 1137
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10015,
+          "name": "输出读取与校验",
+          "started_ms": 1143,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1143,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10015,
+          "started_ms": 1143,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10016,
+          "name": "浏览器状态保存",
+          "started_ms": 1144,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10016,
+          "started_ms": 1144,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 13,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 1133
         }
       ]
     }

@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:50:12.785Z",
+  "checked_at": "2026-11-19T22:23:38.222Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_b4a482d8c244",
     "name": "At The End",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10017
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_b4a482d8c244.json",
+    "duration_ms": 4270
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10019
+    "status": 200,
+    "duration_ms": 1803
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 1799,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 1787,
         "timings": {
-          "response_ms": 2155,
-          "body_read_ms": 7847
+          "response_ms": 1225,
+          "body_read_ms": 561,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_b4a482d8c244\",\"title\":\"At The End\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488860&idx=1&sn=6d7efa1a99a4f6a4f48439dca130f8e2&chksm=cfe2c136b249a718224d5ba5fa25ecb01246deb5805afc8157f4918ba4b29796080da3bec53a&scene=126&sessionid=1795127020#rd\",\"description\":\"那察看时间的眼睛\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"At The End\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2F98Nz5LFElxwYoo2fzevDG1Ty9cIRBZr6Q6b1EQEd7xEbVQWSab7HvqnNV8ySfRkEhtiatCeB43ss%2F0\",\"updated\":\"2026-11-18T11:50:57.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488860:1\",\"title\":\"好久了。。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488860&idx=1&sn=6d7efa1a99a4f6a4f48439dca130f8e2&chksm=cfe2c136b249a718224d5ba5fa25ecb01246deb5805afc8157f4918ba4b29796080da3bec53a&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"content\":\"<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVzQBicxxOwyfn9yQsiahGiaWYCZdPib5okNsqROLGUDrSZrC1XwzxibrRGJVdoP1gMazlOQzF2dCvZ3Xarb8pKNBMlsDxwklEcH9Ge7jdThxxtro%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVzQBicxxOwyeHDlGgrVLJJRJV3EEibWTUA2dZiay6R5bjvqcTeeEWAwiadulP0rc9rpgOyZSKO3gy6LXyCgQCpGws6pnLwPExWgHiatg9DTEXyYc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVzQBicxxOwyfn9yQsiahGiaWYCZdPib5okNsqROLGUDrSZrC1XwzxibrRGJVdoP1gMazlOQzF2dCvZ3Xarb8pKNBMlsDxwklEcH9Ge7jdThxxtro%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-18T11:50:57.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488850:1\",\"title\":\"小隐来成都\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488850&idx=1&sn=5e89805e51193a633f6380b27c790b47&chksm=cf38ebe8b54b108d9bccc0ed4b9e804f548c18b15e04fadc261029e8eb3f506f9b062d2656f7&scene=126&sessionid=1795127020#rd\",\"description\":\"我们也去了野地\",\"content\":\"<p>我们也去了野地</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwyeJvlI4qjWWtDfxYwzS8IwpgRYvLVrTYfM3p4eIibxT0cDXpNdP7TVZyam3SuONBg7YULVPBZgGjqEibO1JXxAUy99iaYN5gyrRDo%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwyem3HPialoVdAfb1hsTlZ3tfm8kUSPFWJUZ5TAav91yqKGL3icUKcFoyplvBqTXtbLP1Kr4D7X5BpXxkTIBKLMQFnmDAw3ZNiaA5Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwyeJvlI4qjWWtDfxYwzS8IwpgRYvLVrTYfM3p4eIibxT0cDXpNdP7TVZyam3SuONBg7YULVPBZgGjqEibO1JXxAUy99iaYN5gyrRDo%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-18T11:50:57.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488844:1\",\"title\":\"哪怕仅仅在此时\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488844&idx=1&sn=23753ac2b4d846790bfa7c3e62a1ec07&chksm=cf83dd56c017bd9a65ed679fa0d1016e5844debd0f8c567b2c2383617d24b49ad777768772c4&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVzQBicxxOwycugYyPpseOb6GqRicD7vGhgf1xBp3ww1V9KGWb2UjYOwgbESFURNGpoib9kJS7Eoc2bjEicGFzG7Z6rTknia4JZUqMOUg7hGR93aA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T03:26:53.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488831:1\",\"title\":\"与其说动作不如说情景\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488831&idx=1&sn=eb8f8a972b80565fc51747e1b40993c1&chksm=cf4422e9ffeb5e9d3e88888b440ec1b27fc68bc90527457a55f73079e0d5ae00e4d64d3a508f&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwyeK5qJ9yTYeEiaeoRAdCLZBe2LJKvgWDEjUw0BHF3XiawMMGgEicHc3maycWBdW8ia2h34n4QSlpbl9oVboaicmwTQ1IplARRRf5f5Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-18T02:08:49.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488811:1\",\"title\":\"感觉的漫游 |《一种相遇：从苏州到柏林》\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488811&idx=1&sn=667781b35e102308f8704baad2b724e7&chksm=cfd99e75e747c40894b07be183c1eff82ae5176a0a26e99938a539b2fed54f4bfd33fd42cdd8&scene=126&sessionid=1795127020#rd\",\"description\":\"写作者如何突破自身写作的限度、创造出更新的作品？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FB9jJJCy1Pn6SaULk8kqmFaslANf2eEuUpS84gBrdmmS4OchnJJ9netLrtQxiaVDRBrbzxugvB943hVNhbicDSrSoCdd7B0VgMEI5ovnA9JoD8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-10T12:01:18.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488809:1\",\"title\":\"说吧，记忆\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488809&idx=1&sn=4ae4f14151b45345a1f9994e6984a363&chksm=cf7913b66d8adb28ff5b5c5369a0a8b63faacb04c73926681e3d91153499c51eb014deafd174&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVzQBicxxOwyecTCF6GwkTIbVwypcy2oWsXsKITwa8hmjZvWOmgiafUYJZTqXY7G9iaH9RalgJbB3qezDIRknfshOKqaciaSyhzms2TXNH8dlROE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-20T14:20:20.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488790:1\",\"title\":\"告密\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488790&idx=1&sn=b3924526de21c6b9820397ef5fea06ea&chksm=cf9e1d6846994baa37664dc80e01fca9b624bc65d802bcbdec29fd7428023d413b1b44b5b52e&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVzQBicxxOwyeB9EFIyribDuVNg9Fs7ibrjtWEYSCUsoXpJjRIj9HsKanRS5ibFCeZ3ePw3BhfwUia7JBariaAaE2cqhcIa4ia3w6dQbQ1oQwKic219g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-23T09:53:43.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488786:1\",\"title\":\"因为想起了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488786&idx=1&sn=baed144b6aa94ab53bb9dd4d59b6ea39&chksm=cf985db9e19520c79c9702056bc6a44bf973a2166b1c98e8fa09344c52ca70618f44386f1f30&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVzQBicxxOwycf04BYkib0peHJ87OtRIxWrHGrURdYkRqWQBYcFYE8GfO6o663ibQiarsF3loiamTGjXRiaFuUdAy20Csz86rvHIn7yckDIWocCmTQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-22T12:35:51.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488786:2\",\"title\":\"让ai读一下\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488786&idx=2&sn=e73ace3e5db4793ad31d91f1efeed9a8&chksm=cf586e421bf2741fd8ad952b4f10057b3123f106cb38256eb88fddd17de26819a54b70a92188&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwydvpMDjxmOJJy1auibeicDHq4ibwmnvabxDEicm7bibSq9oPLUsmEYuUSGgHvCP5n3bzDRSkv8OqMJHPe6gulFXXvrRq5mEDIUlPgMI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-22T12:35:51.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488774:1\",\"title\":\"南方一刻\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488774&idx=1&sn=5505b3ca18c380cc27bc29031fef6d51&chksm=cf739be04e7f434fe5fe43639a58c857b2ff5561d57c4d93f2db61c2fd3370de1b5da64c05ee&scene=126&sessionid=1795127020#rd\",\"description\":\"再发首诗，和路人合个影。此后山高水长，不必再见。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwyd8tdWWOibLN3zqicTTDalvaFToyKCGJ6YzYLnO9BSctD7iaFrT7jxPwfPc4kiadia2hbibUS5T1Jc3qFNnvxPEoEibXzuhonxz4iakLxw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-10T06:41:36.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488765:1\",\"title\":\"人生实难，大道多歧。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488765&idx=1&sn=966c9b9f4274fbbb9a0b5fdb65855b70&chksm=cfa0b7af6338af307c74ace250ba16d4663620a20936e8b8b8b8d7b6fa1e8d0cda4a001afe22&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-05-31T15:24:35.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488761:1\",\"title\":\"柏桦诗集《一种相遇》选读\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488761&idx=1&sn=ae98bbd80d1f4c54d5b78175e8bcccc9&chksm=cfa50d38964b6b68a956e4e546652686c54e17b92a0be3f0350b9356d2898d0d8462717e6ffc&scene=126&sessionid=1795127020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwyfQTqic1NaF1LDZjYYJJKokQREnIzbUCww4m969Sr5cO7Vyw6HD3kEuuMOMXHrvicUMgYRBjp5bu6V15kUHSqx8k8LyJIibQic80gA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-20T16:05:00.000Z\"},{\"id\":\"wxmp:Mzg3MDQ4MzExMQ%3D%3D:2247488751:1\",\"title\":\"北岛：是的，昨天\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDQ4MzExMQ==&mid=2247488751&idx=1&sn=ed723eb3530ce5d1689c3d2d91436544&chksm=cfbf4ad990f0d5b817263d89d2d933cf765fc01f57ac50e4593dce8d68b087bc346899d69c5f&scene=126&sessionid=1795127020#rd\",\"description\":\"是的，昨天用手臂遮住了半边脸，也遮住了树林的慌乱。你慢慢地闭上眼睛：是的，昨天……用浆果涂抹着晚霞，也涂抹着自己的羞惭。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVzQBicxxOwyfEbhSUjFfR5gMf10LT7hsHc1abXlBkaYq2ict2yqQOftWSnjKzmTDSU76UftsKy0eichftB3bgyLRZvOYb5Gc5mxLtzrFowEbMY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-12T13:59:49.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 1799,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -93,64 +99,69 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 5
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 10005
+          "started_ms": 5,
+          "duration_ms": 1793
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10011,
+          "name": "输出读取与校验",
+          "started_ms": 1798,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1798,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10011,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 10011,
+          "started_ms": 1798,
           "duration_ms": 1
         },
         {
+          "name": "浏览器状态保存",
+          "started_ms": 1799,
+          "duration_ms": 0
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 1799,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 1787
         }
       ]
     }

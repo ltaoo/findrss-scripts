@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:49:53.103Z",
+  "checked_at": "2026-11-19T22:23:31.994Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_a9de976e7d55",
     "name": "路由器评测",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10016
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_a9de976e7d55.json",
+    "duration_ms": 983
   },
   "debug_request": {
-    "status": 504,
-    "duration_ms": 10021
+    "status": 200,
+    "duration_ms": 1422
   },
   "debug": {
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,19 +48,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10014,
+    "phase": "ok",
+    "elapsed_ms": 1416,
     "invoked": false,
-    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
-    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -69,25 +73,28 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 10002,
+        "started_ms": 9,
+        "duration_ms": 1404,
         "timings": {
-          "response_ms": 10002
+          "response_ms": 1215,
+          "body_read_ms": 188,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_a9de976e7d55\",\"title\":\"路由器评测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517865&idx=1&sn=98531f7824bf43510d904287dad09941&chksm=e805f82c8e0c4c1f06792fb5d13870574a7b738f4cd197f88c3ebd3ed0f366de5d833311844c&scene=126&sessionid=1795127014#rd\",\"description\":\"无线路由器评测、拆机、分享\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"路由器评测\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM61fkF6zwXRUCj6mDmPX0xVQLV4PdibG3LKUaREXe4s9Ng%2F0\",\"updated\":\"2026-11-19T17:02:23.000Z\",\"items\":[{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517865:1\",\"title\":\"10G 电口模块现在50多元就有了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517865&idx=1&sn=98531f7824bf43510d904287dad09941&chksm=e805f82c8e0c4c1f06792fb5d13870574a7b738f4cd197f88c3ebd3ed0f366de5d833311844c&scene=126&sessionid=1795127014#rd\",\"description\":\"才50多元的10G电口模块\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FxnF27dYgAfDn7IxO5aFauVYP4jyqxuCXhNTDuhEwfRk9ZcSqVP9icTbrrQyn17biaDfwelfTVA1WM7mW2be9lkrwguUgARomJqKBPZlN8UxqU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T17:02:23.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517857:1\",\"title\":\"有两个10G电口的交换机微联聚DS0420WS拆机\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517857&idx=1&sn=6ee41228ce82cfe50da0f410cff707a0&chksm=e8bf94751b98cba145698d3e1d734ee754913f8877fb935c2435bb4f93346da4dfe63be10bac&scene=126&sessionid=1795127014#rd\",\"description\":\"这是一款有四个2.5G和两个10G电口的2.5G交换机。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FxnF27dYgAfBV0b4os1J1zq3AJpaywLz38DDyRuXgt0VjPDBNyNGIJFvkwxia0eRVBkibjV1icTiczkq6ibMibfMiakmoPShSx91BAlXbb3IGmtyC8M%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T23:30:00.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517832:1\",\"title\":\"2.5G交换机拆机洪亚威视SGT2024S\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517832&idx=1&sn=a6a1ac2e2b2e0033751ffd27c956562a&chksm=e8e6f290dd8e78aa5f3b0c6a242abc6b41fca44d3142991ad17cf56c848389b50d70bf35716f&scene=126&sessionid=1795127014#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FxnF27dYgAfD00esAAfUatTcdbictcVfsKeZajg24vSzWV92Cvk8hDib6UVibxfYib7Yibr6K2ZRIoLltOibXc4Iu9ls7C8xfvI2m3dlOfgplI8EeQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T15:19:14.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517777:1\",\"title\":\"7DR7250 v2.0拆机，真的是它\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517777&idx=1&sn=b8b0f481110f6bdc18a342f44c686a62&chksm=e830142bb1cdeb9035f11796748234f0b694440329699dc4a7580b528d235471234373549b78&scene=126&sessionid=1795127014#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FxnF27dYgAfCumgVR9MkG3M9Dicricl3otzhr5K2v2yibI5qc0ubfATwakeicMzyh14M5kejRHicNPQ7DGibU9f9A0JYhNJZCLoibn6TzwGEExzuj0Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T14:57:04.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517777:2\",\"title\":\"腾达BE7200 Ultra的蛋疼机制影响了无线强度\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517777&idx=2&sn=edc281f903020e5b2b884ef04a1bc192&chksm=e864eb95835bcb30823f553eea2e071d44b12f69fdeaf263636068064b1820c912f797cb2f59&scene=126&sessionid=1795127014#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FxnF27dYgAfAsC53X3ZbHI12mkMdNWVM9AdwCIib79v6KwgcF0iceJjZvvKg5jbjKCtmZuh7KVfWEuSQLJCkDdicVpjcG993BgCVW9VCJkicDnlM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T14:57:04.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517727:1\",\"title\":\"腾达BE7200 Ultra 在K点的测速真是。。。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517727&idx=1&sn=3c2b8e0dfef4db733f8c26cccde0de97&chksm=e81b494b2e507aa4d505a2bb1d0fb2e627d47363e4fa5ecd989864c76e7273c1f556e7424d8e&scene=126&sessionid=1795127014#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FxnF27dYgAfAiatmqM3SxUVDD9B1SM8ZV1iaiaR26icoT6icdq7w1avMHpribOMJfpYhPxXibAW9sgS5TqAhCF0KY2p3XRZTx8fRndL29oibt9GxLWBI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T08:53:33.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517713:1\",\"title\":\"7DR6460拆机首拆，看看跟7DR6430有哪些不同\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517713&idx=1&sn=80eb2758f6251d0bdcf9d359ecc96191&chksm=e86750ae287c17dcc9af4923d6a734bcdd5cfa05a59e6a7f5b1215de457299846f53d4406944&scene=126&sessionid=1795127014#rd\",\"description\":\"7DR6460跟6430有什么区别？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FxnF27dYgAfAB64UW7jtf5GicNh5ObxeRp2n7lS7lVYj9Be5EA9raZyBL97ry9IUdFYhciboAlk4vxfY8FOYPX5EH40j6NMOKERZSpYeBu4cew%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T13:55:49.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517660:1\",\"title\":\"ZLT X300 GT拆机超强三频5G CPE\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517660&idx=1&sn=5128d510fd02573626d627c4a3fdb2df&chksm=e86c71278e17ba41639d70d8bfe6d08f05bb0a57c89ca76c21c813bb5c2202a53850f4979846&scene=126&sessionid=1795127014#rd\",\"description\":\"通则康威出了一款新的型号：ZLT X300 GT，之前已经拆过一台ZLT X300 MAX ，拆机看看哪里不同\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FxnF27dYgAfBrTsvTh2hphgKd2kEy81QLLFEA6RCtXW9QfQJZXZCWb05rmsWTa8UCPc53xTCQIIOibRgGXlgwCSo4Yg9kjgVz1RkDRGibAvdv4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T15:58:37.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517594:1\",\"title\":\"2026年下半年双11无线路由器选购攻略\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517594&idx=1&sn=a82149cb879cebd3bff3019f8b1870f4&chksm=e8cbd45700a7d2f9ba02b167f527a9f4607b26ad988e08f25c357adf3eb26d17b7346fb9ba29&scene=126&sessionid=1795127014#rd\",\"description\":\"今年的新款无线路由器比较少，与之前的相差不大。看看今年双11有哪些能有较大的降价优惠吧\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FxnF27dYgAfAeVDsjXp3Dzvvxt7ic4ewcZyicicoNlWvaUYYeov5xgoBAnlK2ssuXlIWSn817BkMpV6tia7ia7eg0t339QkzyO2oScD56hkXhiccB4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-31T14:53:32.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517560:1\",\"title\":\"实测7DR6460的四个2.5G网口是否有5G瓶颈\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517560&idx=1&sn=2ca7e9110626a7f3a5c5876d96b25193&chksm=e8fe07d9ec51262b2c75460fef3433ff1c81e28a96a5fffe7c63f7e242be0e0e29541bbd1adb&scene=126&sessionid=1795127014#rd\",\"description\":\"7DR6460的拆机还没那么快，先拆包装测一下四个2.5G口是否有5G瓶颈，我看大家都是最关心这个问题吧？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FxnF27dYgAfC8FArPDD4OuBPvwgJCWYIVbsLRiaX6n41Fo1whBibTMEd2VyiaWhvt0KqJ4M41NWCicJN5eG1yFzbia2kFXZibs8LYEmicJF6ktdyzEs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T09:57:14.000Z\"},{\"id\":\"wxmp:MzI0MDY0MzcwOQ%3D%3D:2247517537:1\",\"title\":\"TP新品7DR6460上市，四个2.5G产品又多了一员\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MDY0MzcwOQ==&mid=2247517537&idx=1&sn=2c88e9537cdd28f4811f943963acef8b&chksm=e8f8fa60905233bf9f79aa29577cae71f98d7c0e75597c6fe0d22259b984aeefc74efba5dbf1&scene=126&sessionid=1795127014#rd\",\"description\":\"外壳沿用7DR6430的，都是大道系列，同一款外壳，可以说是7DR6430的网口升级版，从一个2.5G网口，增\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FxnF27dYgAfDicujtl3icmAYeQEjje4fqlOh2osTdibAn4XTyOnicALtWYicjK9Fn8BPQwIvzFoKRuRXRe3tyO2zmTFU4ZdzoyGY11T1WhUfLIFFQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-25T15:55:36.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10014,
+      "elapsed_ms": 1416,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "Cookie 与浏览器状态读取",
@@ -112,44 +119,49 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 2
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 3,
-          "duration_ms": 5
+          "started_ms": 2,
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 10005
+          "started_ms": 6,
+          "duration_ms": 1410
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10013,
+          "name": "输出读取与校验",
+          "started_ms": 1416,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1416,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10013,
-          "duration_ms": 1
+          "started_ms": 1416,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10014,
+          "name": "浏览器状态保存",
+          "started_ms": 1416,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10014,
+          "started_ms": 1416,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 10003
+          "started_ms": 8,
+          "duration_ms": 1405
         }
       ]
     }

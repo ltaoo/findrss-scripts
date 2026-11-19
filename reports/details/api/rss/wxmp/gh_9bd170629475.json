@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:50:29.999Z",
+  "checked_at": "2026-11-19T22:23:40.003Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_9bd170629475",
     "name": "夕小瑶科技说",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10016
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_9bd170629475.json",
+    "duration_ms": 1739
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10018
+    "status": 200,
+    "duration_ms": 2026
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 2020,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 2009,
         "timings": {
-          "response_ms": 4726,
-          "body_read_ms": 5276
+          "response_ms": 1649,
+          "body_read_ms": 358,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_9bd170629475\",\"title\":\"夕小瑶科技说\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623565&idx=1&sn=30615c2bc21d1307c702fb700550da46&chksm=964bd094bccec3853f909c59d579702d6239ed7dca261e45f133174175f296a9b1ddf43bbb7b&scene=126&sessionid=1795127022#rd\",\"description\":\"低负担解码AI世界，硬核也可爱！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"夕小瑶科技说\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7mib7yjqnAgq5L1h8OWoUOcxl4bQglNqBttImia4Duyfpw%2F0\",\"updated\":\"2026-11-19T20:22:41.000Z\",\"items\":[{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623565:1\",\"title\":\"Anthropic正式敲钟上市！超越马斯克SpaceX，创史上最大 IPO\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623565&idx=1&sn=30615c2bc21d1307c702fb700550da46&chksm=964bd094bccec3853f909c59d579702d6239ed7dca261e45f133174175f296a9b1ddf43bbb7b&scene=126&sessionid=1795127022#rd\",\"description\":\"Anthropic 开盘暴涨 34%\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHNWXwFMJDwVwFicvSvrjibNS3L8vqL1pS4wGiaicicEAnsg7uL5PmjFFLKsTibSeE1n0XmkbGJO5YzEJb4OO7YAMXP98ic5x3ibKN2XxJk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T20:22:41.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623545:1\",\"title\":\"斯坦福Agent工程课开源：教你从零搭 Agent\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623545&idx=1&sn=d27c9653f0a6252229a5c1c5bb200e0f&chksm=96e7527cb7a9f4666ec6b3cba781f29fddb31ed9d06a0bce40d8efb922a0422320e431286cba&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHOv11ezzicY8J4KK69ibU8hsRkmByfJsm8rtyORUiaVX7jPlKnAbIrAjy8DibiaMdIeFPRGBTqhO3wu7DIJozMy4km1RDu3DrbFJCrY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T07:05:36.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623533:1\",\"title\":\"芯片版 RSI 来了？OpenAI 帮 AMD 改芯片\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623533&idx=1&sn=f86dd66e4fb624e6e888f5eee7662929&chksm=96dd9f9141a1f387884ca39ee399aadca7a7faef345170c3838d1f8cbc402b4e3ae020eb48d5&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHMrY6KeVu92bmo0kksy6V9bmT2gJcIcOLGTJZ1P87VIlwp9gCUMk5lXWGha2KN95rMQDzDQG4IjwR7xa0veUzBibQo1PGiaSEkV4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T00:54:57.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623508:1\",\"title\":\"DeepSeek 限额冲上热搜，网友喊话：收点钱吧\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623508&idx=1&sn=e607130aa1362d303db00f49ff67be5b&chksm=96c83a44b9d898af74c192244ba4939467f9935473925bce5a7a0361d7a8312ec452e24ff5e9&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHPPKogZib1qOBY78VyiaAwx1LbBRp3Wwz2U4yZXl5GFXJqMF3KYwZJFIAwyrQjuROUkRMriaaSTauwEiabbiaYoR5Ep3BVt8ic8lIoC0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:29:23.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623486:1\",\"title\":\"Anthropic 官方架构指南：如何构建 7×24 小时常驻 Agent\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623486&idx=1&sn=02e8225b6a07707d4dfa990f3971ee86&chksm=96f59137970a89da660ac6f25b0fa2f2295c9e027baa6c6232d1407b409c51af6103d3b27c4a&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHNj87qWd6ibYQvDXFfuH1qrvm9icibkLO4d0NAch6jKDFT1T9OU4XkUEibqqky8NfI7oAFgnwUFh1blsPibx9bLz1oORcH2tO4IZIl8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T06:51:15.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623485:1\",\"title\":\"GPT-6.2 Astra 和 Sol 正式发布，Astra 降价了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623485&idx=1&sn=a3f36a2369f9c0a490fa6f8013c6917f&chksm=961d4f413b481b52dceab0260cf84eeb3eae6517585a35f1261806506ab1f9f0b126c6223437&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHN2oHjqNF9V0Pibicyw2WGTG1OFzBdbsmtE8lZJdiaN7UXh24jUfkoMomAiaHAzjDV0ntiby48bqvSEu6zJOfze6ZmsdnlITtlibmicX0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:09:58.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623444:1\",\"title\":\"算力新规：海外租卡也要被限制了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623444&idx=1&sn=8da6dd5d473f682ec0c5ad60960be748&chksm=96429067f3b795fda8a050aa69bd426611e66db4ed069aada653bb527872da7de57e81fefd6b&scene=126&sessionid=1795127022#rd\",\"description\":\"英伟达风波未平，海外租卡也要被限制了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHPETCl6dwngko9O4GIqlp0yPeUicIg836xJUDG2nsv5KB3esKNeTRJH2iam7QUx334iaEBh7RPiae31sTPdw5oDrYaKNXje8nYomsw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T02:47:09.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623422:1\",\"title\":\"黄仁勋被曝考虑回归英伟达\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623422&idx=1&sn=2b7778d06cbdc1c59e2e866541cf81e1&chksm=969c73b6840ac243655250c32bece72627a29d994ae95cc179b34a4bf53b574bdbe7aa8430ce&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHMkxQLBrW2ZVIM0RnZfk9Kqmf8yzzicnEspN7YibfJpLxaJia6xz9Uoc1yiazAwzutEj64MRApOxq27BxKpxfT2U0YB2BwqJC0qQ84%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T00:11:45.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623408:1\",\"title\":\"Claude 被封号后我找到了新的办公搭子\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623408&idx=1&sn=bf12230c1cb55313544ac10f53314d8f&chksm=963b834dfb701668639c5944f0062645e5103c20df44e92b91fac0ff07029885ef43af1f2b3b&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHNSjh15oXF4u3plocOn9DA7cWjumr8AdUpAwo9sibrrokO9CaKVdJeZ8sH1kgt54fFY6dXkvJrpg7nGGgbhEQDZI3gRC43xE03s%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T12:01:17.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623369:1\",\"title\":\"Gemini 4 Hydrogen 发布，主打一个快\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623369&idx=1&sn=9631224d74f5a61041a4675e0ca5ef41&chksm=96c38b09e1e6f6521c0bf7bff52bb63e00652b83d829abb6e9ea3a37731135c20840983bd091&scene=126&sessionid=1795127022#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHM3Ks5iciccwlO5G5YQiadQRWO9AeYO1ibrW2G1dZBxjmia4gRAZ9eiblGP08R00IiaVlARlD2sSz4Xl5S5XWiclrBFQdGcooofN8HwbJA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T03:13:42.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 2020,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -118,39 +124,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 5
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 10005
+          "started_ms": 5,
+          "duration_ms": 2014
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10011,
+          "name": "输出读取与校验",
+          "started_ms": 2019,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2019,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10011,
+          "started_ms": 2019,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 2020,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 2020,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 2009
         }
       ]
     }

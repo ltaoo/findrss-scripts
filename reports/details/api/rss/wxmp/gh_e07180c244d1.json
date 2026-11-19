@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:50:11.680Z",
+  "checked_at": "2026-11-19T22:23:36.793Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_e07180c244d1",
     "name": "我爱计算机视觉",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10017
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_e07180c244d1.json",
+    "duration_ms": 3377
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10018
+    "status": 200,
+    "duration_ms": 4316
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 4311,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":14,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -70,15 +74,17 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 10002,
+        "duration_ms": 4297,
         "timings": {
-          "response_ms": 2517,
-          "body_read_ms": 7485
+          "response_ms": 2007,
+          "body_read_ms": 2289,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_e07180c244d1\",\"title\":\"我爱计算机视觉\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667691&idx=1&sn=7188615ec981eedc5dc225bde2118ffb&chksm=97e029750593822a4155f57c5843907d41de9676dcb1f29a02b486886fc8f5c8fcef8cfe7680&scene=126&sessionid=1795127019#rd\",\"description\":\"探寻CV新知，发现AI价值\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"我爱计算机视觉\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6aYkwkiboia6lA9D7ANy49WBe9icxn5NQqJjvn4Pyntzvfw%2F0\",\"updated\":\"2026-11-19T13:27:27.000Z\",\"items\":[{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667691:1\",\"title\":\"狂烧300亿Token、从零手搓108款3D大作！上海创智学院推出首个超长程3D游戏Agent竞技场来了：代码跑通≠好玩，人类盲测胜率差出2.6倍\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667691&idx=1&sn=7188615ec981eedc5dc225bde2118ffb&chksm=97e029750593822a4155f57c5843907d41de9676dcb1f29a02b486886fc8f5c8fcef8cfe7680&scene=126&sessionid=1795127019#rd\",\"description\":\"狂烧300亿Token手搓108款3D游戏！代码跑通≠好玩，真人盲测胜率差出2.6倍\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGWibznhdHGicqNLWKltgoWTcd6BxRib9RiazmJ1rOj8mP3MfJgr0Mkjib4ISqcnqxJ4dI1hQaibdhPzMTnxV3eUSumJniaLjy1Ze8rsymk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T13:27:27.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667674:1\",\"title\":\"TPAMI｜南方科大等提出DepthGS：首度推导深度误差理论上界，高斯表面重建与新视角合成双突破\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667674&idx=1&sn=0b3bc2f0952d63ce9918320eb75ed927&chksm=97829ebe3c43906dc2eecfdd044f30b222632f65aaede719e190bc833ace60fdf185227c5148&scene=126&sessionid=1795127019#rd\",\"description\":\"误差上界破局高斯表面重建\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGWibcu3m23ex5sXO7ZmGIUXYCXTUkyTR15PH53CbicY762A4dpfs0gJBlo9Xicgic1Uib5px2uBqxiasjr5nWiaJIkhwWchBr4GpXqcSOU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T15:42:34.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667654:1\",\"title\":\"直接在像素上生成！PixVid将预训练Latent视\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667654&idx=1&sn=fdbb240aaa24e83d332ba68c591cd1ca&chksm=970eaeb98b7180cc7965e066664216c56a851baa0d689230621828b09c7facf164640cc84645&scene=126&sessionid=1795127019#rd\",\"description\":\"主流视频模型一直靠压缩画面省算力，现在这套玩法碰上高清和实时交互，开始露底了。\\n\\n分辨率一高，计算量暴涨；多帧压成一个特征，高速运动就容易变形；做交互还得攒够一组指令才动，延迟根本降不下来。\\n\\nRoblox 牵头的 PixVid 换了个思路：把现成模型直接拉回逐像素生成。它不用从头学，只改输入输出、重训一小块，64 张 B200 跑四千小时就收敛了。\\n\\n效果挺直观。画质追平甚至反超原模型；升到 960p，算力只涨 17%；高速运动编辑保留率冲到 98%，背景轮廓严丝合缝。交互延迟从近半秒压到 34 毫秒，按键下一帧就有反应，比原来快了 14 倍。\\n\\n代码还没开源，但路已经亮出来了——预训练模型能当先验用，没必要死守 VAE 那套压缩。\",\"content\":\"<p>主流视频模型一直靠压缩画面省算力，现在这套玩法碰上高清和实时交互，开始露底了。<br /><br />分辨率一高，计算量暴涨；多帧压成一个特征，高速运动就容易变形；做交互还得攒够一组指令才动，延迟根本降不下来。<br /><br />Roblox 牵头的 PixVid 换了个思路：把现成模型直接拉回逐像素生成。它不用从头学，只改输入输出、重训一小块，64 张 B200 跑四千小时就收敛了。<br /><br />效果挺直观。画质追平甚至反超原模型；升到 960p，算力只涨 17%；高速运动编辑保留率冲到 98%，背景轮廓严丝合缝。交互延迟从近半秒压到 34 毫秒，按键下一帧就有反应，比原来快了 14 倍。<br /><br />代码还没开源，但路已经亮出来了——预训练模型能当先验用，没必要死守 VAE 那套压缩。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGW8t6ibr5JG56yUn9GaJibKR5UUic4d5n5tsyeak97gNhYZV3LTY1HGickd6nmjXerePt51BkM9mOW8niaUhTMnjtVyJ0ORjmGMich3jQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGW8YpRIlxicag5micoJ8IA1icxJoGiaD1OibeVKibrcP4W8g6nQDTic4pt4mXYOPkpswcFDV27fZVkiaKDG5L8zYcYAoIWIuUbrbyRYAraU%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW8l6Nd3HrhBTIib7BCibQ2DAN46Mr4icgBKoS9XSfNSjMibUoGia8QsaLbgFFjlgEMrH9iaxIlUGvKTMcmORuiakrIia0xadjytsHWIMZ8%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGWibEMSoT6cHuic6hKS8gicrakrRlPK3sjicqLkG0ibM7pFU81GktsnkVdPNZfKp49raXRP9a8Sg145uib6nefCec02vd3np3C4zYfib6U%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGWibpOp5Qg0jKbkzib0B701GWGlV6mC1HStnsNRibFicKYuOPB3j534dUuKYUtfhQ90LR52lJ4a074ibeicT0S1Y3DXziaORKrbGPAgSdw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW9Yia0bKVKeDLSXQVYRIic2AA6o2y4XVtBqjMHibzpvVAekSKD1hG9QwPIce9143h7n4OKibV2w8hriadFXSxa18LAyxCFudPIl2PzI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGW9zGIQTzgrlqu32HWZszH6UuKG6icU6BKHibnVKsPiay6GvoyoUibVEb30o971uRyVYaI36oUWfCgt5mOh4fOic0eUOwuvyxQDe8ZEc%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGWibr5CINMcicA13w6ibv9TXO5CuT59NVSRGhF8vscGcgnLU1Hicgoxe22pJSBia81QbX5Zlq6BjWR58498ZU5XE2x2VNLyuO5CaS63U%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGWib1QdXElxqfnrMyB8vHModKnPRwarOcOMp4Dw4louAaWlT1tPc8X8WmwI7cnIcmNkkG5mYvbU7mSSywJNiaTdbfibaDJiaC9jzcmY%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW8mNMn1o1eFEf8hwj4t5boibaoLbZ8BBh0P5Bnfia1GZM2y2MbXUlyBcYEvavpF9PyDj2yiahTXGMrRibneo8gXJWI0yAUiaCmjgxNM%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW8CKwaaJyxBuBDclzQz0m8pE5G86MhRNgzOnxBWWykymX4cjDxIST3A9HgVicoPofRNYWDjKZhD0o755JEBBx4eT0yL5tNwrt1U%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGW9gXxzMHe7CYENlONrYJX4vy57B8LkxwfzZXKsP3GlAcXs2ABkE17YicStjOfPfu1KRcSzpQ4BBesMbuhEdWXiavMEu8SibIPoz0k%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGW8t6ibr5JG56yUn9GaJibKR5UUic4d5n5tsyeak97gNhYZV3LTY1HGickd6nmjXerePt51BkM9mOW8niaUhTMnjtVyJ0ORjmGMich3jQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGW8t6ibr5JG56yUn9GaJibKR5UUic4d5n5tsyeak97gNhYZV3LTY1HGickd6nmjXerePt51BkM9mOW8niaUhTMnjtVyJ0ORjmGMich3jQ%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGW8YpRIlxicag5micoJ8IA1icxJoGiaD1OibeVKibrcP4W8g6nQDTic4pt4mXYOPkpswcFDV27fZVkiaKDG5L8zYcYAoIWIuUbrbyRYAraU%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW8l6Nd3HrhBTIib7BCibQ2DAN46Mr4icgBKoS9XSfNSjMibUoGia8QsaLbgFFjlgEMrH9iaxIlUGvKTMcmORuiakrIia0xadjytsHWIMZ8%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGWibEMSoT6cHuic6hKS8gicrakrRlPK3sjicqLkG0ibM7pFU81GktsnkVdPNZfKp49raXRP9a8Sg145uib6nefCec02vd3np3C4zYfib6U%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGWibpOp5Qg0jKbkzib0B701GWGlV6mC1HStnsNRibFicKYuOPB3j534dUuKYUtfhQ90LR52lJ4a074ibeicT0S1Y3DXziaORKrbGPAgSdw%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW9Yia0bKVKeDLSXQVYRIic2AA6o2y4XVtBqjMHibzpvVAekSKD1hG9QwPIce9143h7n4OKibV2w8hriadFXSxa18LAyxCFudPIl2PzI%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGW9zGIQTzgrlqu32HWZszH6UuKG6icU6BKHibnVKsPiay6GvoyoUibVEb30o971uRyVYaI36oUWfCgt5mOh4fOic0eUOwuvyxQDe8ZEc%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGWibr5CINMcicA13w6ibv9TXO5CuT59NVSRGhF8vscGcgnLU1Hicgoxe22pJSBia81QbX5Zlq6BjWR58498ZU5XE2x2VNLyuO5CaS63U%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGWib1QdXElxqfnrMyB8vHModKnPRwarOcOMp4Dw4louAaWlT1tPc8X8WmwI7cnIcmNkkG5mYvbU7mSSywJNiaTdbfibaDJiaC9jzcmY%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW8mNMn1o1eFEf8hwj4t5boibaoLbZ8BBh0P5Bnfia1GZM2y2MbXUlyBcYEvavpF9PyDj2yiahTXGMrRibneo8gXJWI0yAUiaCmjgxNM%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FP9MWBRYIGW8CKwaaJyxBuBDclzQz0m8pE5G86MhRNgzOnxBWWykymX4cjDxIST3A9HgVicoPofRNYWDjKZhD0o755JEBBx4eT0yL5tNwrt1U%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FP9MWBRYIGW9gXxzMHe7CYENlONrYJX4vy57B8LkxwfzZXKsP3GlAcXs2ABkE17YicStjOfPfu1KRcSzpQ4BBesMbuhEdWXiavMEu8SibIPoz0k%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-18T00:42:10.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247665394:1\",\"title\":\"寻找 AI trustworthy alignment for media\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247665394&idx=1&sn=b085c2f570719e9cff3656c513a8e527&chksm=97c5d43caed529d42f517d7b5bcf6a14b43c113ee5b5fc5c48f76c388e37379b964eba896be0&scene=126&sessionid=1795127019#rd\",\"description\":\"导师团队：前爱丁堡图灵所和东大博士后，全球第三UK第一animation机构的博士。\\n\\n目前英国教职，团队共有几十篇 AAAI，CVPR，ECCV，ACMM，IJCAI等记录。各大顶会审稿人。CVPR outstanding reviewer ( 5.7% )，带学生拿过 UK VibeHack 第三名。\\n\\n目标会议：\\n[ ICLR / NeurIPS / ICML / CVPR 等 ]\\n\\n团队只投顶会感兴趣的方向：Creative Art/Animation/Media角度的 AI trustworthy，explainablity，alignment，Agentic相关的问题方向好找工作，好玩有趣，追求 paper impact 大。\\n\\n导师团队非常nice，鼓励型，一起打江山！\\n\\n<a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-fu6lg0\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#CVPR</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-vzqs42\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#AI科研</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-ro9khk\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#科研实习</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-hoik2p\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#AAAI</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-mngjz5\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#ECCV</a> <a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-g7d4ay\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#ICCV</a><a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-rwtpbs\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#ICLR</a><a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-7p7mfl\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#ICML</a><a class=\\\"wx_topic_link\\\" topic-id=\\\"mu3g2m10-4yo726\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"\\\">#人工智能</a>\\n\\n署名方式：给学生一作或者共一，按具体情况调整希望你：\\n①英文和 vibe coding 输出能力强，速度快\\n②加分项，顶会投稿经验，奖项，自己有想法\\n③不失踪、不拖延，能坚持，好沟通\\n\\n感兴趣的CV可以发到buliyanran@gmail.com\",\"content\":\"<p>导师团队：前爱丁堡图灵所和东大博士后，全球第三UK第一animation机构的博士。<br /><br />目前英国教职，团队共有几十篇 AAAI，CVPR，ECCV，ACMM，IJCAI等记录。各大顶会审稿人。CVPR outstanding reviewer ( 5.7% )，带学生拿过 UK VibeHack 第三名。<br /><br />目标会议：<br />[ ICLR / NeurIPS / ICML / CVPR 等 ]<br /><br />团队只投顶会感兴趣的方向：Creative Art/Animation/Media角度的 AI trustworthy，explainablity，alignment，Agentic相关的问题方向好找工作，好玩有趣，追求 paper impact 大。<br /><br />导师团队非常nice，鼓励型，一起打江山！<br /><br /><a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#CVPR</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#AI科研</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#科研实习</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#AAAI</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#ECCV</a> <a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#ICCV</a><a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#ICLR</a><a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#ICML</a><a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#人工智能</a><br /><br />署名方式：给学生一作或者共一，按具体情况调整希望你：<br />①英文和 vibe coding 输出能力强，速度快<br />②加分项，顶会投稿经验，奖项，自己有想法<br />③不失踪、不拖延，能坚持，好沟通<br /><br />感兴趣的CV可以发到buliyanran@gmail.com</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGWicNkAsJMsxJrVA2ib75WUCicZOgLwTIVVRhcB06dYibvjE4rcIFDfhMFXCbia7G6kRAdDX3A1Wiby5uT2qeS3GGxUWXScwiaYnoYZjds%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGWicnNVGiaKUlEiax5cmgyGaCqGNYbhl31kggDtkrVicMHgTszu1a0GPiaYwnX5VzKfPXMvtlHIN9NIYCibPLfczmecxLmTes5p0dGiaBs%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGWibjtYaNl6aEUtCaKc9yH3fAWQTaibwV8RFXQK1ZuDwPxWlej2a7KeG8ZvAZnmFa0DjjRqLhnE78fbbk8icJRVuB4M75picbXJZ8g4%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGW8Xy10rs25pxsN5CcYHu0icZ1LcrkMlICEENczZy3aglHA3VjTRjhKnufm39Er2ZXRb6IWZbOazpPGqFeJHriaYafJpR9lK7daVo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGWicNkAsJMsxJrVA2ib75WUCicZOgLwTIVVRhcB06dYibvjE4rcIFDfhMFXCbia7G6kRAdDX3A1Wiby5uT2qeS3GGxUWXScwiaYnoYZjds%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGWicnNVGiaKUlEiax5cmgyGaCqGNYbhl31kggDtkrVicMHgTszu1a0GPiaYwnX5VzKfPXMvtlHIN9NIYCibPLfczmecxLmTes5p0dGiaBs%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGWibjtYaNl6aEUtCaKc9yH3fAWQTaibwV8RFXQK1ZuDwPxWlej2a7KeG8ZvAZnmFa0DjjRqLhnE78fbbk8icJRVuB4M75picbXJZ8g4%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-18T00:42:10.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667647:1\",\"title\":\"直接在像素上生成！PixVid将预训练Latent视频模型升维至像素空间，高速运动对齐度达98%，端到端延迟降低14倍\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667647&idx=1&sn=90ffa5d2e73e94d1c7e86657493ce985&chksm=97cc4c5737d330195611c8e16e9fd00243005969c653578e882fac301e620f31baa2b68a0459&scene=126&sessionid=1795127019#rd\",\"description\":\"重返像素，极速交互\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGWibxqXhD1PQ4xibXM2y4EPtYYibxc6UZdhhT4PTEq8sPcKKrQy2dup8UvNiamImBibSWy2szYvYwcqXlGCN2rnOxCMyEKOefdIbic2o0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:34:10.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667604:1\",\"title\":\"ECCV 2026 中科院&腾讯等提出StrucTab：专业表格解析1B小模型\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667604&idx=1&sn=e9f55381d9e22d8843450b767adba1d2&chksm=97743399f02b8407ae7651f91708cc0ece020ea83bb770eacac604b9e183e41f079df46f6c48&scene=126&sessionid=1795127019#rd\",\"description\":\"认知推理与解耦RL破局表格解析\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGWicNUxk0PYMzIq3wicJ2PLDTE3p6fXLzrhHWib58WKtLMicMSqQY3GclD9q6Dbp63F2qHnOR3MvkDTHvF5rcHFOMmuDbuRuMeva2mM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T15:13:39.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667604:2\",\"title\":\"厦大等推出RoTA-Bench：交互式3D投影对齐基准，VLM距离人类还差得远\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667604&idx=2&sn=8ba2026558e6ad2f5e55578fe6fe8798&chksm=979cbe40ba51d008e4cdb884e04ae6c4a862e38aacc6ec1573ce67a9058ae52c1d9cc26c0e00&scene=126&sessionid=1795127019#rd\",\"description\":\"GPT-5.6-Sol成功率仅17%，人类达100%\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGWibqIx1TB6HOiahW8j7uDofbm0c5qBelJ9U1Iqz8P1nJVWbKL23RKIbTRQLsmPmytJzhlwSQvFSqy9bib0Hq68lURX9tt5p2XOcnE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T15:13:39.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667569:1\",\"title\":\"TPAMI 2026 华科&清华等发布强化学习扩散模型全景综述：从语言、多模态到具身与科学计算\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667569&idx=1&sn=68d7ac3d167cf14221476df1b7214b1b&chksm=978d8f9ab3fd284d799dad7aac12f1ac38240c375c24e7ff0750a054ce0bc24e38b3636af624&scene=126&sessionid=1795127019#rd\",\"description\":\"扩散模型的强化进阶之道。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGWibDY9JKiabcZLm9HlY03QG9q0VVVElBNTQmtLdxaIK62ylCJ8Usf0zM4yMBbiaqDwcyib7wn9z5WjHc2kHW3OmxtrlwKvhIosbcZE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T15:24:43.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667539:1\",\"title\":\"NeurIPS 2026 Oral | MIT等提出ELD：从能量分布破解合成数据预训练质量预测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667539&idx=1&sn=146ed908b652897f6b2e1c86a4539f16&chksm=975f4fdb1e38160c9bfb39569219f706f51991da334ca78c6f80344fa06781a85bad1dd1862b&scene=126&sessionid=1795127019#rd\",\"description\":\"能量直方图重塑预训练数据\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FP9MWBRYIGW81T0wYw0jMfPRcXjpXXDBahsrXbTh0w9Iq6ASC7f819js8GlCR9AicowM5d48ic9cH1ibUNXjBF7ub92cibJMOQqbZ0pzwWEUThNk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T15:59:30.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667247:1\",\"title\":\"英国萨里大学等提出NitroFusion2：首次将对抗判别引入MMDiT文本流，刷新1步极速图像生成纪录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667247&idx=1&sn=3e0182bb6bee22cfc3a8849821ba9ee2&chksm=97ef95c9ee591e8f3d5dd2095493a2d7b8e9660ae1e1d79f33144e22aba7e08cd107a01118f5&scene=126&sessionid=1795127019#rd\",\"description\":\"多模态文本流判别新范式\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGW9kFl38ibxiadL5GZib5UgkFYIibt7Ru2zYTYR2GFXIa3MRKqTVphdKdj5zbx1o6ovsWKgs3V5ic5OEZjlmAyDIibvNIpTI0iargqqynI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T15:56:27.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667164:1\",\"title\":\"南洋理工新研究全面实测371张顶会配图：生成式AI绘图存在明确清晰度与美学冲突\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667164&idx=1&sn=183edc26d34297b7c84cc0688c243620&chksm=972bdf239f4a3b71e8509a2c417ef11c9aea891af577702cba851f8f7d4dc0a02f7acd7ca19d&scene=126&sessionid=1795127019#rd\",\"description\":\"绘图利器亦是双刃剑。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGW8xcUCPjDlwiblXmVVd5JOBRCkwLOcEVFPHp2Fa2p6iceRb08t1YdyDag0GuVSVciaNKWBOxnkUCy0MFlaHqyX4p2S1hZOg6p218U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T15:55:26.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667151:1\",\"title\":\"ACM MM 2026 Oral | 北航等提出CamoDreamer：要融入，先解耦：通过上下文解耦同化渲染重新思考伪装图像生成\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667151&idx=1&sn=c54221464fa11b5bc80a34827198d022&chksm=97b125cdf40253c8498d8b9877859b8dfe3b56b1f4641a398a341a86d6c92c81e92ab5aa0ec7&scene=126&sessionid=1795127019#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGWibKSMPKhHxHGz2CNZcicAkXzFCyT8icLf3SB3zFDYqficMCBbvB4unel9nQspbuYKkpyhTYD5s8ibaT5QjLWwnMMBpIxg68ibicx4iaM0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T15:46:38.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667133:1\",\"title\":\"TCSVT 2026 西工大提出DSAFormer：空间与通道双稀疏机制，破解多光谱目标检测的注意力弥散难题\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667133&idx=1&sn=fb3aeeb400d0b9c999fff700c002072d&chksm=97223e0b4396df237ff39f99bba5749b0a18a79d03e0882308c5742ab19aabee31ad0b1929bf&scene=126&sessionid=1795127019#rd\",\"description\":\"双稀疏去噪，全天候感知\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGW9CluEIzOPbZZs7J23tP7pOOACFaSFeB9MdAVmDWLeKxQLHvo1ukQsLtu1ibiasdIibRT3omfTrpRnVx0odZyBN6etYbh2ZKun76c%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T14:46:36.000Z\"},{\"id\":\"wxmp:MzIwMTE1NjQxMQ%3D%3D:2247667133:2\",\"title\":\"ICASSP 2027 HEARTBEAT Challenge 参赛招募\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247667133&idx=2&sn=da81f8a1f8a402b1aa8dd98fc13c67c4&chksm=9720e394eaa1b31ab64bafe480c92173f55b061ab13510879e08547697e0617d5dbab99dbc92&scene=126&sessionid=1795127019#rd\",\"description\":\"提交截止：12 月 23 日\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FP9MWBRYIGW8ZiaatHrtEobvfaKbavH0sFkjtUSPOEDcykFPVZwU32QFPb0CvkafbXI7YK5juyhHaEzuWzCAq2SX1CkOJTHxB7zXjlAdHx4L4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T14:46:36.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 4311,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -118,31 +124,36 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10004
+          "started_ms": 6,
+          "duration_ms": 4304
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10011,
+          "name": "输出读取与校验",
+          "started_ms": 4310,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 4310,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10011,
+          "started_ms": 4310,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 4311,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 4311,
           "duration_ms": 0
         }
       ],
@@ -150,7 +161,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 10002
+          "duration_ms": 4297
         }
       ]
     }

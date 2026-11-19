@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:43:27.852Z",
+  "checked_at": "2026-11-19T22:22:00.824Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_bc3e14c19215",
     "name": "RedTeaming",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10024
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_bc3e14c19215.json",
+    "duration_ms": 1219
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10025
+    "status": 200,
+    "duration_ms": 789
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10015,
+    "phase": "ok",
+    "elapsed_ms": 785,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,88 +73,95 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 774,
         "timings": {
-          "response_ms": 1105,
-          "body_read_ms": 8897
+          "response_ms": 773,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_bc3e14c19215\",\"title\":\"RedTeaming\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484728&idx=1&sn=cf08152ad2e10da931a363e488f203fd&chksm=f8594be06f8af515daaa601d85229ca0d3af0f846648fa507afcf151acc652a4dfdece048190&scene=126&sessionid=1795126923#rd\",\"description\":\"Know it,Then hacking it!\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"RedTeaming\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6PpDILYvNxIg6pDhBHicmM161uZBzFvVWEfXtWvOgtUNA%2F0\",\"updated\":\"2026-08-15T13:21:01.000Z\",\"items\":[{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484728:1\",\"title\":\"从 OpenAI 智能体入侵 Hugging Face 事件，看 Agent 安全边界的工程化设计\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484728&idx=1&sn=cf08152ad2e10da931a363e488f203fd&chksm=f8594be06f8af515daaa601d85229ca0d3af0f846648fa507afcf151acc652a4dfdece048190&scene=126&sessionid=1795126923#rd\",\"description\":\"本文结合 XBOW 的安全架构，分析任务范围锁定、统一网络出口、独立动作审查、人工审批、异常暂停与结构化审计的设计逻辑，并提出一套与具体执行方式无关的控制链路，使 Agent 在规划偏离、路径越界或外部依赖失效时，能够被及时阻断、可靠恢复和完整追溯。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtYOJfk5kJ64Ff1lBgnd8plYkh8e8DdD0OUtUImp6UicEfEfNLbByT3HvibFSYqRic2PvibxISPJSEIjxnUB3xLSK54AQLwNctyR9YB1rcWgml6M%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-15T13:21:01.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484722:1\",\"title\":\"快速打造可手机控制的私有 C***X 助手\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484722&idx=1&sn=6739628ef085005b274c75a24691d92d&chksm=f84f0fa8d55acf96e7fbf18f841c70ecf8fb00665cadb0c4c401862c4e4d6aa1f7aaed0769ab&scene=126&sessionid=1795126923#rd\",\"description\":\"不用云端也能同步！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FtYOJfk5kJ67kibPj1rssXLe0rCHSZVXwBuBeMODzgtYDAbyRsrRhjQWiayIToCiaicxx8Dicm47fiaAkTsGuRhahJB9cvBa9rlZuFnzcCMYz1Ieq4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-04T13:41:47.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484686:1\",\"title\":\"Self-Evolving Kill Chain：Agent自适应进化与实战\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484686&idx=1&sn=941ebf62a4bd44ca197dd4d5dc9778aa&chksm=f85233e31c3293108c26032c9bd961d415b07f3dae0b390d382608a44d486f708710f042e0b5&scene=126&sessionid=1795126923#rd\",\"description\":\"这是我关于 Agent 自适应进化与实战的一些探索与经验沉淀\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtYOJfk5kJ66fcaCZOPbvwKBial1YO20D1bYuiaWPrdBKYydJZsl8OTwiapgvhLoKt2jobgksOsGMibEzj1eBjM9oGbaLj0H0LH9hBSwRSZ3qyE8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-25T14:41:48.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484636:1\",\"title\":\"价值25,000$的UniFi OS前台RCE发现之旅\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484636&idx=1&sn=916cae948132e44a511694e0869e6629&chksm=f8da807603c11413fddda9256af2f419df1a768421d00f4fbb1d3f510459d6de873f2327076a&scene=126&sessionid=1795126923#rd\",\"description\":\"～～～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FD8s0oRfyswmDguToBiahcU7GVUgbxjKWXOtD8mXCjCDVYgFZia3EuiauwvbH9eMROYzNwynrdwtbNLWibSFDtsAe4w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-04T09:13:03.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484592:1\",\"title\":\"自动化资产测绘时代：这款工具的指纹识别到底强在哪？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484592&idx=1&sn=838b38f63482b42c358a67360f30db88&chksm=f8f0ab74d3e1608463d1349d9074d12e69a1b3768e94069e4fd24b86bf316d2cd1b0e22f441d&scene=126&sessionid=1795126923#rd\",\"description\":\"支持nuclei dsl和fingerprinthub的httpx\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FD8s0oRfyswkcU53m8jo6RGLnoibNOwwbpCF6xWdOb6DchBwBuqL7G87GR1icY2vT03oNk0FcHUdfmofGPx9R3dVw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-09T08:08:21.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484587:1\",\"title\":\"浏览器指纹的恶意窃取与利用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484587&idx=1&sn=6d1d5282876dd30e9ae780af173f0a77&chksm=f8d3a9d64d44740147639a39e22f235edd32b2190028ee6766ee1118f7f78e43388a87649ba5&scene=126&sessionid=1795126923#rd\",\"description\":\"本文主要介绍了网络欺诈者利用浏览器指纹识别进行恶意活动的情况，包括收集方法、影响以及相关工具和技术。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FD8s0oRfyswknfvYfjqcQTuf4gV0ZoLbwXvwwWYqugiaRnxSLaib59Y7CYlFKicpn0j5QZh3u0jwQs1iaM4v8d0ZxUw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-21T09:40:57.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484539:1\",\"title\":\"DeepSeek本地化部署有风险！快来看看你中招了吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484539&idx=1&sn=c5cc53bffbffe04cba5470b3f0628d31&chksm=f8acf5225984911ce3486297e2d415c4cb8d0e8e5ceeab058326ef786a322ebae1a29cd915c6&scene=126&sessionid=1795126923#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJMH1pEQ7qP5zBOhplgtLPSeLtib6pe2JMLXkicBTEoMnRojhDBE8MXHjib7Cv1UOdQtkDic0oh2tkkNc5GU3VjibnNA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-17T08:46:29.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484537:1\",\"title\":\"我花费了400$完成了对大量组织的供应链攻击\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484537&idx=1&sn=17fc2d84a99be09f4192fc1e9e816921&chksm=f8207991c23b7bdb3be5ea0dd88b4d63ba5374741cf10a0019c5be015fdffbccaa247a30dcf0&scene=126&sessionid=1795126923#rd\",\"description\":\"研究团队通过技术手段接管废弃S3存储桶后，两个月内记录到来自重要机构的800万次请求，揭示攻击者可借此植入恶意代码渗透请求方网络系统。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FD8s0oRfyswlu6dsxC772mkv11S9nuMBBF6gnY5ia68GUia4DtI24WacApIdgtHmOppr2Qic0AiaxUAbeVrmmZoic3OA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-05T10:31:00.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484477:1\",\"title\":\"基于easytier快速组网\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484477&idx=1&sn=1e593d9fbf6897b314169342dc063892&chksm=f8521235581ddd4864ccc45fe9adc1dbaae462cb31b8770dabb501e271b2878cd0fc9f8d157b&scene=126&sessionid=1795126923#rd\",\"description\":\"easytier\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FD8s0oRfyswnhqNo8shwQ256ojsbDOFJcQfDNYPY3GMFtFZLDylvrfj4xhE9dpWBp51r6Vkwia4vgbAqvzYBjiaBQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-05T16:46:33.000Z\"},{\"id\":\"wxmp:MzUyMDgzMDMyMg%3D%3D:2247484471:1\",\"title\":\"WireGuard:兄弟,常回家看看\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDgzMDMyMg==&mid=2247484471&idx=1&sn=bc0b0871744ea13073705d0517ba576e&chksm=f8ff1f4feab06d5a07991077b9d03ee2306555adb74fede210be531c8ca380ebf6ba1a7b9d63&scene=126&sessionid=1795126923#rd\",\"description\":\"出门在外，快捷回家。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FD8s0oRfyswmpd7Nicic1T2J8F2gHxHHDoHduxTxHYAyYpzduZicZPpHTf8OVT5MlysibXWZqg4ick2URmjRS5ntnSfw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-10-09T13:46:59.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10015,
+      "elapsed_ms": 785,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 6
+          "started_ms": 1,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 10006
+          "started_ms": 6,
+          "duration_ms": 778
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10014,
+          "name": "输出读取与校验",
+          "started_ms": 784,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 784,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10014,
+          "started_ms": 784,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10014,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 784,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10015,
-          "duration_ms": 0
+          "started_ms": 784,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 774
         }
       ]
     }

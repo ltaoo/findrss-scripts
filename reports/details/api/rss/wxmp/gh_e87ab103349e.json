@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:45:46.077Z",
+  "checked_at": "2026-11-19T22:22:33.663Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_e87ab103349e",
     "name": "情报分析师",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10030
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_e87ab103349e.json",
+    "duration_ms": 1967
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10020
+    "status": 200,
+    "duration_ms": 1360
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10013,
+    "phase": "ok",
+    "elapsed_ms": 1357,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 1345,
         "timings": {
-          "response_ms": 2196,
-          "body_read_ms": 7806
+          "response_ms": 807,
+          "body_read_ms": 537,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_e87ab103349e\",\"title\":\"情报分析师\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570176&idx=1&sn=95e102aab219d6c1c7a7e347166b396c&chksm=86705a7ad0dcec63ffa86963703879a7489ff38ce684d7738177c643b9dfad7c1ceabe2916a9&scene=126&sessionid=1795126956#rd\",\"description\":\"聚焦情报与安全，培养专业人才。从信息发现，到决策支持，为您在竞争中保持领先。\\n联系+V❤️：osint 111\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"情报分析师\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6xOKNurrXq21WmvGS0YBYhnJ1ZhzF3qeFfTVRic3Pfqfw%2F0\",\"updated\":\"2026-11-18T04:53:06.000Z\",\"items\":[{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570176:1\",\"title\":\"情报帝国也会断网！美国国家安全局机密网络出现故障\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570176&idx=1&sn=95e102aab219d6c1c7a7e347166b396c&chksm=86705a7ad0dcec63ffa86963703879a7489ff38ce684d7738177c643b9dfad7c1ceabe2916a9&scene=126&sessionid=1795126956#rd\",\"description\":\"当地时间2026年11月17日，美国发生了一件颇有黑色幽默意味的事情。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjZxbVERaTkK0icMeCqic0UQy0ibEJF9vHwEDwibdiaMZkPibUrM3HLkHjZl4oQmaicCTb41exzL9Z7JGahPib86UTwY2ia8tgYKic0kQsMkEvwF4cPhZQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T04:53:06.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570160:1\",\"title\":\"摩萨德之外的暗门——以色列那些鲜为人知的情报机构，究竟隐藏着多少秘密？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570160&idx=1&sn=368d2198ab287b8674c8e85296bd48be&chksm=86b204b3790f82cd47874fad72e3f32fd614e053d83882b05dd7256786063a268f2fe30bc93c&scene=126&sessionid=1795126956#rd\",\"description\":\"提起以色列情报机构，绝大多数人首先想到摩萨德。这个机构在国际间谍史上的知名度，几乎可以与美国中央情报局、英国军情六处相提并论。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjZxbVERaTkLWUOl4Wcn8iclZvE8cJVoGPYRdELVjTW7ZFibxF2NV3FtosicqFKgalWoK1WIrAAbnJwzia0Eb4UtfwM7zea6pZE6YIjJcTg3eays%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T05:46:58.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570149:1\",\"title\":\"谁在讲述黄仁勋的故事？一场辞职风波背后的信息战与舆论传播\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570149&idx=1&sn=5a9affe198f13728d339afaf3a4e5c8e&chksm=86e7c96a635779c34fc7191e97555a36b76e2a896bf8d946058df68a8be156b9422934a94008&scene=126&sessionid=1795126956#rd\",\"description\":\"硅谷从来不缺传奇。有人在车库里创造商业帝国，有人在大学宿舍里重新定义人际关系，有人在发布会上把一块芯片讲得仿佛能够拯救人类。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjZxbVERaTkLraKgdPjVregLiaicMK9IpWWhibctcJzEzI7Hrict8yFoq8MnicxwtnVwYWXCwv0kC8rXsicohUoELjrkDTV7sOCXAux1U1JxlmS9J0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T02:49:44.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570109:1\",\"title\":\"【闭门预告】COSINT 2026-人工智能时代开源情报能力建设\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570109&idx=1&sn=48e9c23b68865352fa9a0d6da2071dd9&chksm=86ea57929dbe3b554ada15066a4a67b4b3e5ceb8df0be23163d6f829f95a43d872d6a5a64d53&scene=126&sessionid=1795126956#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjZxbVERaTkIXA6mSfnicXFnWibMxLIvhoSBZYghL6BFH1rnc0mQZ5aDtrEUq1b6cpnzAibI7kysw1vj3FSMGFWOAibsFzHJdFYUKD1Bw8dmZTqo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T10:15:34.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570104:1\",\"title\":\"乌克兰无人机雇佣兵招募网络曝光\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570104&idx=1&sn=bc5247192896bc45c9fbe12d9c918f9b&chksm=86903fc7b3ad277da0aa2b287b59fe211b177155186d0396fe8b6a19abcee76008f7f832da24&scene=126&sessionid=1795126956#rd\",\"description\":\"2026年11月10日，Intelligence Online披露了一条颇为隐秘的跨国军事人员招募网络：近来，\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjZxbVERaTkJ5jicDZUvibibuEb0b5eIHK3MdIWOrOMYRcYpegxPJicrug8hsRMIvrcQ7mhadicSAYx0TL5dv1ECL16s4XH4Sicu1ibd4xmfuR9gULY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T04:36:26.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570104:2\",\"title\":\"韩国推进军事反情报机构重组并任命新负责人，韩军情报侦察与反间谍体系调整或增加我周边军事活动被持续监测及中韩安全合作受限风险\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570104&idx=2&sn=168cc9f68decb7292c4d7289050ba5f0&chksm=869d68be6df3960f6ce169b909a54d18f48ef1629a83085fb7e4b9d708ff73675576bf84a304&scene=126&sessionid=1795126956#rd\",\"description\":\"韩国重组军事反情报体系，我真正需要警惕的不是“新机构”，而是安全外溢。韩国此轮改革直接源于2024年12月紧\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FpBCQrIFuT7dgDtpX7pbKaep2Vf3hukPkCx1AtR4e9k4et8ZDFYe0x0ZnLBakPyGr9CTFbAnrEId9Df55cBuhS6oDunsib5uZT7AJ9mILLwc8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T04:36:26.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570077:1\",\"title\":\"【人物调研】韩国反间谍掌门人卞武三的意外崛起，一位非军校将军接管情报机关，韩国军事权力重组将带来什么？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570077&idx=1&sn=dedb196276aa2e9e058c09ae4b530cb2&chksm=86b423829f397952a87ed836952d1a8ab417d66abb0ae1d8e3e35a5f587b074b5170f7a7332f&scene=126&sessionid=1795126956#rd\",\"description\":\"2026年8月3日，韩国京畿道果川市，一场看似普通的军队成立仪式，却透露出韩国军事情报体系正在发生的重大变化。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjZxbVERaTkJTwr2V5IibHzdN18Rtgrcqxj7TJtyaQJNOezY4vltcoNbrOhFkOxsr9C9jmUHFq5vSYFFqpfNarBuQeha4icAbsdgiajnN9xcSb0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T04:26:57.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570067:1\",\"title\":\"从2026年美国中期选举，看懂一场让历届总统头疼的大考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570067&idx=1&sn=4317f959f15f502b3c06f807deeac6f7&chksm=8698aef7bcb20c11686fc49f07b162730b601199fcc5622e7d657972e51c415e84bc9f2ea608&scene=126&sessionid=1795126956#rd\",\"description\":\"美国总统有一种特殊的烦恼。他可以坐在白宫椭圆形办公室里发号施令，可以乘坐“空军一号”飞往世界各地，可以与外国领导人谈判，也可以站在数万人的集会上，信心十足地宣布美国正在迎来一个伟大的新时代。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjZxbVERaTkKolXd3UzMSSbJ9wDSg3X1ITmxx4tg3rmVqxI9juf3zsCG80wAWrNDrg00hmPajBl8yrFt89a9F5KFcqLTmEibPIzwkNBbmicLiag%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T04:07:44.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570058:1\",\"title\":\"美国最大监听部门突然开始疯狂招人\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570058&idx=1&sn=b6848551a50955308c7d427ea382a2d3&chksm=8643f42b70ae47c95cd1de79a0da5924fd4a206b7b24874a107e9372fcfaa9aeea0151f179a3&scene=126&sessionid=1795126956#rd\",\"description\":\"一边裁员，一边招人；一边高喊政府瘦身，一边重建庞大的情报机器；一边宣称人工智能将改变战争，一边连自己的组织架构\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjZxbVERaTkJFCGymUmC9e62nzghHqWqeczAhq8MnDxHVSZqZ2nCYYKzLWdo4ZeBaPkT7pDJjRBqShNGJ1RFtpWibKwcvXNQTQmSM2ibVuCCpQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T08:12:39.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570058:2\",\"title\":\"菲推动东盟强化跨境犯罪情报共享，需关注区域执法信息网络扩张对我在东南亚人员、企业数据安全及跨境执法合作空间的潜在影响\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570058&idx=2&sn=e7c90b2ef30c9f1445f07e9aaeb93ccd&chksm=867c3b546c09d8db0d59bbb5ef0f8ab17dab43134af2f2c05e6c6d9d37cbbd6b5bbf8ff713ae&scene=126&sessionid=1795126956#rd\",\"description\":\"菲律宾近期推动东盟强化实时情报交换，释放出一个较为清晰的信号：东南亚跨境犯罪治理正在由会议协调向业务协同延伸\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FpBCQrIFuT7eT8ibyuHgMJiap637kxMyA6s9tGargur1PFshic0nA0B7H5KhRX1GOnfp6OIThnMOJ8SmvCBIZBQ8EmjjgvfIf7PIAJ5bicLSicS9o%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T08:12:39.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570022:1\",\"title\":\"照片删掉了，但现场还在！一张图如何暴露拍摄者的位置\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570022&idx=1&sn=11318fd5cd50c437f3d0e7dac7046719&chksm=86885348fab700af219e99596d23d56ae5463b3dff3c0141ed4e3a23595004fd08f011ebc204&scene=126&sessionid=1795126956#rd\",\"description\":\"一张照片究竟能泄露多少东西？对于普通人来说，这个问题的答案通常很简单：照片里拍到了什么，就泄露什么。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjZxbVERaTkIAq9JncTg11wo9DvNjdRacdUZSCZ3zf9enSkMUlYqUQXFo8yNOCUQ6kpvMcUdbmokCCbPmzLrDoMzVBEtyeXVRiaE8IOaYGIQM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T02:37:45.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570004:1\",\"title\":\"五角大楼“堡垒计划”，美军90天自给自足准备的开源调查分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570004&idx=1&sn=01870af69b55249cfdd4e5a76d3c326d&chksm=8691627b569af90ca77a6b4fd98e7042d5f392acd69da59533420c474306c4212b20db4bad3a&scene=126&sessionid=1795126956#rd\",\"description\":\"近日，美媒曝出五角大楼正推进一项名为“堡垒”（FORTRESS）的新计划，要求美国本土所有主要军事基地在可能中\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjZxbVERaTkKxYbo2rIrpV54huyZ8XIyfKgsSeB50Lkh5zQfEhvlBc9lZIjCv8A489X1IwGULLa4DtCra9tEIaW792en09yE36A2PWiakYV8U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-27T03:18:58.000Z\"},{\"id\":\"wxmp:MzA3Mjc1MTkwOA%3D%3D:2650570004:2\",\"title\":\"美国警告基辅袭击俄炼油厂可能危及情报共享，美对乌战场情报支持调整增加我研判俄乌局势及能源供应风险的不确定性\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&mid=2650570004&idx=2&sn=d8560e0aeffa2235a8db72cd63fce1bd&chksm=862f8a1fc5d9a263150e6157ef965c172e98cc70d416c2e106d0561f298eb604aa5e00e72f56&scene=126&sessionid=1795126956#rd\",\"description\":\"美乌之间这场争议，表面看是“要不要继续打击俄罗斯炼油设施”，实质却是三个问题同时碰撞：谁能决定乌克兰的目标选\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FpBCQrIFuT7db8REialHTmcu8YICoJkYXvichylg1ZhHIibGTdbddIpR5yyfKmDqofHtEuKY7JlNesibcibU4qTUv7CpKvE0QicTCZYdJAPDfyYABQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-27T03:18:58.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10013,
+      "elapsed_ms": 1357,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -113,44 +119,49 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10005
+          "started_ms": 6,
+          "duration_ms": 1350
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 1356,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1356,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
+          "started_ms": 1356,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10013,
+          "name": "浏览器状态保存",
+          "started_ms": 1357,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10013,
+          "started_ms": 1357,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 1345
         }
       ]
     }

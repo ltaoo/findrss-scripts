@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T13:42:40.350Z",
+  "checked_at": "2026-11-19T22:21:51.757Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_6d3f01673a87.json",
-    "duration_ms": 8084
+    "duration_ms": 3069
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10021
+    "status": 200,
+    "duration_ms": 1238
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 1233,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -68,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 10002,
+        "started_ms": 7,
+        "duration_ms": 1224,
         "timings": {
-          "response_ms": 670,
-          "body_read_ms": 9332
+          "response_ms": 1044,
+          "body_read_ms": 179,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_6d3f01673a87\",\"title\":\"农夫安全团队\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484874&idx=1&sn=9a672f613a811f1c796378604e5c67c6&chksm=e858f0d9c3383d1b56796d9529f4c7cbff1c0b3a4f855bf11589e06faa70f8708bda1e781d62&scene=126&sessionid=1795126914#rd\",\"description\":\"这里有一只佛系安全团队 (ฅ>ω<*ฅ)\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"农夫安全团队\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7BhM3PxibmIZB32Uc7uiclwj4mHyg9luRxIBrvaN4BGqkQ%2F0\",\"updated\":\"2025-09-29T06:11:28.000Z\",\"items\":[{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484874:1\",\"title\":\"预告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484874&idx=1&sn=9a672f613a811f1c796378604e5c67c6&chksm=e858f0d9c3383d1b56796d9529f4c7cbff1c0b3a4f855bf11589e06faa70f8708bda1e781d62&scene=126&sessionid=1795126914#rd\",\"description\":\"接受一切可能，允许一切发生\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3A8E2IJ2tCtJMZN3aZLXpwUBlrgO1zcHdV9ewmZVib0LrwickbDq04P7W3KNXTW0IWsP4m32a9gGRRqg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-29T06:11:28.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484870:1\",\"title\":\"奋斗者协议\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484870&idx=1&sn=4a26e67d170b30b7c3b3d295ff2654cf&chksm=e8e8ee35cb871ab7c81544d2a81a76408c0830089459dc4e828550216522662ba1e62a6d85e3&scene=126&sessionid=1795126914#rd\",\"description\":\"农夫安全\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3AibiaQOeGEfMOkcsVtaichkHn6ZA6FeJJME89mKRPD2Hv0G9b4fB5iaWCsfyomqNib6hS68YYWcSkfuI2w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-21T07:51:55.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484866:1\",\"title\":\"13期变革预告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484866&idx=1&sn=0a95403b8b2cb3cbcfba1aa04f8d6b64&chksm=e87c0cc200277097c8575c6c3a7021c2e6b269a661784264d98d65b6bd427733b230cfde37fd&scene=126&sessionid=1795126914#rd\",\"description\":\"我们尝试了一套“从始至终”的培养方案\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3A9VB7VScLlUB1yA4iak1ZrfPVTxqGWQHfqP2svMUibYxE4csicKnqrXX4AMH8EpqzHdtm5RdfgncGbKQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-13T07:52:10.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484845:1\",\"title\":\"明年见吧\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484845&idx=1&sn=9ac04cf62e351493ba010588dd9c1d08&chksm=e80de95e9ea6bed59b960e661a11a9070adb29efc1ba6faf06cdd3d15074f6e85372d3ae1d15&scene=126&sessionid=1795126914#rd\",\"description\":\"新的一年里，我们计划了一整套的改变，以便应对未来。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3A98LMfHUTXEbIjy7Hutd9TKVvkvJFjHuIEaR1SyX4iaWKrgOxBMBBnEyMvwIUd2z8ESicDrvicbKDcJw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-30T13:06:10.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484840:1\",\"title\":\"十二期梦想班\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484840&idx=1&sn=d1bf83e4aaed118d203da7849cf76920&chksm=e8d56dd8b1099a68bb1f4947e945c70a2c6df871e613b9087b76f75b3b8513aa30400cc900a9&scene=126&sessionid=1795126914#rd\",\"description\":\"第十二期加开梦想班庆祝一下吧\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3A9uVeSmOruiaiaibt5Xstx42YRW8WQDj6Sn6vplUgkNmoSy2MnkppXw3X6DmuWf5nSIQ4diasEwYBxiazw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-11T13:04:41.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484836:1\",\"title\":\"关于今年HW的⼀些思考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484836&idx=1&sn=42f211d0d04a1dd18d934d17e1f43450&chksm=e8db128fcd8f07c05e8aa03b46e8484e1d155f63fe19e2da2cf0cbf952a83159acdb1adbd3d8&scene=126&sessionid=1795126914#rd\",\"description\":\"健康第⼀、保重⾝体\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3AicXdUabVuiaexFsBZmEFY9vibRqaqc116zbZ85e1hicMpn0ib37MR0EQdmAl8gfVchbYqvgBOjgL05ibug%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-07-02T09:32:49.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484832:1\",\"title\":\"农夫十二期线下班招生指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484832&idx=1&sn=f25d9367ec2c35e5a934c1c7c1f507c2&chksm=e8a6d3ed0a46f82628f4da07c77942a44372f84a658a6f1e204500943f8c04626a8b92979987&scene=126&sessionid=1795126914#rd\",\"description\":\"玩不了命的，别来！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3A9SictPvxVQYzzyfvxzWKfCV5t7sM2MaAuO2hpgvNNbP3CJVibknNqx8hG8hAbM9XtVibBN8UNqqyCAw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-06-11T08:17:40.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484820:1\",\"title\":\"契约与公平\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484820&idx=1&sn=28337e0007d61908c218297da4c49dd7&chksm=e85f5943a2d876e735ae04810635669f3312a2f2bb6408694a9bc1ab815422646f6f288b6604&scene=126&sessionid=1795126914#rd\",\"description\":\"每年关于护网不结账的故事都是很快乐的，甚至于我们这种非中介的去年都弄了一身狗血......\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3A8rFrWE0bKx1kBUjoTfLCcoibkaVKMC1uHcqdnMiakicgam97ftAFUMzVvgtwSpCaVFvR2OhvYFyjMVQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-04-12T14:56:10.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484809:1\",\"title\":\"现在的我们\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484809&idx=1&sn=a3ac882e794e358c20c8524612e98c90&chksm=e874b5bee567651fef57912bd4c4507d805057f5ca2c4282198bfad5bfba6ca42814c17a051f&scene=126&sessionid=1795126914#rd\",\"description\":\"未来，你猜猜我们还能在头铁的事业上，还会作出那些创新？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3A8fib1Ze94G5VbmqMv8PiaBcjq3myalbcr6SOskajMP8ZVP7Uc5mWcRCS7ng7ke00wyMicGdnk6udwhQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-12-18T10:56:21.000Z\"},{\"id\":\"wxmp:MzI0MzQ4NTI1OA%3D%3D:2247484804:1\",\"title\":\"农夫第十一期线下班招生指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MzQ4NTI1OA==&mid=2247484804&idx=1&sn=0c11bb76819aed110a8fabe6f9301ae4&chksm=e8ca4d7f06af92bad6957398a1b9ac93458ea67380055f0660721dc6b78ea9a8bcd4cb0e16b3&scene=126&sessionid=1795126914#rd\",\"description\":\"农夫第十一期线下班招生指南\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicThUaPOu3Aibj8lS5iaBYC6pzicUyy0C8og1aOdf1Gx9g2iccSdib1n5rwntluTyIOiaRZUHPf3qb1Uy1fYadeAxhKaw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-11-13T03:46:43.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 1233,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -117,39 +124,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10005
+          "started_ms": 5,
+          "duration_ms": 1228
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 1233,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1233,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
+          "started_ms": 1233,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 1233,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 1233,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 10002
+          "started_ms": 7,
+          "duration_ms": 1224
         }
       ]
     }

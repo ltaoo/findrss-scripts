@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:48:15.552Z",
+  "checked_at": "2026-11-19T22:23:08.267Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_f0e908846a7b",
     "name": "T00ls安全",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10022
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_f0e908846a7b.json",
+    "duration_ms": 2003
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10020
+    "status": 200,
+    "duration_ms": 1418
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 1414,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -70,79 +74,86 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 10002,
+        "duration_ms": 1402,
         "timings": {
-          "response_ms": 3363,
-          "body_read_ms": 6639
+          "response_ms": 1229,
+          "body_read_ms": 172,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_f0e908846a7b\",\"title\":\"T00ls安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485940&idx=1&sn=6202c501543e72d244940b6e63712d52&chksm=cef0b11e236133bf05a56a5e0d54f7718df0842c8f4e2b4c7889d2d07edcbc30e6fd11508723&scene=126&sessionid=1795126990#rd\",\"description\":\"T00ls，中国最具影响力的网络安全社区，聚合安全领域最优秀的人群，低调研究潜心学习讨论各类网络安全知识，为推动中国网络安全进步与技术创新贡献力量！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"T00ls安全\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4ugowmlIJoOMglicBOR5HIcVdDe1tuesg5xmPJRP4bATQ%2F0\",\"updated\":\"2026-11-17T11:36:10.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485940:1\",\"title\":\"T00ls新版App iOS端上线测试：下载登录，免费领取复活码\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485940&idx=1&sn=6202c501543e72d244940b6e63712d52&chksm=cef0b11e236133bf05a56a5e0d54f7718df0842c8f4e2b4c7889d2d07edcbc30e6fd11508723&scene=126&sessionid=1795126990#rd\",\"description\":\"各位T00lsers：T00ls新版App iOS端已上线测试。为让更多老会员重新回到社区，本次测试期间继续推出“测试新版App，送复活码”活动。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlplrTUSfA003Cw2fXGjDxmcRzSiaK1IzBkcodGICrgUnVbK7Y6MKMF3uLrlriacGQQoG5iaY9ickQatVoAsUhZUD3phdSz7mlapGxVU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T11:36:10.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485934:1\",\"title\":\"测试新版App，送复活码——潜水与僵尸会员免费复活\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485934&idx=1&sn=516e3d99b6c3e497dc410ee0e7f1e6ef&chksm=ce758f8d61960c6ad401e1b796ca3052b770892b6708d40764ccd2f53c6ca0b79315ab7ea40e&scene=126&sessionid=1795126990#rd\",\"description\":\"各位T00lser：T00ls新版App已上线测试。为让更多老会员重新回到社区，本次测试期间同步推出“测试新版App，送复活码”活动。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlpmoVfquvJHG8Z57YicnoxCVIr3EPMr4Lbg3AMnetfHiaD0c5Wg64H7tSCmOrs2ibxMaiac43icwJO2DFKVrw3u9LfWCqG9nyogF4EQ0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-22T01:41:36.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485929:1\",\"title\":\"国庆同庆 · T00ls十八焕新：新UI上线，邀你找Bug、亮名片\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485929&idx=1&sn=5dc538c9a1314cde18a6fdcacf27e8a9&chksm=cea7f6778360dd0237eb1d81993df40deac59052250d81e21d0a44c7ea7178be948a0edd6bdf&scene=126&sessionid=1795126990#rd\",\"description\":\"各位T00lser、各位安全同仁：金秋十月，举国同庆。值此国庆佳节来临之际，T00ls社区也迎来了自己的十八周年。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0ogkemMmlpnMXOBsSNIgvOp1U0EqL4fQJlcCqwLPzEsFxNntsF4au4bZcebPPtmU6LLQ4JVqUMKvsVx26FcmQK3QjlUuGt57s1RxbBANQzc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-30T16:00:00.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485924:1\",\"title\":\"初心如炬，步履弥坚 - 城南花开 第六弹\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485924&idx=1&sn=c0e67c034b6001851e2d1f3d822f25cc&chksm=ce190c6e28199a455c645173765040cc1b17cab0791548bc89f7c0931bdda01a666124438b1b&scene=126&sessionid=1795126990#rd\",\"description\":\"新人一枚前来报到，本人从事企业网络IT相关工作，慕名得知吐司论坛，很高兴加入T00ls大家庭，向各位前辈学习，并一起交流分享。\\n\\n适逢论坛成立十八周年，特此前来祝贺：祝论坛越来越好，低调求发展，潜心习安全，愿我们十八年同行，内核依旧年轻！\",\"content\":\"<p>新人一枚前来报到，本人从事企业网络IT相关工作，慕名得知吐司论坛，很高兴加入T00ls大家庭，向各位前辈学习，并一起交流分享。<br /><br />适逢论坛成立十八周年，特此前来祝贺：祝论坛越来越好，低调求发展，潜心习安全，愿我们十八年同行，内核依旧年轻！</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2F0ogkemMmlpnSafxpxmchYibiapZiccialmpqFJVe8e6oR9rD7pHD39shYzhM27BJ079gib7LhlZWd4ia5JMjQRXyglTuyS1vUMhfVwAib2nuw9lz78%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2F0ogkemMmlpmTBqDagSiaBAqRQicKXSQGdr9utSaONxHuZeIXrTiasn3T6jOfxs7XEALglQaRy3YqwokVul3ub80VrribvzicrLUl1vum3UdIOIEg%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlpkB4IXXgkZN9TQDzsFj5qa8tCNiby7ErlxkFog6QXib8J8hMiaN8MJmsL6CZNAsId7ibvrbYuYtJotYiac7JZ1NmIxyTTzmwkv0rnJk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2F0ogkemMmlpnSafxpxmchYibiapZiccialmpqFJVe8e6oR9rD7pHD39shYzhM27BJ079gib7LhlZWd4ia5JMjQRXyglTuyS1vUMhfVwAib2nuw9lz78%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2F0ogkemMmlpmTBqDagSiaBAqRQicKXSQGdr9utSaONxHuZeIXrTiasn3T6jOfxs7XEALglQaRy3YqwokVul3ub80VrribvzicrLUl1vum3UdIOIEg%2F0\"],\"type\":\"gallery\",\"published\":\"2026-09-30T07:25:53.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485894:1\",\"title\":\"T00ls祝大家中秋快乐，阖家团圆！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485894&idx=1&sn=f9f4a665161f794640d2aa227cf713c1&chksm=ce180b295053b88f2d148a50e3468348448610bef4546a6d4b65d2ab4ef022836cebc7230064&scene=126&sessionid=1795126990#rd\",\"description\":\"月满中秋，情满人间。\\n愿这一轮明月，照见一路坚持与热爱；\\n愿每一次探索，都有所收获；\\n愿每一份守护，都平安相伴。\\n\\n中秋佳节，愿你所行皆坦途，所遇皆美好。\\n祝大家中秋快乐，阖家团圆！🌕🏮\",\"content\":\"<p>月满中秋，情满人间。<br />愿这一轮明月，照见一路坚持与热爱；<br />愿每一次探索，都有所收获；<br />愿每一份守护，都平安相伴。<br /><br />中秋佳节，愿你所行皆坦途，所遇皆美好。<br />祝大家中秋快乐，阖家团圆！🌕🏮</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2F0ogkemMmlpnQMJQP2C1fmadTY7ETicB8dYAC7r8Vkt1t7CdN7ib8HbibK7GRUa7s3LjbHY3HNicTEEKsichBv6m3defklkwHviasfKcGJv1RNu1a0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0ogkemMmlpnucWEESuoRknC3ajuHf02JYoBnWFOaj6qoRQHdmYqyd5pibeicVC9bYcWR79cDJpicYvI9hx5DoRVg0ucnSEP2RHJXzPScqrLPlA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2F0ogkemMmlpnQMJQP2C1fmadTY7ETicB8dYAC7r8Vkt1t7CdN7ib8HbibK7GRUa7s3LjbHY3HNicTEEKsichBv6m3defklkwHviasfKcGJv1RNu1a0%2F0\"],\"type\":\"gallery\",\"published\":\"2026-09-30T07:25:53.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485903:1\",\"title\":\"致敬成年礼，T00ls隆重推出18周年宣传视频，并发布历史最大更新\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485903&idx=1&sn=adebd26b21cf58463be7ef57f293403c&chksm=ce783ee0a264450c484fbe98956b539ce1cf6def2714f5410d8ca836bd1b3e9d5ef2a41a5496&scene=126&sessionid=1795126990#rd\",\"description\":\"T00ls成年了2008年9月，T00ls.net正式注册（by @xiaomi），T00ls就此诞生。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlpn0IpureiapXicNPsmibXjxicd10ia927Mf1AicibVS4xYVOvGibe3TEWP3l9GbxicQDvkRj06QWmjDxRfRN5MXrkIrHQ47dCxdJMCVnYOc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-29T02:00:00.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485860:1\",\"title\":\"十八载同行，山海有期，热爱不止，向新而生 - Rainy 第三弹\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485860&idx=1&sn=1a92e6f5abe28c4796b68672ad191bde&chksm=ce981b166c23cf98b9bef1794d32e44cf3214934175ea53b82c7830fce7af068d353b03c885f&scene=126&sessionid=1795126990#rd\",\"description\":\"真正让一个社区走得长远的，从来不只是技术本身，更是屏幕背后那些愿意分享、愿意解答、愿意把自己走过的路认真记录下\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0ogkemMmlpnpRjg361ZYUDCpiaPsTm8sj1kbicB0BTyLHibXExrVNN0Ak29NcCTj1RHZDum9kCLCAXrka2MgcCgzCu0UeE08PYamA0HiccicOAyU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-21T06:33:13.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485825:1\",\"title\":\"十八而志，与子同袍\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485825&idx=1&sn=8040885871d2d990d618a194ae7da13a&chksm=ce6c5b6b6e4211ac5f7688f6376cce411ccd6d46711992ebf076ce3833ca2d3ca83627fee6a6&scene=126&sessionid=1795126990#rd\",\"description\":\"白驹过隙，忽然而已。自 2008 年 9 月 22 日创站至今，T00ls 已历十八载春秋，每年 8 月、9 月、10 月为 T00ls 的周岁庆祝生日月。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlpnjWngOjrZyXmpiaxXdSjicYqibtH91M67knZvAA72EZAKvghdas0C7s6ZM7Qks5YraXKLiaz1cOud9nap7qWvfzcfCeianibHPxCTfc%2F640%3Fwxtype%3Dpng%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-17T07:07:08.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485807:1\",\"title\":\"CC1 链深度拆解：反序列化利用链是如何一步步执行的\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485807&idx=1&sn=2d410e3a8ac951bed51391f057858fb8&chksm=ce993366cb0b8fee4fbce6733dcb87f7653bc5701b355c7ea253987312c3f0c4e4f3307d2050&scene=126&sessionid=1795126990#rd\",\"description\":\"反序列化利用链的核心不是在于\\\"执行恶意代码\\\"，而在于通过字节流提前写入恶意参数占位。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlpm8wx2T4kjPiah8JrvPiaqy20KS5TYEYkcuEbA1qm1hodwgtQfTDeZI8HUm8yok3yuZqdXzZtFHia8k8Yu4MyMU3sNJiaZmBXtt4dY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-01T09:51:53.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485796:1\",\"title\":\"投毒事件：AKSK 利用工具存在后门投毒\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485796&idx=1&sn=b691ae9be1177e34def6f521cbbc41e7&chksm=cebae5f3361e05ba48455a1cef44701f78537c0a692ab00e884fcda5f1c3895a99090f04215d&scene=126&sessionid=1795126990#rd\",\"description\":\"GitHub 项目 accesskey_tools 的 AWS 模块被植入供应链后门已三年，攻击者通过仿冒 enumerate-iam 依赖包和 Endpoint 劫持窃取用户 AWS AccessKey。据「知攻善防实验室」公众号披露，该后门目前仍在活跃。使用过该工具的用户需立即轮换凭据并审计账户。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlpmiaFP1MwwPsgxTzuxVbNSZaJicG41uZ9ozHDCbKI73w9KaPhO2cicIQrVbicafkNsiaNUzQ2R9Kw3j4OeGK9pPOEXqI7SW7KEvWluQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-11T10:27:20.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485789:1\",\"title\":\"提权实录：通过命名管道劫持可写服务\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485789&idx=1&sn=0a2464f32a36fa7e6e17de6cd8c99eb4&chksm=ce633f5982a2279400c1b7a0476689c6e1a1f05ea363d086f4e58c7a1e4018152e8bd1817e8f&scene=126&sessionid=1795126990#rd\",\"description\":\"命名管道ACL宽松配合可写服务文件，低权限用户通过管道触发SYSTEM执行taskkill，趁机替换恶意程序并借服务重启加载，获取SYSTEM权限。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0ogkemMmlpkY0mTBWpicu9uvDHMibHQYJEtWc6XOos974mImac1ywag5WJ0HwgA4qY3LjghibURLfAPQzBmQSwqaHJgfsUTA9WLgkLLBIHiaKxY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-15T08:02:03.000Z\"},{\"id\":\"wxmp:Mzg3NzYzODU5NQ%3D%3D:2247485768:1\",\"title\":\"Android 小程序APP 抓包，从一直报错443到抓包畅通无阻\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzYzODU5NQ==&mid=2247485768&idx=1&sn=4d2a4d4f1e9271889638c78a13d71487&chksm=ce7e7eec7807b50ff9147adb48dd118405d3ab1606cd3706cac0adf8b0e3c250d679a721a1bc&scene=126&sessionid=1795126990#rd\",\"description\":\"本文详细解析了Android高版本（7.0+）小程序与APP抓包的技术难点与完整解决方案。核心痛点在于系统安全策略升级：Android 7.0默认不信任用户证书，9.0禁用明文HTTP，10+支持TLS1.3，13+采用QUIC/HTTP3协议，导致传统抓包工具失效。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0ogkemMmlpnds1UuhTgTtyTGguM5yZOicPneSZo3TXn0iaHdFvR7yhVmgJ4Utic0rWKXbArRDtW8xzR5kwMuXV0E2F7Hzzov97xhjeHx6MFbibQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-09T08:06:07.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 1414,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 6
+          "started_ms": 2,
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10005
+          "started_ms": 6,
+          "duration_ms": 1408
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 1414,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1414,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
+          "started_ms": 1414,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 1414,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 1414,
           "duration_ms": 0
         }
       ],
@@ -150,7 +161,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 10002
+          "duration_ms": 1402
         }
       ]
     }

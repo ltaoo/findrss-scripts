@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:50:31.716Z",
+  "checked_at": "2026-11-19T22:23:42.139Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_900a436f047a",
     "name": "集智俱乐部",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10017
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_900a436f047a.json",
+    "duration_ms": 2941
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10018
+    "status": 200,
+    "duration_ms": 4922
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 4917,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 4905,
         "timings": {
-          "response_ms": 3592,
-          "body_read_ms": 6410
+          "response_ms": 1561,
+          "body_read_ms": 3340,
+          "decode_and_transfer_ms": 4
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_900a436f047a\",\"title\":\"集智俱乐部\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738439&idx=1&sn=c77e176249078ab2754c495e3e0d8ed1&chksm=e92fcb933730d4b3036863d966ed9aef21247fde504b7c29d662adf74f1cbaaf1e9d7baca1fe&scene=126&sessionid=1795127024#rd\",\"description\":\"关注复杂科学与人工智能的前沿进展、书籍资料、工具文献、交叉前沿等，同时也发布集智俱乐部、集智学园举办的各类讲座、课程等活动相关信息。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"集智俱乐部\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4VicMW8sROy4mp4kicsCbgPdujTibKFkG2AUMQt9uwRZ5pA%2F0\",\"updated\":\"2026-11-19T09:00:57.000Z\",\"items\":[{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738439:1\",\"title\":\"符号回归：从数学公式发现到物理机理揭示｜AI for Math读书会第二季第8期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738439&idx=1&sn=c77e176249078ab2754c495e3e0d8ed1&chksm=e92fcb933730d4b3036863d966ed9aef21247fde504b7c29d662adf74f1cbaaf1e9d7baca1fe&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月19日（周四）20:00-21:00分享\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHQLYrXIWdEKNWkr21Y3aSsff2mYzVTHRLwvP8aaSgjvia8hZsJwXZzOVXYYYA9h9NS4UOiccRpsibpYgmVxLFSEwZC3rQ6U7BpfKc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T09:00:57.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738432:1\",\"title\":\"物理评论研究：一次微小扰动，为什么会让复杂网络的响应变得更多样？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738432&idx=1&sn=2fb6e8fbf7b45720c4e8d4e7f03e6cc3&chksm=e9629cfb689e45bfb294d0a2d398d139c1bc68b9c821438b093f0052b8608b1fcbbed814bda2&scene=126&sessionid=1795127024#rd\",\"description\":\"从扩散极限到信息最小耗散，重建复杂网络的响应热力学\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHTNojuPPYzWJVecbAC7NxwWMmoZJDHV3baYQ5h4hib55VU2HVKtTPETPIOEOiaEPwjuWVMR4kcvA6F9ATpDD0cOtPyopZ6nZA2A0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738432:2\",\"title\":\"复杂度如何影响组织行为与结构：NK 组织理论及其实践｜AI时代复杂组织架构读书会 第5期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738432&idx=2&sn=fe1c9f4851ff71f96a1c7e34043cda9f&chksm=e9752b477568190719432554203dcee09c55a047bd2c4cae1a8c72e106fe0336f6d0332511c0&scene=126&sessionid=1795127024#rd\",\"description\":\"2026 年 11 月 21 日周六上午 10 点，等你加入！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHQIa8bXAJ81CPFk5ADDAYW3g3kbpR4U9WaxoXrhibuT5RMbKYu3plP11SdtX5U8nfPyoBMWZCnOY2FwcSheIpLd3SZ49Ln3vav0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738432:3\",\"title\":\"符号回归：从数学公式发现到物理机理揭示｜AI for Math读书会第二季第8期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738432&idx=3&sn=cc185da7b5dfc69b20cf2f5017dd6e16&chksm=e92147d27273e691fe1a8fb5d6dc601f53d02ea85e996714271880a4d68324c25ce8e040bac4&scene=126&sessionid=1795127024#rd\",\"description\":\"本周四（11月19日）20:00-21:00开讲\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHTU0pleoes6s4kB2KYR3gjkbEXiaaLzf9j0ZN0AiaZVVtCe3JJ1DGLnED5T2xEmYHD5zWWKr9723aNibQp3n9KeSdqL5Zia5Cibvibcg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738432:4\",\"title\":\"线下专题录制现场观众招募｜张江：自指如何重塑理性、智能与自我\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738432&idx=4&sn=c51b1e385dcbc4507cfe4a4c2c168288&chksm=e92f78dd9046a69d5d4562b460462eebee3c71fb0d9b811d4a443f66651fb41ec0ba6ae7e33c&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月20日（周五）14:00 开始\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHS0xuc0BclMZzKhczoL40WEaWAHiaEdF6maRW01ZAWnmqdNp1qLyQg7lwMI9fwbTDkmJxfeQJL9zZ3r5mbPLIoEDdQhKXYvCia3M%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738393:1\",\"title\":\"PNAS：大脑离临界点有多远？一段神经放电就能估算\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738393&idx=1&sn=7bbdb08b99b63bb9e5dcf1b55929b8f7&chksm=e95464a4fffb8c33d906d019aa1227e9aeaf353c647b57ca584cd4650ea18129072880322dc4&scene=126&sessionid=1795127024#rd\",\"description\":\"从一段神经放电信号，测量大脑离临界有多远\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHSSxqfKCdyL8PelKVYA0xzc8SK30Uesf1YLxSOtRXPdxOCgF7rHclo1IfwYt6Vmfjq1Xiaoyqdicqpvs5vgkibOJbufV8ibQgVKwak%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738351:1\",\"title\":\"PNAS：自组装梯度学习如何高效构建神经网络\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738351&idx=1&sn=c4dd2ee54817385e7bb7e82bd740752c&chksm=e900044d0873d017bd8d3a7b0ddcfbd17656e53c27b50afbc8ec5c173b6afc3bef5a9d85b888&scene=126&sessionid=1795127024#rd\",\"description\":\"从随机突触到梯度学习：一项关于“学习回路如何出现”的新研究\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHS7fT0Vyg82ibVEzR3uhDYJLRkCrCZFAKCSjmib4eJMiamsayj2upv1dqrc1s7ejWmM755ialNqSJVqKk8qO8jiawU8bqv0ob7aBusw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738351:2\",\"title\":\"集智百科丨赫尔曼·哈肯 Hermann Haken\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738351&idx=2&sn=4b9ca4939c0d66d8c8f8ab2ed3076aed&chksm=e96db08ffe33e85760d4726f390168f5092a5dcdeeedb1dba3772f370827c87bbf451f4ecb4b&scene=126&sessionid=1795127024#rd\",\"description\":\"协同学（synergetics）创始人\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHSRzWWkPc4Xibrm2iab6R4N4hcGibicE4Z6NMsgprp2V2hulKs4VMdrKFhIKPdqQ2OMwiaVticKS0KicDkW7OmsOk3dKk1WtiaDLwVWcrw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738329:1\",\"title\":\"Nature：AI 为什么没有意识？三位顶尖学者的三个理由\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738329&idx=1&sn=dfced3c5217a6bdf07fdebf15573cc7d&chksm=e978a53e298ab18df9567cf22e9c3bfeca6e3be2b92bfd2e8a28c611d768948bd40363e842a3&scene=126&sessionid=1795127024#rd\",\"description\":\"当 AI 说自己很难过，它真的有主观体验吗？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHR210jStTDicDaElFZ1MvyM1UGEZRfZZ9vdAJaCT6wBnfo9Lp691qPfwppBOuGic8dweT2LWLe8fxJDS47Ma7HGvKK26dqWPfpiaE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738329:2\",\"title\":\"AI与数学的协同进化：从随机动力学约简到数学模型自动建模｜AI for Math读书会第二季第7期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738329&idx=2&sn=3e7e26556979337506fa28d8b8ed3197&chksm=e9788ac26f4159ab8832e4af35d35b084c87c58808cc6f2ade6e86cdd0dfa385e597dd9ca9ac&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月17日（周二）19:30-21:30分享\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHRfujomBz0QCYMic9eBSZ42icagOiciceFqwWicEuSn0fk3uJSic9e3oYx15PQBHtOhoMUjtgtiat8I92JTvm3M1ShwwQB6icmVthLZ8Ec%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738320:1\",\"title\":\"线下专题录制现场观众招募｜张江：自指如何重塑理性、智能与自我\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738320&idx=1&sn=6edcf53d4afa9b10b762b51ddd068f61&chksm=e94b7314950812bd46bc20739b8550ea58b4cb7e34e58dd008e4c07ee0fa3854f78260b83752&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月20日（周五）14:00 开始\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHS0xuc0BclMZzKhczoL40WEaWAHiaEdF6maRW01ZAWnmqdNp1qLyQg7lwMI9fwbTDkmJxfeQJL9zZ3r5mbPLIoEDdQhKXYvCia3M%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738304:1\",\"title\":\"IEEE TAC：从矩阵到张量——高次Lyapunov函数逼近复杂系统真实吸引域\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738304&idx=1&sn=720688c06a6512f95cca8f3fad760153&chksm=e961ba472f369bf09e9045c93e7b6b15beab2bdeab88bb8e07f354e872ca634598320bf6feee&scene=126&sessionid=1795127024#rd\",\"description\":\"越过椭球限制，刻画非线性系统的稳定恢复范围\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHQsqvTRiagkEBKRBf82lRdYY7bu3X3XhMMdibkJaHMtG2phqd413kEAWSZtrsRJFSum7ygtc7nMyZObzlnFlYFYB3kSpJwS8PLUg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738304:2\",\"title\":\"转载推荐｜中国人工智能学会社会计算青年科学家大会·冬季工作坊\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738304&idx=2&sn=b38d81cc233a687d2e706d833b575976&chksm=e9b3971d90d54e36d21708ff4993a1a9000b283413ca16438e32c99ff16c55a44be04437d813&scene=126&sessionid=1795127024#rd\",\"description\":\"申请截止：2026年11月20日前\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHTdf8g6DcYd7GLCKhvOBcUyibibJxwtgd9WchdgHrGTVvFibbjjHgDHhLpaSszdBSuMdGerVYZCic4IVghWMvdwEmoAwLhpgvj4XsE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738293:1\",\"title\":\"自然·方法：Multi-Embed——给病理形态与分子图谱造一个“共同语言空间”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738293&idx=1&sn=b27215387b8ccaa52b736d597539b53f&chksm=e9ca6c5feb8b3c8a1fd9fd617fa58ed21ec27535d31e488026a00376dd351ee2b2e6ccea9fb2&scene=126&sessionid=1795127024#rd\",\"description\":\"从病理影像到分子密码，揭示疾病表型与组学信息的深层关联\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHSkw1SoUY9TO6ldktNTS8rPlNtBYDObCl1N41ct1G1DcDrSfVLdBsSjdvrOCmcsqCEEPuW1lEicFyztJzibLVoLPPRCgsIYI6pYM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738293:2\",\"title\":\"罗家德成都线下·新书签售｜社会计算方法论：AI如何改造社科研究｜计算人口学读书会第九期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738293&idx=2&sn=78c265f82e6d7dd9c717080fddef6fcc&chksm=e94a5d1160a393df392e146080239dd62b87dd3331919682a4501cc25d4d108222c3392fc697&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月19日（周四）13:30-16:00分享\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHSpica9pW57zmdciaHsvGWqQ90Aloy7D4LKv5oL8iamicmGLzgBaiaMemHB4M9ZWiag7TCR8wGs3vyE0fR8zKGcHgbl7Oh7DOUia7c5so%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738293:3\",\"title\":\"见证未来：AI加速中的人类科技演化｜未来学读书会第九期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738293&idx=3&sn=93f89308215629600324e4e8dfc78413&chksm=e904eb288f3b615d21d74b3732fb8be6f3722dd9e530441fb3734573e6083ffc9adc365a062d&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月15日（周日）下午14:00-16:00分享\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHRZmeyMZoyQY4JPcXmhb7kYLLbv015gib3Atiaf5lFnFcFu83wSuxdV9AZYd0Pgib5pN0yneqIjjAzdwkvVLRmbj39YRM82PgJfXU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738293:4\",\"title\":\"标准经济学的局限性｜《理解混沌》读书会第 3 期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738293&idx=4&sn=17fd70752888ccf2dc1b0a5d18dc9d44&chksm=e949dfff455ee16542e00174ff76b3bbdf8f03f107934394cc56d9fa53b9f50ae353f71da4b4&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月14日（周六）19:30-21:30分享\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHTgkkSkfeScyyjXeJXibBH9DLLd9cXvibticRy4Av9L1EvBGPSbx4ZLicuQhlibojwDQoVF3bZA9slmib5iaQP85ialZYFyJ0AlkZQMZC4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738284:1\",\"title\":\"圆桌：多智能体系统近期实践探讨与跨界思辨｜AI时代复杂组织架构读书会第4期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738284&idx=1&sn=a731238853ed9708920fdb7f947344d4&chksm=e9b534f228aa230941c2f7526e6dafc724e56a550af9b348e84990ce251682a56400a93f339c&scene=126&sessionid=1795127024#rd\",\"description\":\"免费预约直播：2026 年 11 月 14 日上午 10 点\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHSliaweniadxh5UKnVxuicLpia6jhXbZHGJSf2ia3GdibGvfKJBEymibw2VUfk5TDOJ29tt1ah7kicjRjRgBwrflaOVDnP678vAa9ibPOR4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T11:31:37.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738244:1\",\"title\":\"PNAS: 用相变理论破解旱区生态突变\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738244&idx=1&sn=b3e00e69d58f6455ea47f47dc89062a8&chksm=e9133254ecd872a6330b79a07b94b6df2228fef69198b63efdc7e38e314eb3aedbe95df22dc2&scene=126&sessionid=1795127024#rd\",\"description\":\"从局部资源权衡到宏观格局的“自下而上”涌现\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FqZtAVROIcHTJjvBLH2Iy52y320KeR1pR3zJdFjC1vAuhibstDNsMyrfKGjPR2XUTOxh8JKAJTUcibgxGZsia4D63D9Ps07EEmnArDy9VkANicdI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T06:30:00.000Z\"},{\"id\":\"wxmp:MzIzMjQyNzQ5MA%3D%3D:2247738244:2\",\"title\":\"从生物现象意识到大模型全局工作空间｜自指与AI读书会第八期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247738244&idx=2&sn=33733645c3eda2319ce94fb7d5277aa4&chksm=e969f28e60e3299dbe097004f47f2edfabcb18617740619313eec95c7dc26a7694f6e8226a96&scene=126&sessionid=1795127024#rd\",\"description\":\"2026年11月14日（周六）14:00-16:00分享\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FqZtAVROIcHTPW16fjqstQiakWY0iaJ4vPB0NaQWq4luYIEezxzxa2ibu6dLNQLK3QLUOV8D8SBJhhCY3RPINlIpOk5OYHcx4noADId7Szes49E%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T06:30:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 4917,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -118,39 +124,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10005
+          "started_ms": 6,
+          "duration_ms": 4911
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 4917,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 4917,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
+          "started_ms": 4917,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 4917,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 4917,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 4905
         }
       ]
     }

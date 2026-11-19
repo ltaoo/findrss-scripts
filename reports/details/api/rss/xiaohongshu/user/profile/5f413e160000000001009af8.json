@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T13:50:57.090Z",
+  "checked_at": "2026-11-19T22:23:53.202Z",
   "inspection": {
     "file": "rss/xiaohongshu.js",
     "path": "/api/rss/xiaohongshu/user/profile/:uid",
@@ -13,11 +13,11 @@
     "status": 502,
     "code": "UPSTREAM_INVALID_RESPONSE",
     "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 1366
+    "duration_ms": 1204
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 1291
+    "duration_ms": 1188
   },
   "debug": {
     "status": 502,
@@ -50,7 +50,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 1283,
+    "elapsed_ms": 1184,
     "invoked": false,
     "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。",
     "error_text": "脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:51:26)",
@@ -87,9 +87,9 @@
           "headers_sent": []
         },
         "started_ms": 515,
-        "duration_ms": 283,
+        "duration_ms": 217,
         "timings": {
-          "response_ms": 283
+          "response_ms": 217
         }
       },
       {
@@ -103,17 +103,17 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 798,
-        "duration_ms": 476,
+        "started_ms": 732,
+        "duration_ms": 444,
         "timings": {
-          "response_ms": 395,
-          "body_read_ms": 79,
-          "decode_and_transfer_ms": 2
+          "response_ms": 392,
+          "body_read_ms": 51,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 1283,
+      "elapsed_ms": 1184,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -143,41 +143,41 @@
         {
           "name": "沙箱参数准备",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 5
+          "started_ms": 2,
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1276
+          "duration_ms": 1178
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 1282,
+          "started_ms": 1184,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1282,
+          "started_ms": 1184,
           "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 1282,
-          "duration_ms": 1
+          "started_ms": 1184,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1283,
+          "started_ms": 1184,
           "duration_ms": 0
         }
       ],
@@ -185,7 +185,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 1265
+          "duration_ms": 1167
         }
       ]
     }

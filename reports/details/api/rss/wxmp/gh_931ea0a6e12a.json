@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:50:32.823Z",
+  "checked_at": "2026-11-19T22:23:43.329Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_931ea0a6e12a",
     "name": "dbaplus社群",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10019
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_931ea0a6e12a.json",
+    "duration_ms": 3002
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10017
+    "status": 200,
+    "duration_ms": 2328
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 2322,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 2311,
         "timings": {
-          "response_ms": 3102,
-          "body_read_ms": 6900
+          "response_ms": 1593,
+          "body_read_ms": 716,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_931ea0a6e12a\",\"title\":\"dbaplus社群\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638526&idx=1&sn=2b88311a373ecf54714fa0c6d08d1e8c&chksm=c32f6ac21e7cadb26fbb6b40a8d018123ff061e1c7af391d49bdf0bbec164252e7bdf65790f0&scene=126&sessionid=1795127026#rd\",\"description\":\"围绕Database、BigData、AlOps的企业级专业社群。资深大咖、技术干货，每天精品原创文章推送，每周线上技术分享，每月线下技术沙龙，每季度XCOPS&DAMS行业大会。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"dbaplus社群\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FufVMVgCvafJ9E548RXicwc4cOtTJjEfu0lgrC6U6iaUTxtvICXpoW0s3zSaLcEgEBDiaU1DLiaibZgso%2F0\",\"updated\":\"2026-11-18T23:15:00.000Z\",\"items\":[{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638526:1\",\"title\":\"曾定义了半个互联网基础设施的企业，倒下了……\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638526&idx=1&sn=2b88311a373ecf54714fa0c6d08d1e8c&chksm=c32f6ac21e7cadb26fbb6b40a8d018123ff061e1c7af391d49bdf0bbec164252e7bdf65790f0&scene=126&sessionid=1795127026#rd\",\"description\":\"公司死了，代码还活着！市值2000亿美元的公司，为什么74亿就被卖掉了？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgiamgWvCHDYbM380HykNibvMIcjSW76jfordyA7sg9ajtTWbS2yrtia5bricA7eCkoeZufGEVAZJrQF56Qibwvp0ADbt7yx0b7Vp4K5zsALbNJibA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638505:1\",\"title\":\"为什么Linux上的软件那么小，却能做那么多事情？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638505&idx=1&sn=78dd86f9b61a992b6189bcf601b0b5d8&chksm=c34a6edaf8f35774e8ee0cd4327065d200e0eda71d98fabe49e8ededa52a2860c4906747cdc3&scene=126&sessionid=1795127026#rd\",\"description\":\"Linux最厉害的地方，是用很多小软件，拼出一个巨大系统。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FgiamgWvCHDYa5BT9G0ial7gH4htMEJB1Ol4MAyib79aibwzlj9ibWEGRuQZwLb1YsnLJ6ADIibYJJHKhcWucFI3dxNkHLBZ7cF8g5vluflgguMTF8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638505:2\",\"title\":\"今晚直播丨全栈可观测实践：从网络到用户一层不落\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638505&idx=2&sn=0b9e8e9004b24ea9f6a81bdeb2f9686a&chksm=c35edd5a490f76baf996d9b426e71f30d01f4f3f1efd123e335115848e0725f26b44caaaba73&scene=126&sessionid=1795127026#rd\",\"description\":\"系统一卡就各层甩锅？安全事件总是后知后觉？合规报表全靠人工拼凑耗时一周？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FgiamgWvCHDYaNCcicDzZOSklRwnic2D1kwWpqeyuXDuaJNpj9AE3ibDN5tVfw6BvFUpKFwtrgfZibYPexpEBfRLFz83xNByUoichuAibxD5X8dm1AA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638493:1\",\"title\":\"微软M365全球大宕机复盘：一场由“锁竞争”引爆的云服务雪崩\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638493&idx=1&sn=f513e8d753975e39a1df6a07a1c74356&chksm=c3713e48f7087765184a903768d1667097b113b39769af460270fb290c7677271992167f5593&scene=126&sessionid=1795127026#rd\",\"description\":\"Outlook 故障上报量一度达到 13.8 万条，累计收到全球 74 个国家和地区超 740 万条故障反馈，峰值上报速度接近每分钟 2 万条，达到日常水平的 1500 多倍。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgiamgWvCHDYZ4yJcsyQcSTaZQPwLvpIB5bKc7GEFZibDUQRicDicaYlcoQrmQGKfnhsJwQhVrfa0Or7ntcyRugutDUvzlBRrDSZDicEtiayvKyoU4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638481:1\",\"title\":\"公司裁掉两个高薪工程师，花2小时教我用AI顶上：“我年薪17万，一个人干三个人的活！”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638481&idx=1&sn=90edfc842983b0d37fc19c9cdf0340c5&chksm=c39749969cb6dca99f62302b6a9686c2d3ca5551efd872daa1ab3ef103bdca6697a5c73a88ca&scene=126&sessionid=1795127026#rd\",\"description\":\"系统真的不会崩吗？？！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgiamgWvCHDYZPA5uKTMlZUJsQKD0W4f1T9VxjUAY5ejjET11ianhLU7tz6OqcMchhDj06KmJiaVIY1bicbzuPcJsx6NmcAF5303PIdt4388ywOI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638482:1\",\"title\":\"直播预告丨全栈可观测实践：从网络到用户一层不落\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638482&idx=1&sn=af92525dd5e49488cb6e19d9e653afdd&chksm=c3bd4026c356a2e494be558826cb64b45061a0015bee9e56d9dc59564c7a36766ad8cedc825e&scene=126&sessionid=1795127026#rd\",\"description\":\"系统一卡就各层甩锅？安全事件总是后知后觉？合规报表全靠人工拼凑耗时一周？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FgiamgWvCHDYaNCcicDzZOSklRwnic2D1kwWpqeyuXDuaJNpj9AE3ibDN5tVfw6BvFUpKFwtrgfZibYPexpEBfRLFz83xNByUoichuAibxD5X8dm1AA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T00:00:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638480:1\",\"title\":\"一个被称为“失败”的操作系统，为何仍连续运行了33年\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638480&idx=1&sn=18221cd2c03481b7ed8b7ee59d779ff9&chksm=c3c830e5934b1203da3b3adb399fffcf1135967b4e29d3de9a4ed29c9d2096f3ac9e0c6289b3&scene=126&sessionid=1795127026#rd\",\"description\":\"Multics在工程上从未失败，而Unix的诞生也不是一场有预谋的颠覆。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgiamgWvCHDYbq8sBUkNEEaaRSzdQqBu7BJqVlseYviaY2tMS5aDn0BHQCdqjlYIeBoZBdB3FGUbm1Vly1Fp2O7NiaqGrWjx41J6CT0AaaXwkLE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638461:1\",\"title\":\"Linux之父坚持用ECC：电脑稳定性不能只看CPU\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638461&idx=1&sn=a13f84736dddc24594873c6207cb3065&chksm=c3fae3bb85db8723ed7aa7924237b04afdf9ebfdacc548fefa361b4a7a9a1abf53db11c8d075&scene=126&sessionid=1795127026#rd\",\"description\":\"可靠性比单纯追求极限性能，更加重要！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FgiamgWvCHDYY5OEnicszB0cmWFa3PJA72JccxjvAOa9qzEYvy098Typ6vaZKbNhVPQhiaicYjgaLGN81CticCM0Ue1mhspXv5YjV3VNBJicbIfe50%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638415:1\",\"title\":\"从SQL到NoSQL：谷歌为何搞砸了数据库？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638415&idx=1&sn=5b29b561d216b40a71acdadfe3c0dfb0&chksm=c36680e7fc44da327d80ce6cdae93e1431607d80f213d9dd9da58c14681015ca38738bad2f04&scene=126&sessionid=1795127026#rd\",\"description\":\"系统只能在“数据正确”和“服务可用”之间做取舍，很难两全，而必须有人做出这个抉择。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FgiamgWvCHDYbiaeO3qeqlrv6UQoiasNncM2KjMdJZtDiaObiagenQnJgicwEMhecgVgwBibPt3W7FlpWGUOvGVcIOE4o1t53bwwiaNcZrh3OYBxGMZo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638413:1\",\"title\":\"企业级MultiAgent的记忆系统：短期上下文与四层记忆架构实现\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638413&idx=1&sn=24fdf225cd57fdcaa1f315ed354484e4&chksm=c35e41ac2211e1eddf79478b4561525624968440adb535864f0fff3fe52c83dbb0ffeef3ee8e&scene=126&sessionid=1795127026#rd\",\"description\":\"当前方案覆盖Redis/MySQL回退、MemOS语义检索等内容。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgiamgWvCHDYamh3D0CfRiabKiczCqnOkeu0DxtgspbhichrjiaM5oxaWibQOia7bC9qPvNiaKeXzciakJ7zcibxicbLS76tVsIOR8MCI8wm3ug5DhEtmqs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T23:15:00.000Z\"},{\"id\":\"wxmp:MzkzMjYzNjkzNw%3D%3D:2247638411:1\",\"title\":\"9.2级漏洞、七成网站依赖、48小时全网恐慌：拯救互联网的，竟是一个“无名之辈”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzMjYzNjkzNw==&mid=2247638411&idx=1&sn=b0d52ae2d0e54f351dc76eb11c4b5ce9&chksm=c332f645cfd9d9a8c7f34d7d8a8b4282158bf1b2e29f06269ad2f07726262ab3de921169b01b&scene=126&sessionid=1795127026#rd\",\"description\":\"“如果这个人出了什么意外，那就全完了，所有人都得跟着倒霉。”\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgiamgWvCHDYZXG5etdsTgv50oAkdzGe6VE3CSPkbibkYT0m3V2BH84K5r04OiczlItcrTibvDBaYhd95p4ia6oehe3ia1QSd1scbVp1GbXTFiansJs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T23:15:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 2322,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -93,27 +99,27 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -123,34 +129,39 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 10006
+          "duration_ms": 2316
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 2322,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2322,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
+          "started_ms": 2322,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 2322,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 2322,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 2311
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T13:44:31.672Z",
+  "checked_at": "2026-11-19T22:22:15.373Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_6327c9075859.json",
-    "duration_ms": 8068
+    "duration_ms": 1272
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10022
+    "status": 200,
+    "duration_ms": 1150
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10015,
+    "phase": "ok",
+    "elapsed_ms": 1145,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -68,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 12,
-        "duration_ms": 10002,
+        "started_ms": 9,
+        "duration_ms": 1133,
         "timings": {
-          "response_ms": 919,
-          "body_read_ms": 9083
+          "response_ms": 1131,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_6327c9075859\",\"title\":\"RapidDNS\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485871&idx=1&sn=d4d35852d6d10c2e008c902da923598d&chksm=ce2b235b408d329b72168293953378e4d13abd9d4da69d1935d0a3d7788aaf36cf5f6561a5cb&scene=126&sessionid=1795126938#rd\",\"description\":\"RapidDNS.io 是一个免费开放的DNS在线查询平台。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"RapidDNS\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6sTp7nDscHvoX84jUQ2oJBL2iaXostxDRFurO75Rd18Cw%2F0\",\"updated\":\"2026-09-15T13:36:37.000Z\",\"items\":[{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485871:1\",\"title\":\"RapidDNS\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485871&idx=1&sn=d4d35852d6d10c2e008c902da923598d&chksm=ce2b235b408d329b72168293953378e4d13abd9d4da69d1935d0a3d7788aaf36cf5f6561a5cb&scene=126&sessionid=1795126938#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnwqpzvvFByNLvuwkhx9OTvBjqSbQHYibEP1CC4o2JycgzKsEHQThPaTSQZIJwCq5dHulVDqHB9DNPqz23NekOq9P5icS3p0aIpDWUnykJFZjM%2F640%3Fwxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-15T13:36:37.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485867:1\",\"title\":\"AI自动化漏洞挖掘赚取赏金实战（一）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485867&idx=1&sn=71591fffff53c435f10fcd1f75474af3&chksm=ce01034fc997bbafdfa5df53c1e017679a23cce2754907c61e24251f92e6b96615854ca4767f&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是男人老白。今天分享下使用rapiddns结合AI来实现自动化漏洞赏金的工作流。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnwqpzvvFByPpibO6AlBesmKF6sibHJHttTeMvON9SOZozoer3YhtYuhuhI1JcEam9Hb1XK3PBAYsKrjJVCHjZuqTDjCnrJ5NlOlV0sIXfiblz4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-17T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485867:2\",\"title\":\"红队实战利器：RapidDNS CLI + Nuclei/Httpx 打造自动化漏洞挖掘流水线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485867&idx=2&sn=7e4072cd9c51be194ff1d6444991083d&chksm=ce35cae3f67a5c0b6fa7ccfe1b2b64670a0f3becf83f1e09b0305997c1c059c7149e8d9ff2c8&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是男人老白。今天给大家分享基于RapiDNS API的实用工具——RapidDNS CLI。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnwqpzvvFByOlvmhTygiaj9PYUwWkQeSTYKYG3roUjn0KNTnPkGZuDQU5MDibkEHqKzjIflf87icnCxwhbNZic4GT4nWSI8Sx58SYVNeJtVxfwGs%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-17T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485867:3\",\"title\":\"RapidDNS Pro:高级搜索语法指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485867&idx=3&sn=a00f6a5a9b9e9e3ae48e78f96d1ddf37&chksm=ceca0942f6da95f6a5bfa9c77e2f87d2581f2a340ba5523201dac4e3bbf512f5d3b50523fe8e&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是男人老白。RapidDNS考虑到更加灵活，更加强大，特提供高级搜索语法，方便快速定位信息以及灵活应对各种不同场景。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGdlLpOWcaZDoGMs75b2N2J41F1Dq2rznHT0D6eHCUxpdodlbcc1ic94M8tlVBbRlY8D8QhtFxK7FibA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-17T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485867:4\",\"title\":\"RapidDNS Pro 上线：解锁百万级数据导出，与终身会员计划\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485867&idx=4&sn=54a2a848922beb91790080dc968902c2&chksm=ceee900d3586e4f8093c70b46be73398b114faa7673f6347bfd3c9a1ad4e73a69de43759cee5&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是 RapidDNS 的开发者——男人老白。有些老朋友可能知道，RapidDNS 已经默默运行了 5 年，如今正式迈入了第 6 个年头。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGeL8xIBqBf4OoyIXQsHLqmRxRxr7OFZibziclJfwYGoF4Issd1abB6DEA1CIRh9yOBvxYlhJ7eaXjAQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-17T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485860:1\",\"title\":\"RapidDNS 永久会员，24小时后永久下线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485860&idx=1&sn=26cefd22bed4c084ee09ba52f980a852&chksm=cecf5c5012d6329a2d534964e72e892836711aa7a75dfd58a3d6c3a79c2883d0d3973942149f&scene=126&sessionid=1795126938#rd\",\"description\":\"这应该是 RapidDNS 最后一次发这种公告。24 小时后，永久会员选项将从购买页永久移除。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnwqpzvvFByO5IBVG9LvD146tGIHdRQDqAibHMyy3CSd8iccSicGj3icV682Mxicfb5UCU6iay5mI8YYhqUZDjfZdicZAWVibsQiap17XwtrZL6veEElU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-30T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485855:1\",\"title\":\"红队实战利器：RapidDNS CLI + Nuclei/Httpx 打造自动化漏洞挖掘流水线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485855&idx=1&sn=460e5fceb4ef06fdef994a6a363eea32&chksm=cec23bbf081c0d111aef40e2cef3d5dd13ac1c0dfd0e455fe04c287acaf43b5a6d02702fcd9a&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是男人老白。今天给大家分享基于RapiDNS API的实用工具——RapidDNS CLI。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnwqpzvvFByOlvmhTygiaj9PYUwWkQeSTYKYG3roUjn0KNTnPkGZuDQU5MDibkEHqKzjIflf87icnCxwhbNZic4GT4nWSI8Sx58SYVNeJtVxfwGs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-24T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485844:1\",\"title\":\"RapidDNS Pro:高级搜索语法指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485844&idx=1&sn=2e603466509deb11b6920ec271cb4a18&chksm=ce12363cd257d34ff3295d26a7a6bfa04aa43639d27de32cf31f5ff7ad49974eab10a182b521&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是男人老白。RapidDNS考虑到更加灵活，更加强大，特提供高级搜索语法，方便快速定位信息以及灵活应对各种不同场景。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGdlLpOWcaZDoGMs75b2N2J41F1Dq2rznHT0D6eHCUxpdodlbcc1ic94M8tlVBbRlY8D8QhtFxK7FibA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-02T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485837:1\",\"title\":\"RapidDNS Pro 上线：解锁百万级数据导出，与终身会员计划\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485837&idx=1&sn=cb9ce645ea15185ae8a380f306fc10ab&chksm=cec58d5d0cf1fd95a9b8f0036db34f8d466d8438fd19e146c53f24f64475d41e51cd7435a694&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是 RapidDNS 的开发者——男人老白。有些老朋友可能知道，RapidDNS 已经默默运行了 5 年，如今正式迈入了第 6 个年头。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGeL8xIBqBf4OoyIXQsHLqmRxRxr7OFZibziclJfwYGoF4Issd1abB6DEA1CIRh9yOBvxYlhJ7eaXjAQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-26T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485825:1\",\"title\":\"RapidDNS 自动化数据更新系统测试成功！海量DNS数据处理能力获验证\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485825&idx=1&sn=7c5c7f4c96e7ce3332e9544276dd8025&chksm=ce54b46d53d71412898157ea0d4bbd9a29e933b77a56f0a920cd92d0dcd15082f4db76cc4396&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是老白。RapidDNS数据更新服务测试顺利结束。这次测试虽有点波折，但是最终整套系统不断的优化改进，已经实现全自动化的更新。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGdsjIAnFvmwInyASwA8Ijy3iabeRiaT3qaIFIJecpeTgczPLZsG5ficoFIvwzvolPvKWOOWpjEpmMw5g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-13T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485823:1\",\"title\":\"RapidDNS 数据更新服务 最后一次测试更新\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485823&idx=1&sn=6c4ab465993fcdf4460dbb27432afa2b&chksm=ceed700ce00d071195995ee9f95af85d4893a62cbe4335690891064d2f88156fba6ae061617b&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是老白！自研数据更新系统已开发测试，每周一8：45准时通过本公众号推送最新DNS解析包（A/AAAA/CNAME/MX记录），助您高效追踪网络资产动态！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGdsjIAnFvmwInyASwA8Ijy3lArAEHxtIyWhWHtxbLrFWNltKhc7dlaZxmpXm2XC1FWNHHbiaibgeIyA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-11T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485813:1\",\"title\":\"RapidDNS 数据更新服务 2025-08-01 更新\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485813&idx=1&sn=9d8dcc8048b87d53965ca1a3da170b51&chksm=ce7a96204e9d107827827c8af1ad16ac74cbd8d60e864f88b482aa1d783d1730f2792540ff51&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是老白！自研数据更新系统已开发测试，每周一8：45准时通过本公众号推送最新DNS解析包（A/AAAA/CNAME/MX记录），助您高效追踪网络资产动态！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGefIPHujj2nKyWAPBtLe1nn0dDL40vkoiaqGcUzK1iayGWRDlGKicMtPOcMhqSNog2JHWvDEyKnvGRZA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-04T00:45:00.000Z\"},{\"id\":\"wxmp:Mzg4NDU0ODMxOQ%3D%3D:2247485809:1\",\"title\":\"RapidDNS 数据更新服务 2025-07-27 更新\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4NDU0ODMxOQ==&mid=2247485809&idx=1&sn=4e197606c59c5e7bd4abddad2065549a&chksm=cec63aa7ef74d23182c98b5059ee39f71a06cd068e4f59d69a911303152f695346fe4d78bdb3&scene=126&sessionid=1795126938#rd\",\"description\":\"大家好，我是老白！自研数据更新系统已开发测试，每周一8：45准时通过本公众号推送最新DNS解析包（A/AAAA/CNAME/MX记录），助您高效追踪网络资产动态！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FSYxbvhekRGdoGumV8j7vppzkvnwY3JKASoUw4TQicZWqf6fVzkVnSJuJibO7HLXdEL9I3yJD7Xfiaia4VhHaCj808Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-28T00:45:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10015,
+      "elapsed_ms": 1145,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -117,39 +124,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 10006
+          "started_ms": 7,
+          "duration_ms": 1138
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10014,
+          "name": "输出读取与校验",
+          "started_ms": 1145,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1145,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10014,
-          "duration_ms": 1
+          "started_ms": 1145,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10015,
+          "name": "浏览器状态保存",
+          "started_ms": 1145,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10015,
+          "started_ms": 1145,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 10003
+          "started_ms": 9,
+          "duration_ms": 1133
         }
       ]
     }

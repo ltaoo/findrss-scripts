@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T13:46:40.950Z",
+  "checked_at": "2026-11-19T22:22:44.595Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_1e658861efef.json",
-    "duration_ms": 9420
+    "duration_ms": 1112
   },
   "debug_request": {
-    "status": 504,
-    "duration_ms": 10020
+    "status": 200,
+    "duration_ms": 1205
   },
   "debug": {
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,19 +48,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10013,
+    "phase": "ok",
+    "elapsed_ms": 1201,
     "invoked": false,
-    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
-    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -68,79 +73,87 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 10002,
+        "started_ms": 9,
+        "duration_ms": 1189,
         "timings": {
-          "response_ms": 10002
+          "response_ms": 1187,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_1e658861efef\",\"title\":\"百度安全实验室\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487814&idx=1&sn=e23b2ae1ed78291e454461ac23ce7245&chksm=9eb2f76d886ecb1106fdad71e1167015ddf49711da0a0303dde29bafd61ad040aa84b972a4e8&scene=126&sessionid=1795126967#rd\",\"description\":\"百度安全实验室\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"百度安全实验室\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4uFNSWRKbOg6lqICZEuPiciaXPrO9vvAMPfQeQspdIh0kw%2F0\",\"updated\":\"2025-08-25T11:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487814:1\",\"title\":\"国家级认可 百度大模型安全护栏获工信部等十四部门正式授牌\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487814&idx=1&sn=e23b2ae1ed78291e454461ac23ce7245&chksm=9eb2f76d886ecb1106fdad71e1167015ddf49711da0a0303dde29bafd61ad040aa84b972a4e8&scene=126&sessionid=1795126967#rd\",\"description\":\"广受赞誉的百度大模型安全护栏插件已支持dify，为开发者提供便捷的插件接入方式。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWTqRUTUSoEWibibmxFdTe57rNLAJVIibhj4EnaLZpWDdLycrVAsLktSiabOjicz7D1RhuGibRMGcsIffXdg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-25T11:00:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487810:1\",\"title\":\"专题工作 | CCIA数安委召开反“开盒”技术工作组成立会议\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487810&idx=1&sn=fa0cbf393044431b7e5730611f179dba&chksm=9e8e01f9d1ac3299f59c37098b56775b17de8f494bc6990f57050a9445c1f7cea4691b12b615&scene=126&sessionid=1795126967#rd\",\"description\":\"专题工作 | CCIA数安委召开反“开盒”技术工作组成立会议 - CCIA数安委\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWSAwzWInJQicQwKApMqh8lvbpT5HtA5ibWdnMIdUQX2SibqH2CbW7ze54jrSoQ8RK52BoibY0CVOcmzYw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-14T14:30:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487805:1\",\"title\":\"百度安全受邀参加中国互联网大会并作主题演讲\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487805&idx=1&sn=659b5197afc0d823f2c293cfb04ad23e&chksm=9eb9cfbda6d96fca9c204231328a31fd43fd38df01a8d1b2eb7aeee29aef296649d5f9e4a3df&scene=126&sessionid=1795126967#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWRLIM278EDPcribhKwAwq6jibN4QeIvFXsOZXKpIT0usBj0Ofj1ibGLMs9DXicKlgNfyibYiczIaich741TQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-30T11:00:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487801:1\",\"title\":\"文心大模型及百度大模型内容安全平台齐获信通院大模型安全认证\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487801&idx=1&sn=f09b4f5ffffd01de186bba3c16793207&chksm=9e403277f4631cd52dc19e9abc2be55f3330d5857a72ac1f7e79243c401715abef42f5b75f46&scene=126&sessionid=1795126967#rd\",\"description\":\"基于大模型安全护栏建设理念，为行业提供了一套系统性的解决方案\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWQNo0Cg60vslEW4TGG50gIlGPRwlrt1N86ORdnoMqiaYrIUU1NygZB3Mjf3GibJnV494fwXfbicnFblg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-30T11:00:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487796:1\",\"title\":\"百度安全携手安恒信息开启战略合作，共筑数字经济安全底座\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487796&idx=1&sn=12212e01e65898e7bb4c94bea57ef0ec&chksm=9e582e9be88c5b4f5e412894e9e9d65c952636701e8dcc81fd1012686a25c25f6b0ce674a403&scene=126&sessionid=1795126967#rd\",\"description\":\"双方聚焦云安全、智算数据中心建设、大模型安全等关键领域，推动产品与业务场景融合，打造领先数字化安全底座。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWQqN4Mbm6j0KQk3YCnkYY4QQRlhVNfax30jzFVJkVWKfJDwF6ibLAgWs2GAsoibjLamWdsu0IkwdAsw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-17T11:00:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487792:1\",\"title\":\"大模型安全建设的新范式：百度大模型安全防火墙\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487792&idx=1&sn=933ae353c76f48be64daf6fb2e4f6586&chksm=9e09a008cbf2e76e434d3920861a952c2a22c5eb4c12565c4cef4569e7d4932e445b2a70c87d&scene=126&sessionid=1795126967#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWT3XBd8yAX87mo8Uz4B5oVYBQJeXiapuJFrpxypjrJ8F8KnaGmABswD8Wq4JyibFIBksiaIVqzHhLGwg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-16T11:00:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487786:1\",\"title\":\"BCS 2025 | 百度大模型安全解决方案入选中国网络安全优秀案例\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487786&idx=1&sn=3416cefaf3880a37de3855b70d4b664d&chksm=9e1973c1aeae9e64e9bfc014acc08b27c453e9158dbfa503243478b3a4b019adf67286aa5987&scene=126&sessionid=1795126967#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWSOmKZJjpoicMJI9MiajHNkdntNkhnzSvM4UMsIUnLWS2T7NuGiasib7zpkcGsxz7vJxEX4WSb3EENicYA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-11T11:30:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487781:1\",\"title\":\"BCS 2025｜百度副总裁陈洋：智能体在安全领域的应用实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487781&idx=1&sn=8f22a0ce007cd625c676d3fee7cc9b67&chksm=9e8b218b013fc7deac54cc62dc343e4d0af61bbc0383e1266b074303572233d88bb032dca45f&scene=126&sessionid=1795126967#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWRPtgSeJls0YF30df88PS61LcopCIZMdyt6oBBLY6NzFNPKnTYDr4WWt2KUPvXRZ4ibdYnBsQP1yFg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-06T13:30:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487777:1\",\"title\":\"2024百度ESG报告发布：以安全为基，践行信任承诺\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487777&idx=1&sn=596be4247d1ffb9135ebbadf517489c1&chksm=9e234bddc16ec0f8f8b05fad496b28726a8b8e1f47b9d4b0847aca44433457bc2fbcdd9747fc&scene=126&sessionid=1795126967#rd\",\"description\":\"持续提升数据安全保障水平，为用户和客户提供安全、可信的产品与服务\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWQhUQmwOQSW3fInfxtKwsSOSVTTUgxk82dNI5vqYEzdtMoNG3zkukVOId29pHebSD2YTicoFEUqZeQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-05-27T11:00:00.000Z\"},{\"id\":\"wxmp:MzA3NTQ3ODI0NA%3D%3D:2247487771:1\",\"title\":\"网络安全创新论坛 | 百度大模型安全斩获“2024年十大优秀网络安全创新成果”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTQ3ODI0NA==&mid=2247487771&idx=1&sn=756199516a763374e48c2950635f9bbd&chksm=9ebd4a18f2895f6b9ab4d9a2c47e7f8ee095f59fc643efabc75594d9e65afede8ea4b7aa6b45&scene=126&sessionid=1795126967#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F2fvCZicH9HWTc1Cia5k39Z6MShXn4ms6grR3v8KSg2SvgEHkaOHLicyrw6fic0Aibl6kxyS6ggskOV0WonktNzobO7w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-05-09T13:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10013,
+      "elapsed_ms": 1201,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 6
+          "started_ms": 2,
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10006
+          "started_ms": 6,
+          "duration_ms": 1194
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10013,
+          "name": "输出读取与校验",
+          "started_ms": 1200,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1200,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10013,
-          "duration_ms": 0
+          "started_ms": 1200,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10013,
+          "name": "浏览器状态保存",
+          "started_ms": 1201,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10013,
+          "started_ms": 1201,
           "duration_ms": 0
         }
       ],
@@ -148,7 +161,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 10003
+          "duration_ms": 1189
         }
       ]
     }

@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:45:20.758Z",
+  "checked_at": "2026-11-19T22:22:29.493Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_72d9239e6429",
     "name": "GeekPwn",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10027
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_72d9239e6429.json",
+    "duration_ms": 4602
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10020
+    "status": 200,
+    "duration_ms": 2549
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10013,
+    "phase": "ok",
+    "elapsed_ms": 2544,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 10002,
+        "started_ms": 8,
+        "duration_ms": 2532,
         "timings": {
-          "response_ms": 2680,
-          "body_read_ms": 7322
+          "response_ms": 1160,
+          "body_read_ms": 1371,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_72d9239e6429\",\"title\":\"GeekPwn\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650346227&idx=1&sn=bb6e4b978c78c1a5710d4879ca756170&chksm=8740a936b0372020bb45100c3a48cee61b38b46a7a6bf3c36c903ff69baed06f4d782bfbd03f&scene=126&sessionid=1795126952#rd\",\"description\":\"GeekPwn，全球首个关注智能生活的安全极客大赛！我们在寻找可能默默无闻但出类拔萃---注定可以改变世界、可以和我们一起保护未来的正能量---顶级 Geek 的思路、敢于 Pwn 破禁锢的你，这里是你的舞台，一起来，做到“极棒”！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"GeekPwn\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5ygCH3HvPY0zfswmgJic6hUUUcy88wzwe4DdH0OUo3BCQ%2F0\",\"updated\":\"2022-11-02T13:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650346227:1\",\"title\":\"GeekPwn 2022｜G-TOP 年度极客榜，刷新了！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650346227&idx=1&sn=bb6e4b978c78c1a5710d4879ca756170&chksm=8740a936b0372020bb45100c3a48cee61b38b46a7a6bf3c36c903ff69baed06f4d782bfbd03f&scene=126&sessionid=1795126952#rd\",\"description\":\"2022 G-TOP 年度极客榜，揭晓！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxJTdXwXMYb3LsxckDsk8QZ4209aibfvNUadgG6Z8mgMBgykXGTBuI5fWtUREWoiaxOyf6hBaeALJTibQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-11-02T13:00:00.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345896:1\",\"title\":\"收官之战即将打响，年度最强极客花落谁家？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345896&idx=1&sn=1556105cb85911f0b4e87274489b3571&chksm=8740aa6db037237b1fc2dc25d1a0e45e84dda951428502c93cd22378a24f8a0015091c77aed1&scene=126&sessionid=1795126952#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxIxSysXz4yqotS23icfCxmtNOibDOABqJed2OSZKCLwrPtM3t4epFaEibyPNHRpX3N4BmonFqP8fGppA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-11-01T08:55:11.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345882:1\",\"title\":\"三期亮点揭秘！二期高能集锦来袭！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345882&idx=1&sn=df628aebfff23007a476acf5845a5caf&chksm=8740aa5fb0372349cb9e7bf9e73cac30da9ff7afcde29a1034307249304866436ad3dcec842a&scene=126&sessionid=1795126952#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxLHE30liatIpIWd42MnXnaVqGvGRbp9zLyltCy1rEZ1usU9MsOAfLRUzQ98YgxRR2yAtdqtcmaG0Qw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-10-31T08:03:37.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345864:1\",\"title\":\"首播高能时刻回顾！二期亮点安排！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345864&idx=1&sn=bd2a0da79fcbcf141197921dd84bdebc&chksm=8740aa4db037235b02febd6d2b7644899abd6cb3e4ac538c6879743e2b027c192c44a28c7d7b&scene=126&sessionid=1795126952#rd\",\"description\":\"今天19:00，第二期直播精彩继续！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxKDFgaAYhXOXE7Ly0Fo1jMupZxk0mvYCsZtfRuvwg5d0zP5jovAWBhSSaTpgGM8shHvxFPHYhhq9g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-10-30T08:58:39.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345850:1\",\"title\":\"GeekPwn 2022今晚开播！这份高能「剧透」请查收！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345850&idx=1&sn=4fbf0e59f7accdb8c28a4729a98a12e0&chksm=8740aabfb03723a96ccf0de684f4b1a7f27bdd05a221b3b12268edc533e2f89577d9b80d35c9&scene=126&sessionid=1795126952#rd\",\"description\":\"今天19:00，重磅回归！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxKPcnYsdm3zWvoF85jseFZqhibD8MVqTXewv3ASjOn9yiaBp34Vf6JRJic4Z3ZSqPzMHDgleSufO1nibA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-10-29T04:55:10.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345841:1\",\"title\":\"【10月29日-11月1日】GeekPwn 2022 大赛实况直播来了！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345841&idx=1&sn=133742fe29d9e657475c54a55c719f3e&chksm=8740aab4b03723a20f137160f4504addae0148b5956f020533a824ac16f8aabc26fb9f1566f5&scene=126&sessionid=1795126952#rd\",\"description\":\"10.29-11.01 每天19:00 不PWN不散\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxLrNcCcazzvJuzttb6D0U3a3yPcqtdicgViaItTlVXPHjg1lHJBERpiaTOrTULILcibnmIFPsRyEa2gvA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-10-25T09:01:16.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345818:1\",\"title\":\"GeekPwn&我是极客2022，1026线上见！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345818&idx=1&sn=86c4c6008aed64fd3f36723a2bb2bf28&chksm=8740aa9fb0372389ed38d9ae2a4e2c702fac45d495fa1526305fdd16fae1ab7a3b096c09faf7&scene=126&sessionid=1795126952#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxIZKHkeoiaDJ8w589LFic6sYAibtcl5656Dlhia2h7xpWoAEjr0dia1oYWSsVXG2NmPksFsBp2kfZiaYslQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-10-14T10:00:17.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345818:2\",\"title\":\"十大议题重磅亮相！2022 SDC 即将举办\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345818&idx=2&sn=db5d86a6d1ffef4f6063208f6e1a4945&chksm=8740aa9fb037238967d57e48d64a1ec73f71be2aeaf562ab23d407e0a64186be96d1048b6e7b&scene=126&sessionid=1795126952#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxIq0C0J1DHdelhwrcOY0wtq4b97ShibqRotAnaJRsiaP4KbiaffbeR57TH7XRicuOaEy6TofiaNOEP79Jw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-10-14T10:00:17.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345617:1\",\"title\":\"GeekPwn祝大家中秋快乐，团圆美满！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345617&idx=1&sn=f461e1503ee4c3b59233fb71513cc2fd&chksm=8740ab54b0372242970a89146d5225243c002e4280f9bf1dbd75f1604d0dc0d39b1274ea67ff&scene=126&sessionid=1795126952#rd\",\"description\":\"GeekPwn祝大家中秋快乐，团圆美满！\",\"content\":\"<p>GeekPwn祝大家中秋快乐，团圆美满！</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FibZuHRCMKQxJFn9gewXpVsXbQJ8YpqW3IrcynI7z4aDCWXOeHTE5aI8mm0zrYB4iamicD0ETGuMDsaQLphS2WhDJA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxKwN91uSPkSLaIFmpDZct5an8ib0JXUTnNKucqtricsR6gWkjatibMZjD6giaK3HMic6Ad5g8Rkkic3lO4g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FibZuHRCMKQxJFn9gewXpVsXbQJ8YpqW3IrcynI7z4aDCWXOeHTE5aI8mm0zrYB4iamicD0ETGuMDsaQLphS2WhDJA%2F0\"],\"type\":\"gallery\",\"published\":\"2022-09-10T02:25:05.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650344792:1\",\"title\":\"分享图片\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650344792&idx=1&sn=4c7c0388908bdf027f229ce143047a11&chksm=8740b69db0373f8baa24fe1fa9aee0afacf7da525eea31b58bf51edd290466e4b3513b66bf0b&scene=126&sessionid=1795126952#rd\",\"description\":\"\",\"content\":\"<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxKZG6rFSo6ZH2xib6b2LAvx5HwCNcNVXvcl6drA1MV2abCkkDsPMI9CrruU265giaYhxbIjVjhB0dicQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxKZG6rFSo6ZH2xib6b2LAvx5HwCNcNVXvcl6drA1MV2abCkkDsPMI9CrruU265giaYhxbIjVjhB0dicQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxKZG6rFSo6ZH2xib6b2LAvx5HwCNcNVXvcl6drA1MV2abCkkDsPMI9CrruU265giaYhxbIjVjhB0dicQ%2F0\"],\"type\":\"gallery\",\"published\":\"2022-09-10T02:25:05.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345603:1\",\"title\":\"在谷歌搜到几段密钥，就破解了自己的汽车？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345603&idx=1&sn=e1bf2815c4a31f98944124ae1b545b4a&chksm=8740ab46b03722502e6f70e2ed91a3314fc01d46232cfd59a5e8180064ac346304c1addbefd1&scene=126&sessionid=1795126952#rd\",\"description\":\"人是网络世界中最大的BUG……\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxIO2YIKk6VriawNCYR2RxffIUHWL7QJLGUPE2EpYemFRwKNc88Y67UyicBmAiaMeMGKY1J8Srj2w5uFw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-08-19T11:30:00.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345544:1\",\"title\":\"真卫星破解｜首个针对马斯克“星链”的攻击方法公开\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345544&idx=1&sn=13dbf2b536f80facf3197972debb9268&chksm=8740ab8db037229b32ec815e900835b89f2414c50b9d3a79c8c913b1bed74b9d62f266dae91e&scene=126&sessionid=1795126952#rd\",\"description\":\"2018年至今，马斯克发起的星链计划（Starlink）已把3000多颗小型卫星送入轨道。据媒体报道，星链在\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxInPQvn2cK6j0vmNnraGicPIxjZcbXYHD0FaGodhUUjfpP7tpUb3c02CFzgr6KQub7ZV7NygCCK1lg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-08-12T13:50:00.000Z\"},{\"id\":\"wxmp:MzA3Nzc2MjIxOA%3D%3D:2650345527:1\",\"title\":\"@所有人｜请查收这封极棒但不是GeekPwn的招新启事\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3Nzc2MjIxOA==&mid=2650345527&idx=1&sn=675b36ba4d85c28c524c262ead6ddc20&chksm=8740abf2b03722e4fa2a61e1a897e938955e6569cfb09093cbb9003764a70cfb9aeab465237d&scene=126&sessionid=1795126952#rd\",\"description\":\"黑客PWN友今年的最棒选择之一，8月31日截止\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibZuHRCMKQxKX6IcUSQTgXKftjxBzAkcj5cEE7Yu0zJ9NGIerhFRiarAAFOAQ0TuibAGzjSa256iadtTwT5CQscaGQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-08-08T02:24:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10013,
+      "elapsed_ms": 2544,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -123,34 +129,39 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 10006
+          "duration_ms": 2537
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 2543,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2544,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
+          "started_ms": 2544,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 2544,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10013,
+          "started_ms": 2544,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 2532
         }
       ]
     }

@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:49:33.064Z",
+  "checked_at": "2026-11-19T22:23:26.052Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_ef5739a9d493",
     "name": "猫笔刀",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10018
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_ef5739a9d493.json",
+    "duration_ms": 1504
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10022
+    "status": 200,
+    "duration_ms": 770
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 766,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -70,15 +74,17 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 10002,
+        "duration_ms": 755,
         "timings": {
-          "response_ms": 6534,
-          "body_read_ms": 3468
+          "response_ms": 753,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_ef5739a9d493\",\"title\":\"猫笔刀\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498958&idx=1&sn=221eac1e12c7cfc5ad652af6666e8217&chksm=9721fdc83c8054fabaf83a5d6cefee035a59d08a8f063558a5d3d957f3f8929425c222134199&scene=126&sessionid=1795127008#rd\",\"description\":\"记录与分享！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"猫笔刀\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FX6Ucic5kYIBPYDR8u0eADh2BRWsianZu0KytbF4xrKL9El06uTSCkdj0o7S0ByQPZwxayLmZnib6UI%2F0\",\"updated\":\"2026-11-19T14:20:18.000Z\",\"items\":[{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498958:1\",\"title\":\"最近亏得我压力有点大\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498958&idx=1&sn=221eac1e12c7cfc5ad652af6666e8217&chksm=9721fdc83c8054fabaf83a5d6cefee035a59d08a8f063558a5d3d957f3f8929425c222134199&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQDzjsr2LzB59n6S81VBdfOSdFfPhxzsaosU5bUIbdeZicM7aqgcboj9M43o6ibSIAozicq4PIZjq1n1aPRmvjEo3cudbx3Fgz10XngG7LkVStE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T14:20:18.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498949:1\",\"title\":\"午后问斩\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498949&idx=1&sn=8e22ba2e97204a1990ace59bcf680984&chksm=973392769eb615e8d2f3afb34595a91be0a85c8e439633d797d9954b82dcaca183c43fa51ff7&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FQDzjsr2LzB7qIdpCyv2cceEqdVZU7Twp2Xy0xVzDAk6Hh4nckZsvVw0k3dx6jZ6HicScBAxrNGTJlwa0Pfv0Uy0IY3CINN2jDhicKc3bsicZZk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T14:20:04.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498942:1\",\"title\":\"扎完了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498942&idx=1&sn=05959150db64271e4a3d293cbc518cc8&chksm=9738a94df34aa97275cc515b176aeb65213b812338f3524344f8c551b2548c10156274d159b9&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQDzjsr2LzB7MRLTVf0tzicNV8ZS08hXibvkPjQIJSyg7O6rP0s42oD5bnTPlia1OIFmxeu4XKbNU6MUeEonW4X9brW0eU2HPVQu4icdzaqv2fqU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T14:25:38.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498931:1\",\"title\":\"又听到鬼哭狼嚎了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498931&idx=1&sn=284eaac32b6dacd0e070501ca0ca54c7&chksm=9716dc6ae17c181bf0d0c6ce6695798bfdaa03b7248d0752ab3d4669fa2d1fafbadfa0653ed1&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQDzjsr2LzB5vrYXWGGB14GI6HYTanmd2EnyNlSPbgKuzUFsicRQDX0j0IZ2DtVqsb22B3X2n1LO7R5BZadJbm7YiaYaqDGZyYDtW1wcImcdX8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T14:21:51.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498922:1\",\"title\":\"最新鬼故事：大哥还在嘛\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498922&idx=1&sn=77050484714c6aef14da673fc8a4884a&chksm=97247431a470efb95c791777cd225bbebdcc68dbe05568fc53768857a986ae6bda55b433e660&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQDzjsr2LzB7nlbmklxSYn1Ba6BuVlqIicfJPhHIibzqJJlAXIbyrficAuXtH1icKYu7ibSQic7qwpzE8W6oziadmfng0ibaM1sZYx4QXRDjlyog3ZHI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T14:23:34.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498911:1\",\"title\":\"敏感，但不自卑\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498911&idx=1&sn=6d4b41b51abddb5fdbc5cc676057a487&chksm=9720d0ce73af1f5138e361b3f909915edba0dd75e206d638b4844678e8289a240a7e74c8354e&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQDzjsr2LzB5ysUWbicMiaZhgIiasia3dpRxqRCM1uybDDkg9SsjJMo3YfzX5ULDCPnV6VTfiaFQwI8Gzu5kfDs4nQmUQdmKdn8B7VibXib6TciaSCJ8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T14:25:47.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498903:1\",\"title\":\"啧啧，全是套路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498903&idx=1&sn=9f123438e8f58671f064ccf485451dde&chksm=978e1040254eaa20576a48cd152e496256b547c46529a9e48020d2519ea954b67022f9725cee&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FQDzjsr2LzB7MLpB5pKXNEq0O8oa43frOrxpDop92YicqrjQ9Hl6PlyFz7QsDFHZTnz48RjuN6MCgUsW0flqT82Er8PdZ6kG5CwSDjoPb9hpk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T14:24:53.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498898:1\",\"title\":\"终于，还是没扛过去\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498898&idx=1&sn=ff015e77ee6fc301f380b3a88e8b8ed7&chksm=977ba55d6ea7bc702215ccf6e2035c80135cdb832b3e4f0dc5ad7615f5a30ba2b564f8ac3ba9&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQDzjsr2LzB5TF12EHSIgXIgteVJtoQ17BOlea2O6Ns4YLN5rLCMjc6k7NhXu5gFjhslfdbpgo7Y2urEsibNzIMLcw6sC7JaUYtF39iakicWpe4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T14:18:58.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498891:1\",\"title\":\"又能相信光了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498891&idx=1&sn=5d94778fe3277b1f43e9372f2914ecbe&chksm=976f9a2c816bceeebdd4c145463b9528b5c40b3eff0122e52919c40063d4dc485df63a76ef1c&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FQDzjsr2LzB4ws8s5p3pYdfkm03Qd76ic14zZbDUiaibGnAKeYLs6lZAbCFZRnNL3w24QJTiaJGdXEINSUC9Sd2v3JXsKUsnzBR1DMACzJarKv48%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T14:21:44.000Z\"},{\"id\":\"wxmp:MzE5ODk2NjUwOA%3D%3D:2247498884:1\",\"title\":\"晃晃悠悠又一天\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzE5ODk2NjUwOA==&mid=2247498884&idx=1&sn=8c24552ad0dd2789121db1f0075e70f4&chksm=97c8097521a355ddba2fa74f241ac483fbe1a80c5bcdd3a9766d6fb6fe398e7c7342394d5d39&scene=126&sessionid=1795127008#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQDzjsr2LzB6icjLOHtHtdpxWQn5OmmE6AC2ejnm1GpTplVFICCJExtCCJ25PZRQZLzCgeibibyTHicqkO2w463tHCRjMIbRs3YfkmwWKqS7LQHY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T14:24:17.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 766,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -118,39 +124,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10004
+          "started_ms": 6,
+          "duration_ms": 760
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10011,
+          "name": "输出读取与校验",
+          "started_ms": 766,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 766,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10011,
-          "duration_ms": 1
+          "started_ms": 766,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 766,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 766,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 10002
+          "started_ms": 8,
+          "duration_ms": 756
         }
       ]
     }

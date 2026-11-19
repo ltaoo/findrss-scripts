@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T13:46:20.420Z",
+  "checked_at": "2026-11-19T22:22:43.162Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_24d1c58f65e1.json",
-    "duration_ms": 9422
+    "duration_ms": 4173
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10029
+    "status": 200,
+    "duration_ms": 1109
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 1104,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,15 +74,17 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 10002,
+        "duration_ms": 1092,
         "timings": {
-          "response_ms": 1401,
-          "body_read_ms": 8601
+          "response_ms": 912,
+          "body_read_ms": 180,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_24d1c58f65e1\",\"title\":\"中通安全应急响应中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486702&idx=1&sn=14ec315a14c49a23d93fa902fa88bf0d&chksm=f8a8bdda29cbea9c578037b424be971cb97c34d3d06b842912e539523cddb0cf343f8f2956fb&scene=126&sessionid=1795126965#rd\",\"description\":\"中通安全应急响应中心（ZSRC）官方服务号\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"中通安全应急响应中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM66bk8RbXEtSZmTEa6thOLiaCwWJ9cujAbJ2sk1C8hwGhA%2F0\",\"updated\":\"2026-11-13T02:41:55.000Z\",\"items\":[{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486702:1\",\"title\":\"联合发布｜《SRC行业授权资产安全测试规范-Agent版》及配套使用手册\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486702&idx=1&sn=14ec315a14c49a23d93fa902fa88bf0d&chksm=f8a8bdda29cbea9c578037b424be971cb97c34d3d06b842912e539523cddb0cf343f8f2956fb&scene=126&sessionid=1795126965#rd\",\"description\":\"让授权边界更加清晰，让测试行为更加可控，让责任主体始终明确。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YNV6vXA3o4aPfuSHNwmTcmv6Ry8NxYQndAWZIzD27O9tDCXAnoq4YdhK04syPjvVk82iaHMzjfWGIMREfiarqMrQcEtC8xo3PacibseSwu4thA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-11-13T02:41:55.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486697:1\",\"title\":\"关于双十一期间暂停授权测试及漏洞收录的通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486697&idx=1&sn=977ecf5076ed8995c9b019fc8de3ee7f&chksm=f8109a71f54ab991d5c95300c0bf0bff7c556df8672e4379c5d4b972ae105ed5a89660942309&scene=126&sessionid=1795126965#rd\",\"description\":\"双十一业务高峰将至，为保障中通业务系统稳定运行，中通SRC 决定阶段性暂停外部授权测试及漏洞收\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YNV6vXA3o4a1HhuPORo8I1E2e5nDwSOVVqAO93ZAoFVwRZNJp8qabg4bjpN6z7icpyKGEqbxmgeqlFvYZNBjNftEVbdEMatCqpGbHuricyjfk/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-19T03:10:20.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486677:1\",\"title\":\"关于暂停接收中通子公司中危、低危漏洞报告的通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486677&idx=1&sn=1245e25c8cc9f363263985557f32fe39&chksm=f899976651c7a0afc25a6fd08114ded951b0e6f9c7b939dddb714dd2982f5772dddfb86e0646&scene=126&sessionid=1795126965#rd\",\"description\":\"本公告自发布之日起立即生效。\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YNV6vXA3o4aE6BQwCDrTNUcErOCh5dibibsSFd03o2OlcnSV5ePESkJxic4O5ibxmfFuF3pkfL5LmkQn5x8SiccDzSibEJJhXrWFpyOfQY05NexXA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-11T07:43:36.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486672:1\",\"title\":\"【通知】关于中通SRC恢复接收漏洞测试的通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486672&idx=1&sn=3e778aba95a45a2ca05da6259c7c08d1&chksm=f844f2cfdeab208a3c4cd9c8c2160e9ffe5e663cd344881b7790df0b89af21aa63687276a8f4&scene=126&sessionid=1795126965#rd\",\"description\":\"中通SRC已正式恢复漏洞接收\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YNV6vXA3o4agThjqyvQBZ5V9GR2ZZ6mqMkQFTTNV1jTdy8YfNs3gKfgkKGe8jcw0ezmqPHAE7hjunLZObQGEKdf3tG5xOajmhGGLR2IU4Fc/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-02T02:00:27.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486666:1\",\"title\":\"【通知】关于中通SRC暂停接收漏洞测试的通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486666&idx=1&sn=103bab8f07e1a52ed09af6fdc22e504d&chksm=f82ecf5ad50494a11f47c22590af278ab1dfa557325bb19a72d2de9f72092128ebfa71f99a83&scene=126&sessionid=1795126965#rd\",\"description\":\"即日起，中通SRC暂停接收漏洞测试，恢复漏洞接收时间将另行通知。\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YNV6vXA3o4YmKqmxLLR1Ztgc3K2nMmEic64cc8yHe5Zib3tgUoh9JTXFWZkDOWF3uCZziafF8O2qvZzt6KOVH28Xhd5wm7Ly9PBaiaUqWXol0kw/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-08-18T06:59:00.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486661:1\",\"title\":\"3倍积分相伴，共赴ZSRC十日之约~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486661&idx=1&sn=2e22128c3a64d7d18bfc309ea4712862&chksm=f81689d0f167a70cfa23464a1704ea1066b2e245666ba14807dfdad6a22208a252f2dc39bf3d&scene=126&sessionid=1795126965#rd\",\"description\":\"叮！你有一份初夏限定的探索任务已送达～\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YNV6vXA3o4acXPbD10Bib6krg3FlnOAplXibMkNSfxf8jea2fM8sVxCBLRMCcgyyy6j7yQKiaKq8uxAAkBmcN8BWcKvHwxjS3hxic5yA8AO45gI/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-06-05T01:28:59.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486646:1\",\"title\":\"中通SRC关于AI生成漏洞报告的处置公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486646&idx=1&sn=1659e438858303dc1b6a440198931f9b&chksm=f8cb1322e7c88ef4a599cb5ad2e6451f23f1881463ff44db0a70d60d16f7c72fcbdfb4788cc9&scene=126&sessionid=1795126965#rd\",\"description\":\"中通SRC联合30+SRC共同发布AI生成漏洞报告处置公告。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YNV6vXA3o4YxyqtfNteqmJmbpGj3ITS3jZ6xVbR3CpLQtzeU2bzEW4csbUqIQXbNibzL3sTlvVHicBeWCvHnwLibLcYE1EnDUMvfwb8E9MpF3c/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-04-23T09:47:12.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486640:1\",\"title\":\"Q1收官战！2倍积分+累挖奖励，师傅冲就完了！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486640&idx=1&sn=41693eb7337b7aa9513c666a181c81cf&chksm=f8c7acced81e79885f0adf7c06df35d542490907127eb915812a7bc9c27d7c354044c4bdd1e0&scene=126&sessionid=1795126965#rd\",\"description\":\"“累挖奖励”上线啦，人人有份，都不白来~\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YNV6vXA3o4b3NZufsXRB2vbasanF1e3fBRQ1jhdGlek4Q5sTKOLk7ePz3uXjsQvbWBQyfTX3kLEHCqLTRM4RUg0GMfvuokI2F8SzFhQCg5g/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-03-19T01:12:21.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486572:1\",\"title\":\"『跨年SRC联合狩猎翻倍盛典』活动圆满收官！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486572&idx=1&sn=7f0a699a4bc62d8f3216182674df3586&chksm=f85da1ba5d2b9a70bd6d356f04ac20ff71af2ff279216ab26349c1f6f5d68b38ced740e30c3d&scene=126&sessionid=1795126965#rd\",\"description\":\"恭喜积分排名前五名，同时也感谢每一位参与其中的白帽，感谢你们的信任、锋芒与赤诚！\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YNV6vXA3o4aueZB7buIE8uLWjzW110ZkTIRXgibVg48L2qlKEvttQrH2lX6YZMiatKzZMYgVQGqAmsKLpdCBwdOob2ckP8nEAGY37X2OIiceEo/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-02-13T12:05:21.000Z\"},{\"id\":\"wxmp:MzUyMTcwNTY3Mg%3D%3D:2247486566:1\",\"title\":\"【ZSRC 限时兑换】10积分带走专属春节礼盒！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTcwNTY3Mg==&mid=2247486566&idx=1&sn=02103785bcab7759638c8761b9a6ddde&chksm=f808d4796bb3e9f0ee68db91fb0dd725403f53baa9fec14496eebdd48d13b4f3cf2e1b81a627&scene=126&sessionid=1795126965#rd\",\"description\":\"这份满载祝福的礼盒，盼着能借这方暖意，温你整个寒冬，更伴你往后岁岁年年的守护时光。\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YNV6vXA3o4ZtzwkL2zTa9VcpiadcNzH3a9GuWDhA4I423ELCIbjNwHCl7lSFSFNDiaEShXjgQicGR2a9XFES0KZ3D5cJgbFWmgcjrbbwcPuJ8Q/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-02-06T02:47:42.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 1104,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -112,36 +119,41 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 6
+          "started_ms": 2,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 10004
+          "duration_ms": 1096
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10011,
+          "name": "输出读取与校验",
+          "started_ms": 1103,
           "duration_ms": 1
         },
         {
-          "name": "沙箱释放",
-          "started_ms": 10012,
+          "name": "执行日志收集",
+          "started_ms": 1104,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "沙箱释放",
+          "started_ms": 1104,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1104,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 1104,
           "duration_ms": 0
         }
       ],
@@ -149,7 +161,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 10002
+          "duration_ms": 1092
         }
       ]
     }

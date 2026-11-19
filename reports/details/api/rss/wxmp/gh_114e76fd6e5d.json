@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:50:49.516Z",
+  "checked_at": "2026-11-19T22:23:47.112Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_114e76fd6e5d",
     "name": "量子位",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10045
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_114e76fd6e5d.json",
+    "duration_ms": 3282
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10056
+    "status": 200,
+    "duration_ms": 2083
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10012,
+    "phase": "ok",
+    "elapsed_ms": 2079,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":26,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,88 +73,95 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 10001,
+        "started_ms": 8,
+        "duration_ms": 2065,
         "timings": {
-          "response_ms": 3245,
-          "body_read_ms": 6756
+          "response_ms": 879,
+          "body_read_ms": 1184,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_114e76fd6e5d\",\"title\":\"量子位\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945226&idx=1&sn=bbe3666f27255c36bcc25d5e4a436780&chksm=e91259248fe5b1cf12f76cbd042532c5a37cb88de3120d0f1553fe0a467341c55b0fe5688f1c&scene=126&sessionid=1795127029#rd\",\"description\":\"追踪人工智能新趋势，关注科技行业新突破\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"量子位\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6PqxX9Yx8MibJ3nial8ialvVrRs3PxhCJm7eWgR7vFrowLA%2F0\",\"updated\":\"2026-11-19T11:13:11.000Z\",\"items\":[{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945226:1\",\"title\":\"具身机器人进入真机时代，华为云CloudRobo开始组队发力了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945226&idx=1&sn=bbe3666f27255c36bcc25d5e4a436780&chksm=e91259248fe5b1cf12f76cbd042532c5a37cb88de3120d0f1553fe0a467341c55b0fe5688f1c&scene=126&sessionid=1795127029#rd\",\"description\":\"跳出单点技术竞争\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGEDSzicQkWF2h2Ym88waGZfdcViaGZLTSp21HblH9OoyKEaThGy96F4mNnfBoRhYCibcqOyyaWrHLExmMv8nlMwW5d64GY7xH5jPw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T11:13:11.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945226:2\",\"title\":\"英伟达RTX Spark迷你主机来了！书桌角落放一台，全家MacBook的AI活它全接\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945226&idx=2&sn=9385e9e4ba52e53f2a9f46ac39fda4f6&chksm=e991420e517503562377bdb47fbe2ba29df78da8b2182636148eedc868d7a850d67fd0e2de92&scene=126&sessionid=1795127029#rd\",\"description\":\"4399美元起售\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGF90S51mf8KTsK2cTx4htg0oA1YRD1amqHNNwdwSrDEzeQ6SuOjGc3PcgibbtEUYBXZU7MNM50ic5sMfOHSwE3oWNqkW1XphH6zA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T11:13:11.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945226:3\",\"title\":\"10GB显存跑图像模型，误差从9.4%降到4.26%：魔搭开源码率可调的权重压缩方案\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945226&idx=3&sn=ce0311beb0ee0c56ec3042c90243044c&chksm=e9ef5bd0d9e38248a1169610a2683386e54bc525c242b4fcd2c15de6518217707818e128efce&scene=126&sessionid=1795127029#rd\",\"description\":\"量化不再只有4bit和8bit\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGE91xp6032SfcibYRiaVyGiaLbvSWTJJt1znwBQ8libzvNM7cTSDYLe3Old1t3kkgRByorDZ6KkVGFAYI4r51srFrOq5qJ9JZVc5cE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T11:13:11.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945226:4\",\"title\":\"活动报名｜量子位「MEET2027智能未来大会」重磅嘉宾阵容公布！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945226&idx=4&sn=0440b62eebcf7ccdc551ead0098f839a&chksm=e9705a97a148ed7b825d9b83ab788986672cdd9b2f6aa23d234c6a12dc4dd189d3092d4fb239&scene=126&sessionid=1795127029#rd\",\"description\":\"12.9 北京，来MEET2027现场\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGHZib77woaQSezp414zSyUBtPFVY65V0gjBMwT2Y2bH1Bj4UuhPjwzBvfuGHXVbtNJibnXTMYXYkicrTFoLbPyJE1DicYtGHiafgZzw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T11:13:11.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945202:1\",\"title\":\"GTA6刷屏！零AI纯手搓的3A大作玩一个少一个了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945202&idx=1&sn=32f95801a5d246a0631534d28ddcf01d&chksm=e9e95536a7ebb20479951fe67cdfe7ab533f7978867c25bac9fa461e608a5e731b4838e91eb5&scene=126&sessionid=1795127029#rd\",\"description\":\"媒体均分登顶历史第一，细节多到爆炸\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGFTLKIeWJWXpXaDA8LKHc0alFCgdgsnKHuj8riaicx1hOeQGWJiaiaOmibB3Y5icicdJr6QCRIlZYbXsf2q2mQcg8g3dygjpsrxftodkI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T07:44:51.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945202:2\",\"title\":\"ChatGPT语音速记功能来了！取消10分钟限制还能实时转录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945202&idx=2&sn=505210573ef73ab02d8d282201144327&chksm=e9022e8a024550db1d7f499d1817bfd66a532b6b775fad9ee0770ac44398e31de58954207206&scene=126&sessionid=1795127029#rd\",\"description\":\"销售专属工具也来了\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGHJicP4YCjCaZcLvYdaHAaeXTOZ0DkM4r3lSYb0XanA0mk3EYAF9eboggcN4I5K2sd8xiafv1WtVgaVjaXteIUCA0OSUVyrxITOY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T07:44:51.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945139:1\",\"title\":\"3年20倍，自动驾驶卡车开始收「复利」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945139&idx=1&sn=4146177f7c726617203a4e5170a1f8e4&chksm=e9453175fb72b81b016e40f9919e652d08cf6770821e7b3ae4a7bcc841636df18245d073ef3e&scene=126&sessionid=1795127029#rd\",\"description\":\"货运物理AI，必须原生\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGHc13GICibNwNK1qQe5ibQNlSVKBjxoeEbnBWiaHLswhVkJJSEDjUghxmIzSicAJW8PlhjicBAMHN5hRQaNcicOHaB6ibZ4wsMsmVDGj0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T02:53:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945139:2\",\"title\":\"Anthropic今晚冲刺市值1.5万亿美元！AI泡沫也是IPO营销的一部分…\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945139&idx=2&sn=2336114e1d302482edb578e916959381&chksm=e95650058dc484f3fa9deeb1f210829068205293e601572897cd300dc0773da43eb70d331790&scene=126&sessionid=1795127029#rd\",\"description\":\"史上最大IPO，募资940亿美元\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGFdgwqd60VicY1GEibYYQ2nEy0ItQ3bq8Fg7HGreCYyx56Gt98wrekO70kH2fzIvBWx8UDrXWRQibXmytzDYvib986NpwyJHIQbWaI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T02:53:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945139:3\",\"title\":\"8B连续扩散模型在数学上反超了离散扩散！MATH 62.12分居首｜北邮×智源×北大开源\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945139&idx=3&sn=8044347355df5977c4f4cb12a60a69fd&chksm=e9a1ed6a6220ffcabe654071b7262be5097fa173b109937fcc0f6fb33a88072e8676f2570f09&scene=126&sessionid=1795127029#rd\",\"description\":\"大模型90%训练预算白花了？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGH7Hx41kZPjFf3FGcEbQwialwsD33csQEviaISIW8MhyxfxVhE16xgMHR75VHNVxTTJdeSs2mca0dDO52QWibjDLMhB79ibsXickbEY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T02:53:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945102:1\",\"title\":\"英伟达全员提前加薪！砸钱稳定军心，董事会为迎回老黄内讧了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945102&idx=1&sn=051b6bb9ab1fa9b383393ccb1f7b0aa3&chksm=e9fc720f4927b6c599b54160656f3d5ed9795c1e423d550d2935181cb5383d67fe4a33bd03ee&scene=126&sessionid=1795127029#rd\",\"description\":\"3名董事暗中密谋迎回老黄\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGGaOxE03rpuHqHzH7EhouzBVfUu90yh4FwLJ96icn4Ufesjod89xriaBsv7l27EVuDqOIezeYQSQC6CrXcDcupJGCThRL7LRHbKc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T00:10:28.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945102:2\",\"title\":\"Gemini 4 Neon火线发布！力压GPT-6.2 Sol/Opus 5.5，谷歌这把杀疯了…\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945102&idx=2&sn=729a73239db48e1b224f859d42fbf8bb&chksm=e9f690d68234b25d9987527d11b18b25b4515fb71848f5cc1ce17cc2ac594f40263ce881a677&scene=126&sessionid=1795127029#rd\",\"description\":\"脑力速度全都要\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGGtrqib1aU9OfCfqE8LKyokBXkR7KTLfZp2tkZEbK8B6ibGDmpsUuA3e86oHUdBToic3icBZoNzJZXuUVFhFdkr8Cak0K8ALqQZxMc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T00:10:28.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945013:1\",\"title\":\"好清晰！最新国产AI画的8K图，放这么大大大大也不糊！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945013&idx=1&sn=b2e50627ec0b039ff25877d0e105b12d&chksm=e9e57fd094b048ccadb2ca4b1bdeb041191883d2ebbd3ba9e093ebeaf3aeb14d5eed830b442e&scene=126&sessionid=1795127029#rd\",\"description\":\"Kling Image 4.0\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGGnz028rqDia39snF7yFE21saofnaOM5TjadwrMo60DKOuR3vxMVeyfG4j5U36byG6QcMhH8S1z0QlFuvnXB2W2mbicn2SYk7S7c%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:00:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945013:2\",\"title\":\"范式下场做基模了！国产算力全链路训练，双模型同步亮相\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945013&idx=2&sn=c5153b93bc68c9faf8114179aab04505&chksm=e96e7cd5edf83627e40c8416f9a4dc8f77708b1758147b1bf78cba86b9bb04f523288d764b48&scene=126&sessionid=1795127029#rd\",\"description\":\"语言模型单张3090卡即可运行\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGGibRTic64yd7wDeeQGxDoWjVzXQAogF6ibuOmRrrD98FoasgY3qmhba3u7UJZuWTVvowsJyaU8cr6rob2bd5PV0stEIzkTzcLvVI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:00:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945013:3\",\"title\":\"5个追踪器替掉动捕棚：上海AI Lab把具身数据采集做成了可穿戴管线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945013&idx=3&sn=69ce3dd52cab3869a5a371fd6980ea5c&chksm=e9561c141ac8cafea791b92da07e750aa81cec9015e6b1c7c9b2135ffa5e3a143b28bef0dcf7&scene=126&sessionid=1795127029#rd\",\"description\":\"在真实环境中规模化采集人类演示\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGEW5E81DibtSTUnIiadGPNQia06buppDpvrIb2TZQjl9CGQSRrWN8QLiaRIJPiaRxxtknduU18ZVnnsHnAWSHaJwroGKRypf3ic3bAxw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:00:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945013:4\",\"title\":\"活动报名｜MEET2027最新嘉宾阵容，12月9日北京见！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945013&idx=4&sn=674c99dc3010ce26d29a89f7cf14f454&chksm=e99536fc82666bb7145a8578a130bfc419e12e7efc25c34a4baff67948a5137e33af82faf278&scene=126&sessionid=1795127029#rd\",\"description\":\"12.9 北京，来MEET2027现场\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGHZib77woaQSezp414zSyUBtPFVY65V0gjBMwT2Y2bH1Bj4UuhPjwzBvfuGHXVbtNJibnXTMYXYkicrTFoLbPyJE1DicYtGHiafgZzw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:00:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945009:1\",\"title\":\"初中毕业烘焙师，1 人搓出单集千万播放科幻剧，中国AI长片杀疯了！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945009&idx=1&sn=b79c9a477797f00286f120ebbf12afb5&chksm=e9850ce16408737e8308bbb27f857c37776fec07181f45f79f16cc6367829d6dd0e49a2bfa10&scene=126&sessionid=1795127029#rd\",\"description\":\"国产工具实现「一个人就是一个剧组」\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGGAukVJPAP2ufszHNHdoLzlOCH1IPK7jNFa2xjebpPibdh4YYByyOPmcG2LpP791YSk7ByVqWicmhrAMiaRX9uTMxl43nicWWFjgoE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T07:36:24.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247945009:2\",\"title\":\"GPT-6.2 Astra首发24小时口碑大翻车！硅谷大佬集体差评\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247945009&idx=2&sn=6a0248c03cdf2c70499bf2ac60c57091&chksm=e92b0281fdfb75b78c8e695bb239b754b3a7756d4fd048ef293e6a67d1bb64403d975e3f4913&scene=126&sessionid=1795127029#rd\",\"description\":\"只会做数学题，不会说人话了\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGHvbMIibTc6GzKVntJr3PCNaBuXP7jRgy9O7Jm37OH1n2TxPpqjPhrCq6TUxHE4bhibYghZJViagw71cYsIWVhDZVRmD99iaE9zDfI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T07:36:24.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944789:1\",\"title\":\"英伟达AMD首次联手押注！Genesis完成A轮融资，估值超230亿\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944789&idx=1&sn=3491817d8a7b9ca7665fc56190a42923&chksm=e9d694eedf71011f69376bb67ceb68c3c4c126c64c452cd2e09332d835e5cb8f145a9ad306ce&scene=126&sessionid=1795127029#rd\",\"description\":\"具身全栈玩家\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGGEfE2JEcmhaK7K7tjcQFzHVUROPFbXDLXfBrFnkUiaMzngDBJUOJibZzd0UBCiaWoSzqibomicGic18pWvQ7ZdXsP9G5bhh7FZmQ6O0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T02:58:39.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944789:2\",\"title\":\"思维链一作Jason Wei离职！怎么去Meta待一年都跑路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944789&idx=2&sn=effd783b75b51751ee8cbd3c8d02c70f&chksm=e99d01215307c4ff5b9e5177e1934ec992458a25a1e10345a57e31f76df3505663f3028bed4d&scene=126&sessionid=1795127029#rd\",\"description\":\"流水的AI大佬，铁打的亚历山大王\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGFmK0jyA7Mz0ZsIzAje7eBnywVjTJTucttFlqYgiawWm5FNgJZws5d1VvuHl0e1MB0YkGDT1GoG8picWVN96zibJm74qFTNUl3Kak%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T02:58:39.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944611:1\",\"title\":\"黄仁勋不再沉默：我愿重掌英伟达！董事会：不考虑\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944611&idx=1&sn=fa30d2682789066a72f83061ab21ed21&chksm=e91d0740a5fceff1ddd35e29754dd42a23bb9bc0333ecc72934cc41e0f5a8161ecc662cab7b7&scene=126&sessionid=1795127029#rd\",\"description\":\"英伟达公布了老黄离职后的首份财报\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGH525AKdEz60Riawib6j5Hy82xsSxeKMLWYNcPB3JM8Sv7Sp4Mcx4JCjYWfVFmYWMoibxF2Griaxfrekn8cicTKSFj4hWYZnCAHHrfM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:36:54.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944611:2\",\"title\":\"GPT-6.2 Astra和Sol王炸双发！3D又危了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944611&idx=2&sn=1aa657fd125349899a993d22d3e9d520&chksm=e9215c79d4316bf3d441a4f7ab2eb1d24effc72b4a542d8c249f8bbe53e8bb0fcef86b5d37ad&scene=126&sessionid=1795127029#rd\",\"description\":\"Astra降价20%\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGF5K1yKJP0eAfNxgkDPLMk8iauKTZaibpwlakhRdwLNhQKHK4LJpB3JoOjlLQ9SBvrnORG5A3xQ6h0tyX3MK9anZr80S6vn49nrc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:36:54.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944524:1\",\"title\":\"潜伏小红书48h：AI时代，顶尖技术人才都在聊什么？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944524&idx=1&sn=03d85d6468351f2dda05e6134e172030&chksm=e9a78fef02c80ba0400383c4d4184de2139e32794c27998b973e328b5204bf3ea555aa81b029&scene=126&sessionid=1795127029#rd\",\"description\":\"小红书校招沙龙，一群技术高手认真对待年轻人的野心\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGEGmFEaDSITo2Tn3Z5bxw9Q3pVy00o1TM582DeGWGWEIHUyxl5qnvQjPP2LKeJ9VZN77WgcuaLWfR1o38YFHc9D39jpnfTiaxy0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:34:06.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944524:2\",\"title\":\"李沐加盟的Aimotion，是一家什么AI公司？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944524&idx=2&sn=b95b66e6b82e90651c5ea253c9269718&chksm=e9a130900bf47144fe1a430e4881aa09cbf0e0f8c0835087e4986c7f06b7f55da7338fd70eeb&scene=126&sessionid=1795127029#rd\",\"description\":\"瞄准「产业级世界模型」\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGFPrRpSZjK7J6jBRZOkFpIgHkGya1cnNEMS73FpV0n7nic7TibHspFStjE1pn5v9Uo8BHEWM2iaibFP4a9pspEjmWoR2FYcZ8HfyYU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:34:06.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944524:3\",\"title\":\"MEET2027含金量再加码：AI4S/量子计算/AI Infra…第二批嘉宾强势来袭！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944524&idx=3&sn=e0b29e1af55a0e6d004c792c1db2f51e&chksm=e9d222458a57e8db147314c755542f43eed425d541e5843f56c5c86557ac9a58b9aa0e970ff4&scene=126&sessionid=1795127029#rd\",\"description\":\"12.9 北京，来MEET2027现场\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FA6fTew8FFGHZib77woaQSezp414zSyUBtPFVY65V0gjBMwT2Y2bH1Bj4UuhPjwzBvfuGHXVbtNJibnXTMYXYkicrTFoLbPyJE1DicYtGHiafgZzw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:34:06.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944431:1\",\"title\":\"Qwen4-Max首批实测，能力第一梯队成本暴砍67%！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944431&idx=1&sn=5e6409cb2afeeebcb340d3658fa4feea&chksm=e90278ee1e14c4f50e3d3f6f6f4004f46e51d3141ff2e2676e72ce3eca461fa47459edd8c05e&scene=126&sessionid=1795127029#rd\",\"description\":\"鹈鹕骑车，画风逐渐离谱…\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGFaovOtsHibh6CFWRBZxFOogu09oRImTmjbLZ4sJLkVq8wdNAnM1Mw8X9EnPjfovr6vt7gPm6KrJNUuYOVIBwaEicVSKLIFfbeXM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T06:14:00.000Z\"},{\"id\":\"wxmp:MzIzNjc1NzUzMw%3D%3D:2247944431:2\",\"title\":\"Gemini新模型箭在弦上，网友：遍历元素周期表？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247944431&idx=2&sn=cef4a36cd69d4311f3c3a8d72b531504&chksm=e9dace7080e02c1896c43744ebec193ee870c56193fe1acae135e02396ff75e7c2cf5cd17f6a&scene=126&sessionid=1795127029#rd\",\"description\":\"氖人寻味。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FA6fTew8FFGFGwsibK0YKTvLNGav1b7kPZic8P3gNOaOermJQ4ev6deyBn9UVampbDUicub1I1GkUibNeFMMUjmlbhvnyUqr5nazzvjuBUTO43JI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T06:14:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10012,
+      "elapsed_ms": 2079,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 10005
+          "started_ms": 6,
+          "duration_ms": 2072
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 2078,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2078,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
-          "duration_ms": 0
+          "started_ms": 2078,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "name": "浏览器状态保存",
+          "started_ms": 2079,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10012,
+          "started_ms": 2079,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 10001
+          "started_ms": 8,
+          "duration_ms": 2065
         }
       ]
     }

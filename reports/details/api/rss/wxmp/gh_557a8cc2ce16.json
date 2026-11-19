@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T13:49:09.295Z",
+  "checked_at": "2026-11-19T22:23:21.215Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_557a8cc2ce16",
     "name": "小米技术",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 10019
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_557a8cc2ce16.json",
+    "duration_ms": 2775
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10022
+    "status": 200,
+    "duration_ms": 1809
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -49,12 +48,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10013,
+    "phase": "ok",
+    "elapsed_ms": 1805,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,16 +73,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 10001,
+        "started_ms": 8,
+        "duration_ms": 1794,
         "timings": {
-          "response_ms": 4700,
-          "body_read_ms": 5301
+          "response_ms": 1792,
+          "body_read_ms": 2,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_557a8cc2ce16\",\"title\":\"小米技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520718&idx=1&sn=e6c167b66121a3e664a102ddc6df76b2&chksm=f8ffc7d144abf13d71b27f5cc22423251d3c90e8f457ffcfb756e148b562fe5b244cbf7dbd62&scene=126&sessionid=1795127003#rd\",\"description\":\"和小米一起聊技术，一起改变生活\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"小米技术\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4d33YJ86GibNjGkuupfjBM0YkQ5VytjriccD3Fo9owjIUw%2F0\",\"updated\":\"2026-11-17T02:00:44.000Z\",\"items\":[{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520718:1\",\"title\":\"小米 PROVE 论文获 ACM MM 2026 杰出论文奖，为视觉目标消除建立感知评测标准\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520718&idx=1&sn=e6c167b66121a3e664a102ddc6df76b2&chksm=f8ffc7d144abf13d71b27f5cc22423251d3c90e8f457ffcfb756e148b562fe5b244cbf7dbd62&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FrPSwicFZNl4Z1dOGSCnSdCaGKpYFrBNBvB9wClcTqBAJIPhgCODTibzzPIFsw3L8nZOy6Rza4qMvW0Xpe5HwvBZ1zKvpxqMr0sU3ObJgRooIc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T02:00:44.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520709:1\",\"title\":\"亮相联合国气候大会，小米斩获中国车企首个国际EPD双项认证\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520709&idx=1&sn=52eacfac881f2a4bbb6e22cb0e33dc11&chksm=f82f1672f2c46ff8056750e8e60e6f19a7f08ee603914ad9d7c5522daf2874201e62e744aa5f&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FrPSwicFZNl4ZgrUGgNqgiazr7ibOlL2nVkDsekLR5j5lbTbjdeTMd8QVCwMnGQiazicPKEICuicVZDzh6dic89HqFpicdfJxx6Ap9FmvpLpj5yWgicGM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T12:10:00.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520698:1\",\"title\":\"从静态清单到可交互工具：交付顾问用 AI 提升车主验车体验\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520698&idx=1&sn=975c6f08a443b35f791d062e98054e68&chksm=f8ed1d9a2cf0e20997908159978321ac3df67f8700dc6800ed82aafa769dd0c80176ac12527c&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FrPSwicFZNl4b3fLC0C1micP7yZEMtgicrpTYD3RLU2pO67ib6NAkibKawPwRDJzM7k8Eicft5eIhdfgRds1pldic8gCBEicJNvCibbpVE8AuY72tc0T8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:00:00.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520694:1\",\"title\":\"小米 WorldCast 3D 运镜，REDMI K100 已上线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520694&idx=1&sn=620e84f1904b1c9167fdbe7311055431&chksm=f8e88bdd21a03f3ef021807d79c8bd7ab6e8e573d7ff1a577f1ba745d2f69a0dcad939a33b03&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FrPSwicFZNl4b0kwl5rPrzlSjxp8z9FGrLjIeADZgZEU7l2Yu1NsjGFvdpw4yotuuhNgMOFECibsRaic8OGAafzZfY2PD2GwCkibPIprW4WM09oI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T09:48:21.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520658:1\",\"title\":\"双料大奖！小米斩获世界互联网大会“杰出贡献奖”与“领先科技奖”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520658&idx=1&sn=a4baf51e46e319931647509af8b346a0&chksm=f878bc23ed3578334b3314ef877ba7674e953e8c9c04b323a2a532bfd5290922257ec81fd95f&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FrPSwicFZNl4Zf1tObbTlWkHotYqHIStJ9OzZV5zqQQMgGGDBQAt3PMWue3JicCPLvoBZCNnUiaTOiaRophqtX63ZlUp1jChAhIpoz48lwhzcE68%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T04:41:47.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520628:1\",\"title\":\"小尺寸全能王：小米开源0.8B卷王OCR模型\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520628&idx=1&sn=82b316cb8ca7a6148323d9091fe74962&chksm=f84f9241894984cdde416ad19ac62f813c543e69dfe76789716e2cc93ba4a3226deb355631cd&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FrPSwicFZNl4akqbAHqtomWnnN35YSefbiagTYpohTXZrxIVHME6HMcJLPIq4B1EbWBichxtUnkUWIPcapBZFbNSjeOfnoWibCuRxK3kWUeWqaKc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T13:01:38.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520602:1\",\"title\":\"采了1800+工厂数据集，我们做了只21自由度仿生手\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520602&idx=1&sn=d374bbe848be7641a77ebabf1b28e19f&chksm=f85e38230d99b3749265b410dd47f006458d98e912ed61cd958c58ea84e11f09b2c068941f3f&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FrPSwicFZNl4YMKib5DkslAQCKFRHGwBM1qzN3eIt1kkSgkibVb2npm1GQH04zPJAjyFPjNHNcN8DicoWJhJ57xWCclghcoiaSHV5ytORwHnibZPW0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-27T04:08:18.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520547:1\",\"title\":\"工程师的节日能有多精彩？小米技术嘉年华给你答案\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520547&idx=1&sn=ea4c65f5ae11c78f37a7a7228740bfc6&chksm=f8e521981912732560c0de220bf70627f352c0c98f5f7d178b3295612023324673db1977012a&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FrPSwicFZNl4bHmVSs5I9WSNaBicPuGjYc8qok9xudnsUbh1bqAXRw33SvyWrzTJia19D9zwIpru6HtZUQMxbpsIEcWch5oNicUz8qM4Opf1SVfQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-24T02:00:00.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520452:1\",\"title\":\"小米 × CNCC 2026，亮点预告！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520452&idx=1&sn=b6d2f9b07a0d295262ddd1b3b886a0a5&chksm=f89fbff14219b999c7184bfd39922cb0d7531995a96ed796ca01136a12d632ccac2b789efcf9&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FrPSwicFZNl4aFWaQC8jnBx7j8relBCz4QLnvBPr7NroDrduFUKFDbSxDWUibib6PrClkUoibfaJrtsXicbyP2e1l9QAtBwpFoic3X2NMzM19xLaoU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-19T10:14:51.000Z\"},{\"id\":\"wxmp:MzUxMDQxMDMyNg%3D%3D:2247520446:1\",\"title\":\"给大模型装上“一双耳朵”：小米开源空间音频理解大模型 MiDashengLM-Spatial\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUxMDQxMDMyNg==&mid=2247520446&idx=1&sn=766c9b45d7302f1fa994f36adeda3943&chksm=f868f06b52c2f90b811f25706fd8d9e7006d87122dbea8c732f8c798b3255ca34d3f1c7b0ac6&scene=126&sessionid=1795127003#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FrPSwicFZNl4b8jqia08YyUUxC1pic2C0Hp4WG4MfgKiaKCDOwz1r9eLuBjib9YdjypGP8SLDECJX1vQ2XLXIhv5TSsiaP3KWUboYJXKiaVKn9TDwG8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-15T09:21:09.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10013,
+      "elapsed_ms": 1805,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -118,39 +124,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 5
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 10006
+          "started_ms": 5,
+          "duration_ms": 1799
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10012,
+          "name": "输出读取与校验",
+          "started_ms": 1804,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1804,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10012,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 10012,
+          "started_ms": 1804,
           "duration_ms": 1
         },
         {
+          "name": "浏览器状态保存",
+          "started_ms": 1805,
+          "duration_ms": 0
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 10013,
+          "started_ms": 1805,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 10001
+          "started_ms": 8,
+          "duration_ms": 1794
         }
       ]
     }
