@@ -1,25 +1,26 @@
 {
-  "checked_at": "2026-11-18T22:14:59.260Z",
+  "checked_at": "2026-11-19T03:45:10.046Z",
   "inspection": {
     "file": "rss/kuaishou.js",
     "path": "/api/rss/kuaishou/profile/:user_id",
     "example": "/api/rss/kuaishou/profile/3xuxw5yhgr6f4um",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/kuaishou/profile/3xuxw5yhgr6f4um.json",
-    "duration_ms": 6354
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10987
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1783
+    "status": 504,
+    "duration_ms": 16210
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
     "script": {
       "file": "rss/kuaishou.js",
       "name": "快手用户作品",
@@ -47,28 +48,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1760,
+    "phase": "runtime",
+    "elapsed_ms": 15869,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":21,\"missing_published\":0}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:106:26)",
+    "lines": [],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_1d029afffdb76deca6f75770c3675a3957575656565789cefaec4c8470e0e8baa66ef757cd00688c2d0068be56&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_c4db432624c013677e2e8ed4f06694cf3b8e8f8f8f8e50172335955da93984c42db62e8e14d9b155f4d9b1678f&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -77,18 +69,15 @@
             "kww"
           ]
         },
-        "started_ms": 29,
-        "duration_ms": 1719,
+        "started_ms": 5605,
+        "duration_ms": 10263,
         "timings": {
-          "response_ms": 650,
-          "body_read_ms": 1067,
-          "decode_and_transfer_ms": 2
+          "response_ms": 10263
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"kuaishou:user:3xuxw5yhgr6f4um\",\"title\":\"中国新闻网 的快手作品\",\"link\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\",\"description\":\"\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"video\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.kuaishou.com/\"},\"tags\":[\"快手\"]},\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"image\":\"https://p22.a.yximgs.com/uhead/AB/2025/09/02/19/BMjAyNTA5MDIxOTQzNTlfMTMxMjExOTkyNV8yX2hkMjIyXzQ5_s.jpg\",\"updated\":\"2026-11-18T20:00:00.001Z\",\"items\":[{\"id\":\"kuaishou:photo:3xnqhnr3hm59d84\",\"title\":\"今天是11月19日，农历十月十一，星期四  #早安  前路漫漫，慌啥子嘛。愿你找到适合自己的节奏，安心度日，事事顺心~ #中新祝晨安\",\"link\":\"https://www.kuaishou.com/short-video/3xnqhnr3hm59d84\",\"description\":\"今天是11月19日，农历十月十一，星期四  #早安  前路漫漫，慌啥子嘛。愿你找到适合自己的节奏，安心度日，事事顺心~ #中新祝晨安\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/16/BMjAyNjExMTgxNjU3MjVfMTMxMjExOTkyNV8yMTYxNjQ1MTA1NDlfMF8z_ccc_B5f28b9001fcd21321b11565fbb04ad61.jpg?tag=1-1795040099-xpcwebprofile-0-ym3ultypil-96a77516cdd05042&clientCacheKey=3xnqhnr3hm59d84_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/16/BMjAyNjExMTgxNjU3MjVfMTMxMjExOTkyNV8yMTYxNjQ1MTA1NDlfMF8z_b_Befc2b2e4bdce2fb2d13f4de4fa8ad195.mp4?pkey=AAUaYcf9auzdDwdha3Ca8x0Gy9MrYixaqlOiEDDWN6rdGOZD1lt8eHZx_tdnZ8YLKuf0eZ7m6LFPkG2TbbX8odoMTOJ6wPgoYuD6Z4Nty0ACM2pvoRFaZ0pwvMuzYNWTHng&tag=1-1795040099-unknown-0-q396lipm98-19759b387eeea530&clientCacheKey=3xnqhnr3hm59d84_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T20:00:00.001Z\"},{\"id\":\"kuaishou:photo:3xze4kgpj7a9xya\",\"title\":\"叶连平老师遗体捐献 为医学生上生命最后一课 请停留3秒 为叶老师献一束花\",\"link\":\"https://www.kuaishou.com/short-video/3xze4kgpj7a9xya\",\"description\":\"叶连平老师遗体捐献 为医学生上生命最后一课 请停留3秒 为叶老师献一束花\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/23/BMjAyNjExMTgyMzM4MzZfMTMxMjExOTkyNV8yMTYyMDk5Mzk3MThfMF8z_ccc_Bf4c66d8e6756fce793fadae68da595b9.jpg?tag=1-1795040099-xpcwebprofile-0-9ork6coeym-bba84ebc42ddbbb5&clientCacheKey=3xze4kgpj7a9xya_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/23/BMjAyNjExMTgyMzM4MzZfMTMxMjExOTkyNV8yMTYyMDk5Mzk3MThfMF8z_b_B835985d93e629f93c28f5dd0fc223679.mp4?pkey=AAXbtF3NbqDymCR9-F6-6BAvvRF-Zi28y4sJVMryKYOQb6B6kt8wLftI53iBCuzvcpyV71HBpc7w9PsBa5hNCOUhc4i0pjsu40kHwDkuFILS4n5A4iXFehj589SbFpl0vh8&tag=1-1795040099-unknown-0-1ial38wmot-3d53a44d7b34cc49&clientCacheKey=3xze4kgpj7a9xya_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T15:40:02.751Z\"},{\"id\":\"kuaishou:photo:3xw4wfhn5akgdz9\",\"title\":\"“那个热源就是他！”这一刻，科技尽显温度（来源：福建警方）\",\"link\":\"https://www.kuaishou.com/short-video/3xw4wfhn5akgdz9\",\"description\":\"“那个热源就是他！”这一刻，科技尽显温度（来源：福建警方）\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/23/BMjAyNjExMTgyMzM1MzNfMTMxMjExOTkyNV8yMTYyMDk2NjAyNDlfMF8z_ccc_Bf16868abdbe4b093ad1f4a93da4d9a43.jpg?tag=1-1795040099-xpcwebprofile-0-zzrrqbczhv-319a695947432952&clientCacheKey=3xw4wfhn5akgdz9_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/W04V7xr-ah8ytMTMCHFCd-8ssDUSqoHok-kII2-drpfeyw9awkLFwNRQ9okHWrcgCnK-OMO0eLqFpRqcYRlkWa3VoFO9h8Qd4Y6oRE-cjFQgCZo1ghwC_i0nLzykBwBI4KkZ0KT3iiM58dXzzsk954rqF7kBj8mb_unfYKg6n_6HAxGDFzvUpndDYyN6wcFV.mp4?pkey=AAWHYIHHGAtQmc3ZCqQ5QtkOxBKX-FQr_Is5_rPXj7AdwAPDoSyx3_uOZ_tokQZgyeieQQqAE8go9C6qweqJtVOcZz45yQubf-hAMZwSKz-MgWrAQrBkE39cNFRQCHsMoQo&tag=1-1795040099-unknown-0-wuvk22pydv-cc4591a7556b77dd&clientCacheKey=3xw4wfhn5akgdz9_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T15:36:17.533Z\"},{\"id\":\"kuaishou:photo:3xyy6y5fq7az48y\",\"title\":\"外交部发言人毛宁发布欢迎宴会图片：中俄美三国元首同框\",\"link\":\"https://www.kuaishou.com/short-video/3xyy6y5fq7az48y\",\"description\":\"外交部发言人毛宁发布欢迎宴会图片：中俄美三国元首同框\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/22/BMjAyNjExMTgyMjQzMDdfMTMxMjExOTkyNV8yMTYyMDQ4NDQ2NjVfMF8z_ccc_B4988d81ff805d885a697d7c828ff1920.jpg?tag=1-1795040099-xpcwebprofile-0-jf1ldpp5kz-0c7b03b82e43bccf&clientCacheKey=3xyy6y5fq7az48y_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/DbknjOWozPwwepfGFlSSJo3UmO6QLZ1M4s6SiG3KPirImeXhCsIMHUuV8O2CU2R5WnZUGk2GmVFTDLmWZjUZKPd5jXYoB3K-zLimpC4w6AFaiKZnHRtyTBkiMyW36pkLJXoq670k3OBHXSSQWNZGoHJ3tROdRzru-k_GAn7DRzL01MC9SxnYGLL3QoFnOpxu.mp4?pkey=AAUQQeYvsBoVQ8zpa3Qk4Dq5T94z1KXri9m5K2-LG0jpIUyT8DTjShb_fj0JLFQsltjeKuFh6-ZbJTmZUMhEMIb8RHrf4cac8YIFaxBX4_IfxsZiEBAbmtJSPaHiIGwHNQE&tag=1-1795040099-unknown-0-0hqvco0dz4-dc091705fb815ad2&clientCacheKey=3xyy6y5fq7az48y_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T15:02:40.964Z\"},{\"id\":\"kuaishou:photo:3xcufjv426g5jha\",\"title\":\"APEC欢迎宴会高清大图 中俄美元首同框\",\"link\":\"https://www.kuaishou.com/short-video/3xcufjv426g5jha\",\"description\":\"APEC欢迎宴会高清大图 中俄美元首同框\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/22/BMjAyNjExMTgyMjI0MjVfMTMxMjExOTkyNV8yMTYyMDI5MDAyNzdfMF8z_ccc_B4cf8cde1c5e6971d05450558cffdb2e8.jpg?tag=1-1795040099-xpcwebprofile-0-vnc7rt7qus-fe8547ecad20fc7b&clientCacheKey=3xcufjv426g5jha_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/GiJkTxMydBCY6zp8KMYhX6mfbUSxTslNjmVbnSLsASuuvDnTFO4AHWwSa5usbcVz_uSHtfxYArw9bc-rxG9EfaFT29XRupaQy35hqRGwKOB4Iauf3uzjebcG_3mR4t8_3SH0wm3OCnuIk7aOQhw2XZDi_PqnwR07kREBhllkGoJ8fcEaTf9eRNNB5XeMK6EO.mp4?pkey=AAULue2DLIJLJRtW5_obu3_RwajI3sjwbFLID2Nbij4AU55f5bI-tiyCknwymHBxQjAEQe5DEgPwzgyyJsfZxC1s_Flky6Mj7fJVvn4eD4871bDIjPc9ebKqjpUtWTenU1o&tag=1-1795040099-unknown-0-wtpxczb4to-bb8561894fda758f&clientCacheKey=3xcufjv426g5jha_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T14:33:54.407Z\"},{\"id\":\"kuaishou:photo:3xpjsey5vbze672\",\"title\":\"“中国排面”仪仗队雨中接机 依旧眼神坚定、身姿挺拔！   #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xpjsey5vbze672\",\"description\":\"“中国排面”仪仗队雨中接机 依旧眼神坚定、身姿挺拔！   #媒体原创\",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/18/22/BMjAyNjExMTgyMjAyNDJfMTMxMjExOTkyNV8yMTYyMDA2NDUxMTZfMF8z_ccc_B1f99d9ab4758998cc935333d844458c1.jpg?tag=1-1795040099-xpcwebprofile-0-8pdsomj4dl-f1c91e59eef85ebf&clientCacheKey=3xpjsey5vbze672_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/y9LvbUyXdU13o91tmwmXNUtzQx6qFPLCYHE-JvE0vM20DMcZjjP-E8UymHBpJPZARN0B4OvYBgsp1lGH2Q2oUpTJaf2mTdV5V5WRa-FsCctQS3c09-Eg0u5xYv9mNkwK2zVmnOmpTwxc63YZ7YkT3eWOJ4cB9YbEHe3V--LhclbRVqQ7kKieGY3kFvvuhPAG.mp4?pkey=AAVNnQpQYhIGYFz2AgZfjFJstfeQPyvQuhK44jYeT_8LTIyGGbxjmLP3-Db7oedNY2lSYtpJrpZ57QGqrSNaI2G5sMHkjiMdjb_-rVTlUtFI0ypwsPmtl6s6mNGBVqZ4LLQ&tag=1-1795040099-unknown-0-1tantemi0q-e878bf808bce2038&clientCacheKey=3xpjsey5vbze672_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T14:03:45.060Z\"},{\"id\":\"kuaishou:photo:3x47t333r56xkqm\",\"title\":\"欢迎晚宴合影期间 普京和特朗普互动握手\",\"link\":\"https://www.kuaishou.com/short-video/3x47t333r56xkqm\",\"description\":\"欢迎晚宴合影期间 普京和特朗普互动握手   \",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/18/21/BMjAyNjExMTgyMTQ5MTVfMTMxMjExOTkyNV8yMTYxOTkxMjQ1MDdfMF8z_ccc_Ba6a47767f93f4bc31e5aedd465020c62.jpg?tag=1-1795040099-xpcwebprofile-0-azn0gxtwoz-3cf0acac063a50e1&clientCacheKey=3x47t333r56xkqm_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/b6Wh6JG9usDVIO8Q7Qv4teqowmjCwwmdvbL9ZGJ5GPY8SXgRBp24m5CLlmk21qLQ0hsshGUhzfRN7OdNYLNHwc94AkcHIYj1y9fRnfgULEV2F679gD0X68whj7B1PC8tKFMdGW0Cai9wFRirL66DFEGPCZXV1Qm4-t6tDp2vFm3ZO5TfqSG7G_Ul4HXngk4A.mp4?pkey=AAWPypEAilqsQ3QGyPPxY5r1JILEb0MzkzIVuR6gLrt0feaDDUTHmKV4GeSqqIo7CnFJToj5ayCFP6iU4h7394dFx_lcfAMoCF_j0jdAhgnIERjFC60iCcIqfzUWZqb70g4&tag=1-1795040099-unknown-0-8vkv2zendq-bd25ee73d66a1af7&clientCacheKey=3x47t333r56xkqm_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T13:50:07.990Z\"},{\"id\":\"kuaishou:photo:3xs3mdyurm2yn9w\",\"title\":\"11月18日晚，国家主席习近平和夫人彭丽媛在深圳国际交流中心举行宴会，欢迎出席亚太经合组织第三十三次领导人非正式会议的来宾。习近平在祝酒辞中谈到，看千年的中国去西安，看五百年的中国去北京，看一百年的中国去上海，看五十年的中国就来深圳。​（习言道）  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xs3mdyurm2yn9w\",\"description\":\"11月18日晚，国家主席习近平和夫人彭丽媛在深圳国际交流中心举行宴会，欢迎出席亚太经合组织第三十三次领导人非正式会议的来宾。习近平在祝酒辞中谈到，看千年的中国去西安，看五百年的中国去北京，看一百年的中国去上海，看五十年的中国就来深圳。​（习言道）  #媒体原创   \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/21/BMjAyNjExMTgyMTE5MzlfMTMxMjExOTkyNV8yMTYxOTU0MDc2NzFfMF8z_ccc_B5e9ec87722c452bf97b65fb7c68ad252.jpg?tag=1-1795040099-xpcwebprofile-0-hztt2ciemh-710484fedb25cf71&clientCacheKey=3xs3mdyurm2yn9w_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/21/BMjAyNjExMTgyMTE5MzlfMTMxMjExOTkyNV8yMTYxOTU0MDc2NzFfMF8z_b_B456ce3e5514f4f134b0f5c83bb7d9027.mp4?pkey=AAWT9f3rxcMkXn8msc3XSAxL2Dta9Uj3AFnAxT2Y1mDChu8bvudn9F9jolzsfRrfAZsPGGU33Jxptx6LLBGESPWGsDswNrzQdYhYCWqN9MauEwlvmO-IGOwuRoN-lSqrZIA&tag=1-1795040099-unknown-0-5zhl7xd6zn-e2fa066a8777bfc2&clientCacheKey=3xs3mdyurm2yn9w_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T13:50:06.027Z\"},{\"id\":\"kuaishou:photo:3xa5kvhhqesyvz6\",\"title\":\"李在明夫妇在深圳同韩侨见面 现场与花童互动 夫人直呼太可爱了！\",\"link\":\"https://www.kuaishou.com/short-video/3xa5kvhhqesyvz6\",\"description\":\"李在明夫妇在深圳同韩侨见面 现场与花童互动 夫人直呼太可爱了！   \",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/18/21/BMjAyNjExMTgyMTQ0MTBfMTMxMjExOTkyNV8yMTYxOTg0NTU0NDZfMF8z_ccc_Be1831f6c64e9275cf376cac1f295242a.jpg?tag=1-1795040099-xpcwebprofile-0-rhullhd8wv-4f765486bb899d84&clientCacheKey=3xa5kvhhqesyvz6_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/uxwYJVCARfOg3hGeRA3vsmpcUCp7REjldvikmV4TSgURtavT-xbC5TFbvyd2aquRax8u3ZX6JdR_dfks_z-yWsiuEiWlz600KcNwcThGtuzVwICN-WZHgsH6EDihZl9PR_tvBSeAiEB0b0KvNWEx6O16LkrHCC0nZVnvmOVTZqsvhBK4KYS5Dbt4nxMLFtSQ.mp4?pkey=AAX7TajgSOTV777GTocxuuBZQ8xw1LunotqpEtsCZEOOMqlmJneIXX_LHZ4O8K3GriS5ntLA8u2ky7wPS-JcsIKrSwLDu5Q0Y7L3Z3NwSZSbH8OMbh3iAHMPs_BIVLsWwn4&tag=1-1795040099-unknown-0-lch9dcu1f7-daf90739d7de8e0d&clientCacheKey=3xa5kvhhqesyvz6_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T13:45:11.489Z\"},{\"id\":\"kuaishou:photo:3x8fucswb2d552c\",\"title\":\"现场视频！特朗普步出休息室前往合影区（来源：中央广播电视总台）\",\"link\":\"https://www.kuaishou.com/short-video/3x8fucswb2d552c\",\"description\":\"现场视频！特朗普步出休息室前往合影区（来源：中央广播电视总台）\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/21/BMjAyNjExMTgyMTM0MzZfMTMxMjExOTkyNV8yMTYxOTcyMDYyOTdfMF8z_ccc_B65497c89201ff31deb63932fb55f1507.jpg?tag=1-1795040099-xpcwebprofile-0-gmlhzu0n7v-886c95cf2f570b41&clientCacheKey=3x8fucswb2d552c_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/21/BMjAyNjExMTgyMTM0MzZfMTMxMjExOTkyNV8yMTYxOTcyMDYyOTdfMF8z_b_B0ba7732fc65d8ac19b7422d876a69ae4.mp4?pkey=AAV2lg1ebKH3KUDfbqAOtAxaL3uby59q6e--h9O3jbgjUyDJSwEqyttBuf8PoGUoLHyqtR18vKv5I4aDvZXBPhMR8Q2-ZXuAw4fwHErdeZbd-cxLcpm5oy2dasOkwKU2BUQ&tag=1-1795040099-unknown-0-6srkdw10bx-047240b4789e5695&clientCacheKey=3x8fucswb2d552c_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T13:37:34.919Z\"},{\"id\":\"kuaishou:photo:3x5qjsmz6uujg6w\",\"title\":\"现场视频丨习近平和彭丽媛为出席亚太经合组织第三十三次领导人非正式会议的来宾举行欢迎宴会\",\"link\":\"https://www.kuaishou.com/short-video/3x5qjsmz6uujg6w\",\"description\":\"现场视频丨习近平和彭丽媛为出席亚太经合组织第三十三次领导人非正式会议的来宾举行欢迎宴会   \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/21/BMjAyNjExMTgyMTIzMDlfMTMxMjExOTkyNV8yMTYxOTU5MTI0MDZfMF8z_ccc_Bc88dbe6e72aca2b2b205c13cf48cc576.jpg?tag=1-1795040099-xpcwebprofile-0-9u0ck1oh1l-314530edefecc53f&clientCacheKey=3x5qjsmz6uujg6w_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/21/BMjAyNjExMTgyMTIzMDlfMTMxMjExOTkyNV8yMTYxOTU5MTI0MDZfMF8z_b_B1da0d6470d8ebe85b550b4c4294d43ba.mp4?pkey=AAV-NvYQM_Y8_Qs6zqwCKmHroycG2kSVdFh-IIVIE-lLLAIz-3h6iwfyVHG_57azhA7fdV0kiUuqrtiKeKYfkVbKcSl_giCqoZl3n9H3qUccTNII0DNb53Gggsnru89a-ns&tag=1-1795040099-unknown-0-mmalgc2qgr-2e0e5a51f8120fac&clientCacheKey=3x5qjsmz6uujg6w_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T13:31:22.312Z\"},{\"id\":\"kuaishou:photo:3xhcnarrahvsyrm\",\"title\":\"现场视频！普京步出休息室前往合影区\",\"link\":\"https://www.kuaishou.com/short-video/3xhcnarrahvsyrm\",\"description\":\"现场视频！普京步出休息室前往合影区\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/21/BMjAyNjExMTgyMTE3MTZfMTMxMjExOTkyNV8yMTYxOTUxMzE3ODJfMF8z_ccc_B017b1396713b3fcebf1543d0256f8102.jpg?tag=1-1795040099-xpcwebprofile-0-hnyywua3xh-56c76f2a3ef1fc4d&clientCacheKey=3xhcnarrahvsyrm_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/21/BMjAyNjExMTgyMTE3MTZfMTMxMjExOTkyNV8yMTYxOTUxMzE3ODJfMF8z_b_B07fcf3532eb74474af50c2a51b1237f9.mp4?pkey=AAWz5pABILfc-x0mV4xolzaqjkL8c6cjcnNYDcG2HPtYlMpYDxpknxIrD3-xsAnjU2gW-K1qmxpCLEL5tfDXSX6ul8xqUzEftXxlUFuGhSPeDjwa6eqGH7wATpNfzyhUeEA&tag=1-1795040099-unknown-0-kxiwkujg6g-4c139e98a905e7f2&clientCacheKey=3xhcnarrahvsyrm_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T13:18:35.214Z\"},{\"id\":\"kuaishou:photo:3x4s9psw8cmrbhe\",\"title\":\"特朗普车队现身深圳街头 市民蹲到车队经过：直呼“他挥手了”\",\"link\":\"https://www.kuaishou.com/short-video/3x4s9psw8cmrbhe\",\"description\":\"特朗普车队现身深圳街头 市民蹲到车队经过：直呼“他挥手了”\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/21/BMjAyNjExMTgyMTA0MDBfMTMxMjExOTkyNV8yMTYxOTM2MDY2NDRfMF8z_ccc_B79cfeff9935a63ed7d51013528024798.jpg?tag=1-1795040099-xpcwebprofile-0-f9hskeqq0q-2f78708fea4ce61a&clientCacheKey=3x4s9psw8cmrbhe_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/21/BMjAyNjExMTgyMTA0MDBfMTMxMjExOTkyNV8yMTYxOTM2MDY2NDRfMF8z_b_Bc9e82a51cc410e4a78a6e128e6cbebfb.mp4?pkey=AAV_UzLWKEBNYPLzjms6r7xdGH1Bg1Wid-5RLGakW3bb67tEEKtkpegvUfeV85gq1XVg949ZPlYlGRs9N7c1L7xVYe36VgFS8ajilZDkKfApUM2P1e2VXU1QCRgyk9L5qdY&tag=1-1795040099-unknown-0-7rk1tpzd2c-2a16fefb2edef3d9&clientCacheKey=3x4s9psw8cmrbhe_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T13:05:20.974Z\"},{\"id\":\"kuaishou:photo:3xfm2hgp6z3ambw\",\"title\":\"两高一部：严惩借离婚转移财产等“金蝉脱壳”行为 #离婚  #财产  #婚内财产\",\"link\":\"https://www.kuaishou.com/short-video/3xfm2hgp6z3ambw\",\"description\":\"两高一部：严惩借离婚转移财产等“金蝉脱壳”行为 #离婚  #财产  #婚内财产\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/20/BMjAyNjExMTgyMDU2NDZfMTMxMjExOTkyNV8yMTYxOTI1MzM0MDBfMF8z_ccc_Bd0c1e82c5af2cdc1ce2a093d8e2617a7.jpg?tag=1-1795040099-xpcwebprofile-0-9hcxnbqzkf-d9e0118ec0706aa7&clientCacheKey=3xfm2hgp6z3ambw_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/3ADtos4ge6x2lToHBpcVN5FhSCjtpSpM62RqtoZWTHlbfjgl3J6yNYyfLC6QR4XJqcrkPU-UPhoxaJ9zO5NJr_Nu9cirKLayYz2hg3Gq7GokoJLSy9LbdR_sah8IB6gYe7BUL1ekgoewZSOu89iIbn90xyQkKiEzJeNqzo0e_z8VzWaoR0L051PSpYT5T1FF.mp4?pkey=AAUoJKXL2rtYqvH17GqpiwVEyXNmGsj04pDQqpDATwWbbGzYdDtoEBhZhSVRGtHn-RV926kDMhqWdH7TlcxVf77bJ1nDqq7Rugu59SbX74Nmhkq6jrenovUujl35USlxkHo&tag=1-1795040099-unknown-0-zvha25t2za-4f055f82fe1e8efc&clientCacheKey=3xfm2hgp6z3ambw_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T12:58:24.832Z\"},{\"id\":\"kuaishou:photo:3xjumbzqdjc3twu\",\"title\":\"“来了就是深圳人！”美国网红博主深圳街头晨跑 点赞城市魅力  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xjumbzqdjc3twu\",\"description\":\"“来了就是深圳人！”美国网红博主深圳街头晨跑 点赞城市魅力  #媒体原创\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/20/BMjAyNjExMTgyMDIzMzNfMTMxMjExOTkyNV8yMTYxODg0NzA4MTFfMF8z_ccc_Bfba80cb8eaffeb048685e817f1218394.jpg?tag=1-1795040099-xpcwebprofile-0-pgmjybvumo-0757003b6d9564d0&clientCacheKey=3xjumbzqdjc3twu_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/20/BMjAyNjExMTgyMDIzMzNfMTMxMjExOTkyNV8yMTYxODg0NzA4MTFfMF8z_b_B43227e1b5999844f45a179f50429b875.mp4?pkey=AAWtL9wvvc83kEA2XyZRgNNhfhJVmUV9lkRKuSMu3NkV5ViSuqdz1hKDxV9vRAoX8rYZHFOeEnb4RP-nt7YDPyhbo4VOm3QLYrGsrBkqfe8DGQbYfQRLEQlUj6TLemu6wCI&tag=1-1795040099-unknown-0-frpcpeo9ja-7ebf91ecbc072802&clientCacheKey=3xjumbzqdjc3twu_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T12:48:02.034Z\"},{\"id\":\"kuaishou:photo:3xn4dvussxhv4mq\",\"title\":\"特朗普车队驶向酒店，沿途大量市民夹道欢迎   （来源：紫荆）\",\"link\":\"https://www.kuaishou.com/short-video/3xn4dvussxhv4mq\",\"description\":\"特朗普车队驶向酒店，沿途大量市民夹道欢迎   （来源：紫荆）\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/20/BMjAyNjExMTgyMDM4MzhfMTMxMjExOTkyNV8yMTYxOTAzNTQzNDFfMF8z_ccc_B5d3a394d5d1815416e27d2b36d826f1e.jpg?tag=1-1795040099-xpcwebprofile-0-xyvu9gemvb-52780a5a54e6a606&clientCacheKey=3xn4dvussxhv4mq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/20/BMjAyNjExMTgyMDM4MzhfMTMxMjExOTkyNV8yMTYxOTAzNTQzNDFfMF8z_b_B20faf5dacdf5153b00f838c46e358132.mp4?pkey=AAUZtP4B4X5Q_WlGBpLBbCcPn3dH44lKIXHG6p5XkxQ0BAt-azfJWuUeSMfbBmMlXmwqXBwImxl-lnw171-Ch9mKKDCnxwHe2tTpfYhjfJDAeHOg0PSHExwULy7lPdJlxOE&tag=1-1795040099-unknown-0-hiwyjmblcc-fed5c05ae4419fe2&clientCacheKey=3xn4dvussxhv4mq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T12:46:21.434Z\"},{\"id\":\"kuaishou:photo:3x2ywyj4k2cymzq\",\"title\":\"美中贸委会会长谭森现场用中文说“厚积薄发” 诠释APEC务实推进之道   #热点零距离 #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3x2ywyj4k2cymzq\",\"description\":\"美中贸委会会长谭森现场用中文说“厚积薄发” 诠释APEC务实推进之道   #热点零距离 #媒体原创\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/20/BMjAyNjExMTgyMDEyNTNfMTMxMjExOTkyNV8yMTYxODcxNTc2ODJfMF8z_ccc_B433b2089b2009a04c6e23c8a227758fe.jpg?tag=1-1795040099-xpcwebprofile-0-qew8wdp5vi-ebee8b9c20b636f0&clientCacheKey=3x2ywyj4k2cymzq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/2CLAEJH70qbjZqZMOF3z0J7RzJecdBFaAH4nGjUdp_HgikMhDwT_3mZCEPej4ekZYwlevYXPW9njLK9r3m14Aet8C25JoJUoAJ_7OO6ytiCgDuj5rbyzODgD8k28ymscLGA3Ns3l8AKUkEtkGBfdCP5_L9tWDfQK1jqBMTR7Jl2N6JKMFb3XUtaO-TUHdi8V.mp4?pkey=AAUkUqW_V1-cjQEVurfWW52Fo5f0mVozbZWJ1wu4KEhh-Uxqxv5botpHr_UWvdbcf6Nnu5cdbkExk4Hyb0sMlMJidmfrd5tUYtiedGD5rfn2nYQSknz_gQOoE6ItOxbwRMo&tag=1-1795040099-unknown-0-zrqrqmb8mj-0a6fd1a721b8197f&clientCacheKey=3x2ywyj4k2cymzq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T12:23:02.690Z\"},{\"id\":\"kuaishou:photo:3xad95dcwe42pvu\",\"title\":\"习近平迎接美国总统特朗普。（来源：央视新闻）\",\"link\":\"https://www.kuaishou.com/short-video/3xad95dcwe42pvu\",\"description\":\"习近平迎接美国总统特朗普。（来源：央视新闻）\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/18/20/BMjAyNjExMTgyMDE1NTdfMTMxMjExOTkyNV8yMTYxODc0NTM1NjFfMF8z_ccc_Bc6c6e768a9cdef5ccee382e01a73d128.jpg?tag=1-1795040099-xpcwebprofile-0-giukkfm6ph-8da6ee69fdc6eb1e&clientCacheKey=3xad95dcwe42pvu_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/OKej59q6IhB3jE8ULzmLNWpEexmKxUzd7fkPaWPQRWVHs4N-MDYhv-OotIiDKnrwq233e704CbI-0rFfKIGGyBaS29d5oPQcz6SfGelb36HfvBqWi_kdMFgfmvVI6kclj6T8JZ2Sjhhv0O-TC5UMyGMoHBTzQ0qbiodpBYDWHwlY-3lcUBVX2Qe0Px0QOBdR.mp4?pkey=AAVTETYMnd7Zh4ymHZAx_FQBuwusTm870fSEniupDRS0e0bnC-1gbBMXz9pwjZU14HHXEDyz4vSHMFKp6JU8InEk9M8MayC8af_pJCud0CC-VMCAXMBbLPhrOS2KIf12NLo&tag=1-1795040099-unknown-0-rymolrplo2-5b0586e3c8e5967e&clientCacheKey=3xad95dcwe42pvu_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T12:22:18.977Z\"},{\"id\":\"kuaishou:photo:3x7x7inntp7eacq\",\"title\":\"集体合影来了！习近平和彭丽媛为出席亚太经合组织第三十三次领导人非正式会议的来宾举行欢迎宴会\",\"link\":\"https://www.kuaishou.com/short-video/3x7x7inntp7eacq\",\"description\":\"集体合影来了！习近平和彭丽媛为出席亚太经合组织第三十三次领导人非正式会议的来宾举行欢迎宴会\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/20/BMjAyNjExMTgyMDEzMDBfMTMxMjExOTkyNV8yMTYxODcxOTQ3NTNfMF8z_ccc_B9694713f75711e11cf7d9c5006f9e1ad.jpg?tag=1-1795040099-xpcwebprofile-0-er2exm0g0x-58fce9681e0c6818&clientCacheKey=3x7x7inntp7eacq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/20/BMjAyNjExMTgyMDEzMDBfMTMxMjExOTkyNV8yMTYxODcxOTQ3NTNfMF8z_b_B8a8f73ef831a66e4d2f320ba653616b4.mp4?pkey=AAU4NuKEhy98CKlnr__TRnzM-4zK4fRaR9nnosHrXneGxqFwUNIvUd2w-wPddhscehEDJgj8AikoWbTBuTsc4IeB_eD9EoK2yrPH_GxiIth77pHjg4uIZV43f0anrWxdrxw&tag=1-1795040099-unknown-0-cgofhm04h7-dceae2448f14a20d&clientCacheKey=3x7x7inntp7eacq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T12:19:40.605Z\"},{\"id\":\"kuaishou:photo:3xchrh6iy273qn2\",\"title\":\"深圳北理莫斯科大学俄籍教师：中国充满活力，吸引我留在了这里   #热点零距离 #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xchrh6iy273qn2\",\"description\":\"深圳北理莫斯科大学俄籍教师：中国充满活力，吸引我留在了这里   #热点零距离 #媒体原创\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/19/BMjAyNjExMTgxOTU5MTlfMTMxMjExOTkyNV8yMTYxODU1NzUxMDZfMF8z_ccc_B5d8f5af6572d04496aee8068003ed64d.jpg?tag=1-1795040099-xpcwebprofile-0-es77qrding-cc94e80dd78bf73d&clientCacheKey=3xchrh6iy273qn2_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/19/BMjAyNjExMTgxOTU5MTlfMTMxMjExOTkyNV8yMTYxODU1NzUxMDZfMF8z_b_Bd4329194b14331a5208468ce4d181bc0.mp4?pkey=AAUMExEgAFMDz4x_mQuWeGYEmaTSa7YKRGqElbvdq-xFU6cde6svAAwqLf3pWJrw3DXmGI565K-J0BoX4xl1vssq3RYD9GP6cyudvWQgpxQ47_zRTlZoSLWhxoDpfklY_hU&tag=1-1795040099-unknown-0-kcyseqnfyu-304b78eb3185db52&clientCacheKey=3xchrh6iy273qn2_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T12:09:01.700Z\"},{\"id\":\"kuaishou:photo:3x9qnb8ipic7zbg\",\"title\":\"现场画面！泰国总理阿努廷抵达深圳 随行人员拎着大包小包走下舷梯 抱着必出片的决心 掏出手机疯狂拍拍拍   #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3x9qnb8ipic7zbg\",\"description\":\"现场画面！泰国总理阿努廷抵达深圳 随行人员拎着大包小包走下舷梯 抱着必出片的决心 掏出手机疯狂拍拍拍   #媒体原创  \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/18/12/BMjAyNjExMTgxMjE4NDFfMTMxMjExOTkyNV8yMTYxMzc2NjI0MDVfMF8z_ccc_Bbed6c660f6c2b5d861e441f1e7a9e47c.jpg?tag=1-1795040099-xpcwebprofile-0-6w1f63kekl-da19157962748a86&clientCacheKey=3x9qnb8ipic7zbg_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/18/12/BMjAyNjExMTgxMjE4NDFfMTMxMjExOTkyNV8yMTYxMzc2NjI0MDVfMF8z_b_Bcd5b23ce4079c0afc8e44af9bbba0e16.mp4?pkey=AAXt3OM_6fhn0pkeYhnoYr2Iky60d52ydliVpRyFrd-V5RRwQ67oTAiDrsrZP6rFRlQ5O9pEheXW-uLpOKNOx94iOiTAK2P-qz9C9in6hFZ_oJtWKuLqgnDO-SvWarahpP0&tag=1-1795040099-unknown-0-19kyb7satn-eafb6849f40f2742&clientCacheKey=3x9qnb8ipic7zbg_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T04:20:32.887Z\"}]}",
     "timing": {
-      "elapsed_ms": 1760,
+      "elapsed_ms": 15869,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -103,27 +92,27 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -133,39 +122,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1753
+          "duration_ms": 15862
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1760,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1760,
+          "name": "错误诊断收集",
+          "started_ms": 15869,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1760,
+          "started_ms": 15869,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1760,
+          "name": "失败后浏览器清理",
+          "started_ms": 15869,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1760,
+          "started_ms": 15869,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1738
+          "started_ms": 11,
+          "duration_ms": 15857
         }
       ]
     }
