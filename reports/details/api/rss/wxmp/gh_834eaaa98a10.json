@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:14:58.569Z",
+  "checked_at": "2026-11-19T13:45:14.200Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_834eaaa98a10",
     "name": "安全圈",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_834eaaa98a10.json",
-    "duration_ms": 2807
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10029
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1699
+    "status": 502,
+    "duration_ms": 10024
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1691,
+    "phase": "runtime",
+    "elapsed_ms": 10017,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":30,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +69,88 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 1671,
+        "started_ms": 13,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 983,
-          "body_read_ms": 686,
-          "decode_and_transfer_ms": 2
+          "response_ms": 1055,
+          "body_read_ms": 8947
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_834eaaa98a10\",\"title\":\"安全圈\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079922&idx=1&sn=c8437ad2a3cd3980b6d0b9f2776db719&chksm=f2487950f1ad5af4e2d1b0b865f3c296689a37ee694e8b3ad8f9283a86aca15c9a589995a16c&scene=126&sessionid=1795076102#rd\",\"description\":\"专注网络安全：网罗圈内热点事件，细说安全风云变幻！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"安全圈\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5BLvuial7AFribHwZ0ThCpUJhBHH1y4EvhTCpAibAYI2Gng%2F0\",\"updated\":\"2026-11-18T03:24:01.000Z\",\"items\":[{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079922:1\",\"title\":\"【安全圈】苹果崩了！！！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079922&idx=1&sn=c8437ad2a3cd3980b6d0b9f2776db719&chksm=f2487950f1ad5af4e2d1b0b865f3c296689a37ee694e8b3ad8f9283a86aca15c9a589995a16c&scene=126&sessionid=1795076102#rd\",\"description\":\"安克创新、NIKE、盒马等企业微信账号集体发布涉黄链接，官方确认第三方外挂软件服务被攻破，受影响账号已强制下线\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyFPNFQ1OIyGicD0CWPRITOI9xAfJybwqDT7BcVLwjryM7SGJVeC8esV8fibGq2Et0lCTPKsW6lJYKlDuicYHx1vhzj51G0EOCTZbk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T03:24:01.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079922:2\",\"title\":\"【安全圈】点了「不允许」它还在录：iOS权限旁路细节公开\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079922&idx=2&sn=e7498da07ef417d55ef9769df50d6f26&chksm=f2b8decd6ccfc408f3303ee71a180fc6c0f413ea970f572171d900983d3959c52f311b21a73b&scene=126&sessionid=1795076102#rd\",\"description\":\"安克创新、NIKE、盒马等企业微信账号集体发布涉黄链接，官方确认第三方外挂软件服务被攻破，受影响账号已强制下线\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyHk2PftGnwGpTDXib09GriaxgicTXSjQwm1LhcuEyOnOztkcvibicwAJqaWib9ict1bPxyzDIWP4LCUTmzViahiabjRH5DGEUadJ4bUQl2Q%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T03:24:01.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079922:3\",\"title\":\"【安全圈】50个品牌被冒名：开发者自己粘了木马命令\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079922&idx=3&sn=2cc0a23eeab25d51e8bec5ba208bd4c1&chksm=f2533b250438dd2e48c672eb1d0816f4dcb89c3b1ef552ab8fc22cd7a311f3d2cd368bd1889c&scene=126&sessionid=1795076102#rd\",\"description\":\"安克创新、NIKE、盒马等企业微信账号集体发布涉黄链接，官方确认第三方外挂软件服务被攻破，受影响账号已强制下线\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyFBiaN9xpu0bhKqkuoPvt09ecWkLmQmnBkpN36JVRVWrLknIGRYhmjibqZccwQvga8ocicC0hJQfhzdYBZJWZcwqgv6NmnKnkq2RY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T03:24:01.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079911:1\",\"title\":\"【安全圈】178个站点被投毒：官方CDN送出了盗卡脚本\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079911&idx=1&sn=30b6dbda996787a2462c7afcd183f474&chksm=f20736e3521ae98f1cb0496713e9f9b1c1e5f401e9edc88e3f1341fe0a6103f9b428b8042676&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyFWk4J5nKVlLlz46ToIJibwQo1hsO9etzBMtf6vkotvJjjPibnA9GYs66v4JtP8147xqjQtboeWHgicfAH451ZnTRJXgsuqPMxFsQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079911:2\",\"title\":\"【安全圈】运维工具长出蠕虫：SCKit跳到技术员电脑\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079911&idx=2&sn=a83acfe4ccc4a76cfdbf3a930ca47aca&chksm=f2675c469cfc5e6bd6e6758c7eb0bb7dc447d8cde9c85431606f0eb326819f60f882cb151ba3&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyEZPgJF8TNOgt4ejMrbtxKK60lUqrzbicjPMpI62lJibZvRMGZDmYKvnDYg1VRCrPVfCsics9QzkGVic6ibtetBEdVwrkcLiaVLvV38Q%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079911:3\",\"title\":\"【安全圈】一次补掉17个洞：遗留API开关被彻底删除\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079911&idx=3&sn=cbb961e616211be500f55d885d1a8cac&chksm=f2fb099b80ffb951797e9f985fd70e54a27d7b9bb4e69c2237b587f1a0647354b26593cae36b&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHM6X1mjibx2ibCMrib7kFKuh98KZPvedYMT7tv1owbhequIu7PHY4L7Piam0ZCK9eEPfenaSicpicTvJayxmjvFsvDF5Mx6a24wNYXc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079900:1\",\"title\":\"【安全圈】无印良品明文存卡号：109万张信用卡多留了五年\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079900&idx=1&sn=07e67415a5bb07511d553704768da1d6&chksm=f2e29f60f5dfb9c77cb3e231b8ad25ba428fe413e83f17c3a4f857d8373eb0b8eb658791acbe&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyGuyv949Jhvm4ukibcdvyicSz0hIEBmYpky3gh8XicXicRiaYeDC6JmtfpX0axuuDrzfKZpZrUMQeI2Sx3kjG3wpUxlTxpicicSf5Zbl4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079900:2\",\"title\":\"【安全圈】五年未死：Log4Shell打穿vCenter签名链路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079900&idx=2&sn=c422bcee5624d5e62f907b878d5b4a2d&chksm=f2154a7f944789e4f5e503496a1dc44b238b50b039ff646f035fc4a3da8b6641420e4ebedb17&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHZjlXtefx7FxByKqEI3BA9qN2EYZgpNr314Y2FK5WicYb8eT1xMHVEMoJbcw1H5gEU1ShNODFOeckatRO3hKeuebwpdyibsGh1Y%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079900:3\",\"title\":\"【安全圈】FBI通报ARTEX：三小时内拿下最高权限\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079900&idx=3&sn=30cff4fdf07b21cc42863cf3f12caff2&chksm=f22f6dbbac92484e2c6e1454ea3946d11add41fd0bcfa22fe73f18dbfdef9a4cd7c6ef083674&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyFribd4vajbJsYbvGDrMiceZibRKWTBibuGYVPs7wwSsvHHAEbItdibT975ISTn7ia5CPbeLCuI7PyibGCu2OTeeSlccGlU6njItjsKt8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079884:1\",\"title\":\"【安全圈】台积电证实部分员工资料泄露，黑客开价3枚比特币兜售\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079884&idx=1&sn=4955203b3c4b7745ccacfa6a06f44631&chksm=f2b34add9f746036145eba19e041210e067b7f10ea2b0cbca9e1b73ee7525d6521c7d5693bb4&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyE396hQrLd61ibOg9D1NNmpVkvL417MONoma3mNyTwGhNbsh66o07ze7ib2SZsqicR892nfLdne3CsrYLgOgsyWYyOCL4vW1deBXY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079884:2\",\"title\":\"【安全圈】珠宝品牌周生生遭黑客攻击：官网打不开、小程序用不了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079884&idx=2&sn=92a9b89164638b06321978005d689a06&chksm=f246ef58121b0b701d9919f20bde313db6dc6bc96eb5763fcca9048ddd7d4f1dd882bd4117fc&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyHO7xicJHL7C27306PmJmC2rxrDibs7JOsphaC1JX3r2XYqPu0MEM41nlqQoj89ibYMEKVhVJor2kUVkuibRhLMMniblfIvrorwLnnQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079884:3\",\"title\":\"【安全圈】网约车平台 Uber 优步遭黑客攻击，致美国多州司机驾照信息外泄\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079884&idx=3&sn=0a6b6bcc5e3ef8b7a0a27d0d4b267a74&chksm=f2eb101dedd3e43531c2bc3d38e4df30e2c724a4035ee4fe488b8f7eca62c83b4d7ec9ab0641&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHlia59Q4CpXLEBNicVYmTjLxJ8mxgQR94aBuqAZ4Ngs7IMxvVWItVkSLeFYur2FPLPvo4VlJY8rx9TrCb4ISO0g4JAQqop1wZ3M%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079867:1\",\"title\":\"【安全圈】Apify 遭入侵后轮换 API 令牌并提示重置 2FA\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079867&idx=1&sn=4e99bc635bacadfa5b83cd3cbb95d05b&chksm=f2f5d50666769d9cfe585f899a9456b9790532d432f56a1ead6ed3c56d3415ce28a525018ec5&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHviaXClO4aricsvAnqbZOwDhZesyjvnQjwzjp0GUltzz3icUKaicohpnvXX4YdVNfzicSEbAWJ3jYRicMtj6VhAkual0oMqwHBgQOjI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079867:2\",\"title\":\"【安全圈】黑客在 Linux 服务器上植入 GSocket 以维持持久访问\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079867&idx=2&sn=dd67e8e23c7cba109cc590ae80f5b165&chksm=f2aff0be319b088d3bbee0f7676cc77f4a150be87c37fb5440261af463856d84e56f0677af3f&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyGuebicDtVFib9Jdh9Z5V2IZS9q4EqhRLoDlI6Pic83T6sibgNFfblkVbflg4iaLMPicCre21noDwnuYfkCJ5gmXuCAhU5EBjbbIg4nw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079867:3\",\"title\":\"【安全圈】新的 Windows SignDrop 零日漏洞让黑客获得 SYSTEM 权限\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079867&idx=3&sn=d0d6461160d63e9c129885f1d09e0e98&chksm=f20ea90c2e026e6bffa2ec80163a002272f64e08deb3dc7413d500a52f0c92a6cb84f4ab6e6e&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyFCibjzjqVMWxLucp3S50BjDxeHBKz9H8xGJkCAExfXhvqbxFicCib2dWeXMMd2MH6qpro2wKR0vpibwkgsL6qlia8zMKa7v9hI6004%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079856:1\",\"title\":\"【安全圈】微软Outlook全球大瘫痪！！！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079856&idx=1&sn=57a59613c706e90e41bd3262584024b5&chksm=f21a2388b82fcbd33b98ce6f06ee2574b6730c245f888a14392b55abcf826ec6ac83be77d793&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyH4YY83cZobEP0WyYUnKvIZmfW4blQNNPrkK5mrh7ImbTT32e2aicl37vFgTIaiaFdqR08RLVHFpOET4oia57CvnjLpCHhia0BUpSg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T01:37:44.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079856:2\",\"title\":\"【安全圈】Notion承认用户AI对话泄露：供应商暴雷，凭证与密钥请立即轮换！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079856&idx=2&sn=50f1b0878c8822505bfd46d3d4705693&chksm=f23b3fffb4a19ed61a0786d833a4d43bd6941276ad4e25974b88cd35cf6fed71accf77e258e7&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyH4Usavnskt6tDZ1p02B6p9zS7rzPiaupu8A8lPExV0LYE2lff7ibbPkNxoEfJ37RrcAJ8lT1icUwhuCojZicCPPicAesj8eX8cDAY4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T01:37:44.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079856:3\",\"title\":\"【安全圈】日本家居巨头宜得利被黑：3762万条敏感数据恐遭窃取，警惕新型冒充诈骗\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079856&idx=3&sn=08746cf4edd5a91d1f333d9e8fe03c01&chksm=f27d2c73e7184c4d1acbcd91e91a70fb6304301f472717f2d944aaf4eba42827ad7b6843c25a&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyFjBz7O4hjFxC0xd56yuMGLM6DkQl7C94bOiaeeKFficYcfzfJKm5Qg1HNpWUxicib8FEwxOuUs8ibPeD09xN2JrjtwrvXBQJ8Oa3RU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T01:37:44.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079845:1\",\"title\":\"【安全圈】4837个GitHub账号被盗！CI窃密席卷8093仓库\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079845&idx=1&sn=9828472e15149400674609805b6a3fa8&chksm=f2912aa16b6ae3800070042d930e89fd1b356f9ff058469fd50a4164344d1454ff973d2bbc43&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyFhiaLW4j81l5uDaZpbucw8j84LEIb1QGDVCWgNh31zt96IakHQ5chUkZ10W2fWn1ic7wxPuvVIM4QNBZkxeqnCCybNHkFUvkAlg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079845:2\",\"title\":\"【安全圈】Apache高危RCE来袭！HTTP/2并发漏洞评分9.8\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079845&idx=2&sn=300a03bce4c517af56be2417bf250b8c&chksm=f2c5c1b3f65da90f0aced1dd7af63c433eee8b26ada6892c353827c559c176a7be6409d58d18&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHQiaLpibFpvOpBLplcN5nJuKRsAibBAWkP90qwx0EM5ptOYvIR4TsM1tpBTjhEdIibZLzB7lATPrX60iceOwk35Jmbw5T3B61pZd9M%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079845:3\",\"title\":\"【安全圈】ScreenConnect遭蠕虫打击！三方扩展致48机构沦陷\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079845&idx=3&sn=828b992d4ced2be53b212468ab7757f6&chksm=f26e63e5603ad2c5a79ddd6f5fe353675f546fb6017130776203e95cd75cf456d55bec5d42f7&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHJ14feGS7G0KShdyzWzBqxkaRHBQWicicbrqmlOuyKvgo9jfLnZgEwpz36icIonWa4gjIk5KaUNZJg4glhsdpAiajIyT1X7qPrffk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079834:1\",\"title\":\"【安全圈】微软11月修1259洞！Outlook零日盗取NTLMv2\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079834&idx=1&sn=87414c25c31b4e94e839597e00255ff4&chksm=f278447e3947bc7403f5af297d48999842025380171977c53d75d86cd75fd6a51b82c9072bb7&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHo7VIiaS3kUib7PnHDUUC0LZo1NdE81WCkPrsXicibuSoibqEtLtXqxk1ibC4zOQ5ibFO5KCgaPwLV4ID2hNwHB9H46O3qznDyTyP33U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079834:2\",\"title\":\"【安全圈】Railway遭AI代理穿透！10万工作区泄密烧掉74万美元\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079834&idx=2&sn=f9a3ec5c78818d7d7509c38d4e00528b&chksm=f2c955f0c634da1787484e5e576257b239120683291d072df57c3c14f1a1b63c3269db5852ec&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyEIODfjc5FTsymOk18y3pNrd5t29Nfg9g30nb5co9skeJic3GOBfSEdvHdv7J6TEIribmWqaoJURed8sf2ic30LyzKIpkriaYUlYmw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079834:3\",\"title\":\"【安全圈】iOS零日沙盒逃逸曝光！iOS27.2.1仍可跨应用窃密\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079834&idx=3&sn=9f5233b9da2385dbe4ce4527012d3c10&chksm=f246a42b6957e03c487dcdde186375254eb2a426a1959ba37fd984060d780fe4704486c460b4&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyFccPfO8F2mp7U8JRnicU1OCtLI9jlECsmurDicPciaZg0pwQRwOzqHCKSbygnCF1KHLl4TejY4cNxvtTvpFKSJxjLTCdSO3FM1UI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079821:1\",\"title\":\"【安全圈】云商被黑连累FireworksAI！模型权重与密钥遭窃\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079821&idx=1&sn=4deb7108dc0f96ae2b0f2c738718402e&chksm=f2ff44b04a3a6833ce6b9ac5737085f5aaea94ea574faa9c7be8c2ee219f3b97387cec3859f4&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyFhUDIEshoXCoRsy51G8PE2bwsu6icYZmQBEaeAEIU9iaryNVHup9ZLLJYlch31rlxy9B8eo1g5iaic5uicyNDia2hQb2zt5iaN2hficd4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079821:2\",\"title\":\"【安全圈】SSHole与GPUStack遭在野利用！CISA急列四漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079821&idx=2&sn=38d64841709704b9cc08a0e06921010e&chksm=f2c49e6a9bceac4683b015e4256b6966e50705457b5c728c40d06ca235ec706b709dafe6ef24&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyEL3VcdkNgmanbMCynibNic3rsUkhEr7oXCYqNxpgGp9Vay4Puib6YViah7KwvsLl584Xib2A5JtmmkqoicVgyDbgDMp4wOAg90ibwvxc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079821:3\",\"title\":\"【安全圈】33个零日曝光！N-able紧急关停N-central云服务\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079821&idx=3&sn=9829076239f8738492f1984ba7ec0f12&chksm=f21ebf57eea47d732c9b0a2c4f1939741b91bb89a47cc23381245d52f619073edf4b0454136c&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyGFMZLlA5roaQxGLhDPZMm8GfwV6icgoh7icgSXo3OH4sheJ1PUvhWvHfcxR9HubyYWibT0mjy5IE0ZERqtPLmAuuRcZCDMRhqRDM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079809:1\",\"title\":\"【安全圈】篡改温控至50℃！黑客攻破工业冷链致血浆变质引火灾\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079809&idx=1&sn=c1a8b7e5a159a8bd80d64aadad83d242&chksm=f211269aaf263857ad4492a3ab67cb58ed4b3257978ad6959bc9e9ce29655f7921e0e0b858a5&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fsbq02iadgfyEMiafU9EkLMagY2icgYqDrv2ibLRdzq4XMrRbgRp7QaXvh3oOvFjV7ibk3edqcYDqBOBFyZ4Uva3scEoojEh5p8S13JX1FkeKicjS8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079809:2\",\"title\":\"【安全圈】实验沙箱失控逃逸！AI黑客智能体自主攻破WorkOS\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079809&idx=2&sn=b0e69b8b1a08ab49a48e519825716549&chksm=f25ff78eb1a7141bf64efde1c4cd9aec96082cf23bc481b14a91d47ebf988d3ad3df422a35af&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHCqT34HiatRE7cx27JTDFeJ0toYiaJQibb6Dm7TibWrV2I4caBkL4ibwjN6nMptLdAPQibzibicU3icWfTTh8oRv6IyUE92ZIN3Afb1icNg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T11:00:00.000Z\"},{\"id\":\"wxmp:MzIzMzE4NDU1OQ%3D%3D:2652079809:3\",\"title\":\"【安全圈】CISA紧急通报！SonicWall防火墙在野绕过MFA漏洞被破\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652079809&idx=3&sn=cc81c1e77fc1c1d3e5c8f47fd2e096a9&chksm=f27f5de3af1f85b2b006245499837eff8b6301ca8020387d315b21345717174bf07f65eb5975&scene=126&sessionid=1795076102#rd\",\"description\":\"OpenAI发布GPT-6 Cyber模型专为漏洞挖掘设计，成本降至千美元级别，在Linux内核中发现948个本地提权漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fsbq02iadgfyHEv2TEHtuZcceZ8xlLCIiaVicmudTQzDthVvaIlraErIiaZEgSnic4EcrplNt1PMgdwapCiba0HJ29CE5OxicRtJ8SHgvYLTdnkxS4c%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T11:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1691,
+      "elapsed_ms": 10017,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1683
+          "started_ms": 8,
+          "duration_ms": 10008
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1690,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1691,
+          "name": "错误诊断收集",
+          "started_ms": 10016,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1691,
+          "started_ms": 10016,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1691,
+          "name": "失败后浏览器清理",
+          "started_ms": 10016,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1691,
-          "duration_ms": 0
+          "started_ms": 10016,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1672
+          "started_ms": 13,
+          "duration_ms": 10002
         }
       ]
     }

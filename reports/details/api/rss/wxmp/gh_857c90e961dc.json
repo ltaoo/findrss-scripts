@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:14:09.145Z",
+  "checked_at": "2026-11-19T13:42:19.215Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_857c90e961dc",
     "name": "安全分析与研究",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_857c90e961dc.json",
-    "duration_ms": 1674
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10025
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1790
+    "status": 502,
+    "duration_ms": 10030
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1782,
+    "phase": "runtime",
+    "elapsed_ms": 10018,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +69,88 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1767,
+        "started_ms": 15,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1764,
-          "body_read_ms": 2,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1812,
+          "body_read_ms": 8190
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_857c90e961dc\",\"title\":\"安全分析与研究\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497353&idx=1&sn=092d1495f45e6ff111ea2eb484f21d5e&chksm=91c2c7a6a8ae5aa2abfad63b5382ce69e67ba963c1383790031a048f7c3fa690d6a5f3e53caf&scene=126&sessionid=1795076052#rd\",\"description\":\"专注于全球恶意软件的分析与研究，追踪全球黑客组织攻击活动与攻击技术\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"安全分析与研究\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM437icibNRUYQKurrXrI66RUPWzBZmIsEZXTcFEGibfziaWCg%2F0\",\"updated\":\"2026-11-15T14:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497353:1\",\"title\":\"可验证凭证与去中心化Agent身份\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497353&idx=1&sn=092d1495f45e6ff111ea2eb484f21d5e&chksm=91c2c7a6a8ae5aa2abfad63b5382ce69e67ba963c1383790031a048f7c3fa690d6a5f3e53caf&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY7QGRKlf1d73iaZ1BpFUart1HhibIuqSPlVzlPknyYYKjzMg6R6GQrXuJEaxzy66Ab8lXvRxLbYf6WCJMZkwY8XQoyObLRujUtuk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497352:1\",\"title\":\"Agent双向认证与零信任\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497352&idx=1&sn=7230132b4a04bc970d8de3b406548f5b&chksm=919736e091e7dd530bdb6b0d31a85e7ad58fe98b75a269d8c02c5fb0aeeea4370eeb70beeeb2&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FM5H82XuSHY7FAAF0mgyFLAHPccYQNhiadYR9R0c5dyL4xHTsFhTEibKVib2mNbictVI4cDKqwZSkfIvTWlm1JbDw7ZxYCgDkmFNxnj8LLrt6YiaQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497336:1\",\"title\":\"能力令牌与最小权限即时发放\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497336&idx=1&sn=ee2bd5fa25eefecbba7ff5fb9ab14c1e&chksm=91558a82d0136afc0c8addd8e736754567ffdde2128f9b9ad6148bf37cc4f7ec24553ecf511f&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY6sNfT0KNTET6uIHX3ZaibB7yia8M4f0GfSLMONMGp2BqVOUTL5ViciaWicHT4MNbBcvsfWql7ybOKsK2TibIEpQTOappHia3ynPwBYOM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-01T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497335:1\",\"title\":\"Agent委派链与责任追踪\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497335&idx=1&sn=87ec54e7f27ab5aea3527f067ffb303e&chksm=911aac4b5c1e837060c84ad31e465d606cc018f3b084b4c53427db6a14b201776191f30eb936&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY5tPJcY3AhPdBiclRqGCiaUT5fXwd6ZbmdqEibAicr6QfwRkKjibxUxYZOWtwwibx4JXrY7sygMfFVIhTG0DaP8HkBAlILz31KrubWYk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-31T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497330:1\",\"title\":\"Agent沙箱化与故障安全围堵\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497330&idx=1&sn=36e40f165d95528735262f8ea2555c1a&chksm=912cf14747b552ea1fd2de3afd34821c588cc5719d0692b806d95feb2cc43bd51cb682536a9e&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY7ju6KeYlfpKLfFEwAgEqfc63qgGCw2buyRBryNP6FxIvBIsEUGCS91otXLGVJ37NOBtA6ucWibaIDnJWTwsKl7xric69OoNVs60%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-25T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497329:1\",\"title\":\"可证明运行时不变量执行\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497329&idx=1&sn=9fb4139131e1967db3ebd21cedbfdf1a&chksm=91244418c292d7a344f84cca6cfbe6c832b481c7e1879a26bc3104579864a377e05932ca26f0&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FM5H82XuSHY5QILXvWTVKFw3OGA5jiasEsF8GbtEIRHqZRBdMhiaQ5K0NMsTFicdvveutENPKaQ3cFzeKOP2DSBjjJibKfFPHibVQgRmLG2mvpH0w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-24T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497313:1\",\"title\":\"长时程行为漂移检测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497313&idx=1&sn=55d82ae7154ecaddb9fcb0bfbc2f3131&chksm=91a215a60790017a7dc4f92e995571c76b313b8615879f1e2e323bf88698a735f30301e184e7&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY7sAjvAibFTc6YmiayibseHSGE3HfAD4byiaYJgqmEtdZSTeZ9rzzWUjLcBibNLJiaWk25l1STkRQ5ia0OcGezPzJzmEhQPdYHZI0gvXU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497312:1\",\"title\":\"动作级实时护栏与中断机制\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497312&idx=1&sn=40fe0047f069c743d5c5780ed427155a&chksm=917cf1841556de1b461a9262f00a22671c238330c2a1a12bd29ff4bfbbfcebf7926283f4c776&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY5AJX8mnOUHaDWAF6e9eQicDGn7HYNTlYUIGUURqEKzjSzNgYkECXA1iawwe71ZyueXNPiaZGsLHW22MVbsUnyXw4iadVT0uhMzWSw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-20T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497311:1\",\"title\":\"风险自适应运行时策略引擎\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497311&idx=1&sn=b043fcb3339ca3deb40d5b0af75ad157&chksm=9182a2e4e43dfa93921edef0b938fada0409ede53afc5f00f1d11a7344dba18386f4769e2850&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY6cHYcOCITkSAd2ic9Bh3TzRLNib5s3cK0f881Jcg5mib95g79Mrs8pYLj8rpruDH3EowVOSOfIsyia0oAsxrsIurXNEMYsJEAN9QY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-19T14:00:00.000Z\"},{\"id\":\"wxmp:MzA4ODEyODA3MQ%3D%3D:2247497310:1\",\"title\":\"跨工具数据流污染与污点分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497310&idx=1&sn=8a685d64df4fb54e9f917d91f9233f38&chksm=91ab8ad98adddb891e09eb210c3e060da62590ddf10c81f60793822b0083fa4da96abdc3f95c&scene=126&sessionid=1795076052#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FM5H82XuSHY63rRF6rcJ2jlSS9ibibvds4DdIiaKEQXuO2pnMTtRoicSnDGaHfQGW4DjsibY7XzRgiacDa94CzOiaVtV6gz03VArZTn2JxApDbPHwOc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-18T14:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1782,
+      "elapsed_ms": 10018,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 1
+          "started_ms": 0,
+          "duration_ms": 2
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1775
+          "started_ms": 9,
+          "duration_ms": 10009
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1782,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1782,
+          "name": "错误诊断收集",
+          "started_ms": 10018,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1782,
+          "started_ms": 10018,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1782,
+          "name": "失败后浏览器清理",
+          "started_ms": 10018,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1782,
+          "started_ms": 10018,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1767
+          "started_ms": 15,
+          "duration_ms": 10002
         }
       ]
     }

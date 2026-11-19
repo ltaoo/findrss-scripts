@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:15:12.819Z",
+  "checked_at": "2026-11-19T13:46:21.505Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_0b9e1461c456",
     "name": "陌陌安全",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_0b9e1461c456.json",
-    "duration_ms": 1546
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10025
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1563
+    "status": 502,
+    "duration_ms": 10024
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1557,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +69,88 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1543,
+        "started_ms": 9,
+        "duration_ms": 10003,
         "timings": {
-          "response_ms": 1541,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1956,
+          "body_read_ms": 8047
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_0b9e1461c456\",\"title\":\"陌陌安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489683&idx=1&sn=86504e891d55e502bc61e32e57667be8&chksm=eb36f75eb87a6ea3f690b46aa00d6a1843dab1ccba79c4d19ca8fb627cc351972215ca1b48e8&scene=126&sessionid=1795076116#rd\",\"description\":\"陌陌安全致力于守护陌陌亿万用户信息安全，为陌陌产品安全保驾护航，为亿万用户提供安全的互联网生态环境。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"陌陌安全\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5s6wVRtmT4IFexmg8ibJG6Gzy7BfibhK4pHg0DBzjGZLbw%2F0\",\"updated\":\"2026-11-05T10:07:27.000Z\",\"items\":[{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489683:1\",\"title\":\"陌陌安全 |  Q3 奖励结算\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489683&idx=1&sn=86504e891d55e502bc61e32e57667be8&chksm=eb36f75eb87a6ea3f690b46aa00d6a1843dab1ccba79c4d19ca8fb627cc351972215ca1b48e8&scene=126&sessionid=1795076116#rd\",\"description\":\"陌陌安全 Q3 季度结算，奖励突突大派送啦：现金礼品、多重福利统统给到你！！！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaS4DWqW8icA5OEiaTa1x0eKOGu5qxdTjjrwzWafqvJ1Y1MwcaMialslbMmmXftatzqhh9e7j1fzwEunw3jHmMbcO4fBewLnFRdaRyTehCz25n0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T10:07:27.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489668:1\",\"title\":\"【通知】关于陌陌安全暂停接收安全漏洞的通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489668&idx=1&sn=3947b4d878425a1fb03e4146d691a5ac&chksm=eb8cb771d8e907702211482a875a58426836d59b64cf294c25bd6639234395d9e8e744e25c81&scene=126&sessionid=1795076116#rd\",\"description\":\"重要通知！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaS4DWqW8icA5iatpyoNFKqTcl92zvcDiamR1Pz3pyy9y7PSHuJjO0b4jWNZUepPxDWlSCsSSgg0w8aT7icg5elulP7N2hIdo5rnH4jwptILs3y0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-16T08:01:59.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489662:1\",\"title\":\"【安全无界 · 联合狂欢】陌陌 SRC 跨平台联动，多重好礼等你来！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489662&idx=1&sn=5cb3ca2b5808854f8cc7666cc3147ac4&chksm=eb45a523125ac9076d9adcf2a430e693b6a33c64651a8061800ec05cca17f0e95728dbbfca62&scene=126&sessionid=1795076116#rd\",\"description\":\"积分翻倍、奖品加码、福利上新，陌陌 SRC 等你来战！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaS4DWqW8icA6XsZKwgsiaI20Xtg4kTYZdK98VMzkaNf9UZ5cCzDbicHrTkBdAZfxxpRiciavHodla1sm0ibK5YkxmVPnXSQFszgKn9SJ2ZZOuLicc8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-03T03:30:21.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489617:1\",\"title\":\"Q2 收官｜白帽大佬们，你的专属回馈已到账\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489617&idx=1&sn=9c11a04469aff06461f1d05e3f74d8d7&chksm=eb9874ddde6f3e2f9024486f97436afdbc971ccadfc86fd1921adea85ccdf2cfd23536e82d7d&scene=126&sessionid=1795076116#rd\",\"description\":\"为致谢各位的付出，我们精心准备了 Q2 专属回馈活动，期待与你共赴下一程。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaS4DWqW8icA5dZandib8TMbkYWy3HfQOujgiaeqBG7Umk1d9tmibib2K6ESHM4icUdup8PwqXMKVQsVb5CYG9yWCcmCuasicQ5WOSia9m9Pv7SgjHos%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-20T11:00:00.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489590:1\",\"title\":\"陌陌白帽赏金赛正式开赛！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489590&idx=1&sn=ee8730d408ac11854bfd5600b79a57dd&chksm=eb56e5cb86cfb4b6fc5af696cbcb78401872c2baf83c7ee983a2f340a285031d969c3a3e9069&scene=126&sessionid=1795076116#rd\",\"description\":\"各位白帽大佬速来冲！赏金赛火热进行中，抓紧时间高效挖洞，漏洞越多赏金越丰厚，用技术变现，别错过薅奖金的好机会～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaS4DWqW8icA6wVdicQwhT3jnC6A02eArkUnYSfRBQx12swV3gibwIs8IlqaLFicDcsel3PgPLHsDjZJv65plpXPN5DqOUTI1sRzwotddEOibCFEg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-18T03:42:32.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489582:1\",\"title\":\"春日福利暴击！陌陌 Q1 直播抽奖，惊喜好礼等你来薅～\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489582&idx=1&sn=2806d6b599accc8d2fff29ada330ec60&chksm=eb94a688b16dc807f29774ecf5257e2307072351f17f3c4b8321eeaf59de613f8c8920c5707a&scene=126&sessionid=1795076116#rd\",\"description\":\"5月15号锁定陌陌直播间，Q1季度福利抽奖，好礼在线派送，人人有机会～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaS4DWqW8icA5ANyS2v0icgqnX6Wr5VicOVR1uNSsZeEFlGHlxITPoYagodmpwq64Oc42g5alsWs8Ae1HwViaO3ScCpGn1ZlYgobv1LtJHbqdsPA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-12T06:59:41.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489533:1\",\"title\":\"陌陌安全平台关于 AI 生成漏洞报告的处置公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489533&idx=1&sn=c758a42bb50af4a60bfb89bdbb19bce4&chksm=ebf46cb504f51184e28c6de7c5fab819cfb277b0a6b1e943772fb12b18f8f270b55ea7ce1ca7&scene=126&sessionid=1795076116#rd\",\"description\":\"感谢您一直以来对陌陌安全平台的支持与信任！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaS4DWqW8icA6M3vKfKWfibaT7rVaz8hGWNxzQvtxNo4SOIJuNiaKY3lFkAb08YT7VDcYuSSEOcT27AliaDzzjM8BkKs70BgL17ogWSQ4PaHwG7o%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-24T02:41:52.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489523:1\",\"title\":\"【春锋行动】陌陌 SRC 联合狩猎，积分翻倍 + 新人专享 + 老带新福利+专项福利等你来！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489523&idx=1&sn=220c8fa6decac039b8019fdd6fca7ee7&chksm=eb4240fbdfc2ac2950d7964533655bcb70db6291ae161a917d7371380cd57febec05bcf1cc17&scene=126&sessionid=1795076116#rd\",\"description\":\"春日猎洞狂欢！陌陌 SRC 多重活动叠加，奖励直接拉满\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaS4DWqW8icA7OvQggT7dwDoAHa4tibEFRCog03A4ZZ3kS5cRtXbsF25xhYyY4AzxCIG6qIuOY4BBibwStjl52eutqoGfOoPjBUlZTw4PtdDSIw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-01T02:00:00.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489517:1\",\"title\":\"陌陌安全招人啦~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489517&idx=1&sn=05d94b0f87f0fe0b71b7d2ce96f6d39f&chksm=ebfb8b71741c0f17442f10e70427a36e3b36d5f40593e376ef82625ee20c445e98e5c155e47d&scene=126&sessionid=1795076116#rd\",\"description\":\"陌陌安全招聘进行时……MOMO陌陌招聘职等你来陌陌安全团队，招聘进行时，期待你的加入！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaS4DWqW8icA4kf3bARVVJYfeEM2NBibQ5ctSPOJgxAvDDYJTOIOzWdVCstZCgTWBCyWJicZVrIQmdrpSCsN630YklTIsGFSicaRC1pCbAvsjKx8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-23T11:09:27.000Z\"},{\"id\":\"wxmp:MzI2OTYzOTQzNw%3D%3D:2247489502:1\",\"title\":\"AI代码审计（逻辑漏洞方向）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2OTYzOTQzNw==&mid=2247489502&idx=1&sn=c0314b2a211b439d3b96e5a5645d66a0&chksm=eb55446163094ffcc5c6b4a714414d5e80db2ed59904a46fd05f03cf6881f034eb5c2c97f3d7&scene=126&sessionid=1795076116#rd\",\"description\":\"陌陌安全课堂：AI 代码审计（逻辑漏洞方向）讲解\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaS4DWqW8icA7abdvKCTG3RNiaEAu27A3BlrGMicv0wnkRiaY2a1wBqPOqXmegDWN5EGngpCH3C5icu2AWmhmThGSHeRyCgTw7bSialAlGMibsTfJDU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-06T07:09:12.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1557,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1549
+          "started_ms": 6,
+          "duration_ms": 10006
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1556,
+          "name": "错误诊断收集",
+          "started_ms": 10012,
           "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1556,
-          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1557,
-          "duration_ms": 0
+          "started_ms": 10012,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1557,
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1557,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1543
+          "started_ms": 9,
+          "duration_ms": 10003
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:15:20.710Z",
+  "checked_at": "2026-11-19T13:46:56.007Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_1f90f0d5a753.json",
-    "duration_ms": 1749
+    "duration_ms": 5035
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1952
+    "status": 502,
+    "duration_ms": 10020
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +48,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1944,
+    "phase": "runtime",
+    "elapsed_ms": 10012,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +68,88 @@
             "authorization"
           ]
         },
-        "started_ms": 14,
-        "duration_ms": 1927,
+        "started_ms": 9,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1548,
-          "body_read_ms": 377,
-          "decode_and_transfer_ms": 2
+          "response_ms": 1220,
+          "body_read_ms": 8782
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_1f90f0d5a753\",\"title\":\"Yak Project\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530672&idx=1&sn=d7e26452f3b89d1a31dad4bf59f0cb61&chksm=c3946bf12e895dae610314fad7b841fa4c1872116bec4353bb4d39def8f106b44c97c5886e35&scene=126&sessionid=1795076124#rd\",\"description\":\"CDSL-YAK：网络安全领域开源编程语言\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"Yak Project\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7KqSmMLaaT8iaANsHktpUJwGgPxAYAaBZyibzCBCmTCRaw%2F0\",\"updated\":\"2026-11-19T07:47:19.000Z\",\"items\":[{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530672:1\",\"title\":\"也许未来不再需要 IDA 了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530672&idx=1&sn=d7e26452f3b89d1a31dad4bf59f0cb61&chksm=c3946bf12e895dae610314fad7b841fa4c1872116bec4353bb4d39def8f106b44c97c5886e35&scene=126&sessionid=1795076124#rd\",\"description\":\"Yak 安全基础设施新版图：反编译器\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72FETwQZ9DfRW9ZkbdoPm3muKE8DJBWTNbBKlGhonqUqw8MbEIwNeYxXAD4qjfe0hf4a7odPJsbWOY3MmJicMia4RJjOjInU3gHeo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T07:47:19.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530666:1\",\"title\":\"神秘商人活动：内测安全领域新模型、DeepSeek-v4.1限免畅用！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530666&idx=1&sn=80ffd3442dd4bca65584ce1806c304c1&chksm=c37589c5d21d82f81f5bbb28976b90d42f4fab6b8209d707fdba8561f96cb0157e234a506dc1&scene=126&sessionid=1795076124#rd\",\"description\":\"本周福利活动，来了~\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjibGAup6p72H1s30ZHZP1aX4ib9gMR86r5uAhkhs1UqiawqtkRByxaRUO9emiaw3WFv1TSiaOjypBDSibIfPk1FR10TrCrl5SichSvSEOozczv1Fk8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T08:51:10.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530640:1\",\"title\":\"文字结论→可交互视图：Memfit 结构化 UI 升级\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530640&idx=1&sn=efd8a8d4597cbabf0c3d4824fcbb37d9&chksm=c31f8b34a813943ff7c59e1da32f8bf2a7cbb3d22980584ab4ef57475d1373a76b46fbc5a0fe&scene=126&sessionid=1795076124#rd\",\"description\":\"在安全分析场景中，结论天然有两种形态：需要深度解读的定性判断（攻击是否成立、影响面多大、怎么修）与需要多维审视\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72EETiaWRlwlxoAhXIibIxT8ZqJh4skmgP8MiaLiaXRA9nR5W5aCM3T54Qzib8VhFibyQRicKeL3Ky34DtbGzELZibjcXnBRME4aPzgzT7E%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T10:15:22.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530640:2\",\"title\":\"5天烧近1000亿 Token，3229人用Memfit干完了5908个任务\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530640&idx=2&sn=f03552d154801710e9caf1a809e7f70b&chksm=c37fecf6da1f0874d76321dfd333ff078c96f3b1ab66538038cb62da3bc5e57f52ac3216349e&scene=126&sessionid=1795076124#rd\",\"description\":\"上周的活动，3000多用户，提交近80万次请求，我们烧掉了816.09亿Token！！！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72GnlSFLHyMMiaYQSBNFoSiaNXC1Mv5n4Aa5UOtgVIicMqobYXmKqbImawDMnBrx0ksbGAcmD3vXxTXIlfAMa6e3ibCsVJT8ButEribw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T10:15:22.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530614:1\",\"title\":\"像打补丁一样做代码扫描：一次让审计快60%的硬核优化\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530614&idx=1&sn=a0a3d77c647f6af956c9ba130a7317fc&chksm=c3b4606bf24aa5878022ccd343f6c4d09b5fe263a5801093c7c590f7e0ecdc96b4b89860b9a1&scene=126&sessionid=1795076124#rd\",\"description\":\"90% 的代码其实不用重新分析：我们让代码审计学会了“偷懒”\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72FZJeQNCkcG91oWDHC6unS3a3G9sxuGWP7wtdJnoOw8YbOFsZ626ebDGVcUbg094LWYbzAazUlZBPf51Hnb9VurmuA2xvKZekg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T07:13:02.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530606:1\",\"title\":\"紧急扩容 | 现已恢复，DeepSeek可无限量使用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530606&idx=1&sn=064cec018f6c6cd29f58705ea25cb32c&chksm=c360ff120fa905c9ce3f97f91e2561898eac6ff73b4171bdc937be887b3889c5622bdee90cea&scene=126&sessionid=1795076124#rd\",\"description\":\"已扩容，可无限量使用；30元额度兑换码结果已出，来领奖；欢迎加入共创计划\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjibGAup6p72GnpXdEMDNO3CcfxLzFJVhtYDia3EdK7UWQF8v9OZypPLNqYO1TGKfEzw8eGROH2K3KtekFpicYV6lgiaN3zicmF56Hk7U0cxTQcog%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T06:06:40.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530589:1\",\"title\":\"限免一周｜Memfit 全面升级：安全评估，流量分析与知识系统\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530589&idx=1&sn=95f1cd4438f6fbbc9c48564bbbf8163f&chksm=c3a1461bad4b8ee8b25799f273910eb7bf0405a8d11721194ac5d16d7779eea668c1135f3664&scene=126&sessionid=1795076124#rd\",\"description\":\"DeepSeek Flash限时免费1周，欢迎加入 Memfit AI 技术共创计划\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72E7nicT6HBIDJoGtQ24bBiax8CyrLneYGyHM7f0ejPY85zsxKSuNnBxkrAonXdLzUicNMIlRcVnMzR5eia1ZBocRmddDgEr3qZwXkM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T11:06:19.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530547:1\",\"title\":\"万径安全“高校行”-国产安全语言YAK走进西安电子科技大学\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530547&idx=1&sn=59174b5d924f39a2f858f619aa9fc427&chksm=c3657d248d576c0103d068f4c07900a2a2f5efc2e584af819bc6691e325d73385d5bc66e870c&scene=126&sessionid=1795076124#rd\",\"description\":\"YAK走进西电\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72F3laErZTzicOBW1j7GxBpA5JvFVoOe9aCPVupiclZ88o0QSyb22yUickjmdKxzfHhDHDIbRJ6PB3VhbeZOl9mkwYic3oXLNrxLqzY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T10:12:03.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530538:1\",\"title\":\"反制 AI 黑客\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530538&idx=1&sn=dd099c7f24c8c535ba216b7e9bfdf22b&chksm=c30ba03ee5e854c978c99807c91b96bb885da9ada4b8e35780bc5d31787fe8bbcb1d62f7a8b2&scene=126&sessionid=1795076124#rd\",\"description\":\"新思路探索：从模型Infer解析边界开始对抗\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjibGAup6p72GFqhacjacobe9ORJhDbqZrNWGwiag23wHd01WibzHGepBicPcHrQZBHeduSOCibGMYVmOfAyOf4ws8ukTiaK1bzZyMhYmCmwdODvyc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T13:37:19.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530538:2\",\"title\":\"上周中奖名单公布！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530538&idx=2&sn=19ccebaf35c821a8941b392128cf49e4&chksm=c339d8d5151807be1f34482b09ec84168132c1ae27da07954f3180ce3059515402a698489a09&scene=126&sessionid=1795076124#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72HCjQykdWayB4PMM0234WTeWQWTOW1GicUrN7kTjuOehHEE1iaubZKwlant9nicv9jhD0n8VDBicdGVI7tS3sIicj0TBsibPrvvQfNms%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T13:37:19.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530485:1\",\"title\":\"网络安全 Harness 的悲歌\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530485&idx=1&sn=5fe2257c15891a7286294d9ccf3080b2&chksm=c3ac814ad024c718de362554ab7acb4bdc1400eb07cc79b3ef77c2358cfd61f6165fc7289150&scene=126&sessionid=1795076124#rd\",\"description\":\"来都来了，进来抽点土特产再走吧\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjibGAup6p72Gt27YcSgs1I4uOMJGyyLSMq0fQUnnV8BOv0N5xFxFw5J0l0vqtmpIHwamj1KaoFvtadVR6H5ATCsTnn2zicnVxiaVkRx6VfZE7k%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-23T09:12:06.000Z\"},{\"id\":\"wxmp:Mzk0MTM4NzIxMQ%3D%3D:2247530472:1\",\"title\":\"离谱！私钥=4，用 Yakit 测试 eMudhra 证书信任风险\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247530472&idx=1&sn=c69e9d74b40c2be0adfc90a449555520&chksm=c3bb3dd345cd1b51e32c8f92c235eece84d00eec2686621af4a6a746acb517cff59a7210dd5c&scene=126&sessionid=1795076124#rd\",\"description\":\"Yakit 新增了 eMudhra 证书测试功能\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjibGAup6p72HgRicQBlnUUn0kjv1KIdkTGg41sblzZ8av9Tt62KPYYteiaODp1oh901ROEGBUWceGXpaXjHgfbauxvcbup1ic323CkpyC2fyN8A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-22T12:04:52.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1944,
+      "elapsed_ms": 10012,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
           "duration_ms": 5
         },
         {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 6,
-          "duration_ms": 5
-        },
-        {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 11,
-          "duration_ms": 1933
+          "started_ms": 6,
+          "duration_ms": 10006
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1944,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1944,
+          "name": "错误诊断收集",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1944,
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1944,
+          "name": "失败后浏览器清理",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1944,
+          "started_ms": 10012,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 14,
-          "duration_ms": 1927
+          "started_ms": 9,
+          "duration_ms": 10002
         }
       ]
     }

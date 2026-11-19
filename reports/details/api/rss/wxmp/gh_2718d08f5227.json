@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:15:11.004Z",
+  "checked_at": "2026-11-19T13:46:10.835Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_2718d08f5227",
     "name": "小米安全中心",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_2718d08f5227.json",
-    "duration_ms": 2357
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10025
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 3282
+    "status": 502,
+    "duration_ms": 10024
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 3275,
+    "phase": "runtime",
+    "elapsed_ms": 10014,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":9,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +69,88 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 3261,
+        "started_ms": 11,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1311,
-          "body_read_ms": 1950,
-          "decode_and_transfer_ms": 0
+          "response_ms": 7526,
+          "body_read_ms": 2476
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_2718d08f5227\",\"title\":\"小米安全中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247521102&idx=1&sn=327d36a0d925baeba32121731d21d4fe&chksm=eb65b1caa6c478aa5e560ebc93a5c4bc9e122369de11bbb27e26707f21aa5c7551a87207db4e&scene=126&sessionid=1795076114#rd\",\"description\":\"小米安全中心（MiSRC）是致力于保障小米产品、业务线、用户信息等安全，促进与安全专家的合作与交流，而建立的漏洞收集及响应平台。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"小米安全中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FI1YzhXxW8YBC5jc2icuDHlsDuW0wqgLJLGtu0Q5VSQjkNZFsmfSrFEEfh2W3GDqh3UYiceDLaVP0c%2F0\",\"updated\":\"2026-11-19T07:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247521102:1\",\"title\":\"MiSRC发布｜《SRC行业授权资产安全测试规范-Agent版》及配套使用手册\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247521102&idx=1&sn=327d36a0d925baeba32121731d21d4fe&chksm=eb65b1caa6c478aa5e560ebc93a5c4bc9e122369de11bbb27e26707f21aa5c7551a87207db4e&scene=126&sessionid=1795076114#rd\",\"description\":\"MiSRC 联合行业 SRC 共同发布《SRC行业授权资产安全测试规范-Agent版》及配套《使用手册》\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbicDYYenibZfWFV6Ty5CMW01tSfebtPrxSSfOibEwaMoYxOBKffaesCxtWDqSDTNbFV7XglyFES7oiciaHoByv8pX4jsUTw9uVwVItFXPuQWUkf0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T07:00:00.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247521091:1\",\"title\":\"「极智守护·智启新程」第二届小米汽车守护活动正式启动！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247521091&idx=1&sn=dfbee5a2a7f3c7b9fd3da3bb063b1b4a&chksm=ebdeb5a0bc04bb5debe6d35490dd0687ca3b4467d4df5d6fa5d3dd2e66f8de49194171258384&scene=126&sessionid=1795076114#rd\",\"description\":\"以“极智守护”筑牢出行底线，以创新安全智启行业新程。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FbicDYYenibZfVjSC9rdyMtMGVIupne3DGf74C7Ub0flV2ic7RSd909OLoIlWK9zbTibbTF2gpAXLQUCPMicCeMiaGicYzJgqx6VQ7Q1z70gOmywBiaI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-09T08:00:00.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247521084:1\",\"title\":\"惊喜奖励揭晓｜MiSRC邀您加入双11安全保卫战\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247521084&idx=1&sn=9fd75d8c78f06484d9ed04d72748cf87&chksm=eba55350e6d799c2c27b2d4da733194e1d8c1930d0fb3ee18142f5dbcfca2e6ddaab0d8e0971&scene=126&sessionid=1795076114#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbicDYYenibZfW5aicBqiawqRzzOXXUjJmRQWUdY98B7ia2T2F5yXAfeibs69bDicMNFz5vwseuO7C093fLZickQ2rZbCj9VQt3BuhTp9ZcDV9gef1uI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-14T02:00:00.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247520926:1\",\"title\":\"持续提升全员安全隐私素养 小米第七届“安全与隐私宣传月”圆满落幕\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247520926&idx=1&sn=9e77b5ab828e7240ff305d0f3bc6c75a&chksm=ebe6dd24d2dbd3fdc2114e57a9df2a6023656d713bba20a560d43c8f9dc5700944afdef7c25b&scene=126&sessionid=1795076114#rd\",\"description\":\"持续提升全员安全隐私素养 小米第七届“安全与隐私宣传月”圆满落幕\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FbicDYYenibZfVxicOGzCFCxrI5y4ekfb1wmicAkTIjN2E9s3MVftROH4tAndj2rk0ca5Q34sVgTslkCjmFVGjMSKicgubvjnb3icMibvX1OhSPRiagY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-04T07:56:13.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247520895:1\",\"title\":\"【MiSRC活动来袭】13家SRC联合狂欢！送惊喜好礼\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247520895&idx=1&sn=e8a45b01adde35f5724622cb7b554a0e&chksm=eb337e9222dddb652ab28c6a7a88744af69d1b62b78d24ccbdeda55822553416e120005c4f98&scene=126&sessionid=1795076114#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbicDYYenibZfUu3m9VCQX98r3ibzibFLAD77HB9aF0WA2CFJjCZnDAo1ET0lkWnSbA8WicfB33M9pAicBw1FA7dfulquUJNaDWhAM763sW3Lz6JcE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-31T09:57:44.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247520803:1\",\"title\":\"MiSRC 违规事件处置公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247520803&idx=1&sn=ed74a8f555a714a1d4992c8a17ef5b4e&chksm=eb80b2d025d5fdab5a70ba503f39417857a37f08f11c9bd243d5224f676072d43517b6dffb1f&scene=126&sessionid=1795076114#rd\",\"description\":\"MiSRC 违规事件处置公告\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FbicDYYenibZfUYDziao8d7ek2ibd74BHfB23iazX26ibHFX2OJLf9ZyQ1km8GwzopS1HBcl2CzYf0CaEyAA2tic1ImZiaHEsjcfo03Vgp0Hj4PEwq2o%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-20T09:55:09.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247520766:1\",\"title\":\"2026白帽赏金挑战赛来袭｜MiSRC等你来战\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247520766&idx=1&sn=92271a4ba532a217d567534920770763&chksm=eb80a8c93bd2c8239624d744d5ee2f659dd418d6fadea2133dc6739f6e9fba1e615c499f9e27&scene=126&sessionid=1795076114#rd\",\"description\":\"点击解锁活动详情～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbicDYYenibZfXcI3DLKaI3Cnb2m4Vfib2J2QFRDDuUCNGiayuk1zp7mgshwUd5vKVvQWadzwX5x8o9vSMwIiaPDMfoM2mDibsrics7iahSrTfoWumhI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-06T02:30:27.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247520758:1\",\"title\":\"小米安全中心关于AI生成漏洞报告的处置公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247520758&idx=1&sn=780378239f8aae74642d2d63164517c7&chksm=eba0fa93c42539e6ce6fac69b493e676dbfca5c9ce5f3f51aad7510c061bce58b6c22a8be8a1&scene=126&sessionid=1795076114#rd\",\"description\":\"转发抽奖见文末～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FbicDYYenibZfVDnR5pmedhZIjyjnicw6tehrGtDygu6icgvabzkrvdWqV5QMAwm0AP6SHdI9C9yoUOkBwRyefQ8drr9jNZXyJdv3pc6AF5InbBs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-23T11:21:12.000Z\"},{\"id\":\"wxmp:MzI2NzI2OTExNA%3D%3D:2247520742:1\",\"title\":\"AI大模型专场开启，MiSRC邀你来挖洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2NzI2OTExNA==&mid=2247520742&idx=1&sn=0224eef3526a7f295e275bd724935ebf&chksm=ebd34f5b530ec05f387ac0f65433a053a73b3748fbb926f7744ef0cc897c72dd015d0cf0dd72&scene=126&sessionid=1795076114#rd\",\"description\":\"AI大模型专场开启，MiSRC邀你来挖洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbicDYYenibZfV5r57Ef3ooAmpR7L8YiaRvVQndm3tgf89n3vstnaaEk5n6bpEuw4E826h7qlxLjbNyq3RQ6IeYcceU7Q6f1M7gkxWicbAib1q9j0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-01T02:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 3275,
+      "elapsed_ms": 10014,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 3267
+          "started_ms": 8,
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 3274,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 3274,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 3274,
+          "name": "错误诊断收集",
+          "started_ms": 10013,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 3275,
+          "name": "沙箱释放",
+          "started_ms": 10014,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 3275,
+          "started_ms": 10014,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 3261
+          "started_ms": 11,
+          "duration_ms": 10002
         }
       ]
     }

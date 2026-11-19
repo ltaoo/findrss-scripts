@@ -1,27 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:13:24.882Z",
+  "checked_at": "2026-11-19T13:38:29.460Z",
   "inspection": {
     "file": "rss/instagram.js",
     "path": "/api/rss/instagram/:username",
     "example": "/api/rss/instagram/ibai",
     "name": "Ibai Llanos",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
+    "request": false,
+    "response": false,
+    "format_valid": false,
     "output_valid": false,
-    "status": 200,
-    "output_file": "api/rss/instagram/ibai.json",
-    "error": "条目数须 >= 1",
-    "duration_ms": 896
+    "status": 503,
+    "code": "UPSTREAM_RATE_LIMITED",
+    "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
+    "duration_ms": 264
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 470
+    "status": 503,
+    "duration_ms": 212
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 503,
+    "code": "UPSTREAM_RATE_LIMITED",
     "script": {
       "file": "rss/instagram.js",
       "name": "Instagram 用户作品",
@@ -49,28 +49,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 424,
+    "phase": "runtime",
+    "elapsed_ms": 189,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":0,\"missing_published\":0}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_RATE_LIMITED: 脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429",
+    "error_text": "脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.instagram.com/ibai/",
         "method": "GET",
         "host": "www.instagram.com",
         "pathname": "/ibai/",
-        "status": 200,
+        "status": 302,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -79,39 +70,33 @@
           ]
         },
         "started_ms": 16,
-        "duration_ms": 291,
+        "duration_ms": 86,
         "timings": {
-          "response_ms": 121,
-          "body_read_ms": 162,
-          "decode_and_transfer_ms": 8
+          "response_ms": 86
         }
       },
       {
-        "url": "https://www.instagram.com/graphql/query",
-        "method": "POST",
+        "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fibai%2F&is_from_rle",
+        "method": "GET",
         "host": "www.instagram.com",
-        "pathname": "/graphql/query",
-        "status": 200,
+        "pathname": "/accounts/login/",
+        "status": 429,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
           "headers_sent": [
-            "Cookie",
-            "x-csrftoken"
+            "Cookie"
           ]
         },
-        "started_ms": 318,
-        "duration_ms": 105,
+        "started_ms": 102,
+        "duration_ms": 86,
         "timings": {
-          "response_ms": 101,
-          "body_read_ms": 4,
-          "decode_and_transfer_ms": 0
+          "response_ms": 86
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"instagram:user:ibai\",\"title\":\"ibai 的 Instagram 作品\",\"link\":\"https://www.instagram.com/ibai/\",\"description\":\"\",\"language\":\"\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.instagram.com/\"},\"tags\":[\"Instagram\"]},\"author\":{\"name\":\"ibai\",\"uri\":\"https://www.instagram.com/ibai/\"},\"image\":\"http://script.findrss.cloud/findrss-logo.png\",\"items\":[]}",
     "timing": {
-      "elapsed_ms": 424,
+      "elapsed_ms": 189,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -151,36 +136,31 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 11
+          "duration_ms": 10
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 12,
-          "duration_ms": 412
+          "started_ms": 11,
+          "duration_ms": 178
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 424,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 424,
+          "name": "错误诊断收集",
+          "started_ms": 189,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 424,
+          "started_ms": 189,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 424,
+          "name": "失败后浏览器清理",
+          "started_ms": 189,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 424,
+          "started_ms": 189,
           "duration_ms": 0
         }
       ],
@@ -188,12 +168,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 16,
-          "duration_ms": 291
-        },
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 317,
-          "duration_ms": 106
+          "duration_ms": 172
         }
       ]
     }

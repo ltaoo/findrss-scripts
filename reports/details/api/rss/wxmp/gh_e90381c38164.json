@@ -1,22 +1,23 @@
 {
-  "checked_at": "2026-11-19T08:15:41.926Z",
+  "checked_at": "2026-11-19T13:48:23.748Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_e90381c38164",
     "name": "ADLab",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_e90381c38164.json",
-    "duration_ms": 1504
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10035
   },
   "debug_request": {
     "status": 200,
-    "duration_ms": 1371
+    "duration_ms": 4739
   },
   "debug": {
     "status": 200,
@@ -49,7 +50,7 @@
       }
     },
     "phase": "ok",
-    "elapsed_ms": 1365,
+    "elapsed_ms": 4731,
     "invoked": false,
     "upstream_error": "",
     "error_text": "",
@@ -73,18 +74,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 1353,
+        "started_ms": 10,
+        "duration_ms": 4718,
         "timings": {
-          "response_ms": 1351,
-          "body_read_ms": 1,
+          "response_ms": 1244,
+          "body_read_ms": 3473,
           "decode_and_transfer_ms": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_e90381c38164\",\"title\":\"ADLab\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493159&idx=1&sn=1c05a0703808930d46b733602ad8571b&chksm=c20465dfb98093b684d769fb38926bd29e13cf5bd2479c8dfed1ff21d64e505fb9d501dcab61&scene=126&sessionid=1795076145#rd\",\"description\":\"启明星辰积极防御实验室（ADLab）成立于1999年，秉承维护国家网络安全、提升集团安全能力、培养攻防技术人员为己任，以攻防实战能力为导向，聚焦漏洞安全、高级威胁、攻防技术研究，持续积累攻防资源，完善攻防体系。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"ADLab\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2Fk947icPboBqD69NUqeHw0CCDS0PkXWCeAcTibMPpYKyVCY0THMVIyRMuA466jjTKSrokUd1Dn34LE%2F0\",\"updated\":\"2026-11-18T10:31:58.000Z\",\"items\":[{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493159:1\",\"title\":\"【复现】Java4Shell JavaOpenJDK AVX-512 Base64堆溢出漏洞（CVE-2026-114938）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493159&idx=1&sn=1c05a0703808930d46b733602ad8571b&chksm=c20465dfb98093b684d769fb38926bd29e13cf5bd2479c8dfed1ff21d64e505fb9d501dcab61&scene=126&sessionid=1795076145#rd\",\"description\":\"OpenJDK官方发布紧急安全更新，披露并修复了HotSpot JVM Base64解码路径存在的内存破坏漏洞（CVE-2026-114938），该漏洞CVSS 4.0评分9.2。该漏洞由安全研究团队 Calif发现并披露，并被命名为Java4Shell。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVrfrwtX6kAGibbLenyHL3NIhBRKtSyH6ibibxmoiaDiaVPxibziaAib6GIhj5IodJicRLJicTRSteic0bujDd3WM2Pwjx7XWpQ7EGMyv6pibWY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:31:58.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493152:1\",\"title\":\"【复现】Apache HTTP Server mod_http2竞态条件堆破坏漏洞（CVE-2026-119618）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493152&idx=1&sn=f768857830bc9233bab13ab84f44b3f8&chksm=c29f97604458f8752bd7eed7bfb52f915bab20b6bad634813b4989f6a01be2c8727ac9e8c9b3&scene=126&sessionid=1795076145#rd\",\"description\":\"Apache官方发布httpd 2.4.71安全更新，披露并修复了Apache HTTP Server mod_http2模块存在的竞态条件堆破坏漏洞（CVE-2026-119618），该漏洞CVSS 3.1评分9.8。由于该漏洞技术细节已公开，攻击利用可能性较高，对于使用该服务的组织而言构成直接且严重的风险。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVpe7ic79icIt2NraRXcMQ2NOefrbe9cFc1YVRfEso9zZoymKeCpicBhibDJvGny75Gia8qN4q1tKD5bbzjvP9oN5dtDBs9vmIibibTe28%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:04:33.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493145:1\",\"title\":\"【ADLab原创漏洞】Samsung MediaProvider跨用户及任意文件读写高危漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493145&idx=1&sn=7ffe906824716d2da8feabe992c61ad9&chksm=c2c7ea6e409b02806564978e8b90a75d2b1c643e7e67be295bc2368a3e254ffbcc9c6981cede&scene=126&sessionid=1795076145#rd\",\"description\":\"启明星辰ADLab通过对Samsung定制版MediaProvider的多用户与文件交互机制开展安全审计，重点排查公开暴露且持有系统级特权的ContentProvider，发现其OTG处理逻辑存在严重的任意文件读写及跨用户资源窃取漏洞。Samsung官方已发布S9210CHC6DZH3版本修复该漏洞。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVqJc0QjNMSrPTo0HPFlcda2e1KxkvHy8Rul6v8fVCf1tOo52QqBNIyFqoiaYXSNPAzkxbI8oCP18yIziavtzyT4b6XPI0fvGXiaGg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T10:04:30.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493138:1\",\"title\":\"【复现】OpenSSH musl libc密码认证绕过漏洞（CVE-2026-123158）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493138&idx=1&sn=a593440bc06e6d9ca74367cd47d3ccca&chksm=c24ac09bf7117784bab9d4daae966440c798f7ae0d1b1f6bef871cab8eb5e66819a4cd32abac&scene=126&sessionid=1795076145#rd\",\"description\":\"OpenSSH Portable是其面向Linux等平台的可移植版本，sshd的密码认证实现是本次漏洞的主要影响面；该问题主要影响采用musl libc的轻量级发行版与容器基础镜像。OpenSSH官方发布10.6p2 安全更新，修复了OpenSSH Portable在musl libc环境下的密码认证绕过漏洞。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVrOsdbncVKejkcmFP9yYr1iaXPClaavKTV8xyPmRFYLomZ0vAk4BS6MR6PH0MODeHXZVGKNbe7pxibEibCCzCanRP0aXLw9GiaMKjg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T09:41:42.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493131:1\",\"title\":\"【复现】Linux内核IPv4 TCP释放后重用漏洞（CVE-2026-98432）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493131&idx=1&sn=bd02b1c0f9e907318014ca89455bceef&chksm=c25fb608683fbb85f27b834f500702a41f1a07581313bdddbd707dbda43beb1bb13e8ed6daee&scene=126&sessionid=1795076145#rd\",\"description\":\"近期，Linux内核CNA发布了Linux内核IPv4 TCP释放后重用漏洞CVE-2026-98432，CVSS 3.1 评分为 9.8 分；并进一步披露了针对MPTCP监听场景的利用演示。该漏洞在特定条件下（如 MPTCP 监听器）可实现远程任意代码执行并获取 root 权限。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVo2YVpVYiaYrdbUPIqNzBx39cOaW0fJhCoibkWktEEutzUrVPq6ICqrJfYXUWanuNia2prCqiagice8SiayzBmBDmSs5rlVgCftqamzM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T09:52:23.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493107:1\",\"title\":\"【复现】GitLab正则表达式编译器未授权远程代码执行漏洞（CVE-2026-97229）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493107&idx=1&sn=1e519b843a09e0b1bb207d85360abedb&chksm=c23943e716e54c196f677cbbbf16070d8603d8e87922d4b86a638ceef8945874a80766439293&scene=126&sessionid=1795076145#rd\",\"description\":\"GitLab是全球广泛使用的DevOps平台。GitLab正则表达式编译器未授权远程代码执行漏洞（CVE-2026-97229）于2026年10月13日在NVD平台公开，CVSS 3.1评分10.0分。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVrJCwMIXphNdictDjsUeNkI0jVRibjib3twlAXSNCSeTRuJmowpIKTXbPvnSN5nvI7Q5EMZAHAACCPjtIhhUH3F4HzUsvH91XYkpM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-16T09:33:16.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493099:1\",\"title\":\"【复现】Atlassian 多产品未授权任意文件读取漏洞（CVE-2026-21589）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493099&idx=1&sn=c8b276912ebdaa061825321ab31c2d91&chksm=c25cbef38667f605ac74a8b6dd5c5a2bc75fe6258ea70df33775d1ae192ab5f001596616a2c4&scene=126&sessionid=1795076145#rd\",\"description\":\"CVE-2026-21589是Atlassian于2026年10月5日发布安全公告披露的任意文件访问（Arbitrary File Access/Read）漏洞，影响上述几乎所有Data Center产品的全部历史版本。该漏洞允许未认证攻击者读取Web应用根目录内的任意文件（含受保护的WEB-INF目录）。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVogXu57GoicgVsiaSw0e5oWnPqPnRaGqmpgA1ugpocIz5XxNAhu8CIjKOyqj7t1G9Qotz2724nQic5HtKzBsJPoA33f6b5VNrIAGc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-09T09:30:28.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493085:1\",\"title\":\"AI Agent安全威胁与攻击能力演进研究—— 攻击能力扩张的新路径\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493085&idx=1&sn=da77bd2851ae656cb172fde2e0b5608f&chksm=c2a57ca584df9c947ffc8c74a785dddda21052b6f8590fe3238cb2a64e5f37b455ab76245b2d&scene=126&sessionid=1795076145#rd\",\"description\":\"本文将从攻击面、自主攻击能力、真实案例、防护措施和未来影响等方面展开分析，并重点讨论任务状态、外部知识、第三方能力、工具权限和运行时执行等环节，这些环节既是攻击者实施“能力借用”的具体对象，也是防御者设计检测点和干预点的关键入口。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVoV8HZKbqAia73WwMNPKVt1obSB0VewTpwjDwFr9aD3iaOxeXGZVQr3kvuCRp15v72N5o5NmUYzzic4IyrEDpibZ9rBcLNXkMPankE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-30T09:52:24.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493038:1\",\"title\":\"启明星辰入选国家人工智能安全漏洞库首批技术支撑单位\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493038&idx=1&sn=a192cc63ccc98c684d56491f181019c4&chksm=c20c0294cc3a216c062376d919a380d2d48d7c4a94ecb54328e0ab6f5230ac7cac0530f16482&scene=126&sessionid=1795076145#rd\",\"description\":\"启明星辰入选国家人工智能安全漏洞库首批技术支撑单位\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVoB0I5IPUskGUR18Jko0DNJ89iawRxiaXJbrKvbL76zNYgbdXBLfxGjk38uliburoontBZvaaHkc79mNjJSeXZB2L0byhTHFpZ0VM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-25T02:32:52.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493033:1\",\"title\":\"【复现】WordPress Comment2Shell零点击存储型XSS可导致RCE漏洞（CVE-2026-93485）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493033&idx=1&sn=6cb3b5a5eae361c38aebe45d4b92f851&chksm=c2607a0ff20f7867ee8e5b9df2ca2d4c7b44aaf37e1e7f21e6809aa4b238169517d9f228765c&scene=126&sessionid=1795076145#rd\",\"description\":\"WordPress是全球使用最广泛的开源内容管理系统（CMS）。CVE-2026-93485漏洞无需管理员点击任何链接或按钮，攻击者仅需向目标站点提交一条评论即可植入载荷；当具有插件安装权限的管理员加载包含该评论页面时，脚本会在其会话中执行并上传恶意插件，实现RCE。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVpicUic6bp9na5nxHclcPSDNRq4koibOKkhicOZc0jt3vUC56oXUEeFv1Lw81dSYp85LAibvv3cvwj9UhkPU4goz9Yfpdriatdj3meia0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-23T09:50:52.000Z\"}]}",
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_e90381c38164\",\"title\":\"ADLab\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493196&idx=1&sn=ef8e4aef53eaeaaa3b602fd093682ba1&chksm=c2fbbcefb821028962923da1d88f0ee7ec51d2f80e85c54eefb0fa50e5981ace107f90f7f978&scene=126&sessionid=1795096109#rd\",\"description\":\"启明星辰积极防御实验室（ADLab）成立于1999年，秉承维护国家网络安全、提升集团安全能力、培养攻防技术人员为己任，以攻防实战能力为导向，聚焦漏洞安全、高级威胁、攻防技术研究，持续积累攻防资源，完善攻防体系。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"ADLab\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2Fk947icPboBqD69NUqeHw0CCDS0PkXWCeAcTibMPpYKyVCY0THMVIyRMuA466jjTKSrokUd1Dn34LE%2F0\",\"updated\":\"2026-11-19T09:28:45.000Z\",\"items\":[{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493196:1\",\"title\":\"【复现】NGINX HTTP/2流控整数下溢堆越界读写漏洞（CVE-2026-123007）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493196&idx=1&sn=ef8e4aef53eaeaaa3b602fd093682ba1&chksm=c2fbbcefb821028962923da1d88f0ee7ec51d2f80e85c54eefb0fa50e5981ace107f90f7f978&scene=126&sessionid=1795096109#rd\",\"description\":\"NGINX官方发布安全更新，修复nginx2root系列多个远程代码执行漏洞，其中CVE-2026-123007是本次披露中影响范围较广的漏洞之一，CVSS 3.1评分8.1。该漏洞源于cleanup归还路径缺少上限检查，触发堆越界读写导致未被认证攻击者可在特定环境中实现远程代码执行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVo9micWVgpEOUvxvDt3r31nPWcgq5uOlYcKT8ceZViaPgSAtQptGgRH5hclN9b1K3rerOUu3yVYzI43IDgGyicoCzaQ5hNia0rT9cQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T09:28:45.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493159:1\",\"title\":\"【复现】Java4Shell JavaOpenJDK AVX-512 Base64堆溢出漏洞（CVE-2026-114938）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493159&idx=1&sn=1c05a0703808930d46b733602ad8571b&chksm=c2937281a1b3e94c55cd2ce8daa63be6ebb1de8bdc66f45017709a267625e8a4d02023ed2651&scene=126&sessionid=1795096109#rd\",\"description\":\"OpenJDK官方发布紧急安全更新，披露并修复了HotSpot JVM Base64解码路径存在的内存破坏漏洞（CVE-2026-114938），该漏洞CVSS 4.0评分9.2。该漏洞由安全研究团队 Calif发现并披露，并被命名为Java4Shell。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVrfrwtX6kAGibbLenyHL3NIhBRKtSyH6ibibxmoiaDiaVPxibziaAib6GIhj5IodJicRLJicTRSteic0bujDd3WM2Pwjx7XWpQ7EGMyv6pibWY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:31:58.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493152:1\",\"title\":\"【复现】Apache HTTP Server mod_http2竞态条件堆破坏漏洞（CVE-2026-119618）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493152&idx=1&sn=f768857830bc9233bab13ab84f44b3f8&chksm=c242d98bb3c5af0b7b2dae3273c16fdb42d8c13c934bc3cf658dd3d35d8af58dcb5d88c32622&scene=126&sessionid=1795096109#rd\",\"description\":\"Apache官方发布httpd 2.4.71安全更新，披露并修复了Apache HTTP Server mod_http2模块存在的竞态条件堆破坏漏洞（CVE-2026-119618），该漏洞CVSS 3.1评分9.8。由于该漏洞技术细节已公开，攻击利用可能性较高，对于使用该服务的组织而言构成直接且严重的风险。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVpe7ic79icIt2NraRXcMQ2NOefrbe9cFc1YVRfEso9zZoymKeCpicBhibDJvGny75Gia8qN4q1tKD5bbzjvP9oN5dtDBs9vmIibibTe28%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:04:33.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493145:1\",\"title\":\"【ADLab原创漏洞】Samsung MediaProvider跨用户及任意文件读写高危漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493145&idx=1&sn=7ffe906824716d2da8feabe992c61ad9&chksm=c23f4c8053f77bec0d6f934b48a960c4aaa9bf7bcf3422e73b0b266146cb40177798f33db3af&scene=126&sessionid=1795096109#rd\",\"description\":\"启明星辰ADLab通过对Samsung定制版MediaProvider的多用户与文件交互机制开展安全审计，重点排查公开暴露且持有系统级特权的ContentProvider，发现其OTG处理逻辑存在严重的任意文件读写及跨用户资源窃取漏洞。Samsung官方已发布S9210CHC6DZH3版本修复该漏洞。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVqJc0QjNMSrPTo0HPFlcda2e1KxkvHy8Rul6v8fVCf1tOo52QqBNIyFqoiaYXSNPAzkxbI8oCP18yIziavtzyT4b6XPI0fvGXiaGg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T10:04:30.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493138:1\",\"title\":\"【复现】OpenSSH musl libc密码认证绕过漏洞（CVE-2026-123158）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493138&idx=1&sn=a593440bc06e6d9ca74367cd47d3ccca&chksm=c2a032b7b5165d08f0d77b1744ee7264445b9d1dfc6c38c0e2205d9421a7bcb4211100ac6f2a&scene=126&sessionid=1795096109#rd\",\"description\":\"OpenSSH Portable是其面向Linux等平台的可移植版本，sshd的密码认证实现是本次漏洞的主要影响面；该问题主要影响采用musl libc的轻量级发行版与容器基础镜像。OpenSSH官方发布10.6p2 安全更新，修复了OpenSSH Portable在musl libc环境下的密码认证绕过漏洞。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVrOsdbncVKejkcmFP9yYr1iaXPClaavKTV8xyPmRFYLomZ0vAk4BS6MR6PH0MODeHXZVGKNbe7pxibEibCCzCanRP0aXLw9GiaMKjg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T09:41:42.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493131:1\",\"title\":\"【复现】Linux内核IPv4 TCP释放后重用漏洞（CVE-2026-98432）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493131&idx=1&sn=bd02b1c0f9e907318014ca89455bceef&chksm=c2dbbc2640337018c55bc04d7f33341f9d1712de15eb2228f270aa4c922da2e789fa16b6c5a9&scene=126&sessionid=1795096109#rd\",\"description\":\"近期，Linux内核CNA发布了Linux内核IPv4 TCP释放后重用漏洞CVE-2026-98432，CVSS 3.1 评分为 9.8 分；并进一步披露了针对MPTCP监听场景的利用演示。该漏洞在特定条件下（如 MPTCP 监听器）可实现远程任意代码执行并获取 root 权限。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVo2YVpVYiaYrdbUPIqNzBx39cOaW0fJhCoibkWktEEutzUrVPq6ICqrJfYXUWanuNia2prCqiagice8SiayzBmBDmSs5rlVgCftqamzM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T09:52:23.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493107:1\",\"title\":\"【复现】GitLab正则表达式编译器未授权远程代码执行漏洞（CVE-2026-97229）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493107&idx=1&sn=1e519b843a09e0b1bb207d85360abedb&chksm=c224d00173d88f65308246cc3722cd9f6f192c900ce3038d5949f8aa2b6fae948859a4af7c71&scene=126&sessionid=1795096109#rd\",\"description\":\"GitLab是全球广泛使用的DevOps平台。GitLab正则表达式编译器未授权远程代码执行漏洞（CVE-2026-97229）于2026年10月13日在NVD平台公开，CVSS 3.1评分10.0分。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVrJCwMIXphNdictDjsUeNkI0jVRibjib3twlAXSNCSeTRuJmowpIKTXbPvnSN5nvI7Q5EMZAHAACCPjtIhhUH3F4HzUsvH91XYkpM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-16T09:33:16.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493099:1\",\"title\":\"【复现】Atlassian 多产品未授权任意文件读取漏洞（CVE-2026-21589）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493099&idx=1&sn=c8b276912ebdaa061825321ab31c2d91&chksm=c2a74cb4c3bfb555c0e492da748afd938b9f91dd4062e00c40d007e60c6936d91f1e41a13aa5&scene=126&sessionid=1795096109#rd\",\"description\":\"CVE-2026-21589是Atlassian于2026年10月5日发布安全公告披露的任意文件访问（Arbitrary File Access/Read）漏洞，影响上述几乎所有Data Center产品的全部历史版本。该漏洞允许未认证攻击者读取Web应用根目录内的任意文件（含受保护的WEB-INF目录）。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVogXu57GoicgVsiaSw0e5oWnPqPnRaGqmpgA1ugpocIz5XxNAhu8CIjKOyqj7t1G9Qotz2724nQic5HtKzBsJPoA33f6b5VNrIAGc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-09T09:30:28.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493085:1\",\"title\":\"AI Agent安全威胁与攻击能力演进研究—— 攻击能力扩张的新路径\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493085&idx=1&sn=da77bd2851ae656cb172fde2e0b5608f&chksm=c2886e9ef771d48685c3824891563b8c98c7319777b22fea151cbdcec2245926bca56c3c4eb8&scene=126&sessionid=1795096109#rd\",\"description\":\"本文将从攻击面、自主攻击能力、真实案例、防护措施和未来影响等方面展开分析，并重点讨论任务状态、外部知识、第三方能力、工具权限和运行时执行等环节，这些环节既是攻击者实施“能力借用”的具体对象，也是防御者设计检测点和干预点的关键入口。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fd1YpVG2tPVoV8HZKbqAia73WwMNPKVt1obSB0VewTpwjDwFr9aD3iaOxeXGZVQr3kvuCRp15v72N5o5NmUYzzic4IyrEDpibZ9rBcLNXkMPankE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-30T09:52:24.000Z\"},{\"id\":\"wxmp:Mzk1NzE0ODUyOA%3D%3D:2247493038:1\",\"title\":\"启明星辰入选国家人工智能安全漏洞库首批技术支撑单位\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk1NzE0ODUyOA==&mid=2247493038&idx=1&sn=a192cc63ccc98c684d56491f181019c4&chksm=c2c3521025760c7503a617c1f6c35aea350083b8bc0db7a2de96e06dc14f2526d26003885f09&scene=126&sessionid=1795096109#rd\",\"description\":\"启明星辰入选国家人工智能安全漏洞库首批技术支撑单位\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fd1YpVG2tPVoB0I5IPUskGUR18Jko0DNJ89iawRxiaXJbrKvbL76zNYgbdXBLfxGjk38uliburoontBZvaaHkc79mNjJSeXZB2L0byhTHFpZ0VM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-25T02:32:52.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1365,
+      "elapsed_ms": 4731,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -104,12 +105,12 @@
         {
           "name": "宿主能力准备",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
@@ -119,49 +120,49 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1357
+          "duration_ms": 4724
         },
         {
           "name": "输出读取与校验",
-          "started_ms": 1364,
-          "duration_ms": 1
+          "started_ms": 4731,
+          "duration_ms": 0
         },
         {
           "name": "执行日志收集",
-          "started_ms": 1365,
+          "started_ms": 4731,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1365,
+          "started_ms": 4731,
           "duration_ms": 0
         },
         {
           "name": "浏览器状态保存",
-          "started_ms": 1365,
+          "started_ms": 4731,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1365,
+          "started_ms": 4731,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1353
+          "started_ms": 10,
+          "duration_ms": 4718
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:15:15.871Z",
+  "checked_at": "2026-11-19T13:46:35.986Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_24231986c9c8.json",
-    "duration_ms": 1449
+    "duration_ms": 5536
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1562
+    "status": 502,
+    "duration_ms": 10023
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +48,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1556,
+    "phase": "runtime",
+    "elapsed_ms": 10015,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +68,88 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 1544,
+        "started_ms": 13,
+        "duration_ms": 10001,
         "timings": {
-          "response_ms": 1155,
-          "body_read_ms": 388,
-          "decode_and_transfer_ms": 1
+          "response_ms": 2143,
+          "body_read_ms": 7858
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_24231986c9c8\",\"title\":\"字节跳动技术团队\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524506&idx=1&sn=0d9dab639998e69bde48db3e1dadf652&chksm=e8d961905918968ae2e30aa0521c6e69715f1f47aced84dbd2f83bafd7b8e9d3cbaa94fe3a01&scene=126&sessionid=1795076119#rd\",\"description\":\"字节跳动的技术实践分享\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"字节跳动技术团队\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4Mz0zV5VtfHx3vA6LLNw3npTWibbGbYhtsc131DoN6m0A%2F0\",\"updated\":\"2026-11-18T10:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524506:1\",\"title\":\"把 80+ 项音视频能力装进 Claude Code 后，我合上了 FFmpeg 手册\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524506&idx=1&sn=0d9dab639998e69bde48db3e1dadf652&chksm=e8d961905918968ae2e30aa0521c6e69715f1f47aced84dbd2f83bafd7b8e9d3cbaa94fe3a01&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFGB4hYw9FeeKCQTFA2cBCKoaZqx0UJsicORkumoqVicibz3rRgkOQwAYJxAgq5sdw6LKBs4dgZ4ZSjh83QzEGibPy1L6oGjGak8KmrQDN18UJibc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524318:1\",\"title\":\"让数据按业务流动：EFS 数据流动重塑 AI 时代的文件存储\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524318&idx=1&sn=e834fd29a169549dd609f81979109eb9&chksm=e868d7d65969d548d6f75137dae6e1c476548634a220cc2e1098aa67d378eea045fa8e3c67a4&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFGB4hYw9FeePo0apL0M5MxjwcBEsMsMcNuvIQtz1xOme1pHStkVUCAJXzQzRYxxhrqgCv5Q4hiacLcWH5eCT5rBb7cDAiahgy9vNv2WQsMLc4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524318:2\",\"title\":\"让算力说同一种管理语言：共建 XPU 带外管理标准\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524318&idx=2&sn=f87733fff5a5bfdcae6f2ffba1b65a93&chksm=e8df6b103f875740ac55e4bc39bf5f9792e926ec2e17a9158852d5a0eaad7a46c4a2204a08a9&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FeeWNtcZUUjibwT6RVuhaWjjSzxkI0Yw301pK9CD6TPKTB6Fwiao6GEEBCEBcS1mFH8yRnUmvaP8MoAzVmib7NEzx3ufSdzDB0VDqE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524273:1\",\"title\":\"OpenViking 3D理解模型上线轴测八视图及PMI解析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524273&idx=1&sn=00864fccfa91a8cf8533d53cf0a3c164&chksm=e8106a9b3331b51752f3f315c47a114b53cbea8e090f27082e35877fdd91a1f4314cd18ecc45&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FeceonErtmjFf2oIbcAy9ia6PTFQj2PQnj2LyYamZXKcN3Shs5NfmYlou8jW93wN15PASoO8FK3sA8DZ1wJdQ5ZLP91c79lfibAXY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524166:1\",\"title\":\"开发者实测｜把视频处理交给 Agent：AI MediaKit Skill 深度评测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524166&idx=1&sn=a906ea8e660c7264fd65de893e7c82c2&chksm=e87a53cd10261603278237c240c20c7ec320f4f167ad0d2f67f7ce738ec30316630060bcf0a3&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FeeVXfhGYsmwInd8CrxINKxJZCgLicv0oHRRuASNh9Txa4x3hHD2OfnJzHpB7OpCeIh8C3uqBJHIhibhVUP2dn4CFvwcIPDjkd4Os%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524066:1\",\"title\":\"每两家头部手机厂商就有一家选它：火山引擎如何成为 AI 手机助手的\\\"隐形底座\\\"？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524066&idx=1&sn=09bbc349ba9edd8ad8a82890256e16a3&chksm=e88b81f31e5e642c440d383f91fcd0eadb106c710096b219497b9b045c08dbfe9be59f9ec702&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FedMZfEAPSYicbLKrAx6qPU8Zibp5G65cYkhZ6RnMCohPcLSsPynQlj2Smz2eXf4FGYIhkWGQKM2nsIW4iaRZIofqkXRDJfNwXhG1A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524066:2\",\"title\":\"OpenViking连接业务系统，LLM Wiki一键编译\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524066&idx=2&sn=34ef93bca435a2d298fbe078aa081c69&chksm=e8913f141dfcf0485fa5380aa551df38d124119c82960a96cbab59189c00fa742756deca34b3&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFGB4hYw9FecmMxx509Fy8ubNA50g5Zsze6OXeGiaUTfQwjBF3NAnaib7n52lttic8JLroZbz42XZRhAeGMX1icbsKkXia28a4iaicQJicwtTGiapHXxk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247524007:1\",\"title\":\"让改进有迹可循：Storage Agent Family Eval 工程实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247524007&idx=1&sn=a8f5f0e536fc1ef3b0d7d2cc8e0e20cc&chksm=e8dbe715b43a561d86cf3518d19d7a0ead8986f8c4ad4ef26836bef2d92cebe421c34d7e53c7&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FecyAEP3sbP5yFicYH9Lsib1xDPXic0ScAg5tJlmOTmolkXUj1LfMY4bXBg0gAgf8CKHPydr3nIV17ympcibShbia0kKdOSKVHQqXZz0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T10:00:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247523974:1\",\"title\":\"个性化视频技术：历时七年的算法演进\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247523974&idx=1&sn=71549486fa67ac09532748b26bc01fed&chksm=e8012eba86f2dcb14a2b8e2e5866e9fdbbab6164eab5b7765984792ec5e2e654c6c636431262&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFGB4hYw9FefzuMPgKsCnwC0ianibb3BnNuvbPv5HI9m8ibJfw263gH3RDgGKLicZYBf0KX60cqxrA2dO1cKQicbogMmFiaa6pOx5icOJKuAaLiaDrIM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T11:03:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247523892:1\",\"title\":\"以电商客服为例，看 AgentKit 技能评测如何让 Skill 敢上生产！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247523892&idx=1&sn=f210923b89308ffa03e248ab36043d7b&chksm=e8c220121f5f726adce6bceb07c97be6fdc4f5441877c083bfa701a9c16b8b817cd44e2d816a&scene=126&sessionid=1795076119#rd\",\"description\":\"一个 95.8 分的 Skill 为什么还不敢上生产？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FecYv90V9xDvjNOduuXrb7Mia1G76h0E0Yib8uy1xeWxrPMI5b67nxpjTS6WhP3iaTZ5tPKSCz2XLJ8rx94z8geutg4g6qqFLZNbMc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T08:53:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247523857:1\",\"title\":\"迎战双十一，如何让智能客服 Agent 经得起真实业务考验？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247523857&idx=1&sn=c63f2fea56a8eb3da19081b5e9564c00&chksm=e8d78908ff3378032afed90d01e38762feb05dc7bbcdc2d336cb9689c203726d08884d404ef7&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FefxOMrpFTMN4qKZxZGppfylian6uCYJKk5IuJW0YA6QljdMuGepu7wsP5aCgR3g3196rTKCEQmV71rIUhicxS29TuUEqFqaqjTNU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T10:14:00.000Z\"},{\"id\":\"wxmp:MzI1MzYzMjE0MQ%3D%3D:2247523852:1\",\"title\":\"OpenViking 上线原生 3D 内容理解模型\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247523852&idx=1&sn=f753b63616a0f85bc2a12fab780e7d5d&chksm=e81dd08d8dabbf316be54b283b8b642d2f3115ab509f17fa72e4a51f907bd708a48ad42609e4&scene=126&sessionid=1795076119#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFGB4hYw9FeeyvEyZECR6SBiaQZUXX5gPyJ2ETBAsZAbbmmopLm8I1MPCeadKCckqK8tg3oEeHLDHmtiaX755ObuXNu8d6z1IJTq8KicAj4tzIU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T10:34:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1556,
+      "elapsed_ms": 10015,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 5
+          "started_ms": 2,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 1550
+          "started_ms": 8,
+          "duration_ms": 10007
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1556,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1556,
+          "name": "错误诊断收集",
+          "started_ms": 10015,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1556,
+          "started_ms": 10015,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1556,
+          "name": "失败后浏览器清理",
+          "started_ms": 10015,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1556,
+          "started_ms": 10015,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1544
+          "started_ms": 12,
+          "duration_ms": 10002
         }
       ]
     }

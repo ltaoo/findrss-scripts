@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:14:19.267Z",
+  "checked_at": "2026-11-19T13:43:05.802Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_3cc4dcce2d29.json",
-    "duration_ms": 1875
+    "duration_ms": 9718
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1011
+    "status": 502,
+    "duration_ms": 10028
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +48,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 811,
+    "phase": "runtime",
+    "elapsed_ms": 10016,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,33 +68,31 @@
             "authorization"
           ]
         },
-        "started_ms": 22,
-        "duration_ms": 785,
+        "started_ms": 12,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 611,
-          "body_read_ms": 173,
-          "decode_and_transfer_ms": 1
+          "response_ms": 749,
+          "body_read_ms": 9253
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_3cc4dcce2d29\",\"title\":\"取证杂谈\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484147&idx=1&sn=49bb2ce53e9f7ee1d94a4f58361ecbf2&chksm=ea730b5cbff62fb9b67f9f8167574e70141688d1f44dc85fa44b65799a160bf260e647cac482&scene=126&sessionid=1795076063#rd\",\"description\":\"分享电子取证及司法鉴定相关知识\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"取证杂谈\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5n5cNJmibBN9xSsZfISNmU0jD021QDphpiaVjdAiazzibVZA%2F0\",\"updated\":\"2026-05-27T09:50:00.000Z\",\"items\":[{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484147:1\",\"title\":\"记一次IMEI校验的意外\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484147&idx=1&sn=49bb2ce53e9f7ee1d94a4f58361ecbf2&chksm=ea730b5cbff62fb9b67f9f8167574e70141688d1f44dc85fa44b65799a160bf260e647cac482&scene=126&sessionid=1795076063#rd\",\"description\":\"IMEI号通常应通过Luhn校验，但笔者在用大模型辅助校对电子数据文书时，意外发现一部正规品牌手机的IMEI号无法通过校验。经反复核对，手机端记录无误，校验失败原因未知。此事表明，并非所有IMEI号都严格遵循Luhn算法，实践中可能存在例外，值得从业者留意。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FcVfk4uaEK6ArkOFBlTB3e4VC0slK6PqPx2PmvibIiaJ4UNDRIJIcT6c34gqVp0iaX0jCw9cdatRVSjKiblhUWXV6iaBibWvwy5p2L4sERc2WerCbo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-27T09:50:00.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484143:1\",\"title\":\"X-Ways Forensics 21.0预览版发布\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484143&idx=1&sn=8c1d201e8e602959caee208c12df0bdc&chksm=ea19ec2da761f8c6b8913ddbdfbb7acbee37e0bd0f9e4c0750cdcf573cc580c0cbe24303bdd6&scene=126&sessionid=1795076063#rd\",\"description\":\"X-Ways Forensics 21.0预览版今天已发布，快来看看更新了哪些内容。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FXzPGfNichNcxylicq8cM5fA8iaabbNicN9LzCts8IKkdJo75vt9eBrBTXKDP8BiaLACQBu3N2brgK5eZPrDTicAZ0GSQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-05T12:43:11.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484127:1\",\"title\":\"在前几天发布的20.9 Beta版中，X-Ways添加了一项个人认为比较重要的功能——E01镜像的现代压缩功能。启用此选项后，X-Ways制作的镜像将使用新的压缩算法对原始数据进行压缩，镜像速度更快，得到的镜像文件更小，后续的数据随机读取速度更快。经过测试，启用此选项得到的E01镜像体积确实要小于之前的版本X-Ways制作的镜像。新的镜像格式只有20.9及后续版本的X-Ways才能识别，且EnCase、FTK等其他软件暂时也无法识别。如果制作镜像后续不需要与他人进行交换，X-Ways Forensics新E01格式将是一个不错的选择。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484127&idx=1&sn=915f66a836240be4bdfb1bbebf63c01c&chksm=ea38e726bba10975e7271d99712ee60631e924ebad02209f214eb1998f5c22f1ea79a41c3f54&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2023-06-16T08:56:02.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484125:1\",\"title\":\"电子数据取证时间问题之filetime时间戳手工解析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484125&idx=1&sn=831c89a179787612211bf94bf3060706&chksm=ea2322cec592d1cf73e04178af621ec819129804bf50104ac0fc78312eeb744cdd860923a6e9&scene=126&sessionid=1795076063#rd\",\"description\":\"filetime时间戳是Windows中使用最广泛的时间格式，回收站中记录的文件删除时间，快捷方式文件中记录的文档打开时间，都是这种格式。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FXzPGfNichNcwJjXoGoUD9fiaXNjxOSPNXmlllsUJMKFiciaezBtFdjLe0T71VFLs2wEH7Cu04xucArvgMrX6MgkYrg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-04-30T00:43:12.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484114:1\",\"title\":\"电子数据取证时间问题之时间是怎么存储的？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484114&idx=1&sn=5bd1a67159344b8a04d2cb7c82233288&chksm=eaa5deab17204eb33ddbddcbc6a87ecdb0f8435a52d73df14c5e1130197c263dfe50f390d324&scene=126&sessionid=1795076063#rd\",\"description\":\"取证要解决的无非是弄清楚什么人在什么时间在什么地方做了什么事，也就是4W（Who，When，Where，What）问题。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FXzPGfNichNcws9yzzsTGc3dnzpj1APtAfbJF6uTWibsiaTkOew7xTctyymdz2tpY6EmkCSJUAL7iadllJGibV3KmMTg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-04-16T13:09:35.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484098:1\",\"title\":\"X-Ways Forensics处理Linux软RAID\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484098&idx=1&sn=77050343a2f4dd6c8bdefab30dc53a1e&chksm=eb2ca258dc5b2b4eb82104bacd34b8f3f00dbe3b530c1f595a787624d1439dbb877e71c1e3fc&scene=126&sessionid=1795076063#rd\",\"description\":\"第八届全国取证赛马上就要开始了，不少人都在摩拳擦掌积极备赛。今天突然有人问我Linux 软RAID的相关问题\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FXzPGfNichNcyA2NQbyULnBic7ARtNaPW8Gg0sKkFlyXZA9AN4Swk9or7fcGKgMA3wWtMfTnAIIibcAgcnMyyVSHTw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-10-27T14:39:37.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484085:1\",\"title\":\"分享图片\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484085&idx=1&sn=d5c6f4c39628f850572f2b0c37ce86eb&chksm=eb2ca22fdc5b2b39dec7d29cf8503882680c49d6ea6664c575e5246d1314169c2ef77fccc4a1&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"content\":\"<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FXzPGfNichNcyiauBaJAb6AttkGkNjqs8yZ2icINcW2jvqvLHJqNOzgGhjo1xXUnZNyIn4N70KROxCtrnXib2NsNicNA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FXzPGfNichNcyiauBaJAb6AttkGkNjqs8yZUOk5MCLibiaHq2dLsiayEPyIzChQSwLicMiagg4l1v94A3UN2DaOMVkNuAg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FXzPGfNichNcyiauBaJAb6AttkGkNjqs8yZ2icINcW2jvqvLHJqNOzgGhjo1xXUnZNyIn4N70KROxCtrnXib2NsNicNA%2F0\"],\"type\":\"gallery\",\"published\":\"2022-05-24T10:11:26.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484080:1\",\"title\":\"分享图片\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484080&idx=1&sn=9b4a6063a373317be6cee39003016f26&chksm=eb2ca22adc5b2b3cce8f81a95d3c8a791649638d3f6e428925bfbe5d7c282272d07f638dc88a&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"content\":\"<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FXzPGfNichNcySkFSl0rBYf8O4VENWqTJCg9BaDm7MrALmZCsWHQ9hicq5ib3ZhxjJiazcluibx5BeQBAqicl8W4NiaAkA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FXzPGfNichNcySkFSl0rBYf8O4VENWqTJCF0nALAJDsr020eKVek3eSu2UVJ0f1IEkGM1utaKM9kG4a2eTnnNBGg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FXzPGfNichNcySkFSl0rBYf8O4VENWqTJCg9BaDm7MrALmZCsWHQ9hicq5ib3ZhxjJiazcluibx5BeQBAqicl8W4NiaAkA%2F0\"],\"type\":\"gallery\",\"published\":\"2022-05-24T10:11:26.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484064:1\",\"title\":\"电子数据取证怎么学？以第七届美亚杯资格赛第10题为例\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484064&idx=1&sn=921691f1424e80d1c33026662fb4e136&chksm=eb2ca23adc5b2b2cd7a83d01fd3894762c7be4d2780cd68a667660928e283fc3ee98fc58f951&scene=126&sessionid=1795076063#rd\",\"description\":\"以第七届美亚杯资格赛中某题为例，分享电子数据取证的发散思维。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FXzPGfNichNcx9LdkveV2UF5YIFXc1VJwUBPEZyfGbsM4uVr1bdSicLSCpqH9iaXf2etxIbriaoKzajGMAdm66ELQlA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-11-28T15:15:33.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484044:1\",\"title\":\"压缩包炸弹\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484044&idx=1&sn=14da19acd075021a3f1111b5005747b7&chksm=eb2ca216dc5b2b0027ac908554a1cb34222c3cb62850d6749ca41654d514a1e7ae3dd8273938&scene=126&sessionid=1795076063#rd\",\"description\":\"这个例子让我再次意识到取证工作中软件不是万能的，如果条件允许最好使用多种工具进行交叉验证，必要的话，直接手工分析！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FXzPGfNichNcznTgNSb5BlBaArmoFqDkxTALzl3u8SibTdR3jFNNQnqDMI7VGIXbxPCjjYmnSF3tDkiaiagXrUyBcyg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-07-05T16:33:58.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484035:1\",\"title\":\"Windows11要求硬件必须有TPM2.0，以后Windows很可能也会和Android、iOS、macOS一样全盘加密。对普通用户来说，系统更安全了，对取证工作者来说，却喜忧参半。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484035&idx=1&sn=8c23593a8fa9b17b3fa13bdc7bab076e&chksm=eb2ca219dc5b2b0fe7af3a53ccb532ac416a5a758d0652665dd2fb96c79df1f7512a475009ef&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2021-06-25T01:20:03.000Z\"},{\"id\":\"wxmp:MzI3Mjc0MjkwMQ%3D%3D:2247484016:1\",\"title\":\"第六届美亚杯\\n\\n第六届美亚杯全国电子数据取证竞赛今天在线上举行，我和同事也报名参加了。大家最近事情比较多，比赛前一天还都在各自岗位工作，一直到昨天晚上队员们才一起碰头准备机器讨论比赛分工。题量有点大，有限的时间下，分析接近1TB的数据，压力还是挺大的。通过这次比赛，意识到了自己不少的知识薄弱点。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mjc0MjkwMQ==&mid=2247484016&idx=1&sn=1ed68d7dda7522c06dc84061432013aa&chksm=eb2ca2eadc5b2bfc752b9a257553c3c48ec472c26006a2d677b69832bf32d98293d8c6a6a79e&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2020-11-14T14:48:18.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 811,
+      "elapsed_ms": 10016,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
@@ -119,41 +112,36 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 1
+          "duration_ms": 2
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 7
+          "started_ms": 3,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 9,
-          "duration_ms": 801
+          "duration_ms": 10006
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 810,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 811,
+          "name": "错误诊断收集",
+          "started_ms": 10015,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 811,
-          "duration_ms": 0
+          "started_ms": 10015,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 811,
+          "name": "失败后浏览器清理",
+          "started_ms": 10016,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 811,
+          "started_ms": 10016,
           "duration_ms": 0
         }
       ],
@@ -161,7 +149,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 12,
-          "duration_ms": 795
+          "duration_ms": 10002
         }
       ]
     }

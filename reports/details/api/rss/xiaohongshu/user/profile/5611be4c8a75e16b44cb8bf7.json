@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:16:26.035Z",
+  "checked_at": "2026-11-19T13:50:54.790Z",
   "inspection": {
     "file": "rss/xiaohongshu.js",
     "path": "/api/rss/xiaohongshu/user/profile/:uid",
     "example": "/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7",
     "name": "爱折腾的小冯同学",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7.json",
-    "duration_ms": 1214
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
+    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+    "duration_ms": 1139
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 817
+    "status": 502,
+    "duration_ms": 1806
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "rss/xiaohongshu.js",
       "name": "小红书用户笔记",
@@ -48,28 +49,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 810,
+    "phase": "runtime",
+    "elapsed_ms": 1797,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":31,\"missing_published\":0}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。",
+    "error_text": "脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:51:26)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7",
         "method": "GET",
         "host": "www.xiaohongshu.com",
         "pathname": "/user/profile/5611be4c8a75e16b44cb8bf7",
-        "status": 200,
+        "status": 302,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -78,17 +70,50 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 777,
+        "duration_ms": 524,
         "timings": {
-          "response_ms": 645,
-          "body_read_ms": 129,
-          "decode_and_transfer_ms": 3
+          "response_ms": 524
+        }
+      },
+      {
+        "url": "https://www.rednote.com/user/profile/5611be4c8a75e16b44cb8bf7",
+        "method": "GET",
+        "host": "www.rednote.com",
+        "pathname": "/user/profile/5611be4c8a75e16b44cb8bf7",
+        "status": 302,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 534,
+        "duration_ms": 220,
+        "timings": {
+          "response_ms": 220
+        }
+      },
+      {
+        "url": "https://www.rednote.com/login?redirectPath=http%3A%2F%2Fwww.rednote.com%2Fuser%2Fprofile%2F5611be4c8a75e16b44cb8bf7%3FexSource%3Dnull",
+        "method": "GET",
+        "host": "www.rednote.com",
+        "pathname": "/login",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 754,
+        "duration_ms": 1034,
+        "timings": {
+          "response_ms": 434,
+          "body_read_ms": 598,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"xiaohongshu:user:5611be4c8a75e16b44cb8bf7\",\"title\":\"爱折腾的小冯同学 的小红书笔记\",\"link\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\",\"description\":\"00后 👧🏻ENTJ  \\n北京｜布里斯班｜悉尼\\n金牛座♉️ 探店1000+  \\n生命不息 折腾不止\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.xiaohongshu.com/\"},\"tags\":[\"小红书\"]},\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"image\":\"https://sns-avatar-qc.xhscdn.com/avatar/5f76fd5398a0970001229dd4.jpg?imageView2/2/w/540/format/webp\",\"updated\":\"2026-08-18T08:26:56.000Z\",\"items\":[{\"id\":\"xiaohongshu:note:6a841750000000003501479e\",\"title\":\"Brown Brothers这次新品有点微醺🥂\",\"link\":\"https://www.xiaohongshu.com/explore/6a841750000000003501479e?xsec_token=ABQIieeVpOFgDWKiRFpu7rvNbA0D8n3Y8F9TzKuHrEbmg%3D&xsec_source=pc_user\",\"description\":\"Brown Brothers这次新品有点微醺🥂\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/629e902c54f8e92b769ba128c9c1266f/note_pre_post_uhdr/1040g3r83240l7gt80a1041banuv4p2vng7ino28!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2026-08-18T08:26:56.000Z\"},{\"id\":\"xiaohongshu:note:6a5b405c000000000f01343d\",\"title\":\"🍊澳洲Aldi一定要买的橘子！！无籽❤️\",\"link\":\"https://www.xiaohongshu.com/explore/6a5b405c000000000f01343d?xsec_token=ABlF3Nn8Pn-y9B8pLeC7Cx0xv6vrvmG1BEhEfjIBRihjw%3D&xsec_source=pc_user\",\"description\":\"🍊澳洲Aldi一定要买的橘子！！无籽❤️\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/09a2dcb091b3feb1e1d1cbeb92168e23/notes_pre_post/1040g3k8322opjt1a7a7041banuv4p2vnr9jsf68!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2026-07-18T08:59:08.000Z\"},{\"id\":\"xiaohongshu:note:6a533658000000000803d2aa\",\"title\":\"悉尼周边2天一夜自驾 Berry ➡️Jervis Bay\",\"link\":\"https://www.xiaohongshu.com/explore/6a533658000000000803d2aa?xsec_token=ABxPoAH-QzGvIBxJP4htp_QQ-F5LqgYNGRL7UnpLHpuLQ%3D&xsec_source=pc_user\",\"description\":\"悉尼周边2天一夜自驾 Berry ➡️Jervis Bay\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/eb0f4dadd942f52858475281f4c345f4/notes_pre_post/1040g3k0322gtt308nu2g41banuv4p2vnr9n8q98!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2026-07-12T06:38:16.000Z\"},{\"id\":\"xiaohongshu:note:69d792c900000000230056a5\",\"title\":\"吃饭还能接飞鸡蛋？悉尼铁板烧太会玩了🐂\",\"link\":\"https://www.xiaohongshu.com/explore/69d792c900000000230056a5?xsec_token=ABGaZqaHjWcffoGhwTJxGeCSqgUGsgnWioH_CMzlFE6uw%3D&xsec_source=pc_user\",\"description\":\"吃饭还能接飞鸡蛋？悉尼铁板烧太会玩了🐂\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/65ca85251cf0e441093d984d2dafbcce/note_pre_post_uhdr/1040g3r031uo6oh4dia4041banuv4p2vntpcnl2g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2026-04-09T11:51:37.000Z\"},{\"id\":\"xiaohongshu:note:69d2e921000000001b023616\",\"title\":\"布里斯班The Star 特价菜 $15 越南拌粉🔥\",\"link\":\"https://www.xiaohongshu.com/explore/69d2e921000000001b023616?xsec_token=ABk3zw5YIc82Pr2PCqQCIduDrHfQnl3zS9pS-w7v3rL_I%3D&xsec_source=pc_user\",\"description\":\"布里斯班The Star 特价菜 $15 越南拌粉🔥\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/98c0c6e36eaf5421a92f5ff10e126ce5/notes_uhdr/1040g3qo31ujl4bo22o7041banuv4p2vndeon70g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2026-04-05T22:58:41.000Z\"},{\"id\":\"xiaohongshu:note:694c890a000000001e032037\",\"title\":\"悉尼Ibushi Prefecture 48 炉端烧 🔥好吃哭\",\"link\":\"https://www.xiaohongshu.com/explore/694c890a000000001e032037?xsec_token=ABJK6wK0PofuRN3vSWbvpTfVtV7VwNtfmYX_65ukwDqqg%3D&xsec_source=pc_user\",\"description\":\"悉尼Ibushi Prefecture 48 炉端烧 🔥好吃哭\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/429c7e33f3f70718b460cae1628f0776/notes_pre_post/1040g3k031qg82curng1041banuv4p2vnlddkmo8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-12-25T00:44:58.000Z\"},{\"id\":\"xiaohongshu:note:692ae119000000001f008db0\",\"title\":\"日本🇯🇵京都炸牛排来悉尼啦🔥人均30+\",\"link\":\"https://www.xiaohongshu.com/explore/692ae119000000001f008db0?xsec_token=AB0KoqFuiopQOTd4LU4dLEEQWBakSLO-iGBqN9CttReGA%3D&xsec_source=pc_user\",\"description\":\"日本🇯🇵京都炸牛排来悉尼啦🔥人均30+\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/05f01c8bff04e31113c3824c01a10a63/notes_pre_post/1040g3k031pfhmfekjc1041banuv4p2vnnf0fct0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-11-29T12:03:37.000Z\"},{\"id\":\"xiaohongshu:note:68f498b10000000004014bf7\",\"title\":\"悉尼Bondi Beach这家店为什么没有人分享❓❗️\",\"link\":\"https://www.xiaohongshu.com/explore/68f498b10000000004014bf7?xsec_token=ABN-9E06ihymO18pByPD9qSJooPBEIzkTVpcN8njFxaro%3D&xsec_source=pc_user\",\"description\":\"悉尼Bondi Beach这家店为什么没有人分享❓❗️\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/9e791e6c0214cddc382b28d302ab0155/notes_pre_post/1040g3k031nqgt7pn6g4g41banuv4p2vnmrh097g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-10-19T07:52:17.000Z\"},{\"id\":\"xiaohongshu:note:68d89fba000000000b0124c9\",\"title\":\"悉尼Lidcombe吃了N次的延边烤串🥩\",\"link\":\"https://www.xiaohongshu.com/explore/68d89fba000000000b0124c9?xsec_token=AB5PnnADpUCviaGbWvLt-oI6GLWCWjpuTI80LFrDT2VN4%3D&xsec_source=pc_user\",\"description\":\"悉尼Lidcombe吃了N次的延边烤串🥩\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/0e214877295dfe5776aa11189eb514b6/notes_pre_post/1040g3k031mv79ueilm5041banuv4p2vnrlo5kk0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-09-28T02:38:50.000Z\"},{\"id\":\"xiaohongshu:note:68ce48a2000000000702839d\",\"title\":\"悉尼 Alexandria 咖啡Genovese Coffe House\",\"link\":\"https://www.xiaohongshu.com/explore/68ce48a2000000000702839d?xsec_token=ABLzG2kJ16ThcMHXTJrXsBBFZUHs_bbyAR5W56466JFTA%3D&xsec_source=pc_user\",\"description\":\"悉尼 Alexandria 咖啡Genovese Coffe House\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/86cdb63b35c32605a9af02137dcdee8b/notes_pre_post/1040g3k831ml3irqs6g9041banuv4p2vnqh2j3k8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-09-20T06:24:34.000Z\"},{\"id\":\"xiaohongshu:note:68c94633000000000b013faa\",\"title\":\"悉尼Bankstown越南🇻🇳河粉｜17🔪扶墙出\",\"link\":\"https://www.xiaohongshu.com/explore/68c94633000000000b013faa?xsec_token=ABp_k9HaWrry9SFeGJdE5k-Tgnt7k0rm66DzmzJDX20-M%3D&xsec_source=pc_user\",\"description\":\"悉尼Bankstown越南🇻🇳河粉｜17🔪扶墙出\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/c8fb0078ad26ee2d86ba00b154aee35c/1040g00831mg75994m80g41banuv4p2vngmf8vro!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-09-16T11:12:51.000Z\"},{\"id\":\"xiaohongshu:note:688473e5000000002201c95e\",\"title\":\"悉尼Burwood熟食｜八戒熟食15🔪2盒🔥折扣价\",\"link\":\"https://www.xiaohongshu.com/explore/688473e5000000002201c95e?xsec_token=ABhSZciyo45DQNZ_GJwwDy0BBdin8sjFffHOsKi3CLm_8%3D&xsec_source=pc_user\",\"description\":\"悉尼Burwood熟食｜八戒熟食15🔪2盒🔥折扣价\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/5ac2c473954f370b761e5ecba8cdecf8/1040g2sg31kd0ugph30lg41banuv4p2vn1mip5pg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-07-26T06:21:25.000Z\"},{\"id\":\"xiaohongshu:note:684d6608000000002100aaef\",\"title\":\"悉尼Rhodes夜宵｜陈根记港式大排档🔥好吃😭\",\"link\":\"https://www.xiaohongshu.com/explore/684d6608000000002100aaef?xsec_token=ABsnJqFVHuQ77Eu31_dlKzCWkwRG8_Z6JK-jxaMWgut9A%3D&xsec_source=pc_user\",\"description\":\"悉尼Rhodes夜宵｜陈根记港式大排档🔥好吃😭\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/d5881ee0bc7b75da53131d3af4d38458/notes_pre_post/1040g3k831in8rql61e7g41banuv4p2vn7oestm8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-06-14T12:07:36.000Z\"},{\"id\":\"xiaohongshu:note:67e77df6000000001200caec\",\"title\":\"悉尼最强肉店❓Alexandria这家店凭啥火🔥\",\"link\":\"https://www.xiaohongshu.com/explore/67e77df6000000001200caec?xsec_token=ABcLlYibqKp2__8E3T_QSbwYtiXbSsacwRRqb7Y2EbwU8%3D&xsec_source=pc_user\",\"description\":\"悉尼最强肉店❓Alexandria这家店凭啥火🔥\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/b4067ef9e87fa412513ed0386339610f/notes_pre_post/1040g3k831fjnrva5g48041banuv4p2vng2v8hvg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-03-29T04:58:30.000Z\"},{\"id\":\"xiaohongshu:note:67e11c19000000001203d8a1\",\"title\":\"🔥 土澳甜酒党速冲！柑橘蜜香🍊夏天喝绝啦😭\",\"link\":\"https://www.xiaohongshu.com/explore/67e11c19000000001203d8a1?xsec_token=ABQ3Uah_Ow6NuHznZ33DfzRBlRDSxdzkXKmHbugIcEsSc%3D&xsec_source=pc_user\",\"description\":\"🔥 土澳甜酒党速冲！柑橘蜜香🍊夏天喝绝啦😭\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/f62debddc068204f531f66b6854e4f2d/notes_pre_post/1040g3k831fdgsruime7041banuv4p2vnsko41co!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-03-24T08:47:21.000Z\"},{\"id\":\"xiaohongshu:note:67d4f81200000000060285b7\",\"title\":\"悉尼Chastwood彩云南｜墨尔本同款🔥爱惨了\",\"link\":\"https://www.xiaohongshu.com/explore/67d4f81200000000060285b7?xsec_token=ABj4flOVKUkyMgEQ2-tzxHUw7z97BVMi7EZU-lR6EcqcA%3D&xsec_source=pc_user\",\"description\":\"悉尼Chastwood彩云南｜墨尔本同款🔥爱惨了\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/ccf0e07b6d6d472187cccfb2a1663090/notes_pre_post/1040g3k031f1l3qsdmi4g41banuv4p2vnlv2kcro!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-03-15T03:46:26.000Z\"},{\"id\":\"xiaohongshu:note:677e586f000000001703daea\",\"title\":\"Coles上架FiveSenses咖啡豆🔥半价$7.5🔪\",\"link\":\"https://www.xiaohongshu.com/explore/677e586f000000001703daea?xsec_token=ABlcT7QctjRGdCzhAuoqiHloPvHccPcJCsd6XDdqIiBRU%3D&xsec_source=pc_user\",\"description\":\"Coles上架FiveSenses咖啡豆🔥半价$7.5🔪\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/5876da47dc674110f2b5243055e5fe39/1040g2sg31cd2h6k8gm7041banuv4p2vno3t7va0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2025-01-08T10:50:23.000Z\"},{\"id\":\"xiaohongshu:note:6771d368000000000b016a2b\",\"title\":\"🎥悉尼MovInBed志愿者｜薅羊毛｜周末去哪儿\",\"link\":\"https://www.xiaohongshu.com/explore/6771d368000000000b016a2b?xsec_token=AB0RqOB8KDBidlybW506mH25B-B55jQXDlO1eKRmxI404%3D&xsec_source=pc_user\",\"description\":\"🎥悉尼MovInBed志愿者｜薅羊毛｜周末去哪儿\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/ad1e9dc37d7c2f001385354bd551f5ef/1040g00831c0r8qplh00041banuv4p2vnt7hoto0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-12-29T22:55:36.000Z\"},{\"id\":\"xiaohongshu:note:6767ec8d000000000b00c737\",\"title\":\"悉尼周末猎人谷喝酒🍺一日游｜4 Pines 精酿\",\"link\":\"https://www.xiaohongshu.com/explore/6767ec8d000000000b00c737?xsec_token=AB-OpaI5S6HC4-YmUh8ecZ7KL4xO88TVAO6zjZ37y6lAc%3D&xsec_source=pc_user\",\"description\":\"悉尼周末猎人谷喝酒🍺一日游｜4 Pines 精酿\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/5a352130aada9df377fee97bf92cc590/1040g2sg31bn5rkh00m8041banuv4p2vnsep0298!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-12-22T10:40:14.000Z\"},{\"id\":\"xiaohongshu:note:67637aa7000000000800dc0f\",\"title\":\"墨尔本旅游咖啡☕️打卡清单🔥｜建议收藏📒\",\"link\":\"https://www.xiaohongshu.com/explore/67637aa7000000000800dc0f?xsec_token=ABrJxzEIDOBSaKMeKVmldPsjOW7PGdNTFuuCQPKmgwTV4%3D&xsec_source=pc_user\",\"description\":\"墨尔本旅游咖啡☕️打卡清单🔥｜建议收藏📒\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/5defdaa0ce964ba20f3ddc207dd263b4/1040g2sg31biqun1ggk7041banuv4p2vntpmbp9o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-12-19T01:45:11.000Z\"},{\"id\":\"xiaohongshu:note:6746cfd8000000000203b31a\",\"title\":\"布里斯班🔥喜欢麻薯碗的🙋快来Milksha集合\",\"link\":\"https://www.xiaohongshu.com/explore/6746cfd8000000000203b31a?xsec_token=ABRjCLJiM9LFs9C5ApxH6XBYfHOrZATNWhqY9otWV0Veg%3D&xsec_source=pc_user\",\"description\":\"布里斯班🔥喜欢麻薯碗的🙋快来Milksha集合\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/f925bf23dcc907dbe12d55062a023843/1040g2sg31amr3jq87e7041banuv4p2vnp3ga4s8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-11-27T07:52:56.000Z\"},{\"id\":\"xiaohongshu:note:6728bd85000000003c019085\",\"title\":\"悉尼无敌View🍹酒吧｜超有格调🔥适合约会\",\"link\":\"https://www.xiaohongshu.com/explore/6728bd85000000003c019085?xsec_token=AB1ncHo0kBgJib-cbv3YoCLPpxbw0dh8CC_aK5imRRr9Q%3D&xsec_source=pc_user\",\"description\":\"悉尼无敌View🍹酒吧｜超有格调🔥适合约会\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/793214c4f688340e42e91d76f4535f82/1040g2sg319pfc08tng7041banuv4p2vnsg7hp9g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-11-04T12:26:45.000Z\"},{\"id\":\"xiaohongshu:note:6725cbeb000000003c01d00b\",\"title\":\"Dan Murphys蜂蜜🍯酒｜还有人没喝过吗❓\",\"link\":\"https://www.xiaohongshu.com/explore/6725cbeb000000003c01d00b?xsec_token=AB8Ci92JHbOViP6yM6nOQvXqvQiHxNTlA3KkvN4vfPnFI%3D&xsec_source=pc_user\",\"description\":\"Dan Murphys蜂蜜🍯酒｜还有人没喝过吗❓\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/2d242f06a8e74afedf8d99c28194803f/1040g2sg319mj5u667e7g41banuv4p2vn9u117v8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-11-02T06:51:23.000Z\"},{\"id\":\"xiaohongshu:note:670229a4000000002a03514f\",\"title\":\"布里斯班周末吃什么❓泡菜脑袋别错过🔥\",\"link\":\"https://www.xiaohongshu.com/explore/670229a4000000002a03514f?xsec_token=ABPN9pe1NJyo5kTBjPiDrIKRbC8onoou1rOsv5BUCe-k4%3D&xsec_source=pc_user\",\"description\":\"布里斯班周末吃什么❓泡菜脑袋别错过🔥\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/41da9361f1092b1733bcfcada9779723/1040g2sg318jpqd2g3q7041banuv4p2vneumru2g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-10-06T06:09:40.000Z\"},{\"id\":\"xiaohongshu:note:6700e952000000002c017acc\",\"title\":\"出发咯～！悉尼周边一日游Newcastle 怎么玩❓\",\"link\":\"https://www.xiaohongshu.com/explore/6700e952000000002c017acc?xsec_token=ABF7SVnT7siimeFPUjhTbWuzIJVcSw2-J6AKLR5E_tAuk%3D&xsec_source=pc_user\",\"description\":\"出发咯～！悉尼周边一日游Newcastle 怎么玩❓\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/8b42cbfe031e095a48886ee4902a2a2a/1040g2sg318iimmoe3u7041banuv4p2vnlh8aq18!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-10-05T07:22:58.000Z\"},{\"id\":\"xiaohongshu:note:66fa6f2e000000002a034cc8\",\"title\":\"悉尼City泰式夜宵🔥Wagyu炒饭｜泰式炸串\",\"link\":\"https://www.xiaohongshu.com/explore/66fa6f2e000000002a034cc8?xsec_token=ABadd9NhZNjX6X72Cy28jBbn1hUKc_N1FVdYlVjqUHnxk%3D&xsec_source=pc_user\",\"description\":\"悉尼City泰式夜宵🔥Wagyu炒饭｜泰式炸串\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/0d716db0909736c0ea8a4fc68590f20d/1040g2sg318c8a3pl3q7041banuv4p2vnrr1rikg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-09-30T09:28:14.000Z\"},{\"id\":\"xiaohongshu:note:66f9f189000000002c01693c\",\"title\":\"悉尼聚餐打卡地｜德国🇩🇪猪肘+芒果啤酒🍻\",\"link\":\"https://www.xiaohongshu.com/explore/66f9f189000000002c01693c?xsec_token=ABCATRjB6AXSnUDCLIJq1XVaW26dMcndKQY_8NXRWgfPE%3D&xsec_source=pc_user\",\"description\":\"悉尼聚餐打卡地｜德国🇩🇪猪肘+芒果啤酒🍻\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/28173094a8159da9d52a12de89a32035/1040g2sg318bouant3u7041banuv4p2vnt7a17l0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-09-30T00:32:09.000Z\"},{\"id\":\"xiaohongshu:note:66f51196000000002a031b17\",\"title\":\"终于吃上了❗️悉尼City烤串自助🤩人均50+\",\"link\":\"https://www.xiaohongshu.com/explore/66f51196000000002a031b17?xsec_token=ABQDwWN-QLoSr2Rc1yi-N3LiQhIgEO1G9oY_8zaP05844%3D&xsec_source=pc_user\",\"description\":\"终于吃上了❗️悉尼City烤串自助🤩人均50+\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/38c90cac263b430dea36fc98d1d8e9b4/1040g2sg31870kbli4c7g41banuv4p2vne1rulg8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-09-26T07:47:34.000Z\"},{\"id\":\"xiaohongshu:note:66f02419000000002603c05d\",\"title\":\"悉尼🇦🇺张靓颖演唱会｜青春伤痛文学BE版🔥\",\"link\":\"https://www.xiaohongshu.com/explore/66f02419000000002603c05d?xsec_token=AB71hE9Tave5d881B8JNf-aveA7uOnKZrnDHWIJGM_i0k%3D&xsec_source=pc_user\",\"description\":\"悉尼🇦🇺张靓颖演唱会｜青春伤痛文学BE版🔥\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/0b34b7365a2c6e264ffdb26a8cb580f6/1040g008318269e25jq0041banuv4p2vnaolbkk0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-09-22T14:05:13.000Z\"},{\"id\":\"xiaohongshu:note:66efd5ba0000000026032b45\",\"title\":\"悉尼Marrickville提拉米苏Gelato🔥4.6评分\",\"link\":\"https://www.xiaohongshu.com/explore/66efd5ba0000000026032b45?xsec_token=ABPHgdyyXOMiEN3CxbG6TnM0TYXDzFKbvdTNwP0xFPeaE%3D&xsec_source=pc_user\",\"description\":\"悉尼Marrickville提拉米苏Gelato🔥4.6评分\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/8ceaf8e7d9b76c23c069fb1e084ff2c6/1040g2sg3181t2e2s467041banuv4p2vnidsaaj8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2024-09-22T08:30:50.000Z\"},{\"id\":\"xiaohongshu:note:600542d800000000010038a7\",\"title\":\"布里斯班值得做的100件事 ｜收藏帖\",\"link\":\"https://www.xiaohongshu.com/explore/600542d800000000010038a7?xsec_token=AB-2Br8RM4bhbXsitDIEEyz8JjvNjLAxfBHOO2_N6rF9w%3D&xsec_source=pc_user\",\"description\":\"布里斯班值得做的100件事 ｜收藏帖\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/e776cae9b4da816a67097d342f4e43ce/53c3c4ec-b46b-3aff-a8f3-2b989e6634de!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"爱折腾的小冯同学\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5611be4c8a75e16b44cb8bf7\"},\"published\":\"2021-01-18T08:12:08.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 810,
+      "elapsed_ms": 1797,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -128,44 +153,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 802
+          "started_ms": 6,
+          "duration_ms": 1790
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 809,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 810,
+          "name": "错误诊断收集",
+          "started_ms": 1796,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 810,
+          "started_ms": 1796,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 810,
+          "name": "失败后浏览器清理",
+          "started_ms": 1796,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 810,
-          "duration_ms": 0
+          "started_ms": 1796,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 777
+          "started_ms": 9,
+          "duration_ms": 1779
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:15:14.935Z",
+  "checked_at": "2026-11-19T13:46:27.140Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_ab56f0f84265.json",
-    "duration_ms": 2277
+    "duration_ms": 6728
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2273
+    "status": 502,
+    "duration_ms": 10019
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +48,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2269,
+    "phase": "runtime",
+    "elapsed_ms": 10014,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,18 +68,16 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 2254,
+        "started_ms": 10,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1669,
-          "body_read_ms": 584,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1320,
+          "body_read_ms": 8682
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_ab56f0f84265\",\"title\":\"绿盟科技CERT\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494194&idx=1&sn=b93d99674014b95b3e122f45d9008bba&chksm=c3a70ee06493325fda77de57d5b3cf16c1309ab62f9ebe467c87f50c530d14c2e5d43e6b5be0&scene=126&sessionid=1795076118#rd\",\"description\":\"绿盟科技CERT针对高危漏洞与安全事件进行快速响应，提供可落地的解决方案，协助用户提升应对威胁的能力。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"绿盟科技CERT\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7Vx9m391ytU1OBPkGVnW15SkvUWAicq3NG0Leg4IMEe2Q%2F0\",\"updated\":\"2026-11-19T04:39:19.000Z\",\"items\":[{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247494194:1\",\"title\":\"【漏洞通告】Nginx多个远程代码执行漏洞（CVE-2026-123007/CVE-2026-123634/CVE-2026-123633/CVE-2026-121810/CVE-2026-113425）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494194&idx=1&sn=b93d99674014b95b3e122f45d9008bba&chksm=c3a70ee06493325fda77de57d5b3cf16c1309ab62f9ebe467c87f50c530d14c2e5d43e6b5be0&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到Nginx和F5发布安全公告，修复了Nginx多个远程代码执行漏洞（CVE-2026-123007/CVE-2026-123634/CVE-2026-123633/CVE-2026-121810/CVE-2026-113425），这组漏洞被称为“nginx2root”。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvK49m7DVBE4w0zOqO3iaS41juYcZnIHLJx21sJyu44Yh40kibmCWEZfJMExHq7YZSGVbhsKnnFzlvZfyDUTfgAVTiabragC1aUmdM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T04:39:19.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247494104:1\",\"title\":\"【已复现】OpenJDK远程代码执行漏洞（CVE-2026-114938）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494104&idx=1&sn=e25893a3e467f71c35bdc005b84bdec8&chksm=c3b323afad0438f0d39dc5cf30c748d5550bdcec7152498cbc54b0fd67dbefc3a7f2612458f1&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到OpenJDK与Oracle发布安全公告，修复了OpenJDK远程代码执行漏洞（CVE-2026-114938），被称为“Java4Shell”，CVSS评分8.1，目前漏洞细节与验证堆越界写入的PoC已公开，请相关用户尽快采取措施进行防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvIHNdPNeCoEEk7rG8qV0IUictZCcwVia8zlKDgvicooCZB9ISMCBrGvlziaWcHdDdsF3l80l4zHv7wYa3ojaZibSjzFJJgjicJ3NORZE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T04:07:43.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247494099:1\",\"title\":\"【漏洞通告】Apache Axis 1.x远程代码执行漏洞（CVE-2026-90436）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494099&idx=1&sn=4f3b18d3defcf972011a7d1626d9f5f5&chksm=c3397fcbb08608a0a0a7abbb49ccdcf3363ef10812490ec80f68919e08addfe86a915b22f8f7&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到Apache发布安全公告，披露了Apache Axis 1.x远程代码执行漏洞（CVE-2026-90436），CVSS评分9.8，目前漏洞细节与PoC已公开，且发现在野利用，请相关用户尽快采取措施进行防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FtZgxn6yByvKdMuGNbrTFAepTu3xbN2UUAIbYfkG2Jf4Gk2ZVS3cxZGsYRsv2hXjRAdhZLYCqBWiav2X9J9WlFLt7yKicVyMtbqjDalvOAj7h8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:42:08.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247494099:2\",\"title\":\"【漏洞通告】LibreOffice远程代码执行漏洞（CVE-2026-104007/CVE-2026-104692）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494099&idx=2&sn=a681712b6e01dd5a835afed611413a20&chksm=c3e595f55b6d5651f5ae116ee562cfaeb56818e3fad0a24dc2c0c9104a914a33c186f822eaa7&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到The Document Foundation发布安全公告，修复了LibreOffice远程代码执行漏洞（CVE-2026-104007/CVE-2026-104692），目前漏洞细节与PoC已公开，请相关用户尽快采取措施进行防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvLka7oUj2ePWSoVicf6mIiajPaYgWcU0oHib2P9nxbGT23IpeUwtkGWW9kjQJ8Y7ia35ffcs8Ficb0ria9tOhjpcAXtJc0Kiats2uyLiak%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:42:08.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247494081:1\",\"title\":\"【漏洞通告】Apache HTTP Server远程代码执行漏洞（CVE-2026-119618）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494081&idx=1&sn=5e1805ee53b15e8931bf0b8970da995f&chksm=c37aa4eec998f545056b3571973a170c0e71af2635dfdf6af6ddf83f796770aef4555677f715&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到Apache发布安全公告，修复了Apache HTTP Server远程代码执行漏洞（CVE-2026-119618），CVSS评分9.8，目前漏洞细节与造成拒绝服务的PoC已公开，请相关用户尽快采取措施进行防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FtZgxn6yByvIOYdqqJETrvc3gujlvpRF7nticn2JCC4GqwdPNK5ok2m3qVyKXibC6rNiaYPsndO8l4M16gTOmvaMCnibKWx9CG4BicibKNs1wic8Pkc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T11:00:00.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247494028:1\",\"title\":\"【安全更新】微软11月安全更新多个产品高危漏洞通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494028&idx=1&sn=07060cd606411c72d8cf9de343af89e6&chksm=c3ed94c7cbe33a2676bc12219d99fa17e0c6475d1f5f84db5e63c9c23906cc3af8ac995f10dc&scene=126&sessionid=1795076118#rd\",\"description\":\"11月11日，绿盟科技CERT监测到微软发布11月安全更新补丁，修复了1094个安全问题，涉及Windows、Microsoft Office、Microsoft Outlook、Microsoft Exchange Server、Microsoft SQL Server等广泛使用的产品。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvIhSVz8O7XicH36kkic2f7vhdHYibibcNVicoKjLAaSAVcae2f6vP4rLQficicf8aqEZ7CIFW5v20kuXib8K856Bq3x2zqs3icz5icsWZEJM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T11:43:00.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247493747:1\",\"title\":\"【已复现】OpenSSH/musl密码认证绕过漏洞（CVE-2026-123158）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247493747&idx=1&sn=db0e3b3dd13eaf2ba1ae1f7f34690a78&chksm=c364d7686b7c9b3fb95d36816df02eba38371e3d376fb9f0ae45453fdc5b99e59b258c0f78d9&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到OpenSSH发布安全更新，修复了OpenSSH/musl密码认证绕过漏洞（CVE-2026-123158）；CVSS评分8.1，目前漏洞细节与PoC已公开，请相关用户尽快采取措施进行防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvJtbK5h9ic6acDFRDOuT16yk89B0bEARGibWk1URCgZiaKmS0SvgMPvSOmg4H2OwPWASruhialryiaDaWDiaaG2WicVcT3ud8fgKfMHGQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T10:01:13.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247493747:2\",\"title\":\"【已复现】Linux内核IPv4 TCP释放后重用漏洞（CVE-2026-98432）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247493747&idx=2&sn=286214330ef2b12d3173bf816aeb6ef5&chksm=c3dccb9aeb2cdd1709bc69d0ab84a092d57e0fa047bd59df2913c4f70633c02042eb5306c76b&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到Linux发布安全更新，修复了Linux内核IPv4 TCP释放后重用漏洞（CVE-2026-98432）；CVSS评分9.8，目前漏洞细节与PoC已公开，请相关用户尽快采取措施进行防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvKqIs6ibUKad4UY7965NfPF1TrSAsBqtFVhib7LgmExQES4H1mVkeUmTmu8puzpqZqarqics0qSlibAI82OHY59H1AaQNeDm6rhhe4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T10:01:13.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247493721:1\",\"title\":\"【处置手册】PHP远程代码执行漏洞（CVE-2026-109618/CVE-2026-109619）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247493721&idx=1&sn=0e73454d53812475a4f22b4317551980&chksm=c37a749fe54556e1a5663b92c9f33ab95e5aac0bb83a537ec62d8b8facb07c184591e73dbb50&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到PHP发布安全公告，修复了PHP远程代码执行漏洞（CVE-2026-109618/CVE-2026-109619）；CVSS评分9.2，目前漏洞细节与部分PoC已公开，且发现在野利用，请相关用户尽快采取措施开展自查与防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FtZgxn6yByvJPUP9eVLGQYT5x3jXwwNyGnIdHS0fyhicicejjEjicWEPs9S9a2791AhY1oQku5OOBsYL1v7t0qA5nCQQ2raYHperahz55IaQIpY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-23T11:18:03.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247493684:1\",\"title\":\"【漏洞通告】PHP远程代码执行漏洞（CVE-2026-109618&CVE-2026-109619）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247493684&idx=1&sn=d812f566ec366996d3e8e4788f5f1832&chksm=c3bb7c94f2bcf26b1480d349d06982b9dddabaa5c36a7701dafae5701591e3cbc3c2dc5819f4&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到网上披露了PHP远程代码执行漏洞（CVE-2026-109618/CVE-2026-109619）；CVSS评分9.2，目前已有漏洞细节披露，请相关用户尽快采取措施开展自查与防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FtZgxn6yByvIw4eibcyiaMxQ6HZwXiaZica9XVVahhbjFxAdpzAVkGiaYKKyIQaQ8FMCsTk4o9Cib6DxsNQVnUbIFjDwSHlxnheVdc0Rl6HWhaVm04%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T09:47:51.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247493675:1\",\"title\":\"【漏洞通告】GitLab远程代码执行漏洞（CVE-2026-97229）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247493675&idx=1&sn=88a32507fa998b7e8bd024e1fdc9f012&chksm=c3cf456022a4aa6ed211e5d35011b4fbf0f41df9d0585b6d7c0af625f1e22b74980f0e9d459b&scene=126&sessionid=1795076118#rd\",\"description\":\"近日，绿盟科技CERT监测到GitLab发布安全更新，修复了GitLab远程代码执行漏洞（CVE-2026-97229），CVSS评分10.0，目前漏洞细节与PoC已公开，请相关用户尽快采取措施进行防护。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FtZgxn6yByvJfAs0sXIm9Dd8K0MLuxlrohj77c1NmKMdOkCDVxicbm8BnpK7VYccybdljSOWWh7TwdyicMgk7WFZRsqlCeoSG3LGaeuWotMuEc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T12:35:22.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247493675:2\",\"title\":\"【安全更新】微软10月安全更新多个产品高危漏洞通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247493675&idx=2&sn=49471e9954c19a8e3f6db1141608d3bd&chksm=c3e77a36bddc470879fbde1eba7182d057afff6ab6c92cf2155bd68029467dd54f9c3c396bc6&scene=126&sessionid=1795076118#rd\",\"description\":\"10月14日，绿盟科技CERT监测到微软发布10月安全更新补丁，修复了1413个安全问题，涉及、Windows、Microsoft Office、Microsoft SQL Server、Azure等广泛使用的产品，其中包括权限提升、远程代码执行等高危漏洞类型。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvJ5hIfTHXYQjVoN4PaPZTjEA6dHqoDtLSLpgvayfSnYWo2Mzf8lBcYyA42Ld3C0G1QJk2nTMoyRtFBCB7kKm6Je80oKBCHWbmU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T12:35:22.000Z\"},{\"id\":\"wxmp:Mzk0MjE3ODkxNg%3D%3D:2247493642:1\",\"title\":\"【安全更新】微软9月安全更新多个产品高危漏洞通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247493642&idx=1&sn=8c4d96b64dbfc41b8d4da5187cac3093&chksm=c3b6e06dda9211dafb863bbb9498877d948e18fa8e76949692e8d6052e33152181236cd0ac1d&scene=126&sessionid=1795076118#rd\",\"description\":\"9月9日，绿盟科技CERT监测到微软发布9月安全更新补丁，修复了974个安全问题，涉及Windows、Microsoft Office、Azure、Visual Studio Code、Microsoft SQL Server等广泛使用的产品，其中包括权限提升、远程代码执行等高危漏洞类型。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FtZgxn6yByvLCHNHqxwF2KAo6dUsd4c2vtILIBZs6jVwb6XVd3YmC0sLr3P9Q2egHCHlZ3cX1ncwCL0YCoU0niaqE607mIicZuZkic1hYKkS6vE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-10T05:41:17.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2269,
+      "elapsed_ms": 10014,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -129,39 +122,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 8,
-          "duration_ms": 2260
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2268,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2269,
+          "name": "错误诊断收集",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2269,
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2269,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2269,
+          "started_ms": 10014,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 2254
+          "started_ms": 10,
+          "duration_ms": 10002
         }
       ]
     }

@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:16:26.950Z",
+  "checked_at": "2026-11-19T13:50:58.641Z",
   "inspection": {
     "file": "rss/xiaohongshu.js",
     "path": "/api/rss/xiaohongshu/user/profile/:uid",
     "example": "/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00",
     "name": "张天琪",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00.json",
-    "duration_ms": 867
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
+    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+    "duration_ms": 1227
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 780
+    "status": 502,
+    "duration_ms": 1243
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "rss/xiaohongshu.js",
       "name": "小红书用户笔记",
@@ -48,28 +49,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 761,
+    "phase": "runtime",
+    "elapsed_ms": 1232,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":32,\"missing_published\":0}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。",
+    "error_text": "脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:51:26)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00",
         "method": "GET",
         "host": "www.xiaohongshu.com",
         "pathname": "/user/profile/5b3284b24eacab4b32ae6d00",
-        "status": 200,
+        "status": 302,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -77,18 +69,51 @@
             "Cookie"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 730,
+        "started_ms": 11,
+        "duration_ms": 517,
         "timings": {
-          "response_ms": 580,
-          "body_read_ms": 147,
-          "decode_and_transfer_ms": 3
+          "response_ms": 517
+        }
+      },
+      {
+        "url": "https://www.rednote.com/user/profile/5b3284b24eacab4b32ae6d00",
+        "method": "GET",
+        "host": "www.rednote.com",
+        "pathname": "/user/profile/5b3284b24eacab4b32ae6d00",
+        "status": 302,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 528,
+        "duration_ms": 225,
+        "timings": {
+          "response_ms": 225
+        }
+      },
+      {
+        "url": "https://www.rednote.com/login?redirectPath=http%3A%2F%2Fwww.rednote.com%2Fuser%2Fprofile%2F5b3284b24eacab4b32ae6d00%3FexSource%3Dnull",
+        "method": "GET",
+        "host": "www.rednote.com",
+        "pathname": "/login",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 753,
+        "duration_ms": 470,
+        "timings": {
+          "response_ms": 312,
+          "body_read_ms": 156,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"xiaohongshu:user:5b3284b24eacab4b32ae6d00\",\"title\":\"张天琪 的小红书笔记\",\"link\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\",\"description\":\"谢谢大家的喜欢呢❤️\\n合LC210502\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.xiaohongshu.com/\"},\"tags\":[\"小红书\"]},\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"image\":\"https://sns-avatar-qc.xhscdn.com/avatar/6117445cf8ea337c679e2161.jpg?imageView2/2/w/540/format/webp\",\"updated\":\"2026-11-17T11:16:21.000Z\",\"items\":[{\"id\":\"xiaohongshu:note:6afadc5a000000001802a646\",\"title\":\"这酒店那个孩子能抵抗的了啊\",\"link\":\"https://www.xiaohongshu.com/explore/6afadc5a000000001802a646?xsec_token=ABgiRnvv5b0KL2ihisBQzQdjs3jhTFxHxdpKPyAnSA-j4%3D&xsec_source=pc_user\",\"description\":\"这酒店那个孩子能抵抗的了啊\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/4fb1b8da582b82e3a18996a881e6b778/1040g008327kkqtq676004a6ju82b4r80iac5suo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-11-17T11:16:21.000Z\"},{\"id\":\"xiaohongshu:note:6af6f4a0000000002501d824\",\"title\":\"我帮张天琪问一下大家铁桌子怎么做好吃？\",\"link\":\"https://www.xiaohongshu.com/explore/6af6f4a0000000002501d824?xsec_token=ABuxibRY6NOWCmjExiZmXkaFsP2ZdArw6ShgDQ_WJm5Us%3D&xsec_source=pc_user\",\"description\":\"我帮张天琪问一下大家铁桌子怎么做好吃？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/f07fe1048c8daf4c61a2c11ba7e5249d/1040g2sg327grh72emqe04a6ju82b4r802arqat8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-11-13T11:29:36.000Z\"},{\"id\":\"xiaohongshu:note:6aeb10440000000003000581\",\"title\":\"山东人真管这个叫饺子？\",\"link\":\"https://www.xiaohongshu.com/explore/6aeb10440000000003000581?xsec_token=ABkhMGh8tjsyWVdlmbwS5cZYSSOlcQp0f3oc2DfzJX4cw%3D&xsec_source=pc_user\",\"description\":\"山东人真管这个叫饺子？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/6898c8c5bd0061aad4df4f6f7a95cae7/1040g00832757scjln8kg4a6ju82b4r80psqjcig!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-11-04T11:00:20.000Z\"},{\"id\":\"xiaohongshu:note:6ae43b4400000000260240ac\",\"title\":\"这还能叫广东虾饺和广东肠粉吗？\",\"link\":\"https://www.xiaohongshu.com/explore/6ae43b4400000000260240ac?xsec_token=ABksWBSs6fj1wExdXX8--xLgXsJktRWsk0kYEusTZCjF0%3D&xsec_source=pc_user\",\"description\":\"这还能叫广东虾饺和广东肠粉吗？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/468e10ab0db03f38fb5849e66cb22603/1040g008326ui578bkq004a6ju82b4r80iqv2dn8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-30T11:02:08.000Z\"},{\"id\":\"xiaohongshu:note:6ad36290000000000a021960\",\"title\":\"这不是南方服务区，这是北方盲区\",\"link\":\"https://www.xiaohongshu.com/explore/6ad36290000000000a021960?xsec_token=ABls0JRl1I0wa7sD-zuH9MpInuEOn1RSeQ7ECf9YqPbP0%3D&xsec_source=pc_user\",\"description\":\"这不是南方服务区，这是北方盲区\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/ce52829f16731b6f14441ce971d9a89d/1040g008326e3psp0l0004a6ju82b4r80k93ra3o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-17T11:57:04.000Z\"},{\"id\":\"xiaohongshu:note:6acf6c32000000001403a2e2\",\"title\":\"全员坏蛋\",\"link\":\"https://www.xiaohongshu.com/explore/6acf6c32000000001403a2e2?xsec_token=AB6kxuGgeQuE2CroKsjMGKccvm8P52ijKdWsHw_etnd5w%3D&xsec_source=pc_user\",\"description\":\"全员坏蛋 \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/2c1f2733fc6f0bdb451066bc7e73344a/1040g008326a8392e5ge04a6ju82b4r80t5mitno!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-14T11:49:06.000Z\"},{\"id\":\"xiaohongshu:note:6accc100000000000a025de7\",\"title\":\"要老命了，不难看吧\",\"link\":\"https://www.xiaohongshu.com/explore/6accc100000000000a025de7?xsec_token=ABHoc371cp4kI8N-JBvvCrp7AESNKdYfx-RClH5kot2dE%3D&xsec_source=pc_user\",\"description\":\"要老命了，不难看吧 \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/5513a8db70580b57a42d797ca26c63b8/1040g2sg3267kjvb14eeg4a6ju82b4r80qcopjco!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-12T11:14:08.000Z\"},{\"id\":\"xiaohongshu:note:6aca1ba500000000140381b6\",\"title\":\"你们看不能日更真不怪我，没有拍摄\",\"link\":\"https://www.xiaohongshu.com/explore/6aca1ba500000000140381b6?xsec_token=ABv2AdyuA5pLk_IMOKftSS43-Lz5zIzPmGXqwiorHmU7U%3D&xsec_source=pc_user\",\"description\":\"你们看不能日更真不怪我，没有拍摄\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/b68218900c46712e197b3db6cf014b19/1040g2sg326522nh150lg4a6ju82b4r80o8fs2co!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-10T11:04:05.000Z\"},{\"id\":\"xiaohongshu:note:6ac8cc4c0000000014003038\",\"title\":\"就问大家怎么样？\",\"link\":\"https://www.xiaohongshu.com/explore/6ac8cc4c0000000014003038?xsec_token=ABX27zaIpCMMCTyjhNbW2D6_xuGtgmjujgfbzohJMjX6Y%3D&xsec_source=pc_user\",\"description\":\"就问大家怎么样？ \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/aca0b6057df245f994e315c659ca402b/1040g0083263p4q7hlg004a6ju82b4r80pmoooio!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-09T11:13:16.000Z\"},{\"id\":\"xiaohongshu:note:6ac382f2000000001403a496\",\"title\":\"刚子说他不行了，你们太坏了\",\"link\":\"https://www.xiaohongshu.com/explore/6ac382f2000000001403a496?xsec_token=ABoTZ1o3l2B7aQ6RRD5OiRx1MXgL8URje3Q676QYOEtrM%3D&xsec_source=pc_user\",\"description\":\"刚子说他不行了，你们太坏了\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/4577a9a2f03326cf0ac57c8eaeafe2d8/1040g2sg325ujst7akqe04a6ju82b4r80plmh0hg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-05T10:58:58.000Z\"},{\"id\":\"xiaohongshu:note:6abf8a12000000001403a9f3\",\"title\":\"报我名字打骨折\",\"link\":\"https://www.xiaohongshu.com/explore/6abf8a12000000001403a9f3?xsec_token=AB_zhJtvDM-v3nu363ADcRMTt2oeg26eTOMVYTKVrTUtY%3D&xsec_source=pc_user\",\"description\":\"报我名字打骨折 \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/aea51cd943b1c84d4fbfcce9f59c8dcb/1040g2sg325qnj60bkq704a6ju82b4r80c58rtk0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-10-02T10:40:18.000Z\"},{\"id\":\"xiaohongshu:note:6abcf36a0000000014038e11\",\"title\":\"锦绣中华 盛世欢歌 祝祖国岁岁繁荣\",\"link\":\"https://www.xiaohongshu.com/explore/6abcf36a0000000014038e11?xsec_token=ABfeef3lKtRJIxiJAg9c-bhsFv4yKcPk-G2aw9QENijhc%3D&xsec_source=pc_user\",\"description\":\"锦绣中华 盛世欢歌 祝祖国岁岁繁荣\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/400c369c1899eccfff690e0f16c56394/1040g008325o6tebbkq004a6ju82b4r80ainj37o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-09-30T11:32:58.000Z\"},{\"id\":\"xiaohongshu:note:6ab3b36900000000140384c4\",\"title\":\"刚子说有我们这群朋友是他的福气\",\"link\":\"https://www.xiaohongshu.com/explore/6ab3b36900000000140384c4?xsec_token=ABdYxYZUKfow6FbeoTWpyUsRneEbnZDL8wZkieCOxjIB0%3D&xsec_source=pc_user\",\"description\":\"刚子说有我们这群朋友是他的福气\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/c630b055282ed5a9dbfcbfb920eecbf6/1040g2sg325f5nij74ee04a6ju82b4r80nvfdae8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-09-23T11:09:29.000Z\"},{\"id\":\"xiaohongshu:note:6ab11b5b0000000033033ec9\",\"title\":\"请问无锡一年要用多少吨糖？\",\"link\":\"https://www.xiaohongshu.com/explore/6ab11b5b0000000033033ec9?xsec_token=AB1KXNHpfRR2FJAv-bdY16GgObc4YD5ND8ZMbsMl44reI%3D&xsec_source=pc_user\",\"description\":\"请问无锡一年要用多少吨糖？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/db280b624d28c531398329f6838e682c/1040g2sg325ckoetk56e04a6ju82b4r80cl0a050!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-09-21T11:56:11.000Z\"},{\"id\":\"xiaohongshu:note:6aafbe590000000026016645\",\"title\":\"小小洒金画，拿捏！你们能不能上点强度？\",\"link\":\"https://www.xiaohongshu.com/explore/6aafbe590000000026016645?xsec_token=AB6yNkHpTMP4_I4kCCHXbS68mDCzFCrlH99zFeRJGuHGc%3D&xsec_source=pc_user\",\"description\":\"小小洒金画，拿捏！你们能不能上点强度？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/7025bbe9f67ca7c01e2207611aba30eb/1040g2sg325ba340656704a6ju82b4r80f2l58qo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-09-20T11:07:06.000Z\"},{\"id\":\"xiaohongshu:note:6aae2c7300000000110313cf\",\"title\":\"这酒店你们住吗？\",\"link\":\"https://www.xiaohongshu.com/explore/6aae2c7300000000110313cf?xsec_token=ABG2QOa45vNL3sDd81D-BHPAmpux-qBNF7g5Z71mhYVCY%3D&xsec_source=pc_user\",\"description\":\"这酒店你们住吗？ \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/3ce7354d2d1c5e45c008181e4158b3fd/1040g2sg3259om7va4qe04a6ju82b4r801v47bb0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-09-19T11:44:56.000Z\"},{\"id\":\"xiaohongshu:note:6aa3e39800000000260179ae\",\"title\":\"不看不知道，怎么这么贵啊？\",\"link\":\"https://www.xiaohongshu.com/explore/6aa3e39800000000260179ae?xsec_token=ABOJleZvmj8R55Z8G8pB4qjorfIup6CpZvct0h3Tlf9Vg%3D&xsec_source=pc_user\",\"description\":\"不看不知道，怎么这么贵啊？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/91b262368d8471f31d3303d4a826b0a3/1040g008324vnno0f3i004a6ju82b4r80137esq8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-09-11T11:18:48.000Z\"},{\"id\":\"xiaohongshu:note:6a9bfd660000000011030397\",\"title\":\"不难嗷，完全没难度！\",\"link\":\"https://www.xiaohongshu.com/explore/6a9bfd660000000011030397?xsec_token=ABARnQivPDBS2NbruaKA_bRYuJE2xFyWnaDYuKhqbSPyw%3D&xsec_source=pc_user\",\"description\":\"不难嗷，完全没难度！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/f443a036b651c9c382e99e4b6f8baa5b/1040g008324o0nfp9na004a6ju82b4r80ugnq1f8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-09-05T11:30:46.000Z\"},{\"id\":\"xiaohongshu:note:6a92b5d300000000070071a7\",\"title\":\"真不知道贵州还能开发出什么项目？\",\"link\":\"https://www.xiaohongshu.com/explore/6a92b5d300000000070071a7?xsec_token=ABHAKSi3EuViQGhyghu3Sev2vPpm75WXlXykmMn7TdiGI%3D&xsec_source=pc_user\",\"description\":\"真不知道贵州还能开发出什么项目？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/477127df23b28d3ffaecf09769aabe42/1040g2sg324eur896nu004a6ju82b4r80gk7lg9o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-08-29T10:34:59.000Z\"},{\"id\":\"xiaohongshu:note:6a90172a00000000260040f2\",\"title\":\"小时候怕中元节的“鬼怪传说”，长大才懂，这一天藏着的是中国人的浪漫。是告诉远方的\",\"link\":\"https://www.xiaohongshu.com/explore/6a90172a00000000260040f2?xsec_token=ABkatLKbc0Re_ocLE2WCcZT6Prau4AKDqRjDJe17v89Cw%3D&xsec_source=pc_user\",\"description\":\"小时候怕中元节的“鬼怪传说”，长大才懂，这一天藏着的是中国人的浪漫。是告诉远方的\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/a13d3b353a00d1d43f01e08f4d77c8eb/1040g008324cd0mtg0o004a6ju82b4r806o41fag!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-08-27T10:53:30.000Z\"},{\"id\":\"xiaohongshu:note:6a8d8ebf0000000007006c9a\",\"title\":\"笑着看的吧你们一个个的\",\"link\":\"https://www.xiaohongshu.com/explore/6a8d8ebf0000000007006c9a?xsec_token=ABMTgVP37TcfDqI0q_dppnRDMfzoOFZ9ED136Jn3lenc4%3D&xsec_source=pc_user\",\"description\":\"笑着看的吧你们一个个的\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/031adb92e087b72855dd3ff3b9fb4b92/1040g0083249tq3a57u004a6ju82b4r80evgfnuo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-08-25T12:46:55.000Z\"},{\"id\":\"xiaohongshu:note:6a8830be0000000028009eef\",\"title\":\"到底是谁说能捡到东西的？\",\"link\":\"https://www.xiaohongshu.com/explore/6a8830be0000000028009eef?xsec_token=ABZ2xGRQ3nERLsD9TGntbYfgOKPW5Fyqi0beBFRhp7xqY%3D&xsec_source=pc_user\",\"description\":\"到底是谁说能捡到东西的？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/1f51c4d1dd6031a14349d98b3fbadf6c/1040g2sg3244lq7a47ks04a6ju82b4r80mo1q8h0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-08-21T11:04:30.000Z\"},{\"id\":\"xiaohongshu:note:6a7ef5da000000002402f370\",\"title\":\"这洞洞鞋都是谁在买呀？\",\"link\":\"https://www.xiaohongshu.com/explore/6a7ef5da000000002402f370?xsec_token=AB5nmECbKYDKzDFdNwgKirsFreGy1a7nSDMYlVtXbi0QY%3D&xsec_source=pc_user\",\"description\":\"这洞洞鞋都是谁在买呀？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/cacd1f7d02abf6325100f917d4cfb450/1040g008323rlm3ffnu004a6ju82b4r80ss86rvo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-08-14T11:02:50.000Z\"},{\"id\":\"xiaohongshu:note:6a7319670000000025007c33\",\"title\":\"来个北方人告诉我 只有这家店是这样的！\",\"link\":\"https://www.xiaohongshu.com/explore/6a7319670000000025007c33?xsec_token=ABQIxIBcm6AqU5-DzLun1ypPWwrLBgH21rBVUFAXpdu1o%3D&xsec_source=pc_user\",\"description\":\"来个北方人告诉我 只有这家店是这样的！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/21f74da4acd08580b41cc7e6928cff16/1040g008323g32959g2004a6ju82b4r80e1rseo0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-08-05T11:07:19.000Z\"},{\"id\":\"xiaohongshu:note:6a7054250000000006007bad\",\"title\":\"河南还有啥是我不知道的？\",\"link\":\"https://www.xiaohongshu.com/explore/6a7054250000000006007bad?xsec_token=ABWei36_uCAfH71dv5vKwWn-laGjL-iAHBsV3lUoTrbAQ%3D&xsec_source=pc_user\",\"description\":\"河南还有啥是我不知道的？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/7a64896a94374bb6e046befe513ce90f/1040g2sg323dbefl17ue04a6ju82b4r8024hl598!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-08-03T11:10:05.000Z\"},{\"id\":\"xiaohongshu:note:6a6c6a330000000005032321\",\"title\":\"饺子还有按饺子皮重量卖的？？\",\"link\":\"https://www.xiaohongshu.com/explore/6a6c6a330000000005032321?xsec_token=ABrJUtKOpcCianCsBwMVy30ZY3Zmp_wznF0lulqmWbbqk%3D&xsec_source=pc_user\",\"description\":\"饺子还有按饺子皮重量卖的？？\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/11dbc02b3067fc49ead5cecccb13bdc0/1040g2sg3239i5c167ue04a6ju82b4r804d6avcg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-07-31T11:10:06.000Z\"},{\"id\":\"xiaohongshu:note:6a69e18a0000000001033473\",\"title\":\"生米们 看得爽吗？\",\"link\":\"https://www.xiaohongshu.com/explore/6a69e18a0000000001033473?xsec_token=ABpzy5NMWUg9AdN7DcP-IUqM_qkohsOL7UO2evQr8Y84w%3D&xsec_source=pc_user\",\"description\":\"生米们 看得爽吗？ \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/8972e500e372d30460e76f5e7abfd996/1040g2sg32372upj4noe04a6ju82b4r80pnodoa0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-07-29T11:18:34.000Z\"},{\"id\":\"xiaohongshu:note:6a671c4e000000000101e450\",\"title\":\"不怕 我完全不怕！\",\"link\":\"https://www.xiaohongshu.com/explore/6a671c4e000000000101e450?xsec_token=ABanDMAq6fFnL2TJDwNDntwm_8avY3e2CLw3I8OQznJSI%3D&xsec_source=pc_user\",\"description\":\"不怕 我完全不怕！ \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/54b78ef138c2ecbdbac7bd173a938338/1040g2sg3234c5k957u704a6ju82b4r80v621tso!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-07-27T11:01:12.000Z\"},{\"id\":\"xiaohongshu:note:6a6465be0000000001030c22\",\"title\":\"希望胖东来开到外省的举个手！\",\"link\":\"https://www.xiaohongshu.com/explore/6a6465be0000000001030c22?xsec_token=ABcljrS0apahcRiX42EH1SNP3zGY4VZ3zUZ02ww4JCOUM%3D&xsec_source=pc_user\",\"description\":\"希望胖东来开到外省的举个手！\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/dda9dcb500dd2194faef500e503cd9dc/1040g2sg3231nkar0na004a6ju82b4r80l9r6vag!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-07-25T11:01:04.000Z\"},{\"id\":\"xiaohongshu:note:6a5e00ea00000000010029d5\",\"title\":\"真不是我不想去，你们看\",\"link\":\"https://www.xiaohongshu.com/explore/6a5e00ea00000000010029d5?xsec_token=ABq-F869pcIj93JzCdgG1aKXlxMCGOTIEHDPXXe8jqIeQ%3D&xsec_source=pc_user\",\"description\":\"真不是我不想去，你们看\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/4876ec2034e9de1125a3fb1f96ba6c25/1040g2sg322rfpu9pg0l04a6ju82b4r807qjp1q8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2026-07-20T11:05:14.000Z\"},{\"id\":\"xiaohongshu:note:6888aeae0000000005005505\",\"title\":\"还有哪里的山像这样的\",\"link\":\"https://www.xiaohongshu.com/explore/6888aeae0000000005005505?xsec_token=ABXlHx9GCCq7sv4E-y7DxaT2qWwtgF-WRUkmIyyYeWtSI%3D&xsec_source=pc_user\",\"description\":\"还有哪里的山像这样的\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/ad802fc113e37d6ae44eaeee20063522/1040g00831kh5gl092oe04a6ju82b4r80q016kl0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2025-07-29T11:21:18.000Z\"},{\"id\":\"xiaohongshu:note:682871d4000000000303bc7f\",\"title\":\"提前祝各大学子金榜题名，人生道路一帆风顺\",\"link\":\"https://www.xiaohongshu.com/explore/682871d4000000000303bc7f?xsec_token=ABFruy75qQGWaOvTZAvhIkoQXPF3dsv0BiidQ6cOOLHsg%3D&xsec_source=pc_user\",\"description\":\"提前祝各大学子金榜题名，人生道路一帆风顺\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/fb5fdd11e79c20d2307a37d74f3c17f1/1040g00831hj634no3o004a6ju82b4r8087tgrbg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"张天琪\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b3284b24eacab4b32ae6d00\"},\"published\":\"2025-05-17T11:24:04.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 761,
+      "elapsed_ms": 1232,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -103,69 +128,64 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 753
+          "started_ms": 8,
+          "duration_ms": 1224
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 760,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 761,
+          "name": "错误诊断收集",
+          "started_ms": 1232,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 761,
+          "started_ms": 1232,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 761,
+          "name": "失败后浏览器清理",
+          "started_ms": 1232,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 761,
+          "started_ms": 1232,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 730
+          "started_ms": 11,
+          "duration_ms": 1212
         }
       ]
     }

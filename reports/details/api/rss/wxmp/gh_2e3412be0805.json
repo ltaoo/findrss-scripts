@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:14:28.654Z",
+  "checked_at": "2026-11-19T13:43:45.906Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_2e3412be0805",
     "name": "情报小蜜蜂",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_2e3412be0805.json",
-    "duration_ms": 1970
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10032
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1549
+    "status": 502,
+    "duration_ms": 10026
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1544,
+    "phase": "runtime",
+    "elapsed_ms": 10014,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,18 +69,16 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1531,
+        "started_ms": 11,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1529,
-          "body_read_ms": 2,
-          "decode_and_transfer_ms": 0
+          "response_ms": 6092,
+          "body_read_ms": 3910
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_2e3412be0805\",\"title\":\"情报小蜜蜂\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486045&idx=1&sn=48917fbd90d4d728927f0d78872c9e93&chksm=fa266e36cc5d20c32519c88b7baf9365269dd0f1183450230b428468d0cdbcfb19b7ea421b7f&scene=126&sessionid=1795076072#rd\",\"description\":\"多多找资源，多多酿成蜜，努力成为一只勤奋的情报采集小蜜蜂。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"情报小蜜蜂\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4dPwtvZxbIvZiaP500gI9W1dic89FObRRJwDV9NWRfo8aw%2F0\",\"updated\":\"2026-04-26T23:40:00.000Z\",\"items\":[{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486045:1\",\"title\":\"霍尔木兹被封，一场改写全球产业链格局的\\\"压力测试\\\"\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486045&idx=1&sn=48917fbd90d4d728927f0d78872c9e93&chksm=fa266e36cc5d20c32519c88b7baf9365269dd0f1183450230b428468d0cdbcfb19b7ea421b7f&scene=126&sessionid=1795076072#rd\",\"description\":\"封锁之下，谁在裸泳，谁穿了救生衣。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FPMM54Gicao3k8HgrIbdRFTuDrTRMzSPT0UibDF58UIkPLiaH0ictV9t8Umq8U54W9dA5vQqhohtXRkVsjoM2jGGIAxicWLBHAfQhnTia9rO75tcIM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-26T23:40:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486040:1\",\"title\":\"北极在\\\"哭泣\\\"，中国在\\\"听\\\"——冰川消融背后的中国北极机遇\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486040&idx=1&sn=4ecb495a8d0c9fc2b7f55197235e1f6a&chksm=fa752603f54e8fc48100c0957e3990715c73296ba176bd0e85d60067c259b75e29abdbbe430f&scene=126&sessionid=1795076072#rd\",\"description\":\"当北极冰盖以每秒 3 个泳池的速度消失时，有人看到灾难，有人看到航道。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FPMM54Gicao3nbndaN4hmVpzy661kqibMVdQeo8uF6RUL4WoXb5MCKG0nndD17Usxib2APouwFXtBjj2lYU2CnGJj6hOxDbgrkdBTJeBqsCZSDw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-26T01:00:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486035:1\",\"title\":\"南海不只是博弈，更是开发：中国到底推进到什么阶段了？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486035&idx=1&sn=4c6b10b9cb29d06e95de279af89dec74&chksm=fa74e5cdbc98aac4c85ed0c293946830ce7cc3c98c8f46fa4a13bc3d98bca684014cc6d7fec3&scene=126&sessionid=1795076072#rd\",\"description\":\"一提到南海，很多人第一反应是对峙、巡航、摩擦、博弈。但很少有人注意到，另一场更重要、也更能决定未来格局的竞争，其实早就在水面之下展开了：开发。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FPMM54Gicao3lL2MLcVL1ot44hlMsmxVZ9fmkeIt5RZibL86TtYicrnvoEScps3icT9AVEXrNwIz9IW7F1tEumskWuwW0QdFXYflwE5xMtAuukhA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-25T01:00:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486030:1\",\"title\":\"核电，正在成为中国能源转型的关键拼图\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486030&idx=1&sn=29c16a2e752de67669cf5f9db52c1ace&chksm=fab270fbc4528ea2eafa4c8c53d5ec501ea171f5816bb606708402b9c0da659c8a1c0edd610c&scene=126&sessionid=1795076072#rd\",\"description\":\"过去很多年，谈中国能源转型，大家首先想到的是光伏、风电和新能源汽车。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FPMM54Gicao3l5bocTibDwUImeJWGqyyKABPDVtn9z48usNMot84hMPW2D8z7cDib0w0liaSLm5J6NkzdJhTUhUprdLkWNJN7jNJCRUDKKHE31R8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-23T23:45:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486024:1\",\"title\":\"从唱衰中国到承认中国：印度精英的认知转向\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486024&idx=1&sn=799e6d3dedccc8eb6afe572c8d4fd7b5&chksm=fabd63baf82f12cedd7c599fa856f1e6d59b6053935752e82f793b6a0e23ffdf00bbb1611828&scene=126&sessionid=1795076072#rd\",\"description\":\"这些年，关于中国，印度舆论场里一直有两种声音。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FPMM54Gicao3l4D5ngAXvvxlP1oaos0icW5Nyqt7rV22xFTapbgh99eB4czEJdiasIZh3Wd05kFtkiciaBiciaYPVia8dEj7y4gPQoicCwldVJ5mnsb1Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-22T23:35:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486019:1\",\"title\":\"从运河到特高压，中国新一轮基建有多猛？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486019&idx=1&sn=259648fa39d4a721a75896e26d6f6f4a&chksm=fa199e3791eda97a8e19408746f9f09cb45cb26070c51df0cafb88a1277b3fd47bf15e8e97e3&scene=126&sessionid=1795076072#rd\",\"description\":\"过去两年，如果只用一个词概括中国基建，我会选“重构”。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FPMM54Gicao3lKC6JWPXG0CSibHP20q6hJzNs8FLf8XpG23IgkusyemL3tb7h9buFha9Lb1aDs9WB5QdW0449VD1Vq69eTKgWyTwbicABxz4Akk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-21T23:45:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486014:1\",\"title\":\"中东安全格局正在重组：中国为何越来越被中东国家“请进门”？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486014&idx=1&sn=e0df9f71c9c61a12d2b049397c72d64e&chksm=fa89259762a7d9172b9672d96aa7f6f42c84d87fbdda45005d0d91f17f1424b8f5378003654f&scene=126&sessionid=1795076072#rd\",\"description\":\"近几年，中东国家的安全思维正在发生一个非常值得关注的变化。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FPMM54Gicao3lkQRCBU3wjso2U1SxpU2PLS3AZlvjKdlWF1XkdDWb5XkrzzUMnvx7l4MKghV3UAuGDTPRuluuEibKV3OofhwB5ydiabY4CGiax8c%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-20T23:45:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486009:1\",\"title\":\"越南苏林访华，背后是一个不容忽视的大趋势\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486009&idx=1&sn=7c3d71ef182eaa77b9410013ba65d4ec&chksm=fa4f05eec54447a0a34abc3437a3c429e7917cd2f55d43bdbba3531c6b03b1555c8c3974aeeb&scene=126&sessionid=1795076072#rd\",\"description\":\"最近，越南领导人苏林访华，引发了外界高度关注。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FPMM54Gicao3ltnQf8pdpGQPSkmqV3eha4oTkK4BDYHELEwpLDEUJreF7a7CYexxcAXDGGYey6uN5XKbQPibahsDGGjTCdDUHLNkibG5ibRyybxo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-20T01:15:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247486004:1\",\"title\":\"当AI助手越来越像专家，我们该相信它到什么程度？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247486004&idx=1&sn=f96dfac455aae2e9c51cee12c9920b45&chksm=fa298b00f804a3854b1615fc9d0adf9d2ffe82d8f32fb300dc7684d84c38a25830ebac966e52&scene=126&sessionid=1795076072#rd\",\"description\":\"这两年，AI 助手已经从“新鲜玩具”变成了很多人的日常工具。有人拿它写周报，有人拿它查资料，有人让它总结会议、润色文案、写代码，甚至替自己做判断、做决策。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FPMM54Gicao3nKlBgvVYFPicia1lw6ZaHDQ7HgmDlD2jMh6wqbUl2iaqiaFLNCic3JsWJoDZTIrYW2rJkibPuzU493VQe7m5NdKeSRUKsVC4Wic0icTfc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-16T23:40:00.000Z\"},{\"id\":\"wxmp:MzU0NjY5ODQ3Mw%3D%3D:2247485999:1\",\"title\":\"如果霍尔木兹海峡被持续封锁，物价会怎么变？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NjY5ODQ3Mw==&mid=2247485999&idx=1&sn=fc2b8978882ab094cf73ecfe5bb29633&chksm=fa2b4f22aaeaace03849c75b3834fa315f2a83ac9bdb7a6c3dba7faf0a03e0f7b8263ea56ccf&scene=126&sessionid=1795076072#rd\",\"description\":\"先说结论：如果霍尔木兹海峡不是短暂扰动，而是被持续封锁，那么物价受到的影响就不会只是“油价涨一点”这么简单。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FPMM54Gicao3lohdPnO7VpkXy92LibsHZwJOOw4BxcIVSQug2Nib3D2PAHg695SqVe7auL6Ct1jOcEtDRQXz9ep5Ubl6PR5dWViavCqaeQtKA4lA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-13T23:45:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1544,
+      "elapsed_ms": 10014,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -119,41 +113,36 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 2
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 6
+          "started_ms": 2,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1537
+          "duration_ms": 10006
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1544,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1544,
-          "duration_ms": 0
+          "name": "错误诊断收集",
+          "started_ms": 10013,
+          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1544,
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1544,
+          "name": "失败后浏览器清理",
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1544,
+          "started_ms": 10014,
           "duration_ms": 0
         }
       ],
@@ -161,7 +150,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 1531
+          "duration_ms": 10003
         }
       ]
     }

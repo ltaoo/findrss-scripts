@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:16:03.192Z",
+  "checked_at": "2026-11-19T13:49:52.690Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_83db07cad0be",
     "name": "凭栏欲言",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_83db07cad0be.json",
-    "duration_ms": 1131
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10019
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 846
+    "status": 502,
+    "duration_ms": 10018
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 840,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,18 +69,16 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 826,
+        "started_ms": 10,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 825,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 0
+          "response_ms": 2174,
+          "body_read_ms": 7828
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_83db07cad0be\",\"title\":\"凭栏欲言\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495416&idx=1&sn=71ee43222cb0db975c7dd3522a506994&chksm=ff5de3fbfe53e12f3ad0eaa8a9a5dd71a328ae27a6b13e9bd60ab306223de0f98a915f49400d&scene=126&sessionid=1795076166#rd\",\"description\":\"随便聊聊\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"凭栏欲言\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4LGEsOGibWSbR1sibDl9sicA7nFjtY0zkDzib5BpN8Pv5SqA%2F0\",\"updated\":\"2025-01-15T05:59:50.000Z\",\"items\":[{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495416:1\",\"title\":\"凭栏：一眼透\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495416&idx=1&sn=71ee43222cb0db975c7dd3522a506994&chksm=ff5de3fbfe53e12f3ad0eaa8a9a5dd71a328ae27a6b13e9bd60ab306223de0f98a915f49400d&scene=126&sessionid=1795076166#rd\",\"description\":\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06iazXibteEyRRCQNo8OIHxia2S5LsXhib8APMT3OagMzgIib0tzqxUdMYdpLHRl0dInRzqBtmxZkyORQKQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-15T05:59:50.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495381:1\",\"title\":\"凭栏：最后的表演\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495381&idx=1&sn=90c7fab3f395deb4b831c3f427382786&chksm=ff0b2d4920c8aead3a3c4f66a541fca0e645f75c12bd31647c3afabef608c792190bea0af9eb&scene=126&sessionid=1795076166#rd\",\"description\":\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06hjBP3FaGom3BhmC59nKbZ3jaEI6cxj54l05SRXI4AhIZRTRZTvt0ADXtANg3DyPqTXCO418YYMjA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-08T07:14:31.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495372:1\",\"title\":\"凭栏：啪，一声脆响\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495372&idx=1&sn=146995a41a2be949b5a152ecc92e3435&chksm=ff01cbe6acca481570dd25736b3c93f83057d97284f3e03944adeb9c5cd4479c2fe1fc7dc781&scene=126&sessionid=1795076166#rd\",\"description\":\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06hSUBlup6qMu70j1rTdXCsQk43eTLAsibOn9cPdJSKMe7V47TOLav2pFdrH1WNphql5WuPpd8oDcxA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-06T05:35:08.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495358:1\",\"title\":\"凭栏：回顾2024年的预测与验证，展望2025经济预期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495358&idx=1&sn=7164691035aa7a2a83c33da1d83f8b8c&chksm=ff8ded0efddd4db8124e3bc04bf6bd74340659c722b54e679df9379b851cebd2825dfda3d3b1&scene=126&sessionid=1795076166#rd\",\"description\":\"2025年元旦快乐\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06iaToiafkewlb8fibBcNLaIzVibibJJWS0Fddl1DicboLYaibJic9Aw3neAz5JwaYscibWOzP1QQFhtJTaKZKQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-01T07:05:37.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495345:1\",\"title\":\"凭栏：大象也断粮了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495345&idx=1&sn=2f227118e3735de29a242d181a589487&chksm=ff85e125454df379ed352e363b53104cea09d47d6a9fa9be6fb89f426650f3600680733a946f&scene=126&sessionid=1795076166#rd\",\"description\":\"9月大A开启创新模式，11月规上企业利润崩了！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06hrnuPYj3hUjPot2qSBtDibFic9AmBZ287guLeQj4SsQaZcIwuz5o8HjVicQQ4VRJHYb2ibU8HK4vOITg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-27T05:24:35.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495334:1\",\"title\":\"凭栏：嘿，表态了……\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495334&idx=1&sn=b29e509825e595414245ea0d45828653&chksm=ffa0f6ec05a45a67c1b7edd56fdc8c644c439fb8fff91004f1ce25b9592460effa27e07fa7bf&scene=126&sessionid=1795076166#rd\",\"description\":\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06ia2pjTFMNFt1ycicADD6A3DQIebzzIPtNTtjTEuBOQGvTfQibVR2F42DdxbDe95sUk1ZnQ7q69l8Asg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-25T06:03:36.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495305:1\",\"title\":\"凭栏：这是等不及了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495305&idx=1&sn=6cd77b29e96a96b622421c2e28d66d26&chksm=ff2e61c9536aff9e3482a66c3c49cdbc6453b16d0831e5c5c4df266d5c618a0644ef8294e07f&scene=126&sessionid=1795076166#rd\",\"description\":\".\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06h1DhZL7hBWYtCBIAAuvsNoMIZKhnibpweqHYiar4ef3UVEJvU42tM78kpO6brK2FdZIYAohotDOUFQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-19T04:52:18.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495292:1\",\"title\":\"凭栏：房贷增速，脚踝斩\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495292&idx=1&sn=f478a1d1b24363e7214f260710ddb7f9&chksm=ff06c83fc78dd5e8396fba6f96a0f0958e26565b2f0d71dfebfcedb63b692a47664ef50070a7&scene=126&sessionid=1795076166#rd\",\"description\":\"跌幅77%…\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06hibmeLGLElScJYP5Uh5TiakeTMzLYzspWy9Ekl7NIibamZkjhttncddWjTiadndgfY5hIoosXQXooPNA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-16T06:09:00.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495283:1\",\"title\":\"凭栏：中美利差，历史最高\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495283&idx=1&sn=14fec415043a82e0bd31ba9da574f970&chksm=ffa6a26ef19ca6d38eafb446ceca3ccb855f6aa8fa42fe4bfa9fcf5a06ed005be1dde7b650e7&scene=126&sessionid=1795076166#rd\",\"description\":\"你想玩预期？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06g5E2USBACPDPx3eJSOqttoPF5szDNhm2roEN8crZBGCm6Fu90Vd9W9kxZZcMzI2BEcDk6c6Pucicw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-13T03:58:15.000Z\"},{\"id\":\"wxmp:MzU5ODQ5MjE5NA%3D%3D:2247495268:1\",\"title\":\"凭栏：衰退，钉死在板上\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5ODQ5MjE5NA==&mid=2247495268&idx=1&sn=3fe2e1892e772647ead7e3fd8cfb4adc&chksm=ffd83db0422d6403aea5e0ae7c1deaeade9b9a352b9e4cce511898bc9601a1c5c5819c8aedcf&scene=126&sessionid=1795076166#rd\",\"description\":\"光说喂没用，还得看喂多少……\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FvBrWzZpF06jUgln9Fn3CyToZzbkdYmpcCruBPI2e20pOWJ5iaC3OZa9Lh65g2b6XPQHm2WRboesz66ZHpgZRxYQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-11T04:23:09.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 840,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -124,44 +118,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 832
+          "started_ms": 7,
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 840,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 840,
-          "duration_ms": 0
+          "name": "错误诊断收集",
+          "started_ms": 10012,
+          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 840,
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 840,
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 840,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 826
+          "started_ms": 10,
+          "duration_ms": 10002
         }
       ]
     }

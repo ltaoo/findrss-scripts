@@ -1,22 +1,23 @@
 {
-  "checked_at": "2026-11-19T08:14:32.145Z",
+  "checked_at": "2026-11-19T13:44:03.749Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_5e5468928767",
     "name": "云鼎实验室",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_5e5468928767.json",
-    "duration_ms": 1833
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10026
   },
   "debug_request": {
     "status": 200,
-    "duration_ms": 1775
+    "duration_ms": 5805
   },
   "debug": {
     "status": 200,
@@ -49,7 +50,7 @@
       }
     },
     "phase": "ok",
-    "elapsed_ms": 1768,
+    "elapsed_ms": 5797,
     "invoked": false,
     "upstream_error": "",
     "error_text": "",
@@ -73,18 +74,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1755,
+        "started_ms": 12,
+        "duration_ms": 5782,
         "timings": {
-          "response_ms": 1392,
-          "body_read_ms": 363,
-          "decode_and_transfer_ms": 0
+          "response_ms": 3039,
+          "body_read_ms": 2742,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_5e5468928767\",\"title\":\"云鼎实验室\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498138&idx=1&sn=dc69cdde47567fd01434f97c140eee37&chksm=fc413e14affbd653f6e850487ed1f0c66b5f0bc1e4abd1b349f67a5986f8761bd711d77b07c5&scene=126&sessionid=1795076075#rd\",\"description\":\"腾讯云鼎实验室官方微信公众号\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"云鼎实验室\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4fZL4NEWv0MBwib3biangSzQ9Y8DDOJMhViaicmNQre9ULZg%2F0\",\"updated\":\"2026-11-19T03:35:35.000Z\",\"items\":[{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498138:1\",\"title\":\"【安全通告】Nginx \\\"NGINX2Root\\\" 多个远程代码执行漏洞风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498138&idx=1&sn=dc69cdde47567fd01434f97c140eee37&chksm=fc413e14affbd653f6e850487ed1f0c66b5f0bc1e4abd1b349f67a5986f8761bd711d77b07c5&scene=126&sessionid=1795076075#rd\",\"description\":\"NGINX2Root 可致任意命令执行，尽快升级\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skg4LhjX2KvkwRibRYLrkV2XfFotV2zpYrXVcdKdLJ8CyRhuibYVUdC0DClrlMdJn5J3XgLqaVz3QTrvDlRI20Z9SoUOPFBEzqICA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T03:35:35.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498130:1\",\"title\":\"预警！Vite 开发服务器暴露于网络，可致任意代码执行\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498130&idx=1&sn=cee6f9f0f0437a733ba4466fb46a6fdd&chksm=fc5c7e42c3bf8a01158f3d919c24cfc512975a9e6e96993f7e1ebe4b27b4fedf66e42f52a7e2&scene=126&sessionid=1795076075#rd\",\"description\":\"Vite 远程代码执行漏洞，可致任意代码执行，需尽快修复\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skhRLcsyO466P4n5iaerPbuiavicgkVGzPwM8zsgsKcKZA2ceODrNtmoqcKgSf5sIzVpMiaWa4eqQqGdlPMkdwGu1XOLXCCmpnvQrNA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T16:01:00.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498121:1\",\"title\":\"【漏洞通告】OpenJDK Java4Shell 远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498121&idx=1&sn=c5a09f7b579c7e691df81a205067686d&chksm=fc3e9067108cffcc5e7e0325cd26af116fd5954da538d2b8c98461000ffd645d92bcf6fc9aa3&scene=126&sessionid=1795076075#rd\",\"description\":\"OpenJDK 现 Base64 解码器越界写入漏洞，可致远程代码执行，建议尽快升级修复。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skgD4GPgqBiaeicvvCEMCHMmWgqt20cGtvicicP7ZklsqyKvaVHSzJNDBb2kLyCI5dLgIflrnTx1rdOmoGUNa9p29KsDXKuu8DFib1ho%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:23:53.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498112:1\",\"title\":\"【已修复】Linux Kernel NoisyTCP 内存破坏漏洞，建议尽快升级\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498112&idx=1&sn=63cc32468604d961b6a2338110b9dc7a&chksm=fca07968c4397afc20215cc74a159da1ba59c155ad1571f676421b04f6f432b34b3201dd163d&scene=126&sessionid=1795076075#rd\",\"description\":\"Linux Kernel TCP 协议栈现内存破坏漏洞，可致宕机，建议尽快升级修复。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skg0RvGZ4oAMZvskfX40Soibl18W3raQpPZTtKamvqw0WOe4g1icn6ZqQ9SBz5Ky9soNNdES7qib7iaicShGj7nrpBic23lf4WfQZXQvc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T08:07:17.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498106:1\",\"title\":\"暴增 56%：智能体攻击如何识别与防护？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498106&idx=1&sn=b41d30798498b9c8cbad809cc783c81c&chksm=fc805c0a0c29bc72edbc1d75ebe9c0b4518d3433b98031035148449696398e1079516b0210bf&scene=126&sessionid=1795076075#rd\",\"description\":\"智能体攻击激增，七项特征可识别\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skhjmgJYjUGWX5oHFWhMhFEJV0icBG3hjG8YJhia4gHO5Sf168Aib55xvIubsoSOyoSXuHlxPe9dHlKuUsJQZBqO5PsSV4GGOaYwn8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T04:10:42.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498077:1\",\"title\":\"10月必修漏洞清单及修复指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498077&idx=1&sn=4df7d5c69fde98e89a421ce154c9ee6b&chksm=fc093f2aaaf3cddf7b48f83920208ef566bd17f4abd9a3efda8b5864315eee9837abce54cd4a&scene=126&sessionid=1795076075#rd\",\"description\":\"腾讯云安全发布近期必修漏洞清单，涵盖9项高危漏洞，助力企业优先修复。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skgG006VX2F5sOaynfuKO1L3xGUJsJt7dhQxbZtO1C6YJN2asYZ6ibtlCoxszibiamnmuMiawAwHt6GibuSnJxzNqOzAMwAtEdPlK5cU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T06:30:43.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498071:1\",\"title\":\"OpenSSH sshole 密码认证绕过漏洞（CVE-2026-123158）风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498071&idx=1&sn=9a20042b72b3a55756d42fb6a54a5338&chksm=fc21479954fd1c4cff09c2c7cf02152c80fbd3fe4c1753c7dd9ac6792fad7f96f9d2d2ff2fb2&scene=126&sessionid=1795076075#rd\",\"description\":\"OpenSSH（musl libc 环境）披露 sshole 密码认证绕过漏洞（CVE-2026-123158），远程攻击者可借超长密码绕过认证。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skiaQBsq4oaOpkT829Ns8twiawg6fKsphL8PNUcanH5iagPUWoL7ZPicOvA7EksvL0mKpfEib1ia0sUdnPAXQ1ictCZZSu58zI1GBvIOm4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T06:24:54.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498066:1\",\"title\":\"四川大学alkaerr战队夺冠，第三届腾讯云智能攻防挑战赛收官\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498066&idx=1&sn=d0116a4bdb8e6e378981cd924becf2c2&chksm=fc69f007b1afbd57de41e7dbcb4081e20059c9993375a9c73909012643e0713fefd732b5a86c&scene=126&sessionid=1795076075#rd\",\"description\":\"来自川大的alkaerr战队成功摘得第三届腾讯云智能攻防挑战赛冠军，恭喜！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FiczOE5KEJun7O3Y89SMnP1YoibiaKBOUTs6R11mFoqZupvXSoiba2fEs6J3hmiccgSoYrhLBES7ibuJavmZEXmW4mA1XDqXibff88uoHH2Stk0kK9A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T11:30:15.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498064:1\",\"title\":\"Linux Kernel IPv4 TCP 释放后使用漏洞（CVE-2026-98432）风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498064&idx=1&sn=d23553738c20b020a39188ffd9e04e86&chksm=fce00b5c229b9ef38c2119e6695c446899e7c3d86bf1229744fa070261f8662d0f26cd501745&scene=126&sessionid=1795076075#rd\",\"description\":\"Linux Kernel 披露 IPv4 TCP 释放后使用漏洞（CVE-2026-98432），远程攻击者可借带 IP 选项的特制数据包触发内核内存破坏。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skjkNNgQnpe2cfJlRkGVhqaNlNPXbgD7WoXZI6w0bL9wkXpxBWbiccJurAW3SnSKlJLz9uJtkYicKSbDkb3cIyqxMKmBHZ4I8wd7s%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T03:21:21.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498055:1\",\"title\":\"人类铸剑, AI 争王｜第三届智能攻防挑战赛暨 TSecCon 腾讯安全大会 10.30 深圳开战\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498055&idx=1&sn=3ddc59461152c83dbc39dcca90899bf6&chksm=fc1df898e884a34e40be674c0230ca9732098435e9394bd7851ec676a873ab225a7d99fb9050&scene=126&sessionid=1795076075#rd\",\"description\":\"王座协议、安全智子、智能漏洞挖掘，三项挑战见证新一代安全 Agent\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skhMWicqwibTH6icxbmbeRypqpcYU9wFTOZyGEekGxroNDicyplPA0vIxErVtCpYje8pbjcse9HaW5sR6TYhe7vWJ5P5ca7Ah1rSq2U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T03:56:48.000Z\"}]}",
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_5e5468928767\",\"title\":\"云鼎实验室\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498143&idx=1&sn=ca5ce1fde8d8ee7b3f5ec6604aa58a6e&chksm=fcb42edf9ac1fa39b99d21f820664be18c9186f235bacc69f8fa5959cfeaf76039c5ae534d10&scene=126&sessionid=1795095851#rd\",\"description\":\"腾讯云鼎实验室官方微信公众号\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"云鼎实验室\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4fZL4NEWv0MBwib3biangSzQ9Y8DDOJMhViaicmNQre9ULZg%2F0\",\"updated\":\"2026-11-19T10:28:43.000Z\",\"items\":[{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498143:1\",\"title\":\"【安全通告】Ruby \\\"Ruby2ßhell\\\" 堆缓冲区溢出远程代码执行漏洞风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498143&idx=1&sn=ca5ce1fde8d8ee7b3f5ec6604aa58a6e&chksm=fcb42edf9ac1fa39b99d21f820664be18c9186f235bacc69f8fa5959cfeaf76039c5ae534d10&scene=126&sessionid=1795095851#rd\",\"description\":\"Ruby 堆溢出可致 RCE，建议尽快升级\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skjF9KiarCvceQzUUibayhYk911BfbuA1RJ4r6rRAOTAibBoBPtU4SgQ9OMljolCs5csjcuGwOTRugicH5z1Qxibm4eZtgampUYMF1P8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T10:28:43.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498138:1\",\"title\":\"【安全通告】Nginx \\\"NGINX2Root\\\" 多个远程代码执行漏洞风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498138&idx=1&sn=dc69cdde47567fd01434f97c140eee37&chksm=fc6d6c7323b6dc287bc03cf3b22129d68ff93eac59936514875e1e1658161e4413df57a9aa87&scene=126&sessionid=1795095851#rd\",\"description\":\"NGINX2Root 可致任意命令执行，尽快升级\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skg4LhjX2KvkwRibRYLrkV2XfFotV2zpYrXVcdKdLJ8CyRhuibYVUdC0DClrlMdJn5J3XgLqaVz3QTrvDlRI20Z9SoUOPFBEzqICA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T03:35:35.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498130:1\",\"title\":\"预警！Vite 开发服务器暴露于网络，可致任意代码执行\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498130&idx=1&sn=cee6f9f0f0437a733ba4466fb46a6fdd&chksm=fc6978cbdf585ed339d4fbc47226865ecbcb6fe033ee2ec1ee72a192577a1e85be20dc516e8c&scene=126&sessionid=1795095851#rd\",\"description\":\"Vite 远程代码执行漏洞，可致任意代码执行，需尽快修复\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skhRLcsyO466P4n5iaerPbuiavicgkVGzPwM8zsgsKcKZA2ceODrNtmoqcKgSf5sIzVpMiaWa4eqQqGdlPMkdwGu1XOLXCCmpnvQrNA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T16:01:00.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498121:1\",\"title\":\"【漏洞通告】OpenJDK Java4Shell 远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498121&idx=1&sn=c5a09f7b579c7e691df81a205067686d&chksm=fc8795f145a31ddf54b1f5a9951d092de163adc787488768d6faa9d5f3c5dd6637e0ca78bd29&scene=126&sessionid=1795095851#rd\",\"description\":\"OpenJDK 现 Base64 解码器越界写入漏洞，可致远程代码执行，建议尽快升级修复。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skgD4GPgqBiaeicvvCEMCHMmWgqt20cGtvicicP7ZklsqyKvaVHSzJNDBb2kLyCI5dLgIflrnTx1rdOmoGUNa9p29KsDXKuu8DFib1ho%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:23:53.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498112:1\",\"title\":\"【已修复】Linux Kernel NoisyTCP 内存破坏漏洞，建议尽快升级\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498112&idx=1&sn=63cc32468604d961b6a2338110b9dc7a&chksm=fc033dae98181b0c27afd6e3dbacbab8190f09ca8274afd4cdc8e9c98c698f019ed37910a117&scene=126&sessionid=1795095851#rd\",\"description\":\"Linux Kernel TCP 协议栈现内存破坏漏洞，可致宕机，建议尽快升级修复。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skg0RvGZ4oAMZvskfX40Soibl18W3raQpPZTtKamvqw0WOe4g1icn6ZqQ9SBz5Ky9soNNdES7qib7iaicShGj7nrpBic23lf4WfQZXQvc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T08:07:17.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498106:1\",\"title\":\"暴增 56%：智能体攻击如何识别与防护？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498106&idx=1&sn=b41d30798498b9c8cbad809cc783c81c&chksm=fcf9ef73af9cf7c264b7409545e50b14ccf7f8deea6c99c577336fbd8c3c8552ff38757a72a5&scene=126&sessionid=1795095851#rd\",\"description\":\"智能体攻击激增，七项特征可识别\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skhjmgJYjUGWX5oHFWhMhFEJV0icBG3hjG8YJhia4gHO5Sf168Aib55xvIubsoSOyoSXuHlxPe9dHlKuUsJQZBqO5PsSV4GGOaYwn8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T04:10:42.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498077:1\",\"title\":\"10月必修漏洞清单及修复指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498077&idx=1&sn=4df7d5c69fde98e89a421ce154c9ee6b&chksm=fcc77ae22488ede94281a0038f87c2df0a4c66a03f9d801aad646b907cc923064ba325c2e4be&scene=126&sessionid=1795095851#rd\",\"description\":\"腾讯云安全发布近期必修漏洞清单，涵盖9项高危漏洞，助力企业优先修复。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skgG006VX2F5sOaynfuKO1L3xGUJsJt7dhQxbZtO1C6YJN2asYZ6ibtlCoxszibiamnmuMiawAwHt6GibuSnJxzNqOzAMwAtEdPlK5cU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T06:30:43.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498071:1\",\"title\":\"OpenSSH sshole 密码认证绕过漏洞（CVE-2026-123158）风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498071&idx=1&sn=9a20042b72b3a55756d42fb6a54a5338&chksm=fc288ff43852895585ae429fcc66e032e7ac68b18c686487763b80fd9471d39a23cfaef3a01f&scene=126&sessionid=1795095851#rd\",\"description\":\"OpenSSH（musl libc 环境）披露 sshole 密码认证绕过漏洞（CVE-2026-123158），远程攻击者可借超长密码绕过认证。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skiaQBsq4oaOpkT829Ns8twiawg6fKsphL8PNUcanH5iagPUWoL7ZPicOvA7EksvL0mKpfEib1ia0sUdnPAXQ1ictCZZSu58zI1GBvIOm4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T06:24:54.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498066:1\",\"title\":\"四川大学alkaerr战队夺冠，第三届腾讯云智能攻防挑战赛收官\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498066&idx=1&sn=d0116a4bdb8e6e378981cd924becf2c2&chksm=fcb8b63d1bd99b66391ea5e0f6f33224d2bed3bcba0fbe1ae14f199486008d6d123d357b5675&scene=126&sessionid=1795095851#rd\",\"description\":\"来自川大的alkaerr战队成功摘得第三届腾讯云智能攻防挑战赛冠军，恭喜！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FiczOE5KEJun7O3Y89SMnP1YoibiaKBOUTs6R11mFoqZupvXSoiba2fEs6J3hmiccgSoYrhLBES7ibuJavmZEXmW4mA1XDqXibff88uoHH2Stk0kK9A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T11:30:15.000Z\"},{\"id\":\"wxmp:MzU3ODAyMjg4OQ%3D%3D:2247498064:1\",\"title\":\"Linux Kernel IPv4 TCP 释放后使用漏洞（CVE-2026-98432）风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247498064&idx=1&sn=d23553738c20b020a39188ffd9e04e86&chksm=fc5f14aba8d1fec2c911e0348009768ccc27f4603efb85a40e0e6720f0bcfc692694ae81af38&scene=126&sessionid=1795095851#rd\",\"description\":\"Linux Kernel 披露 IPv4 TCP 释放后使用漏洞（CVE-2026-98432），远程攻击者可借带 IP 选项的特制数据包触发内核内存破坏。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skjkNNgQnpe2cfJlRkGVhqaNlNPXbgD7WoXZI6w0bL9wkXpxBWbiccJurAW3SnSKlJLz9uJtkYicKSbDkb3cIyqxMKmBHZ4I8wd7s%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T03:21:21.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1768,
+      "elapsed_ms": 5797,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -124,44 +125,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1761
+          "started_ms": 8,
+          "duration_ms": 5789
         },
         {
           "name": "输出读取与校验",
-          "started_ms": 1768,
+          "started_ms": 5797,
           "duration_ms": 0
         },
         {
           "name": "执行日志收集",
-          "started_ms": 1768,
+          "started_ms": 5797,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1768,
+          "started_ms": 5797,
           "duration_ms": 0
         },
         {
           "name": "浏览器状态保存",
-          "started_ms": 1768,
+          "started_ms": 5797,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1768,
+          "started_ms": 5797,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1755
+          "started_ms": 11,
+          "duration_ms": 5783
         }
       ]
     }

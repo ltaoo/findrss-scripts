@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:14:15.897Z",
+  "checked_at": "2026-11-19T13:42:55.633Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_5331cb469b82",
     "name": "丁爸 情报分析师的工具箱",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_5331cb469b82.json",
-    "duration_ms": 1406
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10033
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 7029
+    "status": 502,
+    "duration_ms": 10023
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 7010,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -74,17 +70,15 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 6996,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1671,
-          "body_read_ms": 5324,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1340,
+          "body_read_ms": 8662
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_5331cb469b82\",\"title\":\"丁爸 情报分析师的工具箱\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158068&idx=1&sn=e8a0450ed82aa22f2a3e18d25fb69f1f&chksm=f03c7d2e2d4180c68161b0f99a434ec018ae955746e4ccb3b900115f35608bc7b8b170483972&scene=126&sessionid=1795076059#rd\",\"description\":\"每天为大家精选各类情报分析相关的资源、工具、技巧和资讯，努力成为情报分析师必备的工具箱。外挂机器人“小丁丁”还能陪您聊天，给您查航班、查列车、查天气、查酒店、查美食、查股票、回答您的提问等等。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"丁爸 情报分析师的工具箱\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FUGrobmT8GcLqtMLDWHBic3PZ9IicdJxicSLTTBibQicVAuj4AGD0LclNYnTwuHbwWvGlrsVxZCvB2GwE%2F0\",\"updated\":\"2026-11-18T03:25:21.000Z\",\"items\":[{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158068:1\",\"title\":\"【技巧】人工智能赋能开源情报（OSINT）实操指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158068&idx=1&sn=e8a0450ed82aa22f2a3e18d25fb69f1f&chksm=f03c7d2e2d4180c68161b0f99a434ec018ae955746e4ccb3b900115f35608bc7b8b170483972&scene=126&sessionid=1795076059#rd\",\"description\":\"AI 在 OSINT 中的正确定位是放大器，不是替代品。放大器意味着：输入垃圾，输出更多垃圾；输入没有验证的线索，输出看起来更可信的谣言。所以本指南把“验证”放在与“采集”同等重要的位置。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fno8YFGgia2NEboIRFsiczZGic1OKbGhH5sdhdpBKSnKcv8RDkuVTlC85ABZEFT8COYN6dAQgOh2eeMOFb0aQcfaczIeVibiabOtMGfb0ntpkrll4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T03:25:21.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158056:1\",\"title\":\"【开源报告】俄乌战争中的俄罗斯军事情报： 失误、适应与代价（2022–2026）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158056&idx=1&sn=3c18cd4527bd957984b1e20002518c71&chksm=f0cd3b29583a9c3a4c8c119ace205ee1c6ea6f594c9bd864fd23593c89459a1fe4c4165ac8ed&scene=126&sessionid=1795076059#rd\",\"description\":\"俄罗斯军事情报在战术—技术维度完成了战争史上罕见的快速学习，在战略—制度维度（评估独立性、问责、反间谍专业度）改进有限。这一不对称意味着：俄情报对\\\"已知战场\\\"的支撑持续增强，对\\\"未知变量\\\"（对手突然性、领导层偏见、己方制度缺陷）依然脆弱。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NGzMQvbDD13YhLzSmuj3qib4XaykyMWSxWUOyib2dyNMfs4YtJIFSppoeriaILHKgZaeM75yEdwYQvtzbb0zNwvJZKjK987NjQRv0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T03:49:42.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158051:1\",\"title\":\"【资料】最新CIA的情报研究杂志内容介绍\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158051&idx=1&sn=dadacb4c60fc7a13282aee499f28c8e7&chksm=f0e40a60aa515f86fd2512eea777f79d9ab8084439d37763d7bf8b5ee7c1c80874eacd340348&scene=126&sessionid=1795076059#rd\",\"description\":\"今天给大家介绍美国中情局情报研究中心（Center for the Study of Intelligence）主办的专业期刊《Studies in Intelligence》第 70 卷第 3 期（节选版，2026 年 9 月）。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NFDWWdkL6icddxL5cOxNicxUqtNZNfBIp0DAqoZBTy6BUAdvNdjBu7XfkdKC6N0HwCmI42gBJLtF72cia4UB37RAnpCIFKdhdqtAs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T02:36:07.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158046:1\",\"title\":\"【开源技巧】AIS 定位异常船舶挖掘实用指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158046&idx=1&sn=826fdddb9b889819d51060b25068b08f&chksm=f0c1b414c6cfbfb47d40efc1947fec8790a483b2d86329685c95c57482026f86926494b2a9f6&scene=126&sessionid=1795076059#rd\",\"description\":\"AIS 定位异常船舶挖掘实用指南适用对象：海事态势感知分析员、合规与制裁筛查团队、海警/海关情报岗、航运风险尽调人员，以及搭建\\\"暗船\\\"检测流水线的数据工程师。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fno8YFGgia2NEMA2Gt7T52gBAicTrYdXRwiaIWCRrbkkRptu5f29lgoOfgpXWsDIhjCdTPlRt0DxayBdS31D3BmAODsczg7YKyoRr27PDed2Gpg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T08:27:48.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158036:1\",\"title\":\"【开源报告】美军陆军情报条令的历史变迁与未来发展趋势预测（1994—2035）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158036&idx=1&sn=3651e217216ec4072ea3fc48096377b8&chksm=f0a33c5617aab5c1f67863b4bff1c9cdb1a34a09dd73b5f9ec7fcbb63e507f95ed95205288dd&scene=126&sessionid=1795076059#rd\",\"description\":\"美军把情报从一种支援性的作战系统，改写成了一种竞争性的信息能力。1994 年版问的是「情报够不够快」，2008 年版问的是「情报算不算一种作战职能」，2018—2019 年版问的是「在被打击的条件下还能不能拿到情报」，2026 年版问的是「能不能凭情报取得优势」。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NEadw3P5LgAs3AJuO6sMUIwTnUElHGlOyfs0sUm1SZdMI6ZnsPHCu83mHjPCW6lWByibzRp5nHMP50qgLZqDbq77wywXsDsNKIc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T22:30:00.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158022:1\",\"title\":\"【开源报告】美国陆军未来关键发展趋势深度研究\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158022&idx=1&sn=3ca49a8fe907a4b2f22525a4fd7d273a&chksm=f0890e25b491161b5504d82ab9fb4a0e4801092f6c9bfcbfbe608e6e9cc5c736275562d5b266&scene=126&sessionid=1795076059#rd\",\"description\":\"本地文献的时间跨度约为 2022 年至 2026 年 10 月，恰好覆盖美国陆军从「2030 年陆军」（Army 2030）现代化构想，转向 2025 年政治驱动的「全面转型」、再到 2026 年制度化落地与国会审议的完整窗口。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NENWy9Rky6oM3mmWib8VTibIjljrWMpIAZmWRPaEVvKuSguBXr1kibiafOibaWNBAEET8ZNOguXicWuwf6mxAxhcHktvR9WZGuib1ss7E%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T04:59:22.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158011:1\",\"title\":\"【开源报告】气象与气候对战争进程的影响-俄乌战争等为例\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158011&idx=1&sn=e6ea1d7ea2a62b7c703f3e4a31536c05&chksm=f03b22965755fc1399277b70f06d2e7702176e90b3442ab736368ad9421a2df7191cfd0d356a&scene=126&sessionid=1795076059#rd\",\"description\":\"泥泞道路严重限制了坦克、火炮等重型机械化部队的越野机动能力，迫使交战双方往往只能沿着铺设好的硬质公路推进，从而减缓了大规模装甲攻势的步伐。严冬时节土壤冻结变硬，能够承受重型车辆的通行，在一定程度上为机械化部队提供快速机动的条件。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NGsNB1dxhSbShcGAic2wrcTX5pA9FzWcts0SiaLbbSGmYo6vulEPwpo7PbrlXeAWyb99iciae8KKmGzjDv3zy4KnzibaZ5RGXiajsYsc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T14:00:02.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651158011:2\",\"title\":\"【会议】COSINT 2026 议程抢先看\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651158011&idx=2&sn=52cff2b917c79e07ac2d0881d78bf7b7&chksm=f049931e1f10a80f99627428a9fb85cc556f510ceb818293565dfb03b99fbd2875daf349e677&scene=126&sessionid=1795076059#rd\",\"description\":\"第六届全国开源情报技术大会（COSINT 2026）2026 年 11 月 13—15 日　·　贵州 · 贵阳\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fno8YFGgia2NHf82bmK0QRkUgaheCpUbbQeIVCnBojyBMlYy1jQ0rrWsZqLSY7YzqBtDvBnzKOYKHusacUbcn784rEVl6dllE5niaTKc7xOwDI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T14:00:02.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651157996:1\",\"title\":\"【会议】COSINT 2026 议程抢先看\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651157996&idx=1&sn=e2044be7d1578483afa910310d6292f5&chksm=f06d43378667901859c0d3c39770124a8b9077f96e621fe226fb3d1a1ab4ce6375eb07be007c&scene=126&sessionid=1795076059#rd\",\"description\":\"全国开源情报技术大会由中国中文信息学会开源情报技术专业委员会主办，聚焦开源情报领域的理论研究、技术创新与实践应用，致力于推动开源情报采集、智能分析、风险研判与安全治理等领域的学术交流和技术发展，为政产学研用各界搭建高水平的交流合作平台。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NF8gp4GBiaYmY2NnlZqypxo2ATtVP2GrhpShTQ0gs3EvFH4gNBaGqZj7F1tHdFP4HSDn62LPwSU5o6ibom4aicVpoicmwdnhMFFHXA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T03:03:35.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651157996:2\",\"title\":\"【喜报】第四届全国大学生开源情报数据采集与分析大赛获奖名单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651157996&idx=2&sn=862ebbcf8a0b06480033b3189179bfe3&chksm=f08b57b5a43b41d28f3e4927c255790f15804f3dbb9a57f3e9d7a025e7c2bb496fad5e5e7603&scene=126&sessionid=1795076059#rd\",\"description\":\"本届赛事共吸引来自全国85所院校的285支队伍报名参赛，最终有220支队伍在规定时间内成功提交作品。经过三轮初级挑战和一轮终极挑战的激烈角逐，共有134支队伍凭借优异表现荣获奖项，其中领航创新团队22支、精锐创新团队44支、新锐创新团队68支。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NFohkgbdcxeJ89DGxxLTZZiayQsTAibUia5RhsNoicc3TLqasV7JWnZias2ibFwpN5wS3xZ4mVs4bIsGCpk55LvdfYFgtM8vBBJicqfPg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T03:03:35.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651157976:1\",\"title\":\"【开源报告】美国国家叙事情报中心深度调研\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651157976&idx=1&sn=1f5d360eb5929dfe5423b72b66168ff7&chksm=f03fff758b6403bafda3fb9b2e83672ea130ace6a732fd40ddfd7f63081fa3f2ee221dc8be90&scene=126&sessionid=1795076059#rd\",\"description\":\"国家叙事情报中心（NCNI，The National Center for Narrative Intelligence）是一个成立于 2023 年的美国机构，自称是\\\"美国在理解与塑造信息如何影响认知、决策与安全方面的枢纽\\\"，通过政府、产业、学术界及盟友专家网络开展工作。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NGlvnlZaIEJBzycT0OZzePPH2MicEIFNN9F7FMXF096hEWoqnDTN7pFibaSc7gkUak0g3Onuyp0sB0x0uOdHTWODHvklFxUamOtU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T05:56:10.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651157969:1\",\"title\":\"【工具】OSINT信息服务平台使用指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651157969&idx=1&sn=3279a5398b09dfceb18ece896fd9f23e&chksm=f0ea90a8c434046bdcc3cbbfbc229f7cc9e2554c5ec5bbab4df6e6bad358cb00491280a7a621&scene=126&sessionid=1795076059#rd\",\"description\":\"OSINT 信息服务平台 · 产品指南看见全球动态 读懂关键变化情报资讯 × 日报中心从发现线索，到积累研究成果。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NEKHFhbEmWXYZslFVdAKbRuVvokJ2JqhicyriaJ3XDBN5kH8r138ASGWc75viaErEVghYoGF1ts6eD5C9D4eicTw4W8I3HPexvTRq0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T15:54:46.000Z\"},{\"id\":\"wxmp:MzI2MTE0NTE3Mw%3D%3D:2651157969:2\",\"title\":\"【资料】近期认知战专题文献汇总分析报告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651157969&idx=2&sn=8cb1ef4f0360504b9eee1e9427a8db96&chksm=f0921c2f1d3ca8f1975f9a4482b333a9cb552190b55dc719e57fa89b938532a8f09ad21a6e46&scene=126&sessionid=1795076059#rd\",\"description\":\"今天给大家分析9份近期发布的认知战相关文献，逐篇内容解析与跨文档主题归纳。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fno8YFGgia2NFyEZ94ydPUCwuZXRfSze7g4I67w6fSIvPiciaSLdPTMl3rAcWWf1AkiaiaIbgxOrIUvGOdl3SvwVniblc4iasib6cOxRvAAvlKyeg6hI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T15:54:46.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 7010,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -129,39 +123,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 7003
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 7010,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 7010,
+          "name": "错误诊断收集",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 7010,
-          "duration_ms": 0
+          "started_ms": 10012,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 7010,
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 7010,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 6997
+          "started_ms": 10,
+          "duration_ms": 10002
         }
       ]
     }

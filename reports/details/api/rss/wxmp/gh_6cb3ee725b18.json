@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:15:31.742Z",
+  "checked_at": "2026-11-19T13:47:40.061Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_6cb3ee725b18",
     "name": "吴鲁加",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_6cb3ee725b18.json",
-    "duration_ms": 1950
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10017
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1611
+    "status": 502,
+    "duration_ms": 10022
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1605,
+    "phase": "runtime",
+    "elapsed_ms": 10015,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,18 +69,16 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 1591,
+        "started_ms": 11,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1202,
-          "body_read_ms": 387,
-          "decode_and_transfer_ms": 2
+          "response_ms": 2281,
+          "body_read_ms": 7721
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_6cb3ee725b18\",\"title\":\"吴鲁加\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486349&idx=1&sn=85a2d91588cc3dbf1efc60e3466d36c4&chksm=c10ceb5f07b5657d46739a35184645724f823163e6ea884feb829ca29d066b3f4a634858a3cb&scene=126&sessionid=1795076135#rd\",\"description\":\"创业者。创业产品知识星球。喜欢阅读、产品、拍摄、写作。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"吴鲁加\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4lZEe3UOGuCgY3OFfRNZ2Fb7CxKCdVJ1yUf2fbBTSJ1A%2F0\",\"updated\":\"2026-11-16T00:11:00.000Z\",\"items\":[{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486349:1\",\"title\":\"写书的过程\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486349&idx=1&sn=85a2d91588cc3dbf1efc60e3466d36c4&chksm=c10ceb5f07b5657d46739a35184645724f823163e6ea884feb829ca29d066b3f4a634858a3cb&scene=126&sessionid=1795076135#rd\",\"description\":\"《夹缝生长》发出来后，有好几位朋友问我是怎么忙里偷闲见缝插针完成的这本书，以及花了多长时间？\\n这事说起来简单\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhsU97iaUqiahjeCibYe1ozt7WnKKrTcWCE7EfiaGEDQGY2wWAFHx800ySOicJMOPibIFt7uK7RlbnGdfgdC06nCMBAN2jl5EdpG69tno%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T00:11:00.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486343:1\",\"title\":\"创业笔记 973：不可忽视的网络安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486343&idx=1&sn=7f66f440f55d4a24f21c9901ba232ca4&chksm=c19f88df1af862c36e8c1cce1a0fab736948e811a99e20d5ef4de7334af2031529af8f91991a&scene=126&sessionid=1795076135#rd\",\"description\":\"明天要给同事讲信息安全，昨晚跟 xfocus 几个老友小聚，聊下来越聊越觉得，现在企业被攻击真不冤。\\n\\n漏洞和攻击都在大爆发。AI 写利用程序太快，厂商根本来不及修；攻击门槛也降下来了，借助 AI 渗透智能体，谁都能发起有效攻击。最扎心的是攻防成本不对称——白帽黑客报个漏洞，token 才花 20 块；企业内部走完验证、修复、部署的闭环，成本是对方的数万倍。\\n\\n内部还有两个雷：一是大量 AI 生成的代码没经过验证；二是传统安全架构像“跨过一座山就是一马平川”，单点被突破就会大范围沦陷。那些多年积累的老业务，以前看着虚假安全，现在碰上 AI 攻击，直接成了大筛子。\\n\\n针对小团队怎么搞，大家给的建议很实在：先盘点核心资产，别蒙着眼睛打仗。线上系统得建资产库、做访问控制、主机保护和日志审计。敏感信息必须加密存储——要假定防御总有漏洞，迟早会被拖库。还得用 AI Agent 做代码审查，定期外部扫描，备份恢复也得备着。\\n\\n非技术层面，建议每季度搞个“安全日”，停下来对照清单查疏漏，顺便演练下应急响应。\",\"content\":\"<p>明天要给同事讲信息安全，昨晚跟 xfocus 几个老友小聚，聊下来越聊越觉得，现在企业被攻击真不冤。<br /><br />漏洞和攻击都在大爆发。AI 写利用程序太快，厂商根本来不及修；攻击门槛也降下来了，借助 AI 渗透智能体，谁都能发起有效攻击。最扎心的是攻防成本不对称——白帽黑客报个漏洞，token 才花 20 块；企业内部走完验证、修复、部署的闭环，成本是对方的数万倍。<br /><br />内部还有两个雷：一是大量 AI 生成的代码没经过验证；二是传统安全架构像“跨过一座山就是一马平川”，单点被突破就会大范围沦陷。那些多年积累的老业务，以前看着虚假安全，现在碰上 AI 攻击，直接成了大筛子。<br /><br />针对小团队怎么搞，大家给的建议很实在：先盘点核心资产，别蒙着眼睛打仗。线上系统得建资产库、做访问控制、主机保护和日志审计。敏感信息必须加密存储——要假定防御总有漏洞，迟早会被拖库。还得用 AI Agent 做代码审查，定期外部扫描，备份恢复也得备着。<br /><br />非技术层面，建议每季度搞个“安全日”，停下来对照清单查疏漏，顺便演练下应急响应。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhvcjlxaiantHeqbtypCYFBa9qic4kEjCKnr1hypMt55qdbClmib6F2JFzMRiaXoHYqibzj8R8IQFOic496icr7pNibQeTUHKLmpUkQBia08%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhsicarJa9vHNZeMXZ3dKsJwmDGjrENUc5GuntHxZrxad94q514khVpNdjsz70dnaBzicicFFZbgnS0ibJNmmutw13QpOJ24Vej8ZUA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhvcjlxaiantHeqbtypCYFBa9qic4kEjCKnr1hypMt55qdbClmib6F2JFzMRiaXoHYqibzj8R8IQFOic496icr7pNibQeTUHKLmpUkQBia08%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-15T03:32:12.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247485879:1\",\"title\":\"一边敲敲，一边公益\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247485879&idx=1&sn=6aeb55d031b371232464e83f28e34296&chksm=c152040998d1699aa5e15bc27193b405ffbaf96331c31f24d7087c136be3a4947b6f569559d9&scene=126&sessionid=1795076135#rd\",\"description\":\"敲敲与腾讯公益合作，你用敲敲养成好习惯，顺便支持公益。\\n\\n产品目前体验下来还比较丝滑，完成当周的打卡目标后，左上角会有“可捐赠”字样的小红花，点进去就能操作了。\\n\\n捐完之后，可以在微信里带上小红花。\\n\\n捐款的钱由敲敲团队支付，祝大家新年大吉🎉\",\"content\":\"<p>敲敲与腾讯公益合作，你用敲敲养成好习惯，顺便支持公益。<br /><br />产品目前体验下来还比较丝滑，完成当周的打卡目标后，左上角会有“可捐赠”字样的小红花，点进去就能操作了。<br /><br />捐完之后，可以在微信里带上小红花。<br /><br />捐款的钱由敲敲团队支付，祝大家新年大吉🎉</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhsv33k7hicPp3YkObSCy8OoeRkgRmw3VxZ1IjDJVqoBowSKiaDTF9vr8sDoOnsN2o2zIMq2DrJFNrUOaEeiaBRjctLnlzy7gZGXQA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhtPT5IX40kXUGRsiap00WQb46YJz9ICf9sn0iavEyT8KvIu0cHOrlvlCOZYH6tQGYuPiaicgic6icibQgaSy30hIOAsVU07tX8wEKV5ko%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhuGBjmZusVhd4muMgHI1D4YDnNfzUaWIBFEUr8zBpXqxQpSD4Nld7MKevzELUibH7dChCiaWFBVRXaDtfoU91AiagMTxvvoGMhZoU%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhsS8sbcWqA9RASGMPNF2OGU1WaNAoo0Z8yTbgVf0bXOgFJlYd9Oehfuz4hRzD7aJDtInDxL0D1PiaKB0Ilbl1K2zAtNmqJyqktU%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhsFhTeVEehbbkjIl2ZXbvTz7mtafFFTUDEjBxQKpDDceWDuRcMnygO10iaWRZ6PtpM24xFU6fgGZNAiauuGYJCl0nYNNRfibLNR9o%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhuZkcj782qux2wJ9EE6qzJ9Go2nNCiafk5Rq8bJbQ4VOdLNvF8VSbQBrpdx8ZeiaHRwwE0Ue4NU7YDyOwMz4Jc0F1bibzxPOSiaCMk%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhvPqWu6JFU1I7z3dqHbOlASoS0OTorVt5dmXz1U9Tc1EXSQkzuDdDkKma0y04ziaRcTMRE0vo1s6PUlF4u0U30NlGrS7ENtmdWE%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhs3ndyJiaHlIckw2wfEvrwCJNPGthdhmrnERPtTnrtL2cepHbkqsKuX2bjj2BiaPBm0d4PQyZJQZe7YGxTiaBwhtMjTfQzNwubDoQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhtkaD7k47oM4TOj9KjYqACjJibef5uYXh1aCBIEw6gsOyX7GZTddhPRFTdr7Cb3wtNeMzknmzehIicgHdBCwa2aCY4lvx8z2ayia4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhsv33k7hicPp3YkObSCy8OoeRkgRmw3VxZ1IjDJVqoBowSKiaDTF9vr8sDoOnsN2o2zIMq2DrJFNrUOaEeiaBRjctLnlzy7gZGXQA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhtPT5IX40kXUGRsiap00WQb46YJz9ICf9sn0iavEyT8KvIu0cHOrlvlCOZYH6tQGYuPiaicgic6icibQgaSy30hIOAsVU07tX8wEKV5ko%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhuGBjmZusVhd4muMgHI1D4YDnNfzUaWIBFEUr8zBpXqxQpSD4Nld7MKevzELUibH7dChCiaWFBVRXaDtfoU91AiagMTxvvoGMhZoU%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhsS8sbcWqA9RASGMPNF2OGU1WaNAoo0Z8yTbgVf0bXOgFJlYd9Oehfuz4hRzD7aJDtInDxL0D1PiaKB0Ilbl1K2zAtNmqJyqktU%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhsFhTeVEehbbkjIl2ZXbvTz7mtafFFTUDEjBxQKpDDceWDuRcMnygO10iaWRZ6PtpM24xFU6fgGZNAiauuGYJCl0nYNNRfibLNR9o%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhuZkcj782qux2wJ9EE6qzJ9Go2nNCiafk5Rq8bJbQ4VOdLNvF8VSbQBrpdx8ZeiaHRwwE0Ue4NU7YDyOwMz4Jc0F1bibzxPOSiaCMk%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhvPqWu6JFU1I7z3dqHbOlASoS0OTorVt5dmXz1U9Tc1EXSQkzuDdDkKma0y04ziaRcTMRE0vo1s6PUlF4u0U30NlGrS7ENtmdWE%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhs3ndyJiaHlIckw2wfEvrwCJNPGthdhmrnERPtTnrtL2cepHbkqsKuX2bjj2BiaPBm0d4PQyZJQZe7YGxTiaBwhtMjTfQzNwubDoQ%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-15T03:32:12.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486334:1\",\"title\":\"创业笔记 973：不可忽视的网络安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486334&idx=1&sn=1c8c139223dea30b0656e758b102ad73&chksm=c1113d712b48c80e505ac757118dcc4ee3ed84da2719bbf1fa922316334a09f09d0546b93de7&scene=126&sessionid=1795076135#rd\",\"description\":\"考虑明天跟同事们讲讲信息安全，加上昨晚跟 xfocus 的几位老友小聚，也聊了些安全，稍微记一下大家的讨论。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhuTTohe2ibPkoLDlDNn4QTtHwq4wFYn0Kwdia1PxRe4llQn4qE86gFHviaicDDzvYswc54NQC6AEcgjiaUfJwsyWkUN442TX0OLHe5Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T03:28:04.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486329:1\",\"title\":\"我为什么喜欢用 Cindy\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486329&idx=1&sn=1fcfdb7d0a98059e29b9637f7550be2d&chksm=c18fc5e2f3462dad404c287f45734f69620e0bd24019b62571d5b0af82c5bc26c7fd00ef38f6&scene=126&sessionid=1795076135#rd\",\"description\":\"Cindy 是心动做的 AI Agent 客户端，开源，客户端免费。\\n我 8 月 3 日第一次装上它，试了几\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhsjRrSciaib63T1r2HwpC6GgruGKrqch5LKuL3h75McuMgGt66PDDu9iaBrxqZRE0zibeOFNlibmhQK3L0hOyl6LiaPUd2ia55QW2oGHc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T01:52:16.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486322:1\",\"title\":\"学习也得立个项\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486322&idx=1&sn=79630c6d1d4c30f8668e7f057f8f70a5&chksm=c1b2b06619b42c7c14a14c72653cdad731eff69011ddf8656542f99efd9734a9e55975d06252&scene=126&sessionid=1795076135#rd\",\"description\":\"昨天跟五哥八老师吃饭，他把 Alpa 相机带给我，还拿了 10 卷胶卷。他建议：先想清楚自己要拍什么，认认真\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhuy2b8eMQjGYBI2icW9KKBQZjmyz5n1Hic3RtCB0yVrQibicOSfOFUKwHrtXd1fcQT0wQvDLq0M4qQhNIM52ubXia8siaLib7cmRQS5lg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T03:31:59.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486317:1\",\"title\":\"半桶水\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486317&idx=1&sn=7e868377058e002552a84ce5c05be9fd&chksm=c1168a03b3cdbc63ae8d51d6ed7b35c5e3129b8a683c2dc6466d47bb42216954e46bf418d1b3&scene=126&sessionid=1795076135#rd\",\"description\":\"我的朋友余弦在币安这次安全事件后发 Twitter 说：\\n\\n许多人看了币安披露的被盗过程，觉得其中工程师 A\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhvYuibZh0STCdYMatsjaB8LSicHwbMYx6HbP0HeLoNgt9CbknuWn7HbKd1ZfOtCuDzaLbBnUH507sBDgnlN1O09ealahZ2dvrD0c%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T04:09:19.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486312:1\",\"title\":\"科幻\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486312&idx=1&sn=ddd6fd1d92b7df9d8c7179e57856912a&chksm=c1d871103395cc8fe5a69638071f452f4ec844da33a23009d489075e8692d882bd465c32f96b&scene=126&sessionid=1795076135#rd\",\"description\":\"昨晚和几位老朋友吃饭，一位朋友问：后边还有哪些有机会的方向？\\n我想了想，能源那些我也不懂，于是说了个我觉的有\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhtJWcekjX3KShfJnbibcDLf7fh8rTrUQ3bZxPMJAT4wQf0972IQwhUDkLvA6hgW5tVD6LDskswcVZCNhjRymEiawdkaogDxIB1pY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T01:39:09.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486307:1\",\"title\":\"朋友看了《夹缝生长》后写的推荐\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486307&idx=1&sn=f3a26d09a0cc37bd712f3e83625394a3&chksm=c1f665f8a1587945a3eb65998c3fa570fe0d9826dbb354de7feb365530c35e2c2d5203d50c54&scene=126&sessionid=1795076135#rd\",\"description\":\"写完《夹缝生长》，最初我没什么信心——毕竟第一次写书，请几位师长、朋友看过后，有个评价我很认可：如果砍一半更\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhsZQaF87sAiaSHUicG4KqvLgpZuonk1yCEaL0qS8ibNkVfhjou3sibZcic8c15Jt5QQtDJvpGd3oCndwZzoNqTVaEuK12Fkc8LgGMNM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T13:12:19.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486302:1\",\"title\":\"我看过的一些好文章\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486302&idx=1&sn=51cf55c8d7cd5f6150c095a24486594f&chksm=c16433a51b772e9ee618ecbdbde92ef992b02a8a4143be8788709131ece9a80b851643ee0d92&scene=126&sessionid=1795076135#rd\",\"description\":\"欢迎订阅我的阅读清单——我在稍后阅读里收藏的文章，看过后，觉得还算值得一读的。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhtehVz2yEbLk4oN8EibjjDAIW7Jhe4ps6bkHn6Tn67xCLI8ASjNmSCb4XgpxmBEuRpjpzGOSzR2Bh13yqlHicBnFK65n65MzqNDk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T08:01:27.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486297:1\",\"title\":\"长期价值\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486297&idx=1&sn=a3504d29dbee7baa56e373f591a63eff&chksm=c1f93fa3a9e6308c9aa7754d123943be588b207f46753f2d198a821081fcc301c798e6030c23&scene=126&sessionid=1795076135#rd\",\"description\":\"前两天，有位朋友把我那本小书《夹缝生长：小产品创业实践》买了几十本，分发给了团队里几十位同事，他跟我说\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLQ1Q56tquhvN9ZznKiaf26gUicEPpvZCYRC9Qmgs17CLqTR1QjyicQeXgoibn4EicDJ0lbuoaaZN8vZ4UQSrdt87p8ZO4rEDnlVCn7IeRpJiazdPo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T23:42:43.000Z\"},{\"id\":\"wxmp:Mzg5NDY4ODM1MA%3D%3D:2247486281:1\",\"title\":\"下一代公司会从哪里诞生？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NDY4ODM1MA==&mid=2247486281&idx=1&sn=9fe42fc8497ea15ebbf978005b6a5057&chksm=c189793dba43de590579f659cfb94e03edb2af02ace3de9ec6cdb4b2635c8c680cc99eb16fae&scene=126&sessionid=1795076135#rd\",\"description\":\"做了，爽了，够了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLQ1Q56tquhsJIWLiaCVrdhmTBDCe8pHTYUQhgZBqbqDKBCblNu5aV9HH3IRiclb5dlsLgT9Viaiaq4jX3ZJTkwmGVEMn37gMge0Dmia53vFXiaGMU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T09:04:07.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1605,
+      "elapsed_ms": 10015,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -124,44 +118,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1597
+          "started_ms": 8,
+          "duration_ms": 10006
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1604,
+          "name": "错误诊断收集",
+          "started_ms": 10014,
           "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1604,
-          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1605,
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1605,
+          "name": "失败后浏览器清理",
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1605,
-          "duration_ms": 0
+          "started_ms": 10014,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1591
+          "started_ms": 11,
+          "duration_ms": 10002
         }
       ]
     }

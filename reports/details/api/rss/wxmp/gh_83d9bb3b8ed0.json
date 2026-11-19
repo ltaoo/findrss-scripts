@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:15:11.414Z",
+  "checked_at": "2026-11-19T13:46:18.965Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_83d9bb3b8ed0",
     "name": "美团安全应急响应中心",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_83d9bb3b8ed0.json",
-    "duration_ms": 1719
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10021
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2583
+    "status": 502,
+    "duration_ms": 10019
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2577,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +69,88 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 2564,
+        "started_ms": 10,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1409,
-          "body_read_ms": 1154,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1930,
+          "body_read_ms": 8072
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_83d9bb3b8ed0\",\"title\":\"美团安全应急响应中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494933&idx=1&sn=06d1851a01f87ff15cd9cd464031c733&chksm=ed276e378d035c970c9913143bda01ecdde91cacf9aeb7be789893ed91ec7010317429c5f6f1&scene=126&sessionid=1795076115#rd\",\"description\":\"美团安全应急响应中心官方公众号\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"美团安全应急响应中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4No6FqQCzrOJzFMZzgnhL8oRvfbf2ViazKbqZYp6sxibsQ%2F0\",\"updated\":\"2026-09-22T11:13:16.000Z\",\"items\":[{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494933:1\",\"title\":\"美团SRC关于违规测试行为的警示与规范重申\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494933&idx=1&sn=06d1851a01f87ff15cd9cd464031c733&chksm=ed276e378d035c970c9913143bda01ecdde91cacf9aeb7be789893ed91ec7010317429c5f6f1&scene=126&sessionid=1795076115#rd\",\"description\":\"工具在演进，规范是底线。测试效率可以提升，行为边界不容突破。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FU4qn4v4Hwa5rce6DzFaT67q4aotQ4XLBQvfE83H2PWGjIicTU0mTuCuF0iahdKaYvKxFeTCazUUdNCrT1z77SjmvH8OTgiaSsbzSbKuEVRY34A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-22T11:13:16.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494928:1\",\"title\":\"「每一份漏洞提交，都值得一轮明月——致白帽子的中秋礼」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494928&idx=1&sn=e14bb8a5d054f09f5afd84bd710f0f24&chksm=ed207387f1c24f92e6d8ac7a01935deb0216469401fc09ffd88001f6f0c2a05c9f14775d7b39&scene=126&sessionid=1795076115#rd\",\"description\":\"星河滚烫，月满中秋。感谢每一位白帽子研究者的用心守护——每一份高质量漏洞提交，都是对安全踏实的托举。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FU4qn4v4Hwa4kOdTlWzfPKibq7eElArSubVdZbnEdTic1YzC862S0DRATHrLa0Ca2gMgvfA4NxiaR2Z7TnFWOVKiaywudx0yc92iceiaicYRV5HNVUM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-08T10:00:00.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494896:1\",\"title\":\"美团SRC助力 | 你敢信，他们都来了！HPW白帽世界大会2026全议程发布\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494896&idx=1&sn=5b3d4f7d62a8e7212d9dff1cc4910a45&chksm=edb82901209be5b01950bfb6ec6c830ab3c8215e3e5682ee999d572b1833e7c5296cd3ec1709&scene=126&sessionid=1795076115#rd\",\"description\":\"顶尖AI安全红队亲自传授秘籍，HPW2026，所有议题一次解锁!\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FU4qn4v4Hwa42D4GibibRztge9YjricQiaxODIhFTQZqzDNecxBI5xNrpNTibeTacOq9MnxYb6ibhBynpJrepnqQTOkME5BZUL4EYfNlpjBGT6Dh60%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-06T09:00:00.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494896:2\",\"title\":\"江湖征召令｜美团SRC专测活动进行中\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494896&idx=2&sn=62b64d34eb01c165640ce5b18fc56cf3&chksm=ed8e71f559bfe89760104d4b9539dd12b3ce588b4e70b073c0ac87911dad578c66d1bc773c72&scene=126&sessionid=1795076115#rd\",\"description\":\"活动时间：2026年4月27日 - 5月20日\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FU4qn4v4Hwa7qcxQ0Gznw6oSk1C5uGou7616AyqT9aibbCKQUKF8SdtT8brMIicXKfoHhLGSKcZmINbdClrHffcJpgn6R1cNuMORcIKb7by5NE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-06T09:00:00.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494891:1\",\"title\":\"江湖征召令｜美团SRC专测活动正式开启\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494891&idx=1&sn=15e081c3c53f5ab38a5dd3380e470121&chksm=ed625dc3bcd9a4bb9b312b033b8a707d7f7d355759897b57fbef7780d6dc27411a844b1e43b5&scene=126&sessionid=1795076115#rd\",\"description\":\"活动时间：2026年4月27日 - 5月20日\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FU4qn4v4Hwa7qcxQ0Gznw6oSk1C5uGou7616AyqT9aibbCKQUKF8SdtT8brMIicXKfoHhLGSKcZmINbdClrHffcJpgn6R1cNuMORcIKb7by5NE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-27T02:08:05.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494883:1\",\"title\":\"美团SRC发布｜AI生成漏洞报告提交规范公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494883&idx=1&sn=f6eba6477129792a9c38896caff14be0&chksm=ed4d52e05c4ae3e0338141e13389b36e71db34b0d10b73a95f71e6620e743e23e9e1e8ee0401&scene=126&sessionid=1795076115#rd\",\"description\":\"请白帽师傅们在提交报告时恪守本文规范\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FU4qn4v4Hwa6GK9picicmHjbzRrFRlqDzsRmvIlrTErnRMibGpjVicS81sCnJxRQxScryNvpyIibVUnFHE0DNAH43ubEB8y4S1qXAiapo7ia4n6Lia0Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-24T06:23:14.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494861:1\",\"title\":\"致敬代码背后的守护者，美团SRC 2025年度荣誉答谢\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494861&idx=1&sn=d50a94a54627f3de0db0ce8a06ff598e&chksm=edff00d24786554b9f82d5da92e2857ba4650db25ad73fff9a0d6558c4f6d989ae2ff70f46cf&scene=126&sessionid=1795076115#rd\",\"description\":\"一份关于技术与荣誉的年度总结\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6tKK4bYDvym39KGib1Xib819f7ymAQwGKFRPkIGejNEexTyEJAxzEDRT6aibxFzoPicLTmWQ0Mg0qVhLIxbL1cn7PQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-22T11:21:16.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247494835:1\",\"title\":\"热招｜美团安全邀你共赴新征途！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247494835&idx=1&sn=c20429c5049a31399fed6b33469f0f4d&chksm=eda638dd42ebd9251b685765012e15551f9e62f388fb94217ae53f12cf54fa0d2514c8dc1f1f&scene=126&sessionid=1795076115#rd\",\"description\":\"欢迎你的加入，让我们奔赴热爱，无畏山海，共筑安全长城。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6tKK4bYDvykteiaJ09bAN3cygX6epic7jicoCiaFQbPa2syEyDdscgoRt7YUO12vgKAqJPwOcatKI1BFavUhDSo2Iw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-11T04:18:25.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247493937:1\",\"title\":\"活动｜秋日“挖洞”季，邀您来测！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247493937&idx=1&sn=4a134bd3c3e16a0177d3b7ccc56aee2f&chksm=edb26bf03ad7a11c6be9f03a3e1140f4562ba554b6855802963fdff5638cd974b91f224770e9&scene=126&sessionid=1795076115#rd\",\"description\":\"内含中秋礼品福利！请及时更新平台默认收货地址哦！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6tKK4bYDvyn0xP6d0cFRxuTGZX6PYcRQ1yg9RmOoicUVpnhUyT5SYXEms3JyicFRPWo5bLAXiceVAU6FoRbQyDygw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-24T10:36:42.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247493924:1\",\"title\":\"活动｜Keeta安全专测英雄帖：邀您洞见非凡，守护新域！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247493924&idx=1&sn=0e8ab3b3a2af4d1b20e62b31fb82ccc2&chksm=ed96110dac4eb01a288f7a3ba3c24d3f6bca8ab155843fa05301200c6e643b8ea05877928e01&scene=126&sessionid=1795076115#rd\",\"description\":\"活动时间：2025年8月22日-9月5日\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6tKK4bYDvykicqE3VMMB6sLX0T0LGJN3lqwLvKplXhNK72MDNZuOUJuWhPenNO323DoYoeyrmPicRgxEsYnAjetg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-21T10:30:00.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247493924:2\",\"title\":\"美团安全应急响应中心漏洞测试高压线V2.0\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247493924&idx=2&sn=af01328cacbe1fb5c29a08e52a26457a&chksm=eda337736c93928c8107835daa2d2193967e240778777c2f7d46d46900452468b44366b4dc6d&scene=126&sessionid=1795076115#rd\",\"description\":\"为帮助所有白帽子在美团SRC测试过程中规避违规风险，保护平台和白帽子的安全和利益，确保平台漏洞奖励机制得以良性运作，美团安全应急响应中心发布《漏洞测试高压线V2.0》。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6tKK4bYDvykicqE3VMMB6sLX0T0LGJN3lH7AMJ1hlgtkSxvNBkZWibJ5ic4Pl2caLgBkCf3FlIVYeQiaibjwa1mdePg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-21T10:30:00.000Z\"},{\"id\":\"wxmp:MzI5MDc4MTM3Mg%3D%3D:2247493903:1\",\"title\":\"筑牢AI防线，大模型安全专测活动已开启！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MDc4MTM3Mg==&mid=2247493903&idx=1&sn=1c69a453dfe76bcd593df539dda3c6a6&chksm=ed22263ad5059b9791e49a106208eba7f2b484be158e0344131adc19194214ce8ed9c79d1fdd&scene=126&sessionid=1795076115#rd\",\"description\":\"活动时间：6月9日-6月22日\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6tKK4bYDvynzB9Bscrgmb0ia4Iibq8O8ic7iaoM5VCSd5sBgpvia6HVkicsLff0WJ1RkBoysxHVh5Mea4jeD4ZtjfWCw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-09T02:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2577,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 2570
+          "started_ms": 7,
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2576,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2576,
+          "name": "错误诊断收集",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2576,
+          "started_ms": 10012,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2577,
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2577,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 2564
+          "started_ms": 10,
+          "duration_ms": 10002
         }
       ]
     }

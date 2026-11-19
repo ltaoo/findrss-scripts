@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:16:04.900Z",
+  "checked_at": "2026-11-19T13:49:52.747Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_17333ccf230e.json",
-    "duration_ms": 1296
+    "duration_ms": 9398
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1911
+    "status": 502,
+    "duration_ms": 10020
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +48,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1906,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,18 +68,16 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1893,
+        "started_ms": 11,
+        "duration_ms": 10001,
         "timings": {
-          "response_ms": 1890,
-          "body_read_ms": 2,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1585,
+          "body_read_ms": 8416
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_17333ccf230e\",\"title\":\"莫言读书会\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495741&idx=1&sn=cf75943b5662f1a442be05acb90a3598&chksm=fac1a7cf9d3d669a8838f5472027867caa1758558e15e2555f4d30df8adecbba52a60674944b&scene=126&sessionid=1795076168#rd\",\"description\":\"本公号定期推送莫言先生授权作品，并开展作品解读、读者交流等活动。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"莫言读书会\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7FYQvaFQoVXEnbDHTsickq8XCHrsx0vxETEvhYCX7LzCg%2F0\",\"updated\":\"2026-11-14T10:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495741:1\",\"title\":\"莫言：河是文明与文化的源头，当然也是文学的源头\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495741&idx=1&sn=cf75943b5662f1a442be05acb90a3598&chksm=fac1a7cf9d3d669a8838f5472027867caa1758558e15e2555f4d30df8adecbba52a60674944b&scene=126&sessionid=1795076168#rd\",\"description\":\"河流与文学\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/Bjyp5ukJQq6FhrUKRFzB2ujV4mclyicbdhR1E8iauYZeNkdkK6bayCcIibbA3NuudgjTzQkLEZTptopW0US0teyhdR6QwlR6PKeQnibCBGz1Vibc/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-11-14T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495736:1\",\"title\":\"莫言：高明的作家都有一个强大的“本我”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495736&idx=1&sn=82335ffef2cb51b9e2524172c376c21a&chksm=faf63bdcb80bdbc52e673df1642f241adcb267e3cd9932ce1103439f360a23b926175caee4e1&scene=126&sessionid=1795076168#rd\",\"description\":\"我们要学习和借鉴的是属于艺术的共通性的东西，我们要赋予的，是属于艺术个性的东西。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq4kNx1ibvaL1fyMpgH0N8Thaic47iccpxOP1WGf504zl0E7Lsz9DN2o55pXPyX3EYQB0gywvHfvKomhxZ5ykVTqt9IBpcWA0S5GIk/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-11-07T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495731:1\",\"title\":\"莫言《民间音乐》| 这声音来自无比深厚凝重的莽莽大地\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495731&idx=1&sn=911ad18de5da2b56a551f14be0f5da55&chksm=faa5f9a8e65e02bb6dba49816f54565d9c85a8e590591b7f1733c6541fedd1709c923f85568a&scene=126&sessionid=1795076168#rd\",\"description\":\"莫言《民间音乐》\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq6VKJYLfWjXY8MpC1xC3k3a6Q3UyJa4RvnW2mMiaCmHD5dXOwFxHcDopEg1C7lWR45FFNAOG82pzZ1JF1BwklicaPexR99ujicv54/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-26T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495725:1\",\"title\":\"莫言：我几乎尝遍了田野里的百草百虫\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495725&idx=1&sn=ebfb144df22da593680f813d065c86b3&chksm=facf56c688d0947c047a9f39b80d2e00b95747c9766e10973e8fd44d007b672d255f13a35078&scene=126&sessionid=1795076168#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq7HR66JbI5eE3uJQDHPQOk87BvLoIicDsol30P9ibWFBRvxDM0ib6GaYFgDFsjbuWbzVEFpibR0r445NdENEuZpPBeDrHYCnQojHgQ/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-17T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495717:1\",\"title\":\"莫言：我只是把古人和现代人之间的障碍拆除了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495717&idx=1&sn=4f15ef01692c9b5e3c0f63422bd8fdf9&chksm=fa644ef4483c7aae73bc5a9abaad63c8ca16e01e2cf956186b0391b34bb6d3a96e51297a238a&scene=126&sessionid=1795076168#rd\",\"description\":\"我想，所谓古人，从根本上看，跟我们没有什么差别。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq7OKrqtxxOpd4KhniaJdKjwv4OZRlDJbJOmCMWicIA95FNfWlzQmibaoicjOfkibQrByJHvwX2WiclVmUI41V3FGEumw8a22s17UXElo/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-11T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495711:1\",\"title\":\"莫言：中秋无论在哪里，都是最美好的季节\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495711&idx=1&sn=34936a8bc6f889fe1cfcfee08d5d2425&chksm=fa8db72eb64f6173239195ee13f4bfb196fba04d59572da5a4904f2c7aa5454763d6b9a053e6&scene=126&sessionid=1795076168#rd\",\"description\":\"《红高粱家族》里的中秋故事\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FWABzkcB6pUgs1SjCTvdyHSxya1JtV8uT9ibCzleAwYTNAqbEgV2HrfMeeD6mY7pQNdTlEe9VDMYSicpjxp4mm9Pg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-25T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495710:1\",\"title\":\"读书就是读自己 | 莫言的阅读笔记\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495710&idx=1&sn=4e647fd53b7e52dc9452f11751c1b79c&chksm=fa457565c3a081551b72b6a14447d58ccd073b3afd063936a5ef052ee5af7613c2871616fd4e&scene=126&sessionid=1795076168#rd\",\"description\":\"阅读这样的作品，了解自我，理解他人\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq42v3YQUmHicRJ4bSLQDxaa2cMJQeADbqfcOj7YR2UUk5DicyLcTAa7ql8UdEjP0ic8HUAWhibicOnwRloLc2I1UN7Zoe2m9nYqdGWo/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-12T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495703:1\",\"title\":\"莫言：这道墙是由几十万只酒瓶子砌成，瓶口一律向着北\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495703&idx=1&sn=6c7495a498dbc5d093b69dbea921dd2c&chksm=fa7aa1daa21aeb96b80c6fa6b3f3f7d89afd687b86b71801bdb3d39097742666c69dd106d4be&scene=126&sessionid=1795076168#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq6lxwvUAmN2XuvKNx3VRqT2zBL5FjbOrEwybW2Zrpy4doG3TL2NvTQnUk2nBrribUYo8HPhwqlyf1TbTdd5jFm7uzrGiayyv6bFU/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-05T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495696:1\",\"title\":\"莫言：鲁迅最好的小说\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495696&idx=1&sn=bd9ea27b92dd940616fa0ae776e60f1b&chksm=fa21ea2922b210938d666d02f7c536304e0c4f086b888a69a08d409d98f2a929096e3a00ed35&scene=126&sessionid=1795076168#rd\",\"description\":\"月光如水照缁衣——读鲁迅的《铸剑》\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq6rgBLfdTheLUUNQnOms6UWiaHiahVJHptSgzVlo79GeoQahz098rvwsAB7vfQoQiaZfxTjEnV5gicevxUNoibQ1K2EibdjhZ7MOgMbs/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-08-29T10:00:00.000Z\"},{\"id\":\"wxmp:MzU0MDk5NTI3OA%3D%3D:2247495691:1\",\"title\":\"莫言：奥德修斯，我们知道了您今后的命运\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0MDk5NTI3OA==&mid=2247495691&idx=1&sn=05bcc1b1a64d62b8479cd85dedf5bdf4&chksm=fa99bdb87dd8ccb8a80771fc22ffcb2e3cb109ffa10cdb8d84ab5e99ab820edf24529b9b9944&scene=126&sessionid=1795076168#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/Bjyp5ukJQq7cXldiaTokffm3ztj5hxib5Uia4rwIUJ2XjKRrry4SoFkjLRXVMFwusQ7gicUFCcbWC3hfNl02Re4wWwQ75Gdz45NibToLdOrCbE1s/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-08-15T10:38:13.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1906,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -124,44 +117,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1899
+          "started_ms": 8,
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1906,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1906,
+          "name": "错误诊断收集",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1906,
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1906,
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1906,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1894
+          "started_ms": 11,
+          "duration_ms": 10001
         }
       ]
     }

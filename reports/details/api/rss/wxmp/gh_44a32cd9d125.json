@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:14:10.753Z",
+  "checked_at": "2026-11-19T13:42:33.893Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_44a32cd9d125",
     "name": "白帽100安全攻防实验室",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_44a32cd9d125.json",
-    "duration_ms": 1474
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10024
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1339
+    "status": 502,
+    "duration_ms": 10028
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1332,
+    "phase": "runtime",
+    "elapsed_ms": 10015,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,18 +69,16 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1317,
+        "started_ms": 11,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1315,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1877,
+          "body_read_ms": 8125
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_44a32cd9d125\",\"title\":\"白帽100安全攻防实验室\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515500&idx=1&sn=cd6f64fd4b6b6d9f10d2c24af4a88df4&chksm=962e791cca506d57e7f861854dd33331a9024339ce8da9e455199292bbf6f58463cd22b7c923&scene=126&sessionid=1795076054#rd\",\"description\":\"分享技术文章，做点我们能做的事   官网：www.whitecap100.org  DC0571：defcon.whitecap100.org   白帽100团队\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"白帽100安全攻防实验室\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5AOaoGP1T9nibpFRKgq5LsXXDibVc7trhIG9cdUjX3ceiaA%2F0\",\"updated\":\"2026-09-25T10:36:02.000Z\",\"items\":[{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515500:1\",\"title\":\"白帽100安全攻防实验室祝您中秋快乐\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515500&idx=1&sn=cd6f64fd4b6b6d9f10d2c24af4a88df4&chksm=962e791cca506d57e7f861854dd33331a9024339ce8da9e455199292bbf6f58463cd22b7c923&scene=126&sessionid=1795076054#rd\",\"description\":\"月满中秋，安全相伴\\n\\n白帽100安全攻防实验室 祝您中秋安康\",\"content\":\"<p>月满中秋，安全相伴<br /><br />白帽100安全攻防实验室 祝您中秋安康</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FdS3TeHzf2N7mZFV62SLUEfkv908NdNjWaUHk5KNHW44amhzSACoXAxc4RmUOSnd0qh9HmvJ89fRdYxKxMkPPqkrIjz5P6uOYI2UPa0IQ1ibw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FdS3TeHzf2N60zDowbg6qFBiaHBCSXc7PyoXfLdbGALcfg1OQxSWibLRibS2ElIDN7zS4qugusPBT9niamicKQiaHw22j9JrFyExcGZNJt3wAeDDRk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FdS3TeHzf2N7mZFV62SLUEfkv908NdNjWaUHk5KNHW44amhzSACoXAxc4RmUOSnd0qh9HmvJ89fRdYxKxMkPPqkrIjz5P6uOYI2UPa0IQ1ibw%2F0\"],\"type\":\"gallery\",\"published\":\"2026-09-25T10:36:02.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515465:1\",\"title\":\"VNCTF 2026 报名开启\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515465&idx=1&sn=4164a3b10ec02b6e586666b30f42d720&chksm=96ad36b2b6d019badb4c22087530480ea872ae4131e5bc6ced7b724d472f9a09915973a46a42&scene=126&sessionid=1795076054#rd\",\"description\":\"时间：2026.1.31 10:00 - 2026.2.1 10:00\\n比赛地址：https://vnctf.vnteam.cn\\n比赛qq群：717513199\\n难度：简单，面向大一大二CTF选手\",\"content\":\"<p>时间：2026.1.31 10:00 - 2026.2.1 10:00<br />比赛地址：https://vnctf.vnteam.cn<br />比赛qq群：717513199<br />难度：简单，面向大一大二CTF选手</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvians67rXq9hGdVQrK1YKK5PfDNYAZveh9UsMx3hB27F4V6AD360ibYPOQjep5U53rU9yejvhI7mSA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvians67rXq9hGdVQrK1YKK5wcCY6beqoiaCuviasZ2ftzeiclTVTSMBXVPeTQibp91WUQqawLDuaCE5fw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvians67rXq9hGdVQrK1YKK5PfDNYAZveh9UsMx3hB27F4V6AD360ibYPOQjep5U53rU9yejvhI7mSA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvians67rXq9hGdVQrK1YKK5PfDNYAZveh9UsMx3hB27F4V6AD360ibYPOQjep5U53rU9yejvhI7mSA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvians67rXq9hGdVQrK1YKK5wcCY6beqoiaCuviasZ2ftzeiclTVTSMBXVPeTQibp91WUQqawLDuaCE5fw%2F0\"],\"type\":\"gallery\",\"published\":\"2026-09-25T10:36:02.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515494:1\",\"title\":\"别了，人工驱动的世界。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515494&idx=1&sn=c9a0bb51366c74f6cf52365eb6cfd33f&chksm=96c39cbac8564d9f35ab1db0f657127fc3f6a0d462dedd71795af21d4e5169c06dd5f73200cd&scene=126&sessionid=1795076054#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdS3TeHzf2N7l0gicUOOz7Vyb7XDc3JvpYW66XqjNRpaT3SZDgZr5s7RjpoGaWfOdzhIPds483wXPBZNCnicPDElQxO8m5w0Sqkxm4QYXNxru8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-22T02:00:00.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515488:1\",\"title\":\"MongoBleed 供应链攻击逆向分析报告（详细版）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515488&idx=1&sn=5cae19817531182237bba95dbca9314c&chksm=9638e24568de7357a25c8e548fc38bd55e33b6cbf0655a3a2af3e89996aa8ad97bc095ce7641&scene=126&sessionid=1795076054#rd\",\"description\":\"MongoBleed 供应链攻击逆向分析报告（详细版）\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FdS3TeHzf2N4F5vszHFB9NYDZH8oHFcFAANDyvgSDv9q80nZJTSJp1Wsl272wA3geE5CbGEp5GkOYjRcA2XLcEGtfXGUPQK2CxrZ1QeOrDMQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-26T06:14:21.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515481:1\",\"title\":\"白帽一百祝各位 新春快乐万事胜意\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515481&idx=1&sn=3eee8202997445e84f28d13e1c1afd85&chksm=96b08f28257f07de36a02d99d192aeeaa2a709ea851431d2e4a7b3c63a5b97f266c49401e245&scene=126&sessionid=1795076054#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FdS3TeHzf2N5bfjk2BZBPhW6oTLmiakyK2GrjEsicHfTGuxwNOJY8vsFic0ow67v5Z6YQNkgHYIKiaZKXMQOPdnJ1nPSA8gtGqLt6icLFUfeh3FRE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-16T10:24:03.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515441:1\",\"title\":\"白帽一百2025年终总结\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515441&idx=1&sn=f8bdacb6ccdd84259aecdb58e88736e3&chksm=96fb4e33686a891cf063b07ca664da1e0319ad5e0b43bff0520dc6704d6351a6cfc1d8207f5b&scene=126&sessionid=1795076054#rd\",\"description\":\"年终总结\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibtsvRy0gNnJnFBYHq7nza0aWEeH3iaOKqibt6HUGBxfkiaj5XonSC0sIPxJKD28QEqPIZicCciaFaPpVPQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-31T05:05:19.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515406:1\",\"title\":\"UN R155认证视角下的TARA实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515406&idx=1&sn=d8b96ea9de99599973664714780ded80&chksm=9661ceb252156987c056edce33bb9e698892a19a0a13a49a97f635d0ca452b5e40969a28193c&scene=126&sessionid=1795076054#rd\",\"description\":\"在本文中我将重点探讨TARA的方法论与实施思路，以期为相关团队提供参考\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvtcsSjRUyCh76AAPCb8vdzBibwibMmqwq2eDpAZ042NA5CUuIPPPXEbcewSZ6r7Epcnqic2Zcz5365w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-29T11:07:00.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515406:2\",\"title\":\"基于意图工程的自动化攻击演练落地实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515406&idx=2&sn=57b4984dd35b4ccba1bbb4570a7c64af&chksm=962cd4f5b69d27b50111fc6796103fec332c0ab9305f1562d6a83297c0ad26db13aeda0e2663&scene=126&sessionid=1795076054#rd\",\"description\":\"在这次技术分享中我会借助我这段时间基于LLM的自动化演练能力探索来为大家介绍在自动化演练场景下AI的介入是如何让其发挥更好的效果的\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvtcsSjRUyCh76AAPCb8vdzKSnXgozzNeDzTtfVXOibvErUZLufWH12HAI8aPIPWZZAjGuXzHnPgKw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-29T11:07:00.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515247:1\",\"title\":\"WMCTF2025 圆满落幕~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515247&idx=1&sn=3fc8a6838d6cfaf0111b6435eb21c4b7&chksm=965af229766b405330907bbf0bc52acd9c9d23bc97989b2e8f5de077eaf9f0e3b42397a60bc6&scene=126&sessionid=1795076054#rd\",\"description\":\"WMCTF2025圆满落幕\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibsSiclIsibvJrdYgE9godJCIfRmxZ4BegxhAMlAuYAUXPUBR04bdMibbYXrkyaqr0ZAI0rRTEcvRv8jA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-24T12:00:00.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515223:1\",\"title\":\"WMCTF2025 翩然而至\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515223&idx=1&sn=b4f9bd7fcb277b86d426a8be32a93995&chksm=9657d0994f28d0d3e21faf12354430212157991ecdcd5a102b25a65e26b6d0001d9eca719b7e&scene=126&sessionid=1795076054#rd\",\"description\":\"WMCTF2025 翩然而至\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibtYtHTfW9pE0U4PvDdKEC33fiahDCtmTsib4CtJrHVZdBcjpGSibbv8F8J02daLpicDoWNH99pfP4eYtg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-13T01:00:00.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515206:1\",\"title\":\"利用影子认证帧在标准CAN上实现防重放的技术方案\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515206&idx=1&sn=b376a0c51a1bbb5eb4643b3b033fb9e5&chksm=9671604c91ed879d189d97a5da3691d67b20989070285348e8a80dc5084a34313e0e48950e46&scene=126&sessionid=1795076054#rd\",\"description\":\"一个几乎百搭、不改架构、低成本就能落地的整车防重放方案\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvY9CIZX9cNok7Ric0mIy8cErmZ8R3icDPhKpSS9qjBXNa5bYNMDdg0rzfGaNd7NOKBpngIeQtMyR8g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-05T06:15:00.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515179:1\",\"title\":\"VNCTF2025 圆满落幕！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515179&idx=1&sn=12c8280f6aa045fed75cc9132804ba8a&chksm=960d291790c365c541d57c78ed6248552c10e7b1e0bff73ed1f509f7a0ca05be44d52c2f2ec6&scene=126&sessionid=1795076054#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibuBOtW5sMS7mVqcu99KQrwtTic92a9oVNtX5tQBsgfaSNEeA5frqdZibHYAeYR0WMeiaVLzFGXnMOHUw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-12T07:00:00.000Z\"},{\"id\":\"wxmp:MzIxMDYyNTk3Nw%3D%3D:2247515161:1\",\"title\":\"白帽一百祝大家除夕快乐 | 文末抽奖\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIxMDYyNTk3Nw==&mid=2247515161&idx=1&sn=3f2f882686de333d655eeacd52bf2dbc&chksm=96c1bba51630875e9d0d3c4500be529db3277073622a0a254a8d5ea28463068a53127293d133&scene=126&sessionid=1795076054#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaFJv52grsibvQPqTo4E9zDl8XTBEzlCk7OIZeeWzeNsscRnQ2via4DxCPoOu4dCwtdErjsnlicz4RKR2Gba1WKY1Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-28T06:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1332,
+      "elapsed_ms": 10015,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -124,44 +118,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1324
+          "started_ms": 8,
+          "duration_ms": 10006
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1331,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1331,
+          "name": "错误诊断收集",
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1331,
-          "duration_ms": 1
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 1332,
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
+          "name": "失败后浏览器清理",
+          "started_ms": 10014,
+          "duration_ms": 1
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 1332,
+          "started_ms": 10015,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1317
+          "started_ms": 11,
+          "duration_ms": 10002
         }
       ]
     }

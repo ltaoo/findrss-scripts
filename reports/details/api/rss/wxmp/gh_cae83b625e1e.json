@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:16:01.928Z",
+  "checked_at": "2026-11-19T13:49:31.606Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_cae83b625e1e",
     "name": "小众软件",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_cae83b625e1e.json",
-    "duration_ms": 4297
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10021
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2948
+    "status": 502,
+    "duration_ms": 10020
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2937,
+    "phase": "runtime",
+    "elapsed_ms": 10015,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":32,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -74,17 +70,15 @@
           ]
         },
         "started_ms": 11,
-        "duration_ms": 2916,
+        "duration_ms": 10003,
         "timings": {
-          "response_ms": 1945,
-          "body_read_ms": 968,
-          "decode_and_transfer_ms": 3
+          "response_ms": 5232,
+          "body_read_ms": 4771
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_cae83b625e1e\",\"title\":\"小众软件\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704576&idx=1&sn=553f985fb888faa1216d5ed6abb5f687&chksm=bc22750e6a2c4ccda1a582098670bac9ed073113f7dbc197b88ce80ea4507345379fa73b7b88&scene=126&sessionid=1795076165#rd\",\"description\":\"推荐有灵魂的电脑软件、手机应用。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"小众软件\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5oB1jblgiarD8aOiaYBeEPnOE9DyicmmBJXIdUHFNC0h8MA%2F0\",\"updated\":\"2026-11-19T07:38:31.000Z\",\"items\":[{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704576:1\",\"title\":\"电信光猫插件：能提取手机号、扫描内网\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704576&idx=1&sn=553f985fb888faa1216d5ed6abb5f687&chksm=bc22750e6a2c4ccda1a582098670bac9ed073113f7dbc197b88ce80ea4507345379fa73b7b88&scene=126&sessionid=1795076165#rd\",\"description\":\"V2EX 网友分析了上海、浙江两台电信光猫里预装的 m01-b01-inner 插件，发现两个版本默认都会从明文 HTTP 请求中提取 IMEI，并定期上报联网设备清单。提取手机号的模块只在上海样本中发现。\\n\\n插件代码还包含远程执行命令和扫描内网端口的功能，其中端口扫描默认关闭。\\n\\n楼主分析时，两台光猫都已桥接并移除了远程管理通道，插件未能连上服务器，因此正常联网时实际上传了哪些数据，仍待抓包验证。\\n\\n/t/1257838\",\"content\":\"<p>V2EX 网友分析了上海、浙江两台电信光猫里预装的 m01-b01-inner 插件，发现两个版本默认都会从明文 HTTP 请求中提取 IMEI，并定期上报联网设备清单。提取手机号的模块只在上海样本中发现。<br /><br />插件代码还包含远程执行命令和扫描内网端口的功能，其中端口扫描默认关闭。<br /><br />楼主分析时，两台光猫都已桥接并移除了远程管理通道，插件未能连上服务器，因此正常联网时实际上传了哪些数据，仍待抓包验证。<br /><br />/t/1257838</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxf0L1h5icwWBK6LymbuicAxnA2qWbHg2JUHQTuu0psEETOF9JMRIMdP0ia8xGC8icdhaVibo0WSJrP7gicYQurbeek28YH41l967PKvw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxc6aoMgQOOs4Q8xwnlvoRSWLyciayv48PibgicyZrPsaXOIWLDiaCXvw0bbeEcd4ocVsUgHcGml4ZZqiaaP5wPWGqG825LlbakuXWuI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxdY8wibgx0RXqg6PXcT1FdI6lNuAJSrxftFK3UMcZKabk5ib4LcvN9DEleWN8T86I8jJjKibHoZ3haqmuicOzrSLLae2TEW8rznNQM%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxe8ofcJYD1ibaex7puaiccokejJabbsoiaIicLxuHN34bXqlAQsGN6fsZUgER8GXmYiavUVZUAOLZggdZPPRCkX01MMF56TMmbps8QA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxdaibPibDuo7oRdt9Y3dpWXAqiaQjGt6zvMq06lBiasJDJ7giapn9eGt54PLjI6cdChIhymF832LFF6RoeJibltVaANoDqicfmQPu7NTw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxeJRCFjpicOsVovUxP7ibDzicRUWZIGuc5wKzyZ3eeIyQicVQ86u1eq2LFDTTtROqlJhftrkoVQToWbpV27Yaj2uzib4nhVObaKAA68%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxf0L1h5icwWBK6LymbuicAxnA2qWbHg2JUHQTuu0psEETOF9JMRIMdP0ia8xGC8icdhaVibo0WSJrP7gicYQurbeek28YH41l967PKvw%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxc6aoMgQOOs4Q8xwnlvoRSWLyciayv48PibgicyZrPsaXOIWLDiaCXvw0bbeEcd4ocVsUgHcGml4ZZqiaaP5wPWGqG825LlbakuXWuI%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxdY8wibgx0RXqg6PXcT1FdI6lNuAJSrxftFK3UMcZKabk5ib4LcvN9DEleWN8T86I8jJjKibHoZ3haqmuicOzrSLLae2TEW8rznNQM%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxe8ofcJYD1ibaex7puaiccokejJabbsoiaIicLxuHN34bXqlAQsGN6fsZUgER8GXmYiavUVZUAOLZggdZPPRCkX01MMF56TMmbps8QA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxdaibPibDuo7oRdt9Y3dpWXAqiaQjGt6zvMq06lBiasJDJ7giapn9eGt54PLjI6cdChIhymF832LFF6RoeJibltVaANoDqicfmQPu7NTw%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-19T07:38:31.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704563:1\",\"title\":\"UU远程，开始收费，24元/月\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704563&idx=1&sn=2f9c7ca56c4cce603b1eedba276f65dd&chksm=bc18ddc862f50939c4626456683706c8a08d360f3a2c20ee25aa4373c88d56c95eb8563e9422&scene=126&sessionid=1795076165#rd\",\"description\":\"<a class=\\\"wx_img_refer_link\\\" data-seq=\\\"3\\\" data-refer=\\\"图三\\\" style=\\\"\\\">图三</a>开始是UU远程发布的内容。\\n\\n免费版可以享受 1080P 30帧画质，就。。。不能打游戏了吧。\\n\\n付费可解锁 4K 144帧。\\n\\nSVIP大概率给跨国玩家准备的\",\"content\":\"<p>&lt;a class=&quot;wx_img_refer_link&quot; data-seq=&quot;3&quot; data-refer=&quot;图三&quot; style=&quot;&quot;&gt;图三&lt;/a&gt;开始是UU远程发布的内容。<br /><br />免费版可以享受 1080P 30帧画质，就。。。不能打游戏了吧。<br /><br />付费可解锁 4K 144帧。<br /><br />SVIP大概率给跨国玩家准备的</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxectwJUtTyO8W7hB214BM9ianbEhUp4rQojK0wvS7lALQvx3EFT40THE8hk58rRmPOkto0SM3JciaoxCKyrZQ92wQJT3V5D561uM%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxeuD4pnWYCBVGURTBm40pdJkL0R8mk8VzuBa6TwGd5HVvkib3IWHPNgiaZQs2m57lCy9LSPuaQLfcZehZxoY5Tk4D4qrRMPLuqVI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxdSB3g421nJhznwUGfIOdkRsyUOBxBAnhNStTnARiaibEs0qzhV0iarbtCHMedXO2OSPE10Y7YG9MJzia0KMEqDiboCRrnPHRusUicW4%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxeNkWHpuAib1PrHlVic6Mm2QHicUvLAVqzjte7M48qp2wOnltRn2bL5nWtzz2utyGaQRQicRCEiaib1Hmj1CqXyJ4GtTF06hqPmzNfo8%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxfLFAhnHdK5k3CC0ZywkUt1orcvwFdWGUeUdicfFmUJLAmjP30tKsnYMzRNzUD9VzW3CjuMDvEPBWxulFFehQOF6ibFv3VRVQX5M%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxdH28OFJz4Z9XmGO2ZZNVd4OxvsNsk2V3y272PhdLvcm6ZBquugYoojCsRVMYicCbaRQib789MjCia2g2jhVjyPgOoxPdLp8AktcA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxeFEGvd6m84GD35t2SZdud1e3fqWMA4IZyhvBpwLVygd5Zul37ZzlVH3icXPkBd5Nhr0OibQica5fj8LJFKcXJsuPaHc1khRibGmA0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxcsSV9t21WzLTKnL4OlRa8TibndQFtF4zyuIvBvZSEsY37tn7j4tibeEATNdAItnaGVzRstKBTodfztjZkGhqzEbwg8o3icpKNagk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxectwJUtTyO8W7hB214BM9ianbEhUp4rQojK0wvS7lALQvx3EFT40THE8hk58rRmPOkto0SM3JciaoxCKyrZQ92wQJT3V5D561uM%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxeuD4pnWYCBVGURTBm40pdJkL0R8mk8VzuBa6TwGd5HVvkib3IWHPNgiaZQs2m57lCy9LSPuaQLfcZehZxoY5Tk4D4qrRMPLuqVI%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxdSB3g421nJhznwUGfIOdkRsyUOBxBAnhNStTnARiaibEs0qzhV0iarbtCHMedXO2OSPE10Y7YG9MJzia0KMEqDiboCRrnPHRusUicW4%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxeNkWHpuAib1PrHlVic6Mm2QHicUvLAVqzjte7M48qp2wOnltRn2bL5nWtzz2utyGaQRQicRCEiaib1Hmj1CqXyJ4GtTF06hqPmzNfo8%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxfLFAhnHdK5k3CC0ZywkUt1orcvwFdWGUeUdicfFmUJLAmjP30tKsnYMzRNzUD9VzW3CjuMDvEPBWxulFFehQOF6ibFv3VRVQX5M%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FTs4Edaib9xxdH28OFJz4Z9XmGO2ZZNVd4OxvsNsk2V3y272PhdLvcm6ZBquugYoojCsRVMYicCbaRQib789MjCia2g2jhVjyPgOoxPdLp8AktcA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FTs4Edaib9xxeFEGvd6m84GD35t2SZdud1e3fqWMA4IZyhvBpwLVygd5Zul37ZzlVH3icXPkBd5Nhr0OibQica5fj8LJFKcXJsuPaHc1khRibGmA0%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-19T07:38:31.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704524:1\",\"title\":\"Windows 11 偷偷记录你用了哪些 AI 工具：Codex、Claude、Cursor 都在名单里\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704524&idx=1&sn=5c2ad444a77d3ed0d9f0f3f5f55a57a9&chksm=bcd941014c0e13e5700e9546a0055d450f2999fd535ba534c2c8e4db646ee67a285f3aa0f152&scene=126&sessionid=1795076165#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxepATDVH75wTKMgvAo3eeGL67ACGAcMGpFiarje5sGodO16G3cExCHfiaIk4jicT3q7OfnbT6wokxZWzPXJy9AzD4ZWFwGBD6A5yo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T09:25:15.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704524:2\",\"title\":\"仅4MB的轻量化效率工具：截图，录屏，演示，贴图，OCR，翻译，晾衣架，图片编辑｜SnowAir 轻雪\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704524&idx=2&sn=821f7c1ec128ebd7174c2c446324818c&chksm=bc32fda2ba3094b1a4a73a1d5cd1e6bd3850a3541807eec1a9b6ef0da62f225ac7fd4d36ac24&scene=126&sessionid=1795076165#rd\",\"description\":\"Windows 上的截图工具很多，但大多要么体积不小、要么装一堆服务，要么把 OCR、录屏、贴图拆成好几个软\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxesjXYrRh6BFKDhdywAqIhgs38L4yr38Pe0sgBbXIWdsyZhuzDwtkT9ddVDzL4UZUd8xEqGYN3FbhaFkyZZLSWUricbsQNqzB5k%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T09:25:15.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704524:3\",\"title\":\"把 SSH 私钥保存到 Mac/Win 安全芯片中\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704524&idx=3&sn=dca79c09c826f7599a9d40e26a3a5b1e&chksm=bc54ecf1f26acb45f8ceb863f1f4948622addd7a53cac19733c20b9b7ad648745d2b0efcdb4b&scene=126&sessionid=1795076165#rd\",\"description\":\"SSH Key 是远程连接 Linux 服务器、管理 NAS 等设备时常用的身份验证方式，可以不用输入密码登\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxeTlW9WnJViaILt5CoILU3OqHkFGS75Vpu3mzhoA3dwTiaRps1rVMTAgzgbJ29jxxrNw5HKEEPCI4QWj1TDH8dckVQv4E0brMmRE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T09:25:15.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704452:1\",\"title\":\"不到 1 MB 的开源启动器，拼音首字母搜索、Everything 文件搜索、剪贴板历史和对话框快速跳转\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704452&idx=1&sn=538522371c9509e72614d91ea237e57c&chksm=bc36fd5effce4547fa02f365f9c8cb12037c11b0eb8e368fc5e10e1f050fe572390e3d0019d8&scene=126&sessionid=1795076165#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxd1mQSR2ibl3dxUVGj5NuEfUPJhiaF9eNicsZfpoK5Sqjibl8V0Ofz9zEhkCEoBicACRRCFSOzn4nzJ8bBjPxGSEllE9wABq5qp8ic5s%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:21:55.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704452:2\",\"title\":\"30万行代码，让 Linux 运行 Mac 应用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704452&idx=2&sn=d77ac478139cf64ec05a028c0abe7dc5&chksm=bcc056cabc8e9ad47f32cfc95a691b6a4b4824cb35fc949a34797c14d56b817f8653b97a4eab&scene=126&sessionid=1795076165#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxfLicqnVBRS774LeFflKV0vzZtxjADibn1OPWb9081gfPWj2RBDBicOT5Licq3hAD8ibahT3kY96jJS3tzzu0Smssib0mV2dGFVQ8cuM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:21:55.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704428:1\",\"title\":\"10款大家发现的好评软件[2026年第46期]\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704428&idx=1&sn=411f1b0c193c7abbcd89ef015f9ee5e7&chksm=bc6b9257269aecddc3d8c24673d233e764a4be53db2f20a0fb47db94506bb100be27ec59ef87&scene=126&sessionid=1795076165#rd\",\"description\":\"又到了看看最近大家都发现了什么奇奇怪怪软件的时候。上周，来自小众软件论坛的发现频道的热门排行榜，由系统自动生成。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxfERKThVzKBaglRZh4cwfwic3Ls7Qdl80glicK52WfJnPL4XRWwicr7lxu03Vs4Ya4CPp2xAxFP7YuNuZoZy99NtNsINXRdLeZpAs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T09:46:05.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704428:2\",\"title\":\"另外两件事[261116]\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704428&idx=2&sn=3b68b7aa9bc34cce3b25ae096d9be883&chksm=bc28af7aa1491be902bbd99a3be9f147e109f30ff9fc06a25115392d2a4d80db31640620c843&scene=126&sessionid=1795076165#rd\",\"description\":\"出院日间手术还需要住一晚，为什么能叫日间手术呢？已经顺利出院，今天的白内障手术真的是，去的晚，出来的早。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxcedohCFUOtLL1O6ibmNzwlC14d87M3ukpCUg2zhicWjAsVKWQLSK1IkFHdanOLqRcKPsEAFaz3F9u58a1J3mNchicKXXMJQIfewA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T09:46:05.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704404:1\",\"title\":\"为什么我的电脑不能安装苹果系统\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704404&idx=1&sn=bded7a973680bbed39064019345b9f45&chksm=bc2480043f449568bebd9f05720f05fc4a8022eab7bad2f3f7e8525e08c9d177ab1f3d7076ce&scene=126&sessionid=1795076165#rd\",\"description\":\"为什么我的电脑不能安装苹果系统其实，之前青小蛙也有这个问题：我买了电脑，为什么不能装苹果系统呢？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxdI0VI2jSY9pibSGRIRIbjuNuMHMyFpcyMydzhvWoSruiahiaqf1sjT5VmlOPAGibGjUWKEjWd5avLW3GXbFzaBHU9FCsa0Zg5dHcI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T13:26:40.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704404:2\",\"title\":\"古代不同电脑的画面差距有多大？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704404&idx=2&sn=4b0cc873db57570a3b16dd586685ac4d&chksm=bc30be8a40e551c6afb274f3fb5352505d84b14efa22b4f6aa3c697955dff08ead35f6f6b743&scene=126&sessionid=1795076165#rd\",\"description\":\"30 多年前，同一款游戏，在不同电脑上竟然能长得完全不一样。有的电脑只能显示寥寥几种颜色，有的却能呈现丰富的色彩和细节。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxeKQTouqOrxDCuXKMU5JBNCRahmZH94txK7DLpAvvyqT8ZZk9DmUxkpRCaIRCIZoSEdHa3jmLAlPba2iaVWFMUicVVG7khkVv1KA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T13:26:40.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704404:3\",\"title\":\"BundleHunt 2026 黑五软件特卖：8 款值得购买\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704404&idx=3&sn=ee04e579fec2aa7ef3c93cb2cd31dc72&chksm=bc84c9bf396a70bd5d39a155d7d017022826c0d7dbd92675b72061e04f3f485e3348e772854d&scene=126&sessionid=1795076165#rd\",\"description\":\"一年一度的 BundleHunt 黑色星期五软件特卖开始了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxd7YmicQ6uGqUeu5dhczexOKOxIcHh8VianhD5XGrqWBS2uNITTkD1G8GC7kk3bTVQXPfJLScUb7A6eZf4elXmibo0ibm5zlYeoibro%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T13:26:40.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704404:4\",\"title\":\"另外两件事[261115]\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704404&idx=4&sn=7410863ec3599dbfe5ecfe73cc9a7ad5&chksm=bca26e076e87050ed538a859c2ab3d7531c284c9b745e9e3fdfafe0eeb89fbf5995f217566d0&scene=126&sessionid=1795076165#rd\",\"description\":\"退赛不不，不是我们退赛，是比我们还菜的退赛了：所以，当最菜的退赛了，那么曾经倒数第二菜的，就是最菜了吧 连续两\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxe8aLKklU8VbOLOTtexuS7b7WLPxWiaqIXWdlBjEHy2WNLufnibSTLKKQz6B1kOPlmgEV2Wlex4D9SHeicjnMT1WYemJbarG8OBx8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T13:26:40.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704360:1\",\"title\":\"让 Windows 11 在 iPhone Duo 上运行！已开源\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704360&idx=1&sn=8ba33764e2974e2a98510dc57672313a&chksm=bc3d9b06d4af2736bf066870017e30b73fccc867a986a9670c2ac1e1de88ce4321707036222c&scene=126&sessionid=1795076165#rd\",\"description\":\"在 AI 大兼并时代，已经没有什么不可能了。Windows 11 现在能在苹果折叠屏 iPhone Duo 上运行了！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxe2R0qYsxhGmJE43ynR1TsdibicZa7CrQAO5jcDDzGGNQ6BB4y85gwdiblCmlibsC2jLUVXbp7ibgtVbbicFnxeibNnKEQZTj5p8cJq5I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T09:12:21.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704360:2\",\"title\":\"在 Windows / Linux 上原生运行 Switch 2《马力欧赛车世界》\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704360&idx=2&sn=ddfd2554e2c6c8d6a1d4d7fdeb049431&chksm=bc4699a61d3da79aec967901b87730ba27f130753828643a0ab910c305339b68dfd04fa67444&scene=126&sessionid=1795076165#rd\",\"description\":\"目前有越来越多的 Switch 游戏被破解，前几天是 TotK Recomp，它可以在 Windows 上原\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxcNejG67RvvVY8XKf6DTTJscLyS8ltUQj5avluch5tdQPcI0cLPmvJ3Sx0ib4UHWjMDuZpSFdWzV6UlcprEZIt9oX4mZZeyFlibA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T09:12:21.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704360:3\",\"title\":\"另外两件事[261114]\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704360&idx=3&sn=8a09f7b0a2c0aa216183f9b0097785e9&chksm=bc696ed5dee33b477440b4d6d1e97cba49707699f40bb18b38a6e8ba1a1cb90947fe51a12317&scene=126&sessionid=1795076165#rd\",\"description\":\"假期快过完了这个假期没出门，哪里都没去，就在家来着。昨天带小朋友去公园骑车，难得出了太阳，公园人好多。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxdOCUib1GzpRjoGwDA7CqCU1gl8aZrELM8Lw2MWL3W1k5MWibhZIDTxU969MDMCzM2bhtc2GQbd7d1YOsEiaNBibXK8L8N0ic5gdQW4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T09:12:21.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704316:1\",\"title\":\"微软故意让 Windows 11 变慢？只需两个参数，启动时间从 150 秒降到 30 秒\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704316&idx=1&sn=bde86b03c11c3d8c328c826a62572535&chksm=bcd22cea203c0789a66153c22d797bb31de3b221d1874e842b1ed8c8ae25a9372bf6e20fd403&scene=126&sessionid=1795076165#rd\",\"description\":\"你有没有遇到过这种情况：Windows 11 明明已经进入桌面，鼠标也能动了，但微信、Steam、Disco\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxddTMZiaKicoEn4UhTF2YLVkkX1hiag42C2fgc0yrgSaY2PicmTnicYeST5gTiatbiacX9Fy44Pz38MiaibYlTqTRSVtlttib0we0ylVDgjg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:52:22.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704316:2\",\"title\":\"赛博领鸡蛋：免费领 4 核 8GB 云电脑，支持安卓镜像\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704316&idx=2&sn=e5c297accd54c3772a1cdf2467c2613e&chksm=bc69bc172ea19b017ff73669742fe8e74b221c1fb22e84b86891d89ec17db50967d835d44407&scene=126&sessionid=1795076165#rd\",\"description\":\"可能，我们需要换一个思路来理解 VPS 了。以前的 VPS 是一台远程的 Linux 服务器，通过 IP 地址，使用 SSH 登录，然后自己配置环境、安装软件。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxeTkNoBrPQejmpXicickyOksAILDFpvwIJ0ZrQttzrrqjDaOF5qxe1y9tzxzCFqT6sW6VLXiaD0tLzu4ibRjkQhic8yRzp4hhCXHS9k%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:52:22.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704316:3\",\"title\":\"本周赛博领鸡蛋：《斗阵骑士》\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704316&idx=3&sn=bcb1d625a6cc61a3da098e82d21ec0d3&chksm=bc495d45e17fa66137b20e3841a8d0ad149e2eacbf4ed99fa68607c5e4aebd95a46529537910&scene=126&sessionid=1795076165#rd\",\"description\":\"本周赛博领鸡蛋 Epic 送出 1 款游戏：《斗阵骑士 / Knightica》，手机端与电脑端。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxcHH4eEapdNSYq75zpjCBjZGBEWSOAlmwKrmNKrWm1W94GBQiapVeHO27J0HLTvjy1tfPhbLkU8KaJ7tpiaYdexwp2ProF0ehoB8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:52:22.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704316:4\",\"title\":\"网云连：把分散的设备连成一个家\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704316&idx=4&sn=9a9ca738bd780047eb4828e1889f3324&chksm=bc076d4d4858b7a83d053243f204862cc96d03dbc6b45e90a704a3c59aa81bd6a881cb8b7656&scene=126&sessionid=1795076165#rd\",\"description\":\"人在公司，文件却在家里的电脑上；出门在外，想使用 NAS 里的资料，却发现连不上？明明每台设备都能上网，为什么就不能互相连接呢？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxdera7ELqeoqDSdh0dOd5XicBnMksOT1aITKMrhUJoIIic4wC3brh4Wn4iam19eJeMspgicZ9ANATFH2x1bRglm4IOuN0tIhSMJbe4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T06:52:22.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704293:1\",\"title\":\"网云连：把分散的设备连成一个家\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704293&idx=1&sn=5df81168cab5c342824d1da5f945e580&chksm=bce56078590bdbfd35ca862d9c7fd9706196f7e1e46a1e6745b53973c7c30fbeac44d6a5394b&scene=126&sessionid=1795076165#rd\",\"description\":\"人在公司，文件却在家里的电脑上；出门在外，想使用 NAS 里的资料，却发现连不上？明明每台设备都能上网，为什么就不能互相连接呢？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxdera7ELqeoqDSdh0dOd5XicBnMksOT1aITKMrhUJoIIic4wC3brh4Wn4iam19eJeMspgicZ9ANATFH2x1bRglm4IOuN0tIhSMJbe4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T09:46:29.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704293:2\",\"title\":\"群晖公布 27 个 DSM 安全漏洞，最高危 9.8 分！与此前勒索攻击有关吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704293&idx=2&sn=004d6b37b3b93d90fc4fe7fa49a628dc&chksm=bce73673351007099019a2af77eef041967a23a92e11111de8983411049eabc9d7b3a2563d56&scene=126&sessionid=1795076165#rd\",\"description\":\"前不久，群晖发出紧急警告：部分 NAS 遭到 C3RB3R 勒索软件攻击，大量文件被加密，用户被要求支付赎金\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxeLnvfXoTMg3LAPJdib6cxicPvyvib7HeDgfCUKp4MapicnCCNtW8eAK0QoEvAZHrKhfIUVTXFKfIzvBA5Lvd4GZCdQRopPvtWBnn0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T09:46:29.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704293:3\",\"title\":\"Chrome 曝出高危 0day 漏洞：已遭黑客实际利用，Google 紧急发布更新｜CVE-2026-125350\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704293&idx=3&sn=32f76a36946bddcbdf11c9976f5a686f&chksm=bc2dc39de2edc36c4e9d5f7e9bb1613417c5a1ba21d08d2af28fdb731b6f925070fdb669da91&scene=126&sessionid=1795076165#rd\",\"description\":\"Google Chrome 浏览器曝出一个已经被黑客实际利用的高危漏洞：CVE-2026-125350，高危\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxebxWJUibXqB8FjuWkh0tMw7M09rOcxbsJEzwX3Ud3uVsHkcrAWpEp7RUDV9DhVCZQibOtVOLVibatz8c2Oz3hO7Io6E8wLBRHINQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T09:46:29.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704229:1\",\"title\":\"11 款超轻量自托管工具，最低只占 5MB 内存\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704229&idx=1&sn=66e105feeb52d9b11fb142b4d6eabd5d&chksm=bc49c92834cffd4b97d276c09d5a6a87dd1f33cceb50b5b9d80841d18a9d3e49ba24561e6326&scene=126&sessionid=1795076165#rd\",\"description\":\"如果你有一台只有 512MB 内存的小主机，能用来装什么？终于有人干这事了！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxewiaSWsdwkAq4cX1VjzRjoxMN8MUiavcEkG1ebic34IdFMibDf3bvsvI9suIMgo9xoic4uvz1c6LRJSiaOUGbMZOZ6N6vecs5geLw1U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:15:46.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704229:2\",\"title\":\"小渔排班宣布永久免费\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704229&idx=2&sn=2e4042aedae06649c27c94697a1f85c9&chksm=bc73c892ae203296189148beccda454f2c3213303d28bf563f20b088b2861a7161a270017019&scene=126&sessionid=1795076165#rd\",\"description\":\"小渔排班是一款为轮班、倒班工作者设计的日历应用，适合护士、医生、制造业等工作时间不规律的同学。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxcXK40C9goPicbNlcH8HrEaUfoquvfPNJ3cpRyyJFdOd50gSn6AkpearoZwL7pguZuia6ybppZVGSfdSLUib1oLT5zzD5Pq4R5uyI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:15:46.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704229:3\",\"title\":\"微软为 Mac 推出 Process Explorer\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704229&idx=3&sn=90e9ea1f24c0d313db015e918f788880&chksm=bc7348460d2527622b57ccd399ea703067dcebc63ef26f919565c104668dc5d5f95109fe0009&scene=126&sessionid=1795076165#rd\",\"description\":\"Mac 上的某个程序突然占用大量 CPU，却不知道它在后台干什么？想知道一个软件偷偷连接了哪些服务器，或者某个文件究竟被哪个进程占用？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxfs9Sl60pLY2MTnAwZUwzoribJNM3uBNR6kcZ0Hf3vn41Sn2IIEdf9s6G8iag5fwNmsxvWumvPEqnTtyNXk5MNiak1AhVn3sHZZeE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:15:46.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704229:4\",\"title\":\"苹果新应用 Harbor 曝光\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704229&idx=4&sn=42a5850c4e7e66fa358b7e7144efe377&chksm=bcd116c55255fbeb9b50f15166019a60fbfa03859fe8445cf87095802c056b51ad91f842c141&scene=126&sessionid=1795076165#rd\",\"description\":\"在 Mac 上运行本地大模型已经不是什么新鲜事了，但如果模型太大，一台 Mac 的内存装不下怎么办？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxdMWXC92RqPXubr07RM5hZUAoBRSdtib5oOHthE1Xbib7DLIdCiab9x8x42yZ2SMibyDbsoorPApD5RZOkQV1lKPrsK7X3FOnvdLYo%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:15:46.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704229:5\",\"title\":\"另外两件事[261111]\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704229&idx=5&sn=6effa440941b59df4da2b14720eaebf9&chksm=bc3907f457d5d6d8e93c09589369e01e812f53f2215cfb18d13735f45cd92ba181657413901c&scene=126&sessionid=1795076165#rd\",\"description\":\"想不到，今天是双11，但丝毫没有购物节的气氛啊。昨天折腾 TVPort 项目一个在 Apple TV 上玩马力欧的项目，结果折腾了半个晚上，居然没成功！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxcrttyl9sdyjhS5HL2W5So28x5EiaJic8OVeLe9BCwwyT2u1GGKuwj1ib9TUIVpyBNORGnJckS4nfZu6TGiaOtLsfpApmNtHiaicGK5o%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:15:46.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704175:2\",\"title\":\"10款大家发现的好评软件[2026年第45期]\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704175&idx=2&sn=92bc02300ec3d004cada994171b9c7ed&chksm=bc7543baf167d778adf9bc72bf4872231fce9e95e1b3b16890a883d7a326b119a8140dd54963&scene=126&sessionid=1795076165#rd\",\"description\":\"最近10日，来自小众软件论坛的发现频道的热门排行榜，由系统自动生成，直接列出来：可以使用 x.appinn.\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxch4DdJoz4boBClC19h1PwIoiao1r0zTwyJs1M5tMjfO4iaY7kmLQWMiaPQ75KM188TBgx5Z3By049XvsWP4nkj1zAqazOt9IUZ1I%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T00:59:43.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704161:1\",\"title\":\"《塞尔达传说》重制版发售 2 天，就被搬上 PC 了！无需模拟器\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704161&idx=1&sn=598e9d77affff4eea62c961d3e266767&chksm=bc38a2166bbf9c102a53bdd2bdc5868ed8445fa4373ff293bd77adc766563de097a1b4827e64&scene=126&sessionid=1795076165#rd\",\"description\":\"继《塞尔达传说：王国之泪》之后，又一款塞尔达游戏可以在 Windows 电脑上原生运行了！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxcV2qXiapZJmmEDVOiby08zovOib9icwicVsyIUvicl5gDr23FK7ZzYazrm2xWGdv6YhUoE0CUSwLmuffknSMuexCtAHFy9c0BInhXPc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T09:42:08.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704161:2\",\"title\":\"在浏览器里运行《极品飞车·地下狂飙2》支持联机\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704161&idx=2&sn=7cf1576dd4415ca4d3224bd1569a882d&chksm=bc05768eee51f9b74635e84c171420bb8566fa2f572ea3c7812daf4d701dd8138ec65eb1f488&scene=126&sessionid=1795076165#rd\",\"description\":\"https://nfsu2.xyz/怀旧爱好者们别错了：有人将 PC 版游戏本身的源代码，重新编译给 Chro\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTs4Edaib9xxcN9y3bBZc1zQFicVg4m9dGrtsl7wgWzGIm9NcwfTNjicvXaZmDL6AfIMR7xreVn19GUKmFybtcJbYzpagufnS7EoS6kaiallicYOw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T09:42:08.000Z\"},{\"id\":\"wxmp:MjM5NDMwMTI2MA%3D%3D:2651704161:3\",\"title\":\"双 11 大促！150+ 款正版软件低至 6 折，AdGuard、Typora、PixPin、思源笔记、Mole 等…\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5NDMwMTI2MA==&mid=2651704161&idx=3&sn=6284607ac0e8e0275186e4d99b3355db&chksm=bcf48c9088a87ecbb99bd04a9f31fc3c0a5b444883f604f8a7b2f75a662b724f14cb95a6a66b&scene=126&sessionid=1795076165#rd\",\"description\":\"一年一度的正版软件双 11 大促来了！今年的「双 11 软件狂欢节」共有超过 150 款商品参与，到手低至 6 折。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTs4Edaib9xxfNc3ppOuvx4ibQn2xI1DjpeEv3YibKys9MeNErQZfTuB1JTYPofhTyrtT9iaibGj4Xibn27x7auntXADLgYEdsRHz9Svmwu8qeK1ew%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T09:42:08.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2937,
+      "elapsed_ms": 10015,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -94,74 +88,69 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 2929
+          "started_ms": 8,
+          "duration_ms": 10007
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2936,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2937,
+          "name": "错误诊断收集",
+          "started_ms": 10015,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2937,
+          "started_ms": 10015,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2937,
+          "name": "失败后浏览器清理",
+          "started_ms": 10015,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2937,
+          "started_ms": 10015,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 2916
+          "started_ms": 10,
+          "duration_ms": 10004
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:13:02.239Z",
+  "checked_at": "2026-11-19T13:38:08.587Z",
   "inspection": {
     "file": "hot/pcbeta_windows11.js",
     "path": "/api/hot/pcbeta/forum.php",
@@ -13,11 +13,11 @@
     "status": 502,
     "code": "UPSTREAM_INVALID_RESPONSE",
     "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 991
+    "duration_ms": 1221
   },
   "debug_request": {
     "status": 502,
-    "duration_ms": 303
+    "duration_ms": 213
   },
   "debug": {
     "status": 502,
@@ -48,7 +48,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 182,
+    "elapsed_ms": 190,
     "invoked": false,
     "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：XML 不支持 DOCTYPE",
     "error_text": "脚本执行失败：XML 不支持 DOCTYPE\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at document_nodes (@findrss/util:97:59)\n    at feed_items (@findrss/util:156:34)\n    at fetch (script-source.js:52:36)",
@@ -65,81 +65,81 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 9,
-        "duration_ms": 172,
+        "started_ms": 8,
+        "duration_ms": 180,
         "timings": {
-          "response_ms": 171,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 0
+          "response_ms": 179,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 182,
+      "elapsed_ms": 190,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 174
+          "started_ms": 6,
+          "duration_ms": 182
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 181,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 181,
+          "started_ms": 188,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 182,
+          "name": "沙箱释放",
+          "started_ms": 189,
           "duration_ms": 0
         },
         {
+          "name": "失败后浏览器清理",
+          "started_ms": 189,
+          "duration_ms": 1
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 182,
+          "started_ms": 190,
           "duration_ms": 0
         }
       ],
@@ -147,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 173
+          "duration_ms": 180
         }
       ]
     }

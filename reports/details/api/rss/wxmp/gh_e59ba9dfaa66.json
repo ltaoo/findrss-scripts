@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:13:57.316Z",
+  "checked_at": "2026-11-19T13:41:01.258Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_e59ba9dfaa66",
     "name": "知乎日报",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_e59ba9dfaa66.json",
-    "duration_ms": 1995
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10023
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 3231
+    "status": 502,
+    "duration_ms": 10019
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 3225,
+    "phase": "runtime",
+    "elapsed_ms": 10012,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":18,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -74,17 +70,15 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 3210,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 960,
-          "body_read_ms": 2248,
-          "decode_and_transfer_ms": 2
+          "response_ms": 1686,
+          "body_read_ms": 8316
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_e59ba9dfaa66\",\"title\":\"知乎日报\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658599&idx=1&sn=985e5dba2578d4a9eef2b1f95ef0fd82&chksm=8a99035eb31e0f98644f35fa8ac826ebb5c06699bd1ee14644cb26f3bc48e859ad0e5ad47653&scene=126&sessionid=1795076041#rd\",\"description\":\"知乎官方订阅号，每日精选知乎热门、有趣内容\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"知乎日报\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FUOCHvzUGAIWg6z2Qs1yTHicbpqJwAUFRtJ5nhXPMb35XhGb6OESOg9OianbhYibThkZQiclOv5GN4z8%2F0\",\"updated\":\"2026-11-19T07:55:57.000Z\",\"items\":[{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658599:1\",\"title\":\"在深圳一起边吃边聊：AI 数据的下一站\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658599&idx=1&sn=985e5dba2578d4a9eef2b1f95ef0fd82&chksm=8a99035eb31e0f98644f35fa8ac826ebb5c06699bd1ee14644cb26f3bc48e859ad0e5ad47653&scene=126&sessionid=1795076041#rd\",\"description\":\"当 post-training 的算法与框架逐渐成熟，模型能力的提升越来越依赖数据；但数据的「质量」既难定义、也难验证，真正稀缺的或许不是生成数据的能力，而是知道模型缺什么、能把需求转化为有效训练任务，以及获得真实反馈的机会。 \\t \\n\\n身处 AI 数据一线，我们也不断看到 synthetic data、RL environment、benchmark 与专家数据之间的边界被重新定义——热闹背后，仍有许多值得认真讨论的问题。 \\t\\n\\n因此，我们想邀请大家来一次真诚的小饭桌交流：聊聊各自对 AI 数据行业的观察、困惑与判断，不设标准答案，一起围桌畅所欲言，边吃边聊 \\t \\n\\n🏠 主办：SoTALab \\n🎙️ 主持：Jinyan Su\\n🕙 时间：11.28/11.29 \\t \\n\\n想加入这桌的朋友，欢迎扫码报名 💌\",\"content\":\"<p>当 post-training 的算法与框架逐渐成熟，模型能力的提升越来越依赖数据；但数据的「质量」既难定义、也难验证，真正稀缺的或许不是生成数据的能力，而是知道模型缺什么、能把需求转化为有效训练任务，以及获得真实反馈的机会。 \\t <br /><br />身处 AI 数据一线，我们也不断看到 synthetic data、RL environment、benchmark 与专家数据之间的边界被重新定义——热闹背后，仍有许多值得认真讨论的问题。 \\t<br /><br />因此，我们想邀请大家来一次真诚的小饭桌交流：聊聊各自对 AI 数据行业的观察、困惑与判断，不设标准答案，一起围桌畅所欲言，边吃边聊 \\t <br /><br />🏠 主办：SoTALab <br />🎙️ 主持：Jinyan Su<br />🕙 时间：11.28/11.29 \\t <br /><br />想加入这桌的朋友，欢迎扫码报名 💌</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlHcQHbVA3C6twFVTaCy4PgSb72PMNkibmbBhyYHrdTODggBV5kEoHpblmV9BL74dxIDYf3opIt5eDFd6DWrgXRkn3nQyQON7A60%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGeb9WSsJMNqYria6eh7bLp6ibD61dOKF2libWRXwJnibYI6me1FsHFzqW3tMVkGVtR2keD7J861IC6qmUE0PGHgSkPJBUjdibegMkk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlHcQHbVA3C6twFVTaCy4PgSb72PMNkibmbBhyYHrdTODggBV5kEoHpblmV9BL74dxIDYf3opIt5eDFd6DWrgXRkn3nQyQON7A60%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-19T07:55:57.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658572:1\",\"title\":\"🥚 为什么豆包画不对 13 个鸡蛋？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658572&idx=1&sn=2406d8a581eb305251803a586265deb3&chksm=8a6f2c2ddd8910ed73bc80129fc23becb4dc73e67a86ef936288e7868101d89a4bdc7d90f036&scene=126&sessionid=1795076041#rd\",\"description\":\"许久不见的<a class=\\\"wx_topic_link\\\" topic-id=\\\"mwm71io8-2gnkvc\\\" style=\\\"color: var(--weui-LINK) !important;\\\" data-topic=\\\"1\\\" data-recommend=\\\"0\\\">#刁难大模型</a> 系列终于又有更新[旺柴]\\n\\n有网友让豆包生成一盒装着 13 个鸡蛋的图片，结果尝试十几次，数量依然不准确。\\n\\n这是为什么？\\n\\n知乎答主 黄河边儿 解释，这与图像生成模型的工作方式有关：AI 更擅长学习和生成视觉特征，而不是像人一样先数清数量、再逐个绘制。\\n\\n🤔看起来简单的计数任务，对图像生成 AI 来说，反而可能是个难题。\\n\\n你还遇到过哪些 AI 无法做到的简单任务？\",\"content\":\"<p>许久不见的<a class=\\\"wx_topic_link\\\" style=\\\"color: #576b95;\\\">#刁难大模型</a> 系列终于又有更新[旺柴]<br /><br />有网友让豆包生成一盒装着 13 个鸡蛋的图片，结果尝试十几次，数量依然不准确。<br /><br />这是为什么？<br /><br />知乎答主 黄河边儿 解释，这与图像生成模型的工作方式有关：AI 更擅长学习和生成视觉特征，而不是像人一样先数清数量、再逐个绘制。<br /><br />🤔看起来简单的计数任务，对图像生成 AI 来说，反而可能是个难题。<br /><br />你还遇到过哪些 AI 无法做到的简单任务？</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHE8EtROMwiabR5X51lS4zhYQkpz4TjAG7blGS7YJv2xbkZSS1ibMrmx77SUb2iceJ7uuyzpy2BA0vVKtGq2hN1fsoGXAesD6el8Y%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGkFiaNtnStnOfyDPwibOGiblXMgrGLVATqvCQiaDcyNckrvj5icOeUtwQ6C3noFuj1liafdI8kgxnFOLN1Cdia4EFJkVicbMWuwpVuSyo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHE8EtROMwiabR5X51lS4zhYQkpz4TjAG7blGS7YJv2xbkZSS1ibMrmx77SUb2iceJ7uuyzpy2BA0vVKtGq2hN1fsoGXAesD6el8Y%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-19T07:55:57.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658566:1\",\"title\":\"脑洞丨东北那么冷，为什么没形成吃辣驱寒的习惯？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658566&idx=1&sn=9e64343ce4759c5a548e08c99fc63333&chksm=8a65535aa1ef971b469e90901e6b7fd88dbd1e452788c4d4a6c461cfe34dfb89a0d40d230ae4&scene=126&sessionid=1795076041#rd\",\"description\":\"要想在东北的西北风中活下去，只能靠牛羊猪肉？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFtbIRX3dwFmuGibf4HuxUW5kuG5RTiah5YHah2zOtKvrBp9nc9LANYBGnO1msZBFUL3yrZs0ZzW6od4ic0lAH8z5ibNLsYw6CYic88%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658566:2\",\"title\":\"影视丨对谈《善男信女》《像我这样的爱情》导演：拍下普通人的疲惫与爱情\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658566&idx=2&sn=06a59596fabcea70338cee3e7b17f642&chksm=8a677ae6810fbc802843da4c98aeb48eb9fe2fdf6a9dcc554d19fc4908e9acb7f4f32faa5b19&scene=126&sessionid=1795076041#rd\",\"description\":\"来看创作镜头背后的故事。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFzVkaFiaVnuNm4L7oibAiaKvTeAJYV1icSR63oBGojZlBVicIOlxmYdDjOMsfAm4Isuvh5ZCdhx9SSInP0nwK5hXibL3DueibhSxaVDg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658519:1\",\"title\":\"生活丨为什么虾皮里总有小螃蟹？你还翻出过哪些「隐藏款」？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658519&idx=1&sn=fd8d1806c61398c00c5b156ac835c697&chksm=8a48d3e2ebe56def998f71f4224fcc21ac3ea182b29fae35e065579a08b9772111b32478b1f2&scene=126&sessionid=1795076041#rd\",\"description\":\"虾皮里不只有小螃蟹，简直「包罗万象」。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlHoZ23zutmdOVc6lAJaHOh3mzicmd5oktTRibtpoc60FFTPXTvTYKxrBEIehgyMqUkqOu44yv5jAibeMHdbVOVdnUUuuqCRp5KjCw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658519:2\",\"title\":\"影视丨从《中餐厅》到《后会友期》，为什么芒果总能把综艺做成全民话题？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658519&idx=2&sn=f9d48d385733e915657df2a827e9e753&chksm=8a39407d70a3d0e48f21576416acbfe0dfeaf347b764458a398cdc75dd6c55f6af83437988f9&scene=126&sessionid=1795076041#rd\",\"description\":\"为什么都被全网称作「撕逼」节目了，艺人还敢上？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlG9qt806EWWfweXJKb1Iz7EDS7uud6Hybafn42KG1cLE9mzickOWP2O73Xg8Kxzd3Yn6mGBOkQzkV8DicLichGmmRZQIWAYLt0DZc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658468:1\",\"title\":\"所有人问丨如果去掉社会标签，你会如何介绍自己？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658468&idx=1&sn=a480288fe009dba9b655fbc05577b47e&chksm=8abb78c9a65e5e06e93c65dcfa26430d0da8bfad5f411820f401929833fe8c8ba1826b0e70d0&scene=126&sessionid=1795076041#rd\",\"description\":\"你会说些什么？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGpHHAytoZzeQGKH061MqiapFp03H96rCpZMWlibh95fE4q7VgSLqQY73oAdkmtpugMibe1ho1mvDScddU7YFP0pDN8lAsWicTbuv4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658468:2\",\"title\":\"科技丨知乎智能搜索服务上新后，答主们做出了哪些好用的 Skill？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658468&idx=2&sn=df630c2de8a1ea286d739d38696b1b8f&chksm=8a98e989060b9e1c790a8a5253b5e9b37e223875a28b99661396b600a7c745296d42c6e6e85b&scene=126&sessionid=1795076041#rd\",\"description\":\"干货来袭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGHfMHgkPd1HEbMmVpxTqhoFnB7fmoRSEffoTLAAFhdvQvGNqQ5xxqq1yZRU2dAvNgf5urUZ3ibEIO2srrYER0v4NzOtneeOy70%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658380:1\",\"title\":\"瞎扯丨可以莫名其妙教我一个技能吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658380&idx=1&sn=ee45c04ac53f90e931aaa2ff5ca90ad5&chksm=8ae585b5d412df88d5465770b5634d4d2cf75d993b4940676712e946528eeb903661a565ca77&scene=126&sessionid=1795076041#rd\",\"description\":\"瞎扯一下，轻松一下～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH2JOqEpb0u4iaGrNVSSMxV02gFMdv0lELQ4VzwVMGLayRTRAbXZjmIRPe0d3n1QmUTibBW0KCSf7HUWAaFINUTobeqrOTqQ94Ps%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658379:1\",\"title\":\"高赞丨为什么中餐很少用柠檬？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658379&idx=1&sn=fea10d05983558bb40f0b18db7b1107f&chksm=8a34862d6ee1c9cfc3b33f7cebbf6bc66f50fca08a90ad05c3a39e15c489208af751df9ea709&scene=126&sessionid=1795076041#rd\",\"description\":\"感觉好像上了好几堂烹饪理论课程！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEsaLuPoQ1KmiaKNhPTicYs7psibibtV4VpPKyvfjhpp8YDfaelWibXKxyySezKfhk38IN11BI7KQWxbTicGPOB0GSib0V6v7Hy6Gdu1g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658346:1\",\"title\":\"热议丨黄仁勋辞职，会带来哪些影响？英伟达的优势还能维持多久？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658346&idx=1&sn=f8f4b341c744208075b8022558fc2e5f&chksm=8a6e3f4495113c2f97cb43c24f8c0b0c0ff1249623b5e692e4e69577800785093f632ab0739a&scene=126&sessionid=1795076041#rd\",\"description\":\"「当一家四万亿美元的公司，失去了它的大脑。」\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHJxIicKJJnqFIPdt1yxzqs1PDk7x69tWWcSibXyg6cibaq2ApPX8eNCicgbek30VjUC0RUG9lXnlneB2IeN8z7XUvgq6SoYSR0fjU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T16:41:48.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658311:1\",\"title\":\"经验丨为什么说「人不要长期待在家里」？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658311&idx=1&sn=93b48cb389aa017ce93e2256595da4cd&chksm=8a56d46d726da5b49729e89fab68092887212782e299d1ea238c577e1f0d97cb8707a9160a2f&scene=126&sessionid=1795076041#rd\",\"description\":\"出门，就现在！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGUrBB8mk9sL3vNM7hYbafRD0l3lxribwn14uDlGrfSRUnbpFCdP9ySQLpZ82ER3ianWZKNKYbjqWWvMF5XS6DDkAaJvKba2icbyI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658311:2\",\"title\":\"科技丨大模型们在集体做知乎答主出的卷子？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658311&idx=2&sn=a9793d6a90c93a5e9b1aa84ade173d25&chksm=8a8b3aa96fe36929f7d1c1530b2db3d968cbd01b7ab6aab64b5e12a8e32a77c937911a0776ee&scene=126&sessionid=1795076041#rd\",\"description\":\"知乎答主给 AI 出了什么题？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEGWQGhyy8aqeRUVhBDRv4f2g204T2j1sJIvckSdC49ukp2tdrYgnOKQc7y5msFwicibCKIsBt4Ug9xAWFaias9tRpFvA5M7T9r04%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:1\",\"title\":\"热议丨影帝影后实至名归，最佳导演爆冷？这届金鸡奖你满意吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=1&sn=00aaf0da68a2377195661205b30e794b&chksm=8a9b323a8a3b5aeffe232711ed7a6f894253bdd1570ce4a28e906f579786138f42e65a515564&scene=126&sessionid=1795076041#rd\",\"description\":\"为什么有人说影帝影后都选对了，最佳导演却选错了？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGuuUTOO80TCnFQElHxLic3bQ1trqGVlqliaicSWx3eSdBe6IeMZ6RebfCpyhntWgufdoGpOTBBfHSTMvouUWjf3VdKFTy1MPN4Mc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:2\",\"title\":\"科技丨DeepSeek Harness 有 3.5 万个第三方插件了，有哪些值得一试？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=2&sn=a3530908cde97435dc81a4c8af35dcd9&chksm=8a162fa17485043bd9625f3ef9c7176aafea6fb314f8b98a9c1c1c5b932e31c268cae0464a91&scene=126&sessionid=1795076041#rd\",\"description\":\"DeepSeek Harness 产品负责人& 热门插件作者齐聚知乎。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEHCcVKmNJ3Q4PIOhGwGCQ2HTp8GfhI2xYDc37Var25eFAz0sJvkBDO4icfYACVsJ8ibqjDOykHicOkIlh5FTKMrK8rtYmrYP6l9g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658154:1\",\"title\":\"脑洞丨鱼从来没上过陆地，为什么知道玉米粒可以吃？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658154&idx=1&sn=5ced725b6d23ba7d59b771db6fea3dfd&chksm=8af5cdca6f768b56612b1c1b180182dcc434cde8d85e3861a2727e19983cb713c45918e861c4&scene=126&sessionid=1795076041#rd\",\"description\":\"鱼：好吃就行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFlS5nYvKh9rOywNYmwQ8jnvfm0JkdOP1c0DG8UzJ8SsHRz856SibvhBtQJDXYyeZvJFH4p0adzl0lGomyl7pPtictkbgicRktHXQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658154:2\",\"title\":\"科普丨国际空间站的氧气是怎么来的？为什么一直都用不完？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658154&idx=2&sn=236fb678fbf7ce90cafa16c7b96b7834&chksm=8a0e2eb9f4e4ce4279c634f2b1c488dfd64e8c68cf471fe01d8af6cc553b1ac2297095a2330c&scene=126&sessionid=1795076041#rd\",\"description\":\"阿波罗一号的惨痛教训让航天大国放弃纯氧环境。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGaicTYM3BOM16siavJ2v20icNA2ibEn3abedv0mCr2QliamkA7kEvqWz0cJJTebF9ibptibsYicTQ1EKzjX1dzJia3Q8qoIDIiaoKj3Vsia0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658144:1\",\"title\":\"游戏丨《影之刃零》最全技术分析：从地图到打斗，武侠感是怎样炼成的？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658144&idx=1&sn=29d4b57726a52c88c1cc83f80cf56907&chksm=8a65342618db984658f020c9e7751f4a0a6e72050ab5665a8a0f20838a5c37b84dc3c584ba41&scene=126&sessionid=1795076041#rd\",\"description\":\"从杀气塔到庞镇，《影之刃零》的地图和战斗是怎么设计的？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEqxU55icxYlibRmmy0ju9a4rllIrIPZ3ffy0iaaGUXXRL7As35YcexZsqMpCHsHv2xjelcQFksj0LiccP7YC3A5u1IUuDgiaTsArPI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T12:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 3225,
+      "elapsed_ms": 10012,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -94,66 +88,61 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 3218
+          "started_ms": 6,
+          "duration_ms": 10006
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 3225,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 3225,
+          "name": "错误诊断收集",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 3225,
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 3225,
+          "name": "失败后浏览器清理",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 3225,
+          "started_ms": 10012,
           "duration_ms": 0
         }
       ],
@@ -161,7 +150,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 3210
+          "duration_ms": 10002
         }
       ]
     }

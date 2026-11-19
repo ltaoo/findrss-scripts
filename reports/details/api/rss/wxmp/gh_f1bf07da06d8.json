@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:15:09.218Z",
+  "checked_at": "2026-11-19T13:46:06.946Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_f1bf07da06d8",
     "name": "复旦白泽战队",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_f1bf07da06d8.json",
-    "duration_ms": 1701
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10034
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2027
+    "status": 504,
+    "duration_ms": 10022
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,24 +49,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2016,
+    "phase": "runtime",
+    "elapsed_ms": 10014,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -73,18 +69,15 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 2002,
+        "started_ms": 11,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1408,
-          "body_read_ms": 593,
-          "decode_and_transfer_ms": 1
+          "response_ms": 10002
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_f1bf07da06d8\",\"title\":\"复旦白泽战队\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500178&idx=1&sn=dcfbe12f028826ed019ce49e33aec1f5&chksm=fc63a8f422dc4449e5a7425a8dbdd7d5276e148e0f6419ff430fc36ddb5fa1d45bb3eca77997&scene=126&sessionid=1795076113#rd\",\"description\":\"以复旦大学系统安全实验室学生为主成立的安全攻防战队，分享最新研究成果，交流系统安全攻防领域技巧。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"复旦白泽战队\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7AKEqVbLnGmsm8XRs4QwA30jkPgsDO4UiaTSLw9qqPr4A%2F0\",\"updated\":\"2026-11-11T09:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500178:1\",\"title\":\"人物访谈｜孙福特：深耕技术内核，探索系统安全深水区\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500178&idx=1&sn=dcfbe12f028826ed019ce49e33aec1f5&chksm=fc63a8f422dc4449e5a7425a8dbdd7d5276e148e0f6419ff430fc36ddb5fa1d45bb3eca77997&scene=126&sessionid=1795076113#rd\",\"description\":\"访者简介孙福特，高中曾获数学竞赛优异成绩，本科毕业时保送至复旦大学，是系统软件与安全实验室直博生\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0mdnIU7wBrqD4cibzYL5YjLq3seeQaK8JohiafaKlN2Hr7QvvLRl7VwIVRPD4Z1iaqMeubzcUz70CEFXCfb6EAgibAPXc5wS6QjrtbicyRUBia5Nc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:00:00.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500158:1\",\"title\":\"CCS 26 | 当越权能力开始“滚雪球”：移动应用标识交换背后的安全陷阱\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500158&idx=1&sn=cd86515d27817eb6e2267967d7e9d8c1&chksm=fcfbc45f8401f5fe2cd82bc19b60a1718770d85c2c1bbfa1f9b238f15aad85d68932b5539afe&scene=126&sessionid=1795076113#rd\",\"description\":\"一次看似普通的用户主页访问，竟可能成为接管他人账号的起点？在一些移动应用中，一次查询获得的线索，可能成为下一次访问的入口。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0mdnIU7wBrqXOss4SYBr5BCAEdkuSwkfMTh3qeNMtkaficlIpE6tRZXxPwYsibI9MYpghGhTAJw2HCNgW3PCTxKZ1SNztE5RE6MWORyEpgd2k%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T01:57:06.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500146:1\",\"title\":\"活动回顾 | 第四期复旦白泽青年学者论坛\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500146&idx=1&sn=beddce5a36f6af973cb348006dcd4568&chksm=fceb587e83a33478af01df2c799a8c328f1ca71050cd5ea58a4c24b0a47de1efc83f1a61d6ff&scene=126&sessionid=1795076113#rd\",\"description\":\"10月30日，白泽顺利举办第四期复旦白泽青年学者论坛活动。本次活动聚焦客户端智能体安全和大模型时代AIGC水印，带来了一场前沿技术分享与交流讨论。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0mdnIU7wBrr07THHVhvut3zEib9fR7gdqIwuDOLdzpibq2ENr7nmic6BzHmoFFR7K5phHGtpIJcEZumHOvibIx5f4Vn8rKoE3iajvrdibCwjda1uc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-31T05:20:32.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500120:1\",\"title\":\"Security 26丨你看到的，可能不是文件真正的路径\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500120&idx=1&sn=ffb9f3b18a7c4fee0806e68ff67a70a5&chksm=fce701047e905a04a2fa057cc0cf348a035944638d792721b5794055bd35c84244552a2dd059&scene=126&sessionid=1795076113#rd\",\"description\":\"同一条路径，不同编程语言却解析到了不同位置？复旦大学最新发表在USENIX Security 26上的论文系统性揭示了软链接相关接口的误解与误用。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0mdnIU7wBrptoqicibziaJp5WWSHrwfVSzibum7mFXu3l48ACpu0xjj1q5BqmmokZFZrJzaF7S3IbibDBJ5nt07MLVzZQmMFzal3fkVb66gPS4CM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T09:09:37.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500091:1\",\"title\":\"讲座预告 | 复旦白泽青年学者论坛系列活动第四期预告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500091&idx=1&sn=05d4c7dee128f72ed0b8fdfc1780a2bd&chksm=fc8e797c58b8e01e676eb44d484a2e8f7ea7c6b558e8941dfdf7489243902fe46542397361cd&scene=126&sessionid=1795076113#rd\",\"description\":\"复旦白泽青年学者活动论坛系列第四期来了！本期将邀请实验室学长介绍大模型和智能体安全的技术前沿，并围绕技术发展展开研讨。欢迎大家踊跃报名！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0mdnIU7wBrpZONxiaSPLHkv3bxwa733JPEEBicTTtK1ibh29RiaJ8dymbVib1iaA4XORuPqGL6jIYogcnO61yE95zGOvuiaB1Ly3f2SrphZbbdxRDA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-24T05:34:50.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500085:1\",\"title\":\"USENIX Security 2026 | 复旦大学 × 上海创智学院提出 MATE：用可编辑规则审计整条执行轨迹\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500085&idx=1&sn=0f6d5329a4823300c36eae1850db735a&chksm=fcc89600a23fac859221b4b4a416a9c5d099604e6bb69bb1dc83475514d72878bbbf1c99a434&scene=126&sessionid=1795076113#rd\",\"description\":\"我们与上海创智学院提出 MATE，将自然语言安全规则作为显式条件，与任务指令和 Agent 执行轨迹一起输入审计模型，在给出违规判断的同时输出风险类别与可核查的解释。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0mdnIU7wBrqMjZ1TyibunxubSB1nM4FOzuSmBAYj8mfJgGZEe7D9ToFU1GO2F2v6EPeV9n400VS3PHCkAxvkKd6ea4T5cSyuiayHP5vPgLIek%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-23T06:21:47.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500084:1\",\"title\":\"Skill Trojan Horse：二进制文件实现隐蔽的恶意代码注入\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500084&idx=1&sn=428c6b2766b7e44efa5cf17307688dea&chksm=fc19d1801de36b1b888f7ad6c15c80fe706d4e388886b4b848cc089500676ba0b00f0a7cbbe1&scene=126&sessionid=1795076113#rd\",\"description\":\"JADE发布SkillTrojan, 利用二进制文件的实现隐蔽的Skill恶意代码注入。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0mdnIU7wBrrQjkO1VAtubIVN4uNquOh3RflaP1BicEBoV9aaDESZViccnJZEZ0l43v2K5TFA7bz4lCgKMLdlq994TBqmVhGc32S0RPltr5uv0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-22T10:00:00.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500061:1\",\"title\":\"Security 26 | 小游戏里的广告， 为什么总能在“不该出现”的时候出现？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500061&idx=1&sn=cce6a34a0774b12d87d8ed2c76717b04&chksm=fc5a9cc5ef97ae70c8e054395a5f0a1440a0ffe6d6d7b01c31abf49820854547354a9997c8a6&scene=126&sessionid=1795076113#rd\",\"description\":\"合法接口也能被滥用，违规广告甚至会“躲避”审核？复旦大学与 vivo 联合研究揭示背后的秘密。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0mdnIU7wBrqGqsV1HdsCCkdlD5bq1xcOLsndnJfeubvxRmef7uwRxmR8AWUojhILslNPf1cERd3DEC1RLqQ3l8qvTWOicO26JlvxlDlicN9Gs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T09:31:00.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500048:1\",\"title\":\"Security 26参会特辑 | 相遇在巴尔的摩\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500048&idx=1&sn=b2d700779c8167dfd4e9253afa6d00e7&chksm=fc3b28ffb93c6e530b668489933497fd42e73845bd216465dd62e8dc39deb01523fe0f845f46&scene=126&sessionid=1795076113#rd\",\"description\":\"USENIX Security 2026共有7位白泽ers参与，为大家带来8篇论文报告~\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0mdnIU7wBrr2Vkmy8KHHf3rCpENxUXuZ9VxqibDYG9ibxsYd8tnbAxGVGbwKoQW0euicpiaj1v9uOTwaWOFbqSJ5PUGnBnTWBDicT4KGWmqrPRWw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-10T07:00:00.000Z\"},{\"id\":\"wxmp:MzU4NzUxOTI0OQ%3D%3D:2247500021:1\",\"title\":\"NDSS27｜“黑进”ChatGPT，发篇帖子可能就够了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247500021&idx=1&sn=0e8019111b37808c4493300afdb8dcc2&chksm=fcb62410bd21f099a51b21c312e38d70a249866688b0c54267567dd6408fb8ce5d6d86875b37&scene=126&sessionid=1795076113#rd\",\"description\":\"一顿外卖的钱，就能让 AI 在答案里替你打广告？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0mdnIU7wBrqfRBjZ8xHzcy9RwIq6hJhW41zsSPJg7bacuibbeULGPmzWl5mZfZfichx4UQnwV7LGKd77kibjnFvXibowbLXR4xUQGD5Dmge7Ze8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-29T08:04:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2016,
+      "elapsed_ms": 10014,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -124,36 +117,31 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 2008
+          "started_ms": 8,
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2015,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2015,
+          "name": "错误诊断收集",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2015,
+          "started_ms": 10013,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2016,
+          "name": "失败后浏览器清理",
+          "started_ms": 10014,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2016,
+          "started_ms": 10014,
           "duration_ms": 0
         }
       ],
@@ -161,7 +149,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 2002
+          "duration_ms": 10003
         }
       ]
     }

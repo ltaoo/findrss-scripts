@@ -1,27 +1,26 @@
 {
-  "checked_at": "2026-11-19T08:16:47.778Z",
+  "checked_at": "2026-11-19T13:52:43.038Z",
   "inspection": {
     "file": "rss/youtube.js",
     "path": "/api/rss/youtube/:handle/shorts",
     "example": "/api/rss/youtube/@MaxFosh/shorts",
     "name": "Max Fosh",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 57
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/youtube/@MaxFosh/shorts.json",
+    "duration_ms": 30503
   },
   "debug_request": {
-    "status": 502,
-    "duration_ms": 44
+    "status": 200,
+    "duration_ms": 23601
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/youtube.js",
       "name": "YouTube 频道 Shorts",
@@ -49,19 +48,28 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 22,
+    "phase": "ok",
+    "elapsed_ms": 23548,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游连接失败，请稍后重试",
-    "error_text": "脚本执行失败：脚本上游连接失败，请稍后重试\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":48,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://www.youtube.com/@MaxFosh/shorts",
         "method": "GET",
         "host": "www.youtube.com",
         "pathname": "/@MaxFosh/shorts",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -69,15 +77,1026 @@
             "Cookie"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 11,
+        "started_ms": 12,
+        "duration_ms": 331,
         "timings": {
-          "response_ms": 11
+          "response_ms": 143,
+          "body_read_ms": 175,
+          "decode_and_transfer_ms": 13
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/m4tvheyVWlI",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/m4tvheyVWlI",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 550,
+        "duration_ms": 1646,
+        "timings": {
+          "response_ms": 82,
+          "body_read_ms": 1554,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/GE1hyeGb8Lg",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/GE1hyeGb8Lg",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 550,
+        "duration_ms": 1569,
+        "timings": {
+          "response_ms": 108,
+          "body_read_ms": 1450,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/0DhP2eihDf4",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/0DhP2eihDf4",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 551,
+        "duration_ms": 1903,
+        "timings": {
+          "response_ms": 94,
+          "body_read_ms": 1800,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/YsnaozWhXzg",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/YsnaozWhXzg",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 551,
+        "duration_ms": 1492,
+        "timings": {
+          "response_ms": 77,
+          "body_read_ms": 1398,
+          "decode_and_transfer_ms": 17
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/cyJRF0OXWDY",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/cyJRF0OXWDY",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 2480,
+        "duration_ms": 1257,
+        "timings": {
+          "response_ms": 106,
+          "body_read_ms": 1141,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/fvKqVTwTU2s",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/fvKqVTwTU2s",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 2480,
+        "duration_ms": 1794,
+        "timings": {
+          "response_ms": 78,
+          "body_read_ms": 1707,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/WLJx6PJwcmc",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/WLJx6PJwcmc",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 2481,
+        "duration_ms": 1826,
+        "timings": {
+          "response_ms": 128,
+          "body_read_ms": 1689,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/x6CTHW1PFUs",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/x6CTHW1PFUs",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 2481,
+        "duration_ms": 1864,
+        "timings": {
+          "response_ms": 110,
+          "body_read_ms": 1743,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/aszj2j5qizc",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/aszj2j5qizc",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 4373,
+        "duration_ms": 1514,
+        "timings": {
+          "response_ms": 94,
+          "body_read_ms": 1411,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/V7Txm_Lbynk",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/V7Txm_Lbynk",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 4375,
+        "duration_ms": 1209,
+        "timings": {
+          "response_ms": 114,
+          "body_read_ms": 1082,
+          "decode_and_transfer_ms": 13
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/U_9TIZlRstE",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/U_9TIZlRstE",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 4375,
+        "duration_ms": 1554,
+        "timings": {
+          "response_ms": 92,
+          "body_read_ms": 1451,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/0ZTKWt6ism4",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/0ZTKWt6ism4",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 4375,
+        "duration_ms": 1475,
+        "timings": {
+          "response_ms": 107,
+          "body_read_ms": 1358,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/7AMz9wM5pk4",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/7AMz9wM5pk4",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 5956,
+        "duration_ms": 2449,
+        "timings": {
+          "response_ms": 193,
+          "body_read_ms": 2246,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/8qezJmKP7Gs",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/8qezJmKP7Gs",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 5956,
+        "duration_ms": 1376,
+        "timings": {
+          "response_ms": 193,
+          "body_read_ms": 1174,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/HFAVwh3TAfA",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/HFAVwh3TAfA",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 5956,
+        "duration_ms": 1190,
+        "timings": {
+          "response_ms": 192,
+          "body_read_ms": 986,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/L6pwr-nWnQk",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/L6pwr-nWnQk",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 5957,
+        "duration_ms": 1265,
+        "timings": {
+          "response_ms": 192,
+          "body_read_ms": 1060,
+          "decode_and_transfer_ms": 13
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/3zyNxtN3li4",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/3zyNxtN3li4",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 8434,
+        "duration_ms": 1970,
+        "timings": {
+          "response_ms": 152,
+          "body_read_ms": 1804,
+          "decode_and_transfer_ms": 14
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/lanRaJY0sns",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/lanRaJY0sns",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 8434,
+        "duration_ms": 1701,
+        "timings": {
+          "response_ms": 133,
+          "body_read_ms": 1554,
+          "decode_and_transfer_ms": 14
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/vN5knbG_GKg",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/vN5knbG_GKg",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 8434,
+        "duration_ms": 1646,
+        "timings": {
+          "response_ms": 133,
+          "body_read_ms": 1501,
+          "decode_and_transfer_ms": 12
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/JY-cFT-9nyo",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/JY-cFT-9nyo",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 8435,
+        "duration_ms": 1738,
+        "timings": {
+          "response_ms": 132,
+          "body_read_ms": 1596,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/sUT0uKEYhXw",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/sUT0uKEYhXw",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 10433,
+        "duration_ms": 1808,
+        "timings": {
+          "response_ms": 85,
+          "body_read_ms": 1712,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/Q8aGm7C5QoU",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/Q8aGm7C5QoU",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 10434,
+        "duration_ms": 1766,
+        "timings": {
+          "response_ms": 81,
+          "body_read_ms": 1675,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/T-woGYTl13M",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/T-woGYTl13M",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 10435,
+        "duration_ms": 1683,
+        "timings": {
+          "response_ms": 81,
+          "body_read_ms": 1586,
+          "decode_and_transfer_ms": 16
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/LW074lpGq8Y",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/LW074lpGq8Y",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 10435,
+        "duration_ms": 1726,
+        "timings": {
+          "response_ms": 89,
+          "body_read_ms": 1627,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/UR66Bqpitww",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/UR66Bqpitww",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 12267,
+        "duration_ms": 1248,
+        "timings": {
+          "response_ms": 99,
+          "body_read_ms": 1139,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/m0ofNXQ1NG0",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/m0ofNXQ1NG0",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 12268,
+        "duration_ms": 1670,
+        "timings": {
+          "response_ms": 117,
+          "body_read_ms": 1537,
+          "decode_and_transfer_ms": 16
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/X4WeGDFjlNg",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/X4WeGDFjlNg",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 12268,
+        "duration_ms": 1176,
+        "timings": {
+          "response_ms": 78,
+          "body_read_ms": 1085,
+          "decode_and_transfer_ms": 13
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/9A_8vO4J1TI",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/9A_8vO4J1TI",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 12269,
+        "duration_ms": 1211,
+        "timings": {
+          "response_ms": 92,
+          "body_read_ms": 1108,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/obgSSNQT7uc",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/obgSSNQT7uc",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 13966,
+        "duration_ms": 1197,
+        "timings": {
+          "response_ms": 198,
+          "body_read_ms": 988,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/zbhFPeUGAIo",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/zbhFPeUGAIo",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 13966,
+        "duration_ms": 1619,
+        "timings": {
+          "response_ms": 198,
+          "body_read_ms": 1409,
+          "decode_and_transfer_ms": 12
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/JY7yr6qLwYQ",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/JY7yr6qLwYQ",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 13967,
+        "duration_ms": 1850,
+        "timings": {
+          "response_ms": 197,
+          "body_read_ms": 1641,
+          "decode_and_transfer_ms": 12
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/hDZCJuLQSys",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/hDZCJuLQSys",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 13967,
+        "duration_ms": 1121,
+        "timings": {
+          "response_ms": 197,
+          "body_read_ms": 905,
+          "decode_and_transfer_ms": 18
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/MX3TVD3vpxU",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/MX3TVD3vpxU",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 15856,
+        "duration_ms": 1539,
+        "timings": {
+          "response_ms": 82,
+          "body_read_ms": 1446,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/teLLdVx19LM",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/teLLdVx19LM",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 15856,
+        "duration_ms": 1994,
+        "timings": {
+          "response_ms": 109,
+          "body_read_ms": 1874,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/jZ075kZB41Y",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/jZ075kZB41Y",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 15857,
+        "duration_ms": 1350,
+        "timings": {
+          "response_ms": 92,
+          "body_read_ms": 1248,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/DdokXhfmKWs",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/DdokXhfmKWs",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 15857,
+        "duration_ms": 1503,
+        "timings": {
+          "response_ms": 92,
+          "body_read_ms": 1401,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/f3F-gMK9yU4",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/f3F-gMK9yU4",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 17878,
+        "duration_ms": 1401,
+        "timings": {
+          "response_ms": 98,
+          "body_read_ms": 1291,
+          "decode_and_transfer_ms": 12
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/k00ZRbwSK18",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/k00ZRbwSK18",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 17879,
+        "duration_ms": 1791,
+        "timings": {
+          "response_ms": 99,
+          "body_read_ms": 1681,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/b6GezMkSOnY",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/b6GezMkSOnY",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 17879,
+        "duration_ms": 1664,
+        "timings": {
+          "response_ms": 166,
+          "body_read_ms": 1488,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/QhHqx-xtfso",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/QhHqx-xtfso",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 17880,
+        "duration_ms": 1310,
+        "timings": {
+          "response_ms": 86,
+          "body_read_ms": 1210,
+          "decode_and_transfer_ms": 14
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/BAFx9a59K8E",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/BAFx9a59K8E",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 19697,
+        "duration_ms": 1125,
+        "timings": {
+          "response_ms": 201,
+          "body_read_ms": 913,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/9nWS54w75aw",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/9nWS54w75aw",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 19697,
+        "duration_ms": 1005,
+        "timings": {
+          "response_ms": 201,
+          "body_read_ms": 792,
+          "decode_and_transfer_ms": 12
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/mTXCNDrYbd8",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/mTXCNDrYbd8",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 19697,
+        "duration_ms": 1980,
+        "timings": {
+          "response_ms": 201,
+          "body_read_ms": 1768,
+          "decode_and_transfer_ms": 11
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/0qdCcOUjHUg",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/0qdCcOUjHUg",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 19698,
+        "duration_ms": 1658,
+        "timings": {
+          "response_ms": 200,
+          "body_read_ms": 1449,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/3SvE_5s1obs",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/3SvE_5s1obs",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 21704,
+        "duration_ms": 1812,
+        "timings": {
+          "response_ms": 85,
+          "body_read_ms": 1713,
+          "decode_and_transfer_ms": 14
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/Etq3bV4wTPQ",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/Etq3bV4wTPQ",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 21704,
+        "duration_ms": 1494,
+        "timings": {
+          "response_ms": 91,
+          "body_read_ms": 1393,
+          "decode_and_transfer_ms": 10
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/GJxiLVX42Is",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/GJxiLVX42Is",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 21705,
+        "duration_ms": 1457,
+        "timings": {
+          "response_ms": 89,
+          "body_read_ms": 1359,
+          "decode_and_transfer_ms": 9
+        }
+      },
+      {
+        "url": "https://www.youtube.com/shorts/hiqa4_5UWOI",
+        "method": "GET",
+        "host": "www.youtube.com",
+        "pathname": "/shorts/hiqa4_5UWOI",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 21705,
+        "duration_ms": 1417,
+        "timings": {
+          "response_ms": 111,
+          "body_read_ms": 1293,
+          "decode_and_transfer_ms": 13
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"youtube:channel:UCb31gOY6OD8ES0zP8M0GhAw:shorts\",\"title\":\"Max Fosh 的 YouTube Shorts\",\"link\":\"https://www.youtube.com/@MaxFosh/shorts\",\"description\":\"subscribe if you're a silly billy\",\"language\":\"\",\"extra\":{\"view\":\"video\",\"show_thumbnails\":true,\"proxy_images\":true,\"tags\":[\"YouTube\"]},\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"image\":\"https://yt3.googleusercontent.com/ytc/AIdro_lT_QgyeWr8i5fe31yhYKyJiGq8Wz6FeN3DIBohWYm7law=s900-c-k-c0x00ffffff-no-rj\",\"updated\":\"2026-11-17T17:07:23.000Z\",\"items\":[{\"id\":\"youtube:video:m4tvheyVWlI\",\"title\":\"i tricked coffee snobs with gas station coffee\",\"link\":\"https://www.youtube.com/shorts/m4tvheyVWlI\",\"description\":\"306万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fm4tvheyVWlI&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fm4tvheyVWlI%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBUhqGYfRMLUcD9hY845iKdqLEzhQ\\\" title=\\\"i tricked coffee snobs with gas station coffee\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/m4tvheyVWlI/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBUhqGYfRMLUcD9hY845iKdqLEzhQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/m4tvheyVWlI\",\"type\":\"video/x-youtube\"},\"published\":\"2026-11-17T17:07:23.000Z\"},{\"id\":\"youtube:video:GE1hyeGb8Lg\",\"title\":\"i made a hollywood trailer to get my friend a date\",\"link\":\"https://www.youtube.com/shorts/GE1hyeGb8Lg\",\"description\":\"5.3万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FGE1hyeGb8Lg&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FGE1hyeGb8Lg%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLC3oSQpaLyrGyp4FP-brVmloD7DLA\\\" title=\\\"i made a hollywood trailer to get my friend a date\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/GE1hyeGb8Lg/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLC3oSQpaLyrGyp4FP-brVmloD7DLA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/GE1hyeGb8Lg\",\"type\":\"video/x-youtube\"},\"published\":\"2026-11-11T18:14:18.000Z\"},{\"id\":\"youtube:video:0DhP2eihDf4\",\"title\":\"i hunted down my most remote subscriber\",\"link\":\"https://www.youtube.com/shorts/0DhP2eihDf4\",\"description\":\"126万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F0DhP2eihDf4&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0DhP2eihDf4%2Fsardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAKSxZCu0qGcjEundOy0YF2qeDKkQ\\\" title=\\\"i hunted down my most remote subscriber\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/0DhP2eihDf4/sardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAKSxZCu0qGcjEundOy0YF2qeDKkQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/0DhP2eihDf4\",\"type\":\"video/x-youtube\"},\"published\":\"2026-10-27T17:10:25.000Z\"},{\"id\":\"youtube:video:YsnaozWhXzg\",\"title\":\"i trained a rat to make ratatouille\",\"link\":\"https://www.youtube.com/shorts/YsnaozWhXzg\",\"description\":\"86万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FYsnaozWhXzg&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FYsnaozWhXzg%2Fsardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLATbz3OOKXXhXUALwlMLJaYRNUzWQ\\\" title=\\\"i trained a rat to make ratatouille\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/YsnaozWhXzg/sardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLATbz3OOKXXhXUALwlMLJaYRNUzWQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/YsnaozWhXzg\",\"type\":\"video/x-youtube\"},\"published\":\"2026-10-20T16:42:00.000Z\"},{\"id\":\"youtube:video:cyJRF0OXWDY\",\"title\":\"crane operator vs arcade claw machine\",\"link\":\"https://www.youtube.com/shorts/cyJRF0OXWDY\",\"description\":\"13万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FcyJRF0OXWDY&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FcyJRF0OXWDY%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBPT1rsTMPO9S_01j8XZtjaivLTJg\\\" title=\\\"crane operator vs arcade claw machine\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/cyJRF0OXWDY/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBPT1rsTMPO9S_01j8XZtjaivLTJg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/cyJRF0OXWDY\",\"type\":\"video/x-youtube\"},\"published\":\"2026-10-18T16:00:20.000Z\"},{\"id\":\"youtube:video:fvKqVTwTU2s\",\"title\":\"I Served Roadkill To Food Influencers Without Telling Them\",\"link\":\"https://www.youtube.com/shorts/fvKqVTwTU2s\",\"description\":\"5.8万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FfvKqVTwTU2s&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FfvKqVTwTU2s%2Fsardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBwZFqMRok1DJwgLqp82qyCBj-4aQ\\\" title=\\\"I Served Roadkill To Food Influencers Without Telling Them\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/fvKqVTwTU2s/sardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBwZFqMRok1DJwgLqp82qyCBj-4aQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/fvKqVTwTU2s\",\"type\":\"video/x-youtube\"},\"published\":\"2026-10-14T16:00:01.000Z\"},{\"id\":\"youtube:video:WLJx6PJwcmc\",\"title\":\"I Hired The World’s Unluckiest Man To Gamble In Las Vegas\",\"link\":\"https://www.youtube.com/shorts/WLJx6PJwcmc\",\"description\":\"141万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FWLJx6PJwcmc&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FWLJx6PJwcmc%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLC5ASsFYESwDbUzkEEM0gHkeSnWGQ\\\" title=\\\"I Hired The World’s Unluckiest Man To Gamble In Las Vegas\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/WLJx6PJwcmc/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLC5ASsFYESwDbUzkEEM0gHkeSnWGQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/WLJx6PJwcmc\",\"type\":\"video/x-youtube\"},\"published\":\"2026-10-09T16:23:30.000Z\"},{\"id\":\"youtube:video:x6CTHW1PFUs\",\"title\":\"I Made My Friend A Celebrity In Asia... Without Him Knowing\",\"link\":\"https://www.youtube.com/shorts/x6CTHW1PFUs\",\"description\":\"273万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fx6CTHW1PFUs&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fx6CTHW1PFUs%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBQci1h1Rdfy2TykrGBZ3tFLpbsfw\\\" title=\\\"I Made My Friend A Celebrity In Asia... Without Him Knowing\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/x6CTHW1PFUs/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBQci1h1Rdfy2TykrGBZ3tFLpbsfw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/x6CTHW1PFUs\",\"type\":\"video/x-youtube\"},\"published\":\"2026-09-03T14:42:13.000Z\"},{\"id\":\"youtube:video:aszj2j5qizc\",\"title\":\"i let a ghost decide my road trip\",\"link\":\"https://www.youtube.com/shorts/aszj2j5qizc\",\"description\":\"53万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Faszj2j5qizc&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Faszj2j5qizc%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLC0opet1fmerpLWcE0rWrDntS6LDA\\\" title=\\\"i let a ghost decide my road trip\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/aszj2j5qizc/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLC0opet1fmerpLWcE0rWrDntS6LDA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/aszj2j5qizc\",\"type\":\"video/x-youtube\"},\"published\":\"2026-08-24T16:23:15.000Z\"},{\"id\":\"youtube:video:V7Txm_Lbynk\",\"title\":\"i let a magic 8 ball decide my bets in vegas\",\"link\":\"https://www.youtube.com/shorts/V7Txm_Lbynk\",\"description\":\"69万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FV7Txm_Lbynk&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FV7Txm_Lbynk%2Fsardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLDVt1jJu-p30uO70xFO2YaTysrJOw\\\" title=\\\"i let a magic 8 ball decide my bets in vegas\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/V7Txm_Lbynk/sardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLDVt1jJu-p30uO70xFO2YaTysrJOw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/V7Txm_Lbynk\",\"type\":\"video/x-youtube\"},\"published\":\"2026-08-11T18:50:37.000Z\"},{\"id\":\"youtube:video:U_9TIZlRstE\",\"title\":\"Sillier Summer Starts here\",\"link\":\"https://www.youtube.com/shorts/U_9TIZlRstE\",\"description\":\"641万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FU_9TIZlRstE&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FU_9TIZlRstE%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCfnD69HdBXPew9Jz0zE0x2UZyA8g\\\" title=\\\"Sillier Summer Starts here\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/U_9TIZlRstE/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCfnD69HdBXPew9Jz0zE0x2UZyA8g\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/U_9TIZlRstE\",\"type\":\"video/x-youtube\"},\"published\":\"2026-08-06T01:11:39.000Z\"},{\"id\":\"youtube:video:0ZTKWt6ism4\",\"title\":\"how much do i spend on my videos?\",\"link\":\"https://www.youtube.com/shorts/0ZTKWt6ism4\",\"description\":\"294万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F0ZTKWt6ism4&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0ZTKWt6ism4%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCZ6HUW86y_0No6eERSlsEp1mBJvA\\\" title=\\\"how much do i spend on my videos?\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/0ZTKWt6ism4/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCZ6HUW86y_0No6eERSlsEp1mBJvA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/0ZTKWt6ism4\",\"type\":\"video/x-youtube\"},\"published\":\"2026-07-29T16:00:11.000Z\"},{\"id\":\"youtube:video:7AMz9wM5pk4\",\"title\":\"i tricked a musician to play to 5,000 fans\",\"link\":\"https://www.youtube.com/shorts/7AMz9wM5pk4\",\"description\":\"134万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7AMz9wM5pk4&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7AMz9wM5pk4%2Fsardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAvbirGfTFlMV_7rsR7UWybREA0hA\\\" title=\\\"i tricked a musician to play to 5,000 fans\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/7AMz9wM5pk4/sardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAvbirGfTFlMV_7rsR7UWybREA0hA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/7AMz9wM5pk4\",\"type\":\"video/x-youtube\"},\"published\":\"2026-07-27T17:16:39.000Z\"},{\"id\":\"youtube:video:8qezJmKP7Gs\",\"title\":\"i snuck a 9 year old into roast battle world championship\",\"link\":\"https://www.youtube.com/shorts/8qezJmKP7Gs\",\"description\":\"31万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F8qezJmKP7Gs&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F8qezJmKP7Gs%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLB3YFUetuJ-opBxjItHSnGBF6EwdA\\\" title=\\\"i snuck a 9 year old into roast battle world championship\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/8qezJmKP7Gs/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLB3YFUetuJ-opBxjItHSnGBF6EwdA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/8qezJmKP7Gs\",\"type\":\"video/x-youtube\"},\"published\":\"2026-07-10T16:00:25.000Z\"},{\"id\":\"youtube:video:HFAVwh3TAfA\",\"title\":\"can i get a pizza delivered whilst in a running race?\",\"link\":\"https://www.youtube.com/shorts/HFAVwh3TAfA\",\"description\":\"43万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FHFAVwh3TAfA&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHFAVwh3TAfA%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBZbnufpIcjT3e_1uk3pSeiA_Df5Q\\\" title=\\\"can i get a pizza delivered whilst in a running race?\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/HFAVwh3TAfA/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBZbnufpIcjT3e_1uk3pSeiA_Df5Q\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/HFAVwh3TAfA\",\"type\":\"video/x-youtube\"},\"published\":\"2026-06-28T16:00:30.000Z\"},{\"id\":\"youtube:video:L6pwr-nWnQk\",\"title\":\"i tricked hollywood that i was a british royal\",\"link\":\"https://www.youtube.com/shorts/L6pwr-nWnQk\",\"description\":\"40万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FL6pwr-nWnQk&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FL6pwr-nWnQk%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCT859GeddgaFlcCwSxKNDISevxcQ\\\" title=\\\"i tricked hollywood that i was a british royal\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/L6pwr-nWnQk/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCT859GeddgaFlcCwSxKNDISevxcQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/L6pwr-nWnQk\",\"type\":\"video/x-youtube\"},\"published\":\"2026-06-16T16:00:19.000Z\"},{\"id\":\"youtube:video:3zyNxtN3li4\",\"title\":\"i tricked KSI into leaving the sidemen\",\"link\":\"https://www.youtube.com/shorts/3zyNxtN3li4\",\"description\":\"254万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F3zyNxtN3li4&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F3zyNxtN3li4%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBw5WnqDehypCD_qd0IPB8vxGqrUw\\\" title=\\\"i tricked KSI into leaving the sidemen\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/3zyNxtN3li4/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBw5WnqDehypCD_qd0IPB8vxGqrUw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/3zyNxtN3li4\",\"type\":\"video/x-youtube\"},\"published\":\"2026-06-01T15:37:13.000Z\"},{\"id\":\"youtube:video:lanRaJY0sns\",\"title\":\"i hired pest control to play mouse trap\",\"link\":\"https://www.youtube.com/shorts/lanRaJY0sns\",\"description\":\"154万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FlanRaJY0sns&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FlanRaJY0sns%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCdDm4ZR0zhgOO5gZc0GLK_Am05iw\\\" title=\\\"i hired pest control to play mouse trap\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/lanRaJY0sns/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCdDm4ZR0zhgOO5gZc0GLK_Am05iw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/lanRaJY0sns\",\"type\":\"video/x-youtube\"},\"published\":\"2026-05-31T16:00:21.000Z\"},{\"id\":\"youtube:video:vN5knbG_GKg\",\"title\":\"i threw a surprise party for a locksmith\",\"link\":\"https://www.youtube.com/shorts/vN5knbG_GKg\",\"description\":\"376万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FvN5knbG_GKg&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FvN5knbG_GKg%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLC8lalKXmD7m0P5t-0wnJrWCwZIZQ\\\" title=\\\"i threw a surprise party for a locksmith\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/vN5knbG_GKg/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLC8lalKXmD7m0P5t-0wnJrWCwZIZQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/vN5knbG_GKg\",\"type\":\"video/x-youtube\"},\"published\":\"2026-05-24T16:10:00.000Z\"},{\"id\":\"youtube:video:JY-cFT-9nyo\",\"title\":\"i snuck a cat into a dog show\",\"link\":\"https://www.youtube.com/shorts/JY-cFT-9nyo\",\"description\":\"713万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FJY-cFT-9nyo&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FJY-cFT-9nyo%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCP0tkrHkEjQiubfX2AtJSqHleJ7w\\\" title=\\\"i snuck a cat into a dog show\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/JY-cFT-9nyo/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCP0tkrHkEjQiubfX2AtJSqHleJ7w\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/JY-cFT-9nyo\",\"type\":\"video/x-youtube\"},\"published\":\"2026-05-17T16:00:22.000Z\"},{\"id\":\"youtube:video:sUT0uKEYhXw\",\"title\":\"how i exploded a yellow card at the sidemen charity match\",\"link\":\"https://www.youtube.com/shorts/sUT0uKEYhXw\",\"description\":\"1771万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FsUT0uKEYhXw&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FsUT0uKEYhXw%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCE2cYelzUfoLPcQB-0p5rYT_wUMg\\\" title=\\\"how i exploded a yellow card at the sidemen charity match\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/sUT0uKEYhXw/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCE2cYelzUfoLPcQB-0p5rYT_wUMg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/sUT0uKEYhXw\",\"type\":\"video/x-youtube\"},\"published\":\"2026-04-24T13:19:36.000Z\"},{\"id\":\"youtube:video:Q8aGm7C5QoU\",\"title\":\"calling Deji a good boy at the Sidemen Charity Match\",\"link\":\"https://www.youtube.com/shorts/Q8aGm7C5QoU\",\"description\":\"212万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FQ8aGm7C5QoU&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FQ8aGm7C5QoU%2Foar3.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAl9egT9zLqpeBybzLnQ-PlJOzhfA\\\" title=\\\"calling Deji a good boy at the Sidemen Charity Match\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/Q8aGm7C5QoU/oar3.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAl9egT9zLqpeBybzLnQ-PlJOzhfA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/Q8aGm7C5QoU\",\"type\":\"video/x-youtube\"},\"published\":\"2026-04-18T12:10:27.000Z\"},{\"id\":\"youtube:video:T-woGYTl13M\",\"title\":\"I tricked YouTubers at the Sidemen Charity Match\",\"link\":\"https://www.youtube.com/shorts/T-woGYTl13M\",\"description\":\"620万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FT-woGYTl13M&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FT-woGYTl13M%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAKxktAuRogy6uh6gUbHTdbcZZrrg\\\" title=\\\"I tricked YouTubers at the Sidemen Charity Match\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/T-woGYTl13M/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAKxktAuRogy6uh6gUbHTdbcZZrrg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/T-woGYTl13M\",\"type\":\"video/x-youtube\"},\"published\":\"2026-04-18T10:10:58.000Z\"},{\"id\":\"youtube:video:LW074lpGq8Y\",\"title\":\"I have developed a new superpower! @Even Realities\",\"link\":\"https://www.youtube.com/shorts/LW074lpGq8Y\",\"description\":\"129万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FLW074lpGq8Y&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FLW074lpGq8Y%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAlFok15-K4OW4KZrTUocO24wXDaA\\\" title=\\\"I have developed a new superpower! @Even Realities\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/LW074lpGq8Y/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAlFok15-K4OW4KZrTUocO24wXDaA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/LW074lpGq8Y\",\"type\":\"video/x-youtube\"},\"published\":\"2026-04-15T16:00:40.000Z\"},{\"id\":\"youtube:video:UR66Bqpitww\",\"title\":\"i ordered a curry to a train\",\"link\":\"https://www.youtube.com/shorts/UR66Bqpitww\",\"description\":\"52万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FUR66Bqpitww&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FUR66Bqpitww%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBxLfJVTSevfAfvVTu7kg4XA5aucw\\\" title=\\\"i ordered a curry to a train\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/UR66Bqpitww/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBxLfJVTSevfAfvVTu7kg4XA5aucw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/UR66Bqpitww\",\"type\":\"video/x-youtube\"},\"published\":\"2026-03-31T17:00:27.000Z\"},{\"id\":\"youtube:video:m0ofNXQ1NG0\",\"title\":\"i hired hollywood stuntmen to lose to me in a fight\",\"link\":\"https://www.youtube.com/shorts/m0ofNXQ1NG0\",\"description\":\"516万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fm0ofNXQ1NG0&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fm0ofNXQ1NG0%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBGX90rOpQcsulq9RQJ3dsRnmxijw\\\" title=\\\"i hired hollywood stuntmen to lose to me in a fight\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/m0ofNXQ1NG0/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBGX90rOpQcsulq9RQJ3dsRnmxijw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/m0ofNXQ1NG0\",\"type\":\"video/x-youtube\"},\"published\":\"2026-03-23T17:25:01.000Z\"},{\"id\":\"youtube:video:X4WeGDFjlNg\",\"title\":\"can i churn butter on a bicycle?\",\"link\":\"https://www.youtube.com/shorts/X4WeGDFjlNg\",\"description\":\"259万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FX4WeGDFjlNg&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FX4WeGDFjlNg%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLDGKqetvkcRrI8Vmn9NYTiPCT_bbg\\\" title=\\\"can i churn butter on a bicycle?\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/X4WeGDFjlNg/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLDGKqetvkcRrI8Vmn9NYTiPCT_bbg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/X4WeGDFjlNg\",\"type\":\"video/x-youtube\"},\"published\":\"2026-03-17T17:42:31.000Z\"},{\"id\":\"youtube:video:9A_8vO4J1TI\",\"title\":\"i hired 20 bald men for a wedding proposal\",\"link\":\"https://www.youtube.com/shorts/9A_8vO4J1TI\",\"description\":\"633万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F9A_8vO4J1TI&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F9A_8vO4J1TI%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBxa1JIgBPnN1vobfXXNJDt1aKuIg\\\" title=\\\"i hired 20 bald men for a wedding proposal\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/9A_8vO4J1TI/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBxa1JIgBPnN1vobfXXNJDt1aKuIg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/9A_8vO4J1TI\",\"type\":\"video/x-youtube\"},\"published\":\"2026-03-06T18:13:43.000Z\"},{\"id\":\"youtube:video:obgSSNQT7uc\",\"title\":\"i sailed my bath tub across the atlantic ocean\",\"link\":\"https://www.youtube.com/shorts/obgSSNQT7uc\",\"description\":\"35万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FobgSSNQT7uc&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FobgSSNQT7uc%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLA8sjGY1_xr-n_cqYWAkTkFMQNHKQ\\\" title=\\\"i sailed my bath tub across the atlantic ocean\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/obgSSNQT7uc/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLA8sjGY1_xr-n_cqYWAkTkFMQNHKQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/obgSSNQT7uc\",\"type\":\"video/x-youtube\"},\"published\":\"2026-02-25T17:01:31.000Z\"},{\"id\":\"youtube:video:zbhFPeUGAIo\",\"title\":\"can i eat for free dressed as a baby?\",\"link\":\"https://www.youtube.com/shorts/zbhFPeUGAIo\",\"description\":\"47万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FzbhFPeUGAIo&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FzbhFPeUGAIo%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAQTIht6y78AFdsfuotP0SxrNitKw\\\" title=\\\"can i eat for free dressed as a baby?\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/zbhFPeUGAIo/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAQTIht6y78AFdsfuotP0SxrNitKw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/zbhFPeUGAIo\",\"type\":\"video/x-youtube\"},\"published\":\"2026-02-18T17:01:29.000Z\"},{\"id\":\"youtube:video:JY7yr6qLwYQ\",\"title\":\"i told a taxi to \\\"follow that car!\\\"\",\"link\":\"https://www.youtube.com/shorts/JY7yr6qLwYQ\",\"description\":\"587万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FJY7yr6qLwYQ&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FJY7yr6qLwYQ%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLDpmdyaqoXCZBcx5imtISoqcQOKEg\\\" title=\\\"i told a taxi to &quot;follow that car!&quot;\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/JY7yr6qLwYQ/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLDpmdyaqoXCZBcx5imtISoqcQOKEg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/JY7yr6qLwYQ\",\"type\":\"video/x-youtube\"},\"published\":\"2026-02-09T18:01:04.000Z\"},{\"id\":\"youtube:video:hDZCJuLQSys\",\"title\":\"UK vs USA: who wins paintball?\",\"link\":\"https://www.youtube.com/shorts/hDZCJuLQSys\",\"description\":\"58万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FhDZCJuLQSys&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FhDZCJuLQSys%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCWColL14kFriZHVAvnyb82iEJcZw\\\" title=\\\"UK vs USA: who wins paintball?\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/hDZCJuLQSys/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCWColL14kFriZHVAvnyb82iEJcZw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/hDZCJuLQSys\",\"type\":\"video/x-youtube\"},\"published\":\"2026-02-06T17:01:16.000Z\"},{\"id\":\"youtube:video:MX3TVD3vpxU\",\"title\":\"i printed a train ticket on a bald man\",\"link\":\"https://www.youtube.com/shorts/MX3TVD3vpxU\",\"description\":\"2281万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FMX3TVD3vpxU&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FMX3TVD3vpxU%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAHmvXP4asNSvITGVlp9_XdBNn9Qg\\\" title=\\\"i printed a train ticket on a bald man\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/MX3TVD3vpxU/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAHmvXP4asNSvITGVlp9_XdBNn9Qg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/MX3TVD3vpxU\",\"type\":\"video/x-youtube\"},\"published\":\"2026-02-02T17:30:09.000Z\"},{\"id\":\"youtube:video:teLLdVx19LM\",\"title\":\"i tracked down the baby born next to me\",\"link\":\"https://www.youtube.com/shorts/teLLdVx19LM\",\"description\":\"2808万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FteLLdVx19LM&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FteLLdVx19LM%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAfMat2Dlh3gaOkJw1G6f4_Dpep1Q\\\" title=\\\"i tracked down the baby born next to me\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/teLLdVx19LM/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAfMat2Dlh3gaOkJw1G6f4_Dpep1Q\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/teLLdVx19LM\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-30T17:01:37.000Z\"},{\"id\":\"youtube:video:jZ075kZB41Y\",\"title\":\"I turned Calfreezy's meme into a statue\",\"link\":\"https://www.youtube.com/shorts/jZ075kZB41Y\",\"description\":\"61万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FjZ075kZB41Y&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FjZ075kZB41Y%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAD7-m_liYEjZz9JoP_s7IoT7zyyw\\\" title=\\\"I turned Calfreezy's meme into a statue\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/jZ075kZB41Y/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAD7-m_liYEjZz9JoP_s7IoT7zyyw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/jZ075kZB41Y\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-26T17:01:12.000Z\"},{\"id\":\"youtube:video:DdokXhfmKWs\",\"title\":\"private detective vs escape room\",\"link\":\"https://www.youtube.com/shorts/DdokXhfmKWs\",\"description\":\"1812万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FDdokXhfmKWs&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FDdokXhfmKWs%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLARD6ztT2JnrN7atqlOSgsySnuA8A\\\" title=\\\"private detective vs escape room\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/DdokXhfmKWs/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLARD6ztT2JnrN7atqlOSgsySnuA8A\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/DdokXhfmKWs\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-23T17:08:46.000Z\"},{\"id\":\"youtube:video:f3F-gMK9yU4\",\"title\":\"i surprised WillNE with an offensive statue\",\"link\":\"https://www.youtube.com/shorts/f3F-gMK9yU4\",\"description\":\"19万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Ff3F-gMK9yU4&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Ff3F-gMK9yU4%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCtkZTWYWG9OoEDPa61KRTkRjbRcA\\\" title=\\\"i surprised WillNE with an offensive statue\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/f3F-gMK9yU4/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCtkZTWYWG9OoEDPa61KRTkRjbRcA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/f3F-gMK9yU4\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-19T17:01:12.000Z\"},{\"id\":\"youtube:video:k00ZRbwSK18\",\"title\":\"i tricked new york that i was a british royal\",\"link\":\"https://www.youtube.com/shorts/k00ZRbwSK18\",\"description\":\"20万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fk00ZRbwSK18&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fk00ZRbwSK18%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLDYj8han8F9henmN_i4giQyYr54eA\\\" title=\\\"i tricked new york that i was a british royal\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/k00ZRbwSK18/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLDYj8han8F9henmN_i4giQyYr54eA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/k00ZRbwSK18\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-16T17:01:21.000Z\"},{\"id\":\"youtube:video:b6GezMkSOnY\",\"title\":\"i legally kidnapped people\",\"link\":\"https://www.youtube.com/shorts/b6GezMkSOnY\",\"description\":\"20万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fb6GezMkSOnY&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fb6GezMkSOnY%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCfNyY0MR2UHpW-nU1RglfGTedB_g\\\" title=\\\"i legally kidnapped people\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/b6GezMkSOnY/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCfNyY0MR2UHpW-nU1RglfGTedB_g\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/b6GezMkSOnY\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-12T17:01:06.000Z\"},{\"id\":\"youtube:video:QhHqx-xtfso\",\"title\":\"i put up an offensive statue of KSI\",\"link\":\"https://www.youtube.com/shorts/QhHqx-xtfso\",\"description\":\"239万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FQhHqx-xtfso&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FQhHqx-xtfso%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBTZ9qwDSRdZ6L3hky7BCDddYt0wA\\\" title=\\\"i put up an offensive statue of KSI\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/QhHqx-xtfso/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBTZ9qwDSRdZ6L3hky7BCDddYt0wA\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/QhHqx-xtfso\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-10T17:00:42.000Z\"},{\"id\":\"youtube:video:BAFx9a59K8E\",\"title\":\"i snuck a 8 year old into roast battle\",\"link\":\"https://www.youtube.com/shorts/BAFx9a59K8E\",\"description\":\"3954万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FBAFx9a59K8E&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FBAFx9a59K8E%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBkHsipFWcI4ygs2nNhK29SUsKG5A\\\" title=\\\"i snuck a 8 year old into roast battle\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/BAFx9a59K8E/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBkHsipFWcI4ygs2nNhK29SUsKG5A\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/BAFx9a59K8E\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-06T19:22:17.000Z\"},{\"id\":\"youtube:video:9nWS54w75aw\",\"title\":\"I Technically Kidnapped People\",\"link\":\"https://www.youtube.com/shorts/9nWS54w75aw\",\"description\":\"279万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F9nWS54w75aw&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F9nWS54w75aw%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJYDEOEESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAHDLZ8NXus9FocztKFkNis7Myqzg\\\" title=\\\"I Technically Kidnapped People\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/9nWS54w75aw/oardefault.jpg?sqp=-oaymwEgCJYDEOEESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAHDLZ8NXus9FocztKFkNis7Myqzg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/9nWS54w75aw\",\"type\":\"video/x-youtube\"},\"published\":\"2026-01-05T17:00:25.000Z\"},{\"id\":\"youtube:video:mTXCNDrYbd8\",\"title\":\"Mohawk or no-hawk?\",\"link\":\"https://www.youtube.com/shorts/mTXCNDrYbd8\",\"description\":\"16万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FmTXCNDrYbd8&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FmTXCNDrYbd8%2Foar2.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLBGv5U7X2P23ixrmVN-k6SXikZBtw\\\" title=\\\"Mohawk or no-hawk?\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/mTXCNDrYbd8/oar2.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLBGv5U7X2P23ixrmVN-k6SXikZBtw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/mTXCNDrYbd8\",\"type\":\"video/x-youtube\"},\"published\":\"2025-12-08T18:21:29.000Z\"},{\"id\":\"youtube:video:0qdCcOUjHUg\",\"title\":\"i broke into the hide and seek world cup\",\"link\":\"https://www.youtube.com/shorts/0qdCcOUjHUg\",\"description\":\"103万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F0qdCcOUjHUg&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0qdCcOUjHUg%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCMdUfy495B_zf1W1f7kxzzpVVG9A\\\" title=\\\"i broke into the hide and seek world cup\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/0qdCcOUjHUg/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCMdUfy495B_zf1W1f7kxzzpVVG9A\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/0qdCcOUjHUg\",\"type\":\"video/x-youtube\"},\"published\":\"2025-11-21T17:00:07.000Z\"},{\"id\":\"youtube:video:3SvE_5s1obs\",\"title\":\"i lived in a go-kart track until i beat the lap record\",\"link\":\"https://www.youtube.com/shorts/3SvE_5s1obs\",\"description\":\"134万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2F3SvE_5s1obs&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2F3SvE_5s1obs%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLAKQPgkXXpw2o9ZV7RQ1OigwXgN9g\\\" title=\\\"i lived in a go-kart track until i beat the lap record\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/3SvE_5s1obs/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLAKQPgkXXpw2o9ZV7RQ1OigwXgN9g\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/3SvE_5s1obs\",\"type\":\"video/x-youtube\"},\"published\":\"2025-11-03T17:00:13.000Z\"},{\"id\":\"youtube:video:Etq3bV4wTPQ\",\"title\":\"i challenged the police to a pillow fight\",\"link\":\"https://www.youtube.com/shorts/Etq3bV4wTPQ\",\"description\":\"27万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FEtq3bV4wTPQ&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FEtq3bV4wTPQ%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLDSvDDW83f0zAjyfG3DOd9Bcn8FKg\\\" title=\\\"i challenged the police to a pillow fight\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/Etq3bV4wTPQ/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLDSvDDW83f0zAjyfG3DOd9Bcn8FKg\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/Etq3bV4wTPQ\",\"type\":\"video/x-youtube\"},\"published\":\"2025-10-29T17:00:21.000Z\"},{\"id\":\"youtube:video:GJxiLVX42Is\",\"title\":\"i broke an old french law in front of the police\",\"link\":\"https://www.youtube.com/shorts/GJxiLVX42Is\",\"description\":\"57万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2FGJxiLVX42Is&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2FGJxiLVX42Is%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCzEL8CD2nYC5tdFnVrrrPzzFPiOQ\\\" title=\\\"i broke an old french law in front of the police\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/GJxiLVX42Is/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCzEL8CD2nYC5tdFnVrrrPzzFPiOQ\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/GJxiLVX42Is\",\"type\":\"video/x-youtube\"},\"published\":\"2025-10-24T16:00:38.000Z\"},{\"id\":\"youtube:video:hiqa4_5UWOI\",\"title\":\"i hired 7 year olds to write my stand up comedy\",\"link\":\"https://www.youtube.com/shorts/hiqa4_5UWOI\",\"description\":\"26万次观看\",\"content\":\"<iframe data-n=\\\"youtube-player\\\" src=\\\"/video.html?url=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fhiqa4_5UWOI&amp;poster=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fhiqa4_5UWOI%2Foardefault.jpg%3Fsqp%3D-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE%3D%26rs%3DAOn4CLCiTkE0RJrhZhA6EcQjiiH1UfX-mw\\\" title=\\\"i hired 7 year olds to write my stand up comedy\\\" allow=\\\"autoplay; fullscreen; encrypted-media; picture-in-picture\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>\",\"image\":\"https://i.ytimg.com/vi/hiqa4_5UWOI/oardefault.jpg?sqp=-oaymwEgCJUDEOAESFWQAgHyq4qpAw8IARUAAIhCcAHAAQbIAQE=&rs=AOn4CLCiTkE0RJrhZhA6EcQjiiH1UfX-mw\",\"media_group\":true,\"type\":\"video\",\"author\":{\"name\":\"Max Fosh\",\"uri\":\"https://www.youtube.com/@MaxFosh\"},\"enclosure\":{\"url\":\"https://www.youtube.com/embed/hiqa4_5UWOI\",\"type\":\"video/x-youtube\"},\"published\":\"2025-09-15T16:01:21.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 22,
+      "elapsed_ms": 23548,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -117,39 +1136,284 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 15
+          "started_ms": 7,
+          "duration_ms": 23539
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 21,
+          "name": "输出读取与校验",
+          "started_ms": 23546,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 23546,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 21,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 21,
+          "started_ms": 23546,
           "duration_ms": 1
         },
         {
-          "name": "调试信息整理",
-          "started_ms": 22,
+          "name": "浏览器状态保存",
+          "started_ms": 23547,
           "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 23547,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 11
+          "started_ms": 11,
+          "duration_ms": 332
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 549,
+          "duration_ms": 1647
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 550,
+          "duration_ms": 1569
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 551,
+          "duration_ms": 1903
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 551,
+          "duration_ms": 1492
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 2480,
+          "duration_ms": 1257
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 2480,
+          "duration_ms": 1794
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 2481,
+          "duration_ms": 1826
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 2481,
+          "duration_ms": 1864
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 4373,
+          "duration_ms": 1514
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 4374,
+          "duration_ms": 1210
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 4375,
+          "duration_ms": 1554
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 4375,
+          "duration_ms": 1475
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 5955,
+          "duration_ms": 2450
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 5956,
+          "duration_ms": 1376
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 5956,
+          "duration_ms": 1190
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 5957,
+          "duration_ms": 1265
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 8433,
+          "duration_ms": 1971
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 8434,
+          "duration_ms": 1701
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 8434,
+          "duration_ms": 1646
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 8435,
+          "duration_ms": 1738
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 10433,
+          "duration_ms": 1808
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 10434,
+          "duration_ms": 1766
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 10434,
+          "duration_ms": 1684
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 10435,
+          "duration_ms": 1726
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 12267,
+          "duration_ms": 1248
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 12268,
+          "duration_ms": 1670
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 12268,
+          "duration_ms": 1176
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 12268,
+          "duration_ms": 1212
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 13965,
+          "duration_ms": 1198
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 13966,
+          "duration_ms": 1619
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 13967,
+          "duration_ms": 1850
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 13967,
+          "duration_ms": 1121
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 15856,
+          "duration_ms": 1539
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 15856,
+          "duration_ms": 1994
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 15857,
+          "duration_ms": 1350
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 15857,
+          "duration_ms": 1503
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 17878,
+          "duration_ms": 1401
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 17879,
+          "duration_ms": 1791
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 17879,
+          "duration_ms": 1664
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 17880,
+          "duration_ms": 1310
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 19696,
+          "duration_ms": 1126
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 19697,
+          "duration_ms": 1005
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 19697,
+          "duration_ms": 1980
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 19698,
+          "duration_ms": 1658
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 21703,
+          "duration_ms": 1813
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 21704,
+          "duration_ms": 1494
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 21705,
+          "duration_ms": 1457
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 21705,
+          "duration_ms": 1417
         }
       ]
     }

@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:14:00.979Z",
+  "checked_at": "2026-11-19T13:41:19.981Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_fb242c15300f",
     "name": "吾爱破解论坛",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_fb242c15300f.json",
-    "duration_ms": 4850
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10020
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2590
+    "status": 502,
+    "duration_ms": 10020
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2582,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -74,86 +70,79 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 2567,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 919,
-          "body_read_ms": 1647,
-          "decode_and_transfer_ms": 1
+          "response_ms": 4409,
+          "body_read_ms": 5593
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_fb242c15300f\",\"title\":\"吾爱破解论坛\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144871&idx=1&sn=d622fc938a7ad5cbd0d6e028559dc44b&chksm=bca3b227a4234ff4400dc598a73a41af35b8c24a3d84b814b1d80838b0f8822b885c63043c5d&scene=126&sessionid=1795076044#rd\",\"description\":\"吾爱破解论坛深耕软件逆向工程与反病毒技术领域，汇聚众多技术爱好者的智慧与经验，共同探索与分享前沿安全技术和防护策略，构建业内最具影响力的技术交流平台。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"吾爱破解论坛\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FI1OPdTuWhE8HbEHbpFweTzLiakkV1A2XVIbtLVHu9bdUk8sDcUL8Ty7ibNs2n3UIVag67iaCBRpnSU%2F0\",\"updated\":\"2026-11-13T04:20:30.000Z\",\"items\":[{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144871:1\",\"title\":\"披着系统助手的外衣——SystemHelper服务分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144871&idx=1&sn=d622fc938a7ad5cbd0d6e028559dc44b&chksm=bca3b227a4234ff4400dc598a73a41af35b8c24a3d84b814b1d80838b0f8822b885c63043c5d&scene=126&sessionid=1795076044#rd\",\"description\":\"近日在各大论坛帖子看到大量用户讨论，称com.mobiletools.systemhelper的系统组件会秘密上报多种敏感信息。我从Redmi K60 Ultra提取出安装包，它在桌面上没有图标，唯一的界面 TestActivity 还挂着 signature 级权限，普通用户从安装到卸载都无法感知它的存在\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaV8UF5rUbwdMWSeQrLjKGET8LkPuH50ia8xlZhtrI6hWJ1dvYjaGrx3icicmEggsMiaUHDE852pEbO4UzqpyDR2IpTqd7qPmMNN69xVBLFeiaT1U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T04:20:30.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144850:1\",\"title\":\"光棍节开放注册四小时共注册28996人，没有激活的同学请尽快激活啦，发帖前请认真阅读注册须知和总版规，防止违规封号注销。\\n\\n刚加入的同学请经常登录并保持活跃（注意：签到不算活跃，只有发帖或回帖才算，这句话很重要），避免没活跃被清理，参与到论坛交流中来，对于给予帮助你的人加热心和论坛币，做一个热心受欢迎的人。\\n\\n错过的同学可以“星标”公众号等待下次开放注册通知。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144850&idx=1&sn=ed5f5014fe29eee373b074d50b4cfdea&chksm=bcf5d3127bf2fd1803d19d97909dcdcd10a4b442f7945814ab7b3a43e5234b912c5c23d86048&scene=126&sessionid=1795076044#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-11-12T02:21:28.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144848:1\",\"title\":\"<a class=\\\"normal_text_link mp_article_text_link\\\" data-itemshowtype=\\\"0\\\" data-unique-id=\\\"mwbii270-fhrx3q\\\" target=\\\"_blank\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144794&idx=1&sn=2dba0b9a2341243845330dacef47ea0b&scene=21#wechat_redirect\\\">【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告</a>即将开始 12：00 -- 14：00 和 20：00 -- 22：00，论坛唯一地址：52pojie.cn 。\\n\\n赶不上的定个晚间闹钟吧，新通知会在B站继续发布。\\n\\n推荐使用电脑注册，可以使用论坛的<a class=\\\"normal_text_link mp_article_text_link\\\" data-itemshowtype=\\\"0\\\" data-unique-id=\\\"mru2g39l-mbgimt\\\" target=\\\"_blank\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144634&idx=1&sn=e605bbac6a0bfc723d0b5807bc803880&scene=21#wechat_redirect\\\">诊断修复工具</a>修复一次，方便提前解决注册中可能会遇到的问题，如果修复后还是不行建议尽快更换设备尝试，不要耽误时间。\\n\\n注册页面会强制10分钟来阅读注册须知，须知中包括了你注册现在和未来可能会遇到的问题，包括不活跃请不要注册，论坛会不定期清理不活跃会员，请仔细阅读，否则可能无法注册成功或注册后被清理。\\n\\n另：\\n开放注册期间暂停签到任务、下载论坛附件功能、默认搜索功能、QQ登录绑定等功能（忘记账号密码可以邮箱重置后登陆） 请各位知晓。主要把下载附件的带宽和服务器负载节省下来供用户注册访问使用，等注册结束就恢复了（默认搜索功能根据论坛负载压力预计一周后恢复），请大家谅解。\\n\\n新注册的会员需要注册一天后才可以发帖，以缓解注册压力。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144848&idx=1&sn=dae37a9fb321aa3ad07e9b17f3806ead&chksm=bc0869bac8dba6d0752d526d0037fdd29ae0728bcbe04523323253988b69f2edbfde4d58c82a&scene=126&sessionid=1795076044#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-11-11T03:30:00.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144846:1\",\"title\":\"[链接]【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告 即将开始 12：00 -- 14：00 和 20：00 -- 22：00，论坛唯一地址：\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144846&idx=1&sn=9575b33626b38485a8fadf7161295bc9&chksm=bc22067f4b5e2672be3a36417f86a0b953bbda48c602b452181b48006714c2c5fb41ffed1c8b&scene=126&sessionid=1795076044#rd\",\"description\":\"<a data-unique-id=\\\"mwbii270-fhrx3q\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651144794&amp;idx=1&amp;sn=2dba0b9a2341243845330dacef47ea0b&amp;scene=142#wechat_redirect\\\" class=\\\"normal_text_link mp_article_text_link\\\" target=\\\"_blank\\\" data-itemshowtype=\\\"0\\\">【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告</a>即将开始 12：00 -- 14：00 和 20：00 -- 22：00，论坛唯一地址：52pojie.cn 。\\n\\n赶不上的定个晚间闹钟吧，新通知会在B站继续发布。\\n\\n推荐使用电脑注册，可以使用论坛的<a data-unique-id=\\\"mru2g39l-mbgimt\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651144634&amp;idx=1&amp;sn=e605bbac6a0bfc723d0b5807bc803880&amp;scene=142#wechat_redirect\\\" class=\\\"normal_text_link mp_article_text_link\\\" target=\\\"_blank\\\" data-itemshowtype=\\\"0\\\">诊断修复工具</a>修复一次，方便提前解决注册中可能会遇到的问题，如果修复后还是不行建议尽快更换设备尝试，不要耽误时间。\\n\\n注册页面会强制10分钟来阅读注册须知，须知中包括了你注册现在和未来可能会遇到的问题，包括不活跃请不要注册，论坛会不定期清理不活跃会员，请仔细阅读，否则可能无法注册成功或注册后被清理。\\n\\n另：\\n开放注册期间暂停签到任务、下载论坛附件功能、默认搜索功能、QQ登录绑定等功能（忘记账号密码可以邮箱重置后登陆） 请各位知晓。主要把下载附件的带宽和服务器负载节省下来供用户注册访问使用，等注册结束就恢复了（默认搜索功能根据论坛负载压力预计一周后恢复），请大家谅解。\\n\\n新注册的会员需要注册一天后才可以发帖，以缓解注册压力。\",\"content\":\"<p>&lt;a data-unique-id=&quot;mwbii270-fhrx3q&quot; href=&quot;https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;amp;mid=2651144794&amp;amp;idx=1&amp;amp;sn=2dba0b9a2341243845330dacef47ea0b&amp;amp;scene=142#wechat_redirect&quot; class=&quot;normal_text_link mp_article_text_link&quot; target=&quot;_blank&quot; data-itemshowtype=&quot;0&quot;&gt;【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告&lt;/a&gt;即将开始 12：00 -- 14：00 和 20：00 -- 22：00，论坛唯一地址：52pojie.cn 。<br /><br />赶不上的定个晚间闹钟吧，新通知会在B站继续发布。<br /><br />推荐使用电脑注册，可以使用论坛的&lt;a data-unique-id=&quot;mru2g39l-mbgimt&quot; href=&quot;https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;amp;mid=2651144634&amp;amp;idx=1&amp;amp;sn=e605bbac6a0bfc723d0b5807bc803880&amp;amp;scene=142#wechat_redirect&quot; class=&quot;normal_text_link mp_article_text_link&quot; target=&quot;_blank&quot; data-itemshowtype=&quot;0&quot;&gt;诊断修复工具&lt;/a&gt;修复一次，方便提前解决注册中可能会遇到的问题，如果修复后还是不行建议尽快更换设备尝试，不要耽误时间。<br /><br />注册页面会强制10分钟来阅读注册须知，须知中包括了你注册现在和未来可能会遇到的问题，包括不活跃请不要注册，论坛会不定期清理不活跃会员，请仔细阅读，否则可能无法注册成功或注册后被清理。<br /><br />另：<br />开放注册期间暂停签到任务、下载论坛附件功能、默认搜索功能、QQ登录绑定等功能（忘记账号密码可以邮箱重置后登陆） 请各位知晓。主要把下载附件的带宽和服务器负载节省下来供用户注册访问使用，等注册结束就恢复了（默认搜索功能根据论坛负载压力预计一周后恢复），请大家谅解。<br /><br />新注册的会员需要注册一天后才可以发帖，以缓解注册压力。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaV8UF5rUbwd2hfPM8tAzhz2D6goH4qiaGiboSrF71YZYLOQOepPf5Z07BH0OGgnBuFcdfQUibddWMGFs319u1hmtgqsExyhxQBTLssnO4ibUPJ4%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaV8UF5rUbwdGoKfcIPgoQDspV9uH9dibDgw8nH7NLnDGO3Ee2e1icnXPUURcPSECuRMY2pR7FTaVHeFRppeGpq0j1Ogy1dibxUx43BdhcXxjDk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaV8UF5rUbwd2hfPM8tAzhz2D6goH4qiaGiboSrF71YZYLOQOepPf5Z07BH0OGgnBuFcdfQUibddWMGFs319u1hmtgqsExyhxQBTLssnO4ibUPJ4%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-11T02:43:51.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144832:1\",\"title\":\"吾爱破解论坛光棍节开放注册微信抽奖活动，再先送40个账号注册码或300论坛币，周二下午两点开奖，详见： [链接]【开放注册公告】吾爱破解\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144832&idx=1&sn=50c7207071785329a935055522261501&chksm=bca9c1b6cd372df7e4217a16352bdb4d0527e0e5f95c2fc158fe366343ea2214de15d5cda753&scene=126&sessionid=1795076044#rd\",\"description\":\"吾爱破解论坛光棍节开放注册微信抽奖活动，再先送40个账号注册码或300论坛币，周二下午两点开奖，详见：<a data-unique-id=\\\"mw7869rb-nrrk93\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651144807&amp;idx=1&amp;sn=38ff9375ad0d69d4b1a0489aff3032e5&amp;scene=142#wechat_redirect\\\" class=\\\"normal_text_link mp_article_text_link\\\" target=\\\"_blank\\\" data-itemshowtype=\\\"0\\\">【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告</a>\",\"content\":\"<p>吾爱破解论坛光棍节开放注册微信抽奖活动，再先送40个账号注册码或300论坛币，周二下午两点开奖，详见：&lt;a data-unique-id=&quot;mw7869rb-nrrk93&quot; href=&quot;https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;amp;mid=2651144807&amp;amp;idx=1&amp;amp;sn=38ff9375ad0d69d4b1a0489aff3032e5&amp;amp;scene=142#wechat_redirect&quot; class=&quot;normal_text_link mp_article_text_link&quot; target=&quot;_blank&quot; data-itemshowtype=&quot;0&quot;&gt;【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告&lt;/a&gt;</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaV8UF5rUbwcfFunSuPh1Ub3vdibI9hLKHxyQSVy0lD4Fnic6xqhDiaOIxP0kX5zOgiaBcHtnsKWL6BrLBpZGpuwE1OECt5ReTRpnpJMGIVTJgxc%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaV8UF5rUbweZyewWjnbjPgH9pV0ib3YicXtl7PqInUiaaLxy6oc6Ticdx1arGwxjkU3gk4qXnCL8qwyu3cZ1F3pZ0SKPbNSdKRWcxbT5QiaF0esI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaV8UF5rUbwcfFunSuPh1Ub3vdibI9hLKHxyQSVy0lD4Fnic6xqhDiaOIxP0kX5zOgiaBcHtnsKWL6BrLBpZGpuwE1OECt5ReTRpnpJMGIVTJgxc%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-11T02:43:51.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144836:1\",\"title\":\"吾爱破解论坛光棍节开放注册微信抽奖活动，再先送40个账号注册码或300论坛币，今天下午两点开奖，详见：<a class=\\\"normal_text_link mp_article_text_link\\\" data-itemshowtype=\\\"0\\\" data-unique-id=\\\"mw7869rb-nrrk93\\\" target=\\\"_blank\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144807&idx=1&sn=38ff9375ad0d69d4b1a0489aff3032e5&scene=21#wechat_redirect\\\">【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告</a>\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144836&idx=1&sn=77064b98d3c4ae53eb7a07b8653fd5b1&chksm=bc63a324a1e5ca2c648088c98472b8fc1f4a62f5e5ae5ee553066e67685588ce460e474b6932&scene=126&sessionid=1795076044#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-11-09T23:20:00.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144834:1\",\"title\":\"吾爱破解论坛光棍节开放注册微信抽奖活动，再先送40个账号注册码或300论坛币，周二下午两点开奖，详见：<a class=\\\"normal_text_link mp_article_text_link\\\" data-itemshowtype=\\\"0\\\" data-unique-id=\\\"mw7869rb-nrrk93\\\" target=\\\"_blank\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144807&idx=1&sn=38ff9375ad0d69d4b1a0489aff3032e5&scene=21#wechat_redirect\\\">【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告</a>\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144834&idx=1&sn=c087035cb1990ffd25b95b3e2deb86a9&chksm=bcf57caa392e4c55fd03e521ce203812ae95e156bd77a2ccb099d9d0d60d8d334049b27b995b&scene=126&sessionid=1795076044#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-11-08T02:48:33.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144807:1\",\"title\":\"【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144807&idx=1&sn=38ff9375ad0d69d4b1a0489aff3032e5&chksm=bc592d3c1bc3c1a9b3c53373e357e8526af91df45ea9a6ad8055d2551a07173d02cf5410f351&scene=126&sessionid=1795076044#rd\",\"description\":\"内有福利，再送40个账号注册码或300论坛币，吾爱破解论坛开放注册时间：2026年11月11日  12：00 -- 14：00 和  20：00 -- 22：00，赶紧上好闹钟顺便告诉小伙伴吧。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLFPriaSjBUZKRP0qgyCAugN0VnYiblj3nJKlOLNIr2rdoJ8hH9icGltjmpicibCjJBfUJGwHvOmVh7InDutgLUxZKxQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T04:43:07.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144798:1\",\"title\":\"光棍节开放注册微信抽奖活动，先送20个账号注册码或300论坛币，下午两点开奖，详见：<a class=\\\"normal_text_link mp_article_text_link\\\" data-itemshowtype=\\\"0\\\" data-unique-id=\\\"mw0n2hld-efxyyr\\\" target=\\\"_blank\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144794&idx=1&sn=2dba0b9a2341243845330dacef47ea0b&scene=21#wechat_redirect\\\">【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告</a>\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144798&idx=1&sn=bc6cfdb76ebef1948e76ed09b7f7c97f&chksm=bc5b84145eba51349988dfa261a17d4751cd8251300e794f70edae96df4a1aa30b5e838ff0b7&scene=126&sessionid=1795076044#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-11-05T23:40:00.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144804:1\",\"title\":\"吾爱破解论坛技术区“AI”新规已正式上线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144804&idx=1&sn=eaaab88584aca4b09a981e164f9360e6&chksm=bcf4361508b2a0aeac04e2a968e93546a80a2c37f39d10204a3ba217aaf70ae6eb1cd6049c0e&scene=126&sessionid=1795076044#rd\",\"description\":\"论坛不排斥AI辅助创作，但禁止未经核验的纯AI直发帖，违者视情节删帖或降低评分；鼓励融入个人思考、真实经验、独到见解和自然表达，并经过实际验证的优质原创内容，将优先获得加分、加精推荐。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaV8UF5rUbwcDBy2LQiaBdXiaUBV5s6sgUtP0Xr2KZZu1IxtlWSJHgpThNPmkA8bTapA2hEaaFvoumMSSDGoWKIcMKKCbKfsicqvNa7UGEAYyJA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T09:52:32.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144796:1\",\"title\":\"光棍节开放注册微信抽奖活动，先送20个账号注册码或300论坛币，周五下午两点开奖，详见：<a class=\\\"normal_text_link mp_article_text_link\\\" data-itemshowtype=\\\"0\\\" data-unique-id=\\\"mw0n2hld-efxyyr\\\" target=\\\"_blank\\\" href=\\\"https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144794&idx=1&sn=2dba0b9a2341243845330dacef47ea0b&scene=21#wechat_redirect\\\">【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告</a>\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144796&idx=1&sn=ac7b0381ec8d3b2349651fbb86db5cf3&chksm=bc406361a6914c98d14acc10be465d1714835fe3b5fc614e544765660ca848073d9ca839c95c&scene=126&sessionid=1795076044#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-11-04T00:00:00.000Z\"},{\"id\":\"wxmp:MjM5Mjc3MDM2Mw%3D%3D:2651144794:1\",\"title\":\"【开放注册公告】吾爱破解论坛2026年11月11日光棍节开放注册公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&mid=2651144794&idx=1&sn=2dba0b9a2341243845330dacef47ea0b&chksm=bca5fc38e2c5895c84b14a3269800a2cb765a76ce529c27d6827bc7e580820c812cdb6b36932&scene=126&sessionid=1795076044#rd\",\"description\":\"内有福利，送20个账号注册码或300论坛币，吾爱破解论坛开放注册时间：2026年11月11日  12：00 -- 14：00 和  20：00 -- 22：00，赶紧上好闹钟顺便告诉小伙伴吧。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLFPriaSjBUZKRP0qgyCAugN0VnYiblj3nJKlOLNIr2rdoJ8hH9icGltjmpicibCjJBfUJGwHvOmVh7InDutgLUxZKxQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T10:11:52.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2582,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 2574
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2581,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2581,
+          "name": "错误诊断收集",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2581,
+          "started_ms": 10012,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2582,
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2582,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
@@ -161,7 +150,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 2567
+          "duration_ms": 10002
         }
       ]
     }

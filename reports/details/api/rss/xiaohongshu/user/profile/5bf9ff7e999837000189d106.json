@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:16:25.096Z",
+  "checked_at": "2026-11-19T13:50:54.065Z",
   "inspection": {
     "file": "rss/xiaohongshu.js",
     "path": "/api/rss/xiaohongshu/user/profile/:uid",
     "example": "/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106",
     "name": "房琪kiki",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106.json",
-    "duration_ms": 1429
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
+    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+    "duration_ms": 1665
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 986
+    "status": 502,
+    "duration_ms": 1548
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "rss/xiaohongshu.js",
       "name": "小红书用户笔记",
@@ -48,28 +49,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 961,
+    "phase": "runtime",
+    "elapsed_ms": 1542,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":32,\"missing_published\":0}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。",
+    "error_text": "脚本执行失败：小红书笔记读取失败：初始状态缺少用户资料或 notes 笔记数组；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:51:26)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106",
         "method": "GET",
         "host": "www.xiaohongshu.com",
         "pathname": "/user/profile/5bf9ff7e999837000189d106",
-        "status": 200,
+        "status": 302,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -78,17 +70,50 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 930,
+        "duration_ms": 508,
         "timings": {
-          "response_ms": 765,
-          "body_read_ms": 162,
-          "decode_and_transfer_ms": 3
+          "response_ms": 508
+        }
+      },
+      {
+        "url": "https://www.rednote.com/user/profile/5bf9ff7e999837000189d106",
+        "method": "GET",
+        "host": "www.rednote.com",
+        "pathname": "/user/profile/5bf9ff7e999837000189d106",
+        "status": 302,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 518,
+        "duration_ms": 279,
+        "timings": {
+          "response_ms": 279
+        }
+      },
+      {
+        "url": "https://www.rednote.com/login?redirectPath=http%3A%2F%2Fwww.rednote.com%2Fuser%2Fprofile%2F5bf9ff7e999837000189d106%3FexSource%3Dnull",
+        "method": "GET",
+        "host": "www.rednote.com",
+        "pathname": "/login",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 797,
+        "duration_ms": 737,
+        "timings": {
+          "response_ms": 387,
+          "body_read_ms": 348,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"xiaohongshu:user:5bf9ff7e999837000189d106\",\"title\":\"房琪kiki 的小红书笔记\",\"link\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\",\"description\":\"还要去看很多山川湖海✈ huolongguoyeyeye\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.xiaohongshu.com/\"},\"tags\":[\"小红书\"]},\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"image\":\"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31lktihlfl8604btm3kvntk86hh91ioo?imageView2/2/w/540/format/webp\",\"updated\":\"2026-11-08T14:05:40.000Z\",\"items\":[{\"id\":\"xiaohongshu:note:6af081b400000000150279eb\",\"title\":\"你的家乡我来记录，这一站——河南安阳。\",\"link\":\"https://www.xiaohongshu.com/explore/6af081b400000000150279eb?xsec_token=ABO6NYQx6S3jQr1r8F9sTtG5ySiZGCFoHP4uNF20Wn3Q0%3D&xsec_source=pc_user\",\"description\":\"你的家乡我来记录，这一站——河南安阳。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/feb0c145804f03f12ec97e803620477c/spectrum/1040g0k0327aaahgima004btm3kvntk86bcr964g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-11-08T14:05:40.000Z\"},{\"id\":\"xiaohongshu:note:6ae1acc3000000000502eb83\",\"title\":\"你的家乡我来记录，这一站——安徽亳州。\",\"link\":\"https://www.xiaohongshu.com/explore/6ae1acc3000000000502eb83?xsec_token=ABJ5vr_czJiAHqJ8Nbp9Ag4UrhaVCt5HpsrwBYiTRtjno%3D&xsec_source=pc_user\",\"description\":\"你的家乡我来记录，这一站——安徽亳州。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/5e68610ccc23e311b908e8fe36014836/spectrum/1040g0k0326s2fgmuk4004btm3kvntk86k60quso!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-10-28T10:01:28.000Z\"},{\"id\":\"xiaohongshu:note:6ad2ed5e0000000014031447\",\"title\":\"你的家乡我来记录，这一站——山西运城。\",\"link\":\"https://www.xiaohongshu.com/explore/6ad2ed5e0000000014031447?xsec_token=ABOP3JR7ZQyqtZILoQOqrx_MettCQ5jF34eT6xx7SyEOg%3D&xsec_source=pc_user\",\"description\":\"你的家乡我来记录，这一站——山西运城。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/29db109e21ecc72bd34f47319bd26985/spectrum/1040g0k0326dl8c0958004btm3kvntk86ujne0qg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-10-17T10:01:48.000Z\"},{\"id\":\"xiaohongshu:note:6acaeebc000000001802997d\",\"title\":\"你的家乡，我来记录，这一站——甘肃武威。\",\"link\":\"https://www.xiaohongshu.com/explore/6acaeebc000000001802997d?xsec_token=ABv2AdyuA5pLk_IMOKftSS4_MY_KGQm7nbYR74hX3yZKI%3D&xsec_source=pc_user\",\"description\":\"你的家乡，我来记录，这一站——甘肃武威。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/7904539549baf24fe1770a0fe50e2ca1/spectrum/1040g0k03265qgfvcka004btm3kvntk86li46sjo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-10-11T09:30:27.000Z\"},{\"id\":\"xiaohongshu:note:6aba34b4000000001a0208da\",\"title\":\"《凉州词》：守在边关的他们，把春风送给了我们。愿祖国繁荣昌盛。世界是我的兴趣班\",\"link\":\"https://www.xiaohongshu.com/explore/6aba34b4000000001a0208da?xsec_token=ABWcTsRdTNpMl1bqeQwjt_jqc1SWbiEwayF8Op6B4YrHo%3D&xsec_source=pc_user\",\"description\":\"《凉州词》：守在边关的他们，把春风送给了我们。愿祖国繁荣昌盛。世界是我的兴趣班\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/a29b8c5a18d9ed1699dc834943a69968/spectrum/1040g0k0325lfaeqj58004btm3kvntk8602kqqmg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-09-28T09:34:44.000Z\"},{\"id\":\"xiaohongshu:note:6aa7ad94000000000d024ef0\",\"title\":\"我回到宋朝请苏东坡喝可乐。\",\"link\":\"https://www.xiaohongshu.com/explore/6aa7ad94000000000d024ef0?xsec_token=ABB9lNU0E1AdoH-KAM-CNf0B_jhnsepFUicjuLisFewPs%3D&xsec_source=pc_user\",\"description\":\"我回到宋朝请苏东坡喝可乐。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/40da1676076f2036139eb9eaf533340c/spectrum/1040g0k03253e1nm1j2004btm3kvntk86mr6nk3o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-09-14T10:30:44.000Z\"},{\"id\":\"xiaohongshu:note:6a7f44ca000000003301919b\",\"title\":\"在山西旅行习惯了向上看，但这次我们东张西望——把应县木塔变成小宇宙。大疆osmo\",\"link\":\"https://www.xiaohongshu.com/explore/6a7f44ca000000003301919b?xsec_token=ABDDVMNM2KAZkojGi7NHu0iS_LEDMR5JLhGcZTtxbi4cI%3D&xsec_source=pc_user\",\"description\":\"在山西旅行习惯了向上看，但这次我们东张西望——把应县木塔变成小宇宙。大疆osmo\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/77bebe129361a2e3b417afc11d532b6d/spectrum/1040g0k0323rvai13n0004btm3kvntk86ctu007o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-08-15T09:31:50.000Z\"},{\"id\":\"xiaohongshu:note:6a646af700000000110044c5\",\"title\":\"贵州安顺：一座有非遗地戏、有世界第一大桥、有黄果树瀑布的城市。非遗里的城市 旅游\",\"link\":\"https://www.xiaohongshu.com/explore/6a646af700000000110044c5?xsec_token=ABcljrS0apahcRiX42EH1SNEa8RXhGm3QRh8eIVhGu01c%3D&xsec_source=pc_user\",\"description\":\"贵州安顺：一座有非遗地戏、有世界第一大桥、有黄果树瀑布的城市。非遗里的城市 旅游\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/e69340f1603abcc1ef9be6cc101df950/spectrum/1040g34o3231n0rl86s104btm3kvntk864f2hbs8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-07-27T10:02:08.000Z\"},{\"id\":\"xiaohongshu:note:6a4922d5000000001c025c9e\",\"title\":\"受故人之托，把湖南永州推荐给更多人——《永州十年》下集。诗文里的中国 旅游中视频\",\"link\":\"https://www.xiaohongshu.com/explore/6a4922d5000000001c025c9e?xsec_token=ABfDUv_0RtUiMfdt1KeF4Gp4xkKBXWZI7I6m0XwWRMJQ0%3D&xsec_source=pc_user\",\"description\":\"受故人之托，把湖南永州推荐给更多人——《永州十年》下集。诗文里的中国 旅游中视频\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/490f4be20273898eada9d4a35a5bb41f/spectrum/1040g0k032270jl0kn2004btm3kvntk86vur9248!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-07-05T04:30:16.000Z\"},{\"id\":\"xiaohongshu:note:6a40dd0100000000150268f0\",\"title\":\"语文课本里的《江雪》《小石潭记》《捕蛇者说》，都是柳宗元在同一个城市写的——湖南\",\"link\":\"https://www.xiaohongshu.com/explore/6a40dd0100000000150268f0?xsec_token=AB6kurj-_VPtPc7yVM3BVLmubiZnMofTSgZuUyY3AwOCw%3D&xsec_source=pc_user\",\"description\":\"语文课本里的《江雪》《小石潭记》《捕蛇者说》，都是柳宗元在同一个城市写的——湖南\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/b87ec2b133692b027ae6bbee4ef4a8f4/spectrum/1040g0k0321v0ni4e70004btm3kvntk86b62kqp0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-06-28T10:01:46.000Z\"},{\"id\":\"xiaohongshu:note:6a1aca9d0000000036000c26\",\"title\":\"这是一份毕业季礼物，李白不祝你勇敢，他祝你好运。诗文里的中国 ——《早发白帝城》\",\"link\":\"https://www.xiaohongshu.com/explore/6a1aca9d0000000036000c26?xsec_token=AB1b10hKxGMT637NdhLV0O-U7FNkqLeL2WwC-Eye0kjc4%3D&xsec_source=pc_user\",\"description\":\"这是一份毕业季礼物，李白不祝你勇敢，他祝你好运。诗文里的中国 ——《早发白帝城》\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/3115736ababa77aebfccbfdfca2a3eb0/spectrum/1040g34o320pr2litli104btm3kvntk862pv2vb0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-05-30T11:31:41.000Z\"},{\"id\":\"xiaohongshu:note:69eb71a8000000002301c7a7\",\"title\":\"课本照进现实：我们在姑苏城外，拍到了那一晚的《枫桥夜泊》。RED新生代创作大赛探\",\"link\":\"https://www.xiaohongshu.com/explore/69eb71a8000000002301c7a7?xsec_token=ABj_6aULDizEeqmXsLT73N7Q2VADvt6I41RMsqVnoLwSo%3D&xsec_source=pc_user\",\"description\":\"课本照进现实：我们在姑苏城外，拍到了那一晚的《枫桥夜泊》。RED新生代创作大赛探\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/57cc40fd8f0380a36d9fa1e5d9188265/spectrum/1040g0k031vbjaddhis004btm3kvntk867dqeasg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-04-24T13:35:36.000Z\"},{\"id\":\"xiaohongshu:note:698314f2000000001a030d50\",\"title\":\"我33岁啦！！\",\"link\":\"https://www.xiaohongshu.com/explore/698314f2000000001a030d50?xsec_token=ABTyHJMjgoWlRLb2YRnwnjF11t-1AxM2FUsSV0wVjh0fw%3D&xsec_source=pc_user\",\"description\":\"我33岁啦！！ \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/2c1299a92f345a0a363e06524d76c8b9/1040g00831s5mfnsq5k004btm3kvntk86lh931eo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-02-04T09:44:18.000Z\"},{\"id\":\"xiaohongshu:note:6968b4cd000000001a035818\",\"title\":\"2026 坐上一趟开往漠河的绿皮火车。\",\"link\":\"https://www.xiaohongshu.com/explore/6968b4cd000000001a035818?xsec_token=ABRbN_GAgDaz4TMBluhwuQIvu3NGB1ld5fMwkMwjQqxwE%3D&xsec_source=pc_user\",\"description\":\"2026 坐上一趟开往漠河的绿皮火车。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/356c46a93829cba64f7f3f696ead71f2/1040g2sg31rbu445c7ue04btm3kvntk865062kj0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-01-15T11:01:00.000Z\"},{\"id\":\"xiaohongshu:note:695fcb79000000001a033fb1\",\"title\":\"中国美食地图上不应错过的城市——中山\",\"link\":\"https://www.xiaohongshu.com/explore/695fcb79000000001a033fb1?xsec_token=ABK41iOhGn-VjMdu2MD3olcJxJH8O-K1BkBF6Y9oDJN2M%3D&xsec_source=pc_user\",\"description\":\"中国美食地图上不应错过的城市——中山\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/da79e468edc360122c573e4496553514/1040g2sg31r37l8fagae04btm3kvntk86qj9n188!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2026-01-09T04:01:03.000Z\"},{\"id\":\"xiaohongshu:note:693141e1000000001e03482e\",\"title\":\"我逃到世界尽头 发现大家都在重新出发\",\"link\":\"https://www.xiaohongshu.com/explore/693141e1000000001e03482e?xsec_token=ABNxrKMewZOB_4icJco6txpUjcqcKvAc2a15YWcCNpWEM%3D&xsec_source=pc_user\",\"description\":\"我逃到世界尽头 发现大家都在重新出发\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/f52dbbf23e13205b6ec9affa009740d2/1040g00831plp9jtjkm004btm3kvntk86qa86p5g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-12-04T10:30:26.000Z\"},{\"id\":\"xiaohongshu:note:692be5e8000000001f00daa3\",\"title\":\"我去听她的演唱会\",\"link\":\"https://www.xiaohongshu.com/explore/692be5e8000000001f00daa3?xsec_token=AB4SctGBSDy9YMrZCKajMQ-GoyNLKchKgehWaP-Dn6JS8%3D&xsec_source=pc_user\",\"description\":\"我去听她的演唱会 \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/64f9637636352d22416808254ee55a92/1040g00831pghijmoig504btm3kvntk86esooggg!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-11-30T06:36:24.000Z\"},{\"id\":\"xiaohongshu:note:691da8b0000000001f00893f\",\"title\":\"一场在央视的分享\",\"link\":\"https://www.xiaohongshu.com/explore/691da8b0000000001f00893f?xsec_token=ABysTUNjdrOpVJSMZX7zpj7gLGSFZSQ7P87DyudVrbW7U%3D&xsec_source=pc_user\",\"description\":\"一场在央视的分享 \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/b7e593340308f505ac7712a03ba35b40/1040g00831p2kr80qis004btm3kvntk86kfmdh2g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-11-19T11:23:28.000Z\"},{\"id\":\"xiaohongshu:note:6912db4a0000000004023065\",\"title\":\"四川甘孜州有个现实版的女儿国\",\"link\":\"https://www.xiaohongshu.com/explore/6912db4a0000000004023065?xsec_token=ABRpYjvLYi5pfQz8sgh_OKoBhL4nxVywk3NQ8G4J54T1Y%3D&xsec_source=pc_user\",\"description\":\"四川甘孜州有个现实版的女儿国\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/88b5dc6861d14fef4701ba4dd3553079/1040g00831oo38cc206004btm3kvntk86rj7tom0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-11-11T10:01:37.000Z\"},{\"id\":\"xiaohongshu:note:68f600020000000004012659\",\"title\":\"很羡慕淄博人，拥有这样的秋天。\",\"link\":\"https://www.xiaohongshu.com/explore/68f600020000000004012659?xsec_token=ABxSyL_R2foj6idfLLk6Lsi9wiKbGbLolRSANvr3Npq50%3D&xsec_source=pc_user\",\"description\":\"很羡慕淄博人，拥有这样的秋天。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/c6357b523be8801284bf136937c0315e/1040g00831nrtn7so5me04btm3kvntk86lvu0728!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-10-20T09:25:22.000Z\"},{\"id\":\"xiaohongshu:note:68e1f16600000000040001f2\",\"title\":\"欲买桂花同载酒 终不似 少年游\",\"link\":\"https://www.xiaohongshu.com/explore/68e1f16600000000040001f2?xsec_token=AB9WgzxF52Y13Ygj2Sz1UAMRugcNeZGXYBWeqfF4_BSEk%3D&xsec_source=pc_user\",\"description\":\"欲买桂花同载酒 终不似 少年游\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/c9016f440bf1999cf9e90308551fb29b/1040g2sg31n8aoitil8l04btm3kvntk86jvi0qu8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-10-05T04:17:42.000Z\"},{\"id\":\"xiaohongshu:note:68d7e3f9000000000e022749\",\"title\":\"看不进去《红楼梦》？走进河北这座城试试\",\"link\":\"https://www.xiaohongshu.com/explore/68d7e3f9000000000e022749?xsec_token=AB2MohN2OD7T5fzAZ8Pkybrk1w0yPivuo2SQt5YFhSd4Q%3D&xsec_source=pc_user\",\"description\":\"看不进去《红楼梦》？走进河北这座城试试\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/e6441e35001e06234c27fe4df46e75e4/1040g00831mugp16058004btm3kvntk86u73ui28!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-09-27T13:17:45.000Z\"},{\"id\":\"xiaohongshu:note:68ca7088000000000e026e7b\",\"title\":\"当你觉得人生搞砸了 请相信四点钟总会过去\",\"link\":\"https://www.xiaohongshu.com/explore/68ca7088000000000e026e7b?xsec_token=ABbYWXouh7zehCwt8aElCvaAlCOGEyKIh6rKvRSCGKyII%3D&xsec_source=pc_user\",\"description\":\"当你觉得人生搞砸了 请相信四点钟总会过去\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/76b812c0f1ed01dfdd186b1ef82f9a47/1040g00831mhc84pumg004btm3kvntk86j2acndo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-09-17T08:25:44.000Z\"},{\"id\":\"xiaohongshu:note:68c14c4f000000001c00fc6f\",\"title\":\"齐齐哈尔是丹顶鹤的故乡，也是我的故乡。\",\"link\":\"https://www.xiaohongshu.com/explore/68c14c4f000000001c00fc6f?xsec_token=ABi4-d4J6XREkLADtQVYruIJNPfbYNmAJ2fgVEf3qbInU%3D&xsec_source=pc_user\",\"description\":\"齐齐哈尔是丹顶鹤的故乡，也是我的故乡。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/5a4fc03c94b8658d285e3cb33e213b8d/1040g2sg31m8eibi7mce04btm3kvntk860bufv6g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-09-10T11:02:29.000Z\"},{\"id\":\"xiaohongshu:note:68b44d6f000000001c0135ad\",\"title\":\"终于轮到我宣传中国 耗时八年记录祖国\",\"link\":\"https://www.xiaohongshu.com/explore/68b44d6f000000001c0135ad?xsec_token=ABXGS-BRdl9Sg4xAYlBtQwlFkQXjrj1GllU5QCPpWUB2Y%3D&xsec_source=pc_user\",\"description\":\"终于轮到我宣传中国 耗时八年记录祖国\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/962025ed2672da89de9d2d51ddf48e18/1040g2sg31lrojb425us04btm3kvntk86tdolibo!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-31T13:37:51.000Z\"},{\"id\":\"xiaohongshu:note:68b176cb000000001c0106a8\",\"title\":\"继续收集更多城市碎片\",\"link\":\"https://www.xiaohongshu.com/explore/68b176cb000000001c0106a8?xsec_token=ABE6oyTTS91whG8MNT76W9xCG3y-tVPpgi2QcD159VyrY%3D&xsec_source=pc_user\",\"description\":\"继续收集更多城市碎片\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/c776fe9eed735e2b77211ff99529025b/1040g00831lovg17d58004btm3kvntk869u45bk0!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-29T09:45:47.000Z\"},{\"id\":\"xiaohongshu:note:68ac6b7c000000001c009043\",\"title\":\"野心勃勃是最旺盛的生命力\",\"link\":\"https://www.xiaohongshu.com/explore/68ac6b7c000000001c009043?xsec_token=ABCN4bYOAtLg7NwAvNsvLdDJCFm7gxk7njZ6Mwir9zarI%3D&xsec_source=pc_user\",\"description\":\"野心勃勃是最旺盛的生命力\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/c8c7799feca4175f478232a1acd55981/1040g00831lk20a9plo0g4btm3kvntk86gpcojro!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-25T13:56:12.000Z\"},{\"id\":\"xiaohongshu:note:68a6cc86000000001c013dd3\",\"title\":\"假期中的我们⛱️\",\"link\":\"https://www.xiaohongshu.com/explore/68a6cc86000000001c013dd3?xsec_token=ABD9h5UaZxOpFFqqXNVDe6Lmko8UDT-bVZ_BgG2O6JDgY%3D&xsec_source=pc_user\",\"description\":\"假期中的我们⛱️ \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/7c00406a0245aa4a8e90c1c77c1e451e/1040g00831lehp28k5e404btm3kvntk86g1sapo8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-21T07:36:38.000Z\"},{\"id\":\"xiaohongshu:note:68a192ed000000001c004358\",\"title\":\"我的江南梦中情城——台州府城\",\"link\":\"https://www.xiaohongshu.com/explore/68a192ed000000001c004358?xsec_token=ABED-DKCVCb_yIRjRQmElA7gwkciLi7_S3B6qQtThut5c%3D&xsec_source=pc_user\",\"description\":\"我的江南梦中情城——台州府城\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/6bdbdf386b83bdcc976c20b20187a5f6/1040g00831l9fc06fl8004btm3kvntk86t7f48r8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-17T09:30:39.000Z\"},{\"id\":\"xiaohongshu:note:6899e9b30000000023019122\",\"title\":\"塞维利亚因橘子与女人而闻名\",\"link\":\"https://www.xiaohongshu.com/explore/6899e9b30000000023019122?xsec_token=ABxIwNCYGFJXFqdUoBQEK11XF3KarCUosd05tDei98zl8%3D&xsec_source=pc_user\",\"description\":\"塞维利亚因橘子与女人而闻名\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/bffc457c6c4b8f235d1584602c5b7b23/1040g2sg31l1vqc62iol04btm3kvntk86mjaak3g!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-11T13:01:39.000Z\"},{\"id\":\"xiaohongshu:note:689493650000000023023081\",\"title\":\"亲爱的宛瑜：\",\"link\":\"https://www.xiaohongshu.com/explore/689493650000000023023081?xsec_token=ABbT_N6Sz6mudBNNrsbUYclsGm1VveRKveG_ptjyK9PLs%3D&xsec_source=pc_user\",\"description\":\"亲爱的宛瑜： \",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/80b7de8fd4ca68c847fb5b44ff118fa1/1040g00831ksp45v330004btm3kvntk86a77vfq8!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-07T11:52:05.000Z\"},{\"id\":\"xiaohongshu:note:68920ca0000000002203bd69\",\"title\":\"想在翡冷翠的浪漫里虚度此生。\",\"link\":\"https://www.xiaohongshu.com/explore/68920ca0000000002203bd69?xsec_token=ABuxPKCael2ZIe8US0vZbHIstRdcucZ5oKvtQt0ZGMTW8%3D&xsec_source=pc_user\",\"description\":\"想在翡冷翠的浪漫里虚度此生。\",\"image\":\"https://sns-webpic-qc.xhscdn.com/202611191616/eba2ce2b55274c37b3036886c50539df/1040g2sg31kq7qu7g347g4btm3kvntk86du4eo0o!nc_n_nwebp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"房琪kiki\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5bf9ff7e999837000189d106\"},\"published\":\"2025-08-05T13:52:32.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 961,
+      "elapsed_ms": 1542,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -103,61 +128,56 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 954
+          "duration_ms": 1535
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 961,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 961,
+          "name": "错误诊断收集",
+          "started_ms": 1542,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 961,
+          "started_ms": 1542,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 961,
+          "name": "失败后浏览器清理",
+          "started_ms": 1542,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 961,
+          "started_ms": 1542,
           "duration_ms": 0
         }
       ],
@@ -165,7 +185,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 930
+          "duration_ms": 1524
         }
       ]
     }

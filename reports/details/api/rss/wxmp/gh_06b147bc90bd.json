@@ -1,26 +1,27 @@
 {
-  "checked_at": "2026-11-19T08:15:33.070Z",
+  "checked_at": "2026-11-19T13:47:46.636Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
     "example": "/api/rss/wxmp/gh_06b147bc90bd",
     "name": "Numen Cyber Labs",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_06b147bc90bd.json",
-    "duration_ms": 2364
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10018
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2990
+    "status": 502,
+    "duration_ms": 10020
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,17 +49,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2983,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
+    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -73,95 +69,88 @@
             "authorization"
           ]
         },
-        "started_ms": 16,
-        "duration_ms": 2963,
+        "started_ms": 11,
+        "duration_ms": 10001,
         "timings": {
-          "response_ms": 1030,
-          "body_read_ms": 1932,
-          "decode_and_transfer_ms": 1
+          "response_ms": 1954,
+          "body_read_ms": 8047
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_06b147bc90bd\",\"title\":\"Numen Cyber Labs\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486232&idx=1&sn=5307e2418c9c5e8d33a08d63a91b77b7&chksm=ce2ce3e218a23d7e761baac86db444d09b41b81be350ce1d9a563d684a4e5684841bbe343acd&scene=126&sessionid=1795076136#rd\",\"description\":\"专注全球网络安全，传播网安知识，维护网安环境。致力于打造网安头部平台。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"Numen Cyber Labs\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6Gtiajz3Hmr3gwtdicRhD3LuibictKCEY3fV7M42uc6EzDqw%2F0\",\"updated\":\"2024-07-25T03:55:12.000Z\",\"items\":[{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486232:1\",\"title\":\"CVE-2024-36401 JDK 11-22 通杀内存马\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486232&idx=1&sn=5307e2418c9c5e8d33a08d63a91b77b7&chksm=ce2ce3e218a23d7e761baac86db444d09b41b81be350ce1d9a563d684a4e5684841bbe343acd&scene=126&sessionid=1795076136#rd\",\"description\":\"Numen 独家 CVE-2024-36401 JDK 11-22 通杀内存马\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0exB4eGsmEK5her4xibskb0ZXpxHUE1icSptWS4QOMA9yUzGUm9l2dK0ptM66uCNPOibeECkc2A2pTGg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-07-25T03:55:12.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486222:1\",\"title\":\"Off-by-One Conference 2024议题：经典目标中被遗忘的宝藏\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486222&idx=1&sn=84ee657bdd47567f0be2ed63382bbed0&chksm=ced9644783bf4ad4ca79a445da7ef42a17d7570dac655ccb0759a15ddaef710e985eef4a0cbd&scene=126&sessionid=1795076136#rd\",\"description\":\"OFF-BY-ONE Conference在新加坡举行，我们有幸发表了题，介绍Linux kernel 漏洞挖掘Fuzz方面的一些技巧\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0dZY7rcHTOQpvgwib5IIraYFFn5qfcZRjqoUFv2ZpjYYutbfQVX33mTTLu6tzNgZPcIRXDJicNMlmibw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-07-03T06:15:05.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486205:1\",\"title\":\"恭祝新春\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486205&idx=1&sn=afe42e8d3e76e4f9e03cc5e814f820b9&chksm=ce35178162e6ae0ec5f4d86b07c103f935050d29c20f4fee67e3f3f53254a58a05183ee7d296&scene=126&sessionid=1795076136#rd\",\"description\":\"[庆祝]Numen cyber 祝大家农历新春愉快，阖家欢乐，万事如意。[爆竹][烟花]\",\"content\":\"<p>[庆祝]Numen cyber 祝大家农历新春愉快，阖家欢乐，万事如意。[爆竹][烟花]</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0dAEWODMWNib41P3fIyPruWemhwIOKSTTOjaTl0ZfLyau0iaA7N6WQLTibBNwziaeKXsWicME4DmDHRZYA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0dAEWODMWNib41P3fIyPruWe14NHwO1Wg12NicLvic6ycfDiclsnlnT4hndzNicgxicajKlfPOoyRiaOzBZQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0dAEWODMWNib41P3fIyPruWemhwIOKSTTOjaTl0ZfLyau0iaA7N6WQLTibBNwziaeKXsWicME4DmDHRZYA%2F0\"],\"type\":\"gallery\",\"published\":\"2024-02-09T03:45:53.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486179:1\",\"title\":\"Happy New Year\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486179&idx=1&sn=0b55b088523214f7dd9bec162885861e&chksm=cea19753e5b22177063e29800fcb2c638cba04df006a5a3bfe8d60344ae546a86386ec90e72d&scene=126&sessionid=1795076136#rd\",\"description\":\"🌟 新年到来，我们向每一位关注我们的朋友致以最温暖的祝福。愿2024年带给您无尽的成功和快乐！我们将持续致力于提供卓越的网络安全服务，守护您的数字世界安全。感谢您的支持，让我们共同迎接崭新的一年！🎉\",\"content\":\"<p>🌟 新年到来，我们向每一位关注我们的朋友致以最温暖的祝福。愿2024年带给您无尽的成功和快乐！我们将持续致力于提供卓越的网络安全服务，守护您的数字世界安全。感谢您的支持，让我们共同迎接崭新的一年！🎉</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FvlekRjgqic0fxVKr4bwjpxSqn0DK0uHtl38RrhhfHHNHYzfSBfUad61WeqrD38D0TVAgxNz99ibI5o00cvCRP1qg%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0fxVKr4bwjpxSqn0DK0uHtlmnGFy1oibqdbXwxB6MUmmuLShj5k46TA4j5btkT5rpFXNfEYbOnXfkw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FvlekRjgqic0fxVKr4bwjpxSqn0DK0uHtl38RrhhfHHNHYzfSBfUad61WeqrD38D0TVAgxNz99ibI5o00cvCRP1qg%2F0\"],\"type\":\"gallery\",\"published\":\"2024-02-09T03:45:53.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486188:1\",\"title\":\"招聘：Numen Cyber Labs 农历新年召集令\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486188&idx=1&sn=39ee2e2530f59ce3955a1eadca20c4e5&chksm=ce10ac60b17a12886190645b80062fe2cc835063112d87a06643cbfb323b5a23c107c1687e3e&scene=126&sessionid=1795076136#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0fhMdZt6IibX2bqX00Rh76N4UZWQG3mIzZ2Ud2C8Rw0ib16IewNDOcDg7N0auj7tAWhaKgibZN09ntuQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-31T04:12:07.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486184:1\",\"title\":\"新加坡 Numen Cyber 与香港光环云数据有限公司达成战略合作伙伴协议\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486184&idx=1&sn=e1117a9bb94f5a0461604efb39bfa305&chksm=cee435e7392aa36d0337a13b15be25bcf13ee4ae219e119e7fd27b9692358f99a24285373ad1&scene=126&sessionid=1795076136#rd\",\"description\":\"新加坡本土网络安全公司 Numen Cyber 宣布与香港光环云数据有限公司（简称“光环云”）建立战略合作伙\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0fCJsRiauVzFofUiacSs7MyQ8dCJSSQtLwXOJnUahAQ8euhAYmVNO3oB8G7aubTA5iaGf8HgdSe6NxMw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-08T09:10:15.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486172:1\",\"title\":\"Web3安全：Ledgerhq/connect-kit供应链攻击预警\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486172&idx=1&sn=13cb0c21d9c2ebf635d8bc94f169d4be&chksm=ce4f8668bc836a52124a6b84cc3b04e47fc5df8ed0217655e9660a78534898f563de9f06ff27&scene=126&sessionid=1795076136#rd\",\"description\":\"Numen安全团队发现Ledger的ledgerhq/connect-kit模块被植入恶意钓鱼代码，大量的 dapp集成了该功能，受到影响的 dApp 列表没有明确的统计，范围极广。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0f1Pj3VrSQvHNN8tak8Bho9c3qco34uR9GHZbYawQJg7RZonzDtNxe6f8ibuVfyKJem0yiad8zagx8w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-12-14T15:54:28.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486152:1\",\"title\":\"招聘：拒绝996 一起4+1，16天超长带薪年假\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486152&idx=1&sn=433a21ba3af9498bafc2bcb96708bb4b&chksm=ce29bbf2a668ce40240a732d3ee2f45477413861dfd2d573971d89b7f9622a3337065a183df1&scene=126&sessionid=1795076136#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0dB67fBAIY4n5fRd5o2RhNbKTRlrS6ULbGk1rm0OH06kWNxKiaSBSzpt8bkuaicicDvGLzzLTqpRLUsw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-11-17T12:48:01.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486142:1\",\"title\":\"Numen独家：利用wasm再次绕过最新Chrome v8sbx\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486142&idx=1&sn=7cb205bc89a91b0dd118fd63ea702336&chksm=ce69d0a67e0114cf4b9526182e21f23a4ab156ddca49d50680e7704e87c023ed969cd53ec4d7&scene=126&sessionid=1795076136#rd\",\"description\":\"你为谷歌的 CTF 做好准备了吗？今天，我们在 POC2023 分享了 \\\"Modern Chrome Exploitation\\\"主题。现在我们将公开最新的 Chrome 浏览器 V8 沙盒绕过方法。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0cpaHtjWGvYlxUlr7sUP2I0352y6SkFoeYiblFSwom6JpgKlfjMnvPPRlbGQ8iaW7yKeNOoSI0wxV6w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-11-03T06:47:36.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486128:1\",\"title\":\"发现了Apache ShenYu 的一个SSRF漏洞（CVE-2023-25753）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486128&idx=1&sn=4da813a5c43c28e2c00768f681cb2965&chksm=ceb5ce45aad58abf8944092603f19dc638a9f03aa7d6143d19eb5ab3418db86156ebed7376aa&scene=126&sessionid=1795076136#rd\",\"description\":\"前言Apache ShenYu 是一个 Java 原生 API 网关，用于服务代理、协议转换和 API 治理\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0fzeUC4J15riadZRU3qJFlEU0licjdlOVbSLREVpPibKkmO8HNLWZ707BQWibVcMjvQdEOASGusJvCnHA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-27T07:47:37.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486108:1\",\"title\":\"POC2023，Numen 议题 “Modern Browser Exploit Development”  欢迎关注\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486108&idx=1&sn=60abae499acb582d14ea20ead82f02a9&chksm=ceb5494b4f050790d28156a1155dbd4b381ccecd4a95e9ae7cbacce4ccd7ca3403e4bda777db&scene=126&sessionid=1795076136#rd\",\"description\":\"当你使用浏览器打开一个恶意网站，黑客就已经拿到了你电脑的最高系统权限，Chrome的攻击链不管是web3世界，还是web2世界都有很强大的杀伤力，欢迎大家关注Numen实验室在POC2023上的议题。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0dFGXtiaFyEMWeKrBU1RU9TRqTZOibfbIqCJswTGNG8TvDIbWTeC2EnfMsMicdx0PoZyyjwgLqWMqGEQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-19T07:52:20.000Z\"},{\"id\":\"wxmp:Mzg4MDcxNTc2NA%3D%3D:2247486097:1\",\"title\":\"Numen独家: OctoPrint远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MDcxNTc2NA==&mid=2247486097&idx=1&sn=a30cbe4c9a4f9c7e99a29b15de419aee&chksm=ce5c7b969374acdb95b3ec8c5dc3cb8d7e6d02aa0b0f79cdb6f0648d0b0bfb979f7ee448dff5&scene=126&sessionid=1795076136#rd\",\"description\":\"前言OctoPrint是一个开源的3D打印机控制器应用程序，它为连接的打印机提供Web 界面。它可以显示打印\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FvlekRjgqic0cicO3U3PHbIHs3FfGIpmTVs8ZicrCiasw2vFOf37iaA9RFlsqa0V5sK9A6MyJYxNJfe22qibGumthnwaQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-11T11:30:09.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2983,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 8
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 8,
-          "duration_ms": 5
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 13,
-          "duration_ms": 2969
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 2982,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
-          "name": "执行日志收集",
-          "started_ms": 2983,
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 8,
+          "duration_ms": 10005
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2983,
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2983,
+          "name": "失败后浏览器清理",
+          "started_ms": 10013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2983,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 16,
-          "duration_ms": 2963
+          "started_ms": 11,
+          "duration_ms": 10001
         }
       ]
     }

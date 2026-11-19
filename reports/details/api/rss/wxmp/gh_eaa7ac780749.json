@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:15:49.440Z",
+  "checked_at": "2026-11-19T13:48:53.192Z",
   "inspection": {
     "file": "rss/wxmp.js",
     "path": "/api/rss/wxmp/:account?",
@@ -12,15 +12,15 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_eaa7ac780749.json",
-    "duration_ms": 2652
+    "duration_ms": 7582
   },
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2122
+    "status": 504,
+    "duration_ms": 10018
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,24 +48,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2117,
+    "phase": "runtime",
+    "elapsed_ms": 10013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":8,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游请求超时，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游请求超时，请稍后重试\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -73,95 +68,87 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 2105,
+        "started_ms": 10,
+        "duration_ms": 10002,
         "timings": {
-          "response_ms": 1910,
-          "body_read_ms": 194,
-          "decode_and_transfer_ms": 1
+          "response_ms": 10002
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_eaa7ac780749\",\"title\":\"连续创业的Janky\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485682&idx=1&sn=d1c577766bbe7b0dd972fe69a78604a5&chksm=cffc69a78288529bdd020f01006b457600888e926f4c90d95ffa6b138d6396159cc202c6caf3&scene=126&sessionid=1795076153#rd\",\"description\":\"『数影星球创始人&CEO｜连续创业者』公众号用于自省与分享。专注企业数据安全和AI办公。www.dsphere.com.cn 、 www.dsphereai.com\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"连续创业的Janky\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FOU2rqvx645tC2jdUWnesM1VGKIqicdCOomibnPsTOcDEynHfHRDR1UHUAtzJ9j6wjSyXavVrjvq84%2F0\",\"updated\":\"2026-09-29T07:22:49.000Z\",\"items\":[{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485682:1\",\"title\":\"为何刘欢老师的离开，令人悲不自胜\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485682&idx=1&sn=d1c577766bbe7b0dd972fe69a78604a5&chksm=cffc69a78288529bdd020f01006b457600888e926f4c90d95ffa6b138d6396159cc202c6caf3&scene=126&sessionid=1795076153#rd\",\"description\":\"皮克斯动画《寻梦环游记》讲的是，当活人世界里再没有一个人记得某个亡灵的时候，那个亡灵就会化作金色的粉末，彻底消\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRF1bSp1bA4VW0c7AL6iaja4GSicibzxrI3G7ZCSYC3E3EPlwuICaiadkN7naFrJ50VekYicuaQclyJ4qNTTbP3Tx4MeCYZLJXNjiaGIa367rqic5Uk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-29T07:22:49.000Z\"},{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485676:1\",\"title\":\"Akamai 2 亿美金收购浏览器安全公司 LayerX，说明基于插件的浏览器安全路线，并不被市场认可\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485676&idx=1&sn=ad2b8f880ca96721a86c14beec45eeff&chksm=cf3b292a96fc7fe92108317184d94d3f33784887a618b153fc1121dd2be54ebe519b656b4e2d&scene=126&sessionid=1795076153#rd\",\"description\":\"在中国：安全浏览器，都落地于处置行业场景，而非通用办公工具。如做国产信创的、做外包管控的、做账号管理的，都聚集于特定场景的闭环，而非通用浏览器。因此那些缺乏场景的 AI 浏览器，一定都会慢慢消失。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRF1bSp1bA4W5fy6cKkunFpwoX1rCMzQogCRM6sWJCx8SPV50DDBVml3MnS3WkYAx2HuR1T9bPNsOvXoCYCErichicB2XnzllGicFlsmFsXaCb8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-15T05:48:51.000Z\"},{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485669:1\",\"title\":\"企业级 All-In-One 平台「DSPHERE-INTERNAL」正式开源\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485669&idx=1&sn=af27f61b4e5c24c20c15a4a0c87cafcd&chksm=cfe1faaa33d48f16502e4e8365e3f5a185c7acc81e68440126d023ee0af8546f03ee7b9c14f0&scene=126&sessionid=1795076153#rd\",\"description\":\"INTERNAL 是一套面向企业内部办公的平台，不同于主流媒体惯用的日日颠覆、天天炸场的叙事方式，这里没有什么\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRF1bSp1bA4VNwkX47S04VfE0Sg5T9k8EqPDmBp2VX3QvxzwdMl6vQVsr4j945hSbMTbH7o2XgaHCxoRmUico4xDqY9Z5XFGCmeT28SsoCickM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-11T05:08:02.000Z\"},{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485588:1\",\"title\":\"快 10 年没写过代码，花了 7 天时间，用 AI 从头构建了一整套企业办公系统\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485588&idx=1&sn=cc1414ca5f7a8afd9cba9b8fb621a6f8&chksm=cfde0ba03fbe00a08dac1d0c99905751e337bb568a8ffd5eb7e3828d5a44c1842ea12de320fc&scene=126&sessionid=1795076153#rd\",\"description\":\"普通人，即非研发背景的大众，是否可以依赖 AI 编程去开发系统和工具？我的答案是，几乎不可能。任何沉醉于社交媒体的习惯，都是不建议的。随着系统复杂度的提升，会越来越需要程序员的专业能力，去排错、调试和指导 AI 编写代码，越到后面越是寸步难行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaT6NCM5CI8Ku6VvPR123FibkVL3mLl8IGubnLfukibl22NZzaicmnIjw9mAq5WP5ooSLoUygUE2iaX1YBVetUmct8A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-29T11:27:31.000Z\"},{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485571:1\",\"title\":\"企业安全浏览器 (SEB) 白皮书\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485571&idx=1&sn=3f7de5fbc60dee8bfb7543b5786fe732&chksm=cf6313b55cd1bf81bba560237103a746b68d8cb7c584801329edc89afa0c187fff02b1825d99&scene=126&sessionid=1795076153#rd\",\"description\":\"■ 主要依赖 SaaS 应用程序、且需要保护的分支机构或网络物理系统（CPS）较少的企业，需要比传统安全堆栈\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/XzYibP7l9MpqicNTPP18kMfCJxOfZD50l0QZZ0uTG0wOdKzhIXxLibSNGpad7FA9fERWrD1ibqXMStY8sn4Qd7OGgA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-01-13T05:58:46.000Z\"},{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485552:1\",\"title\":\"中国网络安全市场的“三元结构”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485552&idx=1&sn=e204093a3d6f9c163b60010b696dce97&chksm=cf5a0dc819dee77af328cf13e630f2d63f675746b155336a3abff63536c86b762d3543a80b5d&scene=126&sessionid=1795076153#rd\",\"description\":\"作为创业者，不要试图教育市场，而要适配结构。创业初期，你必须做出选择，要么你的技术是源自最前沿的“民营实战”；要么，你的商业模式必须懂得如何在该“国企合规”的土壤中落地。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaT6NCM5CI8IjMbLjp1Wia1ibnkicoqzMPo9kJG7po7ibf3IdXe1HsicicjVchPaCcq0LVaOmUOAGjluSaTgMQeICpr7Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-08T03:06:20.000Z\"},{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485547:1\",\"title\":\"美国视角，观察中国 2025 数据安全行业（合规体制下大型企业与中小企业的比较）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485547&idx=1&sn=9288c141636139ccf7bd6e6d41af2e85&chksm=cf9cc0c2033b89e22dc0ebacd0a5160fadcf616526a5c985d057770614d6071efb8d0b709b69&scene=126&sessionid=1795076153#rd\",\"description\":\"在 2025 年的中国，通用的安全产品已经失效。如果你做大客户，你必须是信创、国密，且重服务的。如果你做小客户，你必须是极低成本且高度自动的。最危险的厂商是那些卡在中间的，既不够高端以进入国企的“信创白名单”，又不够便宜以打动中小企业的心。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaT6NCM5CI8LrWhwftqarwLUxhgR1lXpLEpwCncWJk7TEibcqaxbM0TtrCDnk6fOF6vGMJ5kSfMo8sqNqiarrKhUQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-05T02:14:19.000Z\"},{\"id\":\"wxmp:Mzg2MTk4MDM1Mg%3D%3D:2247485530:1\",\"title\":\"中美网络安全特色对比，与发展方向浅谈\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2MTk4MDM1Mg==&mid=2247485530&idx=1&sn=7f63fe63996837a74ecb9830ae4efbe6&chksm=cfe56824404cdb2fca94f770ddf243e1c6916580c94afbf08e7bc8dca2ce43d2fa61bad3248a&scene=126&sessionid=1795076153#rd\",\"description\":\"视频内容由 Gemini 依据我过往零散公众号文章内容生成，不足之处是 AI 用了一些“绝对”的词汇，但其串联散点内容的能力确实很强，视频内容整体还是不错的。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FaT6NCM5CI8KYibibwDTYf8XTIeAtk6Upq7ic1fBkmjxkCB0aL2lhvib5t4xIQnFMe1WAGiad41CqUOFtNkJradbnblQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-01T09:42:26.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2117,
+      "elapsed_ms": 10013,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 2110
+          "started_ms": 7,
+          "duration_ms": 10005
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2116,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2117,
+          "name": "错误诊断收集",
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2117,
+          "started_ms": 10012,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2117,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 10012,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2117,
+          "started_ms": 10013,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 2105
+          "started_ms": 10,
+          "duration_ms": 10002
         }
       ]
     }
