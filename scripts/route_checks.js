@@ -323,6 +323,7 @@ export async function check_route(
     file: entry.file,
     path: entry.path,
     example: entry.example,
+    ...(entry.name ? { name: entry.name } : {}),
     format: entry.format,
     request: false,
     response: false,
@@ -452,6 +453,7 @@ export async function check_routes(
         assert.ok(
           [
             "example",
+            "name",
             "min_items",
             "min_text_length",
             "source_host",
@@ -530,7 +532,7 @@ export async function check_routes(
         .filter((sample) => !sample.output_valid)
         .map(
           (sample) =>
-            `${sample.example}: ${sample.error || sample.code || "校验未通过"}`,
+            `${sample.name ? sample.name + " " : ""}${sample.example}: ${sample.error || sample.code || "校验未通过"}`,
         )
         .join("；");
     }

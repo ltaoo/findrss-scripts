@@ -136,7 +136,7 @@ test("同一路由检查多个配置样本并聚合结果，未配置路由继�
   const completed = [];
   const report = await check_routes("https://scripts.example", [entry, { ...entry, path: "/default", example: "/default" }], {
     [entry.format + " " + entry.path]: [
-      { example: "/configured/passed" }, { example: "/configured/failed" },
+      { name: "正常账号", example: "/configured/passed" }, { name: "失败账号", example: "/configured/failed" },
     ],
   }, {
     fetch_impl: async url => {
@@ -151,7 +151,8 @@ test("同一路由检查多个配置样本并聚合结果，未配置路由继�
   const result = report.results.find(result => result.path === entry.path);
   assert.equal(result.samples.length, 2);
   assert.deepEqual([result.request, result.response, result.format_valid, result.output_valid], [false, false, false, false]);
-  assert.equal(result.error, "/configured/failed: HTTP 503");
+  assert.equal(result.error, "失败账号 /configured/failed: HTTP 503");
+  assert.deepEqual(result.samples.map(sample => sample.name), ["失败账号", "正常账号"]);
   assert.ok(result.samples.some(sample => sample.output_valid));
   const passed = await check_routes("https://scripts.example", [entry], {
     [entry.format + " " + entry.path]: [{ example: "/a" }, { example: "/b" }],
@@ -164,6 +165,7 @@ test("配置错误或样本跨站时，开始请求之前拒绝整轮巡检", as
   const key = entry.format + " " + entry.path;
   const invalid = [null, [], { [key]: [] }, { [key]: [null] }, { [key]: [{ skip: true }] },
     { [key]: [{ min_items: -1 }] }, { [key]: [{ example: " " }] },
+    { [key]: [{ name: " " }] }, { [key]: [{ name: 42 }] },
     { [key]: [{ example: "/valid" }, { example: "https://other.example/private" }] },
     { [key]: [{ example: "https://user:password@scripts.example/private" }] }];
   for (const config of invalid) {
