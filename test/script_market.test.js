@@ -197,7 +197,7 @@ test("普通 HTTP 页面缺少 randomUUID 时仍能新建、更新和恢复示�
     model.open_request(key);
     model.set_route_value("id", id);
     assert.equal(model.save_request(), true);
-    assert.equal(model.request_status, "示例已保存");
+    assert.equal(model.request_status, "实例已保存");
   }
   const saved = model.saved_parameters[key];
   assert.equal(new Set(saved.map(example => example.id)).size, 2);
@@ -230,7 +230,7 @@ test("默认 example 始终显示且不可删除，修改后另存为自定义�
     assert.deepEqual(create_market_model(request_scripts, null, storage).route_examples(route.key), [example]);
   }
   const route = route_request_model("hot/example.js", "/api/hot/example");
-  assert.equal(create_market_model([{ routes: [route] }]).route_examples(route.key)[0].label, "默认示例");
+  assert.equal(create_market_model([{ routes: [route] }]).route_examples(route.key)[0].name, "默认实例");
   assert.deepEqual(model.route_examples("missing"), []);
 });
 
@@ -252,7 +252,7 @@ test("Plus 新建多个示例，打开后修改原示例，删除持久化且保
   model.open_request(key, first.id);
   model.set_route_value("id", "333");
   model.save_request();
-  assert.match(model.route_examples(key)[1].label, /^333/);
+  assert.match(model.route_examples(key)[1].name, /^333/);
   model.open_request(same_path.key);
   model.save_request();
   model.open_request(request_routes[1].key);

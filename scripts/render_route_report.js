@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import { route_report_model } from "./route_report_model.js";
 import { route_request_model, route_request_models } from "./route_request_model.js";
+import { script_examples } from "./script_examples.js";
 import { render_market_page, market_client } from "./timeless_runtime.js";
 
 const market_styles = readFileSync(new URL("./script_market.css", import.meta.url), "utf8");
@@ -10,7 +11,7 @@ const kind_names = { hot: "热榜", rss: "订阅", clip: "剪藏", detect: "监�
 const logo_data_url = "data:image/svg+xml;base64," + readFileSync(new URL("../assets/brand/logo.svg", import.meta.url)).toString("base64");
 const favicon_data_url = "data:image/svg+xml;base64," + readFileSync(new URL("../assets/brand/favicon.svg", import.meta.url)).toString("base64");
 
-export function render_report_html(report, catalog) {
+export function render_report_html(report, catalog, route_config = JSON.parse(readFileSync(new URL("../.github/route-checks.json", import.meta.url), "utf8"))) {
   const model = route_report_model(report, catalog?.map(({ file, metadata }) => ({
     file, name: metadata.name, kind: metadata.kind, version: metadata.version, platform: metadata.platform,
   })) || report.scripts || []);
@@ -20,12 +21,18 @@ export function render_report_html(report, catalog) {
   for (const group of groups) {
     group.inspection_rows = group.rows.map(row => {
       const key = JSON.stringify([group.file, row.path]);
-      const request = request_map.get(key) || route_request_model(group.file, row.path);
-      if (request) request_map.set(key, request);
+      const request = request_map.get(key) || route_request_model(group.file, row.path) || {
+        key, file: group.file, path: row.path, name: row.path, example: "/", fields: [], configurable: false,
+      };
+      request.examples = script_examples(request, route_config[(group.kind === "rss" ? "rss_json" : group.kind) + " " + row.path], row.outputs);
+      request_map.set(key, request);
       return { ...row, request };
     });
     if (!group.rows.length) group.inspection_rows = request_routes.filter(route => route.file === group.file)
       .map(request => ({ path: request.path, ok: null, reason: "", request }));
+    for (const row of group.inspection_rows) if (!row.request.examples) {
+      row.request.examples = script_examples(row.request, route_config[(group.kind === "rss" ? "rss_json" : group.kind) + " " + row.path]);
+    }
   }
   const date = new Date(model.checked_at);
   const checked = Number.isFinite(date.getTime()) ? new Intl.DateTimeFormat("zh-CN", {

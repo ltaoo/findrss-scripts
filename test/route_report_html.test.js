@@ -6,8 +6,8 @@ import { route_report_model } from "../scripts/route_report_model.js";
 import { render_report_html as render_html } from "../scripts/render_route_report.js";
 
 // Timeless 同时输出 n 语义属性，结构断言使用既有 data-n 标识。
-const render_report_html = (...args) => {
-  const html = render_html(...args);
+const render_report_html = (report, catalog, config = {}) => {
+  const html = render_html(report, catalog, config);
   const start = html.indexOf('<script data-n="market-data"');
   return html.slice(0, start).replace(/ n="[^"]*"/g, "") + html.slice(start);
 };
@@ -41,7 +41,7 @@ test("SSR 在脚本执行前包含完整卡片和巡检结果，初始布尔属�
   const markup = html.split('<script data-n="market-data"')[0];
   assert.equal([...markup.matchAll(/<article[^>]*data-n="script-card"/g)].length, 3);
   assert.equal([...markup.matchAll(/<article[^>]*data-n="script-card"[^>]*hidden="true"/g)].length, 2);
-  assert.equal([...markup.matchAll(/<tr[^>]*data-n="route-result"/g)].length, 8);
+  assert.equal([...markup.matchAll(/<tr[^>]*data-n="example-result"/g)].length, 8);
   assert.doesNotMatch(markup, /hidden="false"|disabled="false"|<dialog[^>]* open/);
   assert.match(markup, /<input[^>]*data-n="script-search"[^>]*type="search"/);
   assert.match(markup, /<input[^>]*data-n="settings-token"[^>]*type="password"/);
@@ -57,8 +57,8 @@ test("报告 Model 按脚本聚合全部格式路由、失败优先，每条路�
   assert.equal(rss.total, 6);
   assert.equal(rss.version, "1.2.3");
   assert.equal(Buffer.from(rss.icon_data_url.split(",")[1], "base64").toString(), icon);
-  assert.deepEqual(rss.rows[0], { path: "/rss/example", ok: false, reason: "XML 格式错误", outputs: [{ reason: "XML 格式错误" }] });
-  assert.deepEqual(rss.rows[1], { path: "/atom/example", ok: true, reason: "" });
+  assert.deepEqual(rss.rows[0], { path: "/rss/example", ok: false, reason: "XML 格式错误", outputs: [{ ok: false, reason: "XML 格式错误" }] });
+  assert.deepEqual(rss.rows[1], { path: "/atom/example", ok: true, reason: "", outputs: [{ ok: true }] });
   assert.equal(model.groups[1].rows[0].reason, "UPSTREAM_FETCH_FAILED: 访问上游失败");
   assert.equal(JSON.stringify(report), original);
 });
@@ -98,10 +98,10 @@ test("脚本市场用文件路径链接 Raw，图标复制地址，右上角版�
   assert.doesNotMatch(html, /href="routes\.(json|md)"/);
   assert.equal([...html.matchAll(/<details\b/g)].length, 0);
   assert.equal([...html.matchAll(/<img data-n="script-icon"/g)].length, 1);
-  assert.equal([...html.matchAll(/<tr data-n="route-result"/g)].length, 8);
+  assert.equal([...html.matchAll(/<tr data-n="example-result"/g)].length, 8);
   assert.match(html, /<tr data-n="column-headings"><th data-n="title-heading"[^>]*>标题<\/th><th data-n="route-heading"/);
-  for (const [row] of html.matchAll(/<tr data-n="route-result">[\s\S]*?<\/tr>/g)) {
-    assert.match(row, /<tr[^>]*>\s*<th data-n="route-title"[^>]*scope="row">[\s\S]*?<\/th>\s*<td data-n="route-identity"/);
+  for (const [row] of html.matchAll(/<tr data-n="example-result">[\s\S]*?<\/tr>/g)) {
+    assert.match(row, /<tr[^>]*>\s*<th data-n="route-title"[^>]*scope="rowgroup"[^>]*>[\s\S]*?<\/th>\s*<td data-n="route-identity"/);
   }
   for (const [, name, attributes] of html.split('<script data-n="market-data"')[0].matchAll(/<([a-z][a-z0-9-]*)\b([^>]*)>/g)) {
     assert.match(attributes, /\bdata-n="[a-z][a-z0-9_-]*"/, "缺少语义标识：" + name);
@@ -136,9 +136,9 @@ test("卡片优先显示 platform.name，巡检标题列显示路由名称并安
   assert.match(html, /<h2 data-n="script-title"[^>]*>平台 &lt;名称&gt;<\/h2>/);
   assert.doesNotMatch(html, /首条路由名称|<名称>|<列表>/);
   assert.match(html, /<th data-n="title-heading"[^>]*scope="col">标题<\/th>/);
-  assert.deepEqual([...html.matchAll(/<th data-n="route-title"[^>]*scope="row">([^<]*)<\/th>/g)].map(match => match[1]),
+  assert.deepEqual([...html.matchAll(/<th data-n="route-title"[^>]*scope="rowgroup"[^>]*>([^<]*)<\/th>/g)].map(match => match[1]),
     ["热榜排行", "发布 &lt;列表&gt; &amp; 更新", "发布 &lt;列表&gt; &amp; 更新"]);
-  assert.match(render_report_html(report), /<th data-n="route-title"[^>]*scope="row">\/rss\/example<\/th>/);
+  assert.match(render_report_html(report), /<th data-n="route-title"[^>]*scope="rowgroup"[^>]*>\/rss\/example<\/th>/);
 });
 
 test("上游错误、文件名、路由和未知类型均转义，页面不嵌入整份原始数据", () => {
@@ -157,7 +157,7 @@ test("空结果和全部通过有明确状态，空结果不产生 NaN 或 Infin
   assert.match(empty, /没有匹配的脚本/);
   assert.match(empty, /未提供巡检时间/);
   assert.doesNotMatch(empty.split('<script data-n="market-data"')[0], /NaN|Infinity/);
-  assert.match(render_report_html({ results: [{ ...passed, format: "rss", path: "/example", file: "rss/example.js" }] }), /巡检 1\/1 通过/);
+  assert.match(render_report_html({ results: [{ ...passed, format: "rss", path: "/example", file: "rss/example.js" }] }), /实例 1\/1 成功/);
   assert.throws(() => route_report_model(null), /results 数组/);
 });
 
@@ -170,7 +170,7 @@ test("目录元数据安全转义，不将脚本源码或配置嵌入页面", ()
   ]);
   assert.match(html, /Example &lt;\/script&gt;&lt;img/);
   assert.match(html, /尚未巡检/);
-  assert.match(html, /暂无巡检结果/);
+  assert.match(html, /实例 0\/0 成功/);
   assert.doesNotMatch(html, /private_source_marker|private-token|private-config|<img src=x/);
   assert.equal([...html.matchAll(/<script\b/g)].length, 2);
   const data = JSON.parse(html.match(/<script data-n="market-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
@@ -188,9 +188,9 @@ test("通过样本在新窗口打开产物 Raw 链接，失败样本和不安全
     ] },
   ] });
   assert.match(html, /data-n="artifact-link"[^>]*href="https:\/\/raw.githubusercontent.com\/ltaoo\/findrss-scripts\/refs\/heads\/route-reports\/reports\/responses\/rss\/example.xml" target="_blank" rel="noopener noreferrer"/);
-  assert.match(html, /responses\/hot\/a%20%2520.json"[^>]*>查看产物 1<\/a><code data-n="artifact-example"[^>]*>\/api\/hot\/sample a<\/code>/);
+  assert.match(html, /responses\/hot\/a%20%2520.json"[^>]*aria-label="查看产物"[^>]*><svg data-n="artifact-rss-icon"/);
   assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 2);
-  assert.equal([...html.matchAll(/<code data-n="artifact-example"/g)].length, 1);
+  assert.doesNotMatch(html, /data-n="artifact-example"|查看产物 \d/);
   assert.doesNotMatch(html, /private-query-value|failed.json|private.json|absolute.json|secret=1/);
   assert.doesNotMatch(html, /<iframe|artifact-dialog|open_artifact/);
 });
@@ -219,13 +219,13 @@ test("成功与失败样本各自显示详情 JSON，产物和详情对应同一
         ...["../private.json", "/absolute.json", "a/../private.json", "a\\private.json", "a.json?secret=1", "a.json#part"].map(detail_file => ({ ...passed, detail_file })),
       ] }] });
     const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
-    const links = [...html.matchAll(/<a data-n="detail-link"[^>]*href="([^"]+)" target="_blank" rel="noopener noreferrer">([^<]+)<\/a>/g)];
+    const links = [...html.matchAll(/<a data-n="detail-link"[^>]*href="([^"]+)" target="_blank" rel="noopener noreferrer"[^>]*>([^<]+)<\/a>/g)];
     assert.deepEqual(links.map(match => [match[1], match[2]]), [
-      [prefix + "details/api/rss/one.json", "查看详情 1"],
-      [prefix + "details/api/rss/%E6%B5%8B%E8%AF%95%20two.json", "查看详情 2"],
+      [prefix + "details/api/rss/one.json", "成功"],
+      [prefix + "details/api/rss/%E6%B5%8B%E8%AF%95%20two.json", "失败"],
     ]);
-    assert.match(html, /查看产物 1<\/a><a data-n="detail-link"[^>]*>查看详情 1<\/a>/);
-    assert.match(html, /查看详情 2<\/a>[\s\S]*?HTTP 503/);
+    assert.match(html, /data-n="example-status"[^>]*><a data-n="detail-link"[^>]*>成功<\/a>/);
+    assert.match(html, /data-n="example-status"[^>]*><a data-n="detail-link"[^>]*>失败<\/a><p data-n="output-reason"[^>]*>HTTP 503<\/p>/);
     assert.doesNotMatch(html, /private-token|private.json|absolute.json|secret=1/);
   }
 });
@@ -239,9 +239,9 @@ test("具名样本显示名称和账号路径，无产物或详情时也保留�
   assert.equal(outputs[0].name, '公众号 <script>alert(1)</script>');
   assert.equal(outputs[0].example, "/api/rss/wxmp/gh_123456789abc");
   const html = render_report_html(named_report);
-  assert.match(html, /<span data-n="sample-name"[^>]*>公众号 &lt;script&gt;alert\(1\)&lt;\/script&gt;<\/span>/);
-  assert.match(html, /data-n="artifact-example"[^>]*>\/api\/rss\/wxmp\/gh_123456789abc<\/code>/);
-  assert.match(html, /data-n="sample-name"[^>]*>失败公众号<\/span>/);
+  assert.match(html, /<button data-n="open-example"[^>]*>公众号 &lt;script&gt;alert\(1\)&lt;\/script&gt;<\/button>/);
+  assert.match(html, /data-n="script-example"/);
+  assert.match(html, /data-n="open-example"[^>]*>失败公众号<\/button>/);
   assert.doesNotMatch(html, /<script>alert|private-token/);
 });
 
@@ -259,11 +259,11 @@ test("页头设置、动态路由配置与保存入口，未巡检路由仍可�
   for (const name of ["inspection", "request", "settings"]) {
     assert.match(html, new RegExp('<dialog[^>]*data-n="' + name + '-dialog"(?:(?!</dialog>)[\\s\\S])*data-n="' + name + '-copy-feedback"'));
   }
-  assert.match(html, /保存示例/);
+  assert.match(html, /保存实例/);
   assert.doesNotMatch(html, /调用配置|保存参数/);
-  assert.equal([...html.matchAll(/<div data-n="output-rows"/g)].length, 2);
+  assert.equal([...html.matchAll(/<div data-n="output-column-header"/g)].length, 2);
   assert.equal([...html.matchAll(/<svg data-n="add-example-icon"/g)].length, 2);
-  assert.match(html, /aria-label="添加示例：/);
+  assert.match(html, /aria-label="添加实例：/);
   assert.match(html, /未巡检/);
   assert.equal([...html.matchAll(/<button data-n="configure-route"/g)].length, 2);
   assert.doesNotMatch(html, /private-id|private-token/);

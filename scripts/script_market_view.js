@@ -29,6 +29,8 @@ function icon(name, kind) {
     copy: [element("rect", "copy-icon-front", { x: 8, y: 8, width: 13, height: 13, rx: 2 }),
       element("path", "copy-icon-back", { d: "M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" })],
     add: [element("path", "add-example-icon-lines", { d: "M12 5v14M5 12h14" })],
+    rss: [element("path", "rss-icon-waves", { d: "M4 4a16 16 0 0 1 16 16M4 11a9 9 0 0 1 9 9" }),
+      element("circle", "rss-icon-dot", { cx: 4, cy: 20, r: 1, fill: "currentColor", stroke: "none" })],
     settings: [element("path", "settings-icon-gear", { d: "m9 3-.6 2.3-1.5.9-2.3-.6-3 5.2 1.7 1.7v1.8L1.6 16l3 5.2 2.3-.6 1.5.9L9 24h6l.6-2.5 1.5-.9 2.3.6 3-5.2-1.7-1.7v-1.8l1.7-1.7-3-5.2-2.3.6-1.5-.9L15 3Z", transform: "translate(1 0) scale(.92 .85)" }),
       element("circle", "settings-icon-center", { cx: 12, cy: 11.5, r: 3 })],
   };
@@ -63,6 +65,7 @@ function header(vm) {
 
 function card(vm, script, visible) {
   const { model, watch } = vm;
+  const status = watch(() => model.script_status(script));
   return element("article", "script-card", { class: "card", id: script.id, "aria-labelledby": script.id + "-title", hidden: computed(visible, ids => !ids.includes(script.id)) }, [
     element("div", "script-card-body", { class: "card-body" }, [
       element("div", "script-heading", { class: "script-heading" }, [
@@ -74,8 +77,8 @@ function card(vm, script, visible) {
           element("span", "script-version", { class: "script-version", "aria-label": "版本：" + script.version }, ["v" + script.version]),
         ]),
         element("div", "script-status-stack", { class: "script-status-stack" }, [
-          element("button", "inspect-script", { class: "inspection-trigger status " + (script.failed ? "failed" : script.total ? "passed" : ""),
-            "data-script": script.id, "aria-label": script.title + " 巡检结果与产物" }, [script.total ? `巡检 ${script.total - script.failed}/${script.total} 通过` : "暂无巡检结果"], { onClick: () => model.inspect(script.id) }),
+          element("button", "inspect-script", { class: computed(status, value => "inspection-trigger status " + (value.failed ? "failed" : value.passed === value.total && value.total ? "passed" : "unknown")),
+            "data-script": script.id, "aria-label": script.title + " 巡检结果与产物" }, [computed(status, value => `实例 ${value.passed}/${value.total} 成功`)], { onClick: () => model.inspect(script.id) }),
         ]),
       ]),
       element("div", "script-metadata", { class: "metadata" }, [
@@ -87,47 +90,18 @@ function card(vm, script, visible) {
   ]);
 }
 
-function example_chip(vm, route, example) {
+function example_card(vm, route, example) {
   const { model, watch } = vm;
-  const label = watch(() => model.route_examples(route.key).find(value => value.id === example.id)?.label || "");
-  return element("span", "saved-example", { class: "saved-example" }, [
-    element("button", "open-example", { title: label }, [label], { onClick: () => model.open_request(route.key, example.id) }),
-    ...(example.deletable ? [element("button", "delete-example", { title: "删除示例", "aria-label": computed(label, value => "删除示例：" + value) }, ["×"], { onClick(event) {
-      const add = event.currentTarget.closest('[data-n="output-rows"]').querySelector('[data-n="configure-route"]');
-      if (model.delete_example(route.key, example.id)) add.focus();
-    } })] : []),
-  ]);
-}
-
-function output_entry(entry) {
-  return [
-    ...(entry?.name ? [element("span", "sample-name", { class: "sample-name" }, [entry.name])] : []),
-    ...(entry?.artifact ? [element("a", "artifact-link", { href: entry.artifact.url, target: "_blank", rel: "noopener noreferrer" }, [entry.artifact.label])] : []),
-    ...(entry?.detail ? [element("a", "detail-link", { href: entry.detail.url, target: "_blank", rel: "noopener noreferrer" }, [entry.detail.label])] : []),
-    ...(entry?.example ? [element("code", "artifact-example", { class: "artifact-example" }, [entry.example])] : []),
-    ...(entry?.reason ? [element("span", "output-reason", { class: "output-reason" }, [entry.reason])] : []),
-  ];
-}
-
-function output_comparison(vm, row) {
-  const { model, watch } = vm;
-  const entries = row.outputs || [];
-  return element("div", "output-rows", { class: "output-rows" }, [
-    For({ each: watch(() => {
-      const examples = model.route_examples(row.request.key);
-      const count = Math.max(examples.length, entries.length);
-      return Array.from({ length: count }, (_, index) => ({ id: examples[index] ? "example:" + (examples[index].id ?? "default") : "entry:" + index,
-        example: examples[index] || null, entry: entries[index] || null }));
-    }), key: "id", render: item => element("div", "output-row", { class: "output-row" }, [
-      element("div", "output-result", { class: "output-result" }, output_entry(item.entry)),
-      element("div", "output-example", { class: "output-example" }, item.example ? [example_chip(vm, row.request, item.example)] : []),
-    ]) }),
-    element("div", "output-row", { class: "output-row" }, [
-      element("div", "output-result", { class: "output-result" }),
-      element("div", "output-example", { class: "output-example" }, [
-        element("button", "configure-route", { class: "copy-icon add-example", "data-route": row.request.key, "aria-label": "添加示例：" + row.request.path,
-          title: "添加示例" }, [icon("add-example-icon", "add")], { onClick: () => model.open_request(row.request.key) }),
-      ]),
+  const name = example.deletable ? watch(() => model.route_examples(route.key).find(value => value.id === example.id)?.name || "") : example.name;
+  return element("article", "script-example", { class: "script-example", "data-example": example.id }, [
+    element("div", "example-heading", { class: "example-heading" }, [
+      element("button", "open-example", { class: "example-name", title: name, disabled: route.configurable === false }, [name], { onClick: () => model.open_request(route.key, example.id) }),
+      ...(example.artifact ? [element("a", "artifact-link", { class: "copy-icon artifact-icon", href: example.artifact.url, target: "_blank", rel: "noopener noreferrer",
+        "aria-label": "查看产物", title: "查看产物" }, [icon("artifact-rss-icon", "rss")])] : []),
+      ...(example.deletable ? [element("button", "delete-example", { class: "copy-icon", title: "删除实例", "aria-label": computed(name, value => "删除实例：" + value) }, ["×"], { onClick(event) {
+        const add = event.currentTarget.closest('table').querySelector('[data-n="configure-route"]');
+        if (model.delete_example(route.key, example.id)) add.focus();
+      } })] : []),
     ]),
   ]);
 }
@@ -138,18 +112,36 @@ function inspection_results(vm, script) {
     element("div", "table-scroll-container", { class: "table-scroll", role: "region", "aria-label": script.title + " 巡检详情", tabindex: 0 }, [
       element("table", "results-table", {}, [
         element("thead", "results-head", {}, [element("tr", "column-headings", {}, [
-          ["title", "标题"], ["route", "路由"], ["status", "结果"], ["output", "产物 / 详情 / 失败原因"],
-        ].map(([name, title]) => element("th", name + "-heading", { scope: "col" }, [title])))]),
-        element("tbody", "results-rows", {}, script.inspection_rows.map(row => element("tr", "route-result", {}, [
-          element("th", "route-title", { scope: "row" }, [row.request?.name || row.path]),
-          element("td", "route-identity", {}, [element("code", "route-path", {}, [row.path])]),
-          element("td", "route-status", {}, [element("span", "status-label", { class: "status " + (row.ok === null ? "unknown" : row.ok ? "passed" : "failed") }, [row.ok === null ? "未巡检" : row.ok ? "成功" : "失败"])]),
-          element("td", "route-output", {}, row.request ? [output_comparison(vm, row)] : [
-            element("div", "output-entries", { class: "output-entries" }, [
-              ...(row.outputs || []).flatMap(output_entry),
-            ]),
+          ["title", "标题"], ["route", "路由"], ["output", "实例 / 产物"], ["status", "结果"],
+        ].map(([name, title]) => element("th", name + "-heading", { scope: "col" }, name === "output" ? [
+          element("div", "output-column-header", { class: "output-column-header" }, [
+            element("span", "output-column-label", {}, [title]),
+            element("button", "configure-route", { class: "copy-icon add-example", "data-script": script.id,
+              disabled: script.inspection_rows.every(row => row.request.configurable === false), "aria-label": "添加实例：" + script.title,
+              title: "添加实例" }, [icon("add-example-icon", "add")], { onClick: () => model.add_example(script.id) }),
           ]),
-        ]))),
+        ] : [title])))]),
+        ...script.inspection_rows.map(row => element("tbody", "results-rows", {}, [
+          For({ each: watch(() => model.route_examples(row.request.key)), key: "id", render: example => {
+            const first = example.id === row.request.examples[0]?.id;
+            const rowspan = first ? watch(() => model.route_examples(row.request.key).length) : undefined;
+            return element("tr", "example-result", {}, [
+              ...(first ? [
+                element("th", "route-title", { scope: "rowgroup", rowspan }, [row.request.name || row.path]),
+                element("td", "route-identity", { rowspan }, [element("code", "route-path", {}, [row.path])]),
+              ] : []),
+              element("td", "route-output", {}, [example_card(vm, row.request, example)]),
+              element("td", "example-status", {}, [
+                element(example.detail ? "a" : "span", example.detail ? "detail-link" : "status-label", {
+                  class: "status " + (example.ok === null ? "unknown" : example.ok ? "passed" : "failed"),
+                  ...(example.detail ? { href: example.detail.url, target: "_blank", rel: "noopener noreferrer", title: "查看详情",
+                    "aria-label": (example.ok ? "成功" : "失败") + "，查看详情" } : {}),
+                }, [example.ok === null ? "未巡检" : example.ok ? "成功" : "失败"]),
+                ...(example.reason ? [element("p", "output-reason", { class: "output-reason" }, [example.reason])] : []),
+              ]),
+            ]);
+          } }),
+        ])),
       ]),
     ]),
   ] : [element("p", "empty-inspection", {}, ["暂无巡检结果。"])]);
@@ -176,9 +168,19 @@ function dialog(vm, name, class_name, title, open, close, children) {
 function request_dialog(vm) {
   const { model, watch } = vm;
   const output = watch(() => model.request_output);
-  return dialog(vm, "request", "", watch(() => (model.example_id ? "编辑示例" : "添加示例") + (model.request ? " · " + model.request.path : "")),
+  return dialog(vm, "request", "", watch(() => (model.example_id ? "编辑实例" : "添加实例") + (model.request ? " · " + model.request.path : "")),
     watch(() => Boolean(model.request)), () => model.close_request(), [
       element("form", "request-form", { novalidate: true }, [
+        element("fieldset", "example-route-selector", { class: "route-selector", hidden: watch(() => model.request_routes.length < 2 || Boolean(model.example_id)) }, [
+          element("legend", "example-route-label", { class: "form-label" }, ["路由"]),
+          For({ each: watch(() => model.request_routes), key: "key", render: route => element("button", "select-example-route", {
+            class: "button route-choice", "aria-pressed": watch(() => String(model.request?.key === route.key)),
+          }, [route.name, element("code", "example-route-path", {}, [route.path])], { onClick: () => model.open_request(route.key) }) }),
+        ]),
+        element("label", "example-name-field", { class: "form-field", for: "example-name" }, [
+          element("span", "example-name-label", { class: "form-label" }, ["实例名称"]),
+          input("example-name-input", { class: "form-input", id: "example-name", autocomplete: "off" }, watch(() => model.example_name), event => model.set_example_name(event.target.value)),
+        ]),
         element("div", "request-fields", { class: "request-fields" }, [For({ each: watch(() => model.request?.fields || empty_fields), render: (field, index) =>
           element("label", "route-parameter-field", { class: "form-field", for: computed(index, value => "route-parameter-" + value) }, [
             element("span", "route-parameter-label", { class: "form-label" }, [field.name + (field.required ? " *" : "")]),
@@ -186,7 +188,7 @@ function request_dialog(vm) {
               required: field.required, autocomplete: "off" }, watch(() => model.route_values[field.name] || ""), event => model.set_route_value(field.name, event.target.value)),
           ]) })]),
         element("div", "request-actions", { class: "form-actions" }, [
-          element("button", "save-request", { class: "button", type: "submit" }, [watch(() => model.example_id ? "保存修改" : "保存示例")]),
+          element("button", "save-request", { class: "button", type: "submit" }, [watch(() => model.example_id ? "保存修改" : "保存实例")]),
           element("span", "request-status", { class: "form-status", role: "status" }, [watch(() => model.request_status || (model.request ? model.request_output.error : ""))]),
         ]),
       ], { onSubmit(event) { event.preventDefault(); model.save_request(); } }),

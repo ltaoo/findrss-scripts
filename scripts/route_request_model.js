@@ -9,6 +9,7 @@ export function route_request_model(file, path, route = {}) {
     return parameter ? { name: parameter[1], pattern: parameter[2] || "", optional: Boolean(parameter[3]) } : segment;
   });
   const example = new URL(route.example || "/", "https://example.invalid");
+  example.searchParams.delete("token");
   const examples = pattern.match(example.pathname)?.params || {};
   const descriptions = route.parameters || {};
   const fields = segments.filter(segment => typeof segment !== "string").map(segment => ({
@@ -21,7 +22,7 @@ export function route_request_model(file, path, route = {}) {
     fields.push({ name, in: "query", description: descriptions[name] || name,
       required: name === "url" || /必填/.test(descriptions[name] || ""), value: example.searchParams.get(name) || "" });
   }
-  return { key: JSON.stringify([file, path]), file, path, prefix: path.slice(0, path.length - (route.path || path).length),
+  return { key: JSON.stringify([file, path]), file, path, example: example.pathname + example.search, prefix: path.slice(0, path.length - (route.path || path).length),
     name: route.name || path, segments, fields };
 }
 

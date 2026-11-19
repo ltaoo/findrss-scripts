@@ -108,7 +108,7 @@ await writeFile(new URL("../reports/routes.md", import.meta.url), markdown);
 await writeFile(new URL("../reports/README.md", import.meta.url), markdown);
 await writeFile(
   new URL("../reports/index.html", import.meta.url),
-  render_report_html(report, scripts),
+  render_report_html(report, scripts, config),
 );
 if (process.env.GITHUB_STEP_SUMMARY) {
   await appendFile(process.env.GITHUB_STEP_SUMMARY, markdown);

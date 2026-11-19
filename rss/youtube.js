@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.1";
+export const version = "1.1.2";
 export const platform = {
   name: "YouTube",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" data-n="youtube-platform-icon"><rect width="32" height="22" y="5" rx="5" fill="#ff0033" data-n="youtube-icon-rect-1" /><path fill="#fff" d="m13 12 8 4-8 5z" data-n="youtube-icon-path-2" /></svg>',
@@ -57,6 +57,7 @@ export class YoutubeRSS extends RSSScript {
       const link = channel_link + "/" + this.kind;
       const result_1 = await YoutubeRSS.request_text(ctx, link, {
         headers: YoutubeRSS.request_headers(link),
+        ...(shorts ? { timeout_ms: 30000 } : {}),
       });
       if (result_1.error) return result_1;
       const result_2 = YoutubeRSS.initial_data(result_1.data);
@@ -198,19 +199,48 @@ export class YoutubeRSS extends RSSScript {
       };
       walk(tab.content);
       if (shorts) {
-        // Shorts 列表没有发布日期，从详情页补齐；限制并发以免占满上游连接。
+        const client_version = /"INNERTUBE_CLIENT_VERSION"\s*:\s*"([0-9.]+)"/.exec(result_1.data)?.[1];
+        const metadata_deadline = Date.now() + 60000;
+        // 日期补查不能拖垮整个订阅；优先读取轻量元数据，缺少页面客户端信息时兼容旧详情页。
         for (let index = 0; index < items.length; index += 4) {
+          if (Date.now() >= metadata_deadline) {
+            ctx.log("YouTube Shorts 日期补查达到时间预算，保留未补齐日期的条目");
+            break;
+          }
           await Promise.all(
             items.slice(index, index + 4).map(async function (item) {
               if (item.published !== undefined) return;
-              const page = await YoutubeRSS.request_text(ctx, item.link, {
-                headers: YoutubeRSS.request_headers(link),
+              const id = item.id.slice("youtube:video:".length);
+              const page = await YoutubeRSS.request_text(ctx, client_version
+                ? "https://www.youtube.com/youtubei/v1/player?prettyPrint=false" : item.link, {
+                timeout_ms: 10000,
+                headers: { ...YoutubeRSS.request_headers(link), ...(client_version ? { "Content-Type": "application/json", Accept: "application/json" } : {}) },
+                ...(client_version ? { method: "POST", body: JSON.stringify({
+                  context: { client: { clientName: "WEB", clientVersion: client_version, hl: "zh-CN" } },
+                  videoId: id, contentCheckOk: true, racyCheckOk: true,
+                }) } : {}),
               });
               if (page.error) {
                 ctx.log("YouTube Shorts 发布时间获取失败", {
                   link: item.link,
                   error: page.error,
                 });
+                return;
+              }
+              if (client_version) {
+                const parsed = parseJSON(page.data);
+                const metadata = parsed.data?.microformat?.playerMicroformatRenderer;
+                if (parsed.error || parsed.data?.videoDetails?.videoId !== id || (metadata?.externalVideoId && metadata.externalVideoId !== id)) {
+                  ctx.log("YouTube Shorts 元数据无效", { link: item.link });
+                  return;
+                }
+                for (const value of [metadata?.publishDate, metadata?.uploadDate]) {
+                  const published = Date.parse(value);
+                  if (Number.isFinite(published) && published > 0) {
+                    item.published = published;
+                    break;
+                  }
+                }
                 return;
               }
               // 只解析 meta；跳过大段脚本和样式，避免为整个详情页创建节点树。
@@ -523,7 +553,7 @@ export const routes = ["videos", "shorts"].map(function (kind) {
       handle: "频道 handle，例如 @goldfishbrain（@ 可省略）",
     },
     description: shorts
-      ? "解析频道 /shorts 页面内嵌的短视频首屏列表，包含标题、封面、观看量及内嵌播放器；发布时间缺失时从短视频详情页补齐，补查失败时保留条目，不估算日期。"
+      ? "解析频道 /shorts 页面内嵌的短视频首屏列表，包含标题、封面、观看量及内嵌播放器；优先通过轻量元数据补齐发布时间，缺少客户端信息时兼容详情页。日期补查限制并发与总耗时，失败时保留条目，不估算日期。"
       : "解析频道 /videos 页面内嵌的视频首屏列表，包含标题、封面、作者、YouTube 播放地址及 content 内嵌播放器。发布时间根据页面中英文相对时间估算，月、年按 30、365 天计算。",
     handler: (ctx) => script.run(ctx),
   };

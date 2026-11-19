@@ -324,6 +324,75 @@ const utils = { ...original_utils, document_nodes(html) {
   assert.equal(feed.updated, feed.items[0].published);
 });
 
+test("YouTube Shorts 优先使用页面客户端版本请求轻量元数据，验证视频 ID，播放受限时仍读取真实日期", async t => {
+  const data = JSON.parse(await readFile(new URL("./fixtures/youtube_shorts.json", import.meta.url)));
+  data.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.richGridRenderer.contents = Array.from({ length: 48 }, (_, index) => ({
+    reelItemRenderer: { videoId: video_id(index), headline: { simpleText: "短视频 " + index } },
+  }));
+  const html = '<script>ytcfg.set({"INNERTUBE_CLIENT_VERSION":"2.20261118.01.00"});</script>' +
+    '<script>var ytInitialData = ' + JSON.stringify(data) + ';</script>';
+  let calls = 0;
+  const cookies = [{ name: "SID", value: "fixture-sid", domain: ".youtube.com", path: "/", secure: true }];
+  const { feed } = await run_html(t, async (url, options) => {
+    if (url.includes("/@example/")) return new Response(html);
+    calls++;
+    assert.equal(url, "https://www.youtube.com/youtubei/v1/player?prettyPrint=false");
+    assert.equal(options.method, "POST");
+    assert.equal(options.headers["content-type"], "application/json");
+    assert.equal(options.headers.Cookie, "SID=fixture-sid");
+    const body = JSON.parse(options.body);
+    assert.deepEqual(body.context.client, { clientName: "WEB", clientVersion: "2.20261118.01.00", hl: "zh-CN" });
+    return Response.json({ playabilityStatus: { status: "UNPLAYABLE" }, videoDetails: { videoId: body.videoId },
+      microformat: { playerMicroformatRenderer: { externalVideoId: body.videoId, publishDate: "2026-11-18T18:00:35-08:00" } } });
+  }, cookies, 1);
+  assert.equal(calls, 48);
+  assert.equal(feed.items.length, 48);
+  assert.ok(feed.items.every(item => item.published === "2026-11-19T02:00:35.000Z"));
+  assert.equal(feed.updated, feed.items[0].published);
+});
+
+test("YouTube Shorts 元数据失败、错配或缺失日期时保留所有条目，不退回逐条下载完整网页", async t => {
+  const data = JSON.parse(await readFile(new URL("./fixtures/youtube_shorts.json", import.meta.url)));
+  const html = '<script>ytcfg.set({"INNERTUBE_CLIENT_VERSION":"2.20261118.01.00"});</script>' +
+    '<script>var ytInitialData = ' + JSON.stringify(data) + ';</script>';
+  const calls = [];
+  const { feed } = await run_html(t, async (url, options) => {
+    if (url.includes("/@example/")) return new Response(html);
+    assert.ok(url.includes("/youtubei/v1/player"));
+    const id = JSON.parse(options.body).videoId;
+    calls.push(id);
+    if (id === "VwYzTp6BpqY") return new Response("Unavailable", { status: 503 });
+    return Response.json({ videoDetails: { videoId: id === "bi6ptD31Uxc" ? video_id(0) : id },
+      microformat: { playerMicroformatRenderer: { publishDate: id === "bi6ptD31Uxc" ? "2026-11-18" : "invalid" } } });
+  }, [], 1);
+  assert.equal(calls.length, 3);
+  assert.equal(feed.items.length, 3);
+  assert.ok(feed.items.every(item => item.published === undefined));
+});
+
+test("YouTube Shorts 元数据超时只影响日期，不让完整订阅等待几十个慢详情页", async t => {
+  const data = JSON.parse(await readFile(new URL("./fixtures/youtube_shorts.json", import.meta.url)));
+  const html = '<script>ytcfg.set({"INNERTUBE_CLIENT_VERSION":"2.20261118.01.00"});</script>' +
+    '<script>var ytInitialData = ' + JSON.stringify(data) + ';</script>';
+  const started = Date.now();
+  let aborted = 0;
+  const { feed } = await run_html(t, async (url, options) => {
+    if (url.includes("/@example/")) return new Response(html);
+    return new Promise((resolve, reject) => {
+      const watchdog = setTimeout(() => reject(new Error("元数据请求未按时取消")), 12000);
+      options.signal.addEventListener("abort", () => {
+        aborted++;
+        clearTimeout(watchdog);
+        reject(options.signal.reason);
+      }, { once: true });
+    });
+  }, [], 1);
+  assert.equal(aborted, 3);
+  assert.ok(Date.now() - started < 15000);
+  assert.equal(feed.items.length, 3);
+  assert.ok(feed.items.every(item => item.published === undefined));
+});
+
 test("YouTube Shorts 兼容移动端 reelItemRenderer，保留空列表和验证页错误", async t => {
   const data = {
     metadata: { channelMetadataRenderer: { title: "移动 Shorts" } },

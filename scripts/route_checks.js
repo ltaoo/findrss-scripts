@@ -317,7 +317,7 @@ export function check_output(entry, value) {
 export async function check_route(
   base,
   entry,
-  { fetch_impl = fetch, token = "", timeout_ms = 60000, output_dir, details_dir } = {},
+  { fetch_impl = fetch, token = "", timeout_ms = 120000, output_dir, details_dir } = {},
 ) {
   const result = {
     file: entry.file,

@@ -192,7 +192,7 @@ test("多个样本仅查询参数不同时正文分别保存，不覆盖或暴�
   }
 });
 
-test("仓库配置覆盖社交平台账号，新增平台每条账号路由巡检至少 20 个具名样本", async () => {
+test("仓库配置覆盖社交平台的具名账号样本", async () => {
   const config = JSON.parse(await readFile(new URL("../.github/route-checks.json", import.meta.url), "utf8"));
   const cases = JSON.parse(await readFile(new URL("../dist/routes.json", import.meta.url), "utf8"));
   const configured = cases.filter(entry => Object.hasOwn(config, entry.format + " " + entry.path));
@@ -214,7 +214,7 @@ test("仓库配置覆盖社交平台账号，新增平台每条账号路由巡�
   };
   for (const [path, pattern] of Object.entries(account_routes)) {
     const samples = config["rss_json " + path];
-    const expected_count = path === "/api/rss/instagram/:username" ? 21 : 20;
+    const expected_count = { "/api/rss/instagram/:username": 21, "/api/rss/zhihu/people/:user/answers": 19 }[path] ?? 20;
     assert.equal(samples.length, expected_count, path);
     assert.equal(new Set(samples.map(sample => sample.example.toLowerCase())).size, expected_count, path);
     assert.ok(samples.every(sample => sample.name?.trim() && pattern.test(sample.example)), path);

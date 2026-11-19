@@ -172,7 +172,7 @@ RSS 读取支持 `Authorization: Bearer <ACCESS_TOKEN>` 或 `?token=<ACCESS_TOKE
 | Secret | `ROUTE_CHECK_CASES` | 可选的路由样本及预期覆盖 JSON，见下文 |
 | Secret | `NOTIFY_TOKEN` | 通知接口的 Bearer 令牌，仅填写令牌值，不包含 `Bearer ` 前缀 |
 
-检查从当前代码构建的本地清单出发，最多同时处理 10 条路由，不依赖线上目录来决定检查范围。每个样本先检查普通接口，再采集一次对应的 Debug JSON；两次请求各自最多 60 秒，均拒绝重定向。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文、Debug 详情、`reports/icons/` 中的脚本图标一起上传为 `route-check-report` artifact。
+检查从当前代码构建的本地清单出发，最多同时处理 10 条路由，不依赖线上目录来决定检查范围。每个样本先检查普通接口，再采集一次对应的 Debug JSON；两次请求各自最多 120 秒，均拒绝重定向。检查项全部执行后统一失败退出，不会因首个错误漏测后续路由。报告写入 `reports/routes.json`、`reports/routes.md`、`reports/index.html`、`reports/README.md`，Markdown 展示于 Actions Summary，四份报告与路由正文、Debug 详情、`reports/icons/` 中的脚本图标一起上传为 `route-check-report` artifact。
 
 每次启动巡检时，先删除上述四份旧报告并清空 `reports/responses/`、`reports/details/`、`reports/icons/`，再读取配置并发起检查。巡检期间或配置错误、中断导致未生成新报告时，不保留旧结果；`reports/cookie-sync-setup.json` 等其他本机文件不受影响。
 
@@ -196,7 +196,7 @@ HTTP 2xx 且正文读取完整、未超过 24MB 的响应，逐条原样保存�
 
 如果使用分支发布，发布源应为 **Deploy from a branch → route-reports → /(root)**，分支根目录已包含入口和下载文件。但当前工作流的 `GITHUB_TOKEN` 推送仍不会触发这种发布模式的自动构建；需另行使用有权限用户的推送或合适的发布凭据触发，不能仅切换设置就保证每轮巡检后站点更新。现有工作流已包含完整的 Pages artifact 部署，建议保留 **GitHub Actions** 模式。
 
-定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。首页是「脚本市场（Script Market）」，按脚本展示名称、路径、版本及脚本自身的内嵌图标，提供 RSS、Hot、Clip、Detect 分类，支持按名称、文件路径或路由搜索。文件路径直接打开 `master` 分支 Raw 源码，旁边图标复制 Raw 地址。版本号位于标题下方，巡检通过数量位于卡片右侧，点击巡检状态打开结果弹窗，可点击遮罩或关闭按钮关闭。通过样本提供「查看产物」，在新窗口打开 `route-reports` 分支中对应响应文件的 GitHub Raw URL，成功和失败样本均提供「查看详情」，在新窗口打开 `reports/details/` 下对应的 Debug JSON；多样本按编号分别提供入口，并在产物 / 详情 / 失败原因列与示例逐行对照。复制结果的 Toast 显示在当前最上层弹窗内或页面上，在 2.5 秒后自动关闭，连续复制会重新计时。README 和 JSON 保留原有巡检用途。搜索、复制和巡检弹窗需要 JavaScript；Clipboard API 不可用或拒绝时会尝试选中文本复制，两种方式均失败则提示手动选择文本复制。
+定时或手动运行后，`routes` 任务把三份公开报告复制到独立目录并上传 Pages artifact；`pages` 任务用官方 Actions 部署，默认地址为 **https://ltaoo.github.io/findrss-scripts/**。首页是「脚本市场（Script Market）」，按脚本展示名称、路径、版本及脚本自身的内嵌图标，提供 RSS、Hot、Clip、Detect 分类，支持按名称、文件路径或路由搜索。文件路径直接打开 `master` 分支 Raw 源码，旁边图标复制 Raw 地址。版本号位于标题下方，巡检通过数量位于卡片右侧，点击巡检状态打开结果弹窗，可点击遮罩或关闭按钮关闭。每个 ScriptExample 独占一行：RSS 图标在新窗口打开 `route-reports` 分支中对应响应文件的 GitHub Raw URL，点击结果列的成功或失败状态打开 `reports/details/` 下对应的 Debug JSON；失败原因显示在失败状态下方。复制结果的 Toast 显示在当前最上层弹窗内或页面上，在 2.5 秒后自动关闭，连续复制会重新计时。README 和 JSON 保留原有巡检用途。搜索、复制和巡检弹窗需要 JavaScript；Clipboard API 不可用或拒绝时会尝试选中文本复制，两种方式均失败则提示手动选择文本复制。
 
 `pages` 任务只授予 `pages: write` 和 `id-token: write`，使用 `github-pages` 环境。只要 Pages artifact 成功上传，即使 `routes` 因发布或通知失败而变红，也会继续部署这份页面；取消运行或没有生成完整报告时跳过。HTML 只包含脚本目录元数据和巡检摘要，Pages artifact 包含 HTML 以及 JSON/Markdown 报告，本机凭据文件不会进入其中。页面是最近一次成功部署的快照，通知同时附有页面入口和本次 Actions 链接；本轮 Pages 发布完成后页面才更新，发布失败时仍保留上次快照。
 
@@ -245,7 +245,25 @@ GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-chec
 }
 ```
 
-巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。仓库配置包含公众号、视频号，以及 YouTube、Instagram、微博、小红书、X（推特）、Bilibili 和知乎的 `/api/rss` JSON 样本；后七个平台各选至少 20 个账号（Instagram 为 21 个），YouTube 视频与 Shorts、Bilibili 动态与视频投稿分别检查同一组账号。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本名称（如已配置）和地址，JSON 的 `samples` 保留逐样本详情。
+巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。仓库配置包含公众号、视频号，以及 YouTube、Instagram、微博、小红书、X（推特）、Bilibili 和知乎的 `/api/rss` JSON 样本；后七个平台中 Instagram 为 21 个账号、知乎为 19 个，其余平台各 20 个，YouTube 视频与 Shorts、Bilibili 动态与视频投稿分别检查同一组账号。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；Markdown、通知和 JSON 汇总计数仍以路由为单位，JSON 的 `samples` 保留逐样本详情。HTML 市场卡片按下述 ScriptExample 计数，表格逐实例显示状态。
+
+### ScriptExample（脚本实例）
+
+`ScriptExample` 表示某个脚本、某条路由的一组参数及其巡检结果。页面 Model 统一合并脚本自带实例、公开巡检配置和本地手动实例，View 只渲染实例并调用 Model 方法。结构定义位于 [`scripts/script_examples.js`](../scripts/script_examples.js)。
+
+| 字段 | 含义 |
+| --- | --- |
+| `id` | 路由内稳定标识；公开实例按请求路径和排序后的 query 散列匹配，忽略鉴权 `token` |
+| `name` | 实例名称；未命名时用参数值显示，没有参数时为「默认实例」 |
+| `source` | `script`（脚本默认）、`config`（巡检样本）、`manual`（本地保存） |
+| `values` | 路径和查询参数的字符串键值，不包含鉴权 `token` |
+| `ok` | `true` 成功、`false` 失败、`null` 未巡检 |
+| `artifact` / `detail` | 可选的 `{ url, label }` 产物和详情入口 |
+| `reason` | 可选的失败原因 |
+
+每个实例在巡检表格中占一行；同路由的标题和路由单元格使用 `rowspan` 合并。「实例 / 产物」列表头的 Plus 添加实例；多路由脚本在表单内选择目标路由。实例内容不带卡片边框，首行名称可点击回填表单，名称右侧的 RSS 图标打开产物；结果列的成功或失败状态链接打开详情，失败原因显示在失败下方。配置实例按实际请求匹配结果，不按数组位置匹配。同请求的默认和配置实例合并，保留配置名称；不同 query 的实例分别匹配。
+
+脚本默认实例始终可见；当巡检配置替代默认请求时，未实际检查的默认实例显示「未巡检」。手动保存只写入 localStorage，不会执行巡检或自动加入 GitHub 配置；它们独立显示「未巡检」，计入卡片总数，不计入成功数。旧报告中未匹配公开配置的样本保留其名称、路径和结果，但不把私有 query 回填到表单。
 
 本地也可以运行同一巡检：
 
@@ -280,7 +298,7 @@ npm run replay:routes -- --base http://127.0.0.1:8801 --dev-vars
 
 这是 Cloudflare 在平台层终止执行产生的错误，脚本无法捕获，也无法渲染 Debug 页。CPU 和内存超限都会返回相同的 1102 / `Worker exceeded resource limits` 页面，因此巡检将其标记为 `EXCEEDED_RESOURCES`，不能仅凭页面断定 CPU 超限。先在 Workers Logs 或 `npx wrangler tail --format json` 查看 `outcome`：`exceededCpu` 表示 CPU 超限，`exceededMemory` 表示内存超限。网络请求等待时间不计入 CPU，沙箱初始化、JSON 解析和结果转换等执行时间会计入。见 [Cloudflare Error 1102](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1102/)。
 
-本项目使用 QuickJS/Wasm 执行脚本，大页面解析和多条详情补查会消耗 CPU。YouTube Shorts 为首屏每条视频补查发布日期，即使限制请求并发，累计 CPU 开销也不会减少；脚本仅将详情页的 meta 标签交给节点解析器，跳过脚本、样式和正文。
+本项目使用 QuickJS/Wasm 执行脚本，大页面解析和多条详情补查会消耗 CPU。YouTube Shorts 从频道页获取客户端版本后，优先通过轻量视频元数据补齐真实发布日期，避免为每条视频下载完整详情页；旧页面缺少客户端版本时保留 HTML meta 解析。日期补查最多并发 4 个请求，单次最多 10 秒，总预算 60 秒（已开始的一批最多再等待 10 秒）；失败或到达预算时保留全部条目，不伪造日期。Shorts 列表页单次最多等待 30 秒，兼容并发抓取大页面时的正文读取耗时；普通视频路由保留默认的 10 秒超时。
 
 Workers Free 每个 HTTP 请求只有 10 ms CPU。订阅入口与其它入口一样在请求内同步执行，同样受这一额度限制；不能假定去掉队列就获得更多 CPU。Workers Paid 的默认 HTTP CPU 上限为 30 秒，CPU 配置是否可用由平台校验。`limits.cpu_ms` 不会升级账号套餐；`AbortSignal.timeout` 控制等待时长，同样不能提高 CPU 额度。额度和诊断字段见 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)。
 

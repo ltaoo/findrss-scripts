@@ -1,4 +1,5 @@
 export function create_market_model(scripts, write_clipboard, storage) {
+  const routes = new Map(scripts.flatMap(script => script.routes || []).map(route => [route.key, route]));
   const read_saved = key => {
     try {
       const value = JSON.parse(storage?.getItem(key) || "{}");
@@ -19,7 +20,7 @@ export function create_market_model(scripts, write_clipboard, storage) {
   const model = {
     scripts, kinds: ["rss", "hot", "clip", "detect"], kind: "rss", query: "", message: "", message_timer: null, copying: false, inspection: null,
     settings: { baseURL: "", token: "" }, settings_draft: { baseURL: "", token: "" }, settings_open: false, settings_error: "",
-    saved_parameters: {}, request: null, example_id: null, route_values: {}, request_status: "", inspection_status: "",
+    saved_parameters: {}, request: null, example_id: null, example_name: "", route_values: {}, request_status: "", inspection_status: "",
     on_change() {},
     load_storage(next_storage = storage) {
       storage = next_storage;
@@ -28,6 +29,7 @@ export function create_market_model(scripts, write_clipboard, storage) {
       this.settings_draft = { ...this.settings };
       this.saved_parameters = Object.fromEntries(Object.entries(read_saved(parameters_key)).map(([key, value]) => [key,
         Array.isArray(value) ? value.filter(example => typeof example?.id === "string" && example.values && typeof example.values === "object" && !Array.isArray(example.values))
+          .map(example => ({ id: example.id, name: typeof example.name === "string" ? example.name : "", values: example.values }))
           : value && typeof value === "object" ? [{ id: "legacy", values: value }] : [],
       ]));
       this.on_change();
@@ -60,22 +62,37 @@ export function create_market_model(scripts, write_clipboard, storage) {
       return true;
     },
     route_examples(key) {
-      const route = this.scripts.flatMap(script => script.routes || []).find(route => route.key === key);
-      const examples = (this.saved_parameters[key] || []).map((example, index) => ({ ...example, deletable: true,
-        label: Object.values(example.values).filter(value => typeof value === "string" && value).join(" · ") || "示例 " + (index + 1),
-      }));
-      if (route) {
-        const values = Object.fromEntries(route.fields.map(field => [field.name, field.value || ""]));
-        examples.unshift({ id: null, values, deletable: false,
-          label: Object.values(values).filter(Boolean).join(" · ") || "默认示例" });
-      }
-      return examples;
+      const route = routes.get(key);
+      if (!route) return [];
+      const values = Object.fromEntries(route.fields.map(field => [field.name, field.value || ""]));
+      const examples = (route.examples || [{ id: "script", name: Object.values(values).filter(Boolean).join(" · ") || "默认实例",
+        source: "script", values, ok: null }]).map(example => ({ ...example, deletable: false }));
+      return [...examples, ...(this.saved_parameters[key] || []).map((example, index) => ({
+        ...example, source: "manual", deletable: true, ok: null,
+        name: (typeof example.name === "string" ? example.name : "") || Object.values(example.values).filter(value => typeof value === "string" && value).join(" · ") || "实例 " + (index + 1),
+      }))];
+    },
+    script_status(script) {
+      const examples = (script.inspection_rows || []).flatMap(row => row.request ? this.route_examples(row.request.key) : []);
+      return { total: examples.length, passed: examples.filter(example => example.ok === true).length,
+        failed: examples.filter(example => example.ok === false).length };
+    },
+    add_example(script_id) {
+      const route = this.scripts.find(script => script.id === script_id)?.inspection_rows
+        ?.map(row => row.request).find(route => route.configurable !== false);
+      if (route) this.open_request(route.key);
+    },
+    get request_routes() {
+      return this.scripts.find(script => script.routes?.some(route => route.key === this.request?.key))?.inspection_rows
+        ?.map(row => row.request).filter(route => route.configurable !== false) || [];
     },
     open_request(key, example_id = null) {
-      const example = (this.saved_parameters[key] || []).find(example => example.id === example_id);
+      if (routes.get(key)?.configurable === false) return;
+      const example = this.route_examples(key).find(example => example.id === example_id);
       if (example_id !== null && !example) return;
-      this.request = this.scripts.flatMap(script => script.routes || []).find(route => route.key === key) || null;
-      this.example_id = example_id;
+      this.request = routes.get(key) || null;
+      this.example_id = example?.source === "manual" ? example.id : null;
+      this.example_name = example?.source === "manual" ? (this.saved_parameters[key].find(value => value.id === example_id).name || "") : example?.name || "";
       const saved = example?.values;
       this.route_values = Object.fromEntries((this.request?.fields || []).map(field => [field.name,
         typeof saved?.[field.name] === "string" ? saved[field.name] : field.value || ""]));
@@ -91,6 +108,11 @@ export function create_market_model(scripts, write_clipboard, storage) {
     set_route_value(name, value) {
       if (!this.request?.fields.some(field => field.name === name)) return;
       this.route_values = { ...this.route_values, [name]: value };
+      this.request_status = "";
+      this.on_change();
+    },
+    set_example_name(value) {
+      this.example_name = value;
       this.request_status = "";
       this.on_change();
     },
@@ -136,7 +158,7 @@ export function create_market_model(scripts, write_clipboard, storage) {
       try { this.resolved_request; }
       catch (error) { this.request_status = error.message; this.on_change(); return false; }
       const id = this.example_id || crypto.getRandomValues(new Uint32Array(4)).join("-");
-      const example = { id, values: { ...this.route_values } };
+      const example = { id, name: this.example_name.trim(), values: { ...this.route_values } };
       const examples = this.saved_parameters[this.request.key] || [];
       const saved = { ...this.saved_parameters, [this.request.key]: this.example_id
         ? examples.map(value => value.id === id ? example : value) : [...examples, example] };
@@ -144,7 +166,7 @@ export function create_market_model(scripts, write_clipboard, storage) {
       catch { this.request_status = "无法保存到 localStorage，请检查浏览器存储设置"; this.on_change(); return false; }
       this.saved_parameters = saved;
       this.example_id = id;
-      this.request_status = "示例已保存";
+      this.request_status = "实例已保存";
       this.on_change();
       return true;
     },
@@ -154,7 +176,7 @@ export function create_market_model(scripts, write_clipboard, storage) {
       const saved = { ...this.saved_parameters, [key]: remaining };
       if (!remaining.length) delete saved[key];
       try { storage.setItem(parameters_key, JSON.stringify(saved)); }
-      catch { this.inspection_status = "无法删除示例，请检查浏览器存储设置"; this.on_change(); return false; }
+      catch { this.inspection_status = "无法删除实例，请检查浏览器存储设置"; this.on_change(); return false; }
       this.saved_parameters = saved;
       this.inspection_status = "";
       if (this.request?.key === key && this.example_id === id) this.request = null;

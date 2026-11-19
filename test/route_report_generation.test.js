@@ -79,8 +79,8 @@ globalThis.fetch = async url => {
   assert.match(html, /版本：2\.3\.4/);
   assert.match(html, /data:image\/svg\+xml;base64,/);
   assert.match(html, /脚本市场 \(Script Market\)/);
-  assert.match(html, /data-n="sample-name"[^>]*>账号一<\/span>/);
-  assert.match(html, /data-n="sample-name"[^>]*>失败账号<\/span>/);
+  assert.match(html, /data-n="open-example"[^>]*>账号一<\/button>/);
+  assert.match(html, /data-n="open-example"[^>]*>失败账号<\/button>/);
   assert.doesNotMatch(html, /private-source/);
   assert.doesNotMatch(html, /private-config/);
   assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 2);
@@ -93,7 +93,7 @@ globalThis.fetch = async url => {
   }
   assert.match(html, /responses\/configured\/one.json/);
   assert.equal([...html.matchAll(/<button data-n="inspect-script"/g)].length, 1);
-  assert.equal([...html.matchAll(/<tr data-n="route-result"/g)].length, 2);
+  assert.equal([...html.matchAll(/<tr data-n="example-result"/g)].length, 6);
   const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
   const artifact = html.match(/<a data-n="artifact-link"[^>]*href="([^"]+)"/)[1];
   assert.equal(artifact, prefix + "responses/configured/one.json");

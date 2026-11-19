@@ -1,3 +1,5 @@
+import { example_key } from "./script_examples.js";
+
 const encode_path = file => String(file).split("/").map(part => encodeURIComponent(part).replace(/[!'()*]/g, char => "%" + char.charCodeAt(0).toString(16).toUpperCase())).join("/");
 const raw_url = (branch, file) => `https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/${branch}/` + encode_path(file);
 // 只展示请求路径，避免 token 等查询参数进入报告页面。
@@ -19,20 +21,21 @@ export function route_report_model(report, catalog) {
     const row = { path: result.path, ok,
       reason: ok ? "" : [result.code, result.error].filter(Boolean).join(": ") || "校验未通过" };
     const samples = result.samples?.length ? result.samples : [result];
-    const outputs = samples.flatMap((sample, index) => {
+    const outputs = samples.map((sample, index) => {
       const link = (directory, file, label) => {
         if (typeof file !== "string" || /[\\?#\u0000-\u001f]/.test(file)
           || file.split("/").some(part => !part || part === "." || part === "..")) return null;
-        return { url: report_prefix + encode_path(directory + "/" + file), label: label + (samples.length > 1 ? ` ${index + 1}` : "") };
+        return { url: report_prefix + encode_path(directory + "/" + file), label };
       };
       const artifact = sample.output_valid ? link("responses", sample.output_file, "查看产物") : null;
       const detail = link("details", sample.detail_file, "查看详情");
       const reason = sample.output_valid ? "" : [sample.code, sample.error].filter(Boolean).join(": ") || "校验未通过";
       const name = typeof sample.name === "string" ? sample.name : "";
-      if (!artifact && !detail && !reason && !name) return [];
       const example = example_path(sample.example);
-      return [{ ...(artifact ? { artifact } : {}), ...(detail ? { detail } : {}), ...(reason ? { reason } : {}),
-        ...(name ? { name } : {}), ...(example && (artifact || detail || name) ? { example } : {}) }];
+      return { ok: sample.output_valid === true, ...(sample.example ? { request_key: example_key(sample.example) }
+        : samples.length > 1 ? { request_key: "legacy:" + index } : {}),
+        ...(artifact ? { artifact } : {}), ...(detail ? { detail } : {}), ...(reason ? { reason } : {}),
+        ...(name ? { name } : {}), ...(example && (artifact || detail || name) ? { example } : {}) };
     });
     if (outputs.length) row.outputs = outputs;
     if (!groups.has(result.file)) groups.set(result.file, []);

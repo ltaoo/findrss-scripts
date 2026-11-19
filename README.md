@@ -51,9 +51,9 @@ Cookie 权限声明不代表每条路由都必须登录。YouTube Hot 需要自�
 
 ### 查找脚本与巡检结果
 
-[脚本市场（Script Market）](https://ltaoo.github.io/findrss-scripts/)支持 RSS、Hot、Clip、Detect 分类，以及按名称、文件路径或路由搜索。点击文件路径查看 Raw 源码，使用旁边图标复制地址；点击巡检状态查看结果，通过样本可在新窗口查看 Raw 产物，并显示该产物对应的请求示例。页面展示最近一次成功发布的巡检快照，实际可用性仍需在自己的环境运行 Debug 确认。
+[脚本市场（Script Market）](https://ltaoo.github.io/findrss-scripts/)支持 RSS、Hot、Clip、Detect 分类，以及按名称、文件路径或路由搜索。点击文件路径查看 Raw 源码，使用旁边图标复制地址；卡片按 ScriptExample（脚本实例）显示「实例 成功数/总数 成功」，点击查看巡检结果。每个实例独占一行，相同路由的标题、路径纵向合并；实例名称可点击回填表单，名称右侧的 RSS 图标打开产物；点击结果列的成功或失败状态查看详情，错误原因位于失败状态下方。页面展示最近一次成功发布的巡检快照，实际可用性仍需在自己的环境运行 Debug 确认。
 
-页头设置按钮可保存 Worker 的 `baseURL` 和 `token`。巡检弹窗中产物 / 失败原因列的 Plus 图标（添加示例）会根据脚本声明显示参数表单，并生成 GET URL（token 放 query）和 POST curl（token 放 Authorization 请求头，查询参数放 JSON 请求体），也可点击「复制 Debug 链接」复制带当前参数和 token 的 `/debug` 路由地址。点击「保存示例」后，按脚本文件和路由分别保存多个参数示例，每个示例单独一行，与产物或失败原因并排对照；点击示例可回填和修改，点击旁边的 × 删除。旧版保存的单组参数会自动保留为一个示例；设置和参数均保存在当前站点的浏览器 localStorage，token 为明文存储。
+实例来自脚本自带的 `example`、[`.github/route-checks.json`](.github/route-checks.json) 中的具名样本，以及手动添加的实例。巡检表格「实例 / 产物」列表头的 Plus 图标打开「添加实例」表单，可填写名称和参数，并生成 GET URL（token 放 query）、POST curl（token 放 Authorization 请求头，查询参数放 JSON 请求体）和 Debug 链接。点击默认或配置实例可回填并另存手动实例；手动实例可编辑或通过 × 删除，按脚本文件和路由保存在浏览器 localStorage，兼容旧参数数据。未巡检的实例计入总数，状态为「未巡检」，不会继承其他实例的结果。页头设置可保存 Worker 的 `baseURL` 和 `token`；token 为明文存储。结构说明见 [ScriptExample](docs/cloudflare.md#scriptexample脚本实例)。
 
 清单中的文件链接均指向本仓库 `master` 分支，Raw 地址格式为：
 
@@ -138,7 +138,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 微信公众号 | [rss/wxmp.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxmp.js) | `/wxmp/wow36kr` | 1.2.0 | 配置：`api_url`、`auth_token` |
 | X 用户作品 | [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) | `/x/NTCGoK9jFQURsEu` | 1.1.0 | Cookie 授权 |
 | 小红书用户笔记 | [rss/xiaohongshu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xiaohongshu.js) | `/xiaohongshu/user/profile/5d2aec020000000012037401` | 1.1.0 | Cookie 授权 |
-| YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.1 | Cookie 授权 |
+| YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.2 | Cookie 授权 |
 | 优酷剧集 | [rss/youku.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youku.js) | `/youku/series/bcaa87c7834c46f99e7b` | 1.1.0 | HTTP 正片目录及范围分页，自动获取匿名令牌，无需浏览器或登录 Cookie |
 | 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.0 | Cookie 授权 |
 

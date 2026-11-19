@@ -62,7 +62,7 @@ async function read_prefix(response) {
   return Buffer.concat(chunks.map(chunk => Buffer.from(chunk))).toString("utf8");
 }
 
-export async function probe_route(base, entry, { token = "", timeout_ms = 60000, fetch_impl = fetch } = {}) {
+export async function probe_route(base, entry, { token = "", timeout_ms = 120000, fetch_impl = fetch } = {}) {
   const started = Date.now();
   const signal = AbortSignal.timeout(timeout_ms);
   let attempts = 0;
@@ -121,7 +121,7 @@ export function render_replay_summary(report) {
 }
 
 function parse_args(argv) {
-  const options = { all: false, dev_vars: false, concurrency: 5, timeout_ms: 60000, file: "", classification: "" };
+  const options = { all: false, dev_vars: false, concurrency: 5, timeout_ms: 120000, file: "", classification: "" };
   for (let index = 0; index < argv.length; index++) {
     const arg = argv[index];
     const value = () => argv[++index];
