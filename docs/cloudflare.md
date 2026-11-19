@@ -227,13 +227,13 @@ Worker 构建会将已有的 `reports/index.html`、`reports/icons/`、`reports/
 
 GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-checks.json)，由 `scripts/check_routes.js` 在执行巡检时读取，工作流通过 `ROUTE_CHECK_CONFIG` 指定文件路径，本地未指定时也读取该文件。配置不参与构建，不写入 `dist/`，Worker 不读取或导入它，修改后无需重新部署 CF。
 
-配置的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到；其中格式为 `rss_json`、`hot`、`clip` 或 `detect`，路径均以 `/api` 开头。每个键支持样本数组，也兼容原来的单个对象；有配置时替代该路由的默认样本，未配置的路由继续使用脚本 `example`。数组不能为空；未知路由、字段错误或跨站样本会在发请求前报错。GitHub Secret `ROUTE_CHECK_CASES` 使用相同格式，按配置键覆盖文件中的整组样本，不逐项合并。只允许覆盖 `example`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。
+配置的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到；其中格式为 `rss_json`、`hot`、`clip` 或 `detect`，路径均以 `/api` 开头。每个键支持样本数组，也兼容原来的单个对象；有配置时替代该路由的默认样本，未配置的路由继续使用脚本 `example`。数组不能为空；未知路由、字段错误或跨站样本会在发请求前报错。GitHub Secret `ROUTE_CHECK_CASES` 使用相同格式，按配置键覆盖文件中的整组样本，不逐项合并。只允许覆盖 `example`、`name`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。可选的 `name` 必须为非空字符串，在终端日志、HTML、Markdown 和 JSON 中标识样本；公众号样本使用搜索响应的 `nickName` 作为名称、`userName` 作为路径中的账号。
 
 ```json
 {
   "rss_json /api/rss/wxmp/:account?": [
-    { "example": "/api/rss/wxmp/wow36kr" },
-    { "example": "/api/rss/wxmp/zhihuribao" }
+    { "name": "36氪", "example": "/api/rss/wxmp/gh_240fbf8b33e4" },
+    { "name": "知乎日报", "example": "/api/rss/wxmp/gh_e59ba9dfaa66" }
   ],
   "rss_json /api/rss/github/:org/:pro/release": [
     {
@@ -245,7 +245,7 @@ GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-chec
 }
 ```
 
-巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。当前仓库配置为 `rss/wxmp.js` 的 `wow36kr`、`zhihuribao` 和 `rss/wxchannels.js` 的两个视频号账号检查 `/api/rss` JSON。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本地址，JSON 的 `samples` 保留逐样本详情。
+巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。仓库配置包含公众号、视频号，以及 YouTube、Instagram、微博、小红书、X（推特）、Bilibili 和知乎的 `/api/rss` JSON 样本；后七个平台各选至少 20 个账号（Instagram 为 21 个），YouTube 视频与 Shorts、Bilibili 动态与视频投稿分别检查同一组账号。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；HTML、README、通知和汇总计数仍以路由为单位，失败原因包含出错的样本名称（如已配置）和地址，JSON 的 `samples` 保留逐样本详情。
 
 本地也可以运行同一巡检：
 

@@ -192,23 +192,51 @@ test("多个样本仅查询参数不同时正文分别保存，不覆盖或暴�
   }
 });
 
-test("仓库配置为公众号、视频号的 /api/rss 路由提供指定账号", async () => {
+test("仓库配置覆盖社交平台账号，新增平台每条账号路由巡检至少 20 个具名样本", async () => {
   const config = JSON.parse(await readFile(new URL("../.github/route-checks.json", import.meta.url), "utf8"));
   const cases = JSON.parse(await readFile(new URL("../dist/routes.json", import.meta.url), "utf8"));
   const configured = cases.filter(entry => Object.hasOwn(config, entry.format + " " + entry.path));
-  assert.equal(configured.length, 2);
-  assert.deepEqual(new Set(configured.map(entry => entry.file)), new Set(["rss/wxmp.js", "rss/wxchannels.js"]));
+  assert.equal(configured.length, 11);
+  assert.deepEqual(new Set(configured.map(entry => entry.file)), new Set([
+    "rss/wxmp.js", "rss/wxchannels.js", "rss/zhihu.js", "rss/youtube.js", "rss/instagram.js",
+    "rss/weibo.js", "rss/xiaohongshu.js", "rss/x.js", "rss/bilibili.js",
+  ]));
+  const account_routes = {
+    "/api/rss/zhihu/people/:user/answers": /^\/api\/rss\/zhihu\/people\/[A-Za-z0-9_-]+\/answers$/,
+    "/api/rss/youtube/:handle": /^\/api\/rss\/youtube\/@[A-Za-z0-9_.-]+$/,
+    "/api/rss/youtube/:handle/shorts": /^\/api\/rss\/youtube\/@[A-Za-z0-9_.-]+\/shorts$/,
+    "/api/rss/instagram/:username": /^\/api\/rss\/instagram\/[A-Za-z0-9_.]+$/,
+    "/api/rss/weibo/u/:uid": /^\/api\/rss\/weibo\/u\/[0-9]+$/,
+    "/api/rss/xiaohongshu/user/profile/:uid": /^\/api\/rss\/xiaohongshu\/user\/profile\/[a-f0-9]{24}$/,
+    "/api/rss/x/:username": /^\/api\/rss\/x\/[A-Za-z0-9_]{1,15}$/,
+    "/api/rss/bilibili/:userid/dynamic": /^\/api\/rss\/bilibili\/[0-9]+\/dynamic$/,
+    "/api/rss/bilibili/:userid/upload/video": /^\/api\/rss\/bilibili\/[0-9]+\/upload\/video$/,
+  };
+  for (const [path, pattern] of Object.entries(account_routes)) {
+    const samples = config["rss_json " + path];
+    const expected_count = path === "/api/rss/instagram/:username" ? 21 : 20;
+    assert.equal(samples.length, expected_count, path);
+    assert.equal(new Set(samples.map(sample => sample.example.toLowerCase())).size, expected_count, path);
+    assert.ok(samples.every(sample => sample.name?.trim() && pattern.test(sample.example)), path);
+  }
   const requested = [];
   const report = await check_routes("https://scripts.example", configured, config, {
     fetch_impl: async url => { requested.push(url.pathname); return new Response("Unavailable", { status: 503 }); },
   });
-  const accounts = ["wow36kr", "zhihuribao",
-    "v2_060000231003b20faec8cae78a11cad6c60de534b077b38fc3c765c3562a72901dd04b8a97b6@finder",
-    "v2_060000231003b20faec8c5e08f1dc1d2cf05ea31b07722e73306573f943932c0da84674c5483@finder"];
-  assert.deepEqual(requested.sort(), accounts.map((account, index) =>
-    `/api/rss/${index < 2 ? "wxmp" : "wxchannels"}/${account}`).sort());
-  assert.deepEqual([report.total, report.failed], [2, 2]);
-  assert.ok(report.results.every(result => result.samples.length === 2));
+  const examples = Object.values(config).flat().map(sample => sample.example);
+  assert.deepEqual(requested.sort(), examples.sort());
+  assert.equal(new Set(requested).size, examples.length);
+  assert.equal(requested.filter(path => path.startsWith("/api/rss/wxchannels/")).length, 16);
+  assert.ok(requested.filter(path => path.startsWith("/api/rss/wxmp/")).length > 2);
+  assert.ok(requested.every(path => /^\/api\/rss\/wxmp\/[A-Za-z0-9_-]+$/.test(path) || !path.startsWith("/api/rss/wxmp/")));
+  assert.ok(requested.includes("/api/rss/wxmp/gh_2d5b35dfb4f3"));
+  assert.ok(requested.includes("/api/rss/wxmp/gh_240fbf8b33e4"));
+  assert.ok(requested.includes("/api/rss/wxmp/gh_e59ba9dfaa66"));
+  assert.ok(config["rss_json /api/rss/wxmp/:account?"].every(sample => sample.name?.trim()));
+  assert.ok(requested.includes("/api/rss/zhihu/people/li-hai-yang-14-43/answers"));
+  assert.ok(requested.every(path => !path.includes("wxchannels:")));
+  assert.deepEqual([report.total, report.failed], [11, 11]);
+  assert.equal(report.results.reduce((count, result) => count + (result.samples?.length ?? 1), 0), examples.length);
 });
 
 test("巡检逐级区分请求失败、空响应、错误格式和错误内容", async () => {
