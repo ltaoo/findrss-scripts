@@ -1,0 +1,182 @@
+{
+  "checked_at": "2026-11-19T08:13:11.655Z",
+  "inspection": {
+    "file": "rss/bilibili.js",
+    "path": "/api/rss/bilibili/:userid/dynamic",
+    "example": "/api/rss/bilibili/5294454/dynamic",
+    "name": "逗比的雀巢",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/bilibili/5294454/dynamic.json",
+    "duration_ms": 474
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 765
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/bilibili.js",
+      "name": "哔哩哔哩用户动态",
+      "kind": "rss",
+      "version": "1.1.2",
+      "path": "/bilibili/:userid/dynamic",
+      "request_path": "/api/rss/bilibili/:userid/dynamic",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/bilibili/5294454/dynamic",
+      "params": {
+        "userid": "5294454"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 756,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "B 站动态分页 {\"has_more\":true,\"offset\":\"1161797419660214277\"}"
+      },
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid=5294454&timezone_offset=-480&features=itemOpusStyle",
+        "method": "GET",
+        "host": "api.bilibili.com",
+        "pathname": "/x/polymer/web-dynamic/v1/feed/space",
+        "status": 200,
+        "transport": "tcp",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 12,
+        "duration_ms": 739,
+        "timings": {
+          "connect_ms": 149,
+          "send_ms": 0,
+          "wait_headers_ms": 446,
+          "receive_body_ms": 142,
+          "decompress_ms": 0,
+          "response_ms": 737,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 2
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"bilibili:dynamic:channel:5294454\",\"title\":\"逗比的雀巢 的 B 站动态\",\"link\":\"https://space.bilibili.com/5294454/dynamic\",\"description\":\"UP 主 5294454 的最新动态\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.bilibili.com/\"},\"tags\":[\"哔哩哔哩\"]},\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"image\":\"https://i0.hdslb.com/bfs/face/e56d8c14d3b74b4e32fbaf2ac4af119328c56c93.jpg\",\"updated\":\"2026-10-31T08:56:20.000Z\",\"items\":[{\"id\":\"bilibili:dynamic:1265291266606759937\",\"title\":\"全球笑点下降2000倍而我不变【第二集】\",\"link\":\"https://t.bilibili.com/1265291266606759937\",\"description\":\"有史以来做过最长最难的视频\",\"content\":\"<p>有史以来做过最长最难的视频</p><p><a href=\\\"https://www.bilibili.com/video/BV1TxxC6vEo4\\\">查看原文</a></p>\",\"image\":\"http://i2.hdslb.com/bfs/archive/b469c3f10f8498c42cd3a29741fe501fc9aad287.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-10-31T08:56:20.000Z\"},{\"id\":\"bilibili:dynamic:1255220702141743122\",\"title\":\"抱歉大家，我这段时间身体很差…\",\"link\":\"https://t.bilibili.com/1255220702141743122\",\"description\":\"整个九月份没有更新，是因为我一直在生病 烧了半个月 而我又过度自信，在这种状态下尝试冲击一个很难做的视频[UPOWER_5294454_呜呜呜]结果就是陨落了，原本计划中秋发，现在国庆也做不完。\\n希望大家不要学习我，身体不好的时候就好好休息，不然身体也没养好，工作也没做好。\\n在这里向大家道歉了。\",\"content\":\"<p>整个九月份没有更新，是因为我一直在生病 烧了半个月 而我又过度自信，在这种状态下尝试冲击一个很难做的视频[UPOWER_5294454_呜呜呜]结果就是陨落了，原本计划中秋发，现在国庆也做不完。<br>希望大家不要学习我，身体不好的时候就好好休息，不然身体也没养好，工作也没做好。<br>在这里向大家道歉了。</p><p><a href=\\\"https://www.bilibili.com/opus/1255220702141743122\\\">查看原文</a></p>\",\"image\":\"http://i0.hdslb.com/bfs/new_dyn/9e6374c70a17c7e0693ca2fdab13910c5294454.jpg\",\"images\":[\"http://i0.hdslb.com/bfs/new_dyn/9e6374c70a17c7e0693ca2fdab13910c5294454.jpg\"],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_DRAW\"],\"published\":\"2026-10-04T05:37:24.000Z\"},{\"id\":\"bilibili:dynamic:1239304927749079064\",\"title\":\"严肃观看儿子的历史记录\",\"link\":\"https://t.bilibili.com/1239304927749079064\",\"description\":\"我正在学习奶狗音 期待实现在互联网上减龄的效果\",\"content\":\"<p>我正在学习奶狗音 期待实现在互联网上减龄的效果</p><p><a href=\\\"https://www.bilibili.com/video/BV1Vy8r6JE9z\\\">查看原文</a></p>\",\"image\":\"http://i2.hdslb.com/bfs/archive/28c24920d68bd97718f88201f7fdbc401b7506a4.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-08-22T08:16:04.000Z\"},{\"id\":\"bilibili:dynamic:1231832285934780423\",\"title\":\"UP制作人已就位！\",\"link\":\"https://t.bilibili.com/1231832285934780423\",\"description\":\"这次我将带着我精心准备的作品加入UP制作人-精品剧场战队。挑战已经摆到面前，会努力拿出好表现，拜托各位朋友多多给我加油打气，能不能往前走就靠大家的支持啦！\\n如果你喜欢我的作品，就请为我投出宝贵的一票吧➡️\\nhttps://www.bilibili.com/blackboard/era/ROZswMIYOSV2pB5c.html\\n\",\"content\":\"<p>这次我将带着我精心准备的作品加入UP制作人-精品剧场战队。挑战已经摆到面前，会努力拿出好表现，拜托各位朋友多多给我加油打气，能不能往前走就靠大家的支持啦！<br>如果你喜欢我的作品，就请为我投出宝贵的一票吧➡️<br>https://www.bilibili.com/blackboard/era/ROZswMIYOSV2pB5c.html<br></p><p><a href=\\\"https://www.bilibili.com/opus/1231832285934780423\\\">查看原文</a></p>\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_DRAW\"],\"published\":\"2026-08-02T04:58:24.000Z\"},{\"id\":\"bilibili:dynamic:1227087206048333832\",\"title\":\"千万博主谈b站真相（完整版）\",\"link\":\"https://t.bilibili.com/1227087206048333832\",\"description\":\"一眼看透人心的顶级思维 深度拆解逗比的雀巢\",\"content\":\"<p>一眼看透人心的顶级思维 深度拆解逗比的雀巢</p><p><a href=\\\"https://www.bilibili.com/video/BV1oiKm6yEYU\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/41e8a2ad078dcce72befa9a770db88e30fb31a8a.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-07-20T10:05:04.000Z\"},{\"id\":\"bilibili:dynamic:1220314622477729814\",\"title\":\"各位好，我是逗比的雀巢\",\"link\":\"https://t.bilibili.com/1220314622477729814\",\"description\":\"这次在UP制作人计划活动里，我将作为首席制作人组建【精品剧场队】。\\n\\n不管你是擅长有脑洞、有质感的原创剧情的新人或是成熟创作者，都欢迎带着作品加入我的战队，成为“UP制作人”的一员。\\n\\n参与方式：7月1日-7月20日期间，点击活动链接中的申请出战板块“立即报名”\\nhttps://www.bilibili.com/blackboard/era/ROZswMIYOSV2pB5c.html\\n\\n别只当观众，来当选手。\",\"content\":\"<p>这次在UP制作人计划活动里，我将作为首席制作人组建【精品剧场队】。<br><br>不管你是擅长有脑洞、有质感的原创剧情的新人或是成熟创作者，都欢迎带着作品加入我的战队，成为“UP制作人”的一员。<br><br>参与方式：7月1日-7月20日期间，点击活动链接中的申请出战板块“立即报名”<br>https://www.bilibili.com/blackboard/era/ROZswMIYOSV2pB5c.html<br><br>别只当观众，来当选手。</p><p><a href=\\\"https://www.bilibili.com/opus/1220314622477729814\\\">查看原文</a></p>\",\"image\":\"http://i0.hdslb.com/bfs/new_dyn/313a160e65dc4dcd62aada49c770fc485294454.jpg\",\"images\":[\"http://i0.hdslb.com/bfs/new_dyn/313a160e65dc4dcd62aada49c770fc485294454.jpg\"],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_DRAW\"],\"published\":\"2026-07-02T04:03:59.000Z\"},{\"id\":\"bilibili:dynamic:1218178103864459268\",\"title\":\"找到了10年前跪舔b站的视频\",\"link\":\"https://t.bilibili.com/1218178103864459268\",\"description\":\"十年后我得几千亿粉丝了吧\\n\",\"content\":\"<p>十年后我得几千亿粉丝了吧<br></p><p><a href=\\\"https://www.bilibili.com/video/BV1rz7569EWw\\\">查看原文</a></p>\",\"image\":\"http://i0.hdslb.com/bfs/archive/61b59b6e7ba5d34592401ac162e800ef3a9ddf0f.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-06-26T09:53:12.000Z\"},{\"id\":\"bilibili:dynamic:1205584177423974456\",\"title\":\"全世界笑点下降1000倍而我不变\",\"link\":\"https://t.bilibili.com/1205584177423974456\",\"description\":\"很多朋友不知道怎么看完整版，关注雀巢\",\"content\":\"<p>很多朋友不知道怎么看完整版，关注雀巢</p><p><a href=\\\"https://www.bilibili.com/video/BV1K3Gz6pEoo\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/534373c87b367e799685021bc35be620b5e9f1f4.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-05-23T11:22:20.000Z\"},{\"id\":\"bilibili:dynamic:1195176509587849237\",\"title\":\"对不起...\",\"link\":\"https://t.bilibili.com/1195176509587849237\",\"description\":\"男人的破碎感...顶不住\",\"content\":\"<p>男人的破碎感...顶不住</p><p><a href=\\\"https://www.bilibili.com/video/BV16ooQBsERA\\\">查看原文</a></p>\",\"image\":\"http://i0.hdslb.com/bfs/archive/e4dab2ecf008f3e0aaf6bc802a4127d8e09f0418.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-04-25T10:15:16.000Z\"},{\"id\":\"bilibili:dynamic:1186639832595562503\",\"title\":\"凶手一句话，造就十年悬案\",\"link\":\"https://t.bilibili.com/1186639832595562503\",\"description\":\"雀巢表示 已和凶手庭外和解，请大家不要网爆凶手\",\"content\":\"<p>雀巢表示 已和凶手庭外和解，请大家不要网爆凶手</p><p><a href=\\\"https://www.bilibili.com/video/BV1CbXZBPECb\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/8f8ef83d15d7ce3acccf4636b7b64a89a1b393b3.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-04-02T10:08:36.000Z\"},{\"id\":\"bilibili:dynamic:1176971521888878595\",\"title\":\"不该让爷爷看b站的\",\"link\":\"https://t.bilibili.com/1176971521888878595\",\"description\":\"逗比的雀巢 从昔日的辉煌 到如今的沉寂...令人惋惜\",\"content\":\"<p>逗比的雀巢 从昔日的辉煌 到如今的沉寂...令人惋惜</p><p><a href=\\\"https://www.bilibili.com/video/BV1xuPYzcEdo\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/bec46259e40b2044b103c673b4efbca2db3349ef.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-03-07T08:50:37.000Z\"},{\"id\":\"bilibili:dynamic:1161797419660214277\",\"title\":\"谁是主角，一眼便知\",\"link\":\"https://t.bilibili.com/1161797419660214277\",\"description\":\"嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻\",\"content\":\"<p>嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻</p><p><a href=\\\"https://www.bilibili.com/video/BV1vCzDBYEEa\\\">查看原文</a></p>\",\"image\":\"http://i2.hdslb.com/bfs/archive/8b7f75504b42cdba36d97acd3d5fe2ba2471e821.jpg\",\"images\":[],\"author\":{\"name\":\"逗比的雀巢\",\"uri\":\"https://space.bilibili.com/5294454\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-01-25T11:27:21.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 756,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 1,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 8,
+          "duration_ms": 747
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 755,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 755,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 755,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 756,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 756,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 11,
+          "duration_ms": 740
+        }
+      ]
+    }
+  }
+}

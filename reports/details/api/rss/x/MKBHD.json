@@ -1,0 +1,281 @@
+{
+  "checked_at": "2026-11-19T08:16:19.269Z",
+  "inspection": {
+    "file": "rss/x.js",
+    "path": "/api/rss/x/:username",
+    "example": "/api/rss/x/MKBHD",
+    "name": "Marques Brownlee",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/x/MKBHD.json",
+    "duration_ms": 1310
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 925
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/x.js",
+      "name": "X 用户作品",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/x/:username",
+      "request_path": "/api/rss/x/:username",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/x/MKBHD",
+      "params": {
+        "username": "MKBHD"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 919,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":21,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://x.com/MKBHD",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/MKBHD",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 10,
+        "duration_ms": 169,
+        "timings": {
+          "response_ms": 123,
+          "body_read_ms": 42,
+          "decode_and_transfer_ms": 4
+        }
+      },
+      {
+        "url": "https://abs.twimg.com/responsive-web/client-web/main.991e72a0623973cfa.js",
+        "method": "GET",
+        "host": "abs.twimg.com",
+        "pathname": "/responsive-web/client-web/main.991e72a0623973cfa.js",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 194,
+        "duration_ms": 52,
+        "timings": {
+          "response_ms": 18,
+          "body_read_ms": 20,
+          "decode_and_transfer_ms": 14
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName?variables=%7B%22screen_name%22%3A%22MKBHD%22%2C%22withSafetyModeUserFields%22%3Atrue%7D&features=%7B%22hidden_profile_subscriptions_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22subscriptions_verification_info_is_identity_verified_enabled%22%3Afalse%2C%22subscriptions_verification_info_verified_since_enabled%22%3Afalse%2C%22highlights_tweets_tab_ui_enabled%22%3Afalse%2C%22responsive_web_twitter_article_notes_tab_enabled%22%3Afalse%2C%22subscriptions_feature_can_gift_premium%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withAuxiliaryUserLabels%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 263,
+        "duration_ms": 88,
+        "timings": {
+          "response_ms": 88,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets?variables=%7B%22userId%22%3A%2229873662%22%2C%22count%22%3A20%2C%22includePromotedContent%22%3Afalse%2C%22withQuickPromoteEligibilityTweetFields%22%3Atrue%2C%22withVoice%22%3Atrue%7D&features=%7B%22rweb_video_screen_enabled%22%3Atrue%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_enhance_cards_enabled%22%3Afalse%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 368,
+        "duration_ms": 385,
+        "timings": {
+          "response_ms": 382,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 2
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/U8lc5aomF5krJzZ9vJ9wxg/TweetResultByRestId?variables=%7B%22tweetId%22%3A%222121435803540730109%22%2C%22withCommunity%22%3Afalse%2C%22includePromotedContent%22%3Afalse%2C%22withVoice%22%3Atrue%7D&features=%7B%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/U8lc5aomF5krJzZ9vJ9wxg/TweetResultByRestId",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 797,
+        "duration_ms": 113,
+        "timings": {
+          "response_ms": 112,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"x:user:29873662\",\"title\":\"Marques Brownlee 的 X 作品\",\"link\":\"https://x.com/MKBHD\",\"description\":\"Web Video Producer | ⋈ | Pro Ultimate Frisbee Player | Host of @WVFRM @TheStudio\",\"language\":\"\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"tags\":[\"X\"]},\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"image\":\"https://pbs.twimg.com/profile_images/1990855181785759745/CP3H7WsL_normal.jpg\",\"updated\":\"2026-11-18T14:24:56.000Z\",\"items\":[{\"id\":\"x:tweet:2123059889689772286\",\"title\":\"Voyager 1 is the furthest manmade object from earth. It was launched nearly 50 years ago and has been hurtling through space at 30,000+ miles per hour ever since. Today it reached one full LIGHT-DAY from earth (the distance you travel in 24 hours going the speed of light - 16 billion miles!)\",\"link\":\"https://x.com/MKBHD/status/2123059889689772286\",\"description\":\"Voyager 1 is the furthest manmade object from earth. It was launched nearly 50 years ago and has been hurtling through space at 30,000+ miles per hour ever since. Today it reached one full LIGHT-DAY from earth (the distance you travel in 24 hours going the speed of light - 16 billion miles!)\\n\\nEarth's next CLOSEST star, Proxima Centauri, is a bit over 4 LIGHT YEARS away\\n\\nThe scale of the universe and how spread out everything is... is always absolutely nuts.\",\"kind\":\"quote\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-18T14:24:56.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2122997286083211606\",\"link\":\"https://x.com/NASASolarSystem/status/2122997286083211606\",\"item\":{\"id\":\"x:tweet:2122997286083211606\",\"title\":\"Nov. 18, 2026, 5:16am EST\",\"link\":\"https://x.com/NASASolarSystem/status/2122997286083211606\",\"description\":\"Nov. 18, 2026, 5:16am EST\\n\\nThe Voyager 1 spacecraft has reached a distance of one light-day from Earth.\",\"kind\":\"post\",\"author\":{\"name\":\"NASA Solar System\",\"uri\":\"https://x.com/NASASolarSystem\"},\"published\":\"2026-11-18T10:16:11.000Z\"}}]},{\"id\":\"x:tweet:2123031026213499098\",\"title\":\"RT @NASASolarSystem: Nov. 18, 2026, 5:16am EST\",\"link\":\"https://x.com/MKBHD/status/2123031026213499098\",\"description\":\"RT @NASASolarSystem: Nov. 18, 2026, 5:16am EST\\n\\nThe Voyager 1 spacecraft has reached a distance of one light-day from Earth.\",\"kind\":\"repost\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-18T12:30:15.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2122997286083211606\",\"link\":\"https://x.com/NASASolarSystem/status/2122997286083211606\",\"item\":{\"id\":\"x:tweet:2122997286083211606\",\"title\":\"Nov. 18, 2026, 5:16am EST\",\"link\":\"https://x.com/NASASolarSystem/status/2122997286083211606\",\"description\":\"Nov. 18, 2026, 5:16am EST\\n\\nThe Voyager 1 spacecraft has reached a distance of one light-day from Earth.\",\"kind\":\"post\",\"author\":{\"name\":\"NASA Solar System\",\"uri\":\"https://x.com/NASASolarSystem\"},\"published\":\"2026-11-18T10:16:11.000Z\"}}]},{\"id\":\"x:tweet:2122761762869068033\",\"title\":\"Can You Trust MKBHD - Part 2 https://t.co/MOcB7uYrIX https://t.co/6lUqwp22Dg\",\"link\":\"https://x.com/MKBHD/status/2122761762869068033\",\"description\":\"Can You Trust MKBHD - Part 2 https://t.co/MOcB7uYrIX https://t.co/6lUqwp22Dg\",\"image\":\"https://pbs.twimg.com/media/HXWQL0EWcAA0YSr.jpg\",\"images\":[\"https://pbs.twimg.com/media/HXWQL0EWcAA0YSr.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-17T18:40:17.000Z\"},{\"id\":\"x:tweet:2122410032633401655\",\"title\":\"Very un-Apple like... but also very welcome. Face unlock finally comes to iPhone Duo\",\"link\":\"https://x.com/MKBHD/status/2122410032633401655\",\"description\":\"Very un-Apple like... but also very welcome. Face unlock finally comes to iPhone Duo\",\"kind\":\"quote\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-16T19:22:38.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2122392737311826088\",\"link\":\"https://x.com/9to5mac/status/2122392737311826088\",\"item\":{\"id\":\"x:tweet:2122392737311826088\",\"title\":\"iOS 27.3 adds new face unlock feature for iPhone Duo https://t.co/nd6AkUukgq by @ChanceHMiller\",\"link\":\"https://x.com/9to5mac/status/2122392737311826088\",\"description\":\"iOS 27.3 adds new face unlock feature for iPhone Duo https://t.co/nd6AkUukgq by @ChanceHMiller\",\"kind\":\"post\",\"author\":{\"name\":\"9to5Mac\",\"uri\":\"https://x.com/9to5mac\"},\"published\":\"2026-11-16T18:13:55.000Z\"}}]},{\"id\":\"x:tweet:2121718531398201484\",\"title\":\"I'm tryna see something https://t.co/bKxMtfSbxm\",\"link\":\"https://x.com/MKBHD/status/2121718531398201484\",\"description\":\"I'm tryna see something https://t.co/bKxMtfSbxm\",\"image\":\"https://pbs.twimg.com/media/HXHbuykWoAAhoKX.jpg\",\"images\":[\"https://pbs.twimg.com/media/HXHbuykWoAAhoKX.jpg\"],\"kind\":\"quote\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-14T21:34:52.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2121495305288122807\",\"link\":\"https://x.com/elonmusk/status/2121495305288122807\",\"item\":{\"id\":\"x:tweet:2121495305288122807\",\"title\":\"@wholemars He’s a chicken\",\"link\":\"https://x.com/elonmusk/status/2121495305288122807\",\"description\":\"@wholemars He’s a chicken\",\"kind\":\"reply\",\"author\":{\"name\":\"Elon Musk\",\"uri\":\"https://x.com/elonmusk\"},\"published\":\"2026-11-14T06:47:50.000Z\",\"references\":[{\"relation\":\"reply\",\"id\":\"x:tweet:2121435803540730109\",\"link\":\"https://x.com/wholemars/status/2121435803540730109\",\"item\":{\"id\":\"x:tweet:2121435803540730109\",\"title\":\"I cannot believe he’s still trying to claim he was right. Marques, be a man and honor your word.\",\"link\":\"https://x.com/wholemars/status/2121435803540730109\",\"description\":\"I cannot believe he’s still trying to claim he was right. Marques, be a man and honor your word.\\n\\nTesla showed you the future, and you called it “weird” and said FSD would never be approved for driverless, they would never be able to ship a car without a steering wheel, and they would not be able to hit a $30,000 price point due to inflation. You mocked them and said i’m so sure this will never happen I’ll shave my head if it does. \\n\\nYou were WRONG. be a man and admit it. They showed you the future and you just didn’t get it. https://t.co/cHIsNIf6Go\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2113392294913355776/img/73HiP8yJNaAyMdEA.jpg\",\"kind\":\"quote\",\"author\":{\"name\":\"Whole Mars Catalog\",\"uri\":\"https://x.com/wholemars\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2113392294913355776/vid/avc1/1280x640/HtmvloFUxrpOL1-J.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-14T02:51:24.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2121423916006617237\",\"link\":\"https://x.com/MKBHD/status/2121423916006617237\",\"item\":{\"id\":\"x:tweet:2121423916006617237\",\"title\":\"The memes are everywhere, so let’s go back over the bet: Cybercab publicly available for under $30k by the end of 2026\",\"link\":\"https://x.com/MKBHD/status/2121423916006617237\",\"description\":\"The memes are everywhere, so let’s go back over the bet: Cybercab publicly available for under $30k by the end of 2026\\n\\nMy hair is safe for several reasons\\n1: No deliveries yet. But they’re estimating starting in December so that’s neat\\n2: Invite only, not actually publicly available yet\\n3: You can’t actually use it as a cab(??!) It’s limited to private use only. Inside the existing geofenced locations. It’s a paperweight if I take this thing home. That’s one’s not actually part of the bet but yeah not exactly what was promised in this first wave\\n\\nHey @grok, set a timer for 48 days from now\",\"kind\":\"quote\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-14T02:04:10.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2121420350160302304\",\"link\":\"https://x.com/MKBHD/status/2121420350160302304\",\"item\":{\"id\":\"x:tweet:2121420350160302304\",\"title\":\"Alright chat I’m in. Here’s the deal\",\"link\":\"https://x.com/MKBHD/status/2121420350160302304\",\"description\":\"Alright chat I’m in. Here’s the deal\\n\\nCybercab order page is live. Invite only. Must accept delivery to one of these cities in Texas. Only operates in those existing geofenced areas. Requires a $300 monthly subscription to operate. One vehicle per customer. “Estimated delivery” December\",\"image\":\"https://pbs.twimg.com/media/HXDMkMGXYAAbTBn.jpg\",\"images\":[\"https://pbs.twimg.com/media/HXDMkMGXYAAbTBn.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-14T01:50:00.000Z\"}}]}}]}}]}}]},{\"id\":\"x:tweet:2121423916006617237\",\"title\":\"The memes are everywhere, so let’s go back over the bet: Cybercab publicly available for under $30k by the end of 2026\",\"link\":\"https://x.com/MKBHD/status/2121423916006617237\",\"description\":\"The memes are everywhere, so let’s go back over the bet: Cybercab publicly available for under $30k by the end of 2026\\n\\nMy hair is safe for several reasons\\n1: No deliveries yet. But they’re estimating starting in December so that’s neat\\n2: Invite only, not actually publicly available yet\\n3: You can’t actually use it as a cab(??!) It’s limited to private use only. Inside the existing geofenced locations. It’s a paperweight if I take this thing home. That’s one’s not actually part of the bet but yeah not exactly what was promised in this first wave\\n\\nHey @grok, set a timer for 48 days from now\",\"kind\":\"quote\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-14T02:04:10.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2121420350160302304\",\"link\":\"https://x.com/MKBHD/status/2121420350160302304\",\"item\":{\"id\":\"x:tweet:2121420350160302304\",\"title\":\"Alright chat I’m in. Here’s the deal\",\"link\":\"https://x.com/MKBHD/status/2121420350160302304\",\"description\":\"Alright chat I’m in. Here’s the deal\\n\\nCybercab order page is live. Invite only. Must accept delivery to one of these cities in Texas. Only operates in those existing geofenced areas. Requires a $300 monthly subscription to operate. One vehicle per customer. “Estimated delivery” December\",\"image\":\"https://pbs.twimg.com/media/HXDMkMGXYAAbTBn.jpg\",\"images\":[\"https://pbs.twimg.com/media/HXDMkMGXYAAbTBn.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-14T01:50:00.000Z\"}}]},{\"id\":\"x:tweet:2121420350160302304\",\"title\":\"Alright chat I’m in. Here’s the deal\",\"link\":\"https://x.com/MKBHD/status/2121420350160302304\",\"description\":\"Alright chat I’m in. Here’s the deal\\n\\nCybercab order page is live. Invite only. Must accept delivery to one of these cities in Texas. Only operates in those existing geofenced areas. Requires a $300 monthly subscription to operate. One vehicle per customer. “Estimated delivery” December\",\"image\":\"https://pbs.twimg.com/media/HXDMkMGXYAAbTBn.jpg\",\"images\":[\"https://pbs.twimg.com/media/HXDMkMGXYAAbTBn.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-14T01:50:00.000Z\"},{\"id\":\"x:tweet:2121401946112483519\",\"title\":\"Hm. Interesting 😅 https://t.co/zfHPewuVCy\",\"link\":\"https://x.com/MKBHD/status/2121401946112483519\",\"description\":\"Hm. Interesting 😅 https://t.co/zfHPewuVCy\",\"image\":\"https://pbs.twimg.com/media/HXC702NX0AAv0gm.jpg\",\"images\":[\"https://pbs.twimg.com/media/HXC702NX0AAv0gm.jpg\",\"https://pbs.twimg.com/media/HXC702KWQAAtLMC.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-14T00:36:52.000Z\"},{\"id\":\"x:tweet:2120988874403189211\",\"title\":\"Hey @Rivian just want to make sure you haven't forgotten about the R3X https://t.co/osKko08hNJ\",\"link\":\"https://x.com/MKBHD/status/2120988874403189211\",\"description\":\"Hey @Rivian just want to make sure you haven't forgotten about the R3X https://t.co/osKko08hNJ\",\"image\":\"https://pbs.twimg.com/media/HW9EIUiW0AAdpbx.jpg\",\"images\":[\"https://pbs.twimg.com/media/HW9EIUiW0AAdpbx.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-12T21:15:28.000Z\"},{\"id\":\"x:tweet:2120971962399048088\",\"title\":\"dbrand just launched their Fitbit Air band, and I actually like it more than the OEM fabric ones that stain weirdly fast. This one’s super light and I like the matte black. In the Play store if you want to check it out: https://t.co/XDeYnhKKbb https://t.co/Z2dtb7O3To\",\"link\":\"https://x.com/MKBHD/status/2120971962399048088\",\"description\":\"dbrand just launched their Fitbit Air band, and I actually like it more than the OEM fabric ones that stain weirdly fast. This one’s super light and I like the matte black. In the Play store if you want to check it out: https://t.co/XDeYnhKKbb https://t.co/Z2dtb7O3To\",\"image\":\"https://pbs.twimg.com/media/HW80fp9WIAA_xRG.jpg\",\"images\":[\"https://pbs.twimg.com/media/HW80fp9WIAA_xRG.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-12T20:08:16.000Z\"},{\"id\":\"x:tweet:2120883779560431908\",\"title\":\"RT @cnb_1992: \\\"what a privilege it is to be exhausted by an ambition of your own choosing\\\" https://t.co/hfX2ZUQTYD\",\"link\":\"https://x.com/MKBHD/status/2120883779560431908\",\"description\":\"RT @cnb_1992: \\\"what a privilege it is to be exhausted by an ambition of your own choosing\\\" https://t.co/hfX2ZUQTYD\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120774949363441664/img/q9B6S3H_-eCT9SMH.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120774949363441664/vid/avc1/1280x720/kBkq4DbK-FNq5rPF.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-12T14:17:51.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2120775066854248888\",\"link\":\"https://x.com/cnb_1992/status/2120775066854248888\",\"item\":{\"id\":\"x:tweet:2120775066854248888\",\"title\":\"\\\"what a privilege it is to be exhausted by an ambition of your own choosing\\\" https://t.co/hfX2ZUQTYD\",\"link\":\"https://x.com/cnb_1992/status/2120775066854248888\",\"description\":\"\\\"what a privilege it is to be exhausted by an ambition of your own choosing\\\" https://t.co/hfX2ZUQTYD\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120774949363441664/img/q9B6S3H_-eCT9SMH.jpg\",\"kind\":\"quote\",\"author\":{\"name\":\"ǝdɐɔsǝʇıʍpıɯ\",\"uri\":\"https://x.com/cnb_1992\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120774949363441664/vid/avc1/1280x720/kBkq4DbK-FNq5rPF.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-12T07:05:52.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2099381257469604230\",\"link\":\"https://x.com/comeuptuff/status/2099381257469604230\",\"item\":{\"id\":\"x:tweet:2099381257469604230\",\"title\":\"what a privilege it is to be exhausted by an ambition of your own choosing\",\"link\":\"https://x.com/comeuptuff/status/2099381257469604230\",\"description\":\"what a privilege it is to be exhausted by an ambition of your own choosing\",\"kind\":\"post\",\"author\":{\"name\":\"5\",\"uri\":\"https://x.com/comeuptuff\"},\"published\":\"2026-09-14T06:14:31.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:2099381257469604230\",\"link\":\"https://x.com/comeuptuff/status/2099381257469604230\",\"item\":{\"id\":\"x:tweet:2099381257469604230\",\"title\":\"what a privilege it is to be exhausted by an ambition of your own choosing\",\"link\":\"https://x.com/comeuptuff/status/2099381257469604230\",\"description\":\"what a privilege it is to be exhausted by an ambition of your own choosing\",\"kind\":\"post\",\"author\":{\"name\":\"5\",\"uri\":\"https://x.com/comeuptuff\"},\"published\":\"2026-09-14T06:14:31.000Z\"}}]},{\"id\":\"x:tweet:2120588382451740801\",\"title\":\"NEW VIDEO - Macbook PROLED Review https://t.co/LRTWOzSYXf\",\"link\":\"https://x.com/MKBHD/status/2120588382451740801\",\"description\":\"NEW VIDEO - Macbook PROLED Review https://t.co/LRTWOzSYXf\\n\\nAt the risk of spoiling the review, here's a fun analogy that sums it up: https://t.co/1oWZO2RydC\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120587944004120578/img/yQY3SiYErkJh9gkx.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120587944004120578/vid/avc1/4096x2048/JbcPARrWHLqlfYOC.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T18:44:03.000Z\"},{\"id\":\"x:tweet:2120336655773241781\",\"title\":\"“Oh wow you’re so well spoken” https://t.co/kM7mTI9X0X\",\"link\":\"https://x.com/MKBHD/status/2120336655773241781\",\"description\":\"“Oh wow you’re so well spoken” https://t.co/kM7mTI9X0X\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119438403171123201/img/yi8fmnNC6yEo530D.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119438403171123201/vid/avc1/2450x1388/5raFW01drb75Yyw3.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T02:03:47.000Z\"},{\"id\":\"x:tweet:2120334410213994791\",\"title\":\"When instagram suggests the profile of someone you just met with 0 mutuals  https://t.co/kM7mTI9pbp\",\"link\":\"https://x.com/MKBHD/status/2120334410213994791\",\"description\":\"When instagram suggests the profile of someone you just met with 0 mutuals  https://t.co/kM7mTI9pbp\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119438403171123201/img/yi8fmnNC6yEo530D.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119438403171123201/vid/avc1/2450x1388/5raFW01drb75Yyw3.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T01:54:51.000Z\"},{\"id\":\"x:tweet:2119784583382085957\",\"title\":\"The 14-inch MacBook Pro with PROLED is lighter than the 15-inch MacBook Air\",\"link\":\"https://x.com/MKBHD/status/2119784583382085957\",\"description\":\"The 14-inch MacBook Pro with PROLED is lighter than the 15-inch MacBook Air\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-09T13:30:03.000Z\"},{\"id\":\"x:tweet:2119075928299257969\",\"title\":\"Taking a bit longer with my PROLED MacBook Pro review (spoiler: it's really good) but in the meantime, I got hands on with Meta's newest VR Glasses and they are also GOOD: https://t.co/mvlrGT7sfR https://t.co/IkW79GxlXl\",\"link\":\"https://x.com/MKBHD/status/2119075928299257969\",\"description\":\"Taking a bit longer with my PROLED MacBook Pro review (spoiler: it's really good) but in the meantime, I got hands on with Meta's newest VR Glasses and they are also GOOD: https://t.co/mvlrGT7sfR https://t.co/IkW79GxlXl\",\"image\":\"https://pbs.twimg.com/media/HWh4DmYXoAAzGI-.jpg\",\"images\":[\"https://pbs.twimg.com/media/HWh4DmYXoAAzGI-.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-07T14:34:06.000Z\"},{\"id\":\"x:tweet:2118358733671592381\",\"title\":\"Booster https://t.co/wb3KEe1T5b\",\"link\":\"https://x.com/MKBHD/status/2118358733671592381\",\"description\":\"Booster https://t.co/wb3KEe1T5b\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2118358540309917697/img/oESo0kab6ZZdkggr.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2118358540309917697/vid/avc1/2160x3840/gQELIPfOVABM9p7-.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-05T15:04:13.000Z\"},{\"id\":\"x:tweet:2117618203732172889\",\"title\":\"NEW VIDEO - The OLED iPad Mini is the most Apple Apple product in a long time: https://t.co/aY3kIQ3lPS https://t.co/URaBMBV0c8\",\"link\":\"https://x.com/MKBHD/status/2117618203732172889\",\"description\":\"NEW VIDEO - The OLED iPad Mini is the most Apple Apple product in a long time: https://t.co/aY3kIQ3lPS https://t.co/URaBMBV0c8\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117615471994261504/img/87ApcF8CEMOjmu81.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117615471994261504/vid/avc1/4096x2048/Do_56fb-kv8DHD3B.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-03T14:01:37.000Z\"},{\"id\":\"x:tweet:2117601097279820220\",\"title\":\"Biggest November of my life, it's going to be absolutely incredible. This will make more sense later\",\"link\":\"https://x.com/MKBHD/status/2117601097279820220\",\"description\":\"Biggest November of my life, it's going to be absolutely incredible. This will make more sense later\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-03T12:53:39.000Z\"},{\"id\":\"x:tweet:2116699086816473517\",\"title\":\"Dressing up as a Googlebook for Halloween because nothing is scarier than knowing you’ll be dead in 3 years\",\"link\":\"https://x.com/MKBHD/status/2116699086816473517\",\"description\":\"Dressing up as a Googlebook for Halloween because nothing is scarier than knowing you’ll be dead in 3 years\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2026-11-01T01:09:23.000Z\"},{\"id\":\"x:tweet:1282750287229456385\",\"title\":\"Being able to hear better information and change your opinion on something is a great human trait.\",\"link\":\"https://x.com/MKBHD/status/1282750287229456385\",\"description\":\"Being able to hear better information and change your opinion on something is a great human trait.\",\"kind\":\"post\",\"author\":{\"name\":\"Marques Brownlee\",\"uri\":\"https://x.com/MKBHD\"},\"published\":\"2020-07-13T18:54:35.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 919,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 910
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 917,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 918,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 918,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 918,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 918,
+          "duration_ms": 1
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 10,
+          "duration_ms": 169
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 194,
+          "duration_ms": 52
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 262,
+          "duration_ms": 89
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 368,
+          "duration_ms": 385
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 796,
+          "duration_ms": 114
+        }
+      ]
+    }
+  }
+}

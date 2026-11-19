@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:14:20.397Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_fa77276f7d4b",
+    "name": "我的安全视界观",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_fa77276f7d4b.json",
+    "duration_ms": 1768
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1174
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_fa77276f7d4b",
+      "params": {
+        "account": "gh_fa77276f7d4b"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1167,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 18,
+        "duration_ms": 1144,
+        "timings": {
+          "response_ms": 1140,
+          "body_read_ms": 2,
+          "decode_and_transfer_ms": 2
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_fa77276f7d4b\",\"title\":\"我的安全视界观\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488255&idx=1&sn=c517c0e79fb525ab4c8ac84de4b13dc7&chksm=ea0b5773b12cdff5b9f9ba9607e6d44dfc571692203c5be9aef554ae87aed92bc4aabfb3f81c&scene=126&sessionid=1795076064#rd\",\"description\":\"网络空间安全双高工\\n国内头部安全企业网络安全部副总经理\\n横跨甲乙方十余年实战经验，深耕软件安全，首创「研发安全运营架构与实践」方法论。BCS2025企业安全防护与运营一体化出品人，持续输出安全实战干货，助力安全从业者与企业少走弯路~\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"我的安全视界观\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7E4UfVRcsYUUnMic6CkEXG99IpgTibwibz1ND7LXGm2KZicQ%2F0\",\"updated\":\"2026-11-15T22:49:29.000Z\",\"items\":[{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488255:1\",\"title\":\"AI渗透：它做对了什么，又在哪里把我带偏？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488255&idx=1&sn=c517c0e79fb525ab4c8ac84de4b13dc7&chksm=ea0b5773b12cdff5b9f9ba9607e6d44dfc571692203c5be9aef554ae87aed92bc4aabfb3f81c&scene=126&sessionid=1795076064#rd\",\"description\":\"我让 AI 连跑了 20 轮渗透测试，目标很直接：把扫描结果打成可利用，拿到 shell。\\n\\n它确实能干活。读压缩产物、给 550 多个 API 排风险顺序、拆 gRPC-Web 协议，最后找出 34 个未授权接口。写报告也比我快。可工具链也会卡住：一个 1.5MB 的文件就因为内容审批超时，整轮白白耗掉。\\n\\n但它最会骗人的地方，是给错误结论配一个合理故事。一次枚举出“33 个账号里 32 个存在”，它顺嘴解释成“可能有一批测试账号”。我差点信了，拿随机用户名一测才发现是 IP 级风控。从那以后我定了条死规矩：所有结论必须能指回一条原始响应，指不出就标“未验证”。\\n\\n前 18 轮我一直在找 shell，其实第 4 轮就扫到一个不登录、ID 连续、能直接下载客户名单的接口。我把“没打进内网”当成没结果，硬拖到第 19 轮才换视角。\\n\\n所以提示词不用写多细。30 条里真正改变走向的就三句：“别搞内网域名”“从数据安全角度测”“把hunter用起来”。其余大多是“继续”“还不够”。\\n\\nAI 适合批量执行，但“什么算找到东西”必须人定。门槛低了，判断反而更贵。\",\"content\":\"<p>我让 AI 连跑了 20 轮渗透测试，目标很直接：把扫描结果打成可利用，拿到 shell。<br /><br />它确实能干活。读压缩产物、给 550 多个 API 排风险顺序、拆 gRPC-Web 协议，最后找出 34 个未授权接口。写报告也比我快。可工具链也会卡住：一个 1.5MB 的文件就因为内容审批超时，整轮白白耗掉。<br /><br />但它最会骗人的地方，是给错误结论配一个合理故事。一次枚举出“33 个账号里 32 个存在”，它顺嘴解释成“可能有一批测试账号”。我差点信了，拿随机用户名一测才发现是 IP 级风控。从那以后我定了条死规矩：所有结论必须能指回一条原始响应，指不出就标“未验证”。<br /><br />前 18 轮我一直在找 shell，其实第 4 轮就扫到一个不登录、ID 连续、能直接下载客户名单的接口。我把“没打进内网”当成没结果，硬拖到第 19 轮才换视角。<br /><br />所以提示词不用写多细。30 条里真正改变走向的就三句：“别搞内网域名”“从数据安全角度测”“把hunter用起来”。其余大多是“继续”“还不够”。<br /><br />AI 适合批量执行，但“什么算找到东西”必须人定。门槛低了，判断反而更贵。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawlr0XaUw81g7KQZxIAypBeguj6uibYtGI0kFR7oy0zqp4V7pdz4sX1ic1WoGjyrCWtUwdMI9JTabibU7at6iaXiaAwYlXMbcCgbtnYw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawlAK9OeYOzaN1uW6YvfMTVNLfvRcxop5TmCSqAX3H0EeQ6QB8QicgdiaxpRuic1FmvIDiaWfibLbTB1JSicBxkPfzTKHeZ4sd6FsicatQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawmfqmvdTXU0B02eCkCJEjibB98RSXds1ljjjhWgM7EKhiaFqz03fxXhzTm9fkWWwcoI16MmiaZ3kmaApfYM8MHYjylKaLtK7nPib2w%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawlic1erOU02MrEl7R0KMp1YO0hqeTiaowpUib0SkEoiadZeaa6v1SmzmTAKx17ZJOaH6b0k9A303auKIbflCZRJDPIBnWT9u4QeOpk%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawmothtPjyAf5gHG6Q9ibYF4Rib3g5ltRGeCic6lMfDic7cRvibvGgpPNotWsCr0VtVJpfym1QrKNMJyngic6Wu1mwp9wvZCh3IweAp84%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawkt3eb4D8FzRnzq7G2pyiaxibdANoH7rWFo5v61RbBtADpmThI6bxXVicwJyoqia4Le55GN1MabClqrtpFgBzqSL15AXVNFxw4ia0ZY%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawlr0XaUw81g7KQZxIAypBeguj6uibYtGI0kFR7oy0zqp4V7pdz4sX1ic1WoGjyrCWtUwdMI9JTabibU7at6iaXiaAwYlXMbcCgbtnYw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawlr0XaUw81g7KQZxIAypBeguj6uibYtGI0kFR7oy0zqp4V7pdz4sX1ic1WoGjyrCWtUwdMI9JTabibU7at6iaXiaAwYlXMbcCgbtnYw%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawlAK9OeYOzaN1uW6YvfMTVNLfvRcxop5TmCSqAX3H0EeQ6QB8QicgdiaxpRuic1FmvIDiaWfibLbTB1JSicBxkPfzTKHeZ4sd6FsicatQ%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawmfqmvdTXU0B02eCkCJEjibB98RSXds1ljjjhWgM7EKhiaFqz03fxXhzTm9fkWWwcoI16MmiaZ3kmaApfYM8MHYjylKaLtK7nPib2w%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawlic1erOU02MrEl7R0KMp1YO0hqeTiaowpUib0SkEoiadZeaa6v1SmzmTAKx17ZJOaH6b0k9A303auKIbflCZRJDPIBnWT9u4QeOpk%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawmothtPjyAf5gHG6Q9ibYF4Rib3g5ltRGeCic6lMfDic7cRvibvGgpPNotWsCr0VtVJpfym1QrKNMJyngic6Wu1mwp9wvZCh3IweAp84%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawkt3eb4D8FzRnzq7G2pyiaxibdANoH7rWFo5v61RbBtADpmThI6bxXVicwJyoqia4Le55GN1MabClqrtpFgBzqSL15AXVNFxw4ia0ZY%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-15T22:49:29.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488215:1\",\"title\":\"PHP2Shell应急：从漏洞情报到业务影响\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488215&idx=1&sn=6243ea28ce47103aee4579b7e6fb3dea&chksm=ea97afe5487584aeec49051ae7b9dc572165ae4d0f68d634dde3bfb4d598d6d13915026df37f&scene=126&sessionid=1795076064#rd\",\"description\":\"10 月 22 号凌晨，我们还在群里讨论 PHP2Shell 怎么修。第二天一早就被拉进公司级应急群，劈头就问：哪些产品受影响？客户那边怎么回？\\n\\n这俩问题其实是一回事——能不能把“网上说能打”，翻译成“我们到底会不会被打”。我测了几十个用 PHP 的产品，按公开 POC 都没复现。但这绝不等于不受影响。\\n\\n那个 POC 是在特定版本和配置下打通的。我们的产品是 CGI PHP 7.X，没跑通只能说明那条路走不通。没做对照验证、没覆盖其他 SAPI，就不能写“安全”。\\n\\n企业应急真正稀缺的，是把漏洞翻译成业务影响的人。同一个洞，对外网系统是 P0 立刻下线，对内网 FPM 可能只是 P2 计划升级。\\n\\n现在我用 AI 去扫资产，只让它跑只读命令，把版本和配置拉回来。但隔离复现和拍板决策，还得靠人。下次遇到这事，我会先开个 30 分钟的会，把现状和未知摆到桌面上。\",\"content\":\"<p>10 月 22 号凌晨，我们还在群里讨论 PHP2Shell 怎么修。第二天一早就被拉进公司级应急群，劈头就问：哪些产品受影响？客户那边怎么回？<br /><br />这俩问题其实是一回事——能不能把“网上说能打”，翻译成“我们到底会不会被打”。我测了几十个用 PHP 的产品，按公开 POC 都没复现。但这绝不等于不受影响。<br /><br />那个 POC 是在特定版本和配置下打通的。我们的产品是 CGI PHP 7.X，没跑通只能说明那条路走不通。没做对照验证、没覆盖其他 SAPI，就不能写“安全”。<br /><br />企业应急真正稀缺的，是把漏洞翻译成业务影响的人。同一个洞，对外网系统是 P0 立刻下线，对内网 FPM 可能只是 P2 计划升级。<br /><br />现在我用 AI 去扫资产，只让它跑只读命令，把版本和配置拉回来。但隔离复现和拍板决策，还得靠人。下次遇到这事，我会先开个 30 分钟的会，把现状和未知摆到桌面上。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJFR9icl1yawloiarYUHMJMcPQSproiaqarAs86a25pJBAsGWx0YzvribiadicMribTBAZj1r5FXvAlIDNia85ZjlXWZe5GmWjO2elypKuib1B16kDsks%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawlYS2Y7FtCG4R1x3O7jNHM4ngjBCS4b0UGuoOK81Ya18apG9JQUTYfzccDm22icia3gUluMCK4vonDYELias36MdgnIZttVaUKGco%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawkju5l1nUPkeMjHmkiauzeQmXAPVj0eLiaYLruLlnEGK6VFYJwUcAvdbp0SFBZgk2v0gTZh3V3Ot46KBNrgnuiamrXcFUSWk0wicm8%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawm9rtg2k5iavvFNkIfJMQuicia4gD9zeB7mkTEjHXBibgzPeLQW99kMfBOPMuPoO6uMqHmSA7uguibX6P3qiacltibAXMIPv5aibzOQxWk%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawm5iaPoAoGbDfGTia3TIVpG4jZMzpdviadKEIN8K7CWmcCjibZaMIzUaCzUXp7iaZbhnmUvnvicDvk9KrUaZLuNbELNPGSrmgtyBicQp4%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawnhxicMYQXSanyFAnRXLyqFLpGaYNPg9SgzUXE6H7Yytlt8Rl5ShePOE3bIu50bXdDvfnEQXiaxIujZChFF0iaDcSEibXBWH5zkIn0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawkZnaqiculBMOslqHOWrJqsZB5ywiaq1vGiaMYgiaiaU3xAsibvITyy9c58zTmSXsQ60Et4YAzBSwicvte9qIynrH5JbfY4ugkjcqflOc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJFR9icl1yawloiarYUHMJMcPQSproiaqarAs86a25pJBAsGWx0YzvribiadicMribTBAZj1r5FXvAlIDNia85ZjlXWZe5GmWjO2elypKuib1B16kDsks%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawlYS2Y7FtCG4R1x3O7jNHM4ngjBCS4b0UGuoOK81Ya18apG9JQUTYfzccDm22icia3gUluMCK4vonDYELias36MdgnIZttVaUKGco%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawkju5l1nUPkeMjHmkiauzeQmXAPVj0eLiaYLruLlnEGK6VFYJwUcAvdbp0SFBZgk2v0gTZh3V3Ot46KBNrgnuiamrXcFUSWk0wicm8%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawm9rtg2k5iavvFNkIfJMQuicia4gD9zeB7mkTEjHXBibgzPeLQW99kMfBOPMuPoO6uMqHmSA7uguibX6P3qiacltibAXMIPv5aibzOQxWk%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FJFR9icl1yawm5iaPoAoGbDfGTia3TIVpG4jZMzpdviadKEIN8K7CWmcCjibZaMIzUaCzUXp7iaZbhnmUvnvicDvk9KrUaZLuNbELNPGSrmgtyBicQp4%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FJFR9icl1yawnhxicMYQXSanyFAnRXLyqFLpGaYNPg9SgzUXE6H7Yytlt8Rl5ShePOE3bIu50bXdDvfnEQXiaxIujZChFF0iaDcSEibXBWH5zkIn0%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-15T22:49:29.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488248:1\",\"title\":\"AI渗透：它做对了什么，又在哪里把我带偏？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488248&idx=1&sn=1a763e086ee1b048aa8f60420efe301d&chksm=eae9fbf85aa15a032d42e9e68e373a08c92a877ce726ae3a4c5bffb0d6b0d09b72f4ed9fe868&scene=126&sessionid=1795076064#rd\",\"description\":\"继续上一篇AI 渗透 20 轮：5 条链打通，12 条链卡住。看看AI在整个过程中，哪些地方做对了，哪些把我带偏了？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJFR9icl1yawkZ7pyTbo6BKHicYiaS3feyAicEPup4BicfZPB308kPBUXxdkHGylNtYHNiaIRJhQRmen38goRky4FLRJEU8f3sWlIpKMSSkeCaTOhU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T22:06:00.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488225:1\",\"title\":\"我的读书笔记：升维，是把问题变少\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488225&idx=1&sn=e03be4afc8d8269e7bab6af1e3ecdeac&chksm=ea5c8e30619c19b3cfb37398bee73a3a4522ff7832a83ed4b5a0b057c73ae34c4c9ab7fae888&scene=126&sessionid=1795076064#rd\",\"description\":\"救火救得越勤，越该问问火从哪里起。有些道理，读的时候轻轻放过，真到事上才知分量。推不动的整改、清不完的告警，如今我会先停一停，想想它在更高一层里是什么模样。想通了，话就短了，事也少了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJFR9icl1yawmwiahu9LHWlsWXzqcR2rxPBQk4hRWqY83ZUjA2tWmUqoGs3DgDkzFye5OQzIFZ95yRmWGicGvUFegV0rxbrrwdqr6NAlmrzyHfA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T22:06:00.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488202:1\",\"title\":\"AI 渗透 20 轮：5 条链打通，12 条链卡住\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488202&idx=1&sn=1e79186c93846c8edad343f259d13955&chksm=ead27d429f00a2d36f4a52c6322e9fe69389ca1a9acb64f9e5fa000739ada35d49674570bd0b&scene=126&sessionid=1795076064#rd\",\"description\":\"关于AI渗透测试的体验，通用agent + 模型就能干很多事儿，半夜躺在被窝里拿手机就能渗透，并且效果很好~\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJFR9icl1yawkhHBhdZLwWEHnkLnFwLZNKIKRyApgZnVBUic6fmT5xKQegiah5AZHFWIaNPFvFOmhC3AVBUkajibm4og4Oz3yrVguPm9Ze1OJIA8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T22:06:00.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488189:1\",\"title\":\"我的读书笔记：优势从哪来，跟昨天的自己比\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488189&idx=1&sn=113a259b4221ccedd3d2c349665bf610&chksm=ea5571c6ae94c92097bb4bfa0fa775108edff5d9d3cbd6bd3d7a928f30442f8bbfd1e36cdbfd&scene=126&sessionid=1795076064#rd\",\"description\":\"人只要长着眼睛，就忍不住跟身边人比，可比出来的是嫉妒或安慰，都比坏了。今早立冬，点开台灯翻出三年前页边的旧笔记，当年打问号的地方，有的有了答案，有的还悬着。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawmf3RTSFDicRq94om7VEq21ibicDXj8MIGCYkJ0rxTvy1uwGIyAQgka4RSJP8Tsbu8yGyCm6twIbSzVPhicfEOJFWnQtibW1vEgGyOE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T00:23:33.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488183:1\",\"title\":\"ShadowScan：让 AI 参与判定的影子端点扫描器\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488183&idx=1&sn=e5cdf7d011e0810660d2c9bd06ce62b6&chksm=ea7de80f4a4d2440603f331be7efefba1a84689b0c0152ae1fb7ffd1ea58d8787cc31f87d464&scene=126&sessionid=1795076064#rd\",\"description\":\"影子端点（Druid、Swagger、Actuator、.git 等）不在台账上，通用漏扫也扫不到。ShadowScan 用\\\"规则引擎 + 三层 AI\\\"补上这个盲区：让 AI 看到真实响应再判定，并只保留提议权、执行权留在代码里。725 个域名实测，人工确认 27 条，真实率 82%。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawnciby7C7gTicZWxiaOmibQL2ITbyHic8VurqgpagfrGro4PxkNZy18NTwaw9RTXWx6AaURdiaPLeFqRcmpZK36jLWlNJEWtEYjGbzkc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-01T22:06:00.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488170:1\",\"title\":\"我的读书笔记：呆得太爽，就会有问题\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488170&idx=1&sn=e8cfbe6819f9d7fd73047531c6a31aea&chksm=ea6b78256c89b6903458c818adb29c69051d4fbb0ccf4969d3863d18c7a2b6cc9afec5eae739&scene=126&sessionid=1795076064#rd\",\"description\":\"人待在舒服的位置久了，是会变钝的。那年我正安逸，顺手在笔记里写下九个字：呆得太爽，就会有问题。如今回头看，那句话比什么鸡汤都管用。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawkO3gTlibkBPXMYBo2QpdLJ7bFPADoYkHU0hpFJuVjhtTVzIo74e91OwV5XkjQibUIBzvd4SCu2bOJpdZH9FgKwibWOg6vj274tIg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T23:58:07.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488160:1\",\"title\":\"PHP2Shell应急：从漏洞情报到业务影响，中间隔着什么？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488160&idx=1&sn=a34f4a244fb8c3fbfad4cff6623f7e0c&chksm=ea386f5264a1f02c23e510b752622252cd2e5a7c75e7581d294f7dce1534fa1f98f2b13ad301&scene=126&sessionid=1795076064#rd\",\"description\":\"这次 PHP2Shell 之后，我一直在想一个问题：企业应急里最难、最稀缺的，是不是漏洞分析和复现能力？情报获取其实不难，难的是看到漏洞之后，尤其是有 POC 的高门槛漏洞，还要认真分析它对业务系统的实际影响，再决定要不要发起应急响应。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawmHNemTmxGiafTa6aop1xhcj4yJRniaxIg4No6jiayPW8wShvSWlwNOibsZ0otd9G933mhKudmynia5sBvb7Yz0CsvniaMu35nXJlkNY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-27T16:11:05.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488147:1\",\"title\":\"我的读书笔记：把自己当成一家私人公司\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488147&idx=1&sn=1078ac7ce4b922f3f17507af4aaa9867&chksm=ead3a88e639723fe08e8b70377b6be5bd8a1e77dfa7a06199425a4c080ebaedf392c2364662f&scene=126&sessionid=1795076064#rd\",\"description\":\"都说别把公司当自己家。我倒觉得，该把自己当一家公司经营 - - 只不过公司是你最大的舞台、第一个客户，你在这儿的业绩就是你的业绩。环境不顺、薪资不够高就觉得浪费时间？那亏的是你自己这家公司。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawniawEhDXk2bClyPd8ibGszbVtrfcozJBusNHUBp2lEbT2UpALW4370ou7icTyicMGa6cq3YqZaAscjH6EniaQh5oCguXC4iazVia9DFw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-24T15:39:01.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488142:1\",\"title\":\"影子端点专项扫描：AI \\\"用进\\\"安全的一次实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488142&idx=1&sn=53f068608266cd4d018cf465f22facae&chksm=ea14c85ddac7ad679539d021e8a2cbbe6d75382d7b6613b5e2bf436259bdf4cce065a7fc63b2&scene=126&sessionid=1795076064#rd\",\"description\":\"文章复盘了一次用 AI 做\\\"影子端点\\\"专项扫描的实战：把 AI 从\\\"报告润色器\\\"升级为\\\"自适应扩探 + 证据验证\\\"的判案角色。从 V1 喂结论、V2 喂证据到 V3 约束型智能体，讲透 AI 提权与边界约束的平衡，以及误报从 103 条压到 16 条的工程细节。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJFR9icl1yawk94xlglyMms7mb06fc99ibfKtlGpngdn4yibeY7gGZ8gqObdgaB4IOgc0xia6PPicKgIwCoaOPlUiaHG4K1GRY92NJlWUT6SHicW8Zk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-18T22:06:00.000Z\"},{\"id\":\"wxmp:MzI3Njk2OTIzOQ%3D%3D:2247488123:1\",\"title\":\"我的读书笔记：写作是留给自己的吸管\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&mid=2247488123&idx=1&sn=11f0969c1d668339096059d4e0bba9d1&chksm=ea142eabc3d542ecf3c8405f5beae336d049f1f2cfccebd6624e1c8c0fd65aa4e08c641500a6&scene=126&sessionid=1795076064#rd\",\"description\":\"写作是我的吸管 - - 白天被会议和救火切得七零八落，只有键盘上那段时间完全属于自己。公众号写了九年，从两位数粉丝到快一万，雪确实在滚；靠的不是自律，是「反复重复，催生行动」。爱好再热爱，也不挤占家和工作的边界，业余选手拼的是十年总量。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJFR9icl1yawk302IEVc6msrKSTIrojXokFwiciaYDOsOxiaheVAz0Cb05DQJHerRjbyxtKmCQ5rfEsTwLKNRjNz6fibAJbanCxBBNQ8rh3yUJ1HI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-17T00:57:50.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1167,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 7
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 7,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 7,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 7,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 7,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 7,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 7,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 8,
+          "duration_ms": 7
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 15,
+          "duration_ms": 1152
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1167,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1167,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1167,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1167,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1167,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 18,
+          "duration_ms": 1144
+        }
+      ]
+    }
+  }
+}

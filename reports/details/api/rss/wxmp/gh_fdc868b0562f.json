@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:15:26.698Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_fdc868b0562f",
+    "name": "RASP安全技术",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_fdc868b0562f.json",
+    "duration_ms": 1586
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1324
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_fdc868b0562f",
+      "params": {
+        "account": "gh_fdc868b0562f"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1317,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":6,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 9,
+        "duration_ms": 1306,
+        "timings": {
+          "response_ms": 1114,
+          "body_read_ms": 191,
+          "decode_and_transfer_ms": 1
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_fdc868b0562f\",\"title\":\"RASP安全技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MjQ1OTkwMg==&mid=2247484620&idx=1&sn=6dd78f8dd31d32d7711ddbe21e1b257e&chksm=c143f6c7a735752b579aee98a166418a59768bfcae6c1680312b7fab0b1567eb9c2e140b2de5&scene=126&sessionid=1795076130#rd\",\"description\":\"官网：https://www.jrasp.com\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"RASP安全技术\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4XWGfiblEyWnnUTFdicvzuyz8AAUd5JHUPlC5kBu0Nt7rw%2F0\",\"updated\":\"2023-10-07T04:35:22.000Z\",\"items\":[{\"id\":\"wxmp:Mzg5MjQ1OTkwMg%3D%3D:2247484620:1\",\"title\":\"JRASP在「新点软件」万级别⼤规模落地实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MjQ1OTkwMg==&mid=2247484620&idx=1&sn=6dd78f8dd31d32d7711ddbe21e1b257e&chksm=c143f6c7a735752b579aee98a166418a59768bfcae6c1680312b7fab0b1567eb9c2e140b2de5&scene=126&sessionid=1795076130#rd\",\"description\":\"国泰新点软件公司围绕智慧招采、智慧政务、数字建筑三大核心业务领域，为各级政府部门、大型集团企业及相关行业单位\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FUMb7JCCdbYP9pvKQcTkTJGcfua91EZfJ7zyZB5zicaT6tjqY2Gic6APQ3ibiaEicGQF7ZbBtT2e2oyVRfzNT2Fz3LOA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-07T04:35:22.000Z\"},{\"id\":\"wxmp:Mzg5MjQ1OTkwMg%3D%3D:2247484614:1\",\"title\":\"RASP检测能力提升的思考与实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MjQ1OTkwMg==&mid=2247484614&idx=1&sn=8fdb169f569ebd4acbf39fbd56f8a05b&chksm=c10cc39eb80331fb794aaf288e983a510f674a7baeaf56e8d76259850864f51939d382fa4d7b&scene=126&sessionid=1795076130#rd\",\"description\":\"这里讲讲RASP目前的防护能力与检测思路，开文先讲述整体架构，后面挑一些重点讲讲，包括其中的部分防护策略以及目前的性能情况、运营中遇到的问题。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FUMb7JCCdbYPibL6ibyVaAl6q3RpJ3wS0fLNAsoYG7MaCzBvHchZUWicfibalZs1gbSL7lCWBv0ThHRtozOKjc6vhKw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-28T04:24:08.000Z\"},{\"id\":\"wxmp:Mzg5MjQ1OTkwMg%3D%3D:2247484393:1\",\"title\":\"Java应用的RASP远程调试教程\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MjQ1OTkwMg==&mid=2247484393&idx=1&sn=c8fc2f611d59274f59d57d03b513b473&chksm=c03c8df8f74b04ee9ff9d1ce80c4330ad9c5ccdab280a33c2a1b69b7711f3719602238023338&scene=126&sessionid=1795076130#rd\",\"description\":\"介绍Java RASP是基于Java Agent技术实现的，而Java Agent代码无法独立启动，必须依赖\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FUMb7JCCdbYPOFDaM0v2FuX4EQd5sSb5qTKf2A6Ga6qzbVGkXYs3pxibldNCNlbyngtflN9cyF1u4fb8DqdqweNQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-07-09T12:35:12.000Z\"},{\"id\":\"wxmp:Mzg5MjQ1OTkwMg%3D%3D:2247484250:1\",\"title\":\"Java Agent 核心技术JVM之类的热替换原理解读\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MjQ1OTkwMg==&mid=2247484250&idx=1&sn=56d1b2590ed4dfa5217a750696cbdfd4&chksm=c03c8d4bf74b045d32c881bcba65cd7fc43cbbbaceaf44c0c3a57b3c91ee91b15d6d73a35687&scene=126&sessionid=1795076130#rd\",\"description\":\"Java Agent 核心技术JVM之类的热替换原理\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FUMb7JCCdbYOw86B7XvPf6w6BRRHYxONHl7HmKgZyhcAqh4HILUkoiaNWgibu7RUxPFClVFL3jLZ9aUSqDe6gpUsg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-05-22T12:57:00.000Z\"},{\"id\":\"wxmp:Mzg5MjQ1OTkwMg%3D%3D:2247484211:1\",\"title\":\"Java Agent对系统性能影响有多大\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MjQ1OTkwMg==&mid=2247484211&idx=1&sn=3a025358b3d3946d92b8d81f89071fdc&chksm=c03c8d22f74b0434067523facc118203d1aa28471a3be78ef67e90bfa704297599c1f6909bc0&scene=126&sessionid=1795076130#rd\",\"description\":\"背景介绍    现有基于Java Agent的产品比如APM(Application Performance\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FUMb7JCCdbYMtXUglovwPcGTyib7cX4Tpo4REW4V9YVlC9gHSmMYTicbv7VOaTWcwrEHJI1fibWhJJksexTyKM5liaQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-05-08T06:32:23.000Z\"},{\"id\":\"wxmp:Mzg5MjQ1OTkwMg%3D%3D:2247483707:1\",\"title\":\"Rasp — 新一代WAF利器\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MjQ1OTkwMg==&mid=2247483707&idx=1&sn=1111e813fa7d0ca740affcc6d3cf05a7&chksm=c03c8f2af74b063c70fed704632735681be2cb1f2071dc30deb243090ca7616bd1f4ddce5200&scene=126&sessionid=1795076130#rd\",\"description\":\"Rasp初探\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FUMb7JCCdbYM8vQOD3IhN0PG6h8FFcHd4udD8oeLddncNjcAicNns6aJ0D56ibot4aYov01CRt95jiahMNTIicDwUaA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-05-31T06:38:05.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1317,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 1310
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1317,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1317,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1317,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1317,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1317,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 1306
+        }
+      ]
+    }
+  }
+}

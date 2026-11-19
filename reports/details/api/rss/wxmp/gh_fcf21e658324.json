@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:15:36.262Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_fcf21e658324",
+    "name": "FuzzWiki",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_fcf21e658324.json",
+    "duration_ms": 2908
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1937
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_fcf21e658324",
+      "params": {
+        "account": "gh_fcf21e658324"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1932,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 9,
+        "duration_ms": 1920,
+        "timings": {
+          "response_ms": 1728,
+          "body_read_ms": 192,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_fcf21e658324\",\"title\":\"FuzzWiki\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487263&idx=1&sn=35334f2494ee886fa8d4ced6f27e70fb&chksm=faf12f21fe481d5789dd8541657b1f908b891db31772b1dd5faee45cdd84efa1468f46a4f937&scene=126&sessionid=1795076140#rd\",\"description\":\"「FuzzWiki」致力于成为国内最专业的模糊测试技术论坛平台，专注于分享模糊测试领域前沿技术、深度文章、行业资讯、最新突破，为专家学者、从业者、相关行业安全人员和决策者构筑完善的知识图谱，提供交流模糊测试新技术、新知识、新工具的开放平台。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"FuzzWiki\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM78NTqJm7LicIR9MBibRn4AbtJTia7LaZ49iaPFhsxLtV8YWg%2F0\",\"updated\":\"2025-07-14T03:31:16.000Z\",\"items\":[{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487263:1\",\"title\":\"CKGFuzzer：通过代码知识库强化基于LLM的模糊测试驱动生成\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487263&idx=1&sn=35334f2494ee886fa8d4ced6f27e70fb&chksm=faf12f21fe481d5789dd8541657b1f908b891db31772b1dd5faee45cdd84efa1468f46a4f937&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRloq9LnfeibQrYQVDicgJPlkC0qkxxO5OYUms1RJJuKg9HLYRQ57aW0UgIrBicf8HjnN4GZE81R3yE2Qw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-14T03:31:16.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487247:1\",\"title\":\"ECFuzz：面向大规模系统配置项设置的高效模糊测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487247&idx=1&sn=03519244b9dbe93a53151e11eed98210&chksm=fa7e29c118febf16a0580af243017e18396284582bb820df7da1ab0272c06b6fd5d83f3f052c&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRloq9LnfeibQrYQVDicgJPlkC0qkxxO5OYUms1RJJuKg9HLYRQ57aW0UgIrBicf8HjnN4GZE81R3yE2Qw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-11T02:26:07.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487224:1\",\"title\":\"WhiteFox：由大型语言模型驱动的白盒编译器模糊测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487224&idx=1&sn=bf052e2ea3708b3f9fbb3a989b413b3d&chksm=fab627474eb399e7e750303ca062583e94ac6c98b4ae31fc5938b4c89dcbe1a51f1d5687ce96&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRloe0X7eofic37s5bW3aovVbZ9eWk4C3kAQEaDFlRVHMw7c7PiaqiazZlibnTI9XcKKq2O1XI9cVaTYy3w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-09T03:27:05.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487193:1\",\"title\":\"BAZZAFL：通过面向漏洞的种子分组将模糊测试活动导向漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487193&idx=1&sn=c8a311487502fac2a3ce23003a19ecb1&chksm=fab15b3ecd89c5004cc2a9f4cb2348f50975b65e5eb967c3cf47dec577fa32a20183de104260&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRloBsGtk3D6ibiaoYMZM3gKGJDeI9sWSTlg3xjFMib3siaJF0LxEp5n5bkNA9kBicNReuBdOVibnRZSibWQ6A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-23T03:43:37.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487166:1\",\"title\":\"通过命令行反馈利用大语言模型提高编译器选项黑盒模糊测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487166&idx=1&sn=f5e0bb1a8a8749524e4d5707e1332fde&chksm=faca68d3d8906f1372cc3c2c9e96c3c4ebc1b5ef69bfc98d606844718d8e8d1f766e2981eac1&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRloBsGtk3D6ibiaoYMZM3gKGJDeI9sWSTlg3xjFMib3siaJF0LxEp5n5bkNA9kBicNReuBdOVibnRZSibWQ6A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-18T07:14:59.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487150:1\",\"title\":\"Beyond REST：一种用于全面API漏洞模糊测试的工具APIF\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487150&idx=1&sn=3337e826144d84e123f6d83c4cffb942&chksm=fa107f82e8e86b87161f7d3123d20600d4e1ef10ea687c776e996419de6bc06350d46e18fb0d&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRlqVzxoZRMk5iaarnb3icYdbj4uxiasLibC34q232v720UM8vGwACEoCokMtdKoB4dF2X5fJpwETv6h6mA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-16T01:48:28.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487127:1\",\"title\":\"SELECTFUZZ:采用选择性路径探索的高效定向模糊测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487127&idx=1&sn=7bded765fbc0019e4e001fefee6b7a04&chksm=fad0a2e6180be6e1e6f60e126eb5a601d5b260a93238cfebeedc2a59e0d8b48687178a4d2ed3&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRlqVzxoZRMk5iaarnb3icYdbj4uxiasLibC34q232v720UM8vGwACEoCokMtdKoB4dF2X5fJpwETv6h6mA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-11T06:15:41.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487110:1\",\"title\":\"Towards Generic DBMS Fuzzing：面向通用数据库的模糊测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487110&idx=1&sn=c01835f0d73bacfec6660f8fad0a5975&chksm=faee9a30321046752d2d5b00268d87c519e829894e7c4ed72e52e1b8f34d596509c2512a4fcf&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRlpZvYYwqdbBdBI0oA0oHvpxcoibmOOTFI7DVUnkxuSewtfrpOXdicpsJ7ic9QZYictyEFPpbHibINpuoUQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-03T07:02:49.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487094:1\",\"title\":\"mGPTFuzz：大型语言模型辅助Matter物联网设备模糊测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487094&idx=1&sn=8043fce594033c46aab557a313eee70c&chksm=fa51e667ec0f316d4291f9f10161235f8edc483ca0e4d34a95c4294037e41bcaba079878bcd1&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRlp9PV9Igl1ouM4YWib8aKBtp1skDSyVoJr3zvaSAc5fmaZKltdiabuURTRkCtCIAeSq1Pmicc0lC3TcQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-03-29T09:20:13.000Z\"},{\"id\":\"wxmp:MzU1NTEzODc3MQ%3D%3D:2247487076:1\",\"title\":\"Halo：通过可能不变量推断的反例引导定向模糊测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NTEzODc3MQ==&mid=2247487076&idx=1&sn=dea4ff6f68462138f311feb51584250d&chksm=fa23264107b4eb589c20a4ec6d8238f5fc4facf007b334038b5f864b6a12153c10977ac80fa5&scene=126&sessionid=1795076140#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJchE46RGRloWSm5flnmlWibyk9zicWAe5Xpg9eFVzc5eCOFWHzXj6SK0ervd6IBibRaAEZNASMtBeHyTC9ickpEiaSw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-03-13T06:46:16.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1932,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 1926
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1932,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1932,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1932,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1932,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1932,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 8,
+          "duration_ms": 1921
+        }
+      ]
+    }
+  }
+}

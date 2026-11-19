@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:14:19.767Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_7f7c15f37480",
+    "name": "GobySec",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_7f7c15f37480.json",
+    "duration_ms": 893
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1471
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_7f7c15f37480",
+      "params": {
+        "account": "gh_7f7c15f37480"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1425,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 10,
+        "duration_ms": 1412,
+        "timings": {
+          "response_ms": 1407,
+          "body_read_ms": 4,
+          "decode_and_transfer_ms": 1
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_7f7c15f37480\",\"title\":\"GobySec\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545961&idx=1&sn=973b7c6379a1e5049deee85659c721f4&chksm=ea6efcf6fd4000fd8ff89b7acf034651b1f1c00bbe6d5d0689ad2e9080d6809c36fd04f7f2a9&scene=126&sessionid=1795076063#rd\",\"description\":\"新一代网络安全测试工具，由赵武Zwell（Pangolin、FOFA作者）打造，能够针对一个目标企业梳理最全的攻击面信息，同时能进行高效、实战化漏洞扫描，并快速的从一个验证入口点，切换到横向。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"GobySec\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4kR1RWZeVtWDr5TRst1y0dypVZ5gQYgf4mcOccibg4kMA%2F0\",\"updated\":\"2026-10-16T00:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545961:1\",\"title\":\"技术分享 | CVE-2026-87902 WordPress 页面模版路径穿越漏洞分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545961&idx=1&sn=973b7c6379a1e5049deee85659c721f4&chksm=ea6efcf6fd4000fd8ff89b7acf034651b1f1c00bbe6d5d0689ad2e9080d6809c36fd04f7f2a9&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLk1VaK4Bro3zqoYaibyibZ1zVMuMzfILMic64sjn1OYT4SUC20Ljx9ceQvjiaqyjxDDJq04IpaTEIVmSQJ3LEjkvnTvXf3UbibPzFHACIKu5wQq4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-16T00:30:00.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545924:1\",\"title\":\"Goby POC 接入 LLM：让漏洞验证从硬匹配走向智能辅助判断\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545924&idx=1&sn=d396e79ad63b5182bf60d63a3e8c70ff&chksm=ea049d3f4b2be4a930ca26eedfb9a90b20c7bbd32bf11ac1b284ac9672191f7d97d184b56e63&scene=126&sessionid=1795076063#rd\",\"description\":\"Goby POC 接入 LLM：验证码识别、敏感信息提取，让漏洞验证更稳定高效!\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLk1VaK4Bro3ZM1ick3tl3n8ia4aTsF6L6QOC1bc1oebHTwSY4ib2rxFjnRPe1KAUkDCnSpXXJmGM6YTwrAjzZS7j6TRrjpyvEhJNFSuIY9gnd8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-22T00:30:00.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545895:1\",\"title\":\"技术分享 | EXP能力升级（三）：JDBC反序列化不再难！CVE-2025-6507 实战化EXP指南\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545895&idx=1&sn=5be1e3c71709ed4bfe7268b10f86cdb3&chksm=ea72e03c1300ad0d5b4293f991cc73beea5f7de24ceea4f4e5acb28d2664a624bf567214c214&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjKqEPWSYdSiaMsHeMmxHBo6HDQFywjkAvKq19NSDWPMUlQhC3PgfhWyUfxOAIkpPgVr8q5hhuQ6RBA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-16T01:32:13.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545884:1\",\"title\":\"【追更】已支持回显验证！新爆CVE-2025-55182 PoC可无条件利用，Dify受影响严重\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545884&idx=1&sn=014a0a852d2ff74e197c2bb25b01e928&chksm=ea11ba12bccc1f63d3fc3c7d824bed123395bc4bd6ef3e060e629f141739f06aa6c03eedb0a4&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjLWCplUkibXKQm3SbNVJTtBLxH3aKhSiaGd6fR4bkA5hZ4pqdgjeQhZJobgicvDLiaQOnyuiadK12YNjuw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-05T07:27:50.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545870:1\",\"title\":\"核弹级漏洞？请看CVE-2025-55182真实测验分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545870&idx=1&sn=578883ef2e196b4608cdf6afb6b8ad1b&chksm=ea40f29cbd38aa7df3ae2a50ab09fa7fe5cbd6a96329a7ecddcc2061dd6cc1e22b0d7b623ecc&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjLVqfLsWvj3xFnFibmic5YhypTibWdGIJmqyMRkicJic5IaH7lOI2OWI2P2WMKsj2e8VV5pFicIKfcMYaHw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-04T08:38:45.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545861:1\",\"title\":\"技术分享|EXP能力升级（二）：还在手搓FTP？看Goby如何一键拿下服务依赖型漏洞shell\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545861&idx=1&sn=d05699773dc9ff20d29276e7d77a16bb&chksm=eab4b7f5e067d67570f9a1270b4f0090e114bdf2633b10b096119ce67dc90831c648b7773f04&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjKlXD6t9ICQjoZtX9x2kz7fe9of5j9jAAZ0CwBSzQlODxIEMQKzZU3LGLJ1Rphu6XVluSxW0PmIaA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-01T09:30:00.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545848:1\",\"title\":\"技术分享 | EXP能力升级（第一期）：从CVE-2025-61882看Goby如何破解路径固定难题\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545848&idx=1&sn=39877ba3745fe2763031035d80c00283&chksm=eaa6913fb00717ba1730d8b9a9fd3a56b9bfb6bc47eff274628a1cec5c89b73ccbdc7ebf6b00&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjI6YNMO07SV5RDhGMAjatKE0vzGpVZco0GGjSHfiaeN9KnD4pGn7I4C2mBQD5vLOGxBRcExBzyP3Gg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-19T03:28:00.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545828:1\",\"title\":\"插件分享 |DictBatcher暴力破解字典批量管理与智能口令生成工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545828&idx=1&sn=a0ea1d0e17463c7dd3d611678856e357&chksm=ea569adf6f4588badcff5b01d61f49a67a8521c51e9857044440da3c61b46648f0cf4fce3514&scene=126&sessionid=1795076063#rd\",\"description\":\"插件分享 |DictBatcher暴力破解字典批量管理与智能口令生成工具\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjJicIDjWZrbWvvllrBf4iaYoRodOdrcle7xLb29hqHYa41S52W2K5AZExCfBKzdHz3NGbF5M6XwicNKg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-03T03:48:00.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545814:1\",\"title\":\"开发者别大意！Node.js 未授权安全漏洞，你的服务器可能正在被攻击者远程操控。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545814&idx=1&sn=5a7ebf543d84032572d74f830ac4a6bd&chksm=ea563b953361a94f02653527c4d392c36f9feb4cd318c606314bfec5ac0045910148f2663158&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjIic8sfjzZtEQufD7ftg3jvr0TZZwb7LZCE6wGKSMV3NIWENSYOabvpElV7cOHqRuToO7Wdg5LtnAA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-05T03:58:00.000Z\"},{\"id\":\"wxmp:MzI4MzcwNTAzOQ%3D%3D:2247545790:1\",\"title\":\"【漏洞预警】Apache Kafka Connect高危漏洞（CVE-2025-27817）可致任意文件读取,影响核心数据安全！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzcwNTAzOQ==&mid=2247545790&idx=1&sn=999b6a569025905ded875ba4833d32f6&chksm=ea1e95e7d9b939e8976c668c6caf1160b5226eef2befccdbb6a2a2d7759946fe079b098d3b3f&scene=126&sessionid=1795076063#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGGOWG0fficjLI6EZmeCx116HybctXMibzE8hMn4ae9iciaAFOUReDBE7zCE38ibyRG22UKe6J2NfjF3UDJDFx7flUCQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-12T09:47:37.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1425,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 1,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 1418
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1425,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1425,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1425,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1425,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1425,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 10,
+          "duration_ms": 1412
+        }
+      ]
+    }
+  }
+}

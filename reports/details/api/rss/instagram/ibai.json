@@ -1,0 +1,201 @@
+{
+  "checked_at": "2026-11-19T08:13:24.882Z",
+  "inspection": {
+    "file": "rss/instagram.js",
+    "path": "/api/rss/instagram/:username",
+    "example": "/api/rss/instagram/ibai",
+    "name": "Ibai Llanos",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": false,
+    "status": 200,
+    "output_file": "api/rss/instagram/ibai.json",
+    "error": "条目数须 >= 1",
+    "duration_ms": 896
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 470
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/instagram.js",
+      "name": "Instagram 用户作品",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/instagram/:username",
+      "request_path": "/api/rss/instagram/:username",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/instagram/ibai",
+      "params": {
+        "username": "ibai"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 424,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":0,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://www.instagram.com/ibai/",
+        "method": "GET",
+        "host": "www.instagram.com",
+        "pathname": "/ibai/",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 16,
+        "duration_ms": 291,
+        "timings": {
+          "response_ms": 121,
+          "body_read_ms": 162,
+          "decode_and_transfer_ms": 8
+        }
+      },
+      {
+        "url": "https://www.instagram.com/graphql/query",
+        "method": "POST",
+        "host": "www.instagram.com",
+        "pathname": "/graphql/query",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "x-csrftoken"
+          ]
+        },
+        "started_ms": 318,
+        "duration_ms": 105,
+        "timings": {
+          "response_ms": 101,
+          "body_read_ms": 4,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"instagram:user:ibai\",\"title\":\"ibai 的 Instagram 作品\",\"link\":\"https://www.instagram.com/ibai/\",\"description\":\"\",\"language\":\"\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.instagram.com/\"},\"tags\":[\"Instagram\"]},\"author\":{\"name\":\"ibai\",\"uri\":\"https://www.instagram.com/ibai/\"},\"image\":\"http://script.findrss.cloud/findrss-logo.png\",\"items\":[]}",
+    "timing": {
+      "elapsed_ms": 424,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 11
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 12,
+          "duration_ms": 412
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 424,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 424,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 424,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 424,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 424,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 16,
+          "duration_ms": 291
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 317,
+          "duration_ms": 106
+        }
+      ]
+    }
+  }
+}

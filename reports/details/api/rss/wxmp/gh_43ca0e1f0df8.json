@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:16:16.440Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_43ca0e1f0df8",
+    "name": "集思录",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_43ca0e1f0df8.json",
+    "duration_ms": 2504
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1648
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_43ca0e1f0df8",
+      "params": {
+        "account": "gh_43ca0e1f0df8"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1640,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":21,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 10,
+        "duration_ms": 1624,
+        "timings": {
+          "response_ms": 861,
+          "body_read_ms": 761,
+          "decode_and_transfer_ms": 2
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_43ca0e1f0df8\",\"title\":\"集思录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925553&idx=1&sn=d0f27688c7cf7b273dae9312b1eace27&chksm=81556b0c79f06de384b15ed97f7647c747b230816f728b869987d83e1f53a51f95741b5f72eb&scene=126&sessionid=1795076180#rd\",\"description\":\"投资理财社区\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"集思录\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6NFl6UkCibgZSxtvKT0WNQwnnuiaD5fHkDf8PTFFiamulfA%2F0\",\"updated\":\"2026-11-18T14:42:19.000Z\",\"items\":[{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925553:1\",\"title\":\"边走边看，相信常识！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925553&idx=1&sn=d0f27688c7cf7b273dae9312b1eace27&chksm=81556b0c79f06de384b15ed97f7647c747b230816f728b869987d83e1f53a51f95741b5f72eb&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMdM6nK6tqGD5qQPaWDHzUlghHAJrkQ1aSck70lmRFPjlOxVB9b0T48MNHXDIiccjkEiaLohuTyPuzmRKdl4RcRcH1v5ZIAPD17bY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T14:42:19.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925553:2\",\"title\":\"11月19日投资提示：天脉转债提议下修\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925553&idx=2&sn=a8cf4e24d4b40e1479d9aa77ff765e8a&chksm=81a2c7dbcd37dc499186cf11e6f4fec83177e0db9a2ac6721b54ebf7b31a0dd98aa0f994b4fa&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMfZcdMvOnLHjeNCxEicTtDs3ibKB6TFtBDN2n6B2KElgpQt3gMBBpQI5RI3h0kUZqyXkcaYU5jhbic1Owknh5icnibYXo4h0PgvuXDU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T14:42:19.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925542:1\",\"title\":\"熊市杠杆抄底，我上一次就是这么死的！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925542&idx=1&sn=bd65634920cb556973943c77700fa8de&chksm=810351935760bd090466faa8cbe5f27f3478469cfd1568326d83a41129afc4c5e680eaab0d2f&scene=126&sessionid=1795076180#rd\",\"description\":\"发3张图给大家参考一下，分别是我账户前两年2023.1.1-2025.1.1、后两年2025.1.1-2026\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMejib6JfRZuq6eJElnXaPCrYSVWozGibJzhnMCHibb4iaKvj36Ke06GhDDGhFdcDqQq0OSkL6rOaj9TunuwhAxpHicjVia8Pf4zLOQRg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T14:00:31.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925542:2\",\"title\":\"11月18日投资提示：没人提牛市了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925542&idx=2&sn=068b0ce6ba03dda9ec9b312e81c7b670&chksm=81c269fe586f2d5a6a66c9afe05eea046957058e96d012078e106340435772619696e79dc376&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMcR8ELonlfWPOzO8PYBfputJJqzIpU6KP5d2luPHTzQhrlW7QOF6557Qc8YVAsfKlSPCJO5TPKBLWm5xkOC7YWtSp1eBTpBu4E%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T14:00:31.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925525:1\",\"title\":\"感谢侨银不杀之恩\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925525&idx=1&sn=2fa5a55b47b8f79748dc53bfa5220b6f&chksm=81559b004761616413effb562d7f22a75bac3dae1a622e2d9682fdad9cd5db2f54f1919b3eb6&scene=126&sessionid=1795076180#rd\",\"description\":\"今天，当看到侨银股份最新公告宣布“已备足资金，将按期足额兑付本息”的那一刻，我瘫坐在椅子上，长长地呼出了一口气\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMefOS7H1OqoaHUeFTdFroyK9Ng8Due6qgPWUUeDBcwR0y8cpiazCr0D4UJeJSgXtkicssqZ1UA7o7QXj2I583yPoPLpL4icKPMqaU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T15:00:49.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925525:2\",\"title\":\"11月17日投资提示：侨银转债已全额兑付\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925525&idx=2&sn=8c88f01d5ed0015ff41f70faa5918740&chksm=81de69a573b0c599fb64822cb0109b04a6898a07aebdf29e5136a5ce1af8ae797bf3b4348357&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMdEoFib984uq7ejkbWKX2a9qMibE1mWuYc23NOoFQlbTJ3eeWiaKaFRvC5t796olL4u45sSe7sjibKlGia09TW5Z8chT4Uvgn6JSNgE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T15:00:49.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925514:1\",\"title\":\"押注四傻：三房、宏图、闻泰、美锦，是否能战胜可转债指数？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925514&idx=1&sn=97b6ef9265b5ba39a1fd0f3fef72c017&chksm=817c7e910d97be35378a8f6269c6e484dfbbc72975d19a14967e67d3f353cda6817c182f0474&scene=126&sessionid=1795076180#rd\",\"description\":\"全仓押注四傻：三房、宏图、闻泰、美锦，是否能战胜可转债指数？等比例持仓四傻，一年后是否跑赢转债指数，拭目以待！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMdLBicBbXysWOxIejJRsLVztS2Bic4OGuxKZ0oGfNCichBLvIvgXDZDw2Z85ce7JamB8ABOSyBlfVSKaIXq3DNsNS4jKVZpSMlNibA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T14:25:59.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925514:2\",\"title\":\"16日投资提示：侨银转债存在无法按期兑付本息的重大风险\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925514&idx=2&sn=86f43bab3b6270faba70124081506c1e&chksm=81d6e69ca5d5fbc6b4170de8af4b27664509456a33f97404caad553e1bd861325148329ae601&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMejXicyzO29iaAO8a0Pyv5NyryyFOZuEu4752BbDh4duHV71l4zsDlfzHvrJ0LepHWylESfHtto5eptaIp2eBUXh9R1besuIvliaU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T14:25:59.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925507:1\",\"title\":\"复刻桥水中国全天候策略\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925507&idx=1&sn=446eed6d05b4c0a11bf724ea5315f427&chksm=81b25c004f89eae62384613d199d8eab10488ca04cba7d91d9db854732c47b8cee4818d7ba2d&scene=126&sessionid=1795076180#rd\",\"description\":\"有点标题党，实际上并不是试图复刻桥水中国的全天候，桥水中国的全天候关注的是经济增长、通胀相对市场预期的变化，这\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMezGRVo51nE1OCqAztHQkic7Dx27Xf2FPAmOZ6YIg9icCibXCLYP6TyPm6PqaiadNZ3dN9FwJpPIFaqDaf5QPiadZTBqTuGhSibPD9To%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T14:39:36.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925507:2\",\"title\":\"本周热点：假如滚IC是开一家工厂\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925507&idx=2&sn=153a5c9e360a3e5b5972c9672338c61e&chksm=8178e0d1bf535170c14612d5131448bc8f1560b7e167b6bd9c499c8094723832f17790148df7&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMcicQU6QmZ7Kw5whM0BAPwNvWrTqp6ibnn2pWLpRERmoetqOm7qbQl290DqaGpiayQiaQWIzWdF6Ggyotbj18rHfOhvvmKiaDaeVjdk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T14:39:36.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925486:1\",\"title\":\"我们痛苦的根源是因为对生活失去掌控感？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925486&idx=1&sn=1b228329a13b43aa05c9925c004bf768&chksm=81fb58ed2b3c5c0cf01de434af8812251f44aeafa173e1704cbcacdda0ed2626d544eae38d59&scene=126&sessionid=1795076180#rd\",\"description\":\"最近我突然对股票提不起劲，连研究到半夜那种劲儿都没了。\\n\\n以前能盯盘到凌晨，现在看着就烦。说白了，散户在股市里太被动了。公司经营你左右不了，走势你也改变不了。就像接客的，客人来不来、什么时候来、来的是谁，全不知道。这种完全被拿捏的感觉，谁能喜欢得起来？\\n\\n其实不光炒股，打工、躺平、跟父母疏远，根子都在这——人发现自己决定不了什么，又不想被人安排。\\n\\n但换个赛道就能解决吗？未必。去当老板照样被客户、房租、平台规则拿捏。普通人手里能攥住的，也就三样：压低固定开销、摊子别铺太大、把重复杂事甩出去。\\n\\n说到底，工资和消费能力不等于真正的权力。一个人再会干活，也只是把自己的工时卖个好价钱。真正能翻盘的，是在机器之外攒下自己的小圈子——有客户、有订单、有靠谱合作的人。\\n\\n没有组织的个人只能讨价还价，能组织起来的人才有资格定规矩。\",\"content\":\"<p>最近我突然对股票提不起劲，连研究到半夜那种劲儿都没了。<br /><br />以前能盯盘到凌晨，现在看着就烦。说白了，散户在股市里太被动了。公司经营你左右不了，走势你也改变不了。就像接客的，客人来不来、什么时候来、来的是谁，全不知道。这种完全被拿捏的感觉，谁能喜欢得起来？<br /><br />其实不光炒股，打工、躺平、跟父母疏远，根子都在这——人发现自己决定不了什么，又不想被人安排。<br /><br />但换个赛道就能解决吗？未必。去当老板照样被客户、房租、平台规则拿捏。普通人手里能攥住的，也就三样：压低固定开销、摊子别铺太大、把重复杂事甩出去。<br /><br />说到底，工资和消费能力不等于真正的权力。一个人再会干活，也只是把自己的工时卖个好价钱。真正能翻盘的，是在机器之外攒下自己的小圈子——有客户、有订单、有靠谱合作的人。<br /><br />没有组织的个人只能讨价还价，能组织起来的人才有资格定规矩。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMdic7y0Gs7ReQSP8UebZ1d0gLgBQiazwER9ibV57keYgTmhHkVR3Bh0kyRVH1uH5GjLFoS8pgKibuYqcZN04J3PtzumKBS4ZibMiazeM%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMdic7y0Gs7ReQSP8UebZ1d0gLgBQiazwER9ibV57keYgTmhHkVR3Bh0kyRVH1uH5GjLFoS8pgKibuYqcZN04J3PtzumKBS4ZibMiazeM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMdic7y0Gs7ReQSP8UebZ1d0gLgBQiazwER9ibV57keYgTmhHkVR3Bh0kyRVH1uH5GjLFoS8pgKibuYqcZN04J3PtzumKBS4ZibMiazeM%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-12T14:15:10.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925464:1\",\"title\":\"投资与子女教育都需要长期主义\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925464&idx=1&sn=96d1c963a5e0630301f7b38b534ae137&chksm=81fe52b6065520cc17a4efbb532f3dfd6ea4d4b3cd1977ae3f537dc053b1dc406971c17f466f&scene=126&sessionid=1795076180#rd\",\"description\":\"投资和考试，真挺像的——都怕上杠杆，也都不适合死磕。\\n\\n投资一把梭容易崩心态，学习也一样。把睡眠时间全拿来刷题，短期分可能高，长期扛不住。碰上厌学、身体垮了、抑郁，直接就塌了。\\n\\n所以教育得找合适的集体。花八成力进普通985当中游，比挤进清北垫底强。清北每年也有10%拿不到毕业证，硬挤进去吊车尾，不如稳一点。\\n\\n孩子智商一般，读书不是唯一路。早点搞体育、音乐、美术，在学校成绩差也不至于毁自信。反过来，孩子真聪明、一学就会，那就别拦着，让他靠好成绩形成正向循环。\\n\\n评论区吵翻了。有人吐槽“普通985”说得太轻巧，河北考生六十万，进985得排前一万。也有人拿自家孩子举例：中考103名，没去更强的四中，选了本校重点班。高中掉到一百多名，但人开心、没近视，这就够了。\\n\\n最扎心的是这句：子女教育不像投资，做错了还能重来，孩子不会给你第二次机会。\",\"content\":\"<p>投资和考试，真挺像的——都怕上杠杆，也都不适合死磕。<br /><br />投资一把梭容易崩心态，学习也一样。把睡眠时间全拿来刷题，短期分可能高，长期扛不住。碰上厌学、身体垮了、抑郁，直接就塌了。<br /><br />所以教育得找合适的集体。花八成力进普通985当中游，比挤进清北垫底强。清北每年也有10%拿不到毕业证，硬挤进去吊车尾，不如稳一点。<br /><br />孩子智商一般，读书不是唯一路。早点搞体育、音乐、美术，在学校成绩差也不至于毁自信。反过来，孩子真聪明、一学就会，那就别拦着，让他靠好成绩形成正向循环。<br /><br />评论区吵翻了。有人吐槽“普通985”说得太轻巧，河北考生六十万，进985得排前一万。也有人拿自家孩子举例：中考103名，没去更强的四中，选了本校重点班。高中掉到一百多名，但人开心、没近视，这就够了。<br /><br />最扎心的是这句：子女教育不像投资，做错了还能重来，孩子不会给你第二次机会。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMficS0a9PECG3LSDh9HMvf5QphnVZiaVCVqjpLXkboXKq8SESlpEeHiaeGUWhEJBWHazia9zpRSGqF0MWicPbJ9Z5777hYkf3bsJP04%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMficS0a9PECG3LSDh9HMvf5QphnVZiaVCVqjpLXkboXKq8SESlpEeHiaeGUWhEJBWHazia9zpRSGqF0MWicPbJ9Z5777hYkf3bsJP04%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMficS0a9PECG3LSDh9HMvf5QphnVZiaVCVqjpLXkboXKq8SESlpEeHiaeGUWhEJBWHazia9zpRSGqF0MWicPbJ9Z5777hYkf3bsJP04%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-12T14:15:10.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925481:1\",\"title\":\"我们痛苦的根源是因为对生活失去掌控感？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925481&idx=1&sn=ae551a1e3ee8928cdc679ae503ec3385&chksm=81e5e32a479282bcf6fdb53252f244fad6c7801dd2a5ff59c20670bd22b394086ab35c19562b&scene=126&sessionid=1795076180#rd\",\"description\":\"现代社会的结症，应该就是——“失权”，也就是失去了对生产、生活甚至的掌握感。想了很多，不知道从何说起。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMdaoVnrgf7OZ10PLsXa7CLVbIHsK8ZY7hy1Uha8HkhEtcofxOkChSA152ciadIm1ibWmVujph8DlGGlBouM39FzL47Lzd59vdoEY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T14:09:23.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925481:2\",\"title\":\"11月13日投资提示：佩蒂转债不下修\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925481&idx=2&sn=4f4f1036381168a2f30dceb51dfbac99&chksm=81e4870c8e67d774e3edf8b6658853625d627bab4737054229d0f2e4b7c10d5443d6daa08965&scene=126&sessionid=1795076180#rd\",\"description\":\"科博达：董事长提议回购1.5亿至2.5亿元股份用于员工股权激励佩蒂转债：不下修强力转债：【最后交易日】佐力转债\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMdJ2GMrYBAdDoSbKnFJFteFOOWDDsnrldUJSiciauKRo2zH7NFVV1pputiaDu9K0kUD8la6jAXLSaDM8yoIgLeqYSBVYopiaXCm54E%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T14:09:23.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925474:2\",\"title\":\"12日投资提示：丰山转债，隆22转债，宏图转债提议下修\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925474&idx=2&sn=936a959a210a09039e2a47a2c57aead8&chksm=819c1d4bdbaa0b52e0a78316d04a72e6771e57c04f4465ca254bf064d201d176a0e546ff31f3&scene=126&sessionid=1795076180#rd\",\"description\":\"丰山转债，隆22转债，宏图转债：提议下修航亚转债，润禾转02：不下修百龙转债：11月16日发行航亚转债：11月\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMd7eukVSQOR0BEbwicahBuG2pIdZsIicCBr7icohWeZH17ZIMjGrYkvhIohAXzJX5JRXbsPAVsJf9LVJPJwEPuiaEGtXI67W0icIic4M%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T14:19:05.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925459:1\",\"title\":\"投资与子女教育都需要长期主义\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925459&idx=1&sn=530951505b98f770b03a43fb1b7fecae&chksm=81cd3065e268a85c8bd24b81b27bee452b7d0ae71996a4b0d33d61e546fc3c5d655ae04253c1&scene=126&sessionid=1795076180#rd\",\"description\":\"投资和考试，我感觉有些相通的地方。1、投资all in容易心态失衡，分散投资走的更远。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMfnAKuI2wJeJGYdfSE6uoIRk21TOG4hVM9uLjqsKkzArDCiakIIuXST0f7LjRgFuGCQw0GoPSGqJQpxtYZ7hibduZ1oLnDC62CRI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T14:05:08.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925459:2\",\"title\":\"11日投资提示：*ST三房控股股东股份将被司法拍卖\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925459&idx=2&sn=302bb6541d406aef00c7c960ca5524bf&chksm=81a666f700c0f6ea504d74d352e252cc661180acf94fcbbf4deea035c459186b03475f7bf0b8&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMevxMR7bNmA3ClYkbYK5Fosg1e6MMSmWpAgEicbNfeSITN6Cx7FvaxnPUmbXJG6DbSvm96QrOGUVUkT5E2DeHTziciaNnRXFZucGQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T14:05:08.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925447:1\",\"title\":\"事到如今，最对不起的就是家人\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925447&idx=1&sn=22a9898e011201708931619877ebb55d&chksm=814bbf636241e6a0a83c8298050acf728d2c791fa8c888128b44c7aabf43ade9af2aeec9752b&scene=126&sessionid=1795076180#rd\",\"description\":\"我想现阶段的我是不太适合做股票或者期货的了。接触股票十多年大概是没有挣钱的。期货接触了三年赔了八万多。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMeqCqLdxraM9GaKGajJLqwn9FVIIS9qMR378WVtiaicEibcxaSgjLQ83Ssoe6yTNyBskb3QsgsFDGWlPnyibe4rzb9EXp7eGNhibwVY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T14:26:56.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925447:2\",\"title\":\"11月10日投资提示：康医转债提议下修\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925447&idx=2&sn=5bddc99fe6d65068eb581e946dbf8023&chksm=818a2c462342ecf9b3f2f18863ffaa29b73b329dbe632ac271dda321f803005a8a3de4701f5d&scene=126&sessionid=1795076180#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMdLwL4icsMvicowrToZpHMXLR6yVCvW264vyQQUSAD5VVw5CpwPk3PgDUGTzztVMIteoKfGibAoYE3zN7icZSYibouFmicGFCmQMcYbI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T14:26:56.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925440:1\",\"title\":\"2000年开盘买入三大门户，现在结局如何了？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925440&idx=1&sn=a9d798bffec0dd206d883a46f07ca06a&chksm=81e481a43586b056efffc0eeeb7a24b178487502db49d8206368eb41fc22de2f00e87f4a0806&scene=126&sessionid=1795076180#rd\",\"description\":\"新浪、搜狐、网易这三家门户网站都是2000年在纳斯达克上市的，随后互联网泡沫破灭，三家公司的股票都跌得挺惨，最\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F1cwAlbjgbMfYeibjjm5kiaTicp2RE5691Fjd2icOj8KJYt5uf1gqSFFmSe64l9iaf7Mlia0HYHy4JOpQic9XKCOs6Zytwf7nv1apzcgs7p3DlfpiaoU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T14:33:59.000Z\"},{\"id\":\"wxmp:MzAwNzA0MTkxOQ%3D%3D:2664925440:2\",\"title\":\"11月9日投资提示：盛德转债提议下修\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNzA0MTkxOQ==&mid=2664925440&idx=2&sn=ed17f7c8af5b9e9df1070a5ddb9a5c54&chksm=8136015ec63bc0a806dee8d46eb9a57dc216d845772743b06838d5b32f6d549aefb557039b3a&scene=126&sessionid=1795076180#rd\",\"description\":\"盛德转债：提议下修华懋转债：不强赎永东转2，韵达转债：不下修关注集思录微信特别提示本文不构成任何投资建议，仅为\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F1cwAlbjgbMc9NKLMqlicYOz9blDjicRaicdMshB1rmicIx8vRxH9yTaDRfqh7FylwL6mFTMOvDrtLJYmLbfHnsD73yFRQRTK7or4pqnW6FjLHvs%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-08T14:33:59.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1640,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 1,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 1633
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1640,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1640,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1640,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1640,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1640,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 1625
+        }
+      ]
+    }
+  }
+}

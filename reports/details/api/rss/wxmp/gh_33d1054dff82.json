@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:15:26.259Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_33d1054dff82",
+    "name": "RainSec",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_33d1054dff82.json",
+    "duration_ms": 2076
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 2055
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_33d1054dff82",
+      "params": {
+        "account": "gh_33d1054dff82"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 2048,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 9,
+        "duration_ms": 2036,
+        "timings": {
+          "response_ms": 1852,
+          "body_read_ms": 183,
+          "decode_and_transfer_ms": 1
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_33d1054dff82\",\"title\":\"RainSec\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486073&idx=1&sn=7a00eac24f6b5f606b78f17d2967cd86&chksm=ce7cd23f529d23ea42d27d7cc927610ccd78f4caeab40074e64e51fd871f8bf371e212580cc0&scene=126&sessionid=1795076130#rd\",\"description\":\"致力于云原生安全和自动化渗透测试的研究与分享\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"RainSec\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM490OoXtCBU7dLHuRRicd5KGqtN5uibCqh4eicMUA7puEHbg%2F0\",\"updated\":\"2026-06-06T06:28:49.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486073:1\",\"title\":\"RainSec在AI智能渗透测试方向的实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486073&idx=1&sn=7a00eac24f6b5f606b78f17d2967cd86&chksm=ce7cd23f529d23ea42d27d7cc927610ccd78f4caeab40074e64e51fd871f8bf371e212580cc0&scene=126&sessionid=1795076130#rd\",\"description\":\"渗透测试AGI企业内测启动：先看一份90天成绩单过去90天，我们让 RainSec 红队AGI 持续跑在真实授\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FyfJDHhXGrzXibCC6XIMQJCX0feh6FovOBGSBFW4DPZ7RKGaDjDM2RDZQAicgWnatLenHUIXmE2GQicDCQr6b2mzRWEf4vx7IibT60mKqCDichgSk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-06T06:28:49.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486066:1\",\"title\":\"炒冷饭之FastJson\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486066&idx=1&sn=25021413b4ca3be4037ea3819ff12bdc&chksm=ce3a503af71c339d515c2f996dc5f41862d2e8c8d4c103782c5e0a59f4b368e2a78fd399489b&scene=126&sessionid=1795076130#rd\",\"description\":\"FastJson炒一炒冷饭\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLxlshmzkAkYMJLZfRpF2nt8Fhqk5n225w3ibNFANyM9nNQHBGlCPqPyEKWhv3fAUycOwXLsMI8xBncAWIJic9mCQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-03-19T05:47:54.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486061:1\",\"title\":\"Firefly-SRC资产探测平台新版更新\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486061&idx=1&sn=c8b9c5b6b773ff1782be53a3d940e903&chksm=ce372d79c62cd6c1a3343d8a3abd43d2eb4a509d40db7ac9b1e2ba9103c87a858e96cdac235f&scene=126&sessionid=1795076130#rd\",\"description\":\"更新速览增加收藏查询条件功能增加消息推送功能增加添加公司功能增加公益列表首页优化网站列表页优化调整积分功能查\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0z2k3m16wCMQCWyMyMUqFXIzM1dUiaCM8CGiaEl8ryO0ru1TLBqy2nDD1bFVY2iamnAzoiaIk3nCaGFDYMrptQVDRg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-05T01:50:24.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486059:1\",\"title\":\"图数据库在攻击链路场景下利用的可行性\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486059&idx=1&sn=5c712dec829c9bcb9f21e215e2ac0858&chksm=ce0c70216ff0e2cc668fa57198f880bbb9dde943e2deb3bfc9c606307db5fa02a995ccff329c&scene=126&sessionid=1795076130#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLxlshmzkAkZibI4ibWDC9GgC6OOoBvtichc9Qic6SjsMd8P6HOO0G6WCynfRKuglJIPaSkYA5bPx4nzzicghKloZKicQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-07-22T04:09:52.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486045:1\",\"title\":\"Firefly-SRC资产探测平台新版测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486045&idx=1&sn=4bb6e0bd1018da76af746fbb64755321&chksm=cee7c0c0d89c52a507c50eb17f655f36a2b17f3b999ec192e7f86f0e8256e4e27f5140c756eb&scene=126&sessionid=1795076130#rd\",\"description\":\"先回复下师傅们的问题，虽然前端没什么变化，但平台一直在更新，由于精力问题，日常主要是更新及优化后端的任务调度\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0z2k3m16wCNKhcORwBFia9px7nqzXuU098aR3d0mUS9WrGSVNObW4xGNMqIXsQibic6Kia7abTekynrsjjcC4qSlfQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-05-24T02:54:12.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486043:1\",\"title\":\"Linux kernel memory Debug之初识内核对象的创建和释放\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486043&idx=1&sn=d57dca2e13c34d2b7c98e0d431602d35&chksm=ce78ae65706b9505db4115d2baf676243ebb2076579b0f6467aaa048a7971b606f71fb87d88b&scene=126&sessionid=1795076130#rd\",\"description\":\"内核对象分配释放机制和调试方法的研究\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLxlshmzkAkYqLlFTcD9pcrpiazeUJVr58oTIvezeEaWaIbKZ3rKUcvtolaX6qZ2taXkoibiadOZibzOn0FA9Ziawdcg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-04-19T02:07:17.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486028:1\",\"title\":\"CTF之ContainerEscape\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486028&idx=1&sn=5f30970a81e990fe5a71228cec1cd403&chksm=ce5e7fe5c082aecfcb68fc551ce99193a012602b6df8288aa66207b18a8067d4f47bbe58b1d5&scene=126&sessionid=1795076130#rd\",\"description\":\"从CTF题目中学习容器逃逸\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLxlshmzkAkbwBmibTpZKwBr8DLCsib5J6IDnXKLL5Z5YPTveRSGOAjzmuIKZoyib5EQkDo3jIUu1jsbRHG5Sqxh8g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-09T02:06:11.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486018:1\",\"title\":\"OpenWRT中的Flash简析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486018&idx=1&sn=d1a2a1bccb2376cb7197423f8ebb788a&chksm=ce25604e999dc660b6811e26c81e311bee787a94c49cd14005113d79a99b7147ebd4f37ad350&scene=126&sessionid=1795076130#rd\",\"description\":\"OpenWRT中的Flash简析\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLxlshmzkAkY9lp68ylVUJKcvLJrAUNNotYx31c9MQ3mQib8uNf8NY5lUDiaorvkYEPhnHzAlico0FMBX3QTNwnDlQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-31T06:19:46.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247486017:1\",\"title\":\"Go逆向研究\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486017&idx=1&sn=023e93d8527763ca706d16bfc3107390&chksm=ce7f6a349306f5faf817401c1c3c123cd3ffc51ebe8cbbdde4180280701e0e9bd3445c2cbb7d&scene=126&sessionid=1795076130#rd\",\"description\":\"Go逆向研究\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLxlshmzkAkY9lp68ylVUJKcvLJrAUNNobrsPhOmHV0BloclXOPiczyckRlApIIUHwfr55UqgBvo2KRyBib9e32Jw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-23T08:17:47.000Z\"},{\"id\":\"wxmp:Mzg3NzczOTA3OQ%3D%3D:2247485993:1\",\"title\":\"angr symbion\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247485993&idx=1&sn=4a51741b90bbf107c5892bdd4e5e833b&chksm=ceb6277d8cfbd2e2499014af55e0b175321bcb132201f40b5bffcf1ad2f7cb5e91624984b95a&scene=126&sessionid=1795076130#rd\",\"description\":\"angr symbion\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLxlshmzkAkZpGOgeJQicThickxpGIS4wQT2SoSm2QmCZpNIA1KPVibxlRZAERzM1GbYbjfCNPicxibNsQWXZ3nqKnIw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-17T08:00:07.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 2048,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 2041
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 2047,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2047,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 2047,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 2048,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 2048,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 2036
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:15:45.102Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_2a62a67bb642",
+    "name": "干杯Security",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_2a62a67bb642.json",
+    "duration_ms": 1394
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 3576
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_2a62a67bb642",
+      "params": {
+        "account": "gh_2a62a67bb642"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 3568,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":3,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 10,
+        "duration_ms": 3556,
+        "timings": {
+          "response_ms": 2200,
+          "body_read_ms": 1356,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_2a62a67bb642\",\"title\":\"干杯Security\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MDM3NjcxMg==&mid=2247483792&idx=1&sn=7d44b626a088271b747180bff97ffd7c&chksm=c3db02b304838139560e4f4b3794613b95068d545ddbb2b0a6c38d4e4a8a0237e9a7382a982a&scene=126&sessionid=1795076149#rd\",\"description\":\"Hacking Every Day。Happy Every Day。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"干杯Security\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6M7vRwT8bWOFDpGco2Qs1t4IS6HqeQLSia5d7hv0gyyoA%2F0\",\"updated\":\"2025-06-11T01:56:15.000Z\",\"items\":[{\"id\":\"wxmp:Mzk0MDM3NjcxMg%3D%3D:2247483792:1\",\"title\":\"从Sleep Mask到Beacon Gate看现代EDR规避技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MDM3NjcxMg==&mid=2247483792&idx=1&sn=7d44b626a088271b747180bff97ffd7c&chksm=c3db02b304838139560e4f4b3794613b95068d545ddbb2b0a6c38d4e4a8a0237e9a7382a982a&scene=126&sessionid=1795076149#rd\",\"description\":\"好久没写文章了，开始今年的第一篇，顺便吐槽下，公众号这个排版真难用啊\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ffz2w0o92Q2RIVURdIHcEKD7HrsYy4IOjQhdxRmEINg1iaEkccbdqgpYOWglvRCeib6NBXicAC0tO02meFibsECN8sA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-11T01:56:15.000Z\"},{\"id\":\"wxmp:Mzk0MDM3NjcxMg%3D%3D:2247483740:1\",\"title\":\"OnlyOffice低版本漏洞复现与分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MDM3NjcxMg==&mid=2247483740&idx=1&sn=56f93770972dc6fcce3147d0bd3d62d2&chksm=c3ecfaf12aeb2a5b9d0879ffa093b0144cd909035f6a1895a1f119b2e184eb069fbec074b655&scene=126&sessionid=1795076149#rd\",\"description\":\"前言：OnlyOffice 远程RCE&命令执行\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ffz2w0o92Q2TPdhjxicIQmS95a7DAQC3CxHiacSejDAySpzF6rd7SXnygiaXiaknCvY2UE6mqsI7eJDgPI6fbmLVpoQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-08T17:15:35.000Z\"},{\"id\":\"wxmp:Mzk0MDM3NjcxMg%3D%3D:2247483668:1\",\"title\":\"Defense Evasion(防御规避)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzk0MDM3NjcxMg==&mid=2247483668&idx=1&sn=c310157df4f9f3e335f42200895df62d&chksm=c389b51713fc59cb01c02955ab63a01f12b22d388a56765641f1064796f45ed2b9e2d86b8105&scene=126&sessionid=1795076149#rd\",\"description\":\"终端对抗向的技巧型文章。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ffz2w0o92Q2T7esBWe1vpZuK6oZq4NzXGwPJZHV20FqQs13WKgfWicms6KWyGc2h863SvlL1YwYribcO7uQzUVBcA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-11-07T07:59:46.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 3568,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 3560
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 3567,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 3567,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 3567,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 3568,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 3568,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 3557
+        }
+      ]
+    }
+  }
+}

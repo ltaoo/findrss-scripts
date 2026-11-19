@@ -1,0 +1,169 @@
+{
+  "checked_at": "2026-11-19T08:14:22.576Z",
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_12f3517e40de",
+    "name": "阿里云应急响应",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_12f3517e40de.json",
+    "duration_ms": 1002
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1069
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/wxmp.js",
+      "name": "微信公众号",
+      "kind": "rss",
+      "version": "1.2.0",
+      "path": "/wxmp/:account?",
+      "request_path": "/api/rss/wxmp/:account?",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/wxmp/gh_12f3517e40de",
+      "params": {
+        "account": "gh_12f3517e40de"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1062,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
+        "method": "POST",
+        "host": "dhub.funzm.com",
+        "pathname": "/api/wxmp/biz/msg/list",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": [
+            "authorization"
+          ]
+        },
+        "started_ms": 9,
+        "duration_ms": 1050,
+        "timings": {
+          "response_ms": 1047,
+          "body_read_ms": 2,
+          "decode_and_transfer_ms": 1
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_12f3517e40de\",\"title\":\"阿里云应急响应\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486425&idx=1&sn=a79b346d585971698fe43b28fba843aa&chksm=ed06642a7d584f64d7e54e844631495e0c6c89b868092b5931f5e090f4fd05f8f99813a63fa6&scene=126&sessionid=1795076066#rd\",\"description\":\"为云上客户提供精准的漏洞风险通告。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"阿里云应急响应\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6lMm6RibrkojOiaO9bZzL9FNJJI0hFUMtTevmzHg6Lpxgg%2F0\",\"updated\":\"2026-11-18T01:39:55.000Z\",\"items\":[{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486425:1\",\"title\":\"OpenJDK Java4Shell Base64解码远程代码执行漏洞（CVE-2026-114938）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486425&idx=1&sn=a79b346d585971698fe43b28fba843aa&chksm=ed06642a7d584f64d7e54e844631495e0c6c89b868092b5931f5e090f4fd05f8f99813a63fa6&scene=126&sessionid=1795076066#rd\",\"description\":\"2026年11月18日，阿里云安全监测到 CVE-2026-114938 OpenJDK Java4Shell Base64解码远程代码执行漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FMZs4aE44Gy49ksyu0Cy1ctvE2UxaI3mYD3FZCvAVCia15tjyhqO5flnIEmb5ia4ichWeniacKeAhPn2ibcDjlVicF5CBg7ibia8uDfnkGJQCDrZ9wqs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T01:39:55.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486420:1\",\"title\":\"OpenSSH <10.6p2 musl libc 认证绕过漏洞（CVE-2026-123158）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486420&idx=1&sn=f294caf49436ea3cb34cdb76ed973fba&chksm=ed11c7cc0b35d99e57f0418698d8776545173c0e5bcd39097a1f1e42ebed6d3fa5fa638afa9e&scene=126&sessionid=1795076066#rd\",\"description\":\"2026年11月5日，阿里云安全监测到 OpenSSH官方披露 OpenSSH <10.6p2 musl libc 认证绕过漏洞（CVE-2026-123158）\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FMZs4aE44Gy6JMHFEy8YYgq8E5ia2u5bxb9fkEPIMazafeQcMET3xfC6nYAJgVp3twdiad8MMv1tND4ibL5ICY6H8TFdE2Vk0R8Lb1DPaMyaJgA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T03:58:10.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486415:1\",\"title\":\"PHP 远程代码执行漏洞通告（CVE-2026-109618 / CVE-2026-109619）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486415&idx=1&sn=fff5a6636806122f20fb95f7072d5f7b&chksm=ed476ec5cc5ae39dd350b153dcdbfbf0e67430b25ded9f9b8a5583029b6cf66fbe3e1c43cd3f&scene=126&sessionid=1795076066#rd\",\"description\":\"2026 年 10 月21日，阿里云安全监测到 PHP 官方披露两个PHP远程代码执行漏洞，编号分别为 CVE-2026-109618 和 CVE-2026-109619，代号为 php2shell\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FMZs4aE44Gy4ic69Df00Bib1DbqxzNYZpajFbszYAC5E4j5QjibM566F3L3aXKORua2grhmgtoiaibBiaFGiabMRwP3H67evtzSvqwH4ibN7HORY7mdI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T16:23:11.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486406:1\",\"title\":\"云上安全态势报告-2026年1月\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486406&idx=1&sn=f6d2e9210e33eab4fbcb8e31d13aee41&chksm=ed935314deed77a9f29e5b087e18d298f7337487981cc74f33dd576a99769ca16db4f702def4&scene=126&sessionid=1795076066#rd\",\"description\":\"云上安全态势报告-2026年1月\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FMZs4aE44Gy5ibqwQsiaUPU4dohsTvpy8GsMkvVQ2VZq3nV3TJWOhia40egDc5H5QhQbntZJ0nHtiaurwC6pRYpyVRu5ASaic9VibTBicDL0BjgbdQQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-11T10:08:25.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486395:1\",\"title\":\"云上安全态势报告-2025年12月\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486395&idx=1&sn=795c556703cf84d206867b39239411f6&chksm=ed8a5e90053cf5cda5830522811266a31e32a47ac2d5991624e5d7a8b709f26c3be134d3d2d5&scene=126&sessionid=1795076066#rd\",\"description\":\"云上安全态势报告-2025年12月\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfwNqC4xHXIqQNf2HM8SIyRWibnOYAhZFWEvO6biahQdTIgYLQMibZTE24BxqtMRsrRzgQOibHShGpUR8ukwfmx9vYw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-14T09:52:03.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486388:1\",\"title\":\"云上安全态势报告-2025年11月\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486388&idx=1&sn=7ba6f647a15d5992df1eab7b74c05d3d&chksm=edfbf2c262dc26ebff3901eb5fe5899f2533e2a4f344024857cd2ea99fa6833d5d3489207f84&scene=126&sessionid=1795076066#rd\",\"description\":\"一、平台攻防态势1. 云平台默认防御水位默认防御是阿里云平台默认提供的基础防御能力，可基于海量云安全威胁情报，\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfwNqC4xHXIqpxaGeq0gTiaTqib0ZicibKzxOx6AGshiaDXDX5bF9ZXgXQXwHl36qGfZ8QXdx4FMiatK3ibcmKbLzrXg7Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-15T10:03:59.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486381:1\",\"title\":\"React框架被曝最高危险等级漏洞，阿里云一键防护指南速览\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486381&idx=1&sn=153787d6906454c70ba0dc3252123d7c&chksm=ed3348337b0efd9a5ba22f166be1fb7abacbb7ef36ecb5ec96799a3b3bd6bd651b0c33bee19f&scene=126&sessionid=1795076066#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfwNqC4xHXIoicxrJNTDFx7Bhm2uqTx4IyHTzv55VGy7IdllqfRIic41jDZoGBnAcPzmAFKG1e0fd11ocGW5mRDNQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-04T10:29:29.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486375:1\",\"title\":\"云上安全态势报告-2025年10月\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486375&idx=1&sn=779aeaeda53052642cc51cb19aaf647f&chksm=edba237234212cbc56d89c2c980780ffcd666746b50728e41b1ea3c450314fadd0b490bf55be&scene=126&sessionid=1795076066#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfwNqC4xHXIqFCEF54w5BicdctaAhfibCTkHrD7WyNvtuD19UPUjpQ6pwhicnr39YkyUwX7U9QTo22IQvYnQHcTBxw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-12T09:05:10.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486366:1\",\"title\":\"Apache Tomcat 条件竞争文件上传漏洞（CVE-2024-50379）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486366&idx=1&sn=ccc57cb3f6086c4fc9b47ac935f996d7&chksm=eda6f1bab2b84e3d9b17504f2b975a5b265b2ad7d7f46f895dc0767d95e4c08eb0a34a646d97&scene=126&sessionid=1795076066#rd\",\"description\":\"2024年12月，Apache 官方披露 CVE-2024-50379 Apache Tomcat 条件竞争文件上传漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfwNqC4xHXIoTe4Sj7Dic9awCuwzBPgr4quVrW5X7MBJ4cXSFAvSzI8gx7SNy9qlpZY2PI6I7QicLQzeOehkkILRA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-18T06:51:17.000Z\"},{\"id\":\"wxmp:MzI5MzY2MzM0Mw%3D%3D:2247486362:1\",\"title\":\"Apache Struts FileUploadInterceptor 目录遍历与文件上传漏洞（CVE-2024-53677）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&mid=2247486362&idx=1&sn=7817b14339852f25f402164121d84609&chksm=ed6032179eedf16182ba733c11691e52cea881133009e4df720b111000bb1a11017274eb728e&scene=126&sessionid=1795076066#rd\",\"description\":\"2024年12月，Apache 官方披露 CVE-2024-53677 Apache Struts FileUploadInterceptor 文件上传漏洞。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfwNqC4xHXIqqpVcWUpn5cGaZnSoc3BZfwkU4LSupKUVMSllMqFHCUcGKK4O5T2UZcRw3frrm9MxkibwOMZ5IZww%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-12T06:10:47.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1062,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 1055
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1061,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1061,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1061,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1062,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1062,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 1050
+        }
+      ]
+    }
+  }
+}

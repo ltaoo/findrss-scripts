@@ -1,0 +1,253 @@
+{
+  "checked_at": "2026-11-19T08:16:23.086Z",
+  "inspection": {
+    "file": "rss/x.js",
+    "path": "/api/rss/x/:username",
+    "example": "/api/rss/x/CleoAbram",
+    "name": "Cleo Abram",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/x/CleoAbram.json",
+    "duration_ms": 1213
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1310
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/x.js",
+      "name": "X 用户作品",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/x/:username",
+      "request_path": "/api/rss/x/:username",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/x/CleoAbram",
+      "params": {
+        "username": "CleoAbram"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1248,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":21,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://x.com/CleoAbram",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/CleoAbram",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 10,
+        "duration_ms": 423,
+        "timings": {
+          "response_ms": 296,
+          "body_read_ms": 123,
+          "decode_and_transfer_ms": 4
+        }
+      },
+      {
+        "url": "https://abs.twimg.com/responsive-web/client-web/main.991e72a0623973cfa.js",
+        "method": "GET",
+        "host": "abs.twimg.com",
+        "pathname": "/responsive-web/client-web/main.991e72a0623973cfa.js",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 448,
+        "duration_ms": 109,
+        "timings": {
+          "response_ms": 33,
+          "body_read_ms": 64,
+          "decode_and_transfer_ms": 12
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName?variables=%7B%22screen_name%22%3A%22CleoAbram%22%2C%22withSafetyModeUserFields%22%3Atrue%7D&features=%7B%22hidden_profile_subscriptions_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22subscriptions_verification_info_is_identity_verified_enabled%22%3Afalse%2C%22subscriptions_verification_info_verified_since_enabled%22%3Afalse%2C%22highlights_tweets_tab_ui_enabled%22%3Afalse%2C%22responsive_web_twitter_article_notes_tab_enabled%22%3Afalse%2C%22subscriptions_feature_can_gift_premium%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withAuxiliaryUserLabels%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 573,
+        "duration_ms": 200,
+        "timings": {
+          "response_ms": 200,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets?variables=%7B%22userId%22%3A%22423576379%22%2C%22count%22%3A20%2C%22includePromotedContent%22%3Afalse%2C%22withQuickPromoteEligibilityTweetFields%22%3Atrue%2C%22withVoice%22%3Atrue%7D&features=%7B%22rweb_video_screen_enabled%22%3Atrue%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_enhance_cards_enabled%22%3Afalse%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 791,
+        "duration_ms": 445,
+        "timings": {
+          "response_ms": 403,
+          "body_read_ms": 40,
+          "decode_and_transfer_ms": 2
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"x:user:423576379\",\"title\":\"Cleo Abram 的 X 作品\",\"link\":\"https://x.com/CleoAbram\",\"description\":\"Video journalist making optimistic science and tech explainers. HUGE* If True. Watch: https://t.co/EI32Qgtigc\",\"language\":\"\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"tags\":[\"X\"]},\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/CleoAbram\"},\"image\":\"https://pbs.twimg.com/profile_images/1478893133714833409/AqK_kkIx_normal.jpg\",\"updated\":\"2026-11-18T18:13:02.000Z\",\"items\":[{\"id\":\"x:tweet:2123117293278515252\",\"title\":\"How far away is the farthest thing humans have ever made? Now, one light day! https://t.co/weZ9b7sbNA\",\"link\":\"https://x.com/cleoabram/status/2123117293278515252\",\"description\":\"How far away is the farthest thing humans have ever made? Now, one light day! https://t.co/weZ9b7sbNA\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2123115046616039424/img/6RJ96jxjBcLOqf_D.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2123115046616039424/vid/avc1/2160x3840/7iOJd7ICnuF_oQZw.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-18T18:13:02.000Z\"},{\"id\":\"x:tweet:2122728653343588544\",\"title\":\"The biggest asteroid that ever hit Earth. https://t.co/829BnmjGWh\",\"link\":\"https://x.com/cleoabram/status/2122728653343588544\",\"description\":\"The biggest asteroid that ever hit Earth. https://t.co/829BnmjGWh\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2122727937661108224/img/nDTqlJH63uJtoHJk.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2122727937661108224/vid/avc1/2160x3840/umzC-VUXs-CIoPYz.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-17T16:28:44.000Z\"},{\"id\":\"x:tweet:2122010493883748567\",\"title\":\"Saturn’s rings are disappearing… https://t.co/oLMi8LlXJ0\",\"link\":\"https://x.com/cleoabram/status/2122010493883748567\",\"description\":\"Saturn’s rings are disappearing… https://t.co/oLMi8LlXJ0\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2122008731047120896/img/F3_CIXFJqSG2_2LD.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2122008731047120896/vid/avc1/2160x3840/GTbjHQs3JVsfuVSU.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-15T16:55:01.000Z\"},{\"id\":\"x:tweet:2121635025204531671\",\"title\":\"There’s something weird inside Mars… https://t.co/oyhQmheeOe\",\"link\":\"https://x.com/cleoabram/status/2121635025204531671\",\"description\":\"There’s something weird inside Mars… https://t.co/oyhQmheeOe\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2121634390417571841/img/ri4ffK1dUpCD7faM.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2121634390417571841/vid/avc1/2160x3840/6PwyMif2tS3C1d43.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-14T16:03:02.000Z\"},{\"id\":\"x:tweet:2121322882722598922\",\"title\":\"How quiet are the world’s quietest rooms? https://t.co/jBY2AQuKNh\",\"link\":\"https://x.com/cleoabram/status/2121322882722598922\",\"description\":\"How quiet are the world’s quietest rooms? https://t.co/jBY2AQuKNh\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2121320236750184448/img/eiU9DDPtqVRy1uT_.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2121320236750184448/vid/avc1/2160x3840/O70hy3nd0q_iis2W.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-13T19:22:42.000Z\"},{\"id\":\"x:tweet:2120510938269004164\",\"title\":\"RT @ZReitano: Have listened and learned from @patrick_oshag and his guests for years. When I decided to do this conversation, I went straig…\",\"link\":\"https://x.com/cleoabram/status/2120510938269004164\",\"description\":\"RT @ZReitano: Have listened and learned from @patrick_oshag and his guests for years. When I decided to do this conversation, I went straig…\",\"kind\":\"repost\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"published\":\"2026-11-11T13:36:19.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2120504361079935461\",\"link\":\"https://x.com/ZReitano/status/2120504361079935461\",\"item\":{\"id\":\"x:tweet:2120504361079935461\",\"title\":\"Have listened and learned from @patrick_oshag and his guests for years. When I decided to do this conversation, I went straight to him. Hope you enjoy it.\",\"link\":\"https://x.com/ZReitano/status/2120504361079935461\",\"description\":\"Have listened and learned from @patrick_oshag and his guests for years. When I decided to do this conversation, I went straight to him. Hope you enjoy it. \\n\\nStill just the beginning!\",\"kind\":\"quote\",\"author\":{\"name\":\"Z Reitano\",\"uri\":\"https://x.com/ZReitano\"},\"published\":\"2026-11-11T13:10:11.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2120501799123591271\",\"link\":\"https://x.com/patrick_oshag/status/2120501799123591271\",\"item\":{\"id\":\"x:tweet:2120501799123591271\",\"title\":\"My conversation with Zach Reitano (@ZReitano), co-founder and CEO of Ro\",\"link\":\"https://x.com/patrick_oshag/status/2120501799123591271\",\"description\":\"My conversation with Zach Reitano (@ZReitano), co-founder and CEO of Ro\\n\\nIn four years he took Ro from a $250M run rate to over $3B, with about a third fewer people\\n\\nZach rarely does long conversations like this, so it was fun to talk about the details of what that took and everything happening in healthcare\\n\\nPlus, his answer to the closing question is amazing\\n\\nWe discuss:\\n- the state of the US healthcare system\\n- refounding Ro\\n- strong attract, strong repel culture\\n- the notion of jobs over lives\\n- the power of celebrities in marketing\\n- the importance of tailwinds (AI, GLP-1s)\\n- trying to recreate his dad in software\\n\\nEnjoy!\\n\\nTIMESTAMPS\\n0:34 How Much Should We Spend on Health\\n4:59 The Patient Is Not the Customer\\n10:24 Inside Ro's Business\\n18:28 The Future of GLP-1s\\n25:46 Jobs Over Lives\\n30:02 The Turnaround\\n47:43 Where Healthcare Goes Next\\n1:00:27 Recreating His Dad in Software\\n1:06:33 Marketing Into Stigma\\n1:19:06 Zach's Hottest Take\\n1:20:58 The Kindest Thing\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120486815211646976/img/Lw-cq8Fgr6R4trsU.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Patrick OShaughnessy\",\"uri\":\"https://x.com/patrick_oshag\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120486815211646976/vid/avc1/1920x1080/esACHTLEf6_sa1t5.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T13:00:00.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:2120501799123591271\",\"link\":\"https://x.com/patrick_oshag/status/2120501799123591271\",\"item\":{\"id\":\"x:tweet:2120501799123591271\",\"title\":\"My conversation with Zach Reitano (@ZReitano), co-founder and CEO of Ro\",\"link\":\"https://x.com/patrick_oshag/status/2120501799123591271\",\"description\":\"My conversation with Zach Reitano (@ZReitano), co-founder and CEO of Ro\\n\\nIn four years he took Ro from a $250M run rate to over $3B, with about a third fewer people\\n\\nZach rarely does long conversations like this, so it was fun to talk about the details of what that took and everything happening in healthcare\\n\\nPlus, his answer to the closing question is amazing\\n\\nWe discuss:\\n- the state of the US healthcare system\\n- refounding Ro\\n- strong attract, strong repel culture\\n- the notion of jobs over lives\\n- the power of celebrities in marketing\\n- the importance of tailwinds (AI, GLP-1s)\\n- trying to recreate his dad in software\\n\\nEnjoy!\\n\\nTIMESTAMPS\\n0:34 How Much Should We Spend on Health\\n4:59 The Patient Is Not the Customer\\n10:24 Inside Ro's Business\\n18:28 The Future of GLP-1s\\n25:46 Jobs Over Lives\\n30:02 The Turnaround\\n47:43 Where Healthcare Goes Next\\n1:00:27 Recreating His Dad in Software\\n1:06:33 Marketing Into Stigma\\n1:19:06 Zach's Hottest Take\\n1:20:58 The Kindest Thing\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120486815211646976/img/Lw-cq8Fgr6R4trsU.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Patrick OShaughnessy\",\"uri\":\"https://x.com/patrick_oshag\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120486815211646976/vid/avc1/1920x1080/esACHTLEf6_sa1t5.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-11T13:00:00.000Z\"}}]},{\"id\":\"x:tweet:2120244182904090783\",\"title\":\"They might drill into King Tut’s tomb… https://t.co/NdhfXXel2y\",\"link\":\"https://x.com/cleoabram/status/2120244182904090783\",\"description\":\"They might drill into King Tut’s tomb… https://t.co/NdhfXXel2y\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2120242996272656385/img/owMW7GJgY7NIa19W.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2120242996272656385/vid/avc1/2160x3840/amAAes1ZE_awMTsv.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-10T19:56:20.000Z\"},{\"id\":\"x:tweet:2119444227083870609\",\"title\":\"Earth is eating its own history… but Venus can help. https://t.co/VAtgB1acZR\",\"link\":\"https://x.com/cleoabram/status/2119444227083870609\",\"description\":\"Earth is eating its own history… but Venus can help. https://t.co/VAtgB1acZR\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2119439314492813312/img/oMWfmUTCJZbX46qz.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2119439314492813312/vid/avc1/2160x3840/bRZAmxrY-7I9zgpK.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-08T14:57:35.000Z\"},{\"id\":\"x:tweet:2118757036733120632\",\"title\":\"This huge machine can detect dark matter... https://t.co/w1Slasd2lW\",\"link\":\"https://x.com/cleoabram/status/2118757036733120632\",\"description\":\"This huge machine can detect dark matter... https://t.co/w1Slasd2lW\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2118756621505511424/img/_wn44bqsLvG6q0cq.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2118756621505511424/vid/avc1/2160x3840/1aj0qDlBtRN8pl8j.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-06T17:26:56.000Z\"},{\"id\":\"x:tweet:2118443281982063043\",\"title\":\"These four people just spent over a year in total isolation in a Mars simulation… https://t.co/tWS4qlnE75\",\"link\":\"https://x.com/cleoabram/status/2118443281982063043\",\"description\":\"These four people just spent over a year in total isolation in a Mars simulation… https://t.co/tWS4qlnE75\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2118442840116056064/img/-OJbem1CK5CFWU6Q.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2118442840116056064/vid/avc1/2160x3840/MTfXKEhlTy2LQb1E.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-05T20:40:11.000Z\"},{\"id\":\"x:tweet:2117702332792389987\",\"title\":\"When I first heard about brain chips, I thought, \\\"they're going to read my thoughts!\\\"\",\"link\":\"https://x.com/cleoabram/status/2117702332792389987\",\"description\":\"When I first heard about brain chips, I thought, \\\"they're going to read my thoughts!\\\" \\n\\nBut that's not how this tech actually works, at least not yet. What they're actually doing is reading your intention to move. \\n\\nThey say it feels like using The Force... \\n\\nHere's how a brain computer interface today works:\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117683259706368000/img/OFGRxk-rbT1UsTnv.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117683259706368000/vid/avc1/3840x2160/Mv8TusxUKrr-y-ho.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-03T19:35:55.000Z\"},{\"id\":\"x:tweet:2117694706922451205\",\"title\":\"Your map shows Antarctica wrong. https://t.co/R6NN20KdcU\",\"link\":\"https://x.com/cleoabram/status/2117694706922451205\",\"description\":\"Your map shows Antarctica wrong. https://t.co/R6NN20KdcU\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117693472471711744/img/yXAQvj-K_9TTf3Ak.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117693472471711744/vid/avc1/2160x3840/WqQgIDetn44kvMJ1.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-03T19:05:37.000Z\"},{\"id\":\"x:tweet:2117683150201438325\",\"title\":\"This is @neuralink's brain chip: the N1 Implant. They call it “The Link”.\",\"link\":\"https://x.com/cleoabram/status/2117683150201438325\",\"description\":\"This is @neuralink's brain chip: the N1 Implant. They call it “The Link”. \\n\\nI got to see it up close to understand how it works and how the Neuralink team designed a brand new surgical robot to implant it... https://t.co/euAoEsvDZi\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117682434623836160/img/15YXNGLelx1U4y_3.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117682434623836160/vid/avc1/3840x2160/uMurNq_m7oHQ2zHo.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-03T18:19:42.000Z\"},{\"id\":\"x:tweet:2117333306736009636\",\"title\":\"The sun is… jiggling? https://t.co/lsfd45TCph\",\"link\":\"https://x.com/cleoabram/status/2117333306736009636\",\"description\":\"The sun is… jiggling? https://t.co/lsfd45TCph\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2117332550527967232/img/FNvAH6Rv8yW7MkSU.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2117332550527967232/vid/avc1/2160x3840/GBO7UpI-Pum3mUjs.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-11-02T19:09:33.000Z\"},{\"id\":\"x:tweet:2116934206383325453\",\"title\":\"RT @TrungTPhan: Neuralink built a surgical robot (R1) that uses a needle thinner than human hair to implant chip with 1,024 electrodes (64…\",\"link\":\"https://x.com/cleoabram/status/2116934206383325453\",\"description\":\"RT @TrungTPhan: Neuralink built a surgical robot (R1) that uses a needle thinner than human hair to implant chip with 1,024 electrodes (64…\",\"kind\":\"repost\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"published\":\"2026-11-01T16:43:40.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2116653812610134353\",\"link\":\"https://x.com/TrungTPhan/status/2116653812610134353\",\"item\":{\"id\":\"x:tweet:2116653812610134353\",\"title\":\"Neuralink built a surgical robot (R1) that uses a needle thinner than human hair to implant chip with 1,024 electrodes (64 threads x 16 electrodes each) onto the brain. Takes 1.5 seconds a thread to insert. Camera maps the brain and sensors ensure the threads don’t hit tiny blood vessels. Incredible.\",\"link\":\"https://x.com/TrungTPhan/status/2116653812610134353\",\"description\":\"Neuralink built a surgical robot (R1) that uses a needle thinner than human hair to implant chip with 1,024 electrodes (64 threads x 16 electrodes each) onto the brain. Takes 1.5 seconds a thread to insert. Camera maps the brain and sensors ensure the threads don’t hit tiny blood vessels. Incredible.\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116653735820845056/img/-zX7Kvq4qOT7iryk.jpg\",\"kind\":\"quote\",\"author\":{\"name\":\"Trung Phan\",\"uri\":\"https://x.com/TrungTPhan\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116653735820845056/vid/avc1/1320x730/w7e3zo_FcZ6PX2uH.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T22:09:29.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]},{\"id\":\"x:tweet:2116689656515276984\",\"title\":\"RT @PairedWith_P7: Perfect explanation of what my Neuralink implant does!\",\"link\":\"https://x.com/cleoabram/status/2116689656515276984\",\"description\":\"RT @PairedWith_P7: Perfect explanation of what my Neuralink implant does!\\n\\nTo think I was the 7th person in the world this was performed on…\",\"kind\":\"repost\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"published\":\"2026-11-01T00:31:54.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2116638023681225102\",\"link\":\"https://x.com/PairedWith_P7/status/2116638023681225102\",\"item\":{\"id\":\"x:tweet:2116638023681225102\",\"title\":\"Perfect explanation of what my Neuralink implant does!\",\"link\":\"https://x.com/PairedWith_P7/status/2116638023681225102\",\"description\":\"Perfect explanation of what my Neuralink implant does!\\n\\nTo think I was the 7th person in the world this was performed on is still mind blowing to me. Beep boop 🤖\",\"kind\":\"quote\",\"author\":{\"name\":\"Jake Schneider\",\"uri\":\"https://x.com/PairedWith_P7\"},\"published\":\"2026-10-31T21:06:44.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]},{\"id\":\"x:tweet:2116684661371933001\",\"title\":\"RT @djseo: Excellent video by Cleo and her team. They are truly at the top of their craft.\",\"link\":\"https://x.com/cleoabram/status/2116684661371933001\",\"description\":\"RT @djseo: Excellent video by Cleo and her team. They are truly at the top of their craft.\",\"kind\":\"repost\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"published\":\"2026-11-01T00:12:04.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2116645405563977851\",\"link\":\"https://x.com/djseo/status/2116645405563977851\",\"item\":{\"id\":\"x:tweet:2116645405563977851\",\"title\":\"Excellent video by Cleo and her team. They are truly at the top of their craft.\",\"link\":\"https://x.com/djseo/status/2116645405563977851\",\"description\":\"Excellent video by Cleo and her team. They are truly at the top of their craft.\",\"kind\":\"quote\",\"author\":{\"name\":\"DJ Seo\",\"uri\":\"https://x.com/djseo\"},\"published\":\"2026-10-31T21:36:04.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]},{\"id\":\"x:tweet:2116627007161221419\",\"title\":\"RT @elonmusk: Neuralink deep dive\",\"link\":\"https://x.com/cleoabram/status/2116627007161221419\",\"description\":\"RT @elonmusk: Neuralink deep dive\",\"kind\":\"repost\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"published\":\"2026-10-31T20:22:58.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2116614579136635120\",\"link\":\"https://x.com/elonmusk/status/2116614579136635120\",\"item\":{\"id\":\"x:tweet:2116614579136635120\",\"title\":\"Neuralink deep dive\",\"link\":\"https://x.com/elonmusk/status/2116614579136635120\",\"description\":\"Neuralink deep dive\",\"kind\":\"quote\",\"author\":{\"name\":\"Elon Musk\",\"uri\":\"https://x.com/elonmusk\"},\"published\":\"2026-10-31T19:33:35.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]},{\"id\":\"x:tweet:2116612986202976368\",\"title\":\"RT @astrodanish: Probably the best “intro to BCI” video out there.\",\"link\":\"https://x.com/cleoabram/status/2116612986202976368\",\"description\":\"RT @astrodanish: Probably the best “intro to BCI” video out there.\\n\\nIf you’re curious about the field, watching this is the place to start!\",\"kind\":\"repost\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"published\":\"2026-10-31T19:27:15.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:2116611320321552674\",\"link\":\"https://x.com/astrodanish/status/2116611320321552674\",\"item\":{\"id\":\"x:tweet:2116611320321552674\",\"title\":\"Probably the best “intro to BCI” video out there.\",\"link\":\"https://x.com/astrodanish/status/2116611320321552674\",\"description\":\"Probably the best “intro to BCI” video out there.\\n\\nIf you’re curious about the field, watching this is the place to start!\",\"kind\":\"quote\",\"author\":{\"name\":\"Danish Hussain\",\"uri\":\"https://x.com/astrodanish\"},\"published\":\"2026-10-31T19:20:38.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:2116587096651505814\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"item\":{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"}}]},{\"id\":\"x:tweet:2116587096651505814\",\"title\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\",\"link\":\"https://x.com/cleoabram/status/2116587096651505814\",\"description\":\"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces\\n\\nI toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... \\n\\n00:00 What if you put a chip in your brain?\\n01:02 What does a human brain feel like?\\n02:17 How does your brain work?\\n03:58 Can a brain computer interface read your thoughts?\\n05:19 How do you get a chip into your brain?\\n08:07 What’s inside Neuralink’s implant?\\n10:06 How do you build a brain implant?\\n11:07 How does robot do brain surgery?\\n12:20 What could you do with a brain chip?\\n15:05 How are brain computer interfaces already being used today?\\n16:07 How are brain chips huge if true?\",\"image\":\"https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"enclosure\":{\"url\":\"https://video.twimg.com/amplify_video/2116583027560124418/vid/avc1/3840x2160/w1kY1BrMenmTz7yb.mp4?tag=29\",\"type\":\"video/mp4\"},\"published\":\"2026-10-31T17:44:22.000Z\"},{\"id\":\"x:tweet:1480545944018079747\",\"title\":\"Big professional news: After 5 years at Vox, I’m going independent!\",\"link\":\"https://x.com/cleoabram/status/1480545944018079747\",\"description\":\"Big professional news: After 5 years at Vox, I’m going independent!\\n\\nI’m launching my own show on YouTube + TikTok. Journalistically rigorous, genuinely optimistic explainers about tech that could change our future.\\n\\nIntroducing… Huge If True 🧵 https://t.co/VwlyXx0UgW https://t.co/EK8obHrGL0\",\"image\":\"https://pbs.twimg.com/media/FIvw38_XMAkx18X.jpg\",\"images\":[\"https://pbs.twimg.com/media/FIvw38_XMAkx18X.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Cleo Abram\",\"uri\":\"https://x.com/cleoabram\"},\"published\":\"2022-01-10T14:23:54.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1248,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 6,
+          "duration_ms": 1241
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1247,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1247,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1248,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1248,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1248,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 9,
+          "duration_ms": 424
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 448,
+          "duration_ms": 109
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 573,
+          "duration_ms": 200
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 791,
+          "duration_ms": 445
+        }
+      ]
+    }
+  }
+}

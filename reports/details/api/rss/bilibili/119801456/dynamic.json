@@ -1,0 +1,182 @@
+{
+  "checked_at": "2026-11-19T08:13:11.082Z",
+  "inspection": {
+    "file": "rss/bilibili.js",
+    "path": "/api/rss/bilibili/:userid/dynamic",
+    "example": "/api/rss/bilibili/119801456/dynamic",
+    "name": "老蒋巨靠谱",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/bilibili/119801456/dynamic.json",
+    "duration_ms": 833
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 535
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/bilibili.js",
+      "name": "哔哩哔哩用户动态",
+      "kind": "rss",
+      "version": "1.1.2",
+      "path": "/bilibili/:userid/dynamic",
+      "request_path": "/api/rss/bilibili/:userid/dynamic",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/bilibili/119801456/dynamic",
+      "params": {
+        "userid": "119801456"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 528,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "B 站动态分页 {\"has_more\":true,\"offset\":\"1248887223126851641\"}"
+      },
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid=119801456&timezone_offset=-480&features=itemOpusStyle",
+        "method": "GET",
+        "host": "api.bilibili.com",
+        "pathname": "/x/polymer/web-dynamic/v1/feed/space",
+        "status": 200,
+        "transport": "tcp",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 11,
+        "duration_ms": 511,
+        "timings": {
+          "connect_ms": 85,
+          "send_ms": 0,
+          "wait_headers_ms": 343,
+          "receive_body_ms": 82,
+          "decompress_ms": 0,
+          "response_ms": 510,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 1
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"bilibili:dynamic:channel:119801456\",\"title\":\"老蒋巨靠谱 的 B 站动态\",\"link\":\"https://space.bilibili.com/119801456/dynamic\",\"description\":\"UP 主 119801456 的最新动态\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.bilibili.com/\"},\"tags\":[\"哔哩哔哩\"]},\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"image\":\"https://i2.hdslb.com/bfs/face/57550946b06a4a9c24a70a1b7159c25ad7bdf383.jpg\",\"updated\":\"2026-11-11T04:45:20.000Z\",\"items\":[{\"id\":\"bilibili:dynamic:1269308521312157733\",\"title\":\"字节拿大结果，你拿大红果\",\"link\":\"https://t.bilibili.com/1269308521312157733\",\"description\":\"字节拿大结果，你拿大红果\",\"content\":\"<p>字节拿大结果，你拿大红果</p><p><a href=\\\"https://www.bilibili.com/video/BV1HhWL66EFM\\\">查看原文</a></p>\",\"image\":\"http://i2.hdslb.com/bfs/archive/351d52a1f87164aca299b2cc3d7fe3fcd2366354.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-11-11T04:45:20.000Z\"},{\"id\":\"bilibili:dynamic:1265555132195536918\",\"title\":\"【9月热点锐评】转转舆情 | HYROX喷射战士 | 4岁男童“摸臀门”| 刘欢\",\"link\":\"https://t.bilibili.com/1265555132195536918\",\"description\":\"【9月热点锐评】转转舆情 | HYROX喷射战士 | 4岁男童“摸臀门”| 刘欢\",\"content\":\"<p>【9月热点锐评】转转舆情 | HYROX喷射战士 | 4岁男童“摸臀门”| 刘欢</p><p><a href=\\\"https://www.bilibili.com/video/BV1hfxn6CEE7\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/2536f1b93063f1eb54b4d9a308fd3178dda3e603.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-11-01T02:00:16.000Z\"},{\"id\":\"bilibili:dynamic:1264221540574036022\",\"title\":\"赖声川：舞台明明是假的，为什么我们还会被打动？【乌镇十日谈视频播客特辑】\",\"link\":\"https://t.bilibili.com/1264221540574036022\",\"description\":\"赖声川：舞台明明是假的，为什么我们还会被打动？【乌镇十日谈视频播客特辑】\",\"content\":\"<p>赖声川：舞台明明是假的，为什么我们还会被打动？【乌镇十日谈视频播客特辑】</p><p><a href=\\\"https://www.bilibili.com/video/BV13GxE6ME6n\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/939855ed17e09d029b55a62f8fa3ee0549b6c6a4.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-10-28T11:45:15.000Z\"},{\"id\":\"bilibili:dynamic:1262827510136045568\",\"title\":\"看了评论区，大半夜给我看高兴了，由视频展开的各种理念、自身情绪的投射、还有时代的共鸣混杂在一起，这就是我心中好的对话具备的多义性\\n\\n虽然我能力有我的局限，时常感到挫败，但我爱人类和这个世界\\n\\n转发 @\",\"link\":\"https://t.bilibili.com/1262827510136045568\",\"description\":\"看了评论区，大半夜给我看高兴了，由视频展开的各种理念、自身情绪的投射、还有时代的共鸣混杂在一起，这就是我心中好的对话具备的多义性\\n\\n虽然我能力有我的局限，时常感到挫败，但我爱人类和这个世界\\n\\n转发 @老蒋巨靠谱：这可能是视频播客史上首个把跨越400天的3次采访缝成一期视频发出来的，不过也因此意外实现了某种神奇的效果\\n\\n第1次对话：2025.08.29\\n第2次对话：2026.09.06\\n第3次对话：2026.10.01\\n\\n(LKs想说：除此以外这还是第一个由嘉宾自己剪的采访视频，甚至不光视频是我剪的，传视频都是我登老蒋的账号传的，太新概念了)\",\"content\":\"<p>看了评论区，大半夜给我看高兴了，由视频展开的各种理念、自身情绪的投射、还有时代的共鸣混杂在一起，这就是我心中好的对话具备的多义性<br><br>虽然我能力有我的局限，时常感到挫败，但我爱人类和这个世界</p><blockquote>转发 @老蒋巨靠谱：这可能是视频播客史上首个把跨越400天的3次采访缝成一期视频发出来的，不过也因此意外实现了某种神奇的效果<br><br>第1次对话：2025.08.29<br>第2次对话：2026.09.06<br>第3次对话：2026.10.01<br><br>(LKs想说：除此以外这还是第一个由嘉宾自己剪的采访视频，甚至不光视频是我剪的，传视频都是我登老蒋的账号传的，太新概念了)</blockquote><p><a href=\\\"https://www.bilibili.com/video/BV1zwnY6kE5p\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/3220d19bc3b1271ca78980ceb2871788dad92649.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_FORWARD\"],\"published\":\"2026-10-24T17:35:42.000Z\"},{\"id\":\"bilibili:dynamic:1262617378827534451\",\"title\":\"LKs：我愿意被一直困在楚门的世界【偏见11】\",\"link\":\"https://t.bilibili.com/1262617378827534451\",\"description\":\"这可能是视频播客史上首个把跨越400天的3次采访缝成一期视频发出来的，不过也因此意外实现了某种神奇的效果\\n\\n第1次对话：2025.08.29\\n第2次对话：2026.09.06\\n第3次对话：2026.10.01\\n\\n(LKs想说：除此以外这还是第一个由嘉宾自己剪的采访视频，甚至不光视频是我剪的，传视频都是我登老蒋的账号传的，太新概念了)\",\"content\":\"<p>这可能是视频播客史上首个把跨越400天的3次采访缝成一期视频发出来的，不过也因此意外实现了某种神奇的效果<br><br>第1次对话：2025.08.29<br>第2次对话：2026.09.06<br>第3次对话：2026.10.01<br><br>(LKs想说：除此以外这还是第一个由嘉宾自己剪的采访视频，甚至不光视频是我剪的，传视频都是我登老蒋的账号传的，太新概念了)</p><p><a href=\\\"https://www.bilibili.com/video/BV1zwnY6kE5p\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/3220d19bc3b1271ca78980ceb2871788dad92649.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-10-24T04:00:17.000Z\"},{\"id\":\"bilibili:dynamic:1261250965044985865\",\"title\":\"人生第一次现场看NBA，圆梦了\",\"link\":\"https://t.bilibili.com/1261250965044985865\",\"description\":\"第一次现场看 NBA。逛了 NBA House，买到了喜欢的周边，还发现了一项在篮球上使用的AI新技术。一个球到底有多难投？一个球员就算没得分，对比赛又有多大贡献？这些以前需要专业知识才能看懂的比赛细节，现在已经可以在屏幕上实时显示了。这次就带大家一起看看，AI 正在怎样改变我们看篮球的方式。喜欢这期节目，记得点赞支持！\",\"content\":\"<p>第一次现场看 NBA。逛了 NBA House，买到了喜欢的周边，还发现了一项在篮球上使用的AI新技术。一个球到底有多难投？一个球员就算没得分，对比赛又有多大贡献？这些以前需要专业知识才能看懂的比赛细节，现在已经可以在屏幕上实时显示了。这次就带大家一起看看，AI 正在怎样改变我们看篮球的方式。喜欢这期节目，记得点赞支持！</p><p><a href=\\\"https://www.bilibili.com/video/BV1PEnP6uEoc\\\">查看原文</a></p>\",\"image\":\"http://i2.hdslb.com/bfs/archive/4dfc5eaeebfb530a702a7678205caa2ef2b71c84.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-10-20T11:37:54.000Z\"},{\"id\":\"bilibili:dynamic:1258305948976414761\",\"title\":\"人过三十，该学会教育父母了\",\"link\":\"https://t.bilibili.com/1258305948976414761\",\"description\":\"人过三十，该学会教育父母了\",\"content\":\"<p>人过三十，该学会教育父母了</p><p><a href=\\\"https://www.bilibili.com/video/BV1hipd6vEif\\\">查看原文</a></p>\",\"image\":\"http://i0.hdslb.com/bfs/archive/5de7b9ed3940d6b2c384725e2e039df9d0652a88.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-10-12T13:09:44.000Z\"},{\"id\":\"bilibili:dynamic:1258135412964065286\",\"title\":\"薄肌能火，比薄肌本身重要得多，我会用个比较个人的角度把一些事儿串起来聊聊\\n\\n另外lks对话视频终于差不多要出了，我们聊了第二次，然后他在剪（他自愿的我拦不住）\",\"link\":\"https://t.bilibili.com/1258135412964065286\",\"description\":\"薄肌能火，比薄肌本身重要得多，我会用个比较个人的角度把一些事儿串起来聊聊\\n\\n另外lks对话视频终于差不多要出了，我们聊了第二次，然后他在剪（他自愿的我拦不住）\",\"content\":\"<p>薄肌能火，比薄肌本身重要得多，我会用个比较个人的角度把一些事儿串起来聊聊<br><br>另外lks对话视频终于差不多要出了，我们聊了第二次，然后他在剪（他自愿的我拦不住）</p><p><a href=\\\"https://www.bilibili.com/opus/1258135412964065286\\\">查看原文</a></p>\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_DRAW\"],\"published\":\"2026-10-12T02:07:58.000Z\"},{\"id\":\"bilibili:dynamic:1254558942187487253\",\"title\":\"奥德赛：希腊神话与现实世界的隐喻【8月书影音】\",\"link\":\"https://t.bilibili.com/1254558942187487253\",\"description\":\"奥德赛：希腊神话与现实世界的隐喻【8月书影音】\",\"content\":\"<p>奥德赛：希腊神话与现实世界的隐喻【8月书影音】</p><p><a href=\\\"https://www.bilibili.com/video/BV1ViaS6yE4b\\\">查看原文</a></p>\",\"image\":\"http://i2.hdslb.com/bfs/archive/081571e50b02009ff18400419d7d89c453912973.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-10-02T10:49:26.000Z\"},{\"id\":\"bilibili:dynamic:1253777464279171089\",\"title\":\"当 Agent 替你做选择，平台要讨好谁?\",\"link\":\"https://t.bilibili.com/1253777464279171089\",\"description\":\"当 Agent 替你做选择，平台要讨好谁?\",\"content\":\"<p>当 Agent 替你做选择，平台要讨好谁?</p><p><a href=\\\"https://www.bilibili.com/video/BV1waaZ6JEd7\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/7d73399744db306c7948023190ae21758054138e.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-09-30T08:16:54.000Z\"},{\"id\":\"bilibili:dynamic:1251628941237551107\",\"title\":\"中秋节礼盒抽奖\",\"link\":\"https://t.bilibili.com/1251628941237551107\",\"description\":\"中秋收到了各个平台和品牌的礼盒，有些好看，有些挺实用的，送给充电的朋友们。\\n\\n一共6份礼盒，抽6个人：\\n\\n【vivo】礼盒 ×1\\n【DJI大疆】礼盒 ×1\\n【影石Insta360】礼盒 ×1\\n【抖音】礼盒 ×1\\n【小红书】礼盒 ×1\\n【阿里巴巴】礼盒 ×1\\n\\n感谢大家这么长时间的支持和包容，中秋快乐。\\n\\n* 礼盒随机寄出，中奖后请于1个月内填写收货地址。\\n\",\"content\":\"<p>中秋收到了各个平台和品牌的礼盒，有些好看，有些挺实用的，送给充电的朋友们。<br><br>一共6份礼盒，抽6个人：<br><br>【vivo】礼盒 ×1<br>【DJI大疆】礼盒 ×1<br>【影石Insta360】礼盒 ×1<br>【抖音】礼盒 ×1<br>【小红书】礼盒 ×1<br>【阿里巴巴】礼盒 ×1<br><br>感谢大家这么长时间的支持和包容，中秋快乐。<br><br>* 礼盒随机寄出，中奖后请于1个月内填写收货地址。<br></p><p><a href=\\\"https://www.bilibili.com/opus/1251628941237551107\\\">查看原文</a></p>\",\"image\":\"http://i0.hdslb.com/bfs/new_dyn/17095ff8164621d3ad43e64908f389de119801456.jpg\",\"images\":[\"http://i0.hdslb.com/bfs/new_dyn/17095ff8164621d3ad43e64908f389de119801456.jpg\",\"http://i0.hdslb.com/bfs/new_dyn/cc8715316055bdf9557000f382b91af9119801456.jpg\",\"http://i0.hdslb.com/bfs/new_dyn/074e5044b98bd960c2a3e23a74056321119801456.jpg\",\"http://i0.hdslb.com/bfs/new_dyn/8189ea947cad61ba2a6674590d8928a1119801456.jpg\",\"http://i0.hdslb.com/bfs/new_dyn/e97e5cf148eb3bb05630f7ce8a3d3a2a119801456.jpg\",\"http://i0.hdslb.com/bfs/new_dyn/62bdad6b12bbb96c89435c6655ef9308119801456.jpg\",\"http://i0.hdslb.com/bfs/new_dyn/2e84d058911804727fdf01b80085742f119801456.jpg\"],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_DRAW\"],\"published\":\"2026-09-24T13:19:32.000Z\"},{\"id\":\"bilibili:dynamic:1248887223126851641\",\"title\":\"【8月热点锐评】孙宇晨能飞 | 牛来 | 仲树采访诺兰 | 婚外胚胎案\",\"link\":\"https://t.bilibili.com/1248887223126851641\",\"description\":\"【8月热点锐评】孙宇晨能飞 | 牛来 | 仲树采访诺兰 | 婚外胚胎案\",\"content\":\"<p>【8月热点锐评】孙宇晨能飞 | 牛来 | 仲树采访诺兰 | 婚外胚胎案</p><p><a href=\\\"https://www.bilibili.com/video/BV13veN6WEqZ\\\">查看原文</a></p>\",\"image\":\"http://i1.hdslb.com/bfs/archive/00530f8848dd31b1a57da66c9b054802589793e3.jpg\",\"images\":[],\"author\":{\"name\":\"老蒋巨靠谱\",\"uri\":\"https://space.bilibili.com/119801456\"},\"categories\":[\"DYNAMIC_TYPE_AV\"],\"published\":\"2026-09-17T04:00:16.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 528,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 1,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 520
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 527,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 527,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 527,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 528,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 528,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 11,
+          "duration_ms": 511
+        }
+      ]
+    }
+  }
+}

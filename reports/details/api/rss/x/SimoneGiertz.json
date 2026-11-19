@@ -1,0 +1,309 @@
+{
+  "checked_at": "2026-11-19T08:16:23.873Z",
+  "inspection": {
+    "file": "rss/x.js",
+    "path": "/api/rss/x/:username",
+    "example": "/api/rss/x/SimoneGiertz",
+    "name": "Simone Giertz",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/x/SimoneGiertz.json",
+    "duration_ms": 1479
+  },
+  "debug_request": {
+    "status": 200,
+    "duration_ms": 1695
+  },
+  "debug": {
+    "status": 200,
+    "code": null,
+    "script": {
+      "file": "rss/x.js",
+      "name": "X 用户作品",
+      "kind": "rss",
+      "version": "1.1.0",
+      "path": "/x/:username",
+      "request_path": "/api/rss/x/:username",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/x/SimoneGiertz",
+      "params": {
+        "username": "SimoneGiertz"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "ok",
+    "elapsed_ms": 1656,
+    "invoked": false,
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
+    "upstream_requests": [
+      {
+        "url": "https://x.com/SimoneGiertz",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/SimoneGiertz",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 10,
+        "duration_ms": 515,
+        "timings": {
+          "response_ms": 132,
+          "body_read_ms": 379,
+          "decode_and_transfer_ms": 4
+        }
+      },
+      {
+        "url": "https://abs.twimg.com/responsive-web/client-web/main.991e72a0623973cfa.js",
+        "method": "GET",
+        "host": "abs.twimg.com",
+        "pathname": "/responsive-web/client-web/main.991e72a0623973cfa.js",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 544,
+        "duration_ms": 83,
+        "timings": {
+          "response_ms": 69,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 13
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName?variables=%7B%22screen_name%22%3A%22SimoneGiertz%22%2C%22withSafetyModeUserFields%22%3Atrue%7D&features=%7B%22hidden_profile_subscriptions_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22subscriptions_verification_info_is_identity_verified_enabled%22%3Afalse%2C%22subscriptions_verification_info_verified_since_enabled%22%3Afalse%2C%22highlights_tweets_tab_ui_enabled%22%3Afalse%2C%22responsive_web_twitter_article_notes_tab_enabled%22%3Afalse%2C%22subscriptions_feature_can_gift_premium%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withAuxiliaryUserLabels%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/AMIBMjtxEEATh4z8V9GtRg/UserByScreenName",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 644,
+        "duration_ms": 141,
+        "timings": {
+          "response_ms": 141,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets?variables=%7B%22userId%22%3A%22897861037%22%2C%22count%22%3A20%2C%22includePromotedContent%22%3Afalse%2C%22withQuickPromoteEligibilityTweetFields%22%3Atrue%2C%22withVoice%22%3Atrue%7D&features=%7B%22rweb_video_screen_enabled%22%3Atrue%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_enhance_cards_enabled%22%3Afalse%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/D6z-FJI2pKuwEeYYxVIGbg/UserTweets",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 802,
+        "duration_ms": 537,
+        "timings": {
+          "response_ms": 492,
+          "body_read_ms": 43,
+          "decode_and_transfer_ms": 2
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/U8lc5aomF5krJzZ9vJ9wxg/TweetResultByRestId?variables=%7B%22tweetId%22%3A%221731733850215358639%22%2C%22withCommunity%22%3Afalse%2C%22includePromotedContent%22%3Afalse%2C%22withVoice%22%3Atrue%7D&features=%7B%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/U8lc5aomF5krJzZ9vJ9wxg/TweetResultByRestId",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 1397,
+        "duration_ms": 133,
+        "timings": {
+          "response_ms": 130,
+          "body_read_ms": 3,
+          "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://x.com/i/api/graphql/U8lc5aomF5krJzZ9vJ9wxg/TweetResultByRestId?variables=%7B%22tweetId%22%3A%221731585241444122937%22%2C%22withCommunity%22%3Afalse%2C%22includePromotedContent%22%3Afalse%2C%22withVoice%22%3Atrue%7D&features=%7B%22creator_subscriptions_tweet_preview_api_enabled%22%3Afalse%2C%22premium_content_api_read_enabled%22%3Afalse%2C%22communities_web_enable_tweet_community_results_fetch%22%3Afalse%2C%22c9s_tweet_anatomy_moderator_badge_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_button_fetch_trends_enabled%22%3Afalse%2C%22responsive_web_grok_analyze_post_followups_enabled%22%3Afalse%2C%22rweb_cashtags_composer_attachment_enabled%22%3Afalse%2C%22responsive_web_jetfuel_frame%22%3Afalse%2C%22rweb_sports_post_context_enabled%22%3Afalse%2C%22x_elections_post_context_enabled%22%3Afalse%2C%22responsive_web_grok_share_attachment_enabled%22%3Afalse%2C%22responsive_web_grok_annotations_enabled%22%3Afalse%2C%22articles_preview_enabled%22%3Afalse%2C%22responsive_web_edit_tweet_api_enabled%22%3Afalse%2C%22rweb_conversational_replies_downvote_enabled%22%3Afalse%2C%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3Afalse%2C%22view_counts_everywhere_api_enabled%22%3Afalse%2C%22longform_notetweets_consumption_enabled%22%3Atrue%2C%22responsive_web_twitter_article_tweet_consumption_enabled%22%3Afalse%2C%22content_disclosure_indicator_enabled%22%3Afalse%2C%22content_disclosure_ai_generated_indicator_enabled%22%3Afalse%2C%22responsive_web_grok_show_grok_translated_post%22%3Afalse%2C%22responsive_web_grok_analysis_button_from_backend%22%3Afalse%2C%22post_ctas_fetch_enabled%22%3Afalse%2C%22rweb_cashtags_enabled%22%3Afalse%2C%22freedom_of_speech_not_reach_fetch_enabled%22%3Afalse%2C%22standardized_nudges_misinfo%22%3Afalse%2C%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3Afalse%2C%22longform_notetweets_rich_text_read_enabled%22%3Afalse%2C%22longform_notetweets_inline_media_enabled%22%3Afalse%2C%22profile_label_improvements_pcf_label_in_post_enabled%22%3Afalse%2C%22responsive_web_profile_redirect_enabled%22%3Afalse%2C%22rweb_tipjar_consumption_enabled%22%3Afalse%2C%22verified_phone_label_enabled%22%3Afalse%2C%22responsive_web_nested_quote_preview_enabled%22%3Afalse%2C%22responsive_web_grok_image_annotation_enabled%22%3Afalse%2C%22responsive_web_grok_imagine_annotation_enabled%22%3Afalse%2C%22responsive_web_made_on_x_label_enabled%22%3Afalse%2C%22responsive_web_grok_community_note_auto_translation_is_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withArticlePlainText%22%3Afalse%7D",
+        "method": "GET",
+        "host": "x.com",
+        "pathname": "/i/api/graphql/U8lc5aomF5krJzZ9vJ9wxg/TweetResultByRestId",
+        "status": 200,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie",
+            "authorization",
+            "x-csrf-token"
+          ]
+        },
+        "started_ms": 1570,
+        "duration_ms": 84,
+        "timings": {
+          "response_ms": 83,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
+        }
+      }
+    ],
+    "output": "{\"kind\":\"rss\",\"id\":\"x:user:897861037\",\"title\":\"Simone Giertz 的 X 作品\",\"link\":\"https://x.com/SimoneGiertz\",\"description\":\"I build things and make videos about it. Business inquiries: lukegirgis@belikechildren.com\",\"language\":\"\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"tags\":[\"X\"]},\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"image\":\"https://pbs.twimg.com/profile_images/820864074577645568/Kr_wKdtf_normal.jpg\",\"updated\":\"2024-10-05T01:09:27.000Z\",\"items\":[{\"id\":\"x:tweet:1842371489204703420\",\"title\":\"Tobin is good with my cat, my small dog (after a slow introduction) and loves every human I’ve ever introduced him to. Will howl a very sad song if left alone, but I’ve started crate training him so that will hopefully help. https://t.co/oEbHwmIxO5\",\"link\":\"https://x.com/SimoneGiertz/status/1842371489204703420\",\"description\":\"Tobin is good with my cat, my small dog (after a slow introduction) and loves every human I’ve ever introduced him to. Will howl a very sad song if left alone, but I’ve started crate training him so that will hopefully help. https://t.co/oEbHwmIxO5\",\"image\":\"https://pbs.twimg.com/media/GZFrA6ZaAAAIOtv.jpg\",\"images\":[\"https://pbs.twimg.com/media/GZFrA6ZaAAAIOtv.jpg\",\"https://pbs.twimg.com/media/GZFrB4DaoAAjEFw.jpg\"],\"kind\":\"reply\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-10-05T01:09:27.000Z\",\"references\":[{\"relation\":\"reply\",\"id\":\"x:tweet:1842371486662926464\",\"link\":\"https://x.com/SimoneGiertz/status/1842371486662926464\",\"item\":{\"id\":\"x:tweet:1842371486662926464\",\"title\":\"Help Tobin find a new home! 🐾\",\"link\":\"https://x.com/SimoneGiertz/status/1842371486662926464\",\"description\":\"Help Tobin find a new home! 🐾\\n\\nI started fostering a 7 year old potato that had lived in the shelter since January. He is the most dignified occasional poop eater that I’ve ever met and deserves the best life. So if you or anyone you know in Los Angeles has too many butt rubs laying around, please consider adopting him!\",\"image\":\"https://pbs.twimg.com/media/GZFosgZbwAAj5Us.jpg\",\"images\":[\"https://pbs.twimg.com/media/GZFosgZbwAAj5Us.jpg\",\"https://pbs.twimg.com/media/GZFosgab0AAY8E9.jpg\",\"https://pbs.twimg.com/media/GZFosgZagAAMqYI.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-10-05T01:09:26.000Z\"}}]},{\"id\":\"x:tweet:1842371486662926464\",\"title\":\"Help Tobin find a new home! 🐾\",\"link\":\"https://x.com/SimoneGiertz/status/1842371486662926464\",\"description\":\"Help Tobin find a new home! 🐾\\n\\nI started fostering a 7 year old potato that had lived in the shelter since January. He is the most dignified occasional poop eater that I’ve ever met and deserves the best life. So if you or anyone you know in Los Angeles has too many butt rubs laying around, please consider adopting him!\",\"image\":\"https://pbs.twimg.com/media/GZFosgZbwAAj5Us.jpg\",\"images\":[\"https://pbs.twimg.com/media/GZFosgZbwAAj5Us.jpg\",\"https://pbs.twimg.com/media/GZFosgab0AAY8E9.jpg\",\"https://pbs.twimg.com/media/GZFosgZagAAMqYI.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-10-05T01:09:26.000Z\"},{\"id\":\"x:tweet:1838905332724023475\",\"title\":\"Watch now on the Discovery channel’s YT! https://t.co/eJYodrdu1H\",\"link\":\"https://x.com/SimoneGiertz/status/1838905332724023475\",\"description\":\"Watch now on the Discovery channel’s YT! https://t.co/eJYodrdu1H\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1838905198560915456/pu/img/a4qzA2kg-C0pmA4D.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1838905198560915456/pu/vid/avc1/1280x720/bDVK7DVMYj_XVilN.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-09-25T11:36:11.000Z\"},{\"id\":\"x:tweet:1838905334833774658\",\"title\":\"Here's the full episode: https://t.co/aE9YCIt5DS\",\"link\":\"https://x.com/SimoneGiertz/status/1838905334833774658\",\"description\":\"Here's the full episode: https://t.co/aE9YCIt5DS\",\"kind\":\"reply\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-09-25T11:36:11.000Z\",\"references\":[{\"relation\":\"reply\",\"id\":\"x:tweet:1838905332724023475\",\"link\":\"https://x.com/SimoneGiertz/status/1838905332724023475\",\"item\":{\"id\":\"x:tweet:1838905332724023475\",\"title\":\"Watch now on the Discovery channel’s YT! https://t.co/eJYodrdu1H\",\"link\":\"https://x.com/SimoneGiertz/status/1838905332724023475\",\"description\":\"Watch now on the Discovery channel’s YT! https://t.co/eJYodrdu1H\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1838905198560915456/pu/img/a4qzA2kg-C0pmA4D.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1838905198560915456/pu/vid/avc1/1280x720/bDVK7DVMYj_XVilN.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-09-25T11:36:11.000Z\"}}]},{\"id\":\"x:tweet:1833754189975224532\",\"title\":\"just an immigrant eating her dog https://t.co/ioCWgOpb6d\",\"link\":\"https://x.com/SimoneGiertz/status/1833754189975224532\",\"description\":\"just an immigrant eating her dog https://t.co/ioCWgOpb6d\",\"image\":\"https://pbs.twimg.com/media/GXLNoX5bgAAIHOf.jpg\",\"images\":[\"https://pbs.twimg.com/media/GXLNoX5bgAAIHOf.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-09-11T06:27:23.000Z\"},{\"id\":\"x:tweet:1831185816120664359\",\"title\":\"https://t.co/CEgiZ3uvKF\",\"link\":\"https://x.com/SimoneGiertz/status/1831185816120664359\",\"description\":\"https://t.co/CEgiZ3uvKF\",\"kind\":\"reply\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-09-04T04:21:35.000Z\",\"references\":[{\"relation\":\"reply\",\"id\":\"x:tweet:1831164140276367608\",\"link\":\"https://x.com/SimoneGiertz/status/1831164140276367608\",\"item\":{\"id\":\"x:tweet:1831164140276367608\",\"title\":\"Watch now on the Discovery channel’s YT! https://t.co/LT000jo5n6\",\"link\":\"https://x.com/SimoneGiertz/status/1831164140276367608\",\"description\":\"Watch now on the Discovery channel’s YT! https://t.co/LT000jo5n6\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1831161068435193856/pu/img/KZYAaOhRJxF3ksy6.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1831161068435193856/pu/vid/avc1/1280x720/5xWBMNTNeFE3INCi.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-09-04T02:55:27.000Z\"}}]},{\"id\":\"x:tweet:1831164140276367608\",\"title\":\"Watch now on the Discovery channel’s YT! https://t.co/LT000jo5n6\",\"link\":\"https://x.com/SimoneGiertz/status/1831164140276367608\",\"description\":\"Watch now on the Discovery channel’s YT! https://t.co/LT000jo5n6\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1831161068435193856/pu/img/KZYAaOhRJxF3ksy6.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1831161068435193856/pu/vid/avc1/1280x720/5xWBMNTNeFE3INCi.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-09-04T02:55:27.000Z\"},{\"id\":\"x:tweet:1823044315184251225\",\"title\":\"https://t.co/umtiHKAgRV\",\"link\":\"https://x.com/SimoneGiertz/status/1823044315184251225\",\"description\":\"https://t.co/umtiHKAgRV\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1823040016341450753/pu/img/lhmmyeotcqUocb3m.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1823040016341450753/pu/vid/avc1/1280x720/H8mWw0UyRm8j4MMf.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-08-12T17:10:09.000Z\"},{\"id\":\"x:tweet:1821589310904385653\",\"title\":\"RT @thephysicsgirl: I tweeted a tweet about Science! I read the article myself, and wrote the tweet myself and posted it myself. 🥹🥹🥹\",\"link\":\"https://x.com/SimoneGiertz/status/1821589310904385653\",\"description\":\"RT @thephysicsgirl: I tweeted a tweet about Science! I read the article myself, and wrote the tweet myself and posted it myself. 🥹🥹🥹 \\n\\nI ha…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-08-08T16:48:29.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1821553192221786548\",\"link\":\"https://x.com/thephysicsgirl/status/1821553192221786548\",\"item\":{\"id\":\"x:tweet:1821553192221786548\",\"title\":\"I tweeted a tweet about Science! I read the article myself, and wrote the tweet myself and posted it myself. 🥹🥹🥹\",\"link\":\"https://x.com/thephysicsgirl/status/1821553192221786548\",\"description\":\"I tweeted a tweet about Science! I read the article myself, and wrote the tweet myself and posted it myself. 🥹🥹🥹 \\n\\nI haven't been able to do anything like that for a year and a half. 😭 \\n\\nIt only took me three days lol. But I did it.\",\"kind\":\"quote\",\"author\":{\"name\":\"Dianna Cowern\",\"uri\":\"https://x.com/thephysicsgirl\"},\"published\":\"2024-08-08T14:24:58.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:1821237066417762379\",\"link\":\"https://x.com/thephysicsgirl/status/1821237066417762379\",\"item\":{\"id\":\"x:tweet:1821237066417762379\",\"title\":\"Why is this cool?? Because it’s one step closer to making a new element - unbinilium - which would be the heaviest element ever synthesized.\",\"link\":\"https://x.com/thephysicsgirl/status/1821237066417762379\",\"description\":\"Why is this cool?? Because it’s one step closer to making a new element - unbinilium - which would be the heaviest element ever synthesized. \\n\\nWhat’s cool? Scientist at Berkeley found a new way to make Livermorium (an element with 116 protons! So, just 4 protons away from Unbinilium) by putting titanium-50 in a cyclotron for 22 days and smashing it into another atom. And with all that energy, they only got out two atoms of Livermorium. 😅 \\n\\nYes, this was tweeted by Dianna!\\n\\nhttps://t.co/P4F1JMrBdu\",\"image\":\"https://pbs.twimg.com/media/GUZVdXUaEAA1ieK.jpg\",\"images\":[\"https://pbs.twimg.com/media/GUZVdXUaEAA1ieK.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Dianna Cowern\",\"uri\":\"https://x.com/thephysicsgirl\"},\"published\":\"2024-08-07T17:28:48.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:1821237066417762379\",\"link\":\"https://x.com/thephysicsgirl/status/1821237066417762379\",\"item\":{\"id\":\"x:tweet:1821237066417762379\",\"title\":\"Why is this cool?? Because it’s one step closer to making a new element - unbinilium - which would be the heaviest element ever synthesized.\",\"link\":\"https://x.com/thephysicsgirl/status/1821237066417762379\",\"description\":\"Why is this cool?? Because it’s one step closer to making a new element - unbinilium - which would be the heaviest element ever synthesized. \\n\\nWhat’s cool? Scientist at Berkeley found a new way to make Livermorium (an element with 116 protons! So, just 4 protons away from Unbinilium) by putting titanium-50 in a cyclotron for 22 days and smashing it into another atom. And with all that energy, they only got out two atoms of Livermorium. 😅 \\n\\nYes, this was tweeted by Dianna!\\n\\nhttps://t.co/P4F1JMrBdu\",\"image\":\"https://pbs.twimg.com/media/GUZVdXUaEAA1ieK.jpg\",\"images\":[\"https://pbs.twimg.com/media/GUZVdXUaEAA1ieK.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Dianna Cowern\",\"uri\":\"https://x.com/thephysicsgirl\"},\"published\":\"2024-08-07T17:28:48.000Z\"}}]},{\"id\":\"x:tweet:1821588752365744351\",\"title\":\"RT @Aeriqui: Finally got to put up my Coat Hinger shelf from @SimoneGiertz and @yetch_store! So glad I Kickstarted this, looks so nice and…\",\"link\":\"https://x.com/SimoneGiertz/status/1821588752365744351\",\"description\":\"RT @Aeriqui: Finally got to put up my Coat Hinger shelf from @SimoneGiertz and @yetch_store! So glad I Kickstarted this, looks so nice and…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-08-08T16:46:16.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1820635658206990769\",\"link\":\"https://x.com/Aeriqui/status/1820635658206990769\",\"item\":{\"id\":\"x:tweet:1820635658206990769\",\"title\":\"Finally got to put up my Coat Hinger shelf from @SimoneGiertz and @yetch_store! So glad I Kickstarted this, looks so nice and saves so much space! https://t.co/UhcXUDgdXL\",\"link\":\"https://x.com/Aeriqui/status/1820635658206990769\",\"description\":\"Finally got to put up my Coat Hinger shelf from @SimoneGiertz and @yetch_store! So glad I Kickstarted this, looks so nice and saves so much space! https://t.co/UhcXUDgdXL\",\"image\":\"https://pbs.twimg.com/media/GUQye5wXkAAzArS.jpg\",\"images\":[\"https://pbs.twimg.com/media/GUQye5wXkAAzArS.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Aeriqui #FREELUD\",\"uri\":\"https://x.com/Aeriqui\"},\"published\":\"2024-08-06T01:39:01.000Z\"}}]},{\"id\":\"x:tweet:1820606848632025514\",\"title\":\"RT @yetch_store: “Believe in yourself”\",\"link\":\"https://x.com/SimoneGiertz/status/1820606848632025514\",\"description\":\"RT @yetch_store: “Believe in yourself”\\n- The Build Dice, before drowning in a tragic canoeing accident https://t.co/MVeaS0V2s6\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1820605136307200000/pu/img/V89Q8O4kHPS8GAQ1.jpg\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1820605136307200000/pu/vid/avc1/720x1280/Rc5BNP_58fJj0aSh.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-08-05T23:44:32.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1820605285029060858\",\"link\":\"https://x.com/yetch_store/status/1820605285029060858\",\"item\":{\"id\":\"x:tweet:1820605285029060858\",\"title\":\"“Believe in yourself”\",\"link\":\"https://x.com/yetch_store/status/1820605285029060858\",\"description\":\"“Believe in yourself”\\n- The Build Dice, before drowning in a tragic canoeing accident https://t.co/MVeaS0V2s6\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1820605136307200000/pu/img/V89Q8O4kHPS8GAQ1.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Yetch Studio\",\"uri\":\"https://x.com/yetch_store\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1820605136307200000/pu/vid/avc1/720x1280/Rc5BNP_58fJj0aSh.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-08-05T23:38:19.000Z\"}}]},{\"id\":\"x:tweet:1818773878141075530\",\"title\":\"RT @TaxPoetic: Honest, insightful video about starting a product business.\",\"link\":\"https://x.com/SimoneGiertz/status/1818773878141075530\",\"description\":\"RT @TaxPoetic: Honest, insightful video about starting a product business.\\n\\nBusiness lessons learned, the hard way - @SimoneGiertz \\nhttps:/…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-07-31T22:20:58.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1818383564246753372\",\"link\":\"https://x.com/TaxPoetic/status/1818383564246753372\",\"item\":{\"id\":\"x:tweet:1818383564246753372\",\"title\":\"Honest, insightful video about starting a product business.\",\"link\":\"https://x.com/TaxPoetic/status/1818383564246753372\",\"description\":\"Honest, insightful video about starting a product business.\\n\\nBusiness lessons learned, the hard way - @SimoneGiertz \\nhttps://t.co/bpYjDUJPSK\",\"kind\":\"post\",\"author\":{\"name\":\"ꜱᴄʜᴇᴅᴜʟᴇ ᴋ-1 ᴘᴏᴘ ᴅᴇᴍᴏɴ ʜᴜɴᴛᴇʀ 🇺🇲🇰🇷🇨🇺\",\"uri\":\"https://x.com/TaxPoetic\"},\"published\":\"2024-07-30T20:30:00.000Z\"}}]},{\"id\":\"x:tweet:1809681027482415290\",\"title\":\"RT @Ologies: Happening now: livestreaming a day in the life of @thephysicsgirl to raise awareness &amp; money for #longcovid and #mecfs researc…\",\"link\":\"https://x.com/SimoneGiertz/status/1809681027482415290\",\"description\":\"RT @Ologies: Happening now: livestreaming a day in the life of @thephysicsgirl to raise awareness &amp; money for #longcovid and #mecfs researc…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-07-06T20:09:13.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1809679593810325945\",\"link\":\"https://x.com/Ologies/status/1809679593810325945\",\"item\":{\"id\":\"x:tweet:1809679593810325945\",\"title\":\"Happening now: livestreaming a day in the life of @thephysicsgirl to raise awareness &amp; money for #longcovid and #mecfs research.\",\"link\":\"https://x.com/Ologies/status/1809679593810325945\",\"description\":\"Happening now: livestreaming a day in the life of @thephysicsgirl to raise awareness &amp; money for #longcovid and #mecfs research. \\n\\nWith @SimoneGiertz @veritasium @nessyhill and more. Streaming now:\",\"kind\":\"quote\",\"author\":{\"name\":\"Ologies is on blooski\",\"uri\":\"https://x.com/Ologies\"},\"published\":\"2024-07-06T20:03:32.000Z\",\"references\":[{\"relation\":\"quote\",\"id\":\"x:tweet:1809630420499386847\",\"link\":\"https://x.com/thephysicsgirl/status/1809630420499386847\",\"item\":{\"id\":\"x:tweet:1809630420499386847\",\"title\":\"Live-streaming now!\",\"link\":\"https://x.com/thephysicsgirl/status/1809630420499386847\",\"description\":\"Live-streaming now!\\n\\nhttps://t.co/16dHSVlPtO\",\"kind\":\"post\",\"author\":{\"name\":\"Dianna Cowern\",\"uri\":\"https://x.com/thephysicsgirl\"},\"published\":\"2024-07-06T16:48:08.000Z\"}}]}},{\"relation\":\"quote\",\"id\":\"x:tweet:1809630420499386847\",\"link\":\"https://x.com/thephysicsgirl/status/1809630420499386847\",\"item\":{\"id\":\"x:tweet:1809630420499386847\",\"title\":\"Live-streaming now!\",\"link\":\"https://x.com/thephysicsgirl/status/1809630420499386847\",\"description\":\"Live-streaming now!\\n\\nhttps://t.co/16dHSVlPtO\",\"kind\":\"post\",\"author\":{\"name\":\"Dianna Cowern\",\"uri\":\"https://x.com/thephysicsgirl\"},\"published\":\"2024-07-06T16:48:08.000Z\"}}]},{\"id\":\"x:tweet:1808194372997112068\",\"title\":\"RT @thephysicsgirl: Physics Girl Livestream, Saturday, July 6th 2024.\",\"link\":\"https://x.com/SimoneGiertz/status/1808194372997112068\",\"description\":\"RT @thephysicsgirl: Physics Girl Livestream, Saturday, July 6th 2024.\\n\\nThis Saturday we will be live-streaming a day in Dianna’s life, show…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-07-02T17:41:47.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1807883427615814043\",\"link\":\"https://x.com/thephysicsgirl/status/1807883427615814043\",\"item\":{\"id\":\"x:tweet:1807883427615814043\",\"title\":\"Physics Girl Livestream, Saturday, July 6th 2024.\",\"link\":\"https://x.com/thephysicsgirl/status/1807883427615814043\",\"description\":\"Physics Girl Livestream, Saturday, July 6th 2024.\\n\\nThis Saturday we will be live-streaming a day in Dianna’s life, showing what it’s like for her suffering from #MECFS and #LongCovid \\nThe Livestream will be viewable on the PhysicsGirl channel on Youtube from 6:45A.M. (PT. Pacific Time) to 6:00P.M. (PT).\\nIt will be co-hosted by Ian Hecox and Simone Giertz, and will include pre-recorded expert interviews and in depth discussions of what Dianna is going through.\\n\\nDianna will not be talking during the Livestream, she will be in bed, mostly awake, but resting all day - as she does everyday. Viewers can learn from the interviews and discussions, hear Kyle, Simone and Ian answer your questions, and of course see Dianna.\\n\\nAll funds will be going to the Open Medicine Foundation (OMF), a non-profit research organization dedicated to finding effective treatments for ME/CFS. (https://t.co/doKcj1vSow)\\n\\nPre-recorded interviews from experts —\\n\\n- Linda Tannenbaum, founder and CEO of the Open Medicine Foundation. Interviewed by Derek Muller from Veritasium.\\n- Dr. David Kaufman, an ME/CFS specialist. Interviewed by Vanessa Hill from BrainCraft.\\n- Dr. Raven Baxter, a science communicator. Interviewed by Kyle Kitzmiller.\\n- Dr. David Putrino, director of Rehabilitation Innovation for Mt. Sinai Health Systems. Interviewed by Kyle Kitzmiller.\\n\\n#MECFS #longcovid\",\"image\":\"https://pbs.twimg.com/media/GRbkZOZb0AYm9CR.jpg\",\"images\":[\"https://pbs.twimg.com/media/GRbkZOZb0AYm9CR.jpg\",\"https://pbs.twimg.com/media/GRbkZOWaYAImP3g.jpg\",\"https://pbs.twimg.com/media/GRbkZOZb0AILN-m.jpg\",\"https://pbs.twimg.com/media/GRbkZOaaYAE-Qk8.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Dianna Cowern\",\"uri\":\"https://x.com/thephysicsgirl\"},\"published\":\"2024-07-01T21:06:12.000Z\"}}]},{\"id\":\"x:tweet:1778493640857563195\",\"title\":\"RT @Refugees: 🎬 Exciting news! Our video series \\\"We Were Here\\\" has been nominated for @TheWebbyAwards !\",\"link\":\"https://x.com/SimoneGiertz/status/1778493640857563195\",\"description\":\"RT @Refugees: 🎬 Exciting news! Our video series \\\"We Were Here\\\" has been nominated for @TheWebbyAwards !\\n\\nSupport the incredible inventors,…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-04-11T18:41:41.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1778462139537100918\",\"link\":\"https://x.com/Refugees/status/1778462139537100918\",\"item\":{\"id\":\"x:tweet:1778462139537100918\",\"title\":\"🎬 Exciting news! Our video series \\\"We Were Here\\\" has been nominated for @TheWebbyAwards !\",\"link\":\"https://x.com/Refugees/status/1778462139537100918\",\"description\":\"🎬 Exciting news! Our video series \\\"We Were Here\\\" has been nominated for @TheWebbyAwards !\\n\\nSupport the incredible inventors, growers and musicians by voting before 18 April: https://t.co/hxJXbxTnRw \\n\\n#Webbys \\n\\n@JaxJones @gazoakleychef @simonegiertz @YouTube @uncommon_studio https://t.co/McBC8pOdOH\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1778462078350598145/pu/img/5zKvVCUbH5KEVh_s.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"UNHCR, the UN Refugee Agency\",\"uri\":\"https://x.com/Refugees\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1778462078350598145/pu/vid/avc1/720x720/cvHOzTo3SuzwmpX9.mp4?tag=12\",\"type\":\"video/mp4\"},\"published\":\"2024-04-11T16:36:30.000Z\"}}]},{\"id\":\"x:tweet:1753228489078214935\",\"title\":\"RT @h313n_0f_t0r: I’ve been using the Every Day Goal Calendar by @SimoneGiertz to help me stay consistent with my goals for this year and I…\",\"link\":\"https://x.com/SimoneGiertz/status/1753228489078214935\",\"description\":\"RT @h313n_0f_t0r: I’ve been using the Every Day Goal Calendar by @SimoneGiertz to help me stay consistent with my goals for this year and I…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-02-02T01:26:59.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1752789274884280381\",\"link\":\"https://x.com/h313n_0f_t0r/status/1752789274884280381\",\"item\":{\"id\":\"x:tweet:1752789274884280381\",\"title\":\"I’ve been using the Every Day Goal Calendar by @SimoneGiertz to help me stay consistent with my goals for this year and I can’t say enough good things about it. I have trouble gauging time and this helps me better see my year as a culmination of individual days. Big fan. 🖤 https://t.co/Kc4EpiU48d\",\"link\":\"https://x.com/h313n_0f_t0r/status/1752789274884280381\",\"description\":\"I’ve been using the Every Day Goal Calendar by @SimoneGiertz to help me stay consistent with my goals for this year and I can’t say enough good things about it. I have trouble gauging time and this helps me better see my year as a culmination of individual days. Big fan. 🖤 https://t.co/Kc4EpiU48d\",\"image\":\"https://pbs.twimg.com/media/GFMojecWMAAnUwV.jpg\",\"images\":[\"https://pbs.twimg.com/media/GFMojecWMAAnUwV.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Helen (of Tor)\",\"uri\":\"https://x.com/h313n_0f_t0r\"},\"published\":\"2024-01-31T20:21:43.000Z\"}}]},{\"id\":\"x:tweet:1747692960517615786\",\"title\":\"let me click that tweet to see what other people are saying about it\",\"link\":\"https://x.com/SimoneGiertz/status/1747692960517615786\",\"description\":\"let me click that tweet to see what other people are saying about it\\n\\nunrelated meme\\nunrelated meme\\nad\\nunrelated meme\\nverified rightwing troll\\nad\\nunrelated meme\",\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-01-17T18:50:47.000Z\"},{\"id\":\"x:tweet:1742393753636405552\",\"title\":\"RT @luckytran: According to the latest CDC COVID-19 wastewater data, we are currently in the second-biggest surge of the pandemic.\",\"link\":\"https://x.com/SimoneGiertz/status/1742393753636405552\",\"description\":\"RT @luckytran: According to the latest CDC COVID-19 wastewater data, we are currently in the second-biggest surge of the pandemic.\\n\\nIt will…\",\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2024-01-03T03:53:37.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1742319364181787110\",\"link\":\"https://x.com/luckytran/status/1742319364181787110\",\"item\":{\"id\":\"x:tweet:1742319364181787110\",\"title\":\"According to the latest CDC COVID-19 wastewater data, we are currently in the second-biggest surge of the pandemic.\",\"link\":\"https://x.com/luckytran/status/1742319364181787110\",\"description\":\"According to the latest CDC COVID-19 wastewater data, we are currently in the second-biggest surge of the pandemic.\\n\\nIt will peak in the next week, with ~2 million infections per day. During this surge, ~100 million people total (~1 in 3 people in the US) will likely get COVID. https://t.co/iMs76YSfIB\",\"image\":\"https://pbs.twimg.com/media/GC30g9AXUAA9xdh.jpg\",\"images\":[\"https://pbs.twimg.com/media/GC30g9AXUAA9xdh.jpg\"],\"kind\":\"post\",\"author\":{\"name\":\"Dr. Lucky Tran\",\"uri\":\"https://x.com/luckytran\"},\"published\":\"2024-01-02T22:58:01.000Z\"}}]},{\"id\":\"x:tweet:1732485562697924654\",\"title\":\"RT @Gigafoxxx: @SimoneGiertz @StaceDiva https://t.co/NVkZEvPngO\",\"link\":\"https://x.com/SimoneGiertz/status/1732485562697924654\",\"description\":\"RT @Gigafoxxx: @SimoneGiertz @StaceDiva https://t.co/NVkZEvPngO\",\"image\":\"https://pbs.twimg.com/media/GAmZvNuW0AEjpLc.png\",\"images\":[\"https://pbs.twimg.com/media/GAmZvNuW0AEjpLc.png\"],\"kind\":\"repost\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2023-12-06T19:42:00.000Z\",\"references\":[{\"relation\":\"repost\",\"id\":\"x:tweet:1732084614116610183\",\"link\":\"https://x.com/oitonarizes/status/1732084614116610183\",\"item\":{\"id\":\"x:tweet:1732084614116610183\",\"title\":\"@SimoneGiertz @StaceDiva https://t.co/NVkZEvPngO\",\"link\":\"https://x.com/oitonarizes/status/1732084614116610183\",\"description\":\"@SimoneGiertz @StaceDiva https://t.co/NVkZEvPngO\",\"image\":\"https://pbs.twimg.com/media/GAmZvNuW0AEjpLc.png\",\"images\":[\"https://pbs.twimg.com/media/GAmZvNuW0AEjpLc.png\"],\"kind\":\"reply\",\"author\":{\"name\":\"World's Richest Fascist™️\",\"uri\":\"https://x.com/oitonarizes\"},\"published\":\"2023-12-05T17:08:47.000Z\",\"references\":[{\"relation\":\"reply\",\"id\":\"x:tweet:1731733850215358639\",\"link\":\"https://x.com/SimoneGiertz/status/1731733850215358639\",\"item\":{\"id\":\"x:tweet:1731733850215358639\",\"title\":\"@StaceDiva They are totally for sale! Just back the Kickstarter campaign: https://t.co/pi8fOH9lCR\",\"link\":\"https://x.com/SimoneGiertz/status/1731733850215358639\",\"description\":\"@StaceDiva They are totally for sale! Just back the Kickstarter campaign: https://t.co/pi8fOH9lCR\",\"kind\":\"reply\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"published\":\"2023-12-04T17:54:58.000Z\",\"references\":[{\"relation\":\"reply\",\"id\":\"x:tweet:1731585241444122937\",\"link\":\"https://x.com/StaceDiva/status/1731585241444122937\"}]}}]}}]},{\"id\":\"x:tweet:1251207296954204160\",\"title\":\"I built myself a proud parent. It charges me 25¢ for a pat on the shoulder. https://t.co/YMvBkzzuVa\",\"link\":\"https://x.com/SimoneGiertz/status/1251207296954204160\",\"description\":\"I built myself a proud parent. It charges me 25¢ for a pat on the shoulder. https://t.co/YMvBkzzuVa\",\"image\":\"https://pbs.twimg.com/ext_tw_video_thumb/1251206731280953344/pu/img/Ur7d3oglsP9fbgUh.jpg\",\"kind\":\"post\",\"author\":{\"name\":\"Simone Giertz\",\"uri\":\"https://x.com/SimoneGiertz\"},\"enclosure\":{\"url\":\"https://video.twimg.com/ext_tw_video/1251206731280953344/pu/vid/1280x720/feJZ7qe5TA1c0uki.mp4?tag=10\",\"type\":\"video/mp4\"},\"published\":\"2020-04-17T17:54:00.000Z\"}]}",
+    "timing": {
+      "elapsed_ms": 1656,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 6
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 1648
+        },
+        {
+          "name": "输出读取与校验",
+          "started_ms": 1655,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1656,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 1656,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 1656,
+          "duration_ms": 0
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 1656,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 10,
+          "duration_ms": 515
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 544,
+          "duration_ms": 83
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 644,
+          "duration_ms": 141
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 802,
+          "duration_ms": 537
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 1397,
+          "duration_ms": 133
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 1570,
+          "duration_ms": 84
+        }
+      ]
+    }
+  }
+}
