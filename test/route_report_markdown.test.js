@@ -42,3 +42,10 @@ test("Markdown 转义表格内容与链接，空报告有明确提示", () => {
   assert.match(empty, /巡检时间：未提供/);
   assert.match(empty, /本轮没有生成路由检查项/);
 });
+
+test("Markdown 展示样本名称和账号，转义名称并去除查询参数", () => {
+  const markdown = render_report({ results: [{ ...passed, name: "公众号 <名称>|测试",
+    example: "/api/rss/wxmp/gh_123456789abc?token=private-token" }] });
+  assert.ok(markdown.includes("公众号 &lt;名称&gt;&#124;测试 (/api/rss/wxmp/gh\\_123456789abc)"));
+  assert.doesNotMatch(markdown, /<名称>|private-token/);
+});

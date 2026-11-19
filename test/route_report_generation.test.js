@@ -20,7 +20,7 @@ for (const { mode, base, args } of [
   await mkdir(join(root, "dist"));
   await mkdir(join(root, ".github"));
   await writeFile(join(root, ".github/route-checks.json"), JSON.stringify({
-    "hot /api/hot/passed": [{ example: "/configured/one" }, { example: "/configured/two" }],
+    "hot /api/hot/passed": [{ name: "账号一", example: "/configured/one" }, { name: "账号二", example: "/configured/two" }],
     "hot /api/hot/failed": [{ example: "/unused" }],
   }));
   await mkdir(join(root, "reports/icons"), { recursive: true });
@@ -55,7 +55,7 @@ globalThis.fetch = async url => {
 };`);
   assert.throws(() => execFileSync(process.execPath, ["--import", "./fetch.js", "scripts/check_routes.js", ...args], {
     cwd: root, env: { ...process.env, CHECK_BASE_URL: base, ROUTE_CHECK_CONFIG: ".github/route-checks.json",
-      ROUTE_CHECK_CASES: JSON.stringify({ "hot /api/hot/failed": { example: "/configured/failed" } }), GITHUB_STEP_SUMMARY: "" },
+      ROUTE_CHECK_CASES: JSON.stringify({ "hot /api/hot/failed": { name: "失败账号", example: "/configured/failed" } }), GITHUB_STEP_SUMMARY: "" },
     stdio: "pipe",
   }), error => error.status === 1);
   const report = JSON.parse(await readFile(join(root, "reports/routes.json"), "utf8"));
@@ -63,6 +63,8 @@ globalThis.fetch = async url => {
   assert.deepEqual([report.total, report.passed, report.failed], [2, 1, 1]);
   const passed = report.results.find(result => result.output_valid);
   assert.deepEqual(passed.samples.map(sample => sample.example), ["/configured/one", "/configured/two"]);
+  assert.deepEqual(passed.samples.map(sample => sample.name), ["账号一", "账号二"]);
+  assert.equal(report.results.find(result => !result.output_valid).name, "失败账号");
   assert.equal(report.results.find(result => !result.output_valid).example, "/configured/failed");
   assert.deepEqual(report.scripts, [{ file, version: "2.3.4", platform: { name: "Example", icon } }]);
   assert.deepEqual(await readdir(join(root, "reports/icons")), ["script-0.svg"]);
@@ -71,10 +73,14 @@ globalThis.fetch = async url => {
   assert.equal(await readFile(join(root, "reports/routes.md"), "utf8"), markdown);
   assert.match(markdown, /版本：2\.3\.4/);
   assert.match(markdown, /HTTP 503/);
+  assert.match(markdown, /账号一/);
+  assert.match(markdown, /失败账号/);
   const html = await readFile(join(root, "reports/index.html"), "utf8");
   assert.match(html, /版本：2\.3\.4/);
   assert.match(html, /data:image\/svg\+xml;base64,/);
   assert.match(html, /脚本市场 \(Script Market\)/);
+  assert.match(html, /data-n="sample-name"[^>]*>账号一<\/span>/);
+  assert.match(html, /data-n="sample-name"[^>]*>失败账号<\/span>/);
   assert.doesNotMatch(html, /private-source/);
   assert.doesNotMatch(html, /private-config/);
   assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 2);
@@ -83,6 +89,7 @@ globalThis.fetch = async url => {
     const detail = JSON.parse(await readFile(join(root, "reports/details", sample.detail_file), "utf8"));
     assert.equal(detail.debug.elapsed_ms, 10);
     assert.equal(detail.inspection.output_valid, sample.output_valid);
+    assert.equal(detail.inspection.name, sample.name);
   }
   assert.match(html, /responses\/configured\/one.json/);
   assert.equal([...html.matchAll(/<button data-n="inspect-script"/g)].length, 1);

@@ -5,7 +5,7 @@ import string_width from "string-width";
 import { route_report_model } from "./route_report_model.js";
 
 export function render_progress(result) {
-  return `${result.output_valid ? "PASS" : "FAIL"} ${result.file} ${result.format} ${result.path}${result.error ? ": " + result.error : ""}`;
+  return `${result.output_valid ? "PASS" : "FAIL"} ${result.file} ${result.format} ${result.path}${result.name ? " " + result.name + " " + (result.example ?? result.path) : ""}${result.error ? ": " + result.error : ""}`;
 }
 
 const color = row =>
@@ -98,14 +98,14 @@ export function create_progress({ stream = process.stdout, interactive } = {}) {
 
   return {
     start(entry, worker) {
-      const row = { id: next_id++, url: entry.example ?? entry.path, phase: "loading", result: null };
+      const row = { id: next_id++, url: (entry.name ? entry.name + " " : "") + (entry.example ?? entry.path), phase: "loading", result: null };
       live.push(row);
       slots.set(worker, row);
       mount();
       notify();
     },
     finish(result, worker) {
-      const row = slots.get(worker) ?? { id: next_id++, url: result.example ?? result.path };
+      const row = slots.get(worker) ?? { id: next_id++, url: (result.name ? result.name + " " : "") + (result.example ?? result.path) };
       if (!live.includes(row)) live.push(row);
       row.phase = result.output_valid ? "success" : "failed";
       row.result = result;
@@ -132,6 +132,6 @@ export function render_report(report) {
     + (model.total ? model.groups.map(group => `## ${cell(group.name)}（${group.total - group.failed}/${group.total} 通过）\n\n`
       + `${group.icon_url ? `<img data-n="script-icon" src="${group.icon_url}" alt="" width="24" height="24"> ` : ""}[${cell(group.file)}](${group.raw_url}) · 版本：${cell(group.version)}\n\n`
       + "| 路由 | 结果 | 失败原因 |\n| --- | --- | --- |\n"
-      + group.rows.map(row => `| ${cell(row.path)} | ${row.ok ? "✅ 成功" : "❌ 失败"} | ${cell(row.reason)} |`).join("\n")
+      + group.rows.map(row => `| ${cell(row.path)}${(row.outputs || []).filter(output => output.name).map(output => `<br>${cell(output.name)} (${cell(output.example)})`).join("")} | ${row.ok ? "✅ 成功" : "❌ 失败"} | ${cell(row.reason)} |`).join("\n")
       + "\n").join("\n") : "本轮没有生成路由检查项，请查看 Actions 运行记录。\n");
 }

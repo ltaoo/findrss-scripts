@@ -101,6 +101,7 @@ function example_chip(vm, route, example) {
 
 function output_entry(entry) {
   return [
+    ...(entry?.name ? [element("span", "sample-name", { class: "sample-name" }, [entry.name])] : []),
     ...(entry?.artifact ? [element("a", "artifact-link", { href: entry.artifact.url, target: "_blank", rel: "noopener noreferrer" }, [entry.artifact.label])] : []),
     ...(entry?.detail ? [element("a", "detail-link", { href: entry.detail.url, target: "_blank", rel: "noopener noreferrer" }, [entry.detail.label])] : []),
     ...(entry?.example ? [element("code", "artifact-example", { class: "artifact-example" }, [entry.example])] : []),

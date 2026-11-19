@@ -230,6 +230,21 @@ test("成功与失败样本各自显示详情 JSON，产物和详情对应同一
   }
 });
 
+test("具名样本显示名称和账号路径，无产物或详情时也保留名称并安全转义", () => {
+  const named_report = { results: [{ ...passed, file: "rss/wxmp.js", path: "/api/rss/wxmp/:account?", samples: [
+    { ...passed, name: '公众号 <script>alert(1)</script>', example: "/api/rss/wxmp/gh_123456789abc?token=private-token" },
+    { output_valid: false, name: "失败公众号", example: "/api/rss/wxmp/gh_abcdef123456", error: "HTTP 503" },
+  ] }] };
+  const outputs = route_report_model(named_report).groups[0].rows[0].outputs;
+  assert.equal(outputs[0].name, '公众号 <script>alert(1)</script>');
+  assert.equal(outputs[0].example, "/api/rss/wxmp/gh_123456789abc");
+  const html = render_report_html(named_report);
+  assert.match(html, /<span data-n="sample-name"[^>]*>公众号 &lt;script&gt;alert\(1\)&lt;\/script&gt;<\/span>/);
+  assert.match(html, /data-n="artifact-example"[^>]*>\/api\/rss\/wxmp\/gh_123456789abc<\/code>/);
+  assert.match(html, /data-n="sample-name"[^>]*>失败公众号<\/span>/);
+  assert.doesNotMatch(html, /<script>alert|private-token/);
+});
+
 test("页头设置、动态路由配置与保存入口，未巡检路由仍可配置，私有样本不进入表单", () => {
   const html = render_report_html({ results: [{ ...passed, file: "clip/example.js", path: "/api/clip/example/:id",
     example: "/api/clip/example/private-id?token=private-token" }] }, [

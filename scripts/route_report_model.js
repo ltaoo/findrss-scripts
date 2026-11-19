@@ -28,10 +28,11 @@ export function route_report_model(report, catalog) {
       const artifact = sample.output_valid ? link("responses", sample.output_file, "查看产物") : null;
       const detail = link("details", sample.detail_file, "查看详情");
       const reason = sample.output_valid ? "" : [sample.code, sample.error].filter(Boolean).join(": ") || "校验未通过";
-      if (!artifact && !detail && !reason) return [];
+      const name = typeof sample.name === "string" ? sample.name : "";
+      if (!artifact && !detail && !reason && !name) return [];
       const example = example_path(sample.example);
       return [{ ...(artifact ? { artifact } : {}), ...(detail ? { detail } : {}), ...(reason ? { reason } : {}),
-        ...(example && (artifact || detail) ? { example } : {}) }];
+        ...(name ? { name } : {}), ...(example && (artifact || detail || name) ? { example } : {}) }];
     });
     if (outputs.length) row.outputs = outputs;
     if (!groups.has(result.file)) groups.set(result.file, []);

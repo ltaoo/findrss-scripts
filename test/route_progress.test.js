@@ -67,6 +67,18 @@ test("非 TTY 退回逐行日志，不写 ANSI 控制符", async () => {
     "PASS rss/example.js rss /rss/example\nFAIL rss/example.js rss /rss/example: HTTP 502\n");
 });
 
+test("终端和 CI 日志展示样本名称及账号地址", async () => {
+  const named = { ...entry, name: "公众号名称", example: "/api/rss/wxmp/gh_123456789abc" };
+  for (const isTTY of [false, true]) {
+    const stream = fake_stream({ isTTY, columns: 120 });
+    const progress = create_progress({ stream });
+    progress.start(named, 0);
+    progress.finish({ ...named, output_valid: true, duration_ms: 10 }, 0);
+    await progress.close();
+    assert.ok(stream.chunks.join("").includes(named.name + " " + named.example));
+  }
+});
+
 test("TTY 每个请求两行：URL 在上，状态在下，完成后原地更新", async () => {
   const stream = fake_stream({ isTTY: true, columns: 120 });
   const progress = create_progress({ stream });
