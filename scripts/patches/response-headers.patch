@@ -1,0 +1,33 @@
+--- a/server/infra/script_sandbox.js
++++ b/server/infra/script_sandbox.js
+@@ -472,6 +472,7 @@
+       task_signal?.throwIfAborted();
+       const url = vm.getString(url_handle);
+       const fetch_options = options_handle ? vm.dump(options_handle) : null;
++      if (fetch_options?.include_headers !== undefined && typeof fetch_options.include_headers !== "boolean") throw new Error("fetchText include_headers 必须为布尔值");
+       const headers = rss_fetch_headers(fetch_options);
+       const transport = fetch_options?.transport === undefined ? "fetch" : fetch_options.transport;
+       if (!["fetch", "tcp"].includes(transport)) throw new Error("fetchText transport 只支持 fetch 或 tcp");
+@@ -493,6 +494,7 @@
+       const inline_cookie = headers.cookie || "";
+       delete headers.cookie;
+       const cookie_handle = fetch_options?.cookies;
++      if (fetch_options?.include_headers && cookie_handle) throw new Error("fetchText include_headers 不支持 Cookie 句柄");
+       if (cookie_handle && (!cookie_access || !cookie_access.allows(cookie_handle, parsed))) throw new Error("Cookie 句柄无效或请求地址超出授权范围");
+       if (fetch_options?.cookie_headers && !cookie_handle) throw new Error("cookie_headers 需要显式的 Cookie 句柄");
+       let response;
+@@ -618,6 +620,14 @@
+       }
+       const decode_started_at = timing ? Date.now() : 0;
+       const text = rss_response_text(buffer, response.headers.get("Content-Type") || "");
++      if (fetch_options?.include_headers) {
++        const headers = [...response.headers].filter(([name]) => name !== "set-cookie");
++        const cookies = response.headers.getSetCookie?.() ?? response.headers.getAll("Set-Cookie");
++        headers.push(...cookies.map(value => ["set-cookie", value]));
++        const value = vm.unwrapResult(vm.evalCode("(" + JSON.stringify({ text, headers }) + ")", "fetch-response.js"));
++        if (timing && active_trace) active_trace.timings.decode_and_transfer_ms = Date.now() - decode_started_at;
++        return value;
++      }
+       // newString 使用 C 字符串，内嵌 NUL（如 X 的流式页面）会截断后续内容。
+       const value = text.includes("\0")
+         ? vm.unwrapResult(vm.evalCode(JSON.stringify(text), "fetch-response.js"))
