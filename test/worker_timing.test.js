@@ -110,6 +110,26 @@ test("HTTP 200 后正文读取超时仍返回 UPSTREAM_TIMEOUT，并保留 Debug
   assert.ok(Number.isFinite(trace.timings.body_read_ms));
 });
 
+test("Debug 仅保存有效数字限流响应头，保留 429 及重置时间", async t => {
+  t.mock.method(globalThis, "fetch", async () => new Response("private body", { status: 429, headers: {
+    "x-rate-limit-limit": "50", "x-rate-limit-remaining": "0", "x-rate-limit-reset": "1795166400",
+    "retry-after": "30", "set-cookie": "private-cookie", "authorization": "private-token",
+  } }));
+  const response = await request("/debug/github/example/repo/release");
+  assert.equal(response.status, 503);
+  const html = await response.text();
+  const [trace] = upstream_requests(html);
+  assert.equal(trace.status, 429);
+  assert.deepEqual(trace.rate_limit, { "retry-after": 30, "x-rate-limit-limit": 50,
+    "x-rate-limit-remaining": 0, "x-rate-limit-reset": 1795166400 });
+  assert.doesNotMatch(html, /private-cookie|private-token|private body/);
+  t.mock.method(globalThis, "fetch", async () => new Response(feed, { headers: {
+    "x-rate-limit-remaining": "invalid", "x-rate-limit-reset": "-1", "retry-after": "9".repeat(14),
+  } }));
+  const success = await request("/debug/github/example/repo/release");
+  assert.equal(upstream_requests(await success.text())[0].rate_limit, undefined);
+});
+
 test("视频号 TCP 超时重试逐次计时，凭据仍然脱敏", async t => {
   mock_tcp_http(t);
   const fixtures = JSON.parse(await readFile(new URL("./fixtures/script_migration.json", import.meta.url)));

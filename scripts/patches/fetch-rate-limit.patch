@@ -1,0 +1,17 @@
+--- a/server/infra/script_sandbox.js
++++ b/server/infra/script_sandbox.js
+@@ -554,7 +554,13 @@
+           ...(request_cookie ? { Cookie: request_cookie } : {}),
+         },
+       });
+-      if (trace) trace.status = response.status;
++      if (trace) {
++        trace.status = response.status;
++        const rate_limit = Object.fromEntries(["retry-after", "x-rate-limit-limit", "x-rate-limit-remaining", "x-rate-limit-reset"]
++          .map(name => [name, response.headers.get(name)]).filter(([, value]) => /^\d{1,13}$/.test(value || ""))
++          .map(([name, value]) => [name, Number(value)]));
++        if (Object.keys(rate_limit).length) trace.rate_limit = rate_limit;
++      }
+       } catch (failure) {
+         task_signal?.throwIfAborted();
+         if (!signal.aborted && public_feed_failure(failure)) throw failure;
