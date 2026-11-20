@@ -9,6 +9,111 @@ const entry = { file: "hot/example.js", path: "/api/hot/example", example: "/api
 const value = { kind: "hot_rank", title: "Example", link: "https://example.com", entries: [{ id: "example:1", title: "Article", link: "https://example.com/1", rank: null, pinned: false, heat: { value: null, unit: "积分", text: "" } }] };
 const headers = { "Content-Type": "application/json", "X-FindRSS-Script": entry.file, "X-FindRSS-Route": "0" };
 const run = fetch_impl => check_route("https://scripts.example", entry, { fetch_impl });
+const x_entry = { file: "rss/x.js", path: "/api/rss/x/:username", example: "/api/rss/x/example", format: "rss_json", route_index: 0 };
+const x_feed = { title: "Example 的 X 作品", link: "https://x.com/example", items: [
+  { id: "x:tweet:1", title: "Post", link: "https://x.com/example/status/1" },
+] };
+const x_debug = { status: 200, phase: "ok", elapsed_ms: 10, request: {}, lines: [], upstream_requests: [],
+  script: { file: "rss/x.js", route_index: 0 }, output: JSON.stringify(x_feed) };
+
+test("X 单次 Debug 执行同时校验产物和保存诊断，仍检查 handler 和非空内容", async t => {
+  const root = await mkdtemp(join(tmpdir(), "findrss-x-single-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const requested = [];
+  const result = await check_route("https://scripts.example", x_entry, {
+    output_dir: join(root, "responses"), details_dir: join(root, "details"), token: "private-token",
+    fetch_impl: async (url, options) => {
+      requested.push(url.pathname);
+      assert.equal(options.headers.Accept, "application/json");
+      assert.equal(options.headers.Authorization, "Bearer private-token");
+      return Response.json(x_debug);
+    },
+  });
+  assert.deepEqual(requested, ["/debug/api/rss/x/example"]);
+  assert.equal(result.output_valid, true);
+  assert.equal(result.execution, "debug");
+  assert.deepEqual(JSON.parse(await readFile(join(root, "responses", result.output_file))), x_feed);
+  const detail = JSON.parse(await readFile(join(root, "details", result.detail_file)));
+  assert.deepEqual(detail.debug, x_debug);
+  assert.equal(detail.inspection.output_valid, true);
+  for (const [debug, error] of [
+    [{ ...x_debug, script: { file: "rss/other.js", route_index: 0 } }, /错误的脚本/],
+    [{ ...x_debug, script: { file: "rss/x.js", route_index: 1 } }, /错误的 handler/],
+    [{ ...x_debug, output: JSON.stringify({ ...x_feed, items: [] }) }, /条目数须 >= 1/],
+    [{ ...x_debug, output: undefined }, /缺少脚本输出/],
+    [{ ...x_debug, status: 503, code: "UPSTREAM_RATE_LIMITED", upstream_error: "Rate limited" }, /UPSTREAM_RATE_LIMITED/],
+  ]) {
+    let calls = 0;
+    const failed = await check_route("https://scripts.example", x_entry, {
+      details_dir: join(root, "details"), fetch_impl: async () => {
+        calls++; return Response.json(debug, { status: debug.status });
+      },
+    });
+    assert.equal(calls, 1);
+    assert.equal(failed.output_valid, false);
+    assert.match(failed.error, error);
+  }
+});
+
+test("X 串行且间隔五秒，按限流重置时间冷却并仅重试一次，其他脚本保持并发", async t => {
+  const details_dir = await mkdtemp(join(tmpdir(), "findrss-x-paced-"));
+  t.after(() => rm(details_dir, { recursive: true, force: true }));
+  let now = 1800000000000;
+  t.mock.method(Date, "now", () => now);
+  let x_active = 0, x_peak = 0, active = 0, peak = 0;
+  const calls = [], waits = [];
+  const ordinary = Array.from({ length: 12 }, (_, index) => ({ ...entry, path: entry.path + index, example: entry.example + index }));
+  const report = await check_routes("https://scripts.example", [x_entry, ...ordinary], {
+    [x_entry.format + " " + x_entry.path]: [{ example: "/api/rss/x/second" }],
+  }, {
+    details_dir,
+    sleep_impl: async milliseconds => { waits.push(milliseconds); now += milliseconds; },
+    fetch_impl: async url => {
+      if (!url.pathname.includes("/rss/x/")) {
+        active++; peak = Math.max(peak, active);
+        await new Promise(resolve => setImmediate(resolve)); active--;
+        return url.pathname.startsWith("/debug") ? Response.json({ ...x_debug, script: { file: entry.file } })
+          : Response.json(value, { headers });
+      }
+      calls.push(url.pathname);
+      x_active++; x_peak = Math.max(x_peak, x_active);
+      await new Promise(resolve => setImmediate(resolve)); x_active--;
+      return calls.length === 1 ? Response.json({ ...x_debug, status: 503, code: "UPSTREAM_RATE_LIMITED",
+        upstream_requests: [{ status: 429, rate_limit: { "x-rate-limit-remaining": 0, "x-rate-limit-reset": now / 1000 + 20 } }],
+      }, { status: 503 }) : Response.json(x_debug);
+    },
+  });
+  assert.equal(x_peak, 1);
+  assert.equal(peak, 9);
+  assert.deepEqual(waits, [21000, 5000]);
+  assert.deepEqual(calls, ["/debug/api/rss/x/example", "/debug/api/rss/x/example", "/debug/api/rss/x/second"]);
+  assert.equal(report.failed, 0);
+  const [first] = report.results.find(result => result.file === "rss/x.js").samples;
+  assert.equal(first.attempts.length, 2);
+  assert.equal(first.attempts[0].code, "UPSTREAM_RATE_LIMITED");
+});
+
+test("X 永久错误不重试，持续限流至多两次且不按异常重置时间无限等待", async t => {
+  const details_dir = await mkdtemp(join(tmpdir(), "findrss-x-retry-"));
+  t.after(() => rm(details_dir, { recursive: true, force: true }));
+  for (const code of ["UPSTREAM_AUTH_REQUIRED", "UPSTREAM_RATE_LIMITED", "UPSTREAM_TIMEOUT"]) {
+    const waits = [];
+    let calls = 0;
+    const report = await check_routes("https://scripts.example", [x_entry], {}, {
+      details_dir, sleep_impl: async milliseconds => waits.push(milliseconds),
+      fetch_impl: async () => {
+        calls++;
+        return Response.json({ ...x_debug, status: 503, code,
+          upstream_requests: [{ status: 429, rate_limit: { "x-rate-limit-reset": 9999999999999 } }],
+        }, { status: 503 });
+      },
+    });
+    assert.equal(report.failed, 1);
+    assert.equal(calls, code === "UPSTREAM_AUTH_REQUIRED" ? 1 : 2);
+    assert.equal(waits.length, code === "UPSTREAM_AUTH_REQUIRED" ? 0 : 1);
+    assert.ok(waits.every(milliseconds => milliseconds <= 60000));
+  }
+});
 
 test("其他 503 只请求一次，不重试", async () => {
   let calls = 0;
@@ -243,6 +348,7 @@ test("仓库配置覆盖社交账号和剧集的具名样本", async () => {
   }
   const requested = [];
   const report = await check_routes("https://scripts.example", configured, config, {
+    sleep_impl: async () => {},
     fetch_impl: async url => { requested.push(url.pathname); return new Response("Unavailable", { status: 503 }); },
   });
   const examples = [...new Set([...configured.map(entry => entry.example), ...Object.values(config).flat().map(sample => sample.example)])];

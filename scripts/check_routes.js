@@ -79,6 +79,7 @@ try {
       details_dir,
       on_start: progress.start,
       on_result: progress.finish,
+      on_wait: (entry, milliseconds) => console.log(`等待 ${Math.ceil(milliseconds / 1000)} 秒后检查 ${entry.example}`),
     },
   );
 } finally {

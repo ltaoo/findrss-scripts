@@ -44,10 +44,9 @@ function response_file(url, extension) {
   return url.pathname.replace(/\/$/, "/index").slice(1) + suffix + "." + extension;
 }
 
-async function save_debug_details(base, entry, result, { fetch_impl, token, timeout_ms, details_dir }) {
+async function fetch_debug_details(base, entry, { fetch_impl, token, timeout_ms }) {
   const url = new URL(entry.example, base);
-  const detail = { checked_at: new Date().toISOString(),
-    inspection: { ...result, example: url.pathname }, debug_request: {}, debug: null };
+  const detail = { checked_at: new Date().toISOString(), debug_request: {}, debug: null };
   const started = Date.now();
   try {
     assert.equal(url.origin, new URL(base).origin, "Debug 地址必须位于部署站点，禁止跨站发送令牌");
@@ -76,8 +75,14 @@ async function save_debug_details(base, entry, result, { fetch_impl, token, time
     detail.debug_request.error = ["TimeoutError", "AbortError"].includes(error.name) ? "Debug 请求超时或已取消" : error.message;
   }
   detail.debug_request.duration_ms = Date.now() - started;
+  return detail;
+}
+async function save_debug_details(base, entry, result, options, detail) {
+  detail ||= await fetch_debug_details(base, entry, options);
+  const url = new URL(entry.example, base);
+  detail.inspection = { ...result, example: url.pathname };
   const file = response_file(url, "json");
-  const destination = join(details_dir, file);
+  const destination = join(options.details_dir, file);
   await mkdir(dirname(destination), { recursive: true });
   await writeFile(destination, JSON.stringify(detail, null, 2) + "\n");
   return file;
@@ -331,6 +336,7 @@ export async function check_route(
     output_valid: false,
   };
   const started = Date.now();
+  let detail;
   try {
     const url = new URL(entry.example, base);
     assert.equal(
@@ -341,9 +347,32 @@ export async function check_route(
     const signal = AbortSignal.timeout(timeout_ms);
     for (;;) {
       signal.throwIfAborted();
-      const response = await fetch_impl(url, {
-        redirect: "manual",
-        signal,
+      let response;
+      if (entry.file === "rss/x.js" && details_dir) {
+        result.execution = "debug";
+        detail = await fetch_debug_details(base, entry, { fetch_impl, token, timeout_ms });
+        const debug = detail.debug;
+        result.status = detail.debug_request.status;
+        if (!debug) {
+          result.code = detail.debug_request.code;
+          throw new Error(detail.debug_request.error);
+        }
+        for (const trace of debug.upstream_requests) {
+          if (trace.status !== 429 && trace.rate_limit?.["x-rate-limit-remaining"] !== 0) continue;
+          const reset = trace.rate_limit?.["x-rate-limit-reset"] * 1000;
+          const retry = Date.now() + trace.rate_limit?.["retry-after"] * 1000;
+          for (const at of [reset, retry]) if (Number.isSafeInteger(at) && at > Date.now() && at <= Date.now() + 1800000) {
+            result.retry_at = Math.max(result.retry_at || 0, at + 1000);
+          }
+        }
+        if (debug.status < 400) assert.equal(typeof debug.output, "string", "Debug 缺少脚本输出");
+        response = new Response(debug.status < 400 ? debug.output : JSON.stringify({ code: debug.code,
+          message: debug.upstream_error || "Debug 执行失败" }), { status: debug.status, headers: {
+          "Content-Type": "application/json", "X-FindRSS-Script": debug.script?.file || "",
+          "X-FindRSS-Route": String(debug.script?.route_index),
+        } });
+      } else response = await fetch_impl(url, {
+        redirect: "manual", signal,
         headers: token ? { Authorization: "Bearer " + token } : {},
       });
       result.status = response.status;
@@ -421,7 +450,7 @@ export async function check_route(
     result.error = error.message;
   }
   result.duration_ms = Date.now() - started;
-  if (details_dir) result.detail_file = await save_debug_details(base, entry, result, { fetch_impl, token, timeout_ms, details_dir });
+  if (details_dir) result.detail_file = await save_debug_details(base, entry, result, { fetch_impl, token, timeout_ms, details_dir }, detail);
   return result;
 }
 
@@ -431,7 +460,8 @@ export async function check_routes(
   base,
   cases,
   overrides = {},
-  { on_result = () => {}, on_start = () => {}, ...options } = {},
+  { on_result = () => {}, on_start = () => {}, on_wait = () => {},
+    sleep_impl = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds)), ...options } = {},
 ) {
   assert.ok(
     overrides && typeof overrides === "object" && !Array.isArray(overrides),
@@ -488,16 +518,30 @@ export async function check_routes(
     assert.ok(!url.username && !url.password, "检查地址不得包含用户名或密码");
   }
   const results = [];
-  await Promise.all(
-    Array.from({ length: ROUTE_CHECK_CONCURRENCY }, async (_, worker) => {
-      for (let entry; (entry = queue.shift()); ) {
-        on_start(entry, worker);
-        const result = await check_route(base, entry, options);
-        results.push(result);
-        on_result(result, worker);
-      }
-    }),
-  );
+  const x_queue = queue.filter(entry => entry.file === "rss/x.js");
+  const ordinary_queue = queue.filter(entry => entry.file !== "rss/x.js");
+  const run_queue = async (pending, worker, paced = false) => {
+    let next_at = 0;
+    for (let entry; (entry = pending.shift()); ) {
+      on_start(entry, worker);
+      let result;
+      const attempts = [];
+      do {
+        const wait_ms = next_at - Date.now();
+        if (wait_ms > 0) { on_wait(entry, wait_ms); await sleep_impl(wait_ms); }
+        result = await check_route(base, entry, options);
+        if (!paced) break;
+        attempts.push({ status: result.status, code: result.code, error: result.error, duration_ms: result.duration_ms });
+        next_at = Math.max(Date.now() + 5000, result.retry_at ||
+          (result.code === "UPSTREAM_RATE_LIMITED" ? Date.now() + 60000 : 0));
+      } while (attempts.length < 2 && ["UPSTREAM_RATE_LIMITED", "UPSTREAM_TIMEOUT"].includes(result.code));
+      if (attempts.length > 1) result.attempts = attempts;
+      results.push(result);
+      on_result(result, worker);
+    }
+  };
+  await Promise.all([...Array.from({ length: ROUTE_CHECK_CONCURRENCY - Number(x_queue.length > 0) }, (_, worker) => run_queue(ordinary_queue, worker)),
+    run_queue(x_queue, ROUTE_CHECK_CONCURRENCY - 1, true)]);
   results.sort((a, b) =>
     (a.file + a.path + a.example).localeCompare(b.file + b.path + b.example),
   );
