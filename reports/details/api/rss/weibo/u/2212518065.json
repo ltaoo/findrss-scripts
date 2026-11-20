@@ -1,23 +1,23 @@
 {
-  "checked_at": "2026-11-20T03:39:13.332Z",
+  "checked_at": "2026-11-20T06:14:33.727Z",
   "inspection": {
     "file": "rss/weibo.js",
     "path": "/api/rss/weibo/u/:uid",
     "example": "/api/rss/weibo/u/2212518065",
     "name": "丁香医生",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
+    "request": false,
+    "response": false,
+    "format_valid": false,
     "output_valid": false,
-    "status": 200,
-    "output_file": "api/rss/weibo/u/2212518065.json",
-    "error": "条目数须 >= 1",
-    "duration_ms": 1145
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 1342
   },
   "debug_request": {
     "status": 200,
-    "duration_ms": 1355
+    "duration_ms": 1336
   },
   "debug": {
     "status": 200,
@@ -50,14 +50,14 @@
       }
     },
     "phase": "ok",
-    "elapsed_ms": 1350,
+    "elapsed_ms": 1327,
     "invoked": false,
     "upstream_error": "",
     "error_text": "",
     "lines": [
       {
         "level": "info",
-        "text": "微博主页获取完成 {\"length\":7044}"
+        "text": "微博主页获取完成 {\"length\":7038}"
       },
       {
         "level": "info",
@@ -83,9 +83,9 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 419,
+        "duration_ms": 434,
         "timings": {
-          "response_ms": 419,
+          "response_ms": 434,
           "body_read_ms": 0,
           "decode_and_transfer_ms": 0
         }
@@ -104,12 +104,12 @@
             "x-xsrf-token"
           ]
         },
-        "started_ms": 431,
-        "duration_ms": 537,
+        "started_ms": 446,
+        "duration_ms": 398,
         "timings": {
-          "response_ms": 536,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 0
+          "response_ms": 397,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 1
         }
       },
       {
@@ -117,7 +117,7 @@
         "method": "GET",
         "host": "weibo.com",
         "pathname": "/ajax/profile/info",
-        "status": 200,
+        "status": 418,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -126,18 +126,16 @@
             "x-xsrf-token"
           ]
         },
-        "started_ms": 968,
-        "duration_ms": 382,
+        "started_ms": 844,
+        "duration_ms": 482,
         "timings": {
-          "response_ms": 381,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 1
+          "response_ms": 482
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"weibo:channel:2212518065\",\"title\":\"丁香医生 的微博\",\"link\":\"https://weibo.com/u/2212518065\",\"description\":\"丁香医生 App，专业健康生活方式平台\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://weibo.com/\"},\"tags\":[\"微博\"]},\"author\":{\"name\":\"丁香医生\",\"uri\":\"https://weibo.com/u/2212518065\"},\"image\":\"http://script.findrss.cloud/img/weibo?url=https%3A%2F%2Ftvax1.sinaimg.cn%2Fcrop.0.0.512.512.1024%2F83e058b1ly8gpclexz0m9j20e80e874b.jpg%3FKID%3Dimgbed%2Ctva%26Expires%3D1795156754%26ssig%3DrFwfmc0r4e\",\"items\":[]}",
+    "output": "{\"kind\":\"rss\",\"id\":\"weibo:channel:2212518065\",\"title\":\"微博 · 2212518065\",\"link\":\"https://weibo.com/u/2212518065\",\"description\":\"微博用户 微博 · 2212518065 的动态\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://weibo.com/\"},\"tags\":[\"微博\"]},\"author\":{\"name\":\"微博 · 2212518065\",\"uri\":\"https://weibo.com/u/2212518065\"},\"image\":\"http://script.findrss.cloud/findrss-logo.png\",\"items\":[]}",
     "timing": {
-      "elapsed_ms": 1350,
+      "elapsed_ms": 1327,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -182,31 +180,31 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1344
+          "duration_ms": 1321
         },
         {
           "name": "输出读取与校验",
-          "started_ms": 1350,
+          "started_ms": 1327,
           "duration_ms": 0
         },
         {
           "name": "执行日志收集",
-          "started_ms": 1350,
+          "started_ms": 1327,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1350,
+          "started_ms": 1327,
           "duration_ms": 0
         },
         {
           "name": "浏览器状态保存",
-          "started_ms": 1350,
+          "started_ms": 1327,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1350,
+          "started_ms": 1327,
           "duration_ms": 0
         }
       ],
@@ -214,17 +212,17 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 419
+          "duration_ms": 434
         },
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 431,
-          "duration_ms": 537
+          "started_ms": 446,
+          "duration_ms": 398
         },
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 968,
-          "duration_ms": 382
+          "started_ms": 844,
+          "duration_ms": 482
         }
       ]
     }

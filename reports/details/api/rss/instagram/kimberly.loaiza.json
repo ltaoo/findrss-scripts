@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-20T03:38:57.058Z",
+  "checked_at": "2026-11-20T06:14:13.772Z",
   "inspection": {
     "file": "rss/instagram.js",
     "path": "/api/rss/instagram/:username",
@@ -10,18 +10,18 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 503,
-    "code": "UPSTREAM_RATE_LIMITED",
-    "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
-    "duration_ms": 163
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
+    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
+    "duration_ms": 1096
   },
   "debug_request": {
-    "status": 503,
-    "duration_ms": 212
+    "status": 502,
+    "duration_ms": 1631
   },
   "debug": {
-    "status": 503,
-    "code": "UPSTREAM_RATE_LIMITED",
+    "status": 502,
+    "code": "UPSTREAM_INVALID_RESPONSE",
     "script": {
       "file": "rss/instagram.js",
       "name": "Instagram 用户作品",
@@ -50,10 +50,10 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 188,
+    "elapsed_ms": 1610,
     "invoked": false,
-    "upstream_error": "UPSTREAM_RATE_LIMITED: 脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429",
-    "error_text": "脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429\nat fetchText (rss-context.js:618:45)",
+    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：Instagram 作品查询失败，请同步有效登录 Cookie 并检查查询文档 ID",
+    "error_text": "脚本执行失败：Instagram 作品查询失败，请同步有效登录 Cookie 并检查查询文档 ID\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:147:26)",
     "lines": [],
     "upstream_requests": [
       {
@@ -61,7 +61,7 @@
         "method": "GET",
         "host": "www.instagram.com",
         "pathname": "/kimberly.loaiza/",
-        "status": 302,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -70,33 +70,38 @@
           ]
         },
         "started_ms": 13,
-        "duration_ms": 61,
+        "duration_ms": 578,
         "timings": {
-          "response_ms": 61
+          "response_ms": 165,
+          "body_read_ms": 405,
+          "decode_and_transfer_ms": 8
         }
       },
       {
-        "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fkimberly.loaiza%2F&is_from_rle",
-        "method": "GET",
+        "url": "https://www.instagram.com/graphql/query",
+        "method": "POST",
         "host": "www.instagram.com",
-        "pathname": "/accounts/login/",
-        "status": 429,
+        "pathname": "/graphql/query",
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
           "headers_sent": [
-            "Cookie"
+            "Cookie",
+            "x-csrftoken"
           ]
         },
-        "started_ms": 74,
-        "duration_ms": 113,
+        "started_ms": 600,
+        "duration_ms": 970,
         "timings": {
-          "response_ms": 113
+          "response_ms": 868,
+          "body_read_ms": 90,
+          "decode_and_transfer_ms": 12
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 188,
+      "elapsed_ms": 1610,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -136,31 +141,31 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 8
+          "duration_ms": 9
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
-          "duration_ms": 178
+          "started_ms": 10,
+          "duration_ms": 1599
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 187,
+          "started_ms": 1609,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 187,
-          "duration_ms": 1
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 188,
+          "started_ms": 1609,
           "duration_ms": 0
         },
         {
+          "name": "失败后浏览器清理",
+          "started_ms": 1609,
+          "duration_ms": 1
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 188,
+          "started_ms": 1610,
           "duration_ms": 0
         }
       ],
@@ -168,7 +173,12 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 13,
-          "duration_ms": 174
+          "duration_ms": 578
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 599,
+          "duration_ms": 971
         }
       ]
     }
