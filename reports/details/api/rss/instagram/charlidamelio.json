@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T22:21:01.947Z",
+  "checked_at": "2026-11-20T03:38:56.691Z",
   "inspection": {
     "file": "rss/instagram.js",
     "path": "/api/rss/instagram/:username",
@@ -13,11 +13,11 @@
     "status": 503,
     "code": "UPSTREAM_RATE_LIMITED",
     "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
-    "duration_ms": 356
+    "duration_ms": 149
   },
   "debug_request": {
     "status": 503,
-    "duration_ms": 184
+    "duration_ms": 179
   },
   "debug": {
     "status": 503,
@@ -50,7 +50,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 167,
+    "elapsed_ms": 175,
     "invoked": false,
     "upstream_error": "UPSTREAM_RATE_LIMITED: 脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429",
     "error_text": "脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429\nat fetchText (rss-context.js:618:45)",
@@ -69,10 +69,10 @@
             "Cookie"
           ]
         },
-        "started_ms": 17,
-        "duration_ms": 90,
+        "started_ms": 14,
+        "duration_ms": 83,
         "timings": {
-          "response_ms": 90
+          "response_ms": 83
         }
       },
       {
@@ -88,30 +88,30 @@
             "Cookie"
           ]
         },
-        "started_ms": 107,
-        "duration_ms": 58,
+        "started_ms": 97,
+        "duration_ms": 77,
         "timings": {
-          "response_ms": 58
+          "response_ms": 77
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 167,
+      "elapsed_ms": 175,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "宿主能力准备",
@@ -131,44 +131,44 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 1
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 10
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 12,
-          "duration_ms": 153
-        },
-        {
-          "name": "错误诊断收集",
-          "started_ms": 165,
-          "duration_ms": 1
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 166,
           "duration_ms": 0
         },
         {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 9
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 10,
+          "duration_ms": 164
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 174,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 174,
+          "duration_ms": 1
+        },
+        {
           "name": "失败后浏览器清理",
-          "started_ms": 166,
+          "started_ms": 175,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 166,
-          "duration_ms": 1
+          "started_ms": 175,
+          "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 17,
-          "duration_ms": 148
+          "started_ms": 14,
+          "duration_ms": 160
         }
       ]
     }

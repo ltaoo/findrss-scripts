@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T22:21:15.789Z",
+  "checked_at": "2026-11-20T03:39:10.193Z",
   "inspection": {
     "file": "rss/kuaishou.js",
     "path": "/api/rss/kuaishou/profile/:user_id",
@@ -13,11 +13,11 @@
     "status": 504,
     "code": "UPSTREAM_TIMEOUT",
     "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-    "duration_ms": 12266
+    "duration_ms": 12520
   },
   "debug_request": {
     "status": 504,
-    "duration_ms": 10274
+    "duration_ms": 10035
   },
   "debug": {
     "status": 504,
@@ -50,14 +50,14 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 10034,
+    "elapsed_ms": 10029,
     "invoked": false,
     "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试",
     "error_text": "脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:106:26)",
     "lines": [],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_130c94f1f3c80fbeadf9598f46d50228e2595858585987c0f4e2428a7eee95d8f465f959c30e6682230e66b058&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_4b54cca9ab066409f7a1019d5e320eee3c0100000001df98acba1ad226b652b3433fa1019b563eda7b563ee800&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
@@ -70,7 +70,7 @@
             "kww"
           ]
         },
-        "started_ms": 32,
+        "started_ms": 27,
         "duration_ms": 10001,
         "timings": {
           "response_ms": 10001
@@ -78,7 +78,7 @@
       }
     ],
     "timing": {
-      "elapsed_ms": 10034,
+      "elapsed_ms": 10029,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -118,39 +118,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 7
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 10026
+          "started_ms": 7,
+          "duration_ms": 10021
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 10034,
+          "started_ms": 10028,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10034,
-          "duration_ms": 0
+          "started_ms": 10028,
+          "duration_ms": 1
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 10034,
+          "started_ms": 10029,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10034,
+          "started_ms": 10029,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 10022
+          "started_ms": 9,
+          "duration_ms": 10019
         }
       ]
     }
