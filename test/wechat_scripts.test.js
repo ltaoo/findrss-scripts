@@ -51,7 +51,7 @@ test("微信脚本原样请求完整接口地址，发送 Bearer、账号及分�
     assert.equal(headers.get("Authorization"), "Bearer " + config.auth_token);
     assert.equal(headers.get("Content-Type"), "application/json");
     assert.deepEqual(JSON.parse(options.body), { username, offset: "next-page" });
-    assert.equal(timeouts.at(-1), script.file === "wxchannels" ? 60000 : 10000);
+    assert.equal(timeouts.at(-1), script.file === "wxchannels" ? 60000 : 30000);
     assert.doesNotMatch(JSON.stringify(result), /wechat-private-fixture/);
     const feed = JSON.parse(result.output);
     assert.ok(feed.items.length);

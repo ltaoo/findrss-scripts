@@ -293,11 +293,13 @@ npm run replay:routes -- --base http://127.0.0.1:8801 --dev-vars
 
 ## 错误响应
 
+脚本上游 HTTP 请求默认时限为 30 秒，包含获取响应及正文读取，Fetch 和 TCP 传输均适用；显式设置的 `timeout_ms` 优先，允许 1–60000 毫秒。X 用户主页的请求时限为 30 秒，主客户端脚本为 60 秒；GraphQL 请求使用默认 30 秒，引用原帖补取仍为 3 秒。`fetchText` 在收到 HTTP 200 后读取正文超时，也会返回 `UPSTREAM_TIMEOUT`（HTTP 504），Debug 保留上游状态及正文读取耗时。
+
 ### Worker exceeded resource limits（1102）
 
 这是 Cloudflare 在平台层终止执行产生的错误，脚本无法捕获，也无法渲染 Debug 页。CPU 和内存超限都会返回相同的 1102 / `Worker exceeded resource limits` 页面，因此巡检将其标记为 `EXCEEDED_RESOURCES`，不能仅凭页面断定 CPU 超限。先在 Workers Logs 或 `npx wrangler tail --format json` 查看 `outcome`：`exceededCpu` 表示 CPU 超限，`exceededMemory` 表示内存超限。网络请求等待时间不计入 CPU，沙箱初始化、JSON 解析和结果转换等执行时间会计入。见 [Cloudflare Error 1102](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1102/)。
 
-本项目使用 QuickJS/Wasm 执行脚本，大页面解析和多条详情补查会消耗 CPU。YouTube Shorts 从频道页获取客户端版本后，优先通过轻量视频元数据补齐真实发布日期，避免为每条视频下载完整详情页；旧页面缺少客户端版本时保留 HTML meta 解析。日期补查最多并发 4 个请求，单次最多 10 秒，总预算 60 秒（已开始的一批最多再等待 10 秒）；失败或到达预算时保留全部条目，不伪造日期。Shorts 列表页单次最多等待 30 秒，兼容并发抓取大页面时的正文读取耗时；普通视频路由保留默认的 10 秒超时。
+本项目使用 QuickJS/Wasm 执行脚本，大页面解析和多条详情补查会消耗 CPU。YouTube Shorts 从频道页获取客户端版本后，优先通过轻量视频元数据补齐真实发布日期，避免为每条视频下载完整详情页；旧页面缺少客户端版本时保留 HTML meta 解析。日期补查最多并发 4 个请求，单次最多 10 秒，总预算 60 秒（已开始的一批最多再等待 10 秒）；失败或到达预算时保留全部条目，不伪造日期。Shorts 列表页单次最多等待 30 秒，兼容并发抓取大页面时的正文读取耗时；普通视频路由使用默认的 30 秒超时。
 
 Workers Free 每个 HTTP 请求只有 10 ms CPU。订阅入口与其它入口一样在请求内同步执行，同样受这一额度限制；不能假定去掉队列就获得更多 CPU。Workers Paid 的默认 HTTP CPU 上限为 30 秒，CPU 配置是否可用由平台校验。`limits.cpu_ms` 不会升级账号套餐；`AbortSignal.timeout` 控制等待时长，同样不能提高 CPU 额度。额度和诊断字段见 [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)。
 

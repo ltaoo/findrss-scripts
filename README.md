@@ -136,7 +136,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 微博用户列表 | [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) | `/weibo/u/1992429663` | 1.1.1 | Cookie 授权（同步完整登录 Cookie，包含 SCF、WBPSESS、XSRF-TOKEN） |
 | 微信视频号 | [rss/wxchannels.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxchannels.js) | `/wxchannels/v2_060000231003b20faec8c5e1811ac5d4c803ee35b077b115ba7f22bad44fca23255c1a271f23@finder` | 1.2.0 | 配置：`api_url`、`auth_token`、`PlayerHostname` |
 | 微信公众号 | [rss/wxmp.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxmp.js) | `/wxmp/wow36kr` | 1.2.0 | 配置：`api_url`、`auth_token` |
-| X 用户作品 | [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) | `/x/NTCGoK9jFQURsEu` | 1.1.0 | Cookie 授权 |
+| X 用户作品 | [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) | `/x/NTCGoK9jFQURsEu` | 1.1.2 | Cookie 授权 |
 | 小红书用户笔记 | [rss/xiaohongshu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xiaohongshu.js) | `/xiaohongshu/user/profile/5d2aec020000000012037401` | 1.1.1 | Cookie 授权 |
 | YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.2 | Cookie 授权 |
 | 优酷剧集 | [rss/youku.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youku.js) | `/youku/series/bcaa87c7834c46f99e7b` | 1.1.0 | HTTP 正片目录及范围分页，自动获取匿名令牌，无需浏览器或登录 Cookie |

@@ -1,0 +1,32 @@
+--- a/server/infra/script_sandbox.js
++++ b/server/infra/script_sandbox.js
+@@ -466,7 +466,7 @@
+     navigate.dispose();
+     const fetch_text = promises.bind("fetchText", async (url_handle, options_handle) => {
+       const finish = timing?.span("上游 HTTP 请求");
+-      let active_trace, trace_started_at;
++      let active_trace, trace_started_at, signal;
+       try {
+       task_signal?.throwIfAborted();
+       const url = vm.getString(url_handle);
+@@ -499,7 +499,6 @@
+       if (cookie_handle && (!cookie_access || !cookie_access.allows(cookie_handle, parsed))) throw new Error("Cookie 句柄无效或请求地址超出授权范围");
+       if (fetch_options?.cookie_headers && !cookie_handle) throw new Error("cookie_headers 需要显式的 Cookie 句柄");
+       let response;
+-      let signal;
+       let credentials_allowed = true;
+       for (let redirects = 0; ; redirects += 1) {
+       const request_cookie = credentials_allowed
+@@ -635,6 +634,12 @@
+         : vm.newString(text);
+       if (timing && active_trace) active_trace.timings.decode_and_transfer_ms = Date.now() - decode_started_at;
+       return value;
++      } catch (failure) {
++        task_signal?.throwIfAborted();
++        if (!signal?.aborted || public_feed_failure(failure)) throw failure;
++        throw Object.assign(new Error("脚本上游正文读取超时，请稍后重试"), {
++          name: "FeedError", code: "UPSTREAM_TIMEOUT",
++        });
+       } finally {
+         if (timing && active_trace) active_trace.duration_ms = Date.now() - trace_started_at;
+         finish?.();

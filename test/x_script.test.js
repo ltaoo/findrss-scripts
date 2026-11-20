@@ -43,6 +43,12 @@ test('X 新版真实页面从含 NUL 的流式数据读取正文、时间和视�
 test('X 保留旧版 main.js、UserByScreenName 和 UserTweets 流程', async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
+  const timeout = AbortSignal.timeout;
+  const budgets = [];
+  t.mock.method(AbortSignal, 'timeout', milliseconds => {
+    budgets.push(milliseconds);
+    return timeout(milliseconds);
+  });
   const calls = [];
   globalThis.fetch = async url => {
     calls.push(url);
@@ -50,6 +56,7 @@ test('X 保留旧版 main.js、UserByScreenName 和 UserTweets 流程', async t 
   };
   const feed = JSON.parse((await run('example')).output);
   assert.equal(calls.length, 4);
+  assert.deepEqual(budgets, [30000, 60000, 30000, 30000]);
   assert.deepEqual(feed.items.map(item => item.id), legacy.expected_ids);
   assert.equal(feed.items[0].enclosure.url, 'https://video.twimg.com/high.mp4');
 });

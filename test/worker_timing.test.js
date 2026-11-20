@@ -83,6 +83,33 @@ test("失败请求和鉴权失败保留已完成阶段的耗时", async t => {
   assert.doesNotMatch(html, /沙箱排队/);
 });
 
+test("HTTP 200 后正文读取超时仍返回 UPSTREAM_TIMEOUT，并保留 Debug 耗时", async t => {
+  const timeout = AbortSignal.timeout;
+  let controller;
+  t.mock.method(AbortSignal, "timeout", milliseconds => milliseconds === 30000
+    ? (controller = new AbortController()).signal : timeout(milliseconds));
+  t.mock.method(globalThis, "fetch", async () => {
+    const response = new Response(feed);
+    response.arrayBuffer = async () => {
+      controller.abort(new DOMException("private upstream body timeout", "TimeoutError"));
+      throw controller.signal.reason;
+    };
+    return response;
+  });
+  const response = await request("/api/rss/github/example/repo/release");
+  assert.equal(response.status, 504);
+  const problem = await response.json();
+  assert.equal(problem.code, "UPSTREAM_TIMEOUT");
+  assert.doesNotMatch(problem.message, /private/);
+  const debug = await request("/debug/github/example/repo/release");
+  assert.equal(debug.status, 504);
+  const html = await debug.text();
+  assert.match(html, /UPSTREAM_TIMEOUT/);
+  const [trace] = upstream_requests(html);
+  assert.equal(trace.status, 200);
+  assert.ok(Number.isFinite(trace.timings.body_read_ms));
+});
+
 test("视频号 TCP 超时重试逐次计时，凭据仍然脱敏", async t => {
   mock_tcp_http(t);
   const fixtures = JSON.parse(await readFile(new URL("./fixtures/script_migration.json", import.meta.url)));
