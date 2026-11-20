@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:00.721Z",
+  "checked_at": "2026-11-20T21:23:52.917Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2678
+    "status": 502,
+    "duration_ms": 586
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2669,
+    "phase": "runtime",
+    "elapsed_ms": 581,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 2658,
+        "started_ms": 9,
+        "duration_ms": 572,
         "timings": {
-          "response_ms": 885,
-          "body_read_ms": 1772,
-          "decode_and_transfer_ms": 1
+          "response_ms": 572
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_8ab0e346e1df\",\"title\":\"OnionSec\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486352&idx=1&sn=df7ad119e5a167a5caf7b6bf5ce0ac5f&chksm=f8efd8e675823600c70e554eb90946bd606437f88704b662e1af07ae9767a3b0afc7e677af74&scene=126&sessionid=1795180867#rd\",\"description\":\"赛博郎中；\\n接触写作；\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"OnionSec\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5rTIy4VqIdE8nWuhb03D0ndDg8iaicGibvTK2AMicID9e7Wg%2F0\",\"updated\":\"2026-11-20T12:41:51.000Z\",\"items\":[{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486352:1\",\"title\":\"三年前抓到的 Exploit，今天又翻出来了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486352&idx=1&sn=df7ad119e5a167a5caf7b6bf5ce0ac5f&chksm=f8efd8e675823600c70e554eb90946bd606437f88704b662e1af07ae9767a3b0afc7e677af74&scene=126&sessionid=1795180867#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T12:41:51.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486350:1\",\"title\":\"最近，我开始喜欢数学了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486350&idx=1&sn=cde0eaed7554cd124624a8c69b78206c&chksm=f8e3c0b2a7010ca97b17539cab409ca91df3b3647123903e5753a22648abda9492930c7ce932&scene=126&sessionid=1795180867#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T09:22:04.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486348:1\",\"title\":\"从有限算术证书开始：对 Euler 1747 猜想论文 Section 7 的独立复现\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486348&idx=1&sn=0f7f5f32974f1cb62ff70cdc5389b8b7&chksm=f8c2e4965b11ed0b667abd9ad9001d37e96ca467baf88648cc19baafe90f4941de46a9425ab2&scene=126&sessionid=1795180867#rd\",\"description\":\"前几天该研究级数学论文独立审查完成了，本文记录自己最初的审查切入点。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T05:59:11.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486345:1\",\"title\":\"从排版工具到确定性交付系统：一次公众号图文工作台的工程探索\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486345&idx=1&sn=f4f0cd954a0af85eefeb97ed7eee3361&chksm=f89e5f8a61bf587847a3d64e76c7d372664fb9797d1c94984a92926a6c7f26450fe0c6fe6e34&scene=126&sessionid=1795180867#rd\",\"description\":\"迭代到 V3.3 版本，工程日志记录。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T16:58:49.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486342:1\",\"title\":\"复杂系统的“深水区”，不再是天然的安全屏障\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486342&idx=1&sn=1b4260f6a715aa85bd0eebc4aa0aff4c&chksm=f89455406e0a7b99274054d15eeb3c1d7a3f1efea56c9487c122c2b918a1cacfa512c5d95edc&scene=126&sessionid=1795180867#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T13:57:46.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486340:1\",\"title\":\"Mini-TPU 项目阶段笔记（一）：从 INT8 MAC 到可综合的脉动计算单元\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486340&idx=1&sn=00437a1014425d569aaac182276ba6f4&chksm=f89ee846fdc27cb161740f79ff396999e54a219ce81435b2b369244958e051dcec759e43fe46&scene=126&sessionid=1795180867#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T09:16:57.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486338:1\",\"title\":\"硬件工程这块，我嘴硬不下去了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486338&idx=1&sn=696ae7c1917a135e7b517f40959a16bb&chksm=f8c2c88d874e47f2b8e5347c2212dd9fb285ecbdb954c251523dbe4668f602aa545094f8c241&scene=126&sessionid=1795180867#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T05:21:36.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486334:1\",\"title\":\"两个 NGINX RCE 漏洞：当 AI 开始拆解复杂软件的安全边界\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486334&idx=1&sn=d093cb50265f3d9dfb89869bad4ae817&chksm=f86694d771810d847235916614ad986d1125eaa284e1cf0f88e0e87857bd3b792cf85497f685&scene=126&sessionid=1795180867#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T17:10:31.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486332:1\",\"title\":\"当我用安全防御的思路，给 AI 建了一座“排版监狱”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486332&idx=1&sn=14e9193bc5db2e3940151667e7a8d2bd&chksm=f8b72eb3cddd62a6415c906d49f9e66070c3d3fa5c2ee64d89f62071abf9af1de3b7b1b2bed9&scene=126&sessionid=1795180867#rd\",\"description\":\"今天把排版工具升级到 V3.2 版本。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T13:39:53.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486330:1\",\"title\":\"我不是我：AI 时代的一次自我认知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486330&idx=1&sn=d1b94dea7712be7fe41262b9b30888bd&chksm=f852aa03989b310613d9e62028f0f525017c782db285b595714a94d3df1739575764a7c6241b&scene=126&sessionid=1795180867#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T12:46:59.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2669,
+      "elapsed_ms": 581,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,39 +110,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 2662
+          "duration_ms": 575
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2668,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2668,
+          "name": "错误诊断收集",
+          "started_ms": 581,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2668,
-          "duration_ms": 1
+          "started_ms": 581,
+          "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2669,
+          "name": "失败后浏览器清理",
+          "started_ms": 581,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2669,
+          "started_ms": 581,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 2658
+          "started_ms": 9,
+          "duration_ms": 572
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_8ab0e346e1df",
     "name": "OnionSec",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_8ab0e346e1df.json",
-    "duration_ms": 1506
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 580
   }
 }

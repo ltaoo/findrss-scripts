@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:03.806Z",
+  "checked_at": "2026-11-20T21:23:53.589Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2156
+    "status": 502,
+    "duration_ms": 534
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2151,
+    "phase": "runtime",
+    "elapsed_ms": 529,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,17 +55,17 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 2139,
+        "duration_ms": 519,
         "timings": {
-          "response_ms": 1004,
-          "body_read_ms": 1135,
-          "decode_and_transfer_ms": 0
+          "response_ms": 519
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_6c6d74323fa4\",\"title\":\"Medi0cr1ty\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484531&idx=1&sn=077a1759d360371f032c5c9b4112f9a0&chksm=c1de66d395048f30ba01403d2cf4484ce9f20db2fe83197f97521574b24a5d1b4cdce00d1f04&scene=126&sessionid=1795180870#rd\",\"description\":\"宁静在遥远处波动\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"Medi0cr1ty\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FNoFChqEQomFotic8kFrF26ibCOyEomgYt4sxm6GGgyeM16XfffuDkGxluiaNhZCOiasP8BianKKDQgbQ%2F0\",\"updated\":\"2026-09-06T12:11:04.000Z\",\"items\":[{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484531:1\",\"title\":\"XProxy 的设计与思考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484531&idx=1&sn=077a1759d360371f032c5c9b4112f9a0&chksm=c1de66d395048f30ba01403d2cf4484ce9f20db2fe83197f97521574b24a5d1b4cdce00d1f04&scene=126&sessionid=1795180870#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FyyLkJz8jW5SYlqqOKdMrj4oCq3bpxXnswicbmZQPFQTcUyTrMlhtTNtvLqO2CVJbAt9bfQwAibmgj5ofrCgLDlmPLSBRUSnnjdU9CB2QwjDRE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-06T12:11:04.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484472:1\",\"title\":\"xlogger - 劫持任意程序的键盘输入&终端日志\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484472&idx=1&sn=2a150d1d9a2dbfbf22929bdcb797ee7b&chksm=c10834ff1f66f255307a49c652628e3d67b2abf8a1565b7f503672382309c112380235a41f5d&scene=126&sessionid=1795180870#rd\",\"description\":\"xlogger：劫持任意程序的键盘输入和执行结果的日志。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWjkJxJOu3EKT8mDdVeOlNnxtia8JTzJ6OnkI59LhCfYZFicjC9cab9lRvz4fdGUiccibDYicdKJ38Deslw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-19T15:01:31.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484465:1\",\"title\":\"元旦快乐｜SinkFinder更新2.0版本\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484465&idx=1&sn=d5b29efa6fb201129fb6d380427bce67&chksm=c186e7e6a7189056ea82eee7cfe84298a93d23f653d72306c137dadee88bfc059bb77f2012b3&scene=126&sessionid=1795180870#rd\",\"description\":\"祝元旦快乐！根据反馈更新一版 :D\\n欢迎反馈～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWia0IMFk45pmgFpI8EdKgs8zTiavlqiaOc2XjGWhGiaqrgAyDrv51fEnLOcRmxHwUxmN2SMYQoyDCAnwQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-01T15:48:00.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484452:1\",\"title\":\"渗透测试从“入狱”到“越狱”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484452&idx=1&sn=16d3185d5a662c0695f5ebc2ec75081b&chksm=c1be59dd5900f496c4c029b23a57999b9c35450752b19877f82d4c78791771f3d39402d55b60&scene=126&sessionid=1795180870#rd\",\"description\":\"记一次黑盒测试打坏目标系统“入狱”到docker逃逸并修复实现“越狱”的日站过程，提醒大家日站需谨慎，不然亲人两行泪～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWhYc7xzPDT3amNFI5lHNOOhOXGvLHvtQtIGHqo6IciaCySHausvqnBDICHiba2kHZicGebzZ3IdVqCVw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-08T10:59:27.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484434:1\",\"title\":\"SinkFinder  - 版本更新+LLM能力\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484434&idx=1&sn=53a73fd788799aa73d1b5bf8d884ad50&chksm=c18a05bf3ac14ca5f0b6cdb522c501cbf40894a390de17f28ef0ba0f75ce8d126a59b64eeb1c&scene=126&sessionid=1795180870#rd\",\"description\":\"集成LLM能力\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWhYOG6qmsTHl91apZHhAchc2D4erf8VpvlhvAJicI7Eiav133pFfHbZ8GS6Dk1Xc5VBZoNZkk5N9z8w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-01T05:46:15.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484428:1\",\"title\":\"代码审计系列之java命令注入科普\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484428&idx=1&sn=8b48c4956fcea87b50468de66be2537d&chksm=c1040c3b431575d4bb12b39834e322143e6fc4298e671f3457efd0a1fe62521bcf1e0cd7a5fc&scene=126&sessionid=1795180870#rd\",\"description\":\"关于java命令注入Runtime/ProcessBuilder接口的科普\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWjFJrOKCImN8tAKTSvAPVhRLg5cic4fdh7D8LmBUJBw5ygh5ZUwbQqdCibvCrGFU26dqINRicxwwglRQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-07-12T15:33:30.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484418:1\",\"title\":\"扫描器开发系列之敏感信息提取\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484418&idx=1&sn=6c817b22ceb098263582d84d8f9b2298&chksm=c108b953763231ba53b7b6b13fd4c3b56b23dd7afd82f4caf1f3b9040feeea36209a99170d2c&scene=126&sessionid=1795180870#rd\",\"description\":\"0x01 写在前面整体思路：在扫描器的上层代理(使用proxify)做流量镜像储存到es,通过kb做可视化,方\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWgo1caeTr6atZAztglibEKSd9Ox3GtKkpSdRf0ovV2XPibaWe3Lubz9rL1kadEE2pia2nR0G1OlysheA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-07-05T13:56:21.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484418:2\",\"title\":\"对抗小技巧: IOS环境下支付宝小程序源码的提取\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484418&idx=2&sn=f9b75f7d4868bf2f96a1104e88ca45ad&chksm=c1ed83fe3f3d375a5670d44dd7e4b873f1bbbdcb015d052a17a8f98e413c10dc4240ffef1118&scene=126&sessionid=1795180870#rd\",\"description\":\"IOS环境下支付宝小程序源码的提取\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWgo1caeTr6atZAztglibEKSdRsyyozNcIIfFepU4c9EPiaibcEH19j0MWHDwonhhoSvj24YbcwawQ65g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-07-05T13:56:21.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484406:1\",\"title\":\"SinkFinder - 闭源系统半自动漏洞挖掘的尝试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484406&idx=1&sn=4ebabbc7065f50f5a101437e02b5f55d&chksm=c1df52cf9f229b90a409b318cca1101672ed5a8d00bfba13d5bb24a3880a0a4a9aaa04338823&scene=126&sessionid=1795180870#rd\",\"description\":\"SinkFinder，一个用于实战场景中快速找到 sink 点及上层代码逻辑链路的半自动化漏洞挖掘工具。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWjx4qOnicaYLoZsmZZaYKFMD6HuiaDcFgYO5WJBFILwAh5DcoBjibLC9ymYYU9ldYwxiaYfe7D4a8ibvqg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-06-23T16:24:53.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484367:1\",\"title\":\"对抗小技巧: 一些实用的运维命令\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484367&idx=1&sn=170df37e51e6619b3d25e4fc5b598337&chksm=c1a7fb181018e3d93be512966f72de9d6ff4389b77ec698de22044ea999015402a6452171c2b&scene=126&sessionid=1795180870#rd\",\"description\":\"运维小技巧\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWgLZKLUt1QXcxGw3rVl8LfRBYxZOwMGKIk5Xnc21LwOiaGphMYcmiaemnPkVibV8kxj0ZQMJaDYibPaAA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-06-22T07:25:52.000Z\"},{\"id\":\"wxmp:Mzg5ODE3NTU1OQ%3D%3D:2247484362:1\",\"title\":\"甲方安全建设系列之 HTTP 资产清洗\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5ODE3NTU1OQ==&mid=2247484362&idx=1&sn=f903fdd29cbbe10e60474da2bc707305&chksm=c18269cddb74da5256a35cb0bf06563c0a2a53273f14a657b8816e69b402f57751a5b3ed27bf&scene=126&sessionid=1795180870#rd\",\"description\":\"这里的讨论的资产特指在黑盒视角下被动采集到的数据，比如来自waf、网关、被动代理等http请求日志所对应的资产，并不是主动扫描所发现的domain/ip + port + urlpath这种资产，清洗的结果也主要用于被动扫描，而非主动扫描。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FZiaGB6iaicqkWjSFacGvR6ekj7fq97XgJAzvlCPWDXibcSWElpRY9MXrwibpFsV2XaibRAZyKeY7zPNSIGL0PWZKEXNw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-05-27T15:25:05.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2151,
+      "elapsed_ms": 529,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -90,22 +85,22 @@
         {
           "name": "宿主能力准备",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -115,31 +110,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 2145
+          "duration_ms": 522
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2151,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2151,
-          "duration_ms": 0
+          "name": "错误诊断收集",
+          "started_ms": 528,
+          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2151,
+          "started_ms": 529,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2151,
+          "name": "失败后浏览器清理",
+          "started_ms": 529,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2151,
+          "started_ms": 529,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 2139
+          "duration_ms": 519
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_6c6d74323fa4",
     "name": "Medi0cr1ty",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_6c6d74323fa4.json",
-    "duration_ms": 2706
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 525
   }
 }

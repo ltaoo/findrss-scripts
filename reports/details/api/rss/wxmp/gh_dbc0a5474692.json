@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:19.173Z",
+  "checked_at": "2026-11-20T21:23:57.706Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 3948
+    "status": 502,
+    "duration_ms": 565
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 3943,
+    "phase": "runtime",
+    "elapsed_ms": 559,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":23,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 3928,
+        "started_ms": 8,
+        "duration_ms": 550,
         "timings": {
-          "response_ms": 2121,
-          "body_read_ms": 1805,
-          "decode_and_transfer_ms": 2
+          "response_ms": 550
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_dbc0a5474692\",\"title\":\"机器之心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075517&idx=1&sn=755d760e1943f1fe971355f513710fc0&chksm=85ae70ca83f435066b43589dbcd953883627d442b15b87cc1e4d78484314a13aeea65c861bf8&scene=126&sessionid=1795180886#rd\",\"description\":\"专业的人工智能媒体和产业服务平台\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"机器之心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM75UiawQgcdqOcmtYS7Jibug9J7dskxkNicGiadtdKl7mLyiaw%2F0\",\"updated\":\"2026-11-20T09:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075517:1\",\"title\":\"当蛋白质设计有了自己的「Claude Code」，AI Native生物科技公司开始交付「真实成果」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075517&idx=1&sn=755d760e1943f1fe971355f513710fc0&chksm=85ae70ca83f435066b43589dbcd953883627d442b15b87cc1e4d78484314a13aeea65c861bf8&scene=126&sessionid=1795180886#rd\",\"description\":\"从「能结合」到「能成药」，AI制药迎来新叙事！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFAZ0o1p2VyAukH1D0CRabruGg5PBxMKma6mPqnqFUtfI8SjBw7lVgWF8h3dGQ17icg3QbHlSDRyunISjlpwgOSBqibgqLtrT1bo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T09:30:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075517:2\",\"title\":\"NeurIPS 2026 | 如何让LLM在推理中不断进化\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075517&idx=2&sn=83fc34fc6806b5f7e611219919c2acb8&chksm=8580664f1882d0e3a75d7325ad93bb0f8cae53dd3c152999a70f947f113820c6b28537c72054&scene=126&sessionid=1795180886#rd\",\"description\":\"LLM仅凭前向激活筛选SVD分量，无需反向传播即可高效适应任务。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqG1pPzk955QEgVZtApkwUtibD3eE4dtu5y8qAP5DIr4MURRibuJDheRsyuGX4C5Viayyh5FtCJicY05QYKOqtjAQXcNP7wkKL5to98%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T09:30:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075503:1\",\"title\":\"刚刚，alphaXiv甩出AI Agent专属预印本服务器\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075503&idx=1&sn=96482e948a388c1c24f9b5b3fc85239b&chksm=85cc19ed26dcac48ea5d9e2dd6db0dfe18a6acf9eeb3a60dd15d1c7c905084a0d041dc27a227&scene=126&sessionid=1795180886#rd\",\"description\":\"alphaXiv开启自主科研新实验\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFTickpKnXSkGMCtXrSShMmZtT3ZOlicUE1Dhs59hNlWYszKxiby3GdwuYyrgxZWylEWYAv8rSfiajp6umyxImCLPBPaXRsV4x65hU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T06:35:12.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075503:2\",\"title\":\"全球首个原生3D动力学预测世界模型，RoboScience为机器人操作提供更精准的物体运动预测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075503&idx=2&sn=8547e2ba45f337ec62a13411c42204a2&chksm=8562ec5e3e8597f83f181f53ee3369883713e6c5d49855a98911f40b0f2386895c2a8f0fbc97&scene=126&sessionid=1795180886#rd\",\"description\":\"RoboScience机器科学发布\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqHiaibHicNtIMcl2hcpfUnaV4tSt2GzdImlKxhLX03yp6lINWlicflfBESTrDOROlbM6VOMxQQiaz9iaxJOv4AFuteToTBVgcKgDDwnk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T06:35:12.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075493:1\",\"title\":\"登顶全球第一：这支AI音乐团队，凭什么用18个月打败Suno？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075493&idx=1&sn=f8ab8aea34e7c653723fdeab5ae401bd&chksm=8532df8cb303ffe353e959346dcc3611dc9966aeeded9741dca3182b608194ba0923a1ba3421&scene=126&sessionid=1795180886#rd\",\"description\":\"全球音乐模型 SOTA 首次易主。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqGXtiacdp3OriaIGbTXqHicIIPvy8SqTe44uV5xvVtES5tmaMS7UJ0syCtV4UfsCiciaib5FHyrI8znibCiaHp3tbSPTl9bUpXZ36ZFtt0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T03:56:45.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075493:2\",\"title\":\"AGI还不是终点，DeepMind开始思考ASI的未来\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075493&idx=2&sn=7806a7ce49d42c7e0dcd482bf2f18913&chksm=85980d12270d4f9fa08d3e0cbcb4969dacd738ffd5c143e2f27bdbcf81df3305cba5774c10fe&scene=126&sessionid=1795180886#rd\",\"description\":\"通往超级智能的四条路径\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFN81hVp7BZCjgTbO8IYflzvlpBWNYkLEeKfGtZskyOnIhcAZzc7ibDgJHjsU0YMqmsCKPRP1odYJicyQj2F2lo1nnEDhCmhQbjA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T03:56:45.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075493:3\",\"title\":\"上海AI Lab开源Sage S2.1 Flash技术报告：四项智能体基准SOTA，科学多模态感知如何融入通用智能体？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075493&idx=3&sn=63643451e794a6d8ac3dbb423d7f460d&chksm=85fcdbcb9f7c970b4db7684921cddebbf4992aca38ebb0d10fa6168c835ec74cbb507ea9bdc5&scene=126&sessionid=1795180886#rd\",\"description\":\"披露总参数量达 320B 的混合专家模型的完整训练流程与技术细节。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqEiczGS7OQ4XGEicIkm5qCVnO0yNR0licQibh6iauSlbTq8mgZCWDiawHFCDbGx6nuEOibOtg4KUD2w4vpFbicoKLZhYqszkyGPpbQq4h0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T03:56:45.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075417:1\",\"title\":\"Anthropic上市首日冲破2万亿美元，史上最大IPO\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075417&idx=1&sn=13321c2ac7d4d1522b1088be80488fdd&chksm=8590147d790aab4d4624de4bf2edc428e6e4db019569a6cd1ceb85379a75195d1cc4ad271d27&scene=126&sessionid=1795180886#rd\",\"description\":\"AI 将会解决一切？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqF8oF41z4xOkRyEXBzZqDXOFL4CtVnw8RZqUU1nuexohOPdmvIGoianOGgCIjQTfT1IJlUAEyvsZaPcSqzldSu0ChflVShCAWKs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T23:15:17.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075417:2\",\"title\":\"具身之外，物理AI终局的另一半：牛津费豪59页长文提出「认知共生体」新范式\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075417&idx=2&sn=7b1684600a376d0ad2f9ebc5b824d9be&chksm=85829e96e124d55dd29dfb012e2febeb88836c655a9ac5f154ae26e6f08cb56f3bda33fc791a&scene=126&sessionid=1795180886#rd\",\"description\":\"物理AI终局的另一半。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFGQkjo8roYv30ic2D2AMNczVEFvaNdAiaY6ImKELDeibI0KERGcf1jFHoAEoL2V30ErZuMTZPjoTxj43dN9cWhrwDsXST2yIibCyw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T23:15:17.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075304:1\",\"title\":\"推理成本砍到1/20：混元Hy4 flash调用数据登顶，性价比拉满了（已开源）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075304&idx=1&sn=ba62296240f3be254cee52fafcd913fa&chksm=85466be97cc8ff93b7f9dcd5219fe66c32809a6548bd71ab2b1418476009c11ca5be832b7f07&scene=126&sessionid=1795180886#rd\",\"description\":\"我们用它干了一天活。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqE9LLUWFA5ClhiaJBkicRPUX39b1xb93V8AkQ5hu34icEFClgicuBpUHiccCqt1cYmicUUca0PAiaN6a2W8CKm6U5HL9DUtdNS6dcXyBc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T06:32:39.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075304:2\",\"title\":\"年度压轴之作｜2027 AI 进化峰会官宣，为下一轮智能跃迁写下序章\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075304&idx=2&sn=93f08f4a027be79e7122fa50273c61ff&chksm=85e3cf18768e4ae776c5c233815b9156b013da5de37722e1635bd783d6a1742c55829e18c6bb&scene=126&sessionid=1795180886#rd\",\"description\":\"12月26日，相约上海·张江科学会堂！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqH6mj7zlwkpE6M8a69sV9IZItoqribfCQLOvicodIh3ibicxGcFX0X8nsR13b4KqfmiagjbUrENXBPLkeME6oTT0p9JSt8QzzyDseEM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T06:32:39.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075302:1\",\"title\":\"语言模型推理折叠蛋白质？把3D结构塞进思维链，超越AlphaFold3、IsoDDE与Claude Opus\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075302&idx=1&sn=1badc9c3cd5176dcd98e705345707a2d&chksm=858daa93e6abd753cb3f654e67f14db618c428272b147e2acea850ac3d1b509df03befb1871d&scene=126&sessionid=1795180886#rd\",\"description\":\"SimpleX 开放Tetra-1 Preview 试用，迈向微观世界的生物推理。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqEdgbhu1Ubcv5EX62lP5nQibz5NAbf1cVQ9cLOzEqznpsvBnGFibMFLSaFZjHC6VcMDQpXtFI88J7oShfeickLLoZ8klIHHbtiaK3I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T04:08:25.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075302:2\",\"title\":\"Anthropic IPO定价83美元/股，投资者疯抢\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075302&idx=2&sn=8da8a7badbf656bb807e1e4aa135ae98&chksm=85ae4a19f1aed6b5dfe3e00f97a69194f50f89fc1ca719154e712436e99a1bb7bf6cb6b4e55c&scene=126&sessionid=1795180886#rd\",\"description\":\"冲刺史上最大IPO\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqHvNOPTFPMyZicIuIY3KQ63icXpiaibqUY75WZaSibsTOUGTOhwJRpJt5SfH18uKpBLzj31BMibhIuUpLEwiavj6xIQq1uX9VDYCj6yaA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T04:08:25.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075302:3\",\"title\":\"写入记忆，何必读完整个网络？英伟达SEED每GPU吞吐最高提升42%\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075302&idx=3&sn=3638e59c38cbc04d5ff6d800abd49c51&chksm=85bbd3265dfa6a079f5edc6646818e90be77a69bb5e750c4dd19bc32256f843906d81e3d36e4&scene=126&sessionid=1795180886#rd\",\"description\":\"NVIDIA 拆解混合模型的\\\"读写不对称性\\\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqHbaicS3ByupjnJBhxxic0jERNEYPwMmibtJrddUSZq0XrbJYTC3EiaxdQuYpHMXByZW0pCfv4h11ZZF6h14aRhDIrN06oYeAg0egU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T04:08:25.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075240:1\",\"title\":\"开发者真机上手！具身智能，还得这群人补位\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075240&idx=1&sn=a7c310b8f9cb97616513ad4e168bf2c6&chksm=85252cf441cd804df487fcbb5a93a57bc9278a4341df6df9acc6ce7e59019539fe528f7c560b&scene=126&sessionid=1795180886#rd\",\"description\":\"具身智能走出实验室，需要更强的模型，也需要更多动手的人。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqGTaJ8J9iaLOLQ37nXVS6FvMlD7YqvxIMkexYZUNQNmUUQsZmEHuNOqV40eCJdRxic2lLKM0icCpsgzUhChic8WKJoicCpiad8ibzXfmQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T02:17:27.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075240:2\",\"title\":\"OPD训练也能无损加速？STOPD最高加速2.2倍！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075240&idx=2&sn=938735f7d3e6307bf52e5b689451cd92&chksm=85651dda002ee4d9818cd498f3320f7b9c61231bd960774e185835d212f6a38c493565a727ad&scene=126&sessionid=1795180886#rd\",\"description\":\"在生成前随机选好停止位置，然后让部分学生回答提前结束，最后再通过逆概率加权补偿截断带来的采样偏差。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqHibTZthXnv4CpFicBRV6hvfw6MrPZx76gFlSajzcx6EsrWRBzASjHzzn0lbzYGhI0QuBjxRAnZZibxc9deOtytOOicxrcsEFotT3Y%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T02:17:27.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075209:1\",\"title\":\"刚刚，谷歌Gemini 4再发新款，对标超越GPT-6.2 Sol！世界模型Genie 4也已开放\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075209&idx=1&sn=7b2e1988d7d96905e6e9b18b097f61c7&chksm=852e6b0acfc8ad5221ba214307c35c70483c71447f5bfbacf7c635e8f035961d21fa64639de3&scene=126&sessionid=1795180886#rd\",\"description\":\"位于 Carbon 和 Hydrogen 之间的新智能\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqGJsplZQRFOSOTgPCK1lAZX34vM3pPbz27dlkrIRCxNa77Mmq1HevlCWHZJtBKZEFzlSg8rAaspEUrNKnh01bRNgOwzUfuqUHY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T22:34:57.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075209:2\",\"title\":\"港中深联合微软研究院提出多模态统一建模新架构ConvexLLM，让声音接上大模型已经学会的知识与推理\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075209&idx=2&sn=502e8954dd5dc4abdf68d8afefd8cca4&chksm=85eaa8fd86b4ae25af8a1326d5e12b6a75d2517dd787bf3a48f29d5b909707eb728c2842317c&scene=126&sessionid=1795180886#rd\",\"description\":\"文字的边界，也可以成为探索声音智能的新起点。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFYVJ3clrEjsNhKI49RL3boLQ4lvLxXT0sVic6ngtMrlYf1aghCg730nM1Yyc8qHianHZicQxQyK54NCXOiagB4q55wqR734qEIcUc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T22:34:57.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075119:1\",\"title\":\"Agent多人共用为何会失控？来自Ankole的Business Agent架构设计分享\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075119&idx=1&sn=87c3aecd0cd20bbd7c0957c8e131d71c&chksm=853f187d68ac3090e8f6d36c995b9f457e3e5e396290d0e86b846d1edfc264b154a8659ebafc&scene=126&sessionid=1795180886#rd\",\"description\":\"它面向整个组织运行，支持多角色成员与多个专职 Agent 在同一套数据、权限与责任边界上协同工作\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqH65rlUBZmm5hrvu3HX0je2xpAgB1tQvXkSzI5qTdW6oeQib93YBG3Gz3ibqbFcwUpPafibJdcD1lIslVLVKMvic0As63yIEBiaq9Wc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T05:00:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075119:2\",\"title\":\"openJiuwen首发AgentOS「Harnessless」开发范式：不用自建Harness，让Agent原生应用触手可及\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075119&idx=2&sn=3c605eec20f55342d9385a5f813e17ac&chksm=85d696a19cf77a54d882242b34ac4b1aad3387fd40b61b28427896bf031d2c0fdb70e23248b4&scene=126&sessionid=1795180886#rd\",\"description\":\"openJiuwen AgentOS，从应用开发到统一管理！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqExQBwRWDwgbdcy4Lhd35N2Iuwphs9QE52nFjvqWcEtaxrVQOIc4ZiajY77dtzialBMt14VTeu12te7jq1nYp0MINDkljIEBCbn8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T05:00:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075119:3\",\"title\":\"思维链之父Jason Wei离开Meta，加盟200亿美元AI独角兽\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075119&idx=3&sn=f13b42ee2bcde04babe2341c5f834dce&chksm=851f9edb195bfd2e5e43f0bbb5c63c4b8854552fa3cc369c55ebf31f4be90c446d5700501c30&scene=126&sessionid=1795180886#rd\",\"description\":\"思维链之父Jason Wei又跳槽了\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqHVOTP6Uj9QdtBtFLDmicMXia4jHUaxQbIbwVo3Of175hIAE3Pe3c6DjiboqMLORrXwiaEW0GbAGn5n7e5cUKou6bZvGpcHeGibib0ks%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T05:00:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075108:1\",\"title\":\"给世界模型装上「生成式显卡」！Code World Model 2.0实现30分钟一镜到底\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075108&idx=1&sn=c9ab79015d046acf3458ff328189f1e8&chksm=85195324a48eed8c08bef5ac52d7985860ff79277d913e90b5fd8545ed9d8023a4368fa500e5&scene=126&sessionid=1795180886#rd\",\"description\":\"从精准控制到长时稳定，CWM 2.0 让生成式渲染更进一步。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqFI6xDUbsmDvdYpuHUyP5JCOGbGwiafJyJQuia7RBAicZnLMrrxdJ9njeurc2zImqD2uXTSKSflZAHSVE3Tvuorcy6GvIgWj0yAYU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T03:30:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075108:2\",\"title\":\"你的模型越训越「不敢想」：港大NeurIPS 2026揭露GRPO隐藏的双重枷锁\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075108&idx=2&sn=58abf70176c816649560f3a788920432&chksm=85371958465cb5476f54bc5e2754bd901c6242b4ac1e47f7a587abc94677588f99d62550f507&scene=126&sessionid=1795180886#rd\",\"description\":\"港大提出隐式优势对称性：揭示GRPO的多样性探索与难度适应瓶颈，代码已开源\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqG4tzO2Pk1FnmOXsNUBLgoeCl6gXBtTPpfftia27Qpkbf589C4Dnn8h0J1BnWA9IKFwOQ14HwmetiaoaeDHnVsptwicPHqFFZdetQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T03:30:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 3943,
+      "elapsed_ms": 559,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,31 +110,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 3936
+          "duration_ms": 553
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 3942,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 3943,
+          "name": "错误诊断收集",
+          "started_ms": 559,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 3943,
+          "started_ms": 559,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 3943,
+          "name": "失败后浏览器清理",
+          "started_ms": 559,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 3943,
+          "started_ms": 559,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 3929
+          "duration_ms": 550
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_dbc0a5474692",
     "name": "机器之心",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_dbc0a5474692.json",
-    "duration_ms": 4282
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 582
   }
 }

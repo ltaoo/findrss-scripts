@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:21.808Z",
+  "checked_at": "2026-11-20T21:23:58.899Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2095
+    "status": 502,
+    "duration_ms": 540
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2087,
+    "phase": "runtime",
+    "elapsed_ms": 535,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,28 +54,28 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 2075,
+        "started_ms": 10,
+        "duration_ms": 524,
         "timings": {
-          "response_ms": 2070,
-          "body_read_ms": 4,
-          "decode_and_transfer_ms": 1
+          "response_ms": 524
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_0f3f40f6ef3b\",\"title\":\"也谈钱\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495281&idx=1&sn=46ecd63b23a7eaff14e0b6fabbf05d38&chksm=fbf79c17c161a784e35ca2f8f6775001bf15b7e4b38e65c4da0b6816e3d96fc0f7f0a3265e62&scene=126&sessionid=1795180889#rd\",\"description\":\"一枚工程师的财务自由日志，工资理财也能财务自由。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"也谈钱\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7ma2CKIg6BD7icZgqiaytiaZUdDMfgOrFwLcdU6tYDPicmQA%2F0\",\"updated\":\"2026-10-29T05:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495281:1\",\"title\":\"今年最喜欢的剧\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495281&idx=1&sn=46ecd63b23a7eaff14e0b6fabbf05d38&chksm=fbf79c17c161a784e35ca2f8f6775001bf15b7e4b38e65c4da0b6816e3d96fc0f7f0a3265e62&scene=126&sessionid=1795180889#rd\",\"description\":\"爽的同时剧情又很合理\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fju9buj4vGtr6iarhMwRqmD0yhutNtJYaDp6ic4RZlSx5zG8FDib6ZRZu1OlqdO9nDC5PcQJ3jQmBxJbZN9scviaIXe3qLKwWFopco5rFsECapOc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495270:1\",\"title\":\"中彩票了，这班儿还上吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495270&idx=1&sn=4db63c0fe2086ae0d1017430c3f0c326&chksm=fb045e5444b98d450da65e301102d94179050511eb97ec85ea8bdc21a55bc338c26fb041a84d&scene=126&sessionid=1795180889#rd\",\"description\":\"大家比想象中理性\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fju9buj4vGtq5IqkpviaPYpib6BrZ2yw2rxhB7aoicZossZDWSBd2M4WbUMImNaOfTPia590FMagj4eHhKWxLiarwlicib5eT9me2xX0HZhPUjxN9II%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495263:1\",\"title\":\"我的干眼症终于缓解了～\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495263&idx=1&sn=244bc3f301eb68839dc366addeb8cb7c&chksm=fb025c8038d3c832d2acae41fa1f55d6011ba6730b509084b6def8cac566c2c30b2eee0f5465&scene=126&sessionid=1795180889#rd\",\"description\":\"这是我第四次写干眼症了，这些年一直在尝试各种方法，比如人工泪液、热敷、湿房镜等等。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fju9buj4vGtqJnfnXEFDnpibZM1N5g6Y9tD0rfvU0uw4xccE4POtqWj9D8ib4Pdh1cEibuRpAGKJ6ibKhMic4icDUAYbwj782oELQM5xww68icIN6dU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-19T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495250:1\",\"title\":\"畅销款保命\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495250&idx=1&sn=7106919236d495396434b0e8a483321c&chksm=fb417c17626fabcce6ccc0e53b87a8e79dd04646a1fac2fb5f9917fb32c5fe715caca3f4db0c&scene=126&sessionid=1795180889#rd\",\"description\":\"因为最近刹车踩断的新闻，很多人都在想以后应该怎么选车、避雷。也分享下我的思路，供大伙参考。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fju9buj4vGtrUtvMqicQsV3gOBw7spNWekdHaSNlJo61LYHMBVt9NHMachVwmv1Xmkvvv6uJjMmhaBC2neicqexEfwjQkia5N8dfwKZBND939zk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495243:1\",\"title\":\"继续苟着\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495243&idx=1&sn=b6f63db07e8aae16b5a0c586937c6b4a&chksm=fb57a06794d9715d4ad7052feef95b41532d43bc7d6125e844de8c44353d53c945b57e099b25&scene=126&sessionid=1795180889#rd\",\"description\":\"前两天也太突然问我，好像很久没说投资了？嗯…标题就是我现在的状态了\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fju9buj4vGtpfULJGfLib1wmyxwdtIiariayicanHx3DzwUicculxWl9DaY4LTkxxWsOXY1FFGtIhNSXB11hkynq4qW2X3KlNxP1Y9BkT30OIzHL0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-12T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495216:1\",\"title\":\"如何度过低谷\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495216&idx=1&sn=4459f3a7ca7909435a436c1d156a9763&chksm=fbc6baf47ffe661d48e016f2a4d3297208d50dd1b0101f5848dd1e2bde9e5ff027948d6a2892&scene=126&sessionid=1795180889#rd\",\"description\":\"一个最简化的，生活基本盘建设手册\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fju9buj4vGtoAImqdWJtXZJwYjMtGHOiaEaJt7atuOqACicPVdFgROol8chNj8AaMZ9iamtggdQbfkQ7nbLYRibXAfPVzIvMKEGSukjkyp2gTJRY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-23T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495205:1\",\"title\":\"止盈计划\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495205&idx=1&sn=6c6d63525f263014026763dbd261ad81&chksm=fbb3e1bc33e01272e3b5f7ff851f1f92e6c458f8c39d1aa3ccfdea86c53a0db12997689cf930&scene=126&sessionid=1795180889#rd\",\"description\":\"最近常被问到，现在是不是牛市中后期了，应该如何考虑止盈计划目前大家看的是牛尾行情，有止盈或者提现的计划吗？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fju9buj4vGtr0U2DNqAx4AjibmkICUnc7lWYUoiaUmIPQkreMibB5ibA0LkU0fadW6N8ekRV5shf87Pvf5bU0qXAgjWMXqE96rrgY3qmAvcqPu4g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-10T05:38:25.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495190:1\",\"title\":\"哪只基金可以持有十年？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495190&idx=1&sn=d1b28a5eb6c2a264b2d56cff5d607fe8&chksm=fbca5bcdba627c8fd11e22b09535feb1011e36a54cdcb6ad442ab30d6b56a606cb6815ace8eb&scene=126&sessionid=1795180889#rd\",\"description\":\"经常被大伙问到这类问题：想给孩子攒一笔教育金，十几年后才用，选什么基金合适？准备给十年后攒一笔自由基金，应该买什么？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fju9buj4vGtrL2hiaAicISO1vtPzPukUEzXEiaj3XQpBZg16LAsiaSd3dsSBDicMOVtFEENV5bkcIYQ0ceTSUThWf86O7MHJGxuOkliaR1hwPWSz4g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-07T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495184:1\",\"title\":\"被认证为最安全车主（还有钱拿！）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495184&idx=1&sn=29c774974ef1830051d813e564f139e3&chksm=fbd77574461b840138654ecdfd9c5d0b30713b75ff1219de0be40a17553e34bc3cc82a418981&scene=126&sessionid=1795180889#rd\",\"description\":\"跟大伙聊个好玩的事儿\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fju9buj4vGto2fsiahblQaUMYicHEdXPibX4VKfm3sQuqvzgRtOB8ZyluyErsj156sdrnmqxkskicnaGibsW4DAW6L7NPMXEhrFsQDZgA9qbNSUWE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-02T05:30:00.000Z\"},{\"id\":\"wxmp:MzUzNjE3NzQ3Nw%3D%3D:2247495174:1\",\"title\":\"旅程过半｜十年之约 #41\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzNjE3NzQ3Nw==&mid=2247495174&idx=1&sn=a989e138ce62b1bbdf49d795067d25a8&chksm=fb53189c6cf800aaa71a57188377631651557762827142396ebb4fa7e511690d32ce09b3098f&scene=126&sessionid=1795180889#rd\",\"description\":\"从 2021 年 5 月开始，到今天，十年旅程已经过半。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fju9buj4vGtrvkeltqxBtJH2qmdkemFJxeCSVsPsosZUYSAMdTekRsVBAzpRnf2aBibGQIeEEYQnWUDgBjX5FZLl5FzbhDZJtcKMbsS5DpIQk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-31T05:30:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2087,
+      "elapsed_ms": 535,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
@@ -105,41 +100,36 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 2081
+          "started_ms": 7,
+          "duration_ms": 527
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2087,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2087,
+          "name": "错误诊断收集",
+          "started_ms": 534,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2087,
+          "started_ms": 534,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2087,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 534,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2087,
+          "started_ms": 535,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 2075
+          "duration_ms": 525
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_0f3f40f6ef3b",
     "name": "也谈钱",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_0f3f40f6ef3b.json",
-    "duration_ms": 1561
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 529
   }
 }

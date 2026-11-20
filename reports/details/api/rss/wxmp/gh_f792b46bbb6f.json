@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:37.732Z",
+  "checked_at": "2026-11-20T21:23:44.731Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2769
+    "status": 502,
+    "duration_ms": 587
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2762,
+    "phase": "runtime",
+    "elapsed_ms": 579,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":6,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,95 +54,90 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 2749,
+        "started_ms": 9,
+        "duration_ms": 569,
         "timings": {
-          "response_ms": 839,
-          "body_read_ms": 1910,
-          "decode_and_transfer_ms": 0
+          "response_ms": 569
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_f792b46bbb6f\",\"title\":\"花茶安全攻防Team\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2ODQwNzAzNw==&mid=2247484031&idx=1&sn=3fd1da85a5106e46619edc48a32033c6&chksm=eaf15beddd86d2fbbae61d2b0ebec285b0ce4b27fc6634fce5723710d732378b4546b3b15024&scene=126&sessionid=1795180844#rd\",\"description\":\"网络空间安全|前沿技术研究|新颖知识分享|安全培训服务\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"花茶安全攻防Team\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4185WEDlqZMdT9oxwcm9PIT3x9ttlZBWDH2mnmiamuIng%2F0\",\"updated\":\"2022-04-22T00:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzI2ODQwNzAzNw%3D%3D:2247484031:1\",\"title\":\"工控DNP3协议及安全风险细解\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2ODQwNzAzNw==&mid=2247484031&idx=1&sn=3fd1da85a5106e46619edc48a32033c6&chksm=eaf15beddd86d2fbbae61d2b0ebec285b0ce4b27fc6634fce5723710d732378b4546b3b15024&scene=126&sessionid=1795180844#rd\",\"description\":\"在开始分析之前，我们得先了解一下DNP3协议的规约，以便我们在下文更容易的分析其DNP3存在的安全问\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYb89GDkShRic2SD1rcshdgK8xe5OJub900DcEdLOzCrz2uMAYwBNjZQvrliciaN7v2TWOQOeuveAjTYlHYEvBqMLA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-04-22T00:00:00.000Z\"},{\"id\":\"wxmp:MzI2ODQwNzAzNw%3D%3D:2247484012:1\",\"title\":\"窥探CVE-2018-8120与exploit编写\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2ODQwNzAzNw==&mid=2247484012&idx=1&sn=9ef0ebd20751aa2aeb31cb783e0b804a&chksm=eaf15bfedd86d2e88232b7e4b24b2788db544ae39e8ce08ccf126e77655ae9a2b81f8c77b11e&scene=126&sessionid=1795180844#rd\",\"description\":\"环境： win7  x86一、 概要前面的文章写了，要实现一个exploit的编写，分析的方向就要放在漏洞点\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYb89GDkShR8fjicfFC34EhFq1B3nbniclJiaTib1BENtJero6iaibkfZzwd9p4TSFVSGL1oEeQujTt5qpJWsdc28zf0g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-02-01T10:30:00.000Z\"},{\"id\":\"wxmp:MzI2ODQwNzAzNw%3D%3D:2247483973:1\",\"title\":\"空指针解引用分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2ODQwNzAzNw==&mid=2247483973&idx=1&sn=6d1d4f75844d14611d85de93cc32b863&chksm=eaf15bd7dd86d2c1e5ba35cc46c9fe8e282f325dd528b300313a278e8a34cf5311752e90d51e&scene=126&sessionid=1795180844#rd\",\"description\":\"一、 概述 1．CVE-2018-8120 是通过一个空指针解引用达到任意读写的漏洞。其实个人感觉单凭空指针\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYb89GDkShRibHsq4dvA2hTpZYvCmfqgJXccaIeb5TCqFiaWACMmgwv1dEMXibE8icFLzDqpzS7zIk58W8keibfMngww%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-01-18T11:24:50.000Z\"},{\"id\":\"wxmp:MzI2ODQwNzAzNw%3D%3D:2247483941:1\",\"title\":\"放贷渣男系列:他到底有多不要脸?\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2ODQwNzAzNw==&mid=2247483941&idx=1&sn=598151a3a23ebfbfadbce76c6dda92ce&chksm=eaf15bb7dd86d2a17278b6210c4c87f9cb9c5adebc84b4c4567c47cf9a4e83616202a82f5fe9&scene=126&sessionid=1795180844#rd\",\"description\":\"今天天空阴沉沉的，还下了点小雨，我坐在公司天台的秋千上，抽着烟思考着人生。正在这时，手机响了一下，我拿起手机\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYb89GDkShR87kibFIOkzTvJ8zTfwbJqe4Yq79q9pj5pWric9Kos6w5Ublv4v3H6rMWEiacRcib4otibG9ITCCaZCd7w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2019-12-10T12:19:44.000Z\"},{\"id\":\"wxmp:MzI2ODQwNzAzNw%3D%3D:2247483887:1\",\"title\":\"某APP,JNI层自写算法分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2ODQwNzAzNw==&mid=2247483887&idx=1&sn=76b50e1bcec2fc4a1d64da1e541b38f9&chksm=eaf1587ddd86d16b4b34d6d04b156575591154c336b1bc32d8e2005d5c1e05f12db0a5639aff&scene=126&sessionid=1795180844#rd\",\"description\":\"首先我们登陆抓个包,可以发现有一个sign签名认证,在app与服务端接口安全的问题上,sign是一个很好的办\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYb89GDkShR9bd43SdiaHs2wWQzfzxmLYt1KH3ibJhJUOBSfH3GmEyIclVPdT1tHcrQiakZ85a6VqhBGhwX9kEVjOw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2019-12-09T14:35:46.000Z\"},{\"id\":\"wxmp:MzI2ODQwNzAzNw%3D%3D:2247483812:1\",\"title\":\"被好友嫌弃拉黑？这一招绝地反杀你一定不知道！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI2ODQwNzAzNw==&mid=2247483812&idx=1&sn=91200324418a9dc57a1ef5cc6157f905&chksm=eaf15836dd86d120ef12808e86debae1fdcc8593f5ca1c7023a33c390526de6e50c19772d145&scene=126&sessionid=1795180844#rd\",\"description\":\"好久没清理qq好友了,也不知道你过得好不好,反正你肯定是被盗了,我也不打王者荣耀干嘛发给我呢?打开这个网址扫\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYb89GDkShRibGnibHH37LNedFKggV3yxk9woKkCYGWpJuanDCOnCSIlfbX9Zu3JOnoJ9ONtHATAfebxf9qbr5b6w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2019-11-14T04:45:35.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2762,
+      "elapsed_ms": 579,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 2
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 2,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 2,
-          "duration_ms": 2
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 4,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
-          "duration_ms": 2753
+          "started_ms": 6,
+          "duration_ms": 572
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2762,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2762,
+          "name": "错误诊断收集",
+          "started_ms": 578,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2762,
+          "started_ms": 578,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2762,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 578,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2762,
+          "started_ms": 579,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 2749
+          "started_ms": 9,
+          "duration_ms": 569
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_f792b46bbb6f",
     "name": "花茶安全攻防Team",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_f792b46bbb6f.json",
-    "duration_ms": 1025
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 562
   }
 }

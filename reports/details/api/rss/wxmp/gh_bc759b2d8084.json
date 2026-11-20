@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:01.543Z",
+  "checked_at": "2026-11-20T21:23:53.138Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1883
+    "status": 502,
+    "duration_ms": 549
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1876,
+    "phase": "runtime",
+    "elapsed_ms": 541,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 1865,
+        "started_ms": 9,
+        "duration_ms": 531,
         "timings": {
-          "response_ms": 1504,
-          "body_read_ms": 359,
-          "decode_and_transfer_ms": 2
+          "response_ms": 531
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_bc759b2d8084\",\"title\":\"安全419\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556463&idx=1&sn=8e465d5f91df0ab68c5abfedcc1c0c98&chksm=f83c88255845a49629c0e3313db26b350bca149eec85675f9353c9e706553b793d8ba838c79e&scene=126&sessionid=1795180868#rd\",\"description\":\"安全419（www.anquan419.com）长期专注于观察网络安全行业内企业、产品、技术、人才的发展变化，坚持中立视角、客观报道，助力中国网络安全产业发展！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"安全419\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6ezpQf2eHFfDGeH5iaw4GqdibiaK7r0ibGu249M5zs3rYKFQ%2F0\",\"updated\":\"2026-11-19T09:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556463:1\",\"title\":\"安全419大咖访谈 | 安全服务下半场 区域服务商如何破局\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556463&idx=1&sn=8e465d5f91df0ab68c5abfedcc1c0c98&chksm=f83c88255845a49629c0e3313db26b350bca149eec85675f9353c9e706553b793d8ba838c79e&scene=126&sessionid=1795180868#rd\",\"description\":\"预算缩减、内卷加剧、AI攻防不对等、国企下场挤压——处在网络安全\\\"最后一公里\\\"的区域服务商，正在经历一场集体性的生存考验。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwNNNy6RBcbvI6tNhzEK6Ib0aahug8As1SPA8DAkRxffd8TDaxfn1M6UPrvf6gfXjl8PPm0xpkLicQNWI0JToqMogSOH0RKAIvw0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556451:1\",\"title\":\"安全419｜一周国际网安资讯：邮件网关与防火墙接连失守，八千个GitHub仓库遭供应链投毒\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556451&idx=1&sn=e501257575ec0da375ae3b061fcb642e&chksm=f89dec518b2382c6b3c251da590c376c56480645fa2c6852887b8e3bccd208edc6aa1013f351&scene=126&sessionid=1795180868#rd\",\"description\":\"攻击者的落点集中在前沿边界设施与开发者供应链，而不再是单纯的终端。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwPTyYWTxgQU1yUqn8jco4l9ZWnwZnT5Gmhq7aSSf63f1AialG7GgTh3cvgkyjlwXwFoMGzia8WZpGssCicXia8cCJWCXkaTvoxCnkc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556451:2\",\"title\":\"2026年“数据安全咨询（高级）”培训开启报名！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556451&idx=2&sn=d268ce32d690c47d1ecd6000750cfb8d&chksm=f8361123b21cb72ce8f3acd87edd83e28f5a50c065b5112dbeb4dcc5a1c0b0b06a468d4d3236&scene=126&sessionid=1795180868#rd\",\"description\":\"错过等一年\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F9Nf1wzzcfwN6DibBdhvymn79Oxco3yyPA17JkdPQqnerqeHmHKic49kLkGvibSBWIg0W3jWNEB9R62uoJ0Sic6QywFV3aA5oHWzgg8Yk2px79Ag%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556419:1\",\"title\":\"安全419甲方精品采购指南 | 让数据\\\"看得见、说得清、管得住\\\"：云科安信的数据流动全景图\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556419&idx=1&sn=b0bd0f54d9be1c1d0adccad101a4e933&chksm=f87d0a9eb6054c59d641f7da44b9f36d8bff2e35e564d63300361fae04f6d8339ebfc4841076&scene=126&sessionid=1795180868#rd\",\"description\":\"数据安全的最大盲区，不是\\\"有没有防护\\\"，而是\\\"根本不知道数据在哪、谁在用、流向何处\\\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwNNbznFYp8XXbRawtHtjMeVlfMA55MtHk2jwyYN80XjicNmK9h4RKeITbic8GRjUv2v7Y2XYhu9QJ1iaVXdxfYz2dAtgnjx2icwKXY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556396:1\",\"title\":\"安全419甲方精品采购指南 | 听懂运营商的\\\"数据方言\\\"：保旺达如何用AI啃下最硬的骨头\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556396&idx=1&sn=e87456764836e95aa066e9c9dfd3b0da&chksm=f8e1f4e1e752e83d5f7e3e2fd061ddff092d6acd0ba70c0ffaf794a2fa4f4be77e91777f10fb&scene=126&sessionid=1795180868#rd\",\"description\":\"运营商的数据体量庞大、系统异构、接口繁杂，更棘手的是\\\"数据方言\\\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F9Nf1wzzcfwNJic79z06SicWDyHUKM1opHwzyU3Go6vyEaZdwBwV0vPoAsx1iaeALFnJB0ZlxLECltyrt0S64cGweJiaLYhlibicFAKWt4NA3U8JIk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556378:1\",\"title\":\"链联赋能·融合运营 小西牛合规运营3.0正式发布\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556378&idx=1&sn=4bb1de54131520a7b513d160c6bb3159&chksm=f8efb8e09a89847a8bfea897c64ba399f5c434abed03b8defcfb7af1a81b55416420f61acca5&scene=126&sessionid=1795180868#rd\",\"description\":\"从\\\"乙方服务思维\\\"到\\\"甲方安全管理思维\\\"，安全服务进入3.0时代。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwOL6EdPqjkRsYib5ibAklNnsOskq0X1wuPrtBictsgyax8UQLZJAb6vmWVtUxQibRJxs46SpwSLian8R1bB8gQmKibWJ5jqpgfh0QBz0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T10:19:32.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556322:1\",\"title\":\"安全419｜一周国际网安资讯：开源基础组件和互联网边缘基础设施再次成为风暴中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556322&idx=1&sn=ab2285d049093e0c5ca7351bd10b4665&chksm=f849eb05e1e4c529634698d257f7ee25c646d1dbd9c59e72b52ab0ea4829a1693f4c864b688d&scene=126&sessionid=1795180868#rd\",\"description\":\"OpenSSH\\\"SSHhole\\\"漏洞披露即被利用，法国血液机构冷库遭篡改，Palo Alto 5亿美元洽购Clutch。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwMsuGiaHnOOoDiarCY0ko8OUNtHof0W3wWW4DoNgoxmnVdvBzKUTfdg50n5eeF9qepqBC0lR8ryySYqNn7UiaoomVRdFqZq5ibdFy8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556297:1\",\"title\":\"安全419甲方精品采购指南 | 一台电脑两个世界：易安联\\\"一机两用\\\"如何破解政务终端安全难题\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556297&idx=1&sn=fdbd6cbd319ca714316cc69d139af5ab&chksm=f875d445c2b0d8680362749ce00102eb2686b1baa354f96fb7b44a7c4807b4658c311bb85ecf&scene=126&sessionid=1795180868#rd\",\"description\":\"未来只要国产化改造动作不停，“一机两用”几乎是必然伴随国产化改造要做的事情。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwPpASv6ZmPG6B6OR9ia6aWwKjEakfcRRBCcibKib950Ykjf4nsaLDhxg1q1WvyBqntKR1btiakAAHG0S3kVqW0QYoP1xK2ics17x30o%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556283:1\",\"title\":\"安全419 | 10月安全厂商动态：AIDR持续深耕Agent安全 Token运营赛道成型\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556283&idx=1&sn=396e9d7dcc4e89ebf2dd9d03e52655c3&chksm=f8acfcdef1732288bd748718ac13082032bf87827abc753f8888534a568fef242880fa042f07&scene=126&sessionid=1795180868#rd\",\"description\":\"长亭、薮猫、联软推出AIDR产品；山石、亚信、天融信集中发布Token运营平台；微步RedAgents与亚信SpearTrust入局AI自主渗透。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwNajSl7LuKfjKf9QOe02zWn1ozvnTZLyUsnkKZCj8Xc25R244uX4bsUbOYiawan0eLnCLictPgEwSpK0YpibSPiaiaGnntqQUSJl7hQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556266:1\",\"title\":\"安全419甲方精品采购指南 | \\\"先窃取、后解密\\\"倒计时：格尔软件如何为金融业铺好抗量子迁移之路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556266&idx=1&sn=a4bdf1e778005cfdbda88afe95a01662&chksm=f8bec9c7e063c72856ea8efc097ceedaf5221c66229fe2ad61da66b2e935730e1cac56f57e10&scene=126&sessionid=1795180868#rd\",\"description\":\"前瞻布局，先发优势明显。工程可行，迁移路径清晰。生态完整，合规与互信兼顾。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F9Nf1wzzcfwOFpmOribbsOtrIdBngxpPkUqNqwhIFayPEOPMcqQMS28CGW5gh52cMjQlLwao4Z6TcC3icmAFo9q2Wrx32OJ8pp4OA5aVrhP1sc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T09:30:00.000Z\"},{\"id\":\"wxmp:MzUyMDQ4OTkyMg%3D%3D:2247556249:1\",\"title\":\"安全419｜一周国际网安资讯：Ivanti零日攻击链再入KEV，Google收购Wiz获批\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247556249&idx=1&sn=e312c09d9ab56e72b066e66b203a1639&chksm=f8a136d106311ed5f60737973110e9cdea21e429db1e5a4a130cd3068d8ea92893dd59a8a15d&scene=126&sessionid=1795180868#rd\",\"description\":\"CISA在一周内将十余个在野利用漏洞加入KEV目录，医疗与养老行业继续遭受勒索密集冲击。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F9Nf1wzzcfwOPUGXArytMBo2s3fLuX2OZg60gZQos6Dam1ib4HwwsxHZDvydyoOCMH3GiaefJanJa0IwwCUNqlrKSibW6kDjrfOHhibRKV42PMibM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T09:30:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1876,
+      "elapsed_ms": 541,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,39 +110,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1870
+          "duration_ms": 534
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1876,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1876,
+          "name": "错误诊断收集",
+          "started_ms": 540,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1876,
+          "started_ms": 540,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1876,
+          "name": "失败后浏览器清理",
+          "started_ms": 540,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1876,
-          "duration_ms": 0
+          "started_ms": 540,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1865
+          "started_ms": 9,
+          "duration_ms": 531
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_bc759b2d8084",
     "name": "安全419",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_bc759b2d8084.json",
-    "duration_ms": 1920
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 562
   }
 }

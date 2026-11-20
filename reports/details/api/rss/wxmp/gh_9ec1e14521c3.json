@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:07.043Z",
+  "checked_at": "2026-11-20T21:23:55.204Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1024
+    "status": 502,
+    "duration_ms": 572
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1020,
+    "phase": "runtime",
+    "elapsed_ms": 564,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 1010,
+        "started_ms": 9,
+        "duration_ms": 554,
         "timings": {
-          "response_ms": 827,
-          "body_read_ms": 182,
-          "decode_and_transfer_ms": 1
+          "response_ms": 554
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_9ec1e14521c3\",\"title\":\"赛博昆仑CERT\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485040&idx=1&sn=83d0b11c9d07d0823b51bb09069c5452&chksm=c0449fc167a827a70d37ac834a73108ef50918859fafac5126d81f45a9b92b2650f4bb9dc35f&scene=126&sessionid=1795180874#rd\",\"description\":\"快速响应高危漏洞和安全事件，并为客户提供闭环的解决方案。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"赛博昆仑CERT\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6NHkvo8rOgmiblykxMalSJvibiaIsHDth5vpOggWARkLAYg%2F0\",\"updated\":\"2026-10-14T04:51:21.000Z\",\"items\":[{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485040:1\",\"title\":\"【补丁日速递】2026年10月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485040&idx=1&sn=83d0b11c9d07d0823b51bb09069c5452&chksm=c0449fc167a827a70d37ac834a73108ef50918859fafac5126d81f45a9b92b2650f4bb9dc35f&scene=126&sessionid=1795180874#rd\",\"description\":\"-赛博昆仑漏洞安全风险通告-2026年10月微软补丁日安全风险通告漏洞描述近日，赛博昆仑CERT监测到微软发布\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fn8iag6r4WbSaJIY4kwc31yVJmAz6WibypXQh7UyL14ZOUibF1sE0weGoPA0XMEGZbvA32XLpjWDDCgic6qJam4qVSK2iaQWBoich3bN94bwB2LoBU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T04:51:21.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485033:1\",\"title\":\"【补丁日速递】2026年9月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485033&idx=1&sn=168f8d35a1dd7df8eaee00f29bac79dc&chksm=c07719987843f1804b8264f22158d326f1612f7c6e0acc9a1273c073a987d6b58726d65f6418&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fn8iag6r4WbSZmyvqfCOAaIUxMJNn6KnBibEy6DgAwUnrrmr21bAicibic2ic7SxgZRbnOd3mqJI5kySI7BbBu9bHlt0kFj2kxzwWib25HvvIfZiaib2I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-09T02:38:24.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485028:1\",\"title\":\"【补丁日速递】2026年8月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485028&idx=1&sn=fc34f43cccfcb51d62392294bfd16d96&chksm=c018d41991a986cc9579731a28fb52264c7bab9e72336b55692c3a2a6858ec9da2f501ccb15c&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fn8iag6r4WbSYpMZE75g8nWiaDg1kXkaCbjCeqYehzWEYrLGFjxlo40zIiaYp7NXzFqIQyppeCibu9kYObYyibiaxIpeDtPkud0umpibI18rFerIwyU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-12T06:41:59.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485023:1\",\"title\":\"【补丁日速递】2026年7月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485023&idx=1&sn=5d2666497bb3d8be7242a23a4805fede&chksm=c02ec020147fb94527b2df236fe5698a7bed65c3a65d0b2082a86c4b9110082e33342fb41cd5&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fn8iag6r4WbSa87hfNCUQNeFcjLnw3vlId3hu27RvNBTOg87Q3osHUIElEgkLPkJPickibemd8JAziceWibOibIePcrl6SxXicAkvsIC4gUTtuR4oPo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-15T02:11:17.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485017:1\",\"title\":\"【补丁日速递】2026年6月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485017&idx=1&sn=b48d6c1799fc995774297c2b0bfc74fc&chksm=c085d7ec801f3750072d56c33c01b70a119376e11a0682887da1fc9b0d638b1c0659952fd5e8&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fn8iag6r4WbSY5k2KhWjRg2oPWfOjMQW4doZ6x5zEo9hglMnibdKV55HYUpF2icZo6Geical4L7VvOEoF5kWWfZIjrpMWicce8UHyClmibyetSBDMo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-10T02:32:39.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485012:1\",\"title\":\"【补丁日速递】2026年5月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485012&idx=1&sn=15695e41fedb7fb1c7405073b2c2d820&chksm=c032c7e7cd95c5b61f04a949d0be92586d6970fdb3fe32af0e665b5993cc3f58bb942a35c59d&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fn8iag6r4WbSYIK4kFbC0ysOe1ElibiazlZiaibnS7P7CRp5VsR3g77dfV8hIRhoDHzHFJibjTqeMQxpTdonRBJNuStjK2UyIm4MjtdzWYBeEJ9CYQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-13T01:59:39.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485007:1\",\"title\":\"【补丁日速递】2026年4月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485007&idx=1&sn=efc05c91c8b6ed846ad1c6df2dcffe2d&chksm=c0d60bf2ebaa3c4ae9b10f1552de561299d06bd65c0612e0348714933fb7bb07cb2e10a0dfd9&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fn8iag6r4WbSbNDiaNX6RPaMRziaQ70TTV2kxgD3icc3olDVrvyCbce0jXiau3gib8aZu8ibNOVZEeRqXFfHvoplBHiaZKyWpuUXrWH7xpb4WFPM4al4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-15T01:42:52.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247485002:1\",\"title\":\"【复现】泛微 E-cology10 远程代码执行漏洞风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247485002&idx=1&sn=072c5de7c403232e7fed4bc330c7de1e&chksm=c073008059dda74e9ac8365948bbdcfb751437e60275d4e30fd4856769a9b250d740efa8dcdb&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fn8iag6r4WbSZARYj5QIcCZt0EXNTYPzuNs1ic9OchVUEsPGEIg9YqKZOMvPBibRsq5QEkEDf5w99BnC90tDWWzOpavpgGWYWT37BUvuAhzIMZM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-16T09:16:46.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247484997:1\",\"title\":\"【补丁日速递】2026年3月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247484997&idx=1&sn=2f619c3f29fd2e1d7e176e77facd4b8e&chksm=c026ba2edb36ddec198f8d8a448ea8b5936c334e4faec9d1fc7aecb4d30c2571ab67ffbbeda1&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fn8iag6r4WbSbE99eQvdSVs7bpoo6loREPvmMibznQJmVT2y6Cu4UaraticORd5QR5EmRiaic1GuyIcEiaC4daicfsq7azrKnj9U74R2DOOogBYpgiaY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-11T01:40:29.000Z\"},{\"id\":\"wxmp:MzkxMDQyMTIzMA%3D%3D:2247484992:1\",\"title\":\"【补丁日速递】2026年2月微软补丁日安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxMDQyMTIzMA==&mid=2247484992&idx=1&sn=9d73f9cc02f0d8c30f918865d6a4c79f&chksm=c0acedc230c6aac99cea07061fde70dee70aff55c2fb5bab0e095cec66ed11fba2cb877b74d8&scene=126&sessionid=1795180874#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fn8iag6r4WbSZB6veNPPCNkiak4icWsMjUH4T6KuL8Z2Z6aB1N6lX0ic3icLk5Zb9CymJSuasRBbw7LLJQsDyV9pv29hWczQeKeeZBQ9sNyOcEdWA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-11T02:39:55.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1020,
+      "elapsed_ms": 564,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -110,44 +105,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 4
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 5,
-          "duration_ms": 1015
+          "started_ms": 6,
+          "duration_ms": 558
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1020,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1020,
+          "name": "错误诊断收集",
+          "started_ms": 564,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1020,
+          "started_ms": 564,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1020,
+          "name": "失败后浏览器清理",
+          "started_ms": 564,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1020,
+          "started_ms": 564,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1010
+          "started_ms": 9,
+          "duration_ms": 554
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_9ec1e14521c3",
     "name": "赛博昆仑CERT",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_9ec1e14521c3.json",
-    "duration_ms": 1531
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 582
   }
 }

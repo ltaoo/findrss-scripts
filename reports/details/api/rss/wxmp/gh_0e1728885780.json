@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:56.167Z",
+  "checked_at": "2026-11-20T21:23:51.433Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 958
+    "status": 502,
+    "duration_ms": 581
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 951,
+    "phase": "runtime",
+    "elapsed_ms": 577,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":14,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 940,
+        "started_ms": 9,
+        "duration_ms": 567,
         "timings": {
-          "response_ms": 767,
-          "body_read_ms": 173,
-          "decode_and_transfer_ms": 0
+          "response_ms": 567
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_0e1728885780\",\"title\":\"拨开云雾\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484539&idx=1&sn=d11bca5bc9d2155cdc64a6d96fac3d35&chksm=cf8d14e2fcc4009362dc55fb3101550885c5ecf67993a692b77a58612f048133e18bcacd5599&scene=126&sessionid=1795180862#rd\",\"description\":\"网络安全技术、文章分享。永远相信美好的事情即将发生！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"拨开云雾\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2F5mxuSU5RGhaX1mRGofqUVMZQzBnud9UGD16IxNx8pJxOb4NzFZ1xGHKHWyVdZOTvPV7OOwsA83U%2F0\",\"updated\":\"2025-08-20T14:00:49.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484539:1\",\"title\":\"澳大利亚纽卡斯尔大学和重庆大学 | 利用预训练的语言模型释放基于语义的日志解析的真正潜力\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484539&idx=1&sn=d11bca5bc9d2155cdc64a6d96fac3d35&chksm=cf8d14e2fcc4009362dc55fb3101550885c5ecf67993a692b77a58612f048133e18bcacd5599&scene=126&sessionid=1795180862#rd\",\"description\":\"转载一篇我发表在安全学术圈的论文阅读笔记。软件密集型系统通常会生成控制台日志，用于故障排除。日志解析旨在将日\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6Dibw6L070WFccmvm3qYokaeT6EpQQib0sPAFJp0zrUqgIC1kIlHJABD86MUENAK6QAaMIY64jg12HRd7rhgic7sw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-20T14:00:49.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484537:1\",\"title\":\"检测程序代码和文档中的错误\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484537&idx=1&sn=70bed4f58f7a2e9e7a1307b8296a9f78&chksm=cfe0c022e422555f5ff2ce8cf379236940d41dd40910b844a9ebec362a7a9dfe4e9d9289550c&scene=126&sessionid=1795180862#rd\",\"description\":\"检测程序代码和文档中的错误\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib3Js8G5ICZMxevkcrUKxcGib9Msiazu8Xic9wAVlWnqmDhribXolflPUegicUmP3XMO3AMt8NR7oDay6zA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-19T07:29:34.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484477:1\",\"title\":\"基于LLM的多语言程序修复\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484477&idx=1&sn=3e7489a2b0666b5ce15260269639b174&chksm=cf5da47ad0c8ab4325cc01015288056421fd3ca91249248bb6a0d706d291cedb02ae1211d4d5&scene=126&sessionid=1795180862#rd\",\"description\":\"基于LLM的多语言程序修复\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib2DMO1deCaXO92CpxymEpFk2PycD2wDIzkBpzs34V8mnAocfh23Lib2wgPiaNNMt4bng9V6XC2HA8mA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-18T06:56:23.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484477:2\",\"title\":\"基于图的漏洞定位\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484477&idx=2&sn=e2de922144b651fa2d521ba9b891c2bc&chksm=cf2c647457a3117887ee0a41ea900078d53b27411e332bac424649fe3809feec715481030963&scene=126&sessionid=1795180862#rd\",\"description\":\"基于图的漏洞定位\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib2DMO1deCaXO92CpxymEpFkKVhWpKaHm26VenyxfF6R6FrRCJ4VxYv8tsThf6lDmM94cu8AkWibphg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-18T06:56:23.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484459:1\",\"title\":\"基于图的安全补丁检测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484459&idx=1&sn=c1757c79342e474a745335c4d263d1c2&chksm=cf77b7278bb8fc712453b66f51931aa856b5a536100f80ea6dda3577480b40c3608893625e5d&scene=126&sessionid=1795180862#rd\",\"description\":\"基于图的安全补丁检测\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib2pIFDLqbbZicSicmsiaVLLYHLG5IdhtLtWvwavOYeHfNvmq7W0JHqecGzFSX23ZvMebRGkuibdyYmicKA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-16T08:16:00.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484445:1\",\"title\":\"通过Zero-shot学习重新审视自动化程序修复\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484445&idx=1&sn=4b81694e239c0c8653e7ae5b7d359154&chksm=cfad649692c7d2ca5fa24a56f0b007b9d9f6f14a9773c8df1c06715ebdbdae574f226ecde99e&scene=126&sessionid=1795180862#rd\",\"description\":\"使用大模型进行自动化程序修复\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib0ZldxdrFOHvKMIugiaic6LM977hc5icqAczawwmWP8yaW2CCFgSMKtZ9R9MRLkDfYmsOHxPibpJ6uQ1w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-22T02:02:47.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484429:1\",\"title\":\"基于神经机器翻译的程序自动修复\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484429&idx=1&sn=c7477ab78f10ad9295c8b161097a5e44&chksm=cfd4c8f69585b88f26ebd6c44c65e9f9f3366e6995100bc6f279dd48af060d3b8f1471341fad&scene=126&sessionid=1795180862#rd\",\"description\":\"基于神经机器翻译的程序自动修复\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib2Fsc5zdQZXCCMPbiaWEicSPmfkTpW6u5bGel3ZTUbHYBbzE7To8auu8JKgcFsn2Gr5MJGdHJ0qNadA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-12T09:34:20.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484414:1\",\"title\":\"使用ChatGPT进行重复Bug报告检测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484414&idx=1&sn=0bd4f81f4c55dfd6f0727d27f9f389a8&chksm=cf6ed8e03d1712dac20ac3ceaefd3cd5f8da6abe73b9f1424a4001b6d496269da996123d0b45&scene=126&sessionid=1795180862#rd\",\"description\":\"使用ChatGPT进行重复Bug报告检测\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib2g5BFx25HLdNEO4Cia57GeSOY9suLicbsfOQzsBD20DNzaJtR7N5Da78jJR0M8rypFu477VwYc3dRg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-26T07:13:26.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484404:1\",\"title\":\"使用LLM开展自动化程序修复\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484404&idx=1&sn=a4c411ceb6f616621e30521487c7dcb6&chksm=cfa980966419d9952d22b3fcaf386a9db6f61b5d81cda91d8aac8b7670991fb22c6bd5a7b797&scene=126&sessionid=1795180862#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6Dibw6L070WHCS0VgImoBWkLy3AiaicZibBxBic9Lu6Zylkzy4g8BFCIlHuwQGYf3GL9RbcwiaItUVwI7ZiaHOjpnXf0A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-22T09:22:50.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484404:2\",\"title\":\"韩国科学技术院 | 探索基于LLM的Bug复现\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484404&idx=2&sn=2f2886b33d8cc24ca86d340cd4ce901a&chksm=cfbda12ca72c17afd49928592995db7ef0e0e44b6b2ade88e0ed7c6b815eda3c8896f08ef45c&scene=126&sessionid=1795180862#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6Dibw6L070WHCS0VgImoBWkLy3AiaicZibBxiatSHI7lD0fbWsCAm3lJDVCJWubxxwdURnZam2lTPkm0Sohoue5Aggg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-22T09:22:50.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484404:3\",\"title\":\"中科院软件所 | 使用\\\"G老师\\\"模拟程序员的行为来进行Bug修复\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484404&idx=3&sn=0a28b7c51d61b2909c8d544e83a59b19&chksm=cf35ea6996463dca02a41ad9b4fba0afb7838c5a81d4c3d078c9bbba41f7d870ac761089913f&scene=126&sessionid=1795180862#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F6Dibw6L070WH1oia04rbYKibw1TI7jA7EZZZ2d5MibJ1Z3QnAMASwx2hUzy6sTRWdd6iaia2uDNtgeu3YusG7KSb5icUg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-22T09:22:50.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484402:1\",\"title\":\"对代码预训练模型的多目标后门攻击\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484402&idx=1&sn=d63a7bc9fba4b6adcf1ba2b15a678aaf&chksm=cf059a4bde4a824ab02e9dda431cf2b37be77299050ac119157a41311a76f8efd099aedcfb5e&scene=126&sessionid=1795180862#rd\",\"description\":\"对代码预训练模型的多目标后门攻击\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib0ib9YQY2tocEcPB2Vv7Bv1rGqfGIoWcI4QUhayq5Op3T74pfaZiasZayAoicNa237ibCfCoP941TVvTg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-13T03:22:35.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484402:2\",\"title\":\"基于大语言模型的代码缺陷定位\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484402&idx=2&sn=2d24571e96ba8a3c323853f8b05fc577&chksm=cff0fe6a2b299da7f54578e466499c3704005cff899e4bcc6794660fb71504c2c35373ce25fb&scene=126&sessionid=1795180862#rd\",\"description\":\"基于大语言模型的代码缺陷定位\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib3OXeDicfK4BdiaZf0Rztu6FfxQxlL4C1b2loLthylfkT6AicrfxXdL0OAxZKLuSM6bTTiawRic2UBYbLw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-09-13T03:22:35.000Z\"},{\"id\":\"wxmp:Mzg3Mzc3NTYyNw%3D%3D:2247484208:1\",\"title\":\"在自动程序修复中使用基于图差分的代码移植\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3Mzc3NTYyNw==&mid=2247484208&idx=1&sn=440e7d00230057406a1f025a5d86c079&chksm=cf403ac60c9ed7acd1bbfbde12c4f0d736e80bc93b8e31a24824bfe3076552eb9841baa77fc1&scene=126&sessionid=1795180862#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4SxvmXMR7ib2SicbIHgw0A23p4a2e7EHF0VFpcQV1xibJ2BfZmrnmkVHHlwpViaIO5JicVLLwUqJrYCITVyTu4YKXew%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-05-12T13:12:20.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 951,
+      "elapsed_ms": 577,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,31 +110,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 945
+          "duration_ms": 570
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 951,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 951,
+          "name": "错误诊断收集",
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 951,
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 951,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 576,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 951,
+          "started_ms": 577,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 940
+          "duration_ms": 568
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_0e1728885780",
     "name": "拨开云雾",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_0e1728885780.json",
-    "duration_ms": 1326
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 533
   }
 }

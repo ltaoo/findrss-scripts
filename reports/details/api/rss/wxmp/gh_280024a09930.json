@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:19:33.021Z",
+  "checked_at": "2026-11-20T21:23:22.778Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1530
+    "status": 502,
+    "duration_ms": 537
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1525,
+    "phase": "runtime",
+    "elapsed_ms": 532,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":13,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,17 +55,17 @@
           ]
         },
         "started_ms": 8,
-        "duration_ms": 1514,
+        "duration_ms": 522,
         "timings": {
-          "response_ms": 1135,
-          "body_read_ms": 378,
-          "decode_and_transfer_ms": 1
+          "response_ms": 522
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_280024a09930\",\"title\":\"微步在线研究响应中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509092&idx=1&sn=8a573c3a1a428e94beb3e29ac5e6225e&chksm=ce0f7fddb6008b5f06bce1e4587c9c3227bc37ec452f1eebefdfba98bbc785b9fc1862672fdd&scene=126&sessionid=1795180779#rd\",\"description\":\"微步情报局最新威胁事件分析、漏洞分析、安全研究成果共享，探究网络攻击的真相\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"微步在线研究响应中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5aJJ0hMuzqFKnIqVJvyZPgBp5zLia7Gsicshib4xjO0DuOg%2F0\",\"updated\":\"2026-11-20T11:24:40.000Z\",\"items\":[{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509092:1\",\"title\":\"已复现！VMware vCenter Directory Service 身份认证绕过漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509092&idx=1&sn=8a573c3a1a428e94beb3e29ac5e6225e&chksm=ce0f7fddb6008b5f06bce1e4587c9c3227bc37ec452f1eebefdfba98bbc785b9fc1862672fdd&scene=126&sessionid=1795180779#rd\",\"description\":\"漏洞概况近日，vCenter Server官方发布通告，修复了VMware vCenter Director\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FT4OSm0sXdEMJ6KaStE8355DrwZZRRkgGdcMibG1H4r3icibrFvDfmjydIRvKd8I8cqBHiaKQUEuCqYeBlwdRUs0aJX0wF4iblYAGs3BXeVqadq54%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T11:24:40.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509077:1\",\"title\":\"漏洞通告 | PHP多个远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509077&idx=1&sn=9e6d678f64d7545f1db9a06dd8fcb9e8&chksm=ce6a3bcfb7428ae1409b2f15e844e60490af0ec644b37f0c5dea1ad0dd1b0f7929f0fd4200d8&scene=126&sessionid=1795180779#rd\",\"description\":\"立即查看详情 →\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfFyp1gWjicMKRfkOibMss786PqPwUGjHu4siboRiaqI4mguqRmR09PN8XVEaw2KnV8ORyrCRF8ZQz35agEmw3yebIQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T17:05:31.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509077:2\",\"title\":\"漏洞通告 | Ruby 堆缓冲区溢出远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509077&idx=2&sn=cb3b3075cb4c9db845c39535e82a09c4&chksm=cea58b6d5f63b5ad321804d020b86cbd04bd79053ab39395b01bb54ddec1fbe03002de33a2fa&scene=126&sessionid=1795180779#rd\",\"description\":\"漏洞概况近日，Ruby官方发布通告，修复了Ruby 堆缓冲区溢出远程代码执行漏洞（CVE-2026-1328\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEMWvgmAnyZrG8Cl8rsCxdH5011yjcictXCeaABapAY4ZhI65fTESCr3reBPznlrA9uNMle0icZ6GS7PzUx6SRVrYZYqibNDhnQmkU%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T17:05:31.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509077:3\",\"title\":\"已复现！微软Outlook欺骗漏洞可致NTLMv2响应泄露\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509077&idx=3&sn=fc17281daf783d776f4c2748ce5df332&chksm=ce795c2f9cabdb944f25bf2ff06f27c9ce9f1f791632339b000edacd537021a5a2e86cb8d3ff&scene=126&sessionid=1795180779#rd\",\"description\":\"漏洞概况Outlook 是微软的电子邮件与日历客户端，广泛用于收发邮件、管理日历和处理会议邀请。近日，Mic\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FT4OSm0sXdEMAibEHAAILm3Y6t2plPiarre8zwvMoLRwANrgzZujEFBadhR7dCkx1YkN1ciceJNGhPK12B5pVDPicricZGqvnmkSMicSNx5g4YtDCk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T17:05:31.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509063:1\",\"title\":\"已复现！nginx2root nginx http2 远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509063&idx=1&sn=45c71724375b83415bf880558c549bf0&chksm=ceee7429acd1d43dfa2b18bcd86664cb46e725734b271b23b903317d1c9efee88a17d3946da0&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞情报详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEM4URm94iaA4WurQs1I3b8H7c5llUVsu1eOokrNGh2iccEGKlYfCDCVjQVfcM9fHibeTvbMPbPiaJfTJV8Py4tB0YRJQ3IuWnL2N6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T00:54:47.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509050:1\",\"title\":\"已复现！Java4Shell OpenJDK Base64 解码远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509050&idx=1&sn=880957697b6b18ea66bdaac6b502e32d&chksm=ceafad62fda2a57be8e0261c7ee1dd0806b72eb9cea835a012f27a3f8f323b7cb30ba9cb7767&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞情报详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEM4URm94iaA4WurQs1I3b8H7c5llUVsu1eOokrNGh2iccEGKlYfCDCVjQVfcM9fHibeTvbMPbPiaJfTJV8Py4tB0YRJQ3IuWnL2N6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T01:00:05.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509047:1\",\"title\":\"已复现！Apache HTTPD mod_http2 条件竞争远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509047&idx=1&sn=378b5e0e20a6df5a5dd427ccac017b56&chksm=ce1b3e7df872353f94ef8f32524cfbd9e43e57bd9359b972199ba94b4be2835d4d59164dec50&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞情报详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEM4URm94iaA4WurQs1I3b8H7c5llUVsu1eOokrNGh2iccEGKlYfCDCVjQVfcM9fHibeTvbMPbPiaJfTJV8Py4tB0YRJQ3IuWnL2N6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T13:53:57.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509047:2\",\"title\":\"已复现！Windows 音频服务本地提权漏洞利用链\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509047&idx=2&sn=ee30904075deafef76027d091c05b175&chksm=ce8cd347f4db4accc0802c6744199481470bda2154a726aacb3918f9c191e76c10110e6ab130&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞情报详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEM4URm94iaA4WurQs1I3b8H7c5llUVsu1eOokrNGh2iccEGKlYfCDCVjQVfcM9fHibeTvbMPbPiaJfTJV8Py4tB0YRJQ3IuWnL2N6Y%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T13:53:57.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509041:1\",\"title\":\"已复现！7-Zip LZX 解码器远程代码执行漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509041&idx=1&sn=d6e387eacb4bd1900b1f3c36100a3b3f&chksm=ceb5af544902968824c5beefe16f685d622b89fed31b5a5d6578bea84cede11cab1f53298f46&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞情报详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEM4URm94iaA4WurQs1I3b8H7c5llUVsu1eOokrNGh2iccEGKlYfCDCVjQVfcM9fHibeTvbMPbPiaJfTJV8Py4tB0YRJQ3IuWnL2N6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T09:46:17.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509031:1\",\"title\":\"已复现！OpenSSH 密码认证绕过漏洞 （*sshole）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509031&idx=1&sn=0ccee302d9069302d7d7532b0e68c026&chksm=ce94d736e8bbffc8c5d7e674c692ecb84e816a1931ed7cee674753d62f09ab7a9c5db3693942&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞情报详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEM4URm94iaA4WurQs1I3b8H7c5llUVsu1eOokrNGh2iccEGKlYfCDCVjQVfcM9fHibeTvbMPbPiaJfTJV8Py4tB0YRJQ3IuWnL2N6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T00:30:00.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509026:1\",\"title\":\"原创漏洞 | 微步XGPT发现 Apple macOS 多个漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509026&idx=1&sn=034b5ea8214724ba448e152f29b5281b&chksm=ce9ad56cc84bea7858d9165f765a5489d6234b55bf231388cddfedce221931bf6b22c233ad65&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞情报详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FT4OSm0sXdEM4URm94iaA4WurQs1I3b8H7c5llUVsu1eOokrNGh2iccEGKlYfCDCVjQVfcM9fHibeTvbMPbPiaJfTJV8Py4tB0YRJQ3IuWnL2N6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T09:50:17.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509020:1\",\"title\":\"已复现 | Linux kernel TCP UAF（CVE-2026-98432）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509020&idx=1&sn=63da40e92aefadbbe0a557cc723a8ccf&chksm=ce64b773ad5cac5430a716d2ad075ebfe83fdb7e05fb887a77a763714bfb8e0184ad06fac4a9&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FT4OSm0sXdEMsBtRhTOXwfCJCEN3GsFAFhicKXankWwZelhUeqevXxrTPHR8tDdj4ygVrRy3aS92xtWibmarrIVAo8qrOKw8Tibojw5svseRDc4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T08:38:25.000Z\"},{\"id\":\"wxmp:Mzg5MTc3ODY4Mw%3D%3D:2247509017:1\",\"title\":\"不止 Node.js！Brotli RCE（CVE-2026-111497）影响范围说明\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5MTc3ODY4Mw==&mid=2247509017&idx=1&sn=e3b3303980b0cb8640b92b141c510261&chksm=ce6b3e1a0c4afbeef96db7c7e7b653f6060bbde7d415ce42947b9a99eb5ae339f0d1b1b87ebb&scene=126&sessionid=1795180779#rd\",\"description\":\"点击查看漏洞详情\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FT4OSm0sXdEMsBtRhTOXwfCJCEN3GsFAFhicKXankWwZelhUeqevXxrTPHR8tDdj4ygVrRy3aS92xtWibmarrIVAo8qrOKw8Tibojw5svseRDc4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T06:31:14.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1525,
+      "elapsed_ms": 532,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -95,17 +90,17 @@
         {
           "name": "沙箱排队",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -115,39 +110,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1518
+          "duration_ms": 525
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1524,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1524,
+          "name": "错误诊断收集",
+          "started_ms": 531,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1524,
-          "duration_ms": 1
+          "started_ms": 531,
+          "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1525,
+          "name": "失败后浏览器清理",
+          "started_ms": 531,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1525,
-          "duration_ms": 0
+          "started_ms": 531,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 1514
+          "duration_ms": 522
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_280024a09930",
     "name": "微步在线研究响应中心",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_280024a09930.json",
-    "duration_ms": 1325
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 569
   }
 }

@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:17.957Z",
+  "checked_at": "2026-11-20T21:23:38.048Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1841
+    "status": 502,
+    "duration_ms": 530
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1832,
+    "phase": "runtime",
+    "elapsed_ms": 526,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,95 +54,90 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 1820,
+        "started_ms": 9,
+        "duration_ms": 516,
         "timings": {
-          "response_ms": 1126,
-          "body_read_ms": 692,
-          "decode_and_transfer_ms": 2
+          "response_ms": 516
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:wxid_7762007624712\",\"title\":\"极客公园\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116887&idx=1&sn=256bbd116f6668d98664fd24cbbf9fc4&chksm=7f9b097b521603bb30f5584af605066479b5e4b4dc3c437d2674a4b23ae7a0ea45baaf86f41b&scene=126&sessionid=1795180824#rd\",\"description\":\"用极客视角，追踪你最不可错过的科技圈。欢迎同步关注极客公园视频号👇\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"极客公园\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6dnlEsZXOPTtkZpEYHJ3nvUviaGTbLGUj4VRaq3vra2icQ%2F0\",\"updated\":\"2026-11-20T06:35:00.000Z\",\"items\":[{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116887:1\",\"title\":\"字节，该造手机了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116887&idx=1&sn=256bbd116f6668d98664fd24cbbf9fc4&chksm=7f9b097b521603bb30f5584af605066479b5e4b4dc3c437d2674a4b23ae7a0ea45baaf86f41b&scene=126&sessionid=1795180824#rd\",\"description\":\"豆包手机，需要自己的千万量级生态\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fz6JAVpoB67Q7NZz0pvicqvS5Jsk9miaceLeDcQQ3vLVI9srMECwVnr4vkbyfUgIibta8EnjYicnTQhiaZjpF3Vz13ibmXWDqo7aySTbHqm1VJyPak%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T06:35:00.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116882:1\",\"title\":\"估值 410 亿美元，贝佐斯打造「物理世界的 OpenAI」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116882&idx=1&sn=3451da35dcd56b370096a8d58580495d&chksm=7f40fe2423eca2271653bbd3e15a582b501c0f15adeb68e6782bd8a7ebaa8fd184afb7f67f3e&scene=126&sessionid=1795180824#rd\",\"description\":\"AI 吞掉了软件，现在，它要吞掉工业了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fz6JAVpoB67RwibaEIOsMCnic6U3LO0sibv6SDsNmF8lNehc2gA5dFZPbImApalwZAqLCvyicnjARzeGck4iaUWPkcNSCg2rW0ugGCDwvtLfgib7mM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T04:08:08.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116882:2\",\"title\":\"走！一起去 CES，把你的硬件卖到全世界\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116882&idx=2&sn=3554b11ca984987f0a1b6afa4c29946a&chksm=7fb0feb0e125fa1c353a02f8f0a1b6108f48d968c2d2d6fd680c7a5abca22100931a4337cec0&scene=126&sessionid=1795180824#rd\",\"description\":\"Product is here, show me the process.\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fz6JAVpoB67R4FemfYb5KvDSWcloYjG4eoS6LUvS4CtKlibMfkzT2NjoWibBGlUs0qLpKYeicDzYUKkkDjfRibKbH3CuH37ibwV0cjZYwgWxKnlmI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T04:08:08.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116857:1\",\"title\":\"1.27 万亿美元，Anthropic 挂牌上市；吴泳铭：千问已在平头哥芯片训练下一代模型；苹果被曝自研 AI 智能体｜极客早知道\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116857&idx=1&sn=f51b2f0a82f3f5a9257781fed90579d9&chksm=7f091f87193dbbbc1ab175a53ff51d43e34011be825de724ad12fd51c39a8093a8dfdc936456&scene=126&sessionid=1795180824#rd\",\"description\":\"谷歌 Gemini 现可直接操作苹果 Mac 电脑；ChatGPT 新增「实时听写」功能；蚂蚁集团上半年利润增长 17%。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fz6JAVpoB67Sw63UY5VqKrJFVsUmdj36K3ibCS1K7ysq1kyH0MVfC4dYeSeRTlQutNjmkZ54WicNor96NcW6nXovj0g3V1cVdwWPcibGN6q5DTE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T00:47:17.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116847:1\",\"title\":\"重控制、轻渲染：达瓦科技的 AI 视频工业路线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116847&idx=1&sn=136124c5cd1baba16d15c5c05ee6256b&chksm=7f3797e652b8f8513edfa09c201aa946c3bc45e844aa9f8f22870a6a6cef57faeb047aa2a0e8&scene=126&sessionid=1795180824#rd\",\"description\":\"把 AI 视频真正带进工业生产。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fz6JAVpoB67QU6ejVPmvjibMSDTGloAy227L3hA7hR07tVP1wYicJ7FMNr1H4C73UF9Vq2rfH8H758m0r6kmwgOiajd5JibrUSjZVu3A1j9yahM0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T10:48:10.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116806:1\",\"title\":\"资本开支猛增 226%，AI 吞噬百亿利润：腾讯的 AI 故事，进入更重的阶段\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116806&idx=1&sn=a14b4a036ee196909734c23fea329ea2&chksm=7f79952b921d69a32a69711f3e1cbab47eaa068270e26fd4742ac76c82b471c6544799879ce5&scene=126&sessionid=1795180824#rd\",\"description\":\"营收涨 8%，现金流 −691 亿。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fz6JAVpoB67Rl0CR0wtmcxg0oZSf01k0bVzbHANSfsxzZfAfPKJL073ichmiaOKLkuMD4CWesiavs80xrIpqAo7d7yRjs8gacV9oafbcMwIDanc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T06:17:38.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116797:1\",\"title\":\"「北美大豆包」谷歌，终于杀回 AI 牌桌中央\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116797&idx=1&sn=e880c67a55e6cb3bee516c204eb07f6f&chksm=7f5c3dfc59ee8350298309e6422f0b9f63187780bc36bcfd2257438eb08b98f6da02598eed91&scene=126&sessionid=1795180824#rd\",\"description\":\"用一半的成本打出顶级 Agent 表现，谷歌 AI 这一波真的支棱起来了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fz6JAVpoB67TQV1D1ia6XwxwpIGePbNnkpBxnibjzqys0eHY8IxXXiasvzCY8G0JiazuclxUJyLn8qL7ibAd8sypvk0DS4xxfjLAsmfQY3K7W70ibQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T02:15:00.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116787:1\",\"title\":\"WorkBuddy 日活超过 1000 万；曝英伟达未投企业责任险，或因黄仁勋事件遭巨额索赔；DeepSeek 再调整 API 计费 | 极客早知道\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116787&idx=1&sn=7ce937b0fbe8bdfe109428ca55296ecf&chksm=7f1296daf70622bddf69e9e69c325e3f7f072f34e2e97b8954bb747fc28e88229bf481e68967&scene=126&sessionid=1795180824#rd\",\"description\":\"谷歌 Genie 4 正式开放，支持用自然语言实时修改 AI 世界；Anthropic 冲刺史上最大 IPO，认购近七倍；特斯拉推出 Powercore，将变压器、逆变器和断路器集成进一个机柜。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fz6JAVpoB67ROSYhdWibBJia14Z9Wzwiaj4oQYFnl6jiaDN0Pj7FuIv2RKrppKdEKj8tUxktmSNibm0J4K5DRiba4TibxhoibC1WdkXiaMVrSefxJbkW4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T01:02:48.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116765:1\",\"title\":\"对话王腾：睡眠产品，不该是智商税\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116765&idx=1&sn=84cb0e39c4b2eb769e3e0e6aa7a9232c&chksm=7f199f8ccee042da8ba660e1100545a571486689400cc151d9ea35f06db4f52595e96846196c&scene=126&sessionid=1795180824#rd\",\"description\":\"王腾创业首秀，想先回答了一个问题：睡眠产品是不是智商税？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FgMNcZry2uCVXxoeAyG1jQFbZVhk9tDcJq73lowUMCkqDZq3SVyLQDzDpKuq7fUNR5dMIWKztTDHpQcJwneCxhs4ia2wyiaX7wXGtVO0ZRvkEg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T14:28:59.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116744:1\",\"title\":\"跑分狂飙，实测翻车，刚发的 GPT-6.2 暴露了 OpenAI 的软肋\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116744&idx=1&sn=30fa7e95ab10fffad45cee817f6580c2&chksm=7f79cd68567925a17583b6ba51214437f07e9c8467124f4bad05b50d8bda29d462387bb81c69&scene=126&sessionid=1795180824#rd\",\"description\":\"纸面成绩与真实体感的撕裂，在今天达到了顶峰。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fz6JAVpoB67Q34wJ9YGoHbxD4YeJJic4JUQDkH5SgsT3fiayVLTXHsicZWBYT6WRiaXicUKWooDSVibibJzGgibiaJ7GhLG3oxiaGOicQ41RA1aruxB108o%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T01:30:26.000Z\"},{\"id\":\"wxmp:MTMwNDMwODQ0MQ%3D%3D:2653116725:1\",\"title\":\"OpenAI 发布 GPT-6.2 Astra 和 Sol；王兴兴：家用机器人或将迎来技术突破；《GTA 6》开发商批评 AI 公司放任游戏仿制行为\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653116725&idx=1&sn=fe059f66430c664ee4f5c9e58661844a&chksm=7f1d7d27898ac6e60f9ca2c89689f7393a9508d941f72331efb81ac36323874527dbf81c8ea6&scene=126&sessionid=1795180824#rd\",\"description\":\"​谷歌 DeepMind 首席战略官跳槽 Anthropic；Anthropic 收紧漏洞披露政策；美国加州起诉 OpenAI；苹果折叠屏 iPhone Duo 适配应用突破 20 万款；谷歌 Gemini 智能体安全测试失控\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fz6JAVpoB67TdcicsYEHDuxDJWGR7ENaly1zIT2ExgfS0E0PpFwLL0S20vALCaKIrourRUm1B3a6sTWxkwATkOQb4DKZPwGe8kJT2uX4ia3gA4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:49:04.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1832,
+      "elapsed_ms": 526,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 5
+          "started_ms": 2,
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1826
+          "duration_ms": 519
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1832,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1832,
+          "name": "错误诊断收集",
+          "started_ms": 525,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1832,
+          "started_ms": 525,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1832,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 525,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1832,
+          "started_ms": 526,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1820
+          "started_ms": 9,
+          "duration_ms": 516
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/wxid_7762007624712",
     "name": "极客公园",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/wxid_7762007624712.json",
-    "duration_ms": 1957
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 565
   }
 }

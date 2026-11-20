@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:42.497Z",
+  "checked_at": "2026-11-20T21:24:03.992Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1082
+    "status": 502,
+    "duration_ms": 581
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1077,
+    "phase": "runtime",
+    "elapsed_ms": 576,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,94 +55,89 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 1065,
+        "duration_ms": 566,
         "timings": {
-          "response_ms": 686,
-          "body_read_ms": 378,
-          "decode_and_transfer_ms": 1
+          "response_ms": 566
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_9c702d5489b6\",\"title\":\"六镇\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484604&idx=1&sn=5ae262d837194dd9ef592e8cdac97401&chksm=ce07f2b7716a858d415d10541dd1a7f9d5a55f94ad80a58176d764bd3c0fa5e8ee87db3bc289&scene=126&sessionid=1795180909#rd\",\"description\":\"最近就在这里写作了。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"六镇\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM72jVWPL4LZUwb1RteOg0L0W8jtf9f70DszVLhKzbX2Sw%2F0\",\"updated\":\"2026-05-29T01:00:00.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484604:1\",\"title\":\"已经不是你以为的那个抖音\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484604&idx=1&sn=5ae262d837194dd9ef592e8cdac97401&chksm=ce07f2b7716a858d415d10541dd1a7f9d5a55f94ad80a58176d764bd3c0fa5e8ee87db3bc289&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5S1oGoYfnfGjFnQ4H0XkVpITunRn03NyfZMyL9vlvfx6zZwgicvZGiaWiawjx7EmOZE7RaOojfTORZ2Avlu8lmewB8unufcDVwnxicGwcpJsYjc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-29T01:00:00.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484589:1\",\"title\":\"当老赖是一种什么体验？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484589&idx=1&sn=3b70622a40611c840a499b4a69e7c4da&chksm=ce1d8d8b76ea66e8cd9116dbbe6fcc80635f38367154f02ec59fa180e898097bfd8f59babed0&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5S1oGoYfnfHtOvGzd9kmlhP0qofVgCiadNpZibMznicXiavWE3UcXUZJ62uWXNUaYhf5vufaiciank86HSibW8PicibSQFp8h9VJQSD6xFIgoicsyBmas%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-21T01:00:00.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484574:1\",\"title\":\"研究了上千个谋杀案，发现了一些问题\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484574&idx=1&sn=6b5200dcb67cc8a20dc89314a3eebb33&chksm=cec8f5a4d642ac701bfca25387b5bea092c01c3eaf0d5dbb569f0efc00771347035072aa166c&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5S1oGoYfnfGb7OnXojUfMz2M1dCvMO8X7Y4jU2piavhPpiaHghuDMVicAFVzicca0YPqBQDyZXfEc1btWXHuiahhH92cT7UEMb5rw8IlVKSkOic0U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-15T01:59:00.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484568:1\",\"title\":\"超强自驱力是哪来的\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484568&idx=1&sn=d8258b0309bd4f12a0fb6d8c5e900b5c&chksm=ce76bff1e8ab7029d50077db7f4339b7d32108f384283aa58479d13577d2378feb6b26250ca3&scene=126&sessionid=1795180909#rd\",\"description\":\"假期跟一个老友瞎唠嗑，他之前被自己的学渣孩子给折磨疯了。倒也不是因为孩子是学渣让他闹心。而是孩子学习不好，媳妇因为这事长期崩溃。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5S1oGoYfnfEpSzHsnCwER7z7J92ZJtVAkmbOFCfcRBsHoJgicVvuStaZykOZ5OuBVKwRricnZyD3afJaW5Zwb0dkaoK2pf2EScYIpPqvE0DhU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-07T01:39:29.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484549:1\",\"title\":\"AI时代真正难以弥合的不平等\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484549&idx=1&sn=7f461f4fb8318a5743c043619d016695&chksm=ceba78bd45abf5658d2b19223b6076ea0ddd7406b0578f4c70641f7eff3a4e936b2c517f25ed&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5S1oGoYfnfHwNdtG6HIJd1ckh7S3kpL3ib2ltticyQiakERIMzbf3BkyA3Mnm8mbSodZBQu7ccZOAx9fmXiaGBYenRBED3RCHRIcI6sibcmXrvaM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-24T01:48:20.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484544:1\",\"title\":\"爸妈不求吃不求喝，就求你痛苦而焦虑地活着\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484544&idx=1&sn=cff374b41b4964ff1a4adba668285964&chksm=ceac93300487b300e6eb66e3e1bae1bdb5e9ac180fcdef95d323302754c39cf39bda8cdfc0f7&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5S1oGoYfnfEycXPsOI34CKR6HSOBMagicK4rP7m9jQn1Z48OQNza6IXz9eOkFPiaVo8cicCBfslxU984ibztmr1jwt0LiaAwsjG5ia7wxPr8ckhzQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-21T01:00:37.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484530:1\",\"title\":\"当中产碰上杀猪盘\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484530&idx=1&sn=c89b0a95307ec200e44124b0861d8fd1&chksm=ce0cbadefa0f99cb131860eebc568ae54a0c3b40112aef917a0cf7c1a8c17b5653be23cebe15&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5S1oGoYfnfFwEZDaznAUqVbNcb7QHaZSgEUFlrzkyWocvU9NpGypic7J2fIlAXEsXWTOs6z8lBegsg8mVqRBzBZasT54Q7MBAVkGNzpVFzsY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-16T00:52:21.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484527:1\",\"title\":\"比道德更可靠的，是机制\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484527&idx=1&sn=6ed8b0d9d8979c48f7bb984a9e69b4b7&chksm=ce930998ee89b66fd83417198c8718e2f6bdd3a906c5232fbc7ab4c3254346508c354d5238e7&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5S1oGoYfnfGLuibY6IS6RhtuGXGwdOXFHXdhiaYHhyvGbqliaWEy47gyoBAeeEOmY8tGr6ERp7CdLOVGu7W0psOgzIicvRhw3icrq9o2DbRpIzMk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-14T01:00:00.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484511:1\",\"title\":\"那些35岁之后的码农们都干啥去了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484511&idx=1&sn=bf87c28daac19aa6b55b03dae9e12a9e&chksm=ce6ccdf0d3a5898952416eab6238fb74b522e247c4598e6c22c7c175dc6b572c208e835cd119&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5S1oGoYfnfHlCATTRVeN7orxKWePTM11KlWhxibmWxlJEX0F2KibqtCSibblYRemlDiarosYQluIcN0EQEYYGLkryxcCIyhnzsFwRMVz9LwvKe0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-10T01:14:18.000Z\"},{\"id\":\"wxmp:Mzg3OTAzNTU5Mw%3D%3D:2247484490:1\",\"title\":\"重新思考下张雪峰，真的是对的吗?\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3OTAzNTU5Mw==&mid=2247484490&idx=1&sn=5f8715adf02bdd8870dc3d41237085c4&chksm=ce3861c7b2cbf04660e9735cf06608ab7edeb473c25b332d0faa87511c63a930a2b945b5aa1b&scene=126&sessionid=1795180909#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5S1oGoYfnfFAa0dLmiaVmYeibLVdPxH2YWksV9JWE5pWGITBXNSicJVCTDVOcDkibG2f4MqlOp8l2AyAYib6tzG6ALLC7sLtibxIMGn8kVVfGTq8g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-07T00:53:26.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1077,
+      "elapsed_ms": 576,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 5
+          "started_ms": 2,
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1070
+          "duration_ms": 570
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1076,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1076,
+          "name": "错误诊断收集",
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1076,
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1076,
+          "name": "失败后浏览器清理",
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1076,
-          "duration_ms": 1
+          "started_ms": 576,
+          "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 1065
+          "duration_ms": 566
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_9c702d5489b6",
     "name": "六镇",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_9c702d5489b6.json",
-    "duration_ms": 3245
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 564
   }
 }

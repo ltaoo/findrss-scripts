@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:27.216Z",
+  "checked_at": "2026-11-20T21:24:00.720Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1043
+    "status": 502,
+    "duration_ms": 593
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1038,
+    "phase": "runtime",
+    "elapsed_ms": 588,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,86 +55,81 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 1026,
+        "duration_ms": 578,
         "timings": {
-          "response_ms": 861,
-          "body_read_ms": 164,
-          "decode_and_transfer_ms": 1
+          "response_ms": 578
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_19468113b0bf\",\"title\":\"莫言\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494889&idx=1&sn=b8acf1e40a667ca7a54fd08a310af921&chksm=cf26cf6d34d398677687f8532abbb606b742960be62f2bd69d57ff94d9bbe80b4f42512a656b&scene=126&sessionid=1795180894#rd\",\"description\":\"我想和年轻人聊聊天。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"莫言\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5Wj96jfmxvp4msIrYZRFjyYcVX7NgnsG9vMqN0uiccnDQ%2F0\",\"updated\":\"2026-11-16T13:00:00.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494889:1\",\"title\":\"莫言：《红高粱》修订版全新上市！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494889&idx=1&sn=b8acf1e40a667ca7a54fd08a310af921&chksm=cf26cf6d34d398677687f8532abbb606b742960be62f2bd69d57ff94d9bbe80b4f42512a656b&scene=126&sessionid=1795180894#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/b9dz2yAkca1aYRr5oT7oQGsotmuIPoSibtB8mbB2tpyCib9PN5MqAN5VyiaCKu4Oe69dw4Y6icHpQTrDdKUcOaicjYLhrvMCP6ia06jO1OqHyoViaY/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-11-16T13:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494877:1\",\"title\":\"莫言：我最近干了一件大事！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494877&idx=1&sn=2b78c36e3892a368b0211ec8b738709c&chksm=cfdb66340600015afcc447b242f3edab20494d8cf86d06466633328dd188b1c68d2df030f70c&scene=126&sessionid=1795180894#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/b9dz2yAkca1u0jqOF88aklGSiaXdjlHxtJsU6F3dYgibMSK1aeyuoibtibw1EeCpwRmRWDG96zYsMppWMc9ib9iaSlEeDK7kdTIBHEkfnLmyUcRus/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-11-02T13:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494836:1\",\"title\":\"莫言：我心中始终流淌着一条河\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494836&idx=1&sn=5422bca60bce4297b396f8bbd798e6a3&chksm=cf935278e7f3522314ca84f59fb949915c8b6137e655b8c1e34d80e5affbaa74fc434776ef4a&scene=126&sessionid=1795180894#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/b9dz2yAkca0YicLOOc3xiabRCf41EBa7zCgFQyic6Ld3tA5YbTknoWbxWYDA6T0kIdiaCvKxN8auAlRFqujpjQ4kGo7WpfRtPqed2VP5oZCFpMU/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-26T13:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494828:1\",\"title\":\"莫言：我曾经也是文学青年\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494828&idx=1&sn=cc216ded5d62b7b8055ac6f7fabfad23&chksm=cf1bb7e17019a45f7a50407f17797f3c71ed2f2ac9b55ba705f7a5188eede04462e3674e67f3&scene=126&sessionid=1795180894#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/b9dz2yAkca1qTPerVc4IMOCwkegYyhwx5wCFhff7FFVv4ibSW8hibL0KWjKXkxIGHTgTjSypjicVkYqGZPQZfUmTxtNy8HdmiaYxib6Via4J7r5PU/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-19T13:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494811:1\",\"title\":\"莫言：很久没给你们讲睡前故事了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494811&idx=1&sn=696244e867dabc123f7a2c012cf8fb94&chksm=cfc8544526ee977ffaf5aab38621afa447154ee5573c18affa34971fbac8d49fa76586acf21c&scene=126&sessionid=1795180894#rd\",\"description\":\"鸟虱\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/b9dz2yAkca1s4HPtpt1xxjnicMnNxGS3wqaib6XDALbEu60GIuKYZzBdPdJWmGTYJv1b2TBN7CUJ8GACZ0M0mLqVmSr4TDcaFHDlGQhLcbYKA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-12T13:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494810:1\",\"title\":\"莫言：用家乡话唠唠嗑\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494810&idx=1&sn=26192b79b25724f6b68b2a2230cfcac2&chksm=cfbbd1e5231067b560c86100b154b5bac42bfda9c92ddd14cee898311f9869b8588439aa01a3&scene=126&sessionid=1795180894#rd\",\"description\":\"国庆快乐\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/b9dz2yAkca0mGib8l4qOMbaoyFnT7PYibNEia7Tyj3icCtMQrBtkiapeMicVUKC26Cec82WoDdkRj1ZzorEMmuib2xgpN6tg5icyLFjBF0tXaperZ9I/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-05T13:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494794:1\",\"title\":\"莫言：我的中秋祝福，请查收\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494794&idx=1&sn=8c331651a6bca06d1c80587892b9a79c&chksm=cf000ddf4c08a8ff821290077d0d7c50fb27ba3bc7a9e493753b010160b6c3e901f5ecefba6c&scene=126&sessionid=1795180894#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/b9dz2yAkca0neSt3Sbic0hxJFf4ZJaib7f93f0d5g13MNxlNkuDI8sfG1bIyBVL1cwaynLAotDEKTtgkRiaZEMoyObj4ibYagQGvrhEHBqnMYIo/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-25T02:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494758:1\",\"title\":\"莫言：第一次在家乡看足球联赛\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494758&idx=1&sn=674b8266042baf5928f94849cef92a4f&chksm=cf7532e0aee9d89d083dd3ab2d2ec7d7fc7d4c7fb087c443d68dd05c90c8ab136c7022aed97f&scene=126&sessionid=1795180894#rd\",\"description\":\"很开心！\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/b9dz2yAkca2Zl9w3jjaMl2PkoHViaOTc3vzC0mSLW4N1ibqcKX1KBhFna8LURhxnzIqJibDZI1SDeLEibI6dATh8D4QibxPBybNRXFOr8sXsdDibI/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-14T13:03:26.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494730:1\",\"title\":\"莫言：我的“鳄鱼”游到上海了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494730&idx=1&sn=05ce9454811c56164e475e81d295e03e&chksm=cf93c0c6e7f34948335df66083cf61559eeb7306bac5918cb71d5beca7d7af50a39f7b5013ef&scene=126&sessionid=1795180894#rd\",\"description\":\"欢迎大家来看\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/b9dz2yAkca2sLbeiaUgaBJb9iar7qZjnpn1a2icof9zoPpBJ594zrP7M0USDuSPXHJ4lq3o9eTAvTnG6y4LcuTAbhIMUshZAd3osdYu3SiaqBEE/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-07T13:00:00.000Z\"},{\"id\":\"wxmp:Mzg3MTY2ODQxNA%3D%3D:2247494703:1\",\"title\":\"莫言：带你体验山东大集的乐趣\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MTY2ODQxNA==&mid=2247494703&idx=1&sn=cc680894107ae2fc2baf95dcbca34396&chksm=cfa0460abeedd3fb04d10c6aad1489813c8955ed62de38af27cc282e203bbd9d8ecf7aed02f9&scene=126&sessionid=1795180894#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/b9dz2yAkca39ich1anDNsJlkeoWlUOlVtGvFcF4g7iakytJUFNB17IZOYIlVnUP0lqQKJsJNASvsG421VS7fokxwLKkxeBhxqlzEomcuYFl3s/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-08-31T13:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1038,
+      "elapsed_ms": 588,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 4
+          "started_ms": 1,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1031
+          "duration_ms": 582
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1037,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1037,
+          "name": "错误诊断收集",
+          "started_ms": 588,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1037,
-          "duration_ms": 1
+          "started_ms": 588,
+          "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1038,
+          "name": "失败后浏览器清理",
+          "started_ms": 588,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1038,
+          "started_ms": 588,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 1026
+          "duration_ms": 578
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_19468113b0bf",
     "name": "莫言",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_19468113b0bf.json",
-    "duration_ms": 1435
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 560
   }
 }

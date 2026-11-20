@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:52.874Z",
+  "checked_at": "2026-11-20T21:23:50.241Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1900
+    "status": 502,
+    "duration_ms": 590
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1896,
+    "phase": "runtime",
+    "elapsed_ms": 584,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":15,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,17 +55,17 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 1883,
+        "duration_ms": 574,
         "timings": {
-          "response_ms": 1699,
-          "body_read_ms": 182,
-          "decode_and_transfer_ms": 2
+          "response_ms": 574
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_6db130c5163e\",\"title\":\"360数字安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587239&idx=1&sn=ef1763b0de0d822a3819df462aefc946&chksm=9ee4f6a8395c94225876fc017e3ea86a7230c7dc5208a872a9337b3651d60172059bfc389445&scene=126&sessionid=1795180859#rd\",\"description\":\"数字安全的领导者\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"360数字安全\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6o4eoO1BZOcPKv9me2jjZA7Q6se3uB7xHVficKY25Pc0Q%2F0\",\"updated\":\"2026-11-20T09:58:45.000Z\",\"items\":[{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587239:1\",\"title\":\"热点 | 欧盟委员会首度证实！AI驱动的网络攻击致业务遭遇停摆冲击\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587239&idx=1&sn=ef1763b0de0d822a3819df462aefc946&chksm=9ee4f6a8395c94225876fc017e3ea86a7230c7dc5208a872a9337b3651d60172059bfc389445&scene=126&sessionid=1795180859#rd\",\"description\":\"攻防博弈升级！欧盟委员会证实遭AI驱动的网络攻击\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FzfoRGB81MxOATXC7Nrd2ibtyQuVYptA7MHUoCPBs0f2RCnOrSH1vccCSZdqU40JEIDUyUcDyib8UORricQIfjM9qmraR5xIOdlVBhiaUicMRh9ia4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T09:58:45.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587233:1\",\"title\":\"供应链攻击盯上浏览器：全球178家机构网站被同一漏洞“收割”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587233&idx=1&sn=3e96b1bf6a5e87c88b2dba5dbbb791ac&chksm=9e1b4129e943657eb1d545abcdf6d770ad9703e380fef4e3ffc1545ab73cb2c641a3a0e0d448&scene=126&sessionid=1795180859#rd\",\"description\":\"全球178家机构中招：证书合法也会窃密，浏览器防线不容缺位\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxMqzTU9BRibBX5hepgzAPtuiclpQicf4FUKZ0VyqgqIny2CV9xIRZggYWzX5YZm7yU2WwtpxfVZNTUStUY8CKPIWAsXXlOsXicEwfQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T09:50:02.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587219:1\",\"title\":\"全面升级！破阵子2.0渗透测试智能体构建可控实战攻防体系\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587219&idx=1&sn=261bccd4be1d1f81156c17d227d0ec94&chksm=9e2aba11a19bd91672ffd8a144260de070bfae8ee9837ae46c1fa3260729b5eaa1fe85f05439&scene=126&sessionid=1795180859#rd\",\"description\":\"AI赋能主动风险评估，360 破阵子2.0渗透测试智能体全新上线\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxMdQ3E2YicJ2Q3EkKaETqFvZNkPZbNzGTYfdOpc7hUA6wHLnLwEYoGKJbVbDXjHwTibeicrQsnsznTMBB4ftbSHULAj4q761pWGmQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T10:08:32.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587212:1\",\"title\":\"360拿下中国第一！全球AI安全“硬核大考”放榜，与OpenAI同上榜\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587212&idx=1&sn=67fbf60a1f346b1b961a7f7235b6ed66&chksm=9ecffbdd83f5fca41377b6df9317ea40dd44d0ed8570e952e1f881c65aa6b8b3d222d0b49be6&scene=126&sessionid=1795180859#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxNRDmibh1U1yw5UwsBBnLDX5l9o8eIyBwIISiaJLwqKyCXFviboOmBlTGsDxFB6t231M9h0cwb4lR4M00NHFNeEvqK5juyj27Xrtc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T10:26:42.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587212:2\",\"title\":\"360发布10月勒索软件态势报告：NAS存储成高发目标，双重勒索与中介乱象并存\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587212&idx=2&sn=b6979663f985678fe18250fb6d78a08d&chksm=9ecd6a52006527f45f68490778c8fd31e37878d43373bc9c9a0d7a5c29d5b2037f628dd83bb7&scene=126&sessionid=1795180859#rd\",\"description\":\"10月勒索软件态势报告发布，360揭示攻击转向存储与虚拟化基础设施\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxOXicoerhicZf4foKdrm6Uib6l4kANsI03MtLDRXzQLTO1eCrbLySxILXSEnrRh6ffLlNRYibElECj6L65VdtuUE9iaBcUetNFaH7ibc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T10:26:42.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587203:1\",\"title\":\"360发布 “知行ECOS” 本体智能业务操作系统，让企业 AI用得上、管得住\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587203&idx=1&sn=3dc902e0378742061b5b6b180eb8a7d1&chksm=9eb13ca21436b9215d5b779f7c7dd9dfe744b06f765536a2942d09de75277a22b635ef6783bc&scene=126&sessionid=1795180859#rd\",\"description\":\"360发布“知行ECOS”业务操作系统，内置 AI FDE 可对话搭建应用\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FzfoRGB81MxP5Lc6FiaSUX82WcBaibCJQCdh3XHqJzWBm02KibVicLrjwsEj5EP5jKrTF3ibHywmThxqewQicUBk2J6tRGL2kV1xHUsoSJvO5Mia45o%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T10:14:56.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587198:1\",\"title\":\"校企共探数智育人新路径，华北理工大学轻工学院一行莅临360参观交流\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587198&idx=1&sn=8a123a86492e2d08419a981c52af9d69&chksm=9e1e3187e79f0a32d8a0607912c949dcaf725895c269d24dea845d5481f930e7b5716e44fb2c&scene=126&sessionid=1795180859#rd\",\"description\":\"深化产教融合协同育人，华北理工大学轻工学院一行到访360交流研讨\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxP7uibDTfoZSickaa33VBzTBGWd2Eiaicz3Dnp1pNpHAicaeibOpjNFJFrkibzhuCpI8z0xjDkjo3TibGQOiahJlgicvrhUZFFUXWTdCDdVo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T10:02:45.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587193:1\",\"title\":\"双项成果闪耀鸿蒙办公产业峰会，360擘画政企安全新格局\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587193&idx=1&sn=6460523d73bd129b9ba07ce15a5845d1&chksm=9e0563ae1a4e9c6f034ad6e859ff771048090036894955bcb346a41e082aaba0a557e360c286&scene=126&sessionid=1795180859#rd\",\"description\":\"“一奖一标”双突破！360亮相2026鸿蒙办公产业峰会\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FzfoRGB81MxMAvfcQBSVsiaNJDVUmUbMGOuTCZdIiaF55pNsBoMuBt8fo0OrKvuaZTEJHwV8dA8Eldl0rOfIvAzV3c0NeoSHaYh8ONqhq9iaKM0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T09:48:38.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587188:1\",\"title\":\"360亮相北大AI+X青年人才实践发展论坛，联合发布“AI原生人才标准”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587188&idx=1&sn=0a3b989380a22dfca6d3cde63861f072&chksm=9edf3e1ce54756d9f0d6d9e81b808861b0128c22c1767b3010dfb649926216504584d36dd6f3&scene=126&sessionid=1795180859#rd\",\"description\":\"北大AI+X青年人才实践发展论坛成功举办，360分享人才培养创新实践\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxPib4WCEdoV49IdjiaEjAVXmov5DCU7z8ujQBrYTrs1yAtG1jjZOX4Hr8HqPtPwTksEyt16AISDUWjTSL5to7X78gkX8zLu7m84Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T11:02:09.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587178:1\",\"title\":\"360获世界互联网大会杰出贡献奖，系唯一获此殊荣的AI安全企业\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587178&idx=1&sn=709cfd714b4712c616af9dcfadc05d5f&chksm=9efa49372a4dd42a2470048206673c8a53176f2e5e9890f13d30dbb77e4b17446f6be52afd34&scene=126&sessionid=1795180859#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FzfoRGB81MxNnUSTFcLOLv7qM9YJ0zX3aZkGsROLq6onJjW9loHScAtU9USGrR8V7Rym7O5McghXdv3icOb3lfoABMg7icRicCfiby7wQGfVnNnw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T10:02:09.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587178:2\",\"title\":\"香港网安攻防演练告捷！360斩获大陆厂商第一，“破阵子”7小时测试资产超5万\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587178&idx=2&sn=d82251261cdd2ff7229a637347ae7e6d&chksm=9ef0670e702bd8c477fe361d705aa09cc8dc0cd4de6f9bf5ae230e06abe993f08939d6046d1a&scene=126&sessionid=1795180859#rd\",\"description\":\"“破阵子”7小时测试资产超5万！360斩获香港网安攻防演练大陆厂商第一\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FzfoRGB81MxOANozyl44a3MT4QR7IGnCKUwTBx73u0nAMpiaoDSVppsicVWiaicyzI9Eic11c3ZIb2JScLsRcMSK6qzibM5APtro4onzt2SqgkRBGE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T10:02:09.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587178:3\",\"title\":\"360终端安全多租户平台正式发布，赋能先进制造业集群安全治理\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587178&idx=3&sn=3c7699c7c626a3cfa646f9867f73eda7&chksm=9e25114aa65bfe9b02f4bc4a456bd11669381fc7133a0b79f5471443488cedb0e5af077fd2dd&scene=126&sessionid=1795180859#rd\",\"description\":\"分层智能体释放专家治理能力，360搭建先进制造业终端安全托管底座\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxMOwg9EoITpm9FoT2odC4kPby8lIayia7A2Aam2cIE8gsAOupfeXpdjuuc8QEU3eNdLZxicvUC0fibFRrUQYA4KhMLbVwvQxmPUqs%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T10:02:09.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587162:1\",\"title\":\"中央网信办副主任王京涛一行莅临360乌镇展区 “AI+安全”成果亮相世界互联网大会\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587162&idx=1&sn=9689e5d62a09fa06d78cd87c26943022&chksm=9e634bb9796e4af276e4190927b4929136c05b66d11aeedbf3b25aa08124a7904888bdca280f&scene=126&sessionid=1795180859#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxOVHFpW7b0V0ZI3euSj2jUvTYgJHxybkPqYYyl9r6ICnlBLooZBG80iaPxNqIibMSvNULle4mTfnicDllickxh4BNutTCS7ibtRffz4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T10:15:44.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587162:2\",\"title\":\"赋能职场AI能力建设，“智汇北京CBD”智能体工程师（ADE）认证培训及技能竞赛成功举办\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587162&idx=2&sn=94128fc351e09e2d7b00762170836c3f&chksm=9eae1e6e4e304133b5c731d61642feb57087daca6a140254c7c4db66be5a062c5e136030c8a5&scene=126&sessionid=1795180859#rd\",\"description\":\"360ADE 认证培训走进北京 CBD，激活商务区职工 AI 实践成长潜能\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxMdOsHnJY6Th583xjia19VCp0GaIrb4CNAQXRqyQZ5mWA8aru7jR8hhibs24sP3GpicCfWwaYBNwibwhj0nnicIarfEz2yNxfQIViczY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T10:15:44.000Z\"},{\"id\":\"wxmp:MzA4MTg0MDQ4Nw%3D%3D:2247587162:3\",\"title\":\"共探AI时代安全新路径，中国保密协会一行莅临360调研交流\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4MTg0MDQ4Nw==&mid=2247587162&idx=3&sn=86e576eb29755e250f5b60504ac56686&chksm=9eabf342c4ea428ce16de2c271b907526ccd6a6ca947b3f3477217064c930107dc43b7ac389b&scene=126&sessionid=1795180859#rd\",\"description\":\"中国保密协会一行赴360参观调研，共商涉密场景安全能力建设\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FzfoRGB81MxPOu79xMAIL83ialOcgnhicYgiblxp7TDxsZ7bGJk5aqlict4bb0544NohI00STyXbSuPzK98EtFjrVVfCicUBjiagiciaSzvxYW54VicO4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T10:15:44.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1896,
+      "elapsed_ms": 584,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,39 +110,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1889
+          "duration_ms": 578
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1895,
+          "name": "错误诊断收集",
+          "started_ms": 584,
           "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1895,
-          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1896,
+          "started_ms": 584,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1896,
+          "name": "失败后浏览器清理",
+          "started_ms": 584,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1896,
+          "started_ms": 584,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1884
+          "started_ms": 9,
+          "duration_ms": 574
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_6db130c5163e",
     "name": "360数字安全",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_6db130c5163e.json",
-    "duration_ms": 2184
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 534
   }
 }

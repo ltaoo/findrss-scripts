@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:12.034Z",
+  "checked_at": "2026-11-20T21:23:56.590Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2857
+    "status": 502,
+    "duration_ms": 534
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2847,
+    "phase": "runtime",
+    "elapsed_ms": 530,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,95 +54,90 @@
             "authorization"
           ]
         },
-        "started_ms": 7,
-        "duration_ms": 2837,
+        "started_ms": 9,
+        "duration_ms": 520,
         "timings": {
-          "response_ms": 1662,
-          "body_read_ms": 1174,
-          "decode_and_transfer_ms": 1
+          "response_ms": 520
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_ee6fa8244ab3\",\"title\":\"奇安信技术研究院\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489500&idx=1&sn=f023108d5e68b229f0ab06ac83a41c1d&chksm=ce3d398ebe9f69da16acde77e8e88d72430c672ec869050761a6075e415901dcb853ce20e96e&scene=126&sessionid=1795180879#rd\",\"description\":\"网安技术研究国内外前沿动态，相关技术研究发展报告。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"奇安信技术研究院\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7sPAW7y7wrsJr9PAV3pvTAhNIJ3s8saasf1HIeM7gicaQ%2F0\",\"updated\":\"2026-11-19T09:36:23.000Z\",\"items\":[{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489500:1\",\"title\":\"【天穹】云查判“可信”，沙箱判“危险”：一枚 PlugX 样本的罗生门\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489500&idx=1&sn=f023108d5e68b229f0ab06ac83a41c1d&chksm=ce3d398ebe9f69da16acde77e8e88d72430c672ec869050761a6075e415901dcb853ce20e96e&scene=126&sessionid=1795180879#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FQSjGzxHEMduoD9A0XgJjOGiasLricCMUL81ofsibmeCkL5d0eFUgPExWAqiavH18uyI4XRG13PlmcQdhB0CGR3CloRgvwH5R9HEa0MVTZMZkNtU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T09:36:23.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489482:1\",\"title\":\"【天穹】借壳入核：一纸合法签名背后的驱动注入暗链\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489482&idx=1&sn=8791d96cbe7ebc3e7fefcd30af78b374&chksm=ced0dfa40b727659cfd5347d274061fd4f8ada513b9f4b7018218b0e70d735c64f3f3824cc89&scene=126&sessionid=1795180879#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQSjGzxHEMdv1LZ5sSwLfaCibGLlJ5OGAIiaEjibBibFIASMGKeJbBQUTgtDv76LqXDmpIML1R6relLNiaQ3WOkmdAB5ricHQ8dnjSOktpODfjvHA0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T08:48:29.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489468:1\",\"title\":\"【天穹】当木马开始向 AI 请教：一例“LLM 辅助规避”样本的完整剖析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489468&idx=1&sn=b4dd0a3561fee50d6c2c7d186bf9902a&chksm=ce090fe02c265df2ed7b8a0323c53ddecd06ac4203cc4a3ae9e303a746337dd116fa7e259ce7&scene=126&sessionid=1795180879#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FQSjGzxHEMduJGPBYBSIaoxXXYHAiapkK7r1JeQECXCia5uNy0hrVj4YlbmKuA7kXl6lia3O1ZPyPcITyibpP5CiblBZdVUGOB0lnicBo8icjcB7giaA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T10:32:34.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489467:1\",\"title\":\"【天穹】PHP2Shell：一次内存耗尽，如何演变为远程代码执行\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489467&idx=1&sn=62e4a10bcb387d025b1c134a582c1216&chksm=cefb96f4340b05e84c0fb9fb6216f4b7164aa6cdc3deac0014d98ff37dc2a55e6d2daca25994&scene=126&sessionid=1795180879#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FQSjGzxHEMdtcVpibyRRDeEdXUGUx9y7ico7C6DPgpc11bVOX6yDs6TXyW4ttEibmTibdoO6tJRSstD8FD68BmspdSNAEUdd6k7wEvWC9Y2xU9ns%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T03:06:07.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489439:1\",\"title\":\"【喜报】研究成果被国际顶级会议 IEEE S&P 2027 录用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489439&idx=1&sn=f213775cf35ea7a3946b12d888d7f37b&chksm=ce229f89972db67186cde844fc191d7aecb379271a0c4592c445ec619722b76af638fc1f0e0d&scene=126&sessionid=1795180879#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQSjGzxHEMds1p1PcQIcviaibXWAXZLvqGjY2vMD7t01oVqHKo3oRF4BP68HOYMe2uPibUia0zIOYkFwe1YvLxpaRiboPvF73CmhHPHshh8Ehp3Fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-16T07:19:28.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489434:1\",\"title\":\"【喜报】1篇研究成果被国际顶级会议NDSS 2027录用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489434&idx=1&sn=8a50e73d3bc4e864908ce3af808a8f20&chksm=ce24af21780c081d21af8f848c032956241e49854985f8db577655ecaae723e417d5711cfff0&scene=126&sessionid=1795180879#rd\",\"description\":\"由奇安信技术研究院和清华大学合作完成的关于代码签名证书合规性及安全风险分析的工作的论文题目为《Standards-to-Surface: A Comprehensive Evaluation of Windows Code-Signing (Non)Compliance》被国际顶级会议NDSS 2027录用\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQSjGzxHEMdtqAFxFDYbibBJx47lRByDoRevJCZ1aHKtsOWS4CbOa4HQ5doNfcfickI5iaEic8hWoRaC7cGibiab4AxZ9g6ctg3cWpVx5AibWEnicN6k%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-23T08:17:07.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489425:1\",\"title\":\"暴风(Storm)：让漏洞自己\\\"跑\\\"出来\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489425&idx=1&sn=ce08bff5b9b8a58b0dca72c35eb00df1&chksm=ce51fecac4238d32b8ea68d921db973b1708d15dfec5744c4f5ff2cde77ad4601ab1e34453be&scene=126&sessionid=1795180879#rd\",\"description\":\"Storm：让漏洞自动\\\"跑\\\"出来的自动化挖掘系统\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FQSjGzxHEMdtHJMboD4UV9KE7Fw4UVfVFAmMSUCKHF37WYPC1ZsUmC19ZbUT9R92rUEFtaBx2QiaGa59sZwzeSabEsfsG9L7nlcLGj4bbfIicI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-21T03:03:59.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489415:1\",\"title\":\"【喜报】又有2篇研究成果被国际顶级会议ACM CCS 2026录用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489415&idx=1&sn=4f206f3a247a4913968f813fdf9725e8&chksm=ced67ce84e4b06a6a22d0485d170f09fca76d458d5d9e5e821854a49edb18b234c803bb71b9c&scene=126&sessionid=1795180879#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQSjGzxHEMduiaib2wwSe6IQPITTlQ0mhaSQWxk269hicWsNfYhFTAjGClrTSrIdUsaicWoyPyYiboPNgYMYQLiaZDK83217oFIkENtmNJHfJrrlAI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-18T09:04:20.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489401:1\",\"title\":\"CyberGym基准之外未被看见的威胁\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489401&idx=1&sn=92b3684ff2bcd6f3dd8264ef3f847e31&chksm=cee1b15b03bccd54ac1b299f2caa85cb3f781641a1763995bdb4601fb8001e665937c3176af1&scene=126&sessionid=1795180879#rd\",\"description\":\"灵犀智能漏挖平台在CyberGym基准测试的实际测试里，发现了一种过去没有被指出的评测问题：漏洞映射偏差。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQSjGzxHEMdvfpkXLAcJwYiaY8AK5dXFpULSUCVmyiaAuKGoWP7RW4Fa5OslpNMEBibJ8oocStckZs3BFATKyEGr1lbpnwxNUTaFz6DWNkd9sHc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-17T04:00:00.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489382:1\",\"title\":\"【天穹】OpenHarmony恶意HAP动态行为沙箱检测能力速览\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489382&idx=1&sn=7d849e992ae4a04cd08505c286c633f6&chksm=cee713898a473d2b31a66df0608f13680663e7c230443e6813342e2942b3f63c18abbb576557&scene=126&sessionid=1795180879#rd\",\"description\":\"天穹沙箱团队基于 OpenHarmony 5.0.2 环境构建了 恶意 HAP 动态行为检测沙箱：在隔离虚拟环境中自动安装并运行待测 HAP，实时采集 进程、文件、网络、屏幕 等证据，输出一体化分析报告。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQSjGzxHEMdstvPbohaciaRtKw7SZVJ9Bu14zKuwicI2IyIGdXLpwDMD33PSUzHL0eX7e2fWpId41xuP4oiaJut48qK1rMVcZDLt2wfs3icZv0tU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-18T08:57:06.000Z\"},{\"id\":\"wxmp:Mzg4OTU4MjQ4Mg%3D%3D:2247489382:2\",\"title\":\"【天穹】HVV专题：典型HVV样本总结与IOC收集（第三期）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4OTU4MjQ4Mg==&mid=2247489382&idx=2&sn=c47ebd85b40162a561df697d0089a067&chksm=ce5dbeaefd1a20de2c9cd68368fd5c6d25d4253bed013a4b80b9f8e82ab8dfbf673dd026e87f&scene=126&sessionid=1795180879#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQSjGzxHEMdvyticBwbAOUFxn9aaibwZDeibEzNBvN9KV3KknKHDGE9h7ud2xouHRcxe13Szo6GwmhwBDbZII2ZDyeZfETibUePMDfjC25xpvibGI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-18T08:57:06.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2847,
+      "elapsed_ms": 530,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 4
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 5,
-          "duration_ms": 2842
+          "started_ms": 6,
+          "duration_ms": 523
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2847,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2847,
+          "name": "错误诊断收集",
+          "started_ms": 529,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2847,
-          "duration_ms": 0
+          "started_ms": 529,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2847,
+          "name": "失败后浏览器清理",
+          "started_ms": 530,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2847,
+          "started_ms": 530,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 7,
-          "duration_ms": 2837
+          "started_ms": 9,
+          "duration_ms": 520
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_ee6fa8244ab3",
     "name": "奇安信技术研究院",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_ee6fa8244ab3.json",
-    "duration_ms": 1594
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 578
   }
 }

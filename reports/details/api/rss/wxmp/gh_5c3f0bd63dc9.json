@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:57.094Z",
+  "checked_at": "2026-11-20T21:23:50.880Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1839
+    "status": 502,
+    "duration_ms": 588
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1825,
+    "phase": "runtime",
+    "elapsed_ms": 582,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,17 +55,17 @@
           ]
         },
         "started_ms": 8,
-        "duration_ms": 1814,
+        "duration_ms": 573,
         "timings": {
-          "response_ms": 1456,
-          "body_read_ms": 357,
-          "decode_and_transfer_ms": 1
+          "response_ms": 573
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_5c3f0bd63dc9\",\"title\":\"DARKNAVY\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247505214&idx=1&sn=8580a5cc9bf28276e62d8137725739a1&chksm=c0bff87b76df5a5c7b61ad7f046cb03df2c578dd29fb50f478650ffafb48350b543778b3e66f&scene=126&sessionid=1795180863#rd\",\"description\":\"DARKNAVY·深蓝，总部上海·新加坡，独立的网络安全研究服务机构，AVSS 量化安全的首倡和推动者，GEEKCON 国际黑客大赛与 deepsec 前沿安全 AI 系统创办者。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"DARKNAVY\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2F98Nz5LFElxxSECJyeBSejzJ9fFTYDWbjDBictYE1plZrMNPpIk1B5t8W3OT6ia0GXSJlWt2JeAh8Y%2F0\",\"updated\":\"2026-08-25T08:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247505214:1\",\"title\":\"我们攻破了新一代 Starlink 星链终端\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247505214&idx=1&sn=8580a5cc9bf28276e62d8137725739a1&chksm=c0bff87b76df5a5c7b61ad7f046cb03df2c578dd29fb50f478650ffafb48350b543778b3e66f&scene=126&sessionid=1795180863#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FksL73cONLHA0MiaSCK8cdYVN7ib8rfby7IbBHTT5oJwyVdNW9l3qpqAXQv6RiawMT0ZcbwIz2FUic9q077h8j308hLFfE63HkzjDCwlPqmfW7eI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-25T08:30:00.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247505137:1\",\"title\":\"只要​ ⁉️ 万8，顶级黑客团队带回家\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247505137&idx=1&sn=8069492cd1c84693fd7dc1c8f4885a23&chksm=c09f857a0e1bd7b68b10931330141eb5c4b56ff88b2124eb455fefed777ede9efe1c4a76d99e&scene=126&sessionid=1795180863#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FksL73cONLHAdiavMs6Te0rJdeG07RRQ93EUiax2XoibSOHMCNGO9RyBLC3CRvVUKibkVl48YTV0kVb4bUoZPIXsFdjohCSKnSLBbPtmoRlxCHuY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-14T10:00:00.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247505096:1\",\"title\":\"deepsec 携手国产 AI，斩获全球 AI 网络安全能力排行榜第三🥉\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247505096&idx=1&sn=44fa15f41469be600bd692b668687d9a&chksm=c00b33fbdfd966357a79274a7dcd6821aeb57272a8b4a4f84d5a462cbf61302d1cb64032bb5c&scene=126&sessionid=1795180863#rd\",\"description\":\"CyberGym Benchmark\\r\\n全球第三，中国第一\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FksL73cONLHAlpcQBmCFetmRbLvqfAjslaDdDQ0Fq4TIABCHbcLEkrMsRpZ50UEp2tFiaiaEXCd4Onb9ajxxXAyYzUNQvVc93ticgLib2AnWbRjg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-05T02:30:00.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247505085:1\",\"title\":\"声纳计划启动，让更多中国创新拥有 AI 安全力量｜deepsec 已上线\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247505085&idx=1&sn=5439c230f48dbcb24d5eb631784d3247&chksm=c0f6a0f2f8a2d09a700df30cfd5f20710fc105aff2c4cd96d66136a9df9e265da2d9d754bec9&scene=126&sessionid=1795180863#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FksL73cONLHAtMRR6xbW5mZ6po1FGReGU4fglMdpUkGKmKNWqMIkibu8aHcq0dxtDRtibsn5xyjibkS2hpJicRO2w8sH83uNP2KicTVFlQtjFVibicg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-04T09:15:00.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247498204:1\",\"title\":\"Pwn2Own 击穿微软 Edge 全链路漏洞分析｜deepsec 攻防实录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247498204&idx=1&sn=0eb64ee8ba811819d343e36aff57769b&chksm=c004880f7c00c79e86e258b7fa4120f45064a3968c102988d3d2a0cfc4d64ce55c42e1a3bfd4&scene=126&sessionid=1795180863#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FksL73cONLHApKvor8KgwgZbDtCSCDHpSh1NNUcZ7xqCmZpT5TvzUvz9dLJXKC8JtqnjqYBEiaMiaokESYWU7UFk7vMVseFKQj8RgL7SfrBxKk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-31T03:30:06.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247498111:1\",\"title\":\"deepsec 攻防实录｜AI 黑客如何突破无人机安全边界？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247498111&idx=1&sn=559c60604a228a8f46bde57fd031714e&chksm=c0b89d961fcacc65b672e8a8f192592e6e7e4b3cc36e5e9738a722e51d95064bd4c186db0ab6&scene=126&sessionid=1795180863#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FksL73cONLHBF2JpodvGLl4DzQE7h9RsIiadZu9NwmukD1rUSq9QGe9iaPnUQKCgsO07GAVfQpEVia4Qo0SekQ0jC8G9oVFRPffkS7gol5ib48ick%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-14T07:15:00.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247498007:1\",\"title\":\"【议题公布】deepsec.cc 第三届｜AI 已至，攻防深处，诸刃同鸣\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247498007&idx=1&sn=68aff65d0ff561065620a382babd5005&chksm=c025cd90cf1fe0ef79d26f58b6ee96d60534e7c6e2fef29f5c80e31d981746cf00db83460f17&scene=126&sessionid=1795180863#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FXvcpyg7MGujUJleXK47iaicRPiaBuTtYxHrwcy3hCUQicXTusLH9l8mSyeTc46VZ1d5fbkFkmCoALfd22ABLDrbaD6Xkt3ic4atMACD00qBnn5yE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-01T07:30:00.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247498003:1\",\"title\":\"致敬国产开源大模型，我们研制了追赶 Mythos 的安全 AI 系统\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247498003&idx=1&sn=e17c1fdce326fb74ca9def003727a3fb&chksm=c023ef14d9068aba3a632fb1abe6230c22a911656614d43f17c205edffc12249ee77361f87b9&scene=126&sessionid=1795180863#rd\",\"description\":\"deepsec @ DARKNAVY\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FksL73cONLHDlwJj4oIHvJUWCX8RU7cjARHNFjYHRGccgkWw90uMrvzMz9SicSvrYf8qYSWoOqdEib84VjQdMaqiclkplJpklq8I1KhqOUib0PKA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-09T06:00:07.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247497966:1\",\"title\":\"我们试着把干掉黑客的AI干掉了｜前瞻对抗\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247497966&idx=1&sn=495f70acae6c8db7682dbb5439200dac&chksm=c0a78777c640ae2d5475616e7c09c6652d02a28d8cd39fb667651137a302b8d0fd07943832df&scene=126&sessionid=1795180863#rd\",\"description\":\"对三款最强 AI Coding Agent的漏洞攻破挑战\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FksL73cONLHAjo3gALgI12ETLBsicWXd0GMETaqLlicwDUYQSOTPIWGh6Rf2o4GBpT9uR2oxCbRTfb7ticalEz9qBawQiawj1icia2JjLRMhKJwwpk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-12T07:00:00.000Z\"},{\"id\":\"wxmp:MzkyMjM5MTk3NQ%3D%3D:2247497933:1\",\"title\":\"DARKNAVY联合发布首篇具身智能机器人安全技术白皮书\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMjM5MTk3NQ==&mid=2247497933&idx=1&sn=b9c47dfaa5c19e0ce8a049991cc22610&chksm=c0d5fc7d15e3ce5ff2379ed5f63b5ed11d17325edc16f97be18f17dfaa0b8939b9479c5f3f10&scene=126&sessionid=1795180863#rd\",\"description\":\"风险从数字走向物理，重新审视真实环境下的安全体系建设\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FksL73cONLHBKetalU3YJBgwHb7AYheFt1jMr2NteN0hIQpR5icAR96aia83j2ib9vzNG0J0I6aStpAiak8gVzmqIXfykCZzNzicIY6EOVU7BicOvE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-20T02:24:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1825,
+      "elapsed_ms": 582,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,31 +110,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1818
+          "duration_ms": 576
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1824,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1824,
+          "name": "错误诊断收集",
+          "started_ms": 582,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1824,
-          "duration_ms": 1
+          "started_ms": 582,
+          "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1825,
+          "name": "失败后浏览器清理",
+          "started_ms": 582,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1825,
+          "started_ms": 582,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 1814
+          "duration_ms": 573
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_5c3f0bd63dc9",
     "name": "DARKNAVY",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_5c3f0bd63dc9.json",
-    "duration_ms": 4514
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 582
   }
 }

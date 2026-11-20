@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:18.445Z",
+  "checked_at": "2026-11-20T21:23:38.214Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1164
+    "status": 502,
+    "duration_ms": 533
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1160,
+    "phase": "runtime",
+    "elapsed_ms": 528,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,17 +55,17 @@
           ]
         },
         "started_ms": 8,
-        "duration_ms": 1148,
+        "duration_ms": 519,
         "timings": {
-          "response_ms": 1147,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 1
+          "response_ms": 519
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_94beeafaf804\",\"title\":\"山石网科安全技术研究院\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512785&idx=1&sn=d368ae3a80bd95af08eb3f76036cf7f0&chksm=fb85faf148221e316afee42ea61f704d40d532df9792d06bd686b09c6230afe75d48226dc9ec&scene=126&sessionid=1795180825#rd\",\"description\":\"山石网科安全技术研究院成立于2020年，旗下包括智能安全、红蓝对抗、信创安全等三大实验室，输出原创漏洞、安全专利、原创文章、安全标准、竞赛题目等研究成果，支撑前端服务业务开展，为客户的产品安全、业务安全保驾护航。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"山石网科安全技术研究院\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5cnzmiazr31fUDrFodtn1vTyCnJuAK7pmPTnBmmV2dQmQ%2F0\",\"updated\":\"2026-04-24T09:56:00.000Z\",\"items\":[{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512785:1\",\"title\":\"一图看懂｜山石网科2026年第一季度报告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512785&idx=1&sn=d368ae3a80bd95af08eb3f76036cf7f0&chksm=fb85faf148221e316afee42ea61f704d40d532df9792d06bd686b09c6230afe75d48226dc9ec&scene=126&sessionid=1795180825#rd\",\"description\":\"全力冲刺，实现开门红\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FgB3ibF0VscDXCYUiaX2zw96wZ9htDecQnicQ8dY8vu5bJeaIw7QUyEfxhc28W3KTQNDgviaDicwNThYbic15TFAH004IWtOcPSe8iabQicS7PPWUKo0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-24T09:56:00.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512725:1\",\"title\":\"第三届“陇剑杯”网络安全大赛预选赛 WP\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512725&idx=1&sn=51c8bd79d4af7b3bc991c70a2f44d7d1&chksm=fb123d6e0c38a964677307558e0b1ddb88a320265265b07587c1a124a55ec458dfee56330ad8&scene=126&sessionid=1795180825#rd\",\"description\":\"第三届“陇剑杯”网络安全大赛预选赛Writr-up\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnQcwGJmBsSmqzFe3snygtY1rqgKmZ92qj03wziczCHbugibmeyTxSDFcTaN1jf4RT7JpmiaziaY99aEAQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-12T06:41:10.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512676:1\",\"title\":\"一图看懂｜山石网科2025半年报\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512676&idx=1&sn=15909547aec276b81366d2b99f0ba1c5&chksm=fbf887ce321abdcafce23de40fe6d3a2183637bef09140437f85423f1a27e84ac1027dd34327&scene=126&sessionid=1795180825#rd\",\"description\":\"“双A战略”引领效率稳步提升\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnTRA1OVibPBnO2gpgeQTXzur8hIicoiakm12lhOv4d0LMnbWtcAbcEndBcyyFwGVzSic9fHAvgkTo6iczQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-26T11:15:00.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512670:1\",\"title\":\"下载量达 3000 万次的 npm 软件包如何传播恶意软件\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512670&idx=1&sn=e3dbdf3adafe203dff4b45c5b21e3040&chksm=fb1d44f70880ab2f51ca1b294a55c13d1b76b1ad267d371f499ca434b88f2bccd4018c41f8c3&scene=126&sessionid=1795180825#rd\",\"description\":\"从npm包到恶意加载器：Scavenger正隐身入侵您的开发环境！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnSP0ocM9G62txBic1iaBjGHeZl546yRewv3UXpYjSf2iah5xoNWxjibLwY0D3dgCXEynxBHdXKzicWZHgA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-21T06:50:00.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512663:1\",\"title\":\"微软2025年8月补丁日重点漏洞安全预警\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512663&idx=1&sn=a76e39e984a892bd0a9bd368fed36779&chksm=fb918b1f731dfe26a5c0defaace77597de62e1083b33884620d83355f2a726fac19208fb158a&scene=126&sessionid=1795180825#rd\",\"description\":\"微软官方发布8月安全更新，请及时安装补丁修复。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnR7qtLbKe5zBW2BJIANEiaUFBztghu5bezczmib08OPIpklJhyTKfwBgfJSb7YyYjHdkUTZicqcRLF5g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-14T09:36:47.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512597:1\",\"title\":\"发现废弃硬件中的0Day漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512597&idx=1&sn=0a7b543b616720275a771dd7a24aaa4b&chksm=fb7fec55f45a68ccc17caa2fdc6fbe42cd8852b1887e8ea5cd225c92d8d81c0f1a2849029c04&scene=126&sessionid=1795180825#rd\",\"description\":\"当UPnP变‘后门通道’，固件降级成‘致命武器’——废弃设备的隐秘漏洞链正在吞噬你的安全！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnQ9RX5h0PNu4YQDyic9qiaUhUh154jyS2xHGSuTuzzGbyLJ7AXlicDsX7tPsChs6zs970Js4CJd1tYSg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-11T06:50:00.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512565:1\",\"title\":\"SonicWall SMA 500设备漏洞深度剖析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512565&idx=1&sn=3fbf20cc59a55ad473dd3555c44dcb18&chksm=fbec54206d2cd47fae3ee94a0d7afc227584eaddecdcdadab3fda3f65076eb8d4d579a6c6698&scene=126&sessionid=1795180825#rd\",\"description\":\"SonicWall SMA 500设备被爆多个高危漏洞，从未授权访问到任意代码执行，安全防线瞬间崩塌！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnSbk0kgpmkW6Ko3yiceshMwY3xdONUM9cszUXDlQrCTxLC8dg5N7kib8qaCyGsmZBvbhmalBZ5aia1aA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-08T08:12:51.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512557:1\",\"title\":\"Linux内核页表利用技术深度剖析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512557&idx=1&sn=c8d4ba7e5951ab779fa6d3ce664b3f10&chksm=fbec0f83ec7f0fd4264af227679f875db5bda9fb2119a2dbfe829764a94ed39b263079b5247b&scene=126&sessionid=1795180825#rd\",\"description\":\"掌握内核页表的利用技术，解锁Linux内核安全防护的终极挑战！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnSbk0kgpmkW6Ko3yiceshMwY3xdONUM9cszUXDlQrCTxLC8dg5N7kib8qaCyGsmZBvbhmalBZ5aia1aA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-08-04T10:26:03.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512531:1\",\"title\":\"无线程Shellcode注入：突破EDR检测的隐匿技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512531&idx=1&sn=caa1995edafc7abc51b2542b28484b2d&chksm=fb7a027c74cf44f0960ac6959bf72a20456b323d0343b5344c3ac283d5bce993406106247c28&scene=126&sessionid=1795180825#rd\",\"description\":\"如何在不触发EDR告警的情况下，将恶意代码注入目标进程？无线程Shellcode注入技术给出了答案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnSP0ocM9G62txBic1iaBjGHeZl546yRewv3UXpYjSf2iah5xoNWxjibLwY0D3dgCXEynxBHdXKzicWZHgA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-21T10:15:00.000Z\"},{\"id\":\"wxmp:MzUzMDUxNTE1Mw%3D%3D:2247512519:1\",\"title\":\"首批！山石网科入选国家“云上大模型安全推进方阵”成员单位名单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMDUxNTE1Mw==&mid=2247512519&idx=1&sn=fa542dc387fb8d7407aa9f37ea4ec981&chksm=fb57a16a8e6db1b3abd55814f5dbebf44e7631025fa5b388f810cee3247fa34f8d329717007b&scene=126&sessionid=1795180825#rd\",\"description\":\"权威认可\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGw8FuwXLJnSkIBjQtiatQnic8NewlEerfZyIsexynvcGZ95jWHgLvWgIazH2LeFlHTCJrMY3CKpFRxkQTQF99eWA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-17T03:30:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1160,
+      "elapsed_ms": 528,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,31 +110,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1153
+          "duration_ms": 521
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1159,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1159,
+          "name": "错误诊断收集",
+          "started_ms": 527,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1159,
+          "started_ms": 527,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1160,
+          "name": "失败后浏览器清理",
+          "started_ms": 528,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1160,
+          "started_ms": 528,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 1148
+          "duration_ms": 519
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_94beeafaf804",
     "name": "山石网科安全技术研究院",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_94beeafaf804.json",
-    "duration_ms": 974
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 589
   }
 }

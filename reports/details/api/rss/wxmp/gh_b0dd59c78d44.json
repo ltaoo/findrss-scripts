@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:04.836Z",
+  "checked_at": "2026-11-20T21:23:33.385Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1694
+    "status": 502,
+    "duration_ms": 587
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1689,
+    "phase": "runtime",
+    "elapsed_ms": 582,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,95 +54,90 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 1678,
+        "started_ms": 9,
+        "duration_ms": 572,
         "timings": {
-          "response_ms": 1097,
-          "body_read_ms": 580,
-          "decode_and_transfer_ms": 1
+          "response_ms": 572
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_b0dd59c78d44\",\"title\":\"InBug实验室\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484171&idx=1&sn=3bde8ba914cbd1c7d97d144b5300dd16&chksm=ce491db0f93e94a69142af5b210b5f3d3967ed307a8dec1bf9d44b528fb5f4dbd5a049d15b2b&scene=126&sessionid=1795180811#rd\",\"description\":\"信息安全相关信息推送，专注于红蓝对抗。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"InBug实验室\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM63h3YZ2VRyzNr3GpEYfNfNQFqF5iaU8NFxhdjLxk1mOyg%2F0\",\"updated\":\"2022-02-25T07:59:01.000Z\",\"items\":[{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247484171:1\",\"title\":\"开源情报收集之乌克兰局势\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484171&idx=1&sn=3bde8ba914cbd1c7d97d144b5300dd16&chksm=ce491db0f93e94a69142af5b210b5f3d3967ed307a8dec1bf9d44b528fb5f4dbd5a049d15b2b&scene=126&sessionid=1795180811#rd\",\"description\":\"俄乌战争不仅在线下影响着世界，在网络层面带来的损失很可能不亚于实际的空袭与炮击。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cHibZs2v6Y4NkFVELVIQIpMPGYNQBIUgEQOmUibSS8Is0YnZmNlibEsFHutsmxyEDOAV9d4rZhz68KM9Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-02-25T07:59:01.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247484145:1\",\"title\":\"Log4j_RCE_Tool V1.0 保姆级使用教程\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484145&idx=1&sn=491865fe9e5d623dfc80e1ad21a5a7fc&chksm=ce491c4af93e955c6a5fbded292933ff25d6e64174dce0732e015d3b55b22b01be08de8a2443&scene=126&sessionid=1795180811#rd\",\"description\":\"工具经过了三个版本的迭代，现在已经发布了V1.0正式版，该版本由之前版本的默认内置常见参数方式改为更科学的爬虫爬取参数，自动进行参数识别（识别登陆表单、搜索表单、以及其他常见表单等），提高了测试的准确率与覆盖率；\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cHicXVKf19rIbbGBiamZlLJvOovudEydpFvo4t3B8RBp3U39siaMbian5zZpG5ISLtuzuoEHZZeukbbic0g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-12-15T03:01:09.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247484130:1\",\"title\":\"Apache Log4j 远程代码执行漏洞批量检测工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484130&idx=1&sn=d1480f76a8bcba32bb83aae36927451f&chksm=ce491c59f93e954ff4f82ebdeec7dcd042a3b3a83f99d956d1ce205f0761f75e706f441ecdb8&scene=126&sessionid=1795180811#rd\",\"description\":\"Apache Log4j2某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。漏洞利用无需特殊配置，Apache Struts2、Apache Solr、Apache Druid、Apache Flink等均受影响。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cH84aBWdBor8JbYicYdbiaE97nbnSRALUXLARibn4d4nKyLBbPDROArsibVHic9uMj2ojnkuKknEVlv265w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-12-11T02:34:01.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247484102:1\",\"title\":\"Apache 2.4.49 (CVE-2021-41773) 、 2.4.50 (CVE-2021-42013) 检测工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484102&idx=1&sn=9f447d49332558770c53d91f4da4215b&chksm=ce491c7df93e956bb2ce25451e077c13023ff0da60e9a2ab0250de0ef6f6d682c870351fd070&scene=126&sessionid=1795180811#rd\",\"description\":\"漏洞描述Apache HTTPd是Apache基金会开源的一款流行的HTTP服务器。2021年10月8日Ap\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cH9nicDpKMzHDSXwxTMIhUH4xcCYHbb56Qf0JW26gOEXCcmpMjdk6V2X8tpRaoic4BcD15z4CsaB6iakg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-10-09T06:00:57.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247484046:1\",\"title\":\"Thinkphp5 RCE 代码审计\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484046&idx=1&sn=552a42f56a7ad6d134d97908374bf792&chksm=ce491c35f93e95238752537b7f7b29888b8652d9959ebf0748ef53df0f31fa486284b5ad4e77&scene=126&sessionid=1795180811#rd\",\"description\":\"对thinkphp5 控制器过滤不严导致的RCE漏洞进行了一次审计\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cHibyJSrMiayWWTARicQ4qu1TXzK3gpoibICKclyr9h1g0njKIt5qj1vjdFI1F3YyYKAf6lHibOPF7eHicWw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-08-31T10:25:00.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247484045:1\",\"title\":\"密码学竞赛SM2题目wp\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484045&idx=1&sn=2a6dd117555f71b595f20efc6210d145&chksm=ce491c36f93e9520f38113fab857811df14c285fd31682ecbabdf849174f4ea10ff99c2c50aa&scene=126&sessionid=1795180811#rd\",\"description\":\"使用sm2签名时，必须保证k值的随机性，并且不能重复，一旦重复就可以被计算出私钥。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cH9hEzEQ5103M7j4nlkJsK0icUbNwUAmzyBB1JYKftLA96N7fEgich04v3rJLx7pAyBm8QxUlicXzJbrQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-08-31T04:05:00.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247484044:1\",\"title\":\"如何打穿几千台机器的内网域渗透？当然是靠 WMI 横向移动了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247484044&idx=1&sn=9f464f1c2f6ca1e95a012ec903776f9b&chksm=ce491c37f93e9521a418082454f56427fea5f79bdff9ef9e902c149bc0879ad863a71f2160c0&scene=126&sessionid=1795180811#rd\",\"description\":\"如何打穿几千台的内网域渗透？当然是靠 WMI 横向移动了\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cHibyJSrMiayWWTARicQ4qu1TXzhicSiccHrquH6r3HMJ1niaCeTmB2Bkia9ticLxTMgdBdQwZxewdvbiaRfXpg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-08-20T10:15:00.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247483958:1\",\"title\":\"PHP反序列化漏洞浅入浅出\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247483958&idx=1&sn=80351dad7888c08ae96ad593c8f4c1e8&chksm=ce491c8df93e959bb2f06875b0fa31ea7add582f171c2a3a463c9ef7d5a5a529a5ebf048e0d2&scene=126&sessionid=1795180811#rd\",\"description\":\"序列化与反序列化机制本身并无问题，但应用程序对于用户输入数据（不可信数据）进行了反序列化处理，使反序列化生成了非预期的对象，在对象的生成过程中可能产生攻击行为。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cH9pHf7QleeobYGwqsdtvqPAo7VtjibCtuORVT8MFeZm5B2Nzb12eVVdu93LHsE7X2ib1W1q1dDzTYtQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-08-06T10:35:00.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247483958:2\",\"title\":\"【招聘】Go安全开发工程师\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247483958&idx=2&sn=5c0923ceffc228c8c1b3f272cf40deae&chksm=ce491c8df93e959b291376157176e6f36f45a65513105887def990249171eacaee2e7fc4b18b&scene=126&sessionid=1795180811#rd\",\"description\":\"实验室安全开发岗位等你来战！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cHibcgKkWSibHtOZAubuOX0wm3TvjUKM0sBXGmgHIT2MAVZGCzRK9e7yJ3YdJ7u8sMcxs9kSQYSrJr2g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-08-06T10:35:00.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247483942:1\",\"title\":\"InCloud GitHub云上扫描器\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247483942&idx=1&sn=acc87d9ff5fd30be567f302eae5b1656&chksm=ce491c9df93e958bd2daf575e5d4067e0475308350328b1385f289e4f5c5914c1efa8a33d7e0&scene=126&sessionid=1795180811#rd\",\"description\":\"使用GitHub云扫描，实现ip隐藏、防溯源、云上自动化信息收集。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cHibVicof1FC64sKWdia1IXJxmiasUoQWibic2icBEWUwz8MVMgfibhJViaicb40exU2iaPwQphChfvZhl56hVTRQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-07-19T11:17:38.000Z\"},{\"id\":\"wxmp:Mzg2NjYwMTk0MA%3D%3D:2247483912:1\",\"title\":\"不会免杀？看我异或加密如何做到 VT 全免杀\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg2NjYwMTk0MA==&mid=2247483912&idx=1&sn=52c25b5966ce9644f6f9cace12c838c9&chksm=ce491cb3f93e95a5f7273bda32905f0028c2bfd3f8abce799d8d4aa89be56abfd70dac63e12b&scene=126&sessionid=1795180811#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FyYePiaZj2cH8KokGia9bExaib6r7uqiaqLBDnjckVnia1SzVibrB2to1WiaLmibQb8Vn9c3oQlyo3h1KbviaGwXmrTwxzYg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2021-07-09T11:35:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1689,
+      "elapsed_ms": 582,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 1682
+          "started_ms": 7,
+          "duration_ms": 574
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1688,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1688,
+          "name": "错误诊断收集",
+          "started_ms": 581,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1688,
+          "started_ms": 581,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1689,
+          "name": "失败后浏览器清理",
+          "started_ms": 582,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1689,
+          "started_ms": 582,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1678
+          "started_ms": 9,
+          "duration_ms": 572
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_b0dd59c78d44",
     "name": "InBug实验室",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_b0dd59c78d44.json",
-    "duration_ms": 2011
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 559
   }
 }

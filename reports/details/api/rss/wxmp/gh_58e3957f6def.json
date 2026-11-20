@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:19:39.618Z",
+  "checked_at": "2026-11-20T21:23:25.627Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1370
+    "status": 502,
+    "duration_ms": 538
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1365,
+    "phase": "runtime",
+    "elapsed_ms": 533,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 1354,
+        "started_ms": 14,
+        "duration_ms": 518,
         "timings": {
-          "response_ms": 1352,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 1
+          "response_ms": 518
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_58e3957f6def\",\"title\":\"猎户攻防实验室\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486768&idx=1&sn=9c698e79b089f7118865d81d0ac09e10&chksm=eb027662d6f4bb3f79f4ebcd7bbaf4effe81ead46b850ad2b6905baf743f50b99aac1a1b896c&scene=126&sessionid=1795180786#rd\",\"description\":\"江南天安猎户攻防实验室，专注于信息安全攻防研究。分享有关渗透测试、代码审计、漏洞分析与挖掘、攻击溯源、逆向工程、数据挖掘、关联分析等领域的所见所得。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"猎户攻防实验室\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7vw0Yd4jSBPiaMuldbXictcicJcPNib8Wkx3OibeyASYaLy4Q%2F0\",\"updated\":\"2026-07-20T12:42:47.000Z\",\"items\":[{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486768:1\",\"title\":\"【漏洞提示】Fastjson 远程代码执行漏洞：1.2.68–1.2.83 受影响\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486768&idx=1&sn=9c698e79b089f7118865d81d0ac09e10&chksm=eb027662d6f4bb3f79f4ebcd7bbaf4effe81ead46b850ad2b6905baf743f50b99aac1a1b896c&scene=126&sessionid=1795180786#rd\",\"description\":\"Fastjson 远程代码执行漏洞提示：1.2.68–1.2.83 受影响，SafeMode 是唯一硬防御\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJ8Ev2iczlWG2QumGl3AWicoBrcAYKWFSzcg3crUKlYsYhl1JJMwXX29XrZ3hT0N3I7KYsRnWqhPnf1IJba7C2wfJBuzOwws3AqjmgAkBXdyps%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-20T12:42:47.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486761:1\",\"title\":\"【漏洞提示】WordPress wp2shell 紧急漏洞：CVE-2026-63030 / CVE-2026-60137 未授权 RCE 链\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486761&idx=1&sn=b116dd76dfb5663aa23bef2ffb035496&chksm=eb65244ff22288e5f7144ab7a17f735abe0b86bcc585bc1656fcc70e9e383d42bc1ae3fbc03b&scene=126&sessionid=1795180786#rd\",\"description\":\"WordPress wp2shell 紧急漏洞提示：CVE-2026-63030 / CVE-2026-60137 未授权 RCE 链\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJ8Ev2iczlWG0O3IQovln1Y6d9221Ldqu9tBJuaUjJQwkNT4zSke65ISgQKWhIghyp9nF2sL3u8BtFMNhDYQEXsEk8GSasIetRBj9HicQ8x70Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-19T01:32:17.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486739:1\",\"title\":\"NGINX 漏洞提示：18 年老洞可 RCE，PoC 已公开\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486739&idx=1&sn=637f91dad1c504d0eb7dd9d5292d6057&chksm=eb1dd99da1216ecb0b095e8f6d1419d73953700f5a6c9327f6689228f39ae4137c01cf9047ed&scene=126&sessionid=1795180786#rd\",\"description\":\"NGINX 18年漏洞已公开\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJ8Ev2iczlWG0pYS9z93FuUdMqeBVh01rZI1LLQYBJgQgBshXBTFHD1PB8nbH7VGHjHlESOJtXgx713d1wYPEh6L0LiapJqDF5A9pST9BDZsib8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-14T11:37:16.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486734:1\",\"title\":\"Axios 供应链投毒安全事件提示与排查报告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486734&idx=1&sn=79dfe00b33f6bc5f5333a2d426fd1a7c&chksm=eba56f1151882466971a604a07efeb550e5f1a9690727ac6d805e923ef1266ee3934d25dbd1d&scene=126&sessionid=1795180786#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FJ8Ev2iczlWG3pkGVtaa3EypRmtzzoEldSsQnhNpib7hGfSdYRegbawyfNXRPJBUdkK11m4hcibqDyd8oVezzvicpb7fAGVIuuibSyafsdGsRNUfk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-31T06:26:32.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486727:1\",\"title\":\"Apifox 供应链投毒安全事件提示与排查\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486727&idx=1&sn=c7fa3662d38425a18438e180cef12d26&chksm=eb5a6c7627b690122ec5301d5ab26c4c484f13e1cd2137c8f5dafdca3629d16a23aef8c959fc&scene=126&sessionid=1795180786#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FJ8Ev2iczlWG3tRnMbkhm3zox8DibQRo5iab9j6RUq9X92eZLTmicpKJnQnWPqORjlW8rxJeongMscicN6shrcnG49QjvOzLWvlmG0lBzanj4mx0w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-27T02:50:39.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486714:1\",\"title\":\"Mac Mini 上跑 OpenClaw 踩坑实录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486714&idx=1&sn=7fdfb53753b2f3a17e0f4f6733dc9f02&chksm=eb3e4c1165e1a1a998da9ee3dd0a70b75af3bbb198bc6a799f9ffaa048acf3950438e063624c&scene=126&sessionid=1795180786#rd\",\"description\":\"前言跟风折腾了一阵 OpenClaw，把过程中遇到的问题和解决办法整理成了这篇记录。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fic56Y1PMq5MV6PRSibp6KZmtjwNe0dv7nkHRK5JpJ5nOT9vRHO1tLfusmnl3aGwn4hofSBGR7b37L0k99w5M3xHw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-02T23:38:00.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486686:1\",\"title\":\"吾爱破解2025春节红包活动番外篇第三题\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486686&idx=1&sn=42a02562f9e7065c4d57cda66300e2be&chksm=eb60f20f1d4fceefb2b0742bb6257c6a166ac3a980200494d809ffb71636d7cc6781f189875c&scene=126&sessionid=1795180786#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fic56Y1PMq5MU3QXSQXNQcljwicmD7ziaNQcX6XpWvWQUzsLn8E9DEibDCA4vx3PBd4tvnjENuenOVNXf2ibDQWDfNlg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-13T23:14:00.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486673:1\",\"title\":\"一次某APP的修复之旅\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486673&idx=1&sn=f90677c655735bb6b172d59b8d478d79&chksm=eb89dd3604a902f8d09880d968ae6b5621b1b48c18ea2fc1d4fee0c65e77d4b7453d8dbcedb8&scene=126&sessionid=1795180786#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fic56Y1PMq5MW3dosLBsHHSsJmgsNUb8r8m7ParO8yPD9wE5pnBnoASS4KMM3kOyXCvsXmKnf16nTtZKbVEl3jeQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-13T00:05:00.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486523:1\",\"title\":\"积木报表授权绕过漏洞缓解措施\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486523&idx=1&sn=e8923691c0de788b457ee6bb036f01c3&chksm=eb6fb6ada3b04edcfbc1e1d9b6a03e5ccdf3e768aaf5e7e57c5a2ed46412fda348486aba3c73&scene=126&sessionid=1795180786#rd\",\"description\":\"针对积木报表授权绕过漏洞的缓解措施\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fic56Y1PMq5MXt7gJGh23OPsHibOdyGUVqcKLPv6YpYV6XdDMYkCRoibEMaUb6GGMWbfam31I4kG8MsTE931oicfjlw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-09T15:59:00.000Z\"},{\"id\":\"wxmp:MzI1NDg4MTIxMw%3D%3D:2247486494:1\",\"title\":\"【IOS逆向】React Native案例\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&mid=2247486494&idx=1&sn=10af5c3d76ca2225775e749430d6ea18&chksm=eb0cc94325f8998bf55c18a2cd6482ce85424a0f15d8e7a2346522607da11046153feeacd1e9&scene=126&sessionid=1795180786#rd\",\"description\":\"一个用React Native构建的IOS应用案例，需要获取密码的加密算法。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fic56Y1PMq5MUDroiaQJ2JJymCyxLAxrCzn7ibssa5hQboajAGbbF3XskUG3LJB2Q0tXob5aGU8e0D0FSJNpsmKiaSg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-11-23T00:15:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1365,
+      "elapsed_ms": 533,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -80,17 +75,17 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱排队",
@@ -105,49 +100,44 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
           "duration_ms": 5
         },
         {
-          "name": "脚本执行（含外部调用等待）",
+          "name": "沙箱上下文与工具初始化",
           "started_ms": 6,
-          "duration_ms": 1359
+          "duration_ms": 6
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1365,
-          "duration_ms": 0
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 12,
+          "duration_ms": 521
         },
         {
-          "name": "执行日志收集",
-          "started_ms": 1365,
+          "name": "错误诊断收集",
+          "started_ms": 533,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1365,
+          "started_ms": 533,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1365,
+          "name": "失败后浏览器清理",
+          "started_ms": 533,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1365,
+          "started_ms": 533,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1354
+          "started_ms": 14,
+          "duration_ms": 518
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_58e3957f6def",
     "name": "猎户攻防实验室",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_58e3957f6def.json",
-    "duration_ms": 1750
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 663
   }
 }

@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:19:54.719Z",
+  "checked_at": "2026-11-20T21:23:30.069Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1389
+    "status": 502,
+    "duration_ms": 541
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1380,
+    "phase": "runtime",
+    "elapsed_ms": 529,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":8,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,95 +54,90 @@
             "authorization"
           ]
         },
-        "started_ms": 14,
-        "duration_ms": 1363,
+        "started_ms": 9,
+        "duration_ms": 519,
         "timings": {
-          "response_ms": 1361,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 1
+          "response_ms": 519
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_574067fdd867\",\"title\":\"认知独省\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484220&idx=1&sn=531f07f8309ce594b5922f619336137b&chksm=fae0b29aba52c1b64ea727a21f4235a9e4650e4c5afbc92ccb201fcceabd8b4c011aa7b2131d&scene=126&sessionid=1795180802#rd\",\"description\":\"信息安全、安全攻防、团队管理、个人成长\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"认知独省\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7RrJwbD2mzicpDhyGicF7xicL1Q6vWOPpeuY6KnNicsoTB5A%2F0\",\"updated\":\"2026-03-09T00:36:48.000Z\",\"items\":[{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247484220:1\",\"title\":\"腾讯云鼎攻防招聘\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484220&idx=1&sn=531f07f8309ce594b5922f619336137b&chksm=fae0b29aba52c1b64ea727a21f4235a9e4650e4c5afbc92ccb201fcceabd8b4c011aa7b2131d&scene=126&sessionid=1795180802#rd\",\"description\":\"腾讯云鼎攻防持续招聘~\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FQdeplRBbFXWvZ3tiapicVNtWqpXN2icNib8UAOmR7R4QtyVYSeX3jxaZ4EhaticSwXvI3rr8GEMIJmq8qNQddLSUr5E2n1hhxws5R0LibLBFCVibds%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-09T00:36:48.000Z\"},{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247484208:1\",\"title\":\"武侠一哥郭靖个人成长史（侠之大者）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484208&idx=1&sn=e10570e192ad1dd52f19aa6fbc2c1505&chksm=fa7eb3e29961060d9b640745af0be4000d1396ae509b7f2edca50f425ad0d3012c002ec9271f&scene=126&sessionid=1795180802#rd\",\"description\":\"为什么郭靖在成长的过程中，有那么多的顶级大佬帮助他？是什么能量成就他的成长和成功？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgS0DP6tuCtLf7PdYhrgeTiaEp3yPmu5UoWNwVwgmG1Kby3ibjtPbweMqu2HRCNib6TqSXSkjVUz8P3u3GXcHObMHQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-02T22:15:43.000Z\"},{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247484126:1\",\"title\":\"ADConf 11.13 北京见\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484126&idx=1&sn=26777d2b86c945f020ad36bd00a3f65b&chksm=fa433d4dcda21ce3ec12528bbc60d22896172d46bec5621e044e66dc07a0a1a0b27fa8c3bb18&scene=126&sessionid=1795180802#rd\",\"description\":\"ADConf，专注于实战攻防技术；ADConf2024聚焦“Al+安全”。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgS0DP6tuCtIFTz12c3Uk2E9U2lQw15uNecQRPW6I29DIGvVaiafich9y3iaE7C6OHDwwibYNaTGI27Ct20kosjkiciaQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-11-05T12:01:00.000Z\"},{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247484096:1\",\"title\":\"TLG潜龙会正式成立：攻防共创新境界，技术聚能共前行\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484096&idx=1&sn=93d935cb972e55dd95110fc9f821372b&chksm=fab123db9989387ac341d74d1dd42f2c480859f02903db0ff86cb5ae40bfd5627181d878e253&scene=126&sessionid=1795180802#rd\",\"description\":\"TLG潜龙会正式成立：攻防共创新境界，技术聚能共前行\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgS0DP6tuCtI0dkKW1lMnkD7HyibfJ2OWqKicfugcgia17SsOlpzAcEPt5EgtUWwDh4iaVqKZ20yTJIkUGeRM3zd3nQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-06-18T14:54:49.000Z\"},{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247484090:1\",\"title\":\"金庸武侠-非线性理解的屌丝逆袭\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484090&idx=1&sn=0f7a105c1b221d0e3d2a496b6135598c&chksm=fab902d725187b95f42ddbb86c770e34be736c4299402e35ed0b64e28b26f72fa420398ecfcd&scene=126&sessionid=1795180802#rd\",\"description\":\"非线性理解武侠主角的屌丝逆袭：（家族、圈层、老师、天赋、努力）—— 认清形势、放弃幻想。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgS0DP6tuCtKl6SwW8LhtrTXcSE0AGN7YM4icdicoRW2EJ8Fg8vZcbBOqv11QreEcCBrTIhGu9icvJmZ6DafYnbibpA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-05-01T23:25:56.000Z\"},{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247484077:1\",\"title\":\"攻防实战策略剖析与对抗博弈\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484077&idx=1&sn=2d30b447ae75016248050f5034ceb0da&chksm=fa2e6be330237ca5acee549872e1b407bdabe431b50eb7257ea3d5b7a369c51816117a3839a3&scene=126&sessionid=1795180802#rd\",\"description\":\"10.28 在第二届 ADconf 分享了议题--攻防实战策略剖析与对抗博弈\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgS0DP6tuCtKIkBwILjibaSbnlB54lsaCzicRLrutKtYeOmN4jQLPS8ljwBgdbDSAJ8glz3PFDodCzJiaY8ia6Z748A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-11-04T09:23:51.000Z\"},{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247484040:1\",\"title\":\"基于DoH的无特征shellcode加载器实现\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247484040&idx=1&sn=424879af2c898b1de8d899b7ab4d5f11&chksm=fa2dea3a071e32e9edf8b5a970cc2b77ac2d8792485a5edd7cdd96e07e8916bf9862383176d2&scene=126&sessionid=1795180802#rd\",\"description\":\"单文件分离免杀的另一个实现方式，提升静态查杀的对抗效果。相比传统文件分离马可实现单文件落地，且没有文件操作相关API的调用，消除可疑特征。针对仅有的可疑特征——内存分配相关的API调用，可使用动态加载+syscall的形式轻松隐藏\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgS0DP6tuCtKwUxddJA4ewibzn0sIqlDzefmbOPNWjjIgZxKzNMQXrL4iav6AcesgAWaibae8NdKtibPFDCYdZ3qeZA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-07-24T15:51:48.000Z\"},{\"id\":\"wxmp:MzU0NTI4MDQwMQ%3D%3D:2247483977:1\",\"title\":\"武当派的团队管理启示录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU0NTI4MDQwMQ==&mid=2247483977&idx=1&sn=2c9039c83ab3ae59cba2c80a6d3f263c&chksm=fa8ac34e71053fe3cb7e3a1685245661baa499ae1e2277b96e3c0f7fe37059bda647949e3155&scene=126&sessionid=1795180802#rd\",\"description\":\"作为一个门派，武当派有技术、有人才、有活力、有法度，作为一个创业者，张三丰有毅力、有胸襟、有情怀、有分寸，这样的门派如果不成功简直天理难容。本文从人员招聘、企业文化、团队建设、人才梯队、复利主义、创新意识、奖惩等维度分析武当派的团队管理。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FgS0DP6tuCtINV8F97wUxmkuXxiboJaY1nfnJXyL4SR044Dowtr3iaWiblXE7S7rYwPgZS0easv4ellw5yotsnxYIA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-07-23T15:44:39.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1380,
+      "elapsed_ms": 529,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 7
+          "started_ms": 1,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 7,
+          "started_ms": 2,
           "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 11,
-          "duration_ms": 1368
+          "started_ms": 6,
+          "duration_ms": 522
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1379,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1379,
-          "duration_ms": 0
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1379,
+          "name": "错误诊断收集",
+          "started_ms": 528,
           "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1380,
+          "name": "沙箱释放",
+          "started_ms": 529,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 529,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1380,
+          "started_ms": 529,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 14,
-          "duration_ms": 1363
+          "started_ms": 9,
+          "duration_ms": 519
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_574067fdd867",
     "name": "认知独省",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_574067fdd867.json",
-    "duration_ms": 1592
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 581
   }
 }

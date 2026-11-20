@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:35.580Z",
+  "checked_at": "2026-11-20T21:24:02.246Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1761
+    "status": 502,
+    "duration_ms": 527
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1752,
+    "phase": "runtime",
+    "elapsed_ms": 522,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,17 +55,17 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 1738,
+        "duration_ms": 513,
         "timings": {
-          "response_ms": 1560,
-          "body_read_ms": 177,
-          "decode_and_transfer_ms": 1
+          "response_ms": 512
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_5138cebd4585\",\"title\":\"PaperWeekly\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247724026&idx=1&sn=04d688e2caddfa101e605a0f08e9a1e9&chksm=9755213cebc9b6f790294a8a11998ad822849ca2d296ba8268ef450297f1350a15404cc37937&scene=126&sessionid=1795180902#rd\",\"description\":\"PaperWeekly是一个推荐、解读、讨论和报道人工智能前沿论文成果的学术平台，致力于让国内外优秀科研工作得到更为广泛的传播和认可。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"PaperWeekly\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4XfZEiaIxTZFPcSMe0laHNlkWJfvNVMcFY7PrIPmKrQjg%2F0\",\"updated\":\"2026-11-19T14:23:15.000Z\",\"items\":[{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247724026:1\",\"title\":\"ICLR Rebuttal成独角戏？超「5700篇」论文无人回应\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247724026&idx=1&sn=04d688e2caddfa101e605a0f08e9a1e9&chksm=9755213cebc9b6f790294a8a11998ad822849ca2d296ba8268ef450297f1350a15404cc37937&scene=126&sessionid=1795180902#rd\",\"description\":\"审稿人去哪了？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeDiaVhHcXDkLalN5CYKMaQCssFmlmnvbcGvsWwEjDIAVsMDrVjuDjA0w4XZ7Xmeiaz17VPK3r4rJEmWibh5T8BhjzqVJSVVmW0WKg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T14:23:15.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247724026:2\",\"title\":\"Harness进化，模型却掉队？NUS、商汤开源CoEvo-RSI框架\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247724026&idx=2&sn=fe4da7fc13d629963a840aed4f01c0dc&chksm=97f94f3cb23de9b51502c02cb5fcb4d017de94f542c1c596688c4e1945cef0627fa4aeb039a4&scene=126&sessionid=1795180902#rd\",\"description\":\"让模型跟上Harness的进化\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeBEFG5bia1L34yF5pNibLSvaqKRGfOicu9aMdficZHqvA0XglicnzvJzMbV2loicLC8HKUp9SicdUqQP030tiakjzD7IAoLNgutBKtcKRE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T14:23:15.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723982:1\",\"title\":\"Best Paper也有「幻觉引用」？ACM MM获奖论文决定撤稿\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723982&idx=1&sn=ddc83d3e40e279e457677745f5c4bad0&chksm=9704ae42d29ee733110363193d8432527bf56e15c38a1da8246174d4428078c2fbacfdc38768&scene=126&sessionid=1795180902#rd\",\"description\":\"作者为何决定撤稿？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeDIe6IPL9WYvTfsBaZibqR765ibUCzqibmTjP8hGWEfT9eXb9lwCe9TLD93eoJOjYQdq12eXxPAUXAFpyrobRBKPBoYictQT42pBf4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T15:59:34.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723982:2\",\"title\":\"EMNLP 2026 | 多模态模型越学越忘？南大CRAM发现：答对也可能被判错\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723982&idx=2&sn=4303382e9bd59bcb6301439d2e589ebb&chksm=97ec0cbd626f92248e9527af3b444b41151df0afdcc7a281405beeccbe21aa969f531577bbaa&scene=126&sessionid=1795180902#rd\",\"description\":\"明明知道答案，却被判错？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeAIm7ZH4nVP56vTvUh0LomS295nzv68FY5W2oFwdicQsE5icMQ0icpicHjwnIO5tXXTIAzj5HlQ1RHMbEYbKxCBCJyKk9Q5R7xWRRA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T15:59:34.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723943:1\",\"title\":\"ICLR 2027满分论文大赏：什么样的创新最打动人？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723943&idx=1&sn=cdb29736fe0ba310f51b9f54de6b5bd7&chksm=97df1fc793c83a10f90119e68dac1b8d9307d8732f81050c77c4667947649dd4b8c362ebf42b&scene=126&sessionid=1795180902#rd\",\"description\":\"Rebuttal如何逆转评分\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeCIeUWsQ5TcGiaiarYvJQyWK1nX0AO1HrJJpJvmcCRibZ1vTBCmjIStfvDDzwmmmzuXeXzhppDmdGqwzTqo8ocOTtc2fLOyFxPZqI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:36:20.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723943:2\",\"title\":\"大模型手搓Harness有多难？GPT-6 Astra夺冠，通过率仅53.05%\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723943&idx=2&sn=85088a8b16265e8c968f5ca3cd20ebb6&chksm=97a3603a0b7ae4d8fbb4c1ec082fb1776bbe289e4b564307a9f7f7ff5bcb0fb3db92e6ff75e9&scene=126&sessionid=1795180902#rd\",\"description\":\"Doc2Harness首测大模型自建智能体底座\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeD6xj0C3skVDDyqyjibfgB49VJfGG7T9ib2mdNONOLJXwQFG2o59GGpwo1cUhmibfh5l7Fr0t2mAsFmP7kXzD9LdI0G3X3lZQhPH4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:36:20.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723909:1\",\"title\":\"ICLR 2027初审均分仅2.06！清华份额第一，武大均分第三\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723909&idx=1&sn=ca04cad3e000d4539d4fa320ff59fb30&chksm=97f6a6057848170cdd3ccfee450956a61e4fc3ad1fad392f26efae156bb774de42a9dec9c4c5&scene=126&sessionid=1795180902#rd\",\"description\":\"中国高校表现抢眼\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeBo9EK1Sc1R1L58b8eZLkAmRgZiam4F1PrCcdBHz3VvlGhd48lZnA8UlmfJ2E0FiafNYr1xBAvdQRMsVO3rE16BEEPEozRIMslRk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T13:47:48.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723909:2\",\"title\":\"AI学着读懂物理世界：清华张强团队发布自进化AI科学家EvoSim\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723909&idx=2&sn=b49ce3a93144b5011d3fd0e78ecdb887&chksm=97727a03912945f3588468ecd6a039d5cb1ec7deed36dbe24d0b8c44c00cdf05f5020fdc61a6&scene=126&sessionid=1795180902#rd\",\"description\":\"让模型与方法一起进化\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeBicUkgL7DUhadAhUhF6B4osS2CkwdvaEpbWIBjceToibfSfBUMicjFsQB8wicXUp4Zk02aDFVhP1Xerv7Gaeu7Shpg61okjtpdzRA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T13:47:48.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723888:1\",\"title\":\"近70年经典算法大升级！Meta改写K-Means，聚类提速45倍\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723888&idx=1&sn=1fd040975e2ba88feeb6b9de02737abf&chksm=974542c93f45a63e4e22ba0aee194ce7300b2b78db120726c1f3b4ecbd4072d7e7d48ce94f99&scene=126&sessionid=1795180902#rd\",\"description\":\"小批量为何能赢全量？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeC10TvC2Ev4QeMd7ATPtAm49YAWkcvJsRTCLPgRCbg8kLOVYN61kRTB7Uq7YqdKoDtjxLb3A4Zbjk0jKT0ZZs6xibwPSTCctvsw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T12:32:24.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723888:2\",\"title\":\"直播预告 | UIUC金海波博士：智能体走向真实世界的最后一公里\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723888&idx=2&sn=cc3e03d1b6ca98a0f97dbab8770c1745&chksm=97ca7dedc60ee31f8b42cb9d8259daec7945228569464695927231b9bf1d4596ac9d9aaadd02&scene=126&sessionid=1795180902#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeBnOej65ueCEojJaBAH8QmOcXz30U0afNMy2cjARoicNWQe1qalUfHSfibmjC9rrhFib7YsnUzl2Axc1Tov3feGYVCohic8iaH67uTw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T12:32:24.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723871:1\",\"title\":\"烧算力不烧心！如何在学术界小心地做Scaling？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723871&idx=1&sn=a8f888df860483ed27d6d9cf1df5a10c&chksm=97dbed5a312487e72252744a9cfeb93de6c9f92b8fb75e2abccc4ca966487be0ef5bbf3eedec&scene=126&sessionid=1795180902#rd\",\"description\":\"把GPU花在刀刃上\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeD4iclFvV05y6IHGR62iaUNUNUSP9Ww4evtMqYasaicFWxvXuns2dKLt6BciaMYBeyxTyrPxCibEetEXA9zXAp46o67g8yMdgD2BF3g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:33:51.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723871:2\",\"title\":\"攻击越狠，模型越聪明？阿里用动态对抗驱动「智能涌现」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723871&idx=2&sn=bbe51131aaca008426d09469ec563ad9&chksm=97109e41e7cb27970fb7ea3685a8a0ad161872a1d4b6635a81bb4d25b676c60ec88ffb732e7a&scene=126&sessionid=1795180902#rd\",\"description\":\"大模型越狱率逼近80%\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeBHw6bQl2iaibJ5o28eU5JcDjnTOXHc43gM2tgj0CMmVTHeqXZUr1yWKHezLocCaJNU5DQQXJKXsnYH5vc4POLabWib4gNalHgQib0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:33:51.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723852:1\",\"title\":\"从Vibe Coding到Vibe Research：Harness做减法，Human把握关键\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723852&idx=1&sn=c58eacccb6f251eaf87edee08102eb6c&chksm=975845efb5307b9feb3fa0ed9f35675c060511ca3228d70ed499ac4d8c2302447bb91f050d5f&scene=126&sessionid=1795180902#rd\",\"description\":\"模型越强，规则越少\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeC4O2KJhAneLFSH56MHAqHuRqnSkz9ESL4iax8l3NxOYOIkvKmZjA9N0dygpBDTGkV8wC6jzI4CFhj4XlWwHEr8KhQty7IMCickQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T13:06:20.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723852:2\",\"title\":\"EMNLP 2026 | 代码Agent会写不会跑？RAT让GitHub仓库自动跑起来\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723852&idx=2&sn=06866b138215d1bbc08d6abb6f039328&chksm=9790ef699dab3e1e1673d5680a430876c5219772bbf409712927772c70d76d68fa01076f9b4d&scene=126&sessionid=1795180902#rd\",\"description\":\"代码Agent也会配环境了\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeD3ZDNE4uPh2a3PGsksvrF7icIUn0BooB7M5MBaTZV9C39uOKkrPdicyWxMZIzxHqyQ8apAUnZVbiayJPYcNWicOx7YglK99icrfq4c%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T13:06:20.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723829:1\",\"title\":\"不设限薪资+期权！V·STAR顶尖人才计划：我们在寻找，向往同一片海的人\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723829&idx=1&sn=d0642deca73077252b8bed6018a0b19e&chksm=97a1c9503e565e8580f61dc46be5606a7384aec1bcc23d454f43455f7908497db1be15f1b27a&scene=126&sessionid=1795180902#rd\",\"description\":\"让有价值的研究与创造，获得应有的空间和回报\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeCrIibhbk87NL2YgdY81p83IX6uTOuzcS7ZR1nZQhvYNOd3hqNKYTDOxh3c4dTgxLzL7TwAyiaHJVBEOBYjegDrodGxTz5FbqkhA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T04:03:24.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723829:2\",\"title\":\"扩散语言模型也能一步生成？Seq-Drifting提供一种可能\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723829&idx=2&sn=50729365492d766992fa8bf441dac962&chksm=9718fbfc169faccf642e1f76c9bd95ac9760e3006688e729e5614a8f1f05f82401a056d4d1bb&scene=126&sessionid=1795180902#rd\",\"description\":\"多轮去噪压成一步\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeCYjZ42mlY98BfdUmtvicNGJufZRibB5OsEoTep2oibCs2V9IRribu4Lk6RVVicZiacnOAwgHIicGO9vwCVsInsBtTuy3bE5USPc5FSsc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T04:03:24.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723785:1\",\"title\":\"具身智能也需要Harness？港中文发布Agentic Robots综述\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723785&idx=1&sn=5f837d3afb37473d4b1b55048c4a878e&chksm=97e8acca06e1b43877b25dad2fb0c2425f844b836c4f83ed95386413b7f69c5080ef5a0a83fc&scene=126&sessionid=1795180902#rd\",\"description\":\"串起模型、数据、环境与 Harness\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeBHIEuxuqStcSa3TRI4sBGaI1Cdg1MXc3cEgp00g8RiczMvHVcL24YUKib927oibKWtGcYPY84XiauZicvcjOHnkQ8gA9lJmNhK97rQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T15:21:37.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723785:2\",\"title\":\"EMNLP 2026 | 多模态数学推理别急着“想”，UniCAR-RL让模型先看清\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723785&idx=2&sn=cffe04231f22770e99fc0498534c300e&chksm=97b7d830725c4c54fe2e663291f477ec3532c3d0f8e19cd7e33365581f1fd40acc8f27fd9722&scene=126&sessionid=1795180902#rd\",\"description\":\"视觉数学均分最高涨9.9分\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeAJCicWACzyrbOENCY0pJ24u6Y3pRF1SMibP2Aepia0ZZP8qXESlic8IzY6mGL0CIicOiczwa1CKfa1rZremftvXSQCKvlKgXicFLcyhk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-03T15:21:37.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723765:1\",\"title\":\"一段摘要生成6页论文，CVPR底稿写作最强Skill来了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723765&idx=1&sn=c5cb10f15e62b6416e565e586e57fbe7&chksm=97b287101cfa86c2f681979eff2e9186bb1c66286b7cebda634df391257028ae1a7519e012e3&scene=126&sessionid=1795180902#rd\",\"description\":\"Best Paper写法学起来\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FnFNzd9xjFeDCFwvENn4RrROtd6g0dwwCW5JjmAWZMTJCt3OkfA8S7JWOYMGI5nVCVpRiacuk7y0wqYgEjria6TU0icrzfkxHfAibgTUZgtibCcAE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T13:20:15.000Z\"},{\"id\":\"wxmp:MzIwMTc4ODE0Mw%3D%3D:2247723765:2\",\"title\":\"Cortex为智能体打造「大脑皮层」，让经验沉淀为长期记忆\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247723765&idx=2&sn=48a18cf3c771c81eed7d7281ab94f85b&chksm=975fc3bf753021dd0c1da3f6ab6b6519bcea3c30dea747f91dcec38a8718e0f71583e3ba1ea7&scene=126&sessionid=1795180902#rd\",\"description\":\"RSI需要长期记忆\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FnFNzd9xjFeApbricFF4s9auF9YKBBm1apThvPKrmVkFyia4JvLg6v23WHD5CmEHDCodgmu6sOLsSgTr5SnicGzIUN11IZNAEbPFh62MEr1icLVM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T13:20:15.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1752,
+      "elapsed_ms": 522,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -80,66 +75,61 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 1745
+          "started_ms": 7,
+          "duration_ms": 515
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1751,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1752,
+          "name": "错误诊断收集",
+          "started_ms": 522,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1752,
+          "started_ms": 522,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1752,
+          "name": "失败后浏览器清理",
+          "started_ms": 522,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1752,
+          "started_ms": 522,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 1738
+          "duration_ms": 513
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_5138cebd4585",
     "name": "PaperWeekly",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_5138cebd4585.json",
-    "duration_ms": 2273
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 608
   }
 }

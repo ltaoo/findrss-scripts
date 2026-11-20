@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:22.560Z",
+  "checked_at": "2026-11-20T21:23:59.128Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1040
+    "status": 502,
+    "duration_ms": 535
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1033,
+    "phase": "runtime",
+    "elapsed_ms": 529,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,17 +55,17 @@
           ]
         },
         "started_ms": 8,
-        "duration_ms": 1022,
+        "duration_ms": 520,
         "timings": {
-          "response_ms": 839,
-          "body_read_ms": 182,
-          "decode_and_transfer_ms": 1
+          "response_ms": 520
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_80afe7ae2dd1\",\"title\":\"先生制造\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635946&idx=1&sn=62d4b6c10e5f2d9c7828aa68b43c286c&chksm=8220454063a61171ff1d4910259f0ec47b2deb044fbdf8cf5085cbe8f7ba6deb6c252ee3dfdd&scene=126&sessionid=1795180889#rd\",\"description\":\"溯洄从之 道阻且长\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"先生制造\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FIbQhd2Y9oKfn1aYBDZqIiahPZs1RhWfBeSmibWARick2sDoqm6Zia0pNmnictvFOQoSV592EyZibUujNA%2F0\",\"updated\":\"2026-11-09T01:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635946:1\",\"title\":\"通往我们永不满足的渴\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635946&idx=1&sn=62d4b6c10e5f2d9c7828aa68b43c286c&chksm=8220454063a61171ff1d4910259f0ec47b2deb044fbdf8cf5085cbe8f7ba6deb6c252ee3dfdd&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7Gtx3Pyj12W30xEgYzh3367Gk320WyQ9Mj3fRic1S5a0mXl3NwDzoFa4t1IcLM28KLibz7gEvyolbKhIRvicWW9icsEIpnpaASBvzjEqBPmAjHY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T01:30:00.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635576:1\",\"title\":\"有一种不公极少被人提及，那就是气候\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635576&idx=1&sn=628111230a9b5eac2ba68ec8a1e217db&chksm=822103eb384a58b5ed77ee2f1aa79b47049fd0915c15adaead20732fcdbd55fd1013885facf6&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7Gtx3Pyj12XXWsXtAJ0dq6Oyp2LxRJ76VzRACZiaIMdkqnz2iclzrE9K48PKhaf7wFyibuVklPrGysfbxUeLDiaawWTKQicXShtBYI78e6al3lZE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-12T02:00:00.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635407:1\",\"title\":\"我在微小的事物里寻找宁静\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635407&idx=1&sn=47563999f7d99fd0f6bdd18ccc89cf67&chksm=828f71cec329afc61aa4dae145da2b7260bbc9216f5f98fd8326f81b3ef34e48e393e2a1a5fb&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7Gtx3Pyj12UNbj68xVa6uYxs6ovPArN1FzZGguxSY6K11NsYljarPNs2r7vUBrZDJzN34h6v3KWQh9iaVqw7y0QPyxbiaHQILJenb0KbTMZeE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-07T13:50:56.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635360:1\",\"title\":\"期待过的通通烂掉\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635360&idx=1&sn=8508fe29a2c3b235e51988464a6f8872&chksm=82c330a6da1d76a49a70a7de7a51eb3792cbac467af83c58443b0fec70ea29d58e2b3552fe1a&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7Gtx3Pyj12XDEY0FFPSCC1N55ErV1yVyaELjgucaVyWH6oEHzYKgGcxta4fhO6LibGJL7MACY3KkntialQXledYzDT1h2ttVmTrIDRZwXY4nw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-28T01:59:01.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635310:1\",\"title\":\"夏天结束了，龙却还在梦境里出没\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635310&idx=1&sn=46dcc0d1b3cc153ee2b11232a17985eb&chksm=827a9efe6fe12e4bd202088701eb714369d3e5c268de07259c552dedb856dc8362f0e06b5c54&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7Gtx3Pyj12XKrgClg4ecexkLrECeoBMBYSPYFlrPiaia7mgzyK5reLNgQ6UI9yhdWyHElBDa8IdGjhOFNMUtjBL7kj6jJJ0fQjOKibHUYtM3ow%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-27T06:27:02.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635278:1\",\"title\":\"像月亮一样美的爱\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635278&idx=1&sn=a590c8a64c14f65146cece4612955067&chksm=823bf5ca6bc57c25228379ac9a42cffc3173462a071dafa925a68fa592003e15aa3294240813&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7Gtx3Pyj12Vbmm7UdqicRX6HqQicDWKJ8GlZFXbt1TMsQBVsA6YHdWydoTh68Bu0vwsgurVr45wBHDj1ibXEQYqLFjZIibs3Vxl5ia8P1IVFP6ZQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-26T12:00:00.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635258:1\",\"title\":\"今人不见古时月\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635258&idx=1&sn=c8e1e620b3d981df782fa86c183bd052&chksm=82d03aaa01521020210e6f872ca154fec4d01ec4343623987e542eb60a2f9a537cfad0dd51c7&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7Gtx3Pyj12VSaXFSSjYjymHnZM15PWTPM0pZqgxiaUMA3Hibzv8Xh2p1u0uKrAItHt9HWM8FThjoUtTPickmibibRNPrqO57vXKxmQib7KoNJlRiak%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-25T11:29:30.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649635237:1\",\"title\":\"度此一生决非漫步田园\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649635237&idx=1&sn=dbf857aa453b81f677a1e0ddd4db8452&chksm=8202bf6849710c22dc4452cb7ceec3d59b08b7fd8b4e56e07fc9f38f61f59e26d23f2b03bdde&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7Gtx3Pyj12WOibZ8diacYj9q9Pu1yMZ9kicQqpYUtgE8KpedtYrvwE7fTko1icgzTa0GlGMkg7G88j792DPb6CmiaL2QsgV7hReo78JbTyttZ5mE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-08T02:00:00.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649634997:1\",\"title\":\"像一篇无法撤离的致辞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649634997&idx=1&sn=95ec551fe8d0812f5d19a5d410b4f6d8&chksm=82d545951310e0f4502e0fbf878a94eeeb4c611fa0196efc2163f1f1c997371527d6c65f748f&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7Gtx3Pyj12Xeib1eejoY6jolflKWXb9gHto4gw3GHlnnViagGG9cpGxRJRI4riaEHL2TtpLfo5xFyFJRu9X5Rj6wiaLRt2vtuMLlX3Kb6BIrcdg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-01T02:00:00.000Z\"},{\"id\":\"wxmp:MzAxNzQ5MDg2NA%3D%3D:2649634974:1\",\"title\":\"我能和你一起走一会儿吗\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAxNzQ5MDg2NA==&mid=2649634974&idx=1&sn=0f35eac1822c26f1bf2e101f0fc00445&chksm=82fdeb4d35cbcf8898e2dbdad1c3b653a05118f9dac53fa8a24536b411c232cb3df13aa25afc&scene=126&sessionid=1795180889#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7Gtx3Pyj12UpqrBiakXmt0RiaprcIib2uwpgHUBTJ1APR7J2V0bSpy3ZExoEkJx8RXQIj2RH1hJXHP7Wib9RG40tnNticKqHqfO2GYALM1ddcaog%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-11T02:45:35.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1033,
+      "elapsed_ms": 529,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,31 +110,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1027
+          "duration_ms": 522
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1033,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1033,
+          "name": "错误诊断收集",
+          "started_ms": 528,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1033,
-          "duration_ms": 0
+          "started_ms": 528,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1033,
+          "name": "失败后浏览器清理",
+          "started_ms": 529,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1033,
+          "started_ms": 529,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 1022
+          "duration_ms": 520
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_80afe7ae2dd1",
     "name": "先生制造",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_80afe7ae2dd1.json",
-    "duration_ms": 1651
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 529
   }
 }

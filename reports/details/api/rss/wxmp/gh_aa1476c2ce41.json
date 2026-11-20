@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:12.674Z",
+  "checked_at": "2026-11-20T21:23:57.076Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1369
+    "status": 502,
+    "duration_ms": 580
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1364,
+    "phase": "runtime",
+    "elapsed_ms": 575,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 1353,
+        "started_ms": 9,
+        "duration_ms": 566,
         "timings": {
-          "response_ms": 1351,
-          "body_read_ms": 2,
-          "decode_and_transfer_ms": 0
+          "response_ms": 566
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_aa1476c2ce41\",\"title\":\"爱奇艺技术产品团队\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499630&idx=1&sn=3a1df77fd97b41b2862ad71bcecb1f90&chksm=e850f9695017093854f9cb3ae86f254eedc05979ed0505a93f9674b2ef78362318d4eb604aa7&scene=126&sessionid=1795180879#rd\",\"description\":\"爱奇艺的技术产品团队\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"爱奇艺技术产品团队\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5ZobQgHT7Gh8yCp9jOYghHWLtC5WhRkRdN16J5sIiaCicQ%2F0\",\"updated\":\"2026-11-12T02:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499630:1\",\"title\":\"AI短片之后，如何真正迈向长片创作？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499630&idx=1&sn=3a1df77fd97b41b2862ad71bcecb1f90&chksm=e850f9695017093854f9cb3ae86f254eedc05979ed0505a93f9674b2ef78362318d4eb604aa7&scene=126&sessionid=1795180879#rd\",\"description\":\"AI短片做到头，为什么还是做不出一部AI长片？ 创作路上的一些坎，卡住了短片玩家：叙事，撑不住。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YE4xKIsXPfo7Diaxz09rwG0pDuW1jEhIBqkk3Kbiamb4aOntKtic6fiaoLJzg4jmwoR67iaysIQwznVns6ib32vFDtkSeWLN2JuLpe4ekfribPzQUw/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-11-12T02:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499626:1\",\"title\":\"从代码到服务：让 AI 打通最后一公里\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499626&idx=1&sn=b12277659ece36c4a38d02ca9eb862bc&chksm=e823703c802e6bbafaddadc95a8dff025ec871b8d7baf75682a751e1069e1f2ae074d571f0ab&scene=126&sessionid=1795180879#rd\",\"description\":\"智能搭建 CI/CD 主链路，以部署账本形式沉淀跨系统关联关系，实现从代码到服务的高效、安全、可追溯的自动交付。\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YE4xKIsXPfpd2U1bErSG7mjgcK5qibogJ4UibbVxwd9WeTcN0NqXEAxIp0F6HvIU7MJIPIUBJL4no3KcPvsaWnlzls7qiaO3gU35iaEHmJNsbXY/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-11-05T04:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499617:1\",\"title\":\"PC研发智能体：做好团队的高效数字伙伴\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499617&idx=1&sn=5874933e1e6d4fa0a3d571d9d8a37074&chksm=e85bea9ea1db2166c485cf2db99a2f69e521ff1742bd8da23a11ede954014d12cf4aaf4b0451&scene=126&sessionid=1795180879#rd\",\"description\":\"这是PC 研发团队与数字伙伴共事的七个月实录：从第一批数字伙伴进群承担日常请求，到三次完整链路的多智能体自主协作完成需求交付。我们用研发智能体、团队、高效、数字伙伴这四个关键词来呈现AI技术在产研团队的落地应用。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YE4xKIsXPfo9BXMjXpfGiaia8liafpic1bfnv4nhKAJ9unAD7RCARCtG1MdrJ15ypJGDrvwuEaYcQm4uWuhx8icXPMGzXDpylOkFh8MTcMSbcic3Q/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-10-29T04:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499602:1\",\"title\":\"大数据技术专家是如何练成的：大数据助手 Agent Team 实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499602&idx=1&sn=c31ea947ab9b01d6b2a0b7ba8196de79&chksm=e888c6a1cef4f5e84b4769420a85e055ebce5644328c947719255e0dac21c00b282db75ed7c7&scene=126&sessionid=1795180879#rd\",\"description\":\"面对跨计算、存储、调度和平台的复杂问题，我们通过 Agent Team 让多个领域智能体分工协作，探索更及时、更高效的大数据服务支持方式。\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YE4xKIsXPfpo6dm3f0W4SNMc0KWzS96jks04xhjbEMt7JlWG1OdFLtUA3TQxUSdmlgjZAl1R9LhNAXbBg6RgFyN6yBUicT4iaSBbAYGWPrpCU/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-10T04:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499565:1\",\"title\":\"海外SKILL实践：基于开发事件驱动的自动化协同提效！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499565&idx=1&sn=e115a6c56274c0cacbbc32d64fe9e576&chksm=e812f4009321ee3c21ef5956a61a20c88b149e99c34d6e50e7706bbcb035054a8fd2c04f35aa&scene=126&sessionid=1795180879#rd\",\"description\":\"海外SKILL提效实践，以本地原生开发动作为可信事件，集成转化为多系统管理操作，代替原需人工处理的多任务长周期跨系统操作。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YE4xKIsXPfqAF27QAYFH9mNHEWt2icVEVfanBL8uzMTE319yzo7j6LaGxOg59aWSROlYJmrvG4S8BU5DopR4nlSib9ObbfkribExDFZFAga90Q/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-08-13T04:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499561:1\",\"title\":\"10倍参数增长、GPU推理落地：爱奇艺广告CVR模型的升级之路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499561&idx=1&sn=77077a2937d34594d0309989735e5189&chksm=e8cb7b4d5ccbfb4232e80488179a18959b94e5089dedd97b732d25fd42bb87174ede017a6dc5&scene=126&sessionid=1795180879#rd\",\"description\":\"通过框架迁移、模型调优与性能优化，实现精排模型scaling up下效果、性能同步提升\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YE4xKIsXPfrdQP5ECzFyKbbSy6gLNZQVFia1VUM4eQ8cqZf9UG9uKE8QiblE0vOgBQicj2TuBENlMZIpdicQAhHCm2ymqLtUZXA1z79HUPoe9Rk/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-08-06T04:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499536:1\",\"title\":\"海外Agent实践：让问题直达源码，助力团队提效！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499536&idx=1&sn=65a4cb01cfb76523f7d297978f137b43&chksm=e8cd244ad94c1f644fc5d67c5c40022e060ae5a556bd1ce820fc946ff5d5c9bd5720c5c28e77&scene=126&sessionid=1795180879#rd\",\"description\":\"海外Agent探索实践，智能化跨系统串联多方数据并结合代码综合分析，让问题直达源码，助力团队协作提效！\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YE4xKIsXPfqpuM8fXicvUPs2yhN5k785MIjibKAjHBwlCWo1zYsjkImWWPR83VosaWEVvb5XAiax2a8KExo8s2uZ6kmGQIicsERUk5enDjp31MY/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-07-23T04:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499521:1\",\"title\":\"爱奇艺AI驱动漏洞闭环治理：让安全发现更智能、修复闭环更高效\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499521&idx=1&sn=9a999cbd47ebf39c56888a228c9f4b89&chksm=e819dd5d7f330bdbdc409f7d81c27284dd6ff0f3ac06f43656545e9298490229eb54946fedf7&scene=126&sessionid=1795180879#rd\",\"description\":\"构建AI安全治理体系，推动漏洞发现与修复智能化闭环。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YE4xKIsXPfrHXDYTqmJumSuic4KxzUYiaJeEibvC4moFKZicNgibUOURaWPhxDYViaH9v8Nle8mO0232hMslI6m65mRoZapcxJXORO0ZuIUDGR4q4/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-07-15T04:00:00.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499505:1\",\"title\":\"纳逗Pro全链路赋能、专项免费算力支持！爱奇艺AI影视创作营第二期来了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499505&idx=1&sn=6084febccfc03f180ff75bbd560072f0&chksm=e82d0f2555bbebe6db5f084d06fc623f130ca15d232e9c29781375792c55a41de7d01dd61fdb&scene=126&sessionid=1795180879#rd\",\"description\":\"新增实战派导师 头部制作平台加持\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/YE4xKIsXPfq6GdiaAJUvQEYicJv1H1lzo51B6DBZJxVibkxadxzfCunuDEOVN9T6MMAdKdYga9fibiaHpWT416VeGuJ19uomOWWpvCRoLTUEibB6I/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-06-22T07:19:18.000Z\"},{\"id\":\"wxmp:MzI0MjczMjM2NA%3D%3D:2247499500:1\",\"title\":\"AI 时代的质量门禁左移：Agentic Quality Engineering 架构与落地模板\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI0MjczMjM2NA==&mid=2247499500&idx=1&sn=f084fc60050c017252355995afaff7b6&chksm=e8fd44881a78d135fa685535c6a6ee6169990b4d90f53896470405c11bd4d6d8e9b008f0cb29&scene=126&sessionid=1795180879#rd\",\"description\":\"AI质量门禁左移的架构实践\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/YE4xKIsXPfohXjmU9VxhNCMibibxvW4hN630I3UouCjVTK2jxL8z1vsfgfnxW1ezd5tj4y013ibuoPOUO91OfdqhjeNk2A4jUiawTzXoW7KUvaQ/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-06-18T04:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1364,
+      "elapsed_ms": 575,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -110,44 +105,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 4
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 5,
-          "duration_ms": 1358
+          "started_ms": 6,
+          "duration_ms": 569
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1363,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1364,
+          "name": "错误诊断收集",
+          "started_ms": 575,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1364,
+          "started_ms": 575,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1364,
+          "name": "失败后浏览器清理",
+          "started_ms": 575,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1364,
+          "started_ms": 575,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1353
+          "started_ms": 9,
+          "duration_ms": 566
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_aa1476c2ce41",
     "name": "爱奇艺技术产品团队",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_aa1476c2ce41.json",
-    "duration_ms": 1492
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 561
   }
 }

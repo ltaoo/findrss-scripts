@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:38.162Z",
+  "checked_at": "2026-11-20T21:24:03.192Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2591
+    "status": 502,
+    "duration_ms": 584
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2585,
+    "phase": "runtime",
+    "elapsed_ms": 579,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 13,
-        "duration_ms": 2567,
+        "started_ms": 10,
+        "duration_ms": 568,
         "timings": {
-          "response_ms": 2201,
-          "body_read_ms": 365,
-          "decode_and_transfer_ms": 1
+          "response_ms": 568
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_13ba5621e65c\",\"title\":\"得物技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547753&idx=1&sn=cb228982ab9aa9a11b41ef7523b1e460&chksm=c0d72805a5c6041a6328b7e80da2c56c639ff26a5b2db80b645a29e8f020c0a931f08d1f9948&scene=126&sessionid=1795180904#rd\",\"description\":\"技术知识分享交流平台，与你一同走向技术的云端。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"得物技术\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6shiaicMEVnBkOVxfksCbddUsmSmRaCWFb9k5Tf7kXpaPA%2F0\",\"updated\":\"2026-11-18T10:30:00.000Z\",\"items\":[{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547753:1\",\"title\":\"从研发经验到团队知识：Akashic知识工程实践｜得物技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547753&idx=1&sn=cb228982ab9aa9a11b41ef7523b1e460&chksm=c0d72805a5c6041a6328b7e80da2c56c639ff26a5b2db80b645a29e8f020c0a931f08d1f9948&scene=126&sessionid=1795180904#rd\",\"description\":\"随着AI越来越多地参与日常研发，团队知识逐渐分散在代码、文档和研发对话中：代码承载实现方式，文档沉淀架构和规则，对话则保留问题背后的取舍、边界和经验。实际研发中我们发现，仅靠人工很难将代码变更和对话结论及时沉淀到知识库中。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHuZQ5MOvfWcIr4RhuEVibRzu2e6gduVZmpHqa6Nrc7AJRxbXV9Ub6QhfSPXvuK6r6kJqeyz3hdXMibzgibown9RP1bib1TE4f1sgjQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547734:1\",\"title\":\"压测 AI Agent 治理与评测调优实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547734&idx=1&sn=b209c8551fd912752d56807e042bec74&chksm=c05cbfc36428fb4a1dffeffaf4d75b7dea23705d41fef8dd2c138265cd33a9fecd13a7c435dc&scene=126&sessionid=1795180904#rd\",\"description\":\"压测平台接了智能分析 Agent 后，我才发现：结论跑偏时，根本不知道坏在哪一环。\\n\\n于是我们把它治理调优，关键就这几步：\\n\\n反馈没用→Trace 回放找错因\\n改完要验证→冻现场，喂回重跑\\n评测三件事→质量、延迟、成本\\n最扎心→一次高分不算数，得反复跑\\n经验→落成可回放、可对比的用例\\n\\n坏在哪一环、怎么定位的，评论区聊聊 👇\",\"content\":\"<p>压测平台接了智能分析 Agent 后，我才发现：结论跑偏时，根本不知道坏在哪一环。<br /><br />于是我们把它治理调优，关键就这几步：<br /><br />反馈没用→Trace 回放找错因<br />改完要验证→冻现场，喂回重跑<br />评测三件事→质量、延迟、成本<br />最扎心→一次高分不算数，得反复跑<br />经验→落成可回放、可对比的用例<br /><br />坏在哪一环、怎么定位的，评论区聊聊 👇</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHvzVEs74Fkn9WO9O6KY37YScVbk8cMoYPp6Ufthl6n5O2kgJwv3o9WJK7Ytnoe2ibmWE0Y9OF099kaEQp2OjIfsXJ88atfHSBGo%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHscibia9AbIbTUsW9wofQ4jcYyzLxYpKWBz5P4GRZVmtfAfRk8gomzULQaIqcYELwhj1yxFzmR5SMwmEJnJe85ZlFGSSrSvlUWF4%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHtxrsfHa0yjMm7UzguYcAQJMJnuhyqQlXvJZ7LleyoxcZTpajSXSAE3LficLicw2ricnmLDbvQZIH2r4US9JXYasu3IiaCZUvuRViaI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FFMFU1P6sHHtLPW94E2osR1BCktZP3dYulEgcDHQUlv2yTjMDeU7ziarDGwWZPRzzrs662YCzJVg7vJh7vNtnyvaP5GlXuTL0Ubb4z1Pjq6L0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FFMFU1P6sHHsT3libKkkTunY2tLqPVRGTq6uOSRIhu6BXzW8L03fDJ6KcJ8PDoUVs1iaqXqVeD0mu0SmMGEdOzsc6K2oC9c282GHCzX5BXFGWA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHvdffst4UbnI5tMdoD3jxlVUXTP1rd1ZMaA9N4sl2WdhCGrGFOZ1SAdf7L3TOLsfwKAHjIcnmN9O8aApaIeoAib07j7iaibg81EUc%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHtXlLsibGWDyNTicBYZhEbzCkiaTmuDClvSRoe13Dav59pRuw2spnHEouAzFEJnmIaicMKPY0lgbNYT9WPibBGXCRlTv7H6GicoLwHMA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FFMFU1P6sHHsuwyQKqJDxSkFZxqmEac2M5AyfjEGEthd7wx4eG3HGYJjcF4DVjF0haskdndzgtpTK43QSxv8SrPk3ibXDibny8tBVGm0Iqibe6g%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHvTiaRnWXpYWfRoQm2OOXr4hbrTZ27DkibYplE1uGPyVVEFkwTT5MiaCufPkGDsts8YfEa849O9f9eyaJsjCHqSOGouUc1nmXYvOI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHtQT8jH50VmJ15PL3HZKtYGHNzL9TDicpN9KyRibEOA6C6lj1mFpa5iaP7rHIsCr2anibCYFwn0qllmGxbTQibKWg7k8Y50LqGS5S2g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHvzVEs74Fkn9WO9O6KY37YScVbk8cMoYPp6Ufthl6n5O2kgJwv3o9WJK7Ytnoe2ibmWE0Y9OF099kaEQp2OjIfsXJ88atfHSBGo%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHscibia9AbIbTUsW9wofQ4jcYyzLxYpKWBz5P4GRZVmtfAfRk8gomzULQaIqcYELwhj1yxFzmR5SMwmEJnJe85ZlFGSSrSvlUWF4%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHtxrsfHa0yjMm7UzguYcAQJMJnuhyqQlXvJZ7LleyoxcZTpajSXSAE3LficLicw2ricnmLDbvQZIH2r4US9JXYasu3IiaCZUvuRViaI%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FFMFU1P6sHHtLPW94E2osR1BCktZP3dYulEgcDHQUlv2yTjMDeU7ziarDGwWZPRzzrs662YCzJVg7vJh7vNtnyvaP5GlXuTL0Ubb4z1Pjq6L0%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FFMFU1P6sHHsT3libKkkTunY2tLqPVRGTq6uOSRIhu6BXzW8L03fDJ6KcJ8PDoUVs1iaqXqVeD0mu0SmMGEdOzsc6K2oC9c282GHCzX5BXFGWA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHvdffst4UbnI5tMdoD3jxlVUXTP1rd1ZMaA9N4sl2WdhCGrGFOZ1SAdf7L3TOLsfwKAHjIcnmN9O8aApaIeoAib07j7iaibg81EUc%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHtXlLsibGWDyNTicBYZhEbzCkiaTmuDClvSRoe13Dav59pRuw2spnHEouAzFEJnmIaicMKPY0lgbNYT9WPibBGXCRlTv7H6GicoLwHMA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FFMFU1P6sHHsuwyQKqJDxSkFZxqmEac2M5AyfjEGEthd7wx4eG3HGYJjcF4DVjF0haskdndzgtpTK43QSxv8SrPk3ibXDibny8tBVGm0Iqibe6g%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FFMFU1P6sHHvTiaRnWXpYWfRoQm2OOXr4hbrTZ27DkibYplE1uGPyVVEFkwTT5MiaCufPkGDsts8YfEa849O9f9eyaJsjCHqSOGouUc1nmXYvOI%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-16T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547712:1\",\"title\":\"Jev实战：为AI工作流引入轻量决策层\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547712&idx=1&sn=a848c96b1a7c2708b8e7ce689faf4aa2&chksm=c0f3c6e1ceefc6ae69b870e6533faaa446b549a38202c8d1f61e6bd91b13e8ce97f115b49360&scene=126&sessionid=1795180904#rd\",\"description\":\"一个\\\"不会聊天\\\"的AI，我把测试里一堆零碎的判断活儿交给它，又快又省。\\n\\n用例打标，5秒搞定300个\\nUI自动化里选元素，7秒选好下一步\\n知识库召回后的用例精筛\\n\\n你还能用来做什么？评论区讨论 👇\",\"content\":\"<p>一个&quot;不会聊天&quot;的AI，我把测试里一堆零碎的判断活儿交给它，又快又省。<br /><br />用例打标，5秒搞定300个<br />UI自动化里选元素，7秒选好下一步<br />知识库召回后的用例精筛<br /><br />你还能用来做什么？评论区讨论 👇</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHscpF5X44pZj19nPpVOUbvchb6WibfkN9icoMxvicNnxTsauIR4Hpznicicgpfibs7sXb4gfw6DMKg8dQ0VvXicXXfsSoibEFsHvdibAjrI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHuuBFsuZmlicjZSHxcLItfAT3sibMaialZOaiaylMJD4cLLTMFheibVHLbcLUwa4C2gicRzIVCSjJoic1icc7eDvxwcpt7FfoibV9BwdrQw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHtNOibszGkWfN39cSNjicwIwqnlLUicWIgpFicwNXfbntqJibEJd0hPfQwia7jMCUFm9GqZNfARibkxA4ETDgyEowL04piaUlZrtk9ibBpQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHs7HRuyXY8ia7mkZkyohh0KPjv93NWIWljjBgLaZ6cogVMqA9tpULicLrGeGDJetiaIWtwFib6pu5TtibjkWpibxb4fDZCpjIgnIuO2o%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHvcZIUYic51GRJSgeywCHZXYJ4CQmQTT575JqFyxpx4juicLgxmHoELCac5rG8rB6Mibr5VcPIibfJxTholYIhY3E3UIPrHP6icickbk%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHvLPvU1ibz2Vbd3KrI3lzJHuK6GoBDpMy0jqeDWlib5vPc0xBUHqZjGRQ4afS2MoSVNZeRDWxo71td1Afwqqia9Bzlu9oy5ERtnUU%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHvcKsWZnN3d7MdwmdI4DeiawgBaHe2ZrG4P6Clrvw8NOda81gZYibmXD1ibqrZOn1icP0rr0LIlazmttp78mHar9RcHz5aygjYf930%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHseU1V9YiaiaicJEnxVch1jg9c5x4xUXrxdmvjdeoncmcHhBtBwQkTt4y9BLg0NFcgc6NqoaLDHWibDuWrtBbVLW8UnLco5rKLsvBU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHscpF5X44pZj19nPpVOUbvchb6WibfkN9icoMxvicNnxTsauIR4Hpznicicgpfibs7sXb4gfw6DMKg8dQ0VvXicXXfsSoibEFsHvdibAjrI%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHuuBFsuZmlicjZSHxcLItfAT3sibMaialZOaiaylMJD4cLLTMFheibVHLbcLUwa4C2gicRzIVCSjJoic1icc7eDvxwcpt7FfoibV9BwdrQw%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHtNOibszGkWfN39cSNjicwIwqnlLUicWIgpFicwNXfbntqJibEJd0hPfQwia7jMCUFm9GqZNfARibkxA4ETDgyEowL04piaUlZrtk9ibBpQ%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHs7HRuyXY8ia7mkZkyohh0KPjv93NWIWljjBgLaZ6cogVMqA9tpULicLrGeGDJetiaIWtwFib6pu5TtibjkWpibxb4fDZCpjIgnIuO2o%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHvcZIUYic51GRJSgeywCHZXYJ4CQmQTT575JqFyxpx4juicLgxmHoELCac5rG8rB6Mibr5VcPIibfJxTholYIhY3E3UIPrHP6icickbk%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHvLPvU1ibz2Vbd3KrI3lzJHuK6GoBDpMy0jqeDWlib5vPc0xBUHqZjGRQ4afS2MoSVNZeRDWxo71td1Afwqqia9Bzlu9oy5ERtnUU%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHvcKsWZnN3d7MdwmdI4DeiawgBaHe2ZrG4P6Clrvw8NOda81gZYibmXD1ibqrZOn1icP0rr0LIlazmttp78mHar9RcHz5aygjYf930%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-16T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547614:1\",\"title\":\"压测AI Agent 治理与评测调优实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547614&idx=1&sn=d8132825fac2baa4814c999618ca1a14&chksm=c0f373fa9dee4e9fab3926ac4daa7cb9cb94bf416c693198ddd5015e88662d7c60a12be274ed&scene=126&sessionid=1795180904#rd\",\"description\":\"压测调试是用户反馈问题最集中的环节。平台支持10种常用协议和30多个脚本组件，新手接触陌生协议、编排脚本或配置参数时，经常遇到调试报错。过去排查这类问题，得挨个核对场景配置、JMX 脚本、请求响应、JMeter日志和Trace，链路长、耗精力。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHuPctD0mr1ib6wUP5svicDjia5ib6uickp0Azu0NSBYnw9oGkkhzhmAaH8bSqaMiaPozJoGKLgyuNeHvIXTrib53YtuzqyfoKrWmJ655Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547547:1\",\"title\":\"多 Agent 架构的三次反转：从中心调度到自驱协作｜得物技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547547&idx=1&sn=29d59aedf6f185f365e2c214889fc01f&chksm=c01fdb546e71c0db0e713288e9fd8a75e56872b0acfe6415fbd836d43ae3ef01345e84a6cca4&scene=126&sessionid=1795180904#rd\",\"description\":\"当一个任务只需要一次回答时，单个Agent往往已经够用。但任务一旦变成长链路工作，例如先检索资料、再分析、再写代码、最后复核，问题就不再只是“模型够不够聪明”，而是“整个系统怎样组织行动”。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHtkRiaIVk6vyJDsCreGTVnJjPGCohTtMpiarHV8sD4zHbnCRnADFdjblVIrS5R1llXWmB5PKIX3ibuJKiaY6eHu351iapxr0puvNAsQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547520:1\",\"title\":\"Jev 实战：为AI工作流引入轻量决策层 x10倍提速｜得物技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547520&idx=1&sn=3f7c95f0028e9046f72b8ada98004064&chksm=c060f1596240061d732e246b9df89d803ab86e6dab9e4e121a02bfcfff51bdab717dd6a4e783&scene=126&sessionid=1795180904#rd\",\"description\":\"前段时间Jev挺火。我一开始也以为它是又一个新模型，实践之后才发现它的与众不同！它是一个可以在AI工作流中，工程化地实现轻量决策层的工具，帮助流程降本提效！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHsTibWrCmKVGdK59d7vNuP87sliaadJCTgPTedzXJdicwZCmcJt57nibS377ibItwcFtb5ib6RITAHV4ibYFud16s5Vbs2X4UNvbU8Q9Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547424:1\",\"title\":\"国产算力·昇腾 910C 大模型推理优化（下）：源码修改与算子优化，提速30%｜得物技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547424&idx=1&sn=8672c138181f19d4881777051aa607f5&chksm=c0335a1adb85929697239706b1cd742d98a85bf3a70fe4153981bfd163f5f7438d47a182bd13&scene=126&sessionid=1795180904#rd\",\"description\":\"深入 vllm-ascend 源码修改、算子层优化与 MTP 投机解码，并给出优化前后的完整性能对比与方法论总结。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHv2X6NYUNVDHCxMr6W4iaencxX1CPPia0PjrIDmDRhfRjYdADxy4HYDmiaDQDyjicu8Y4RhPPkKvykNicaYQjzNG2ymdoUbibsEvy5IY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-26T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547419:1\",\"title\":\"得物技术er，专解“不像技术”的问题 | 1024程序员节快乐！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547419&idx=1&sn=bd08cf70c571ac2a1cb31256097d3f85&chksm=c045861355da13e9cea4f3f27c755ffcadb73429895e599716eb537f4c2a00f68dc317e929cc&scene=126&sessionid=1795180904#rd\",\"description\":\"致每一位用代码创造美好的人，1024程序员节快乐！如果你也期待把新的技术做成影响数亿用户的真实体验，欢迎来得物，和我们一起探索。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHu5fX5yMeq9N94cY3YInQz1olia2VicicribkicX8Pb4BzOMyezxdhOFHoNYOicAcUIX0mpqW48p1PdNu8ibfMRz4DREWPNTttuTIjWt8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-24T04:00:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547397:1\",\"title\":\"国产算力·昇腾 910C 大模型推理优化（上）：镜像更新与参数调优，提速 40%｜得物技术\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547397&idx=1&sn=07d58827badbc78b58ea3e9e247e21b6&chksm=c069ddda6d594ecc6150983b3c9e4775741854a0df3edff87011ae6e350bb2a6d982aa6fb89f&scene=126&sessionid=1795180904#rd\",\"description\":\"文中详细给出每一项优化的动机、实现（含具体源码改动路径与关键代码片段）、验证数据与踩坑记录（包括十余项实测无效或负向的尝试），希望为同样在国产算力上做推理优化的团队提供一份可直接复用的工程参考。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHvQgdeibwzMl5YlhdHluibxEYuGRJ06x2kzswys9SsDc1eHSfku9nN3kicMZXibv6AqlHDT1IL93fhg6d8aAWpe2vlwnXWtmWub7Ps%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547373:1\",\"title\":\"动态规则的 Agent 实践：用确定性工程驾驭 LLM 的资产智能验收\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547373&idx=1&sn=55dad3441454852aa5c3f57d97874d62&chksm=c07cba401f6f42fd926dd7082458dbf8047254c9e9a7d4511582f8a68abcd3ceec69e01383a5&scene=126&sessionid=1795180904#rd\",\"description\":\"资产验收要对几十种费用类型、几十套规则做单据与佐证材料的逐条核对，规则还随业务频繁调整。我们没有为每种费用写一套验收代码，而是做了一套智能验收体系。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFMFU1P6sHHu2X3Bl7oxv7wZFic89moXHjicniceoEb8m2JdId6VZiapAKTK1usuIyv3LDpiatp4BfaAfvLuU7mEJgaiaoDRr0Riam9W1ltKbvabJX8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547232:1\",\"title\":\"发一张图，它居然\\\"跃\\\"出屏幕了？一文读懂得物 3D 空间图片技术实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547232&idx=1&sn=b1464a8f98c4c1d6726e4ffbd4b331b6&chksm=c065b421e9562ba05d660808836917de906e0d1d642579340e0ee8bc842aa72aa37038cb7325&scene=126&sessionid=1795180904#rd\",\"description\":\"你随手发的一张照片，得物把它变成了一个能转着看的三维场景。这不是\\\"照片会动\\\"那种小把戏，而是用 3D 高斯重建出纵深，再压进手机，转一下就能\\\"看\\\"进画面里的空间。难的不是生成 3D，是把它做小、做快、做到手机上稳定跑 60FPS。这篇拆开给你看。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHsLiaC2TSpKxYTVWvNfX9lWfmQj9utQBgMz40XLoee45OjR1rCfy1OsjibNoK2S7a9ibdDwpd62Kft7azyHBUibcOd4CcGrTCvv9ibk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-30T10:30:00.000Z\"},{\"id\":\"wxmp:MzkxNTE3ODU0NA%3D%3D:2247547180:1\",\"title\":\"别再只卷向量检索了，得物交易搜索如何用“生成式”实现召回范式跃迁？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkxNTE3ODU0NA==&mid=2247547180&idx=1&sn=1be41ce06da3f1f46d435b7fbbbd04a9&chksm=c0b56faf44b3b365183d290bffbac0976c8500e231123d9aacff153a9956c705a6de84205064&scene=126&sessionid=1795180904#rd\",\"description\":\"你搜\\\"af1\\\"，它得给你\\\"空军一号\\\"。这一年，得物交易搜索把召回从\\\"做选择题\\\"改成了\\\"写答案\\\"——不再从商品池里\\\"找\\\"最像的，而是让模型自己\\\"生成\\\"你真正想要的。从 LLM 语义索引到 HLLM、语义 ID，搜索是怎么从\\\"检索\\\"走向\\\"生成\\\"的？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFMFU1P6sHHsARloCytmXKmPonZBDcrLdmt1epKWic0ibfz3ghiasoz3tC4ZnqicAJwGOO4VQNy8E0WQIKupibB1uYoJwm7GTiceic4yHv0Xr3hxsyg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-23T10:30:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2585,
+      "elapsed_ms": 579,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -110,44 +105,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 8
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 10,
-          "duration_ms": 2574
+          "started_ms": 7,
+          "duration_ms": 571
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2584,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2585,
+          "name": "错误诊断收集",
+          "started_ms": 578,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2585,
-          "duration_ms": 0
+          "started_ms": 578,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2585,
+          "name": "失败后浏览器清理",
+          "started_ms": 579,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2585,
+          "started_ms": 579,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 13,
-          "duration_ms": 2567
+          "started_ms": 9,
+          "duration_ms": 569
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_13ba5621e65c",
     "name": "得物技术",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_13ba5621e65c.json",
-    "duration_ms": 2025
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 570
   }
 }

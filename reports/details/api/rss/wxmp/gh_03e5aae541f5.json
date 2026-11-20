@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:46.017Z",
+  "checked_at": "2026-11-20T21:23:47.738Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 962
+    "status": 502,
+    "duration_ms": 581
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 958,
+    "phase": "runtime",
+    "elapsed_ms": 576,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 947,
+        "started_ms": 9,
+        "duration_ms": 566,
         "timings": {
-          "response_ms": 945,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 1
+          "response_ms": 566
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_03e5aae541f5\",\"title\":\"楼兰学习网络安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485180&idx=1&sn=4e9944be0c0123b57c8aced90946a4c0&chksm=ce4afa5d5dcdd2cbb5b08cad626df7bac86a27eda8ae256ca57fd4ba50a6d28de0861a107a25&scene=126&sessionid=1795180852#rd\",\"description\":\"分享计算机知识\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"楼兰学习网络安全\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6vcNzezLxYtvazfjrVIbtENhkErj73HAglACOMuNjEaA%2F0\",\"updated\":\"2026-02-06T01:00:29.000Z\",\"items\":[{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485180:1\",\"title\":\"扫码加入应用安全交流群\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485180&idx=1&sn=4e9944be0c0123b57c8aced90946a4c0&chksm=ce4afa5d5dcdd2cbb5b08cad626df7bac86a27eda8ae256ca57fd4ba50a6d28de0861a107a25&scene=126&sessionid=1795180852#rd\",\"description\":\"扫码加入，一起做好应用安全；当码过期了，扫我微信拉你（备注加群）。\\n\",\"content\":\"<p>扫码加入，一起做好应用安全；当码过期了，扫我微信拉你（备注加群）。<br /></p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FzdfWGia0B6FXxSKibhmjtauxEldyj6I41NvZwUEs0KFuSeTDwZJK6NjN6LicYJHtxFR44yWFkjaUfgkfgXGRKzWqO97wpM8s2ibbDXXSreoPaGA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FzdfWGia0B6FVFr2ic4aibDOmz9dUzSESdTibR7FyDAnUM6LRh26U3klzRAxicwHsl13sc0icGk0HAcric8TaibbKxic4aIczjJzPcsL7f78RIXZMfWtc%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FzdfWGia0B6FWvpickXZ375QmdRGicZGAjBL0ia9icDYE08VEnRnVaoylOKNe6d7XbY47xOkyG4gddjmfHq9Qibk7IITonGm4wg6fJiaRRIamHibbcYw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FzdfWGia0B6FXxSKibhmjtauxEldyj6I41NvZwUEs0KFuSeTDwZJK6NjN6LicYJHtxFR44yWFkjaUfgkfgXGRKzWqO97wpM8s2ibbDXXSreoPaGA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FzdfWGia0B6FVFr2ic4aibDOmz9dUzSESdTibR7FyDAnUM6LRh26U3klzRAxicwHsl13sc0icGk0HAcric8TaibbKxic4aIczjJzPcsL7f78RIXZMfWtc%2F0\"],\"type\":\"gallery\",\"published\":\"2026-02-06T01:00:29.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247483759:4\",\"title\":\"02黑产武器库概述\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247483759&idx=4&sn=1104c506052f877f799ffbff2ac5a416&chksm=ceea881256c80cca3bc4d0721ef4b58d8da0ead5e4bb93fb39a3e4419be2ddda471859df82ca&scene=126&sessionid=1795180852#rd\",\"description\":\"02黑产武器库概述\",\"content\":\"<p>02黑产武器库概述</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FL91dibvwuia4MQFjnS9fibwJs1LUVL4NLzJUvrWicAeQsntCfUrqWG30mWzfB9ibQxKWVMrrzbm5Ye406uia5jtNOfTg%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FL91dibvwuia4MQFjnS9fibwJs1LUVL4NLzJUvrWicAeQsntCfUrqWG30mWzfB9ibQxKWVMrrzbm5Ye406uia5jtNOfTg%2Fs640%3F%26wxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FL91dibvwuia4MQFjnS9fibwJs1LUVL4NLzJUvrWicAeQsntCfUrqWG30mWzfB9ibQxKWVMrrzbm5Ye406uia5jtNOfTg%2F0\"],\"type\":\"gallery\",\"published\":\"2026-02-06T01:00:29.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485174:1\",\"title\":\"越权扫描器落地实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485174&idx=1&sn=9bacdfb0e7aea13726f1efc788573815&chksm=cea7f3cb16a0a81e89ebbb3037680666f691bba0a8a38db1eb7e03f2d1e13876a2780d75dbce&scene=126&sessionid=1795180852#rd\",\"description\":\"2025年H2 我用126.8小时，我用Cursor从0到1完成了这款越权扫描器。包括方案调研、产品设计、coding、扫描、存量漏洞治理。我很喜欢这个作品。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4NmKoD7B9ojrtFLKpMXgKAzlN13bXzDQXC2VC0CPVnKOYv48jaj0ck0ZTFtxq9ianyKbaGkfibf8Csg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-03T00:00:00.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485157:1\",\"title\":\"腾讯云SAST Xcheck落地实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485157&idx=1&sn=f0cd7c0b1e9dade72c5c86a8e23e6c5c&chksm=ce87e8a5bc2c7e8c2bdf42f418c5bc8d9e8c7fe8a13707f39e4f1f659bdfc2797162509c54b9&scene=126&sessionid=1795180852#rd\",\"description\":\"分享一下腾讯云SAST Xcheck落地实践中的部分细节\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4Mkpp9kBthHlL15kuAWH3e2dtLXoc27FtGz5Sma0GVNOXnnMkhRfyZHy6PGwVS0604bftslcQ6tsw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-30T11:44:48.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485131:1\",\"title\":\"墨菲SCA落地实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485131&idx=1&sn=6d8df5b785b9b810bbfd702589774a34&chksm=ce3e3bd92c70b0674c59e0defc7d6768e16a34b75c41dcd0fd56b663df7d94ac786e7aecc340&scene=126&sessionid=1795180852#rd\",\"description\":\"分享一下墨菲SCA落地实践的部分细节\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4PQTIL7op10yJ4v9NJOfxbCicP62GC4BiccUvsXwNxEdJ8Jmrv1z2DbOricfcq8RqWsDwQm7rg9eMZhA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-19T12:35:19.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485120:1\",\"title\":\"安全项目的成功由管理、技术和运营三者共同决定\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485120&idx=1&sn=28b6a4f300d6cd92bd5dab686e8501c3&chksm=ce8176ed5d4e0899455cbed9a5db7c3dd66d3a61bebbfd4b5969cdf9d41817ff765d9028f476&scene=126&sessionid=1795180852#rd\",\"description\":\"好久不发文了，过去两年是我最充实的两年，未来一段时间会进行陆续分享，分享这两年的一些心得与经验。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4OCEbK2VVo5QWYjcJ2OSDgqea1THgF8YUibFBgCqWOoKnbtW57QHSndwzpMicgLenvBxpV1SLia4zwPg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-13T07:49:41.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485114:1\",\"title\":\"近期比较流行的一个诈骗事件\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485114&idx=1&sn=f041299ba53b1fbb4303e80b0dff0195&chksm=ce94cae83eccd6121012cafab658d41f88c6d4f27d3096289d1ccbe6d23a66c307ed33d91b49&scene=126&sessionid=1795180852#rd\",\"description\":\"周一的时候，朋友跟我说他朋友被骗了，然后我便分析了一下流程，希望大家及大家的家人朋友都可以不被骗。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4NhoXHkEXPFDC1b3ZAoOSa27y4SbYpxsrdWcIUEKajoGzK7EE7icciazyxfiaoJNpCdPdgs9etHtZmDA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-06-01T14:15:21.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485095:1\",\"title\":\"为WAF黑名单中的IP设置过期时间\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485095&idx=1&sn=87810676085a899d59777daada7b1b42&chksm=ceb605a69bbe256bfb2506a4329972abe856a03c097aeda80ea039486f102cad3c5947fcd862&scene=126&sessionid=1795180852#rd\",\"description\":\"及时的删除黑名单中的IP可以减少误拦截、释放资源、降低维护成本。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4N0iah4PQGHD4qTUM8sS0jKQQ7XqYdupnNja7cYZibibQQfw0NWeNlchyRDManf9m6r1xegRv958icV9w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-03-13T14:47:39.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485083:1\",\"title\":\"钓鱼邮件中绕过内容检测的一种方式\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485083&idx=1&sn=545275e2a4be48447fc8201c6efbfbc9&chksm=ce1d8fb9eec5c6ffdec6b91c0185c402901fba9ae4f2dd8062ada946fc700205f87765222122&scene=126&sessionid=1795180852#rd\",\"description\":\"当受害者把收到的钓鱼邮件转发给我时，我发现在正文中会有一些乱起八糟的文字，比如下面这样：\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4OGM5usiaeFmaZzL6a4qrX9Cdulics279XuUnGeias0VZtNibICic95KrGb9MsGgXL6InKQNomFTmOTqow%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-03-12T14:17:32.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485068:1\",\"title\":\"原来BAS是这个样子\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485068&idx=1&sn=49932d984fee5771a7a2f100fcbc3c0c&chksm=ce3c86068b6d76a9898c8a06abddcf1e3adbedabd8885378d03808b55b52186442d34543d255&scene=126&sessionid=1795180852#rd\",\"description\":\"我第一次知道这个概念是在学习CISSP的时候，然后我只知道BAS是通过模拟攻击者对系统进行攻击和入侵来验证安全控制的有效性，我以为可能就是漏扫吧。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4PZRaONWCHHnqKvjI0H0MNoib6TwS1e323kWicoRSCf4oJp65sw9xuwM6RX8iatpLljmurbSC770d2qA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-03-07T15:17:05.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485036:1\",\"title\":\"我对\\\"数据分类的必要性\\\"的思考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485036&idx=1&sn=9b8bc1750bb6c257635418e48d8a1909&chksm=cff9965cf88e1f4af955b4bf4d0fb84baef4cf4feda0a950cdf855958d5ad8e87929acc9f71a&scene=126&sessionid=1795180852#rd\",\"description\":\"资产安全领域的一个主要工作是根据信息对组织的价值进行分类。所有后续操作都取决于分类。例如，高度机密的数据需要严格的安全控制；相比之下，非机密数据使用较少的安全控制。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4NONPiaK0icNJbTXMj0YMZN9Uxx5t5tmh8Te9pj1xm95EStZ4D7Sb3JvicDzicN1UzaXjbpccCfbsm5qQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-06-21T00:00:00.000Z\"},{\"id\":\"wxmp:Mzg4ODU4ODYzOQ%3D%3D:2247485031:1\",\"title\":\"分享一下我当初学习CodeQL的所有笔记及总结\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4ODU4ODYzOQ==&mid=2247485031&idx=1&sn=69a14b6e73567c37ade77bccd88c4f76&chksm=cff99657f88e1f41de13d6c140b558e212498ba48a7d723a2a5507244fd3de9d6122e411b01f&scene=126&sessionid=1795180852#rd\",\"description\":\"这里有我当初学习CodeQL的时候记录的所有的笔记，还有一些我自己的总结，一股脑公开了，希望对你有用🤷‍♀️ 至于文档的顺序，我并没有整理\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FL91dibvwuia4P1M3R6hPjOBDVfXQa2lt9dRnlgq8fkzKWjwaeB13W1KibHMtzQPwDZfTKjE0ibqyL6LE82fckk3raQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2022-04-01T05:12:47.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 958,
+      "elapsed_ms": 576,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -115,31 +110,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 951
+          "duration_ms": 570
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 957,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 958,
+          "name": "错误诊断收集",
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 958,
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 958,
+          "name": "失败后浏览器清理",
+          "started_ms": 576,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 958,
+          "started_ms": 576,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 947
+          "duration_ms": 567
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_03e5aae541f5",
     "name": "楼兰学习网络安全",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_03e5aae541f5.json",
-    "duration_ms": 1083
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 566
   }
 }

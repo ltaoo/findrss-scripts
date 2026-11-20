@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:04.793Z",
+  "checked_at": "2026-11-20T21:23:33.748Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 751
+    "status": 502,
+    "duration_ms": 578
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 720,
+    "phase": "runtime",
+    "elapsed_ms": 561,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,86 +55,81 @@
           ]
         },
         "started_ms": 8,
-        "duration_ms": 709,
+        "duration_ms": 552,
         "timings": {
-          "response_ms": 708,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 0
+          "response_ms": 552
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_67501569b7b5\",\"title\":\"PeiQi文库\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493956&idx=1&sn=d44ca0c6b810745346caa02d928569ea&chksm=cf5176e67b9a1ecfdb83e56fdccaf85dcde7fe97aec6894b725b8ce96a8d09c74f6e189cd119&scene=126&sessionid=1795180811#rd\",\"description\":\"乌拉乌拉！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"PeiQi文库\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM60ZfvR6Cic5Mom2ye4wfKW8ic1IwOiaBRGWWficXg9zt3n4Q%2F0\",\"updated\":\"2023-08-16T10:33:38.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493956:1\",\"title\":\"PeiQi文库 - Github更新 (7)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493956&idx=1&sn=d44ca0c6b810745346caa02d928569ea&chksm=cf5176e67b9a1ecfdb83e56fdccaf85dcde7fe97aec6894b725b8ce96a8d09c74f6e189cd119&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库 - Github更新 (7)\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibicicIH182el4F46uEyehk0IH7lHFLF4cUXtAB6MribNMdiam6URbZsZhxDl1wczmXsf1Vkw0xYPRXp6Vu6PoA8H7g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-16T10:33:38.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493952:1\",\"title\":\"8月19日开幕！KCon 2023，不容错过的网安技术交流大会\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493952&idx=1&sn=4a571e0d8938f9fe9a53d65dc78294b6&chksm=cf476269f7ca53f5ec18570ed11ba5da16aa09551a7733f3fbb9f3123731ab96f335b719bf3a&scene=126&sessionid=1795180811#rd\",\"description\":\"论网安攻防，迎数智蜕变！“归源·智变”第12届KCon大会期待你的到来！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fe5by8a5GzIadIE2QZvQy9GjhSGSAcQrR5qsWElrveNQkb3XXVpfknbDia6icXE6vrrVyeVLxCowqCq6xvC7Pc61w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-15T04:00:00.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493948:1\",\"title\":\"PeiQi文库 - Github更新 (5)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493948&idx=1&sn=97695bb795cba03370284ad75b53a935&chksm=cfc4c1ec4e46e2066f232176eeb5fbb07765caec2c39119d8ec86ae2839fdbdb787eafcca62f&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库 - Github更新 (5)\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibicicIH182el4F46uEyehk0IH7lHFLF4cUXtAB6MribNMdiam6URbZsZhxDl1wczmXsf1Vkw0xYPRXp6Vu6PoA8H7g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-13T08:40:43.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493944:1\",\"title\":\"PeiQi文库 - Github更新 (4)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493944&idx=1&sn=f291b2dcaa9de706ff7619d17e497549&chksm=cf362c9aaa3a026408991c98bdc71bedffe1788b74c32571bd707b45ff6563d96d1c9ff50cbf&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库 - Github更新 (4)\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibicicIH182el4F46uEyehk0IH7lHFLF4cUXtAB6MribNMdiam6URbZsZhxDl1wczmXsf1Vkw0xYPRXp6Vu6PoA8H7g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-12T05:39:57.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493940:1\",\"title\":\"PeiQi文库 - Github更新 (3)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493940&idx=1&sn=844291a4789f670b111579f37621f44b&chksm=cf8aac4e1765bcd4ed92996b2b3a8afc613bdd7e53cf793812d828235328bb3d149b876944c1&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库 - Github更新 (3)\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibicicIH182el4F46uEyehk0IH7lHFLF4cUXtAB6MribNMdiam6URbZsZhxDl1wczmXsf1Vkw0xYPRXp6Vu6PoA8H7g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-11T10:23:41.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493936:1\",\"title\":\"PeiQi文库 - Github更新 (2)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493936&idx=1&sn=665354ca459157a8f2fc39033f07703b&chksm=cfa4d6d16855726aacf5f371c4e0200ce388786f1ad77f57148bfbea54845cbd73eb4a9cf4a8&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库 - Github更新 (2)\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibicicIH182el4F46uEyehk0IH7lHFLF4cUXtAB6MribNMdiam6URbZsZhxDl1wczmXsf1Vkw0xYPRXp6Vu6PoA8H7g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-10T07:49:17.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493901:1\",\"title\":\"PeiQi文库 - Github更新～\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493901&idx=1&sn=ea6b1d81b4ad850c1fd8eaa74f1e50c3&chksm=cf6a6547c866af76e47058a401d5f86bd774df391e8481bf5d1e4a6afe369673cfcd807d18a8&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库 - Github更新～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibicicIH182el4F46uEyehk0IH7lHFLF4cUXtAB6MribNMdiam6URbZsZhxDl1wczmXsf1Vkw0xYPRXp6Vu6PoA8H7g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-09T10:09:41.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493840:1\",\"title\":\"PeiQi 文库与北山安全联合的 第一期 代码审计 + SRC挖掘 培训来啦～\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493840&idx=1&sn=ae11af60cb81257d5eb279d84c36419e&chksm=cfae033ca1d4634fe1e98757a7f35a3097cd5a2a326ba4d21cbaef23698d3cd5fcc32e4eb0b6&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库与北山安全联合的 第一期 代码审计 + SRC挖掘 培训来啦～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FibicicIH182el6aQk5QIupCgY1tQDQDSjljY5hU2unbyVNryDENhib8S8K4Dd5CT09MDawwSiayaVrtzXA7rWo26J0w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-07-06T03:12:48.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493838:1\",\"title\":\"PeiQi 文库与北山安全联合的 第一期 代码审计 + SRC挖掘 培训来啦～\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493838&idx=1&sn=a8b70af801bc17db14427748aa955396&chksm=cf5f84c709705e825e4e6831423ad69cb7d19419a9d1d980aab443206d5a634726958ef4bc55&scene=126&sessionid=1795180811#rd\",\"description\":\"PeiQi文库与北山安全联合的 第一期 代码审计 + SRC挖掘 培训来啦～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FibicicIH182el6aQk5QIupCgY1tQDQDSjljY5hU2unbyVNryDENhib8S8K4Dd5CT09MDawwSiayaVrtzXA7rWo26J0w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-07-04T06:33:44.000Z\"},{\"id\":\"wxmp:Mzg3NDU2MTg0Ng%3D%3D:2247493790:1\",\"title\":\"PaperCut MF SetupCompleted 远程命令执行漏洞 CVE-2023-27350\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3NDU2MTg0Ng==&mid=2247493790&idx=1&sn=c6eb7b7480638b11e5fc7405aaed44bb&chksm=cf7a5a3653be4adc3bae90e47608702c6cc52c9279120f33c928780c8db49337a21ec82c1cd2&scene=126&sessionid=1795180811#rd\",\"description\":\"PaperCut MF SetupCompleted 远程命令执行漏洞 CVE-2023-27350\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FibicicIH182el4F46uEyehk0IH7lHFLF4cUXtAB6MribNMdiam6URbZsZhxDl1wczmXsf1Vkw0xYPRXp6Vu6PoA8H7g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-05-02T05:50:46.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 720,
+      "elapsed_ms": 561,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 4
+          "started_ms": 1,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 713
+          "duration_ms": 555
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 719,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 720,
+          "name": "错误诊断收集",
+          "started_ms": 561,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 720,
+          "started_ms": 561,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 720,
+          "name": "失败后浏览器清理",
+          "started_ms": 561,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 720,
+          "started_ms": 561,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 709
+          "duration_ms": 552
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_67501569b7b5",
     "name": "PeiQi文库",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_67501569b7b5.json",
-    "duration_ms": 1735
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 585
   }
 }

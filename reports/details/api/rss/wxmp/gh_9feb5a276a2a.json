@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:19:51.870Z",
+  "checked_at": "2026-11-20T21:23:29.224Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1477
+    "status": 502,
+    "duration_ms": 533
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1465,
+    "phase": "runtime",
+    "elapsed_ms": 527,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,53 +54,53 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 1453,
+        "started_ms": 9,
+        "duration_ms": 518,
         "timings": {
-          "response_ms": 852,
-          "body_read_ms": 600,
-          "decode_and_transfer_ms": 1
+          "response_ms": 518
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_9feb5a276a2a\",\"title\":\"青衣十三楼飞花堂\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490091&idx=1&sn=42eb86edfbca6bf0c6f51229ce88822b&chksm=fba9df34ae0b0e1797eb7bd5999d94704d38240c20d9eaf34a78a1e538114c3c225185c7d9c6&scene=126&sessionid=1795180798#rd\",\"description\":\"C/ASM程序员之闲言碎语\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"青衣十三楼飞花堂\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FeHEMOF2hOemuSPJ5gUjzJRFtrf1WbeRYtaCShVCYEV8IicPVKw4vEGuEsxzWas5zPmgEOBbZnA0Q%2F0\",\"updated\":\"2026-11-19T23:09:11.000Z\",\"items\":[{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490091:1\",\"title\":\"NSFOCUS旧友记--南派传销漏网人员的人生杂记(5)\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490091&idx=1&sn=42eb86edfbca6bf0c6f51229ce88822b&chksm=fba9df34ae0b0e1797eb7bd5999d94704d38240c20d9eaf34a78a1e538114c3c225185c7d9c6&scene=126&sessionid=1795180798#rd\",\"description\":\"这是非正常人类研究中心前被研究对象bluerust的人生杂记\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7JlXSDia4IQKIRUkYwNBnma5GLZftQfRibspesTNG630qaeick8rkEaqbLEUE3icr4c3llekibapIyeUtFtB8CWOroqHJ1MvgibRFwBDg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T23:09:11.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490082:1\",\"title\":\"家祭无忘告乃翁\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490082&idx=1&sn=be929d47bd0037d5b33608bab26c893e&chksm=fb9aabc555d86c46992b55d14d087b9134c919ba88118597b708b911353074501ec79b18c75a&scene=126&sessionid=1795180798#rd\",\"description\":\"爹，我今年82了，刚用15秒跨栏80米\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7JmBXEsS6rWMmYNDoiaXicRfu0z3yDf5xTSuuLvlHoxWueibxqeSgGiam4iaF4jISQ0NbE1DBLo5wESxn0H7YtdlM0xCT1a8icepZueFQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T04:05:00.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490061:1\",\"title\":\"WorkBuddy信封中的AES-256-GCM\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490061&idx=1&sn=aac8ecb32f482d86d1458f940b1bc8ac&chksm=fb57b0aa4ddab070fac42d8090b2f75d337dc407c9588cbb5e1f23cc84cd296552424aa78cf8&scene=126&sessionid=1795180798#rd\",\"description\":\"我这篇，没有A里A气的。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fh56Z2h4w7JkcINwocF5jkV2wrFLtonleXgp5crUNqArbNB86xItIicjk1sqqiawYtk2sWOnuaibNeffN811Nrdc1icLynxSO5IbxTcXmrguCWwA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T06:03:27.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490055:1\",\"title\":\"初二几何日常练\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490055&idx=1&sn=37be5c5d4c550d89f4ac3df20a1a1107&chksm=fbdb4312cbb8195bcb622405494d03f5f626f261e857391fc8ef4a5ce75b2b8a5edd83563926&scene=126&sessionid=1795180798#rd\",\"description\":\"任意非钝角△ABC，D、E、F分别是AB、BC、AC上动点，求DE+EF+FD最小时D、E、F的位置。\\n\\n由于是初二，不得动用三角函数。这题对我来说太难了，cby提示我之后，才明白机关。难在证明上，要证明那是极值点。\",\"content\":\"<p>任意非钝角△ABC，D、E、F分别是AB、BC、AC上动点，求DE+EF+FD最小时D、E、F的位置。<br /><br />由于是初二，不得动用三角函数。这题对我来说太难了，cby提示我之后，才明白机关。难在证明上，要证明那是极值点。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7JlrZcXeiafiaiccsUBOb3hkmsQiaoLFncRJ3PxXjKrx2qkPdvGIpUN2vFf3VDd54CHT0QmVk06vO90ib7BDsCicUeahOukjibWRgB5D1A%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7Jlkk753FkT3S1gcRGvtQWG3Xj2cytyTEzUKv6WQQzfE63W7jnmXoUXiatGFWfkGMwX6yL3HaicL4tHE98ajRO1Yx82KGNwicMqr58%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7JlrZcXeiafiaiccsUBOb3hkmsQiaoLFncRJ3PxXjKrx2qkPdvGIpUN2vFf3VDd54CHT0QmVk06vO90ib7BDsCicUeahOukjibWRgB5D1A%2F0\"],\"type\":\"gallery\",\"published\":\"2026-10-31T14:42:33.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490002:1\",\"title\":\"初二几何最值日常练\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490002&idx=1&sn=557ae066de5099015a2dc2e273040730&chksm=fb659c0aa9e955969e3f69a7cd0ba420610fa24deb570bb3c2994a6ef933972ef007822b65fc&scene=126&sessionid=1795180798#rd\",\"description\":\"平面几何最值日常练\",\"content\":\"<p>平面几何最值日常练</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fh56Z2h4w7JmGccCg6YsWuNjTicQlt9zGFrDoM4LsjWhOvsa7JJoiaibKiaXGzc9ibNsoWG8iaibBcPsKMhTqhDJtHlSK4KdaWR78s1p6yPmPMC5WEI%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fh56Z2h4w7Jmp4zkrJlmmibqUFUzXnEBy5MqdiclXAIOay5aKwq94vJsjrUrOthmRfrPk9TtattslRTSPZy52Ge4UMHXoibEjb3LplE2yolSkTI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fh56Z2h4w7JmGccCg6YsWuNjTicQlt9zGFrDoM4LsjWhOvsa7JJoiaibKiaXGzc9ibNsoWG8iaibBcPsKMhTqhDJtHlSK4KdaWR78s1p6yPmPMC5WEI%2F0\"],\"type\":\"gallery\",\"published\":\"2026-10-31T14:42:33.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490048:1\",\"title\":\"活在彼此的青春里\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490048&idx=1&sn=867b58e8d772c461a04279147dc5d862&chksm=fbfe796a891d21ea517be4e10abd06aa874f48ba0c46fa01480e455f44acded2caa509394b28&scene=126&sessionid=1795180798#rd\",\"description\":\"老去的我们，活在彼此的青春里。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7Jm3qW8fcK7VGymVrQDSQOP0DxXLK6ZB1KOWRhRBib0Wia9FehpNjuQqzNfdUia6GQPiaMGp7lnWiafNhvqNjlOtOpHY0OicQt30JW09Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T14:11:20.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490041:1\",\"title\":\"某次WorkBuddy编程经验\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490041&idx=1&sn=4c96c1be0c58ea9338cb957e95482043&chksm=fb0c3f60ec7524db3013aa21dde875dc55981b5aca358c399188afeabc76c74ed682a6faff10&scene=126&sessionid=1795180798#rd\",\"description\":\"我们这代程序员，遇上AI，不算惨，惨的是后面那些代。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fh56Z2h4w7JmKQSPfxe3Ebp5GqT65TQY396LuiaWeC6Q5gEqSatEkY6r0n2bhpxbXVAg3r6ZToia3bH20jJuibpT0P0usAic6IlcrD74jL8v1B9c%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T04:32:10.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490033:1\",\"title\":\"MSDN系列(52)--U盘反病毒抢救数据\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490033&idx=1&sn=d69988e9b3a32dcb6d4dfd8f0170e1f8&chksm=fb4186b1d1cd59cfdb813385e365a362b78ced3199a360d3aa5a8c898afcb50e1d42a26d7fbe&scene=126&sessionid=1795180798#rd\",\"description\":\"至少在相当一段时间内，U盘病毒并未远去，它们只是在等待机会。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7JnWYZhR13MqI0kBckXcqlsFkdEUbLEUuy1PnjWaKpPg46HltEBaLcgbZxYI8ZvlYibicufYHicWUPRSC7xwUasQ5W54HnUNh8XKpo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-27T10:23:00.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490026:1\",\"title\":\"从张雪机车到东鹏特饮\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490026&idx=1&sn=b2a7694a042039272b55abf74623e523&chksm=fbaab9691eaecc3154ea9edb34392b03f0715356afc13924eb2d0e7c3d533f597782106444d0&scene=126&sessionid=1795180798#rd\",\"description\":\"东鹏通过张雪机车得到了非凡的放大效应，是广告案例中几乎不可复制的那种。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7JlYSyxbpSb6AIM1AfjlwxHoWgwtH9IKXonnp513CllKNMxWLB8qroUK5iaiaWuJbnlpdGWDsJzk2ytXKrnzicKT3VibyBNaicmiam9ug%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T12:44:34.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490022:1\",\"title\":\"收到重阳短信\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490022&idx=1&sn=c0168c9e1d354b4c6862186bd1d34caa&chksm=fb37f36c12c0f4b624fb8fcaae7a5bd10de911df1d2b3b6f4e1c87d1627e8d0df380c44f44b3&scene=126&sessionid=1795180798#rd\",\"description\":\"我已属于全国老年朋友们中的一员\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fh56Z2h4w7JkUufibCiaP5YeJhBicHSKQiaDBgKpbDCkZThCloZF2TVq0DCDYd98UiaOHnP5eWIAalnsuxCpicBy7X2gvlvicTUiaxqApkCUGEoI5Oiao%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-18T12:51:24.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247490018:1\",\"title\":\"小小四的日常\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247490018&idx=1&sn=10e1754abec32a5f72e6d57f73d3696b&chksm=fba602901e6a8328b105a579abfd9db87d0a3453d83048e12e8b33feae65499eeccc2019f70f&scene=126&sessionid=1795180798#rd\",\"description\":\"cby: 我想好了，等我退休了，我就做个美食家\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fh56Z2h4w7JntaZBicicMF6Zt7taeWJZGdcV1F5TB2VMHQFAt35afXJMcFsVnP27QvK6maRW3c6Y5cFK75dThKMI050utTbMgrLiafTROLhshto%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-17T12:39:07.000Z\"},{\"id\":\"wxmp:MzUzMjQyMDE3Ng%3D%3D:2247489959:1\",\"title\":\"你们也是老师心头永远的光——参加浏阳一中204班毕业三十周年聚会时的发言\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMjQyMDE3Ng==&mid=2247489959&idx=1&sn=e492afe03c07a1cbf1b9c3109032e56e&chksm=fbcc5896c4a712518fe5328c847c8ccf97ff3b91e489726964f85042a7c5dea27c1e5eaaec20&scene=126&sessionid=1795180798#rd\",\"description\":\"相信自己，相信未来。各种各样的生存方式生活方式，我们都可以包容理解，都可以从中做出自己的选择，只要不把路子走偏了把人生弄塌了就行，换言之，就是我们无论如何不要放弃自己的精神生活放弃自己的价值追求放弃自己内心的坚守。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfuMA1Xhhmsc7P1xF5bM1U8woE0ic0ZWYiaIDtwx0MoIDNZib7xhlevDxJBApa9Mr3iaGcib3sEOu0ozfbnenV0tlUYWicdvvAXPZXo6mf6kylJ374%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-30T00:31:30.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1465,
+      "elapsed_ms": 527,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -115,39 +110,34 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1458
+          "duration_ms": 521
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1464,
-          "duration_ms": 1
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1465,
+          "name": "错误诊断收集",
+          "started_ms": 527,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1465,
+          "started_ms": 527,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1465,
+          "name": "失败后浏览器清理",
+          "started_ms": 527,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1465,
+          "started_ms": 527,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1453
+          "started_ms": 9,
+          "duration_ms": 518
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_9feb5a276a2a",
     "name": "青衣十三楼飞花堂",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_9feb5a276a2a.json",
-    "duration_ms": 1061
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 572
   }
 }

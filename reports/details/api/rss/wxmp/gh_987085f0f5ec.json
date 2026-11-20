@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:11.005Z",
+  "checked_at": "2026-11-20T21:23:56.490Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1554
+    "status": 502,
+    "duration_ms": 542
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1550,
+    "phase": "runtime",
+    "elapsed_ms": 527,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":14,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 1538,
+        "started_ms": 8,
+        "duration_ms": 518,
         "timings": {
-          "response_ms": 969,
-          "body_read_ms": 568,
-          "decode_and_transfer_ms": 1
+          "response_ms": 518
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_987085f0f5ec\",\"title\":\"ChainReactor\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484248&idx=1&sn=9483a853c63b18800343fbe257ca11fe&chksm=ce2feb4224561cb122c8f40cdfde81b8e99c8b8d1888f07da66fba44a8150659c96d0ee556df&scene=126&sessionid=1795180877#rd\",\"description\":\"致力于下一代AI原生的进攻性基础设施(AI Naitve Offensive Infrastructure) 和 全流程智能化渗透\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"ChainReactor\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6kIoeKia9PeYaereDc4YFTc1fFanicxeC2GwKSqsGOkdpQ%2F0\",\"updated\":\"2026-11-10T06:26:22.000Z\",\"items\":[{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484248:1\",\"title\":\"CYBER 1.0 发布：AI黑客正式走入企业级生产环境\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484248&idx=1&sn=9483a853c63b18800343fbe257ca11fe&chksm=ce2feb4224561cb122c8f40cdfde81b8e99c8b8d1888f07da66fba44a8150659c96d0ee556df&scene=126&sessionid=1795180877#rd\",\"description\":\"chainreactors开源组织中孵化出来的里程碑产品， 欢迎关注我们的企业账号。 后续商业化产品的相关内容会在企业账号中发布。 本账号用于开源社区。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FKONwSqSMBZNstPoia42zzfH827bZNjB03FlJJ1xF0Oiciakk3DaOKgia2BjWePSpPXeh8H1f1RU8pepDzwanmfOAHEDF8gteibic3yXJdHn5CD0bs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T06:26:22.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484245:1\",\"title\":\"Introduce Facader护栏模型- AI自动渗透工业化的最后一公里\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484245&idx=1&sn=406b833ed46df5ed223cdb3da347db90&chksm=cee924c2b1db8d6e8442651129b9fc163828da1ea164504280b948b3ccfc464bf1682752576e&scene=126&sessionid=1795180877#rd\",\"description\":\"Facader-Heisen 是网络安全行动护栏模型，在智能体每次行动前独立核对目标、权限、数据与操作边界，为渗透测试设防。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3fV4hyXgFSCtD6dBFC1ONlroJgucceD7rgiasWukeEgTHXtCYUb3ic2Uic5YKYRZ6A1PkBX4B6oy1oW9esib7usg238fSzrMF6MkUc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-29T06:20:00.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484240:1\",\"title\":\"黑板之外-走向更开放的AI渗透架构设计\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484240&idx=1&sn=2b0d7b6947493e8ed469953eb6d1e67b&chksm=ce3efaf40361c87d6222f5fa3788d9c99f8df66bcc03875328f0ce53ffed5ebcb02df9956bee&scene=126&sessionid=1795180877#rd\",\"description\":\"黑板架构曾被视为 AI 自动化渗透的默认答案。本文从 TCH2、TCH3 的实验出发，重新审视黑板、反馈与 Agent 架构之间的关系。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3eUFNfPjltACukTR3dBibcKl1korVjQsvIj291kCpeMPRNbGczq7Qj8zhHLvjoXatIcteIq0anSWzMQnkNk3sqQvggPozq7J1Fw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-20T02:22:31.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484203:1\",\"title\":\"重新理解 Graph Engineering ， Agent工程到底发生了什么变化\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484203&idx=1&sn=a304aabb1e360efbb44a1edb06499726&chksm=ce2956ef6c6be79c4b3b2f5458e52e70b63134fbd1a17c4ba4ad4e6cd5d422917720cffac2c0&scene=126&sessionid=1795180877#rd\",\"description\":\"AI Engineering 每月一个新词，但你真的分得清 Harness、Loop、Graph 吗？回到 TCH 智能体渗透赛的实战现场，从结构主义重新理解Engineering\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3cTNPbnZjJAemuK6KG5qDn7AHEUeiaKiaic3m1kdXjrej7YQbXMfoIMFcueN5kibHgIpPmqZEiaBECmxK8nsKNkLm0q7qHM4V1uFnWQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-28T02:00:00.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484194:1\",\"title\":\"[议题分享] AI智能化渗透的过去与未来 — 涌现、协作与新形态的实践经验\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484194&idx=1&sn=3168ce0ec53be2e53872b023b26900a4&chksm=ce30cc14e714251ece0d88a8265e0bc5c43057e99b74caa9d288199e5b693aaff6b90f175290&scene=126&sessionid=1795180877#rd\",\"description\":\"AI智能化渗透的过去与未来 — 涌现、协作与新形态的实践经验。以及 未来攻防 知识星球、社区和倡议。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3fKL3zRdy6eDZyMv7h8JATf1YQHc50WRtMTctapWC8NAbRliblaQCmTNgPyLXx0yVYMclrNfiajsicslSAUBibibNtCx8uicjVamZsFw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-08T16:57:49.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484194:2\",\"title\":\"AI渗透的拐点已至？我是如何通过AI纯黑盒挖到通用产品的9.8分RCE 0day漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484194&idx=2&sn=a56821f57f5b4946bccfae66b38f227f&chksm=cea3436554f72046d1edea49352d827996c43d59b71505ae112e3637126f24059a227c8de9ce&scene=126&sessionid=1795180877#rd\",\"description\":\"AI渗透的拐点已至？我是如何通过AI纯黑盒挖到通用产品的9.8分RCE 0day漏洞标题党了， 但是过程是真实的， 是我们在测试新的工具第一天发现了一个高价值0day的真实过程。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3dBbHt0GWuPxBgYZsfKOZLu4cdTxjeSlElBeK4wfMdrQd0RL4VtBquaL65guDpDhUiab4fib3Qiae5NxCFh5CvxnVUqx9L8tPZE14%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-08T16:57:49.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484194:3\",\"title\":\"Less Than Nothing - 从本质的本质出发，AI攻防的另一条路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484194&idx=3&sn=9a6b1113893b912e00ab4d3f90577efc&chksm=ce8e63946b1daa989748a0968bcde1183835df12754acca9bb387858561d23e0e05e8f520b90&scene=126&sessionid=1795180877#rd\",\"description\":\"Less Than Nothing - 从本质的本质出发，AI攻防的另一条路取自 齐泽克的 Less Tha\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLf9Eic6Vdf3cbAaZobH15GE5nccwkugb8uZuv8t7JbCIIQ00lQ69tVR9QibEV4bsW35VtYgfGkK8X9DV0ht4ncP51ms6C1kegMdpRYIjHzTWI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-08T16:57:49.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484194:4\",\"title\":\"TCH智能渗透赛: 你的下一个渗透 AI 为什么一定要是渗透 AI？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484194&idx=4&sn=c74f7cb7ccf203831e5ef246268173cb&chksm=ce0cc0f599b75b7012904bac8f7555b4ea3b2c1a8c997a6ee8ba0d3f28326656533b50680c8a&scene=126&sessionid=1795180877#rd\",\"description\":\"你的下一个渗透 AI 为什么要是渗透 AI？这不是一篇技术分析，架构和设计留到线下答辩再讲。这篇只记录下比赛流水账。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLf9Eic6Vdf3fnGrS0QmGMBFJiaMCQ7swfIgnkE4Oj390vQs6hte7oZJaia8iaEPctPibBKaHibfffJxTibCfy2rkKyoeFWNiaIic0DUkfOKrmZUa43Uw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-08T16:57:49.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484148:1\",\"title\":\"Living Off the Land Agent - 中转站与Agent 武器化\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484148&idx=1&sn=0db864abfbbe1526a183ef74f4cf4e8a&chksm=cee9e931be51f1982f61754206a0eb2f366ec079ba6026c6e249e0a9d4345dc06f8557c3e81b&scene=126&sessionid=1795180877#rd\",\"description\":\"深入浅出介绍新的AI攻击面。中转站和Agent 一旦成为入口，Agent 就可能从效率工具变成攻击通道。本期分享拆解 MitM、响应劫持、请求劫持三大原语，结合社工钓鱼与 LOLA 场景，带你看懂 Agent 武器化风险\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3eha6VyqS4U7H1GqIQG6H0rv4ibaota5XX3jooOBLenOEpTwMQiaZ7aIaic1nWD49Qg9WXE9muXibQ2B51XDoLSrQc3x05PFL6TkNY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-28T01:00:00.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484148:2\",\"title\":\"两届TCH之后 —— AI 渗透测试 Agent 的 Harness 工程演进、防御与我的思考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484148&idx=2&sn=16c46842e3236c8a9ede659706243a79&chksm=ce103d8e1884e3ff36c9a470dc23f7ab54c258aea687dbfecf78847907e33c6860c613878ae7&scene=126&sessionid=1795180877#rd\",\"description\":\"前言\\t半年前，我借腾讯云黑客松智能渗透挑战赛的契机，写过一篇 AI for 安全攻防的文章：https://m\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FUkaia78jfYMKw4ibeDKshL3z98HYRViaQ4rvq26yzEE9ianhnTha2z1agcAMGiaHH7Evx2EucnKlh6fZKUr4dEtIHRfxfFVgqtFtpVFUBGGiadZas%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-28T01:00:00.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484118:1\",\"title\":\"AI渗透的拐点已至？我是如何通过AI纯黑盒挖到通用产品的9.8分RCE 0day漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484118&idx=1&sn=80c5d21e43075458ef96ee73db43fb7f&chksm=ce84e727a4f17442cd9f7b73834cf193d7a349189a24c64ba726773338760c0536ed4d308d30&scene=126&sessionid=1795180877#rd\",\"description\":\"AI渗透的拐点已至？我是如何通过AI纯黑盒挖到通用产品的9.8分RCE 0day漏洞标题党了， 但是过程是真实的， 是我们在测试新的工具第一天发现了一个高价值0day的真实过程。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3dBbHt0GWuPxBgYZsfKOZLu4cdTxjeSlElBeK4wfMdrQd0RL4VtBquaL65guDpDhUiab4fib3Qiae5NxCFh5CvxnVUqx9L8tPZE14%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-25T01:50:00.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484109:1\",\"title\":\"EvilClaw: 武器化的邪恶AI中转站，你的Agent现在还好么？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484109&idx=1&sn=04d384e71b270c4a0658b346b50f5185&chksm=ce763d38fb5379fd0b5665c9123cd388e0247df8c20edac8c09f42ba46b3057bc05d630640c2&scene=126&sessionid=1795180877#rd\",\"description\":\"前言IoM v0.3.0 的博客介绍了 malefic 侧的全部重构——Starship、Reactor、T\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FLf9Eic6Vdf3cBMkygicFQqrwL4TTkob8V5onBFIib4HXuDt14icR4rXC3RX0grK5dsmFhDfMLHVdTT07nflDTliawnSoQBTTFesySxb58DPmAib0Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-18T03:08:55.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484100:1\",\"title\":\"Less Than Nothing - 从本质的本质出发，AI攻防的另一条路\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484100&idx=1&sn=ef6aeb5fe0bd7398c751318d01149b59&chksm=ce90ff94e40de9f27318c20e9b71a9d51cfe741befd43edc88163cb5beac85db58e3a31f2cc6&scene=126&sessionid=1795180877#rd\",\"description\":\"Less Than Nothing - 从本质的本质出发，AI攻防的另一条路取自 齐泽克的 Less Tha\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FLf9Eic6Vdf3cbAaZobH15GE5nccwkugb8uZuv8t7JbCIIQ00lQ69tVR9QibEV4bsW35VtYgfGkK8X9DV0ht4ncP51ms6C1kegMdpRYIjHzTWI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-27T04:38:57.000Z\"},{\"id\":\"wxmp:Mzg4MzgyNTA3NA%3D%3D:2247484100:2\",\"title\":\"无径之径：Cairn AI 从渗透测试到通用问题的求解\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg4MzgyNTA3NA==&mid=2247484100&idx=2&sn=b82eae5b410c5caa868752cdfb817aa2&chksm=ceaaf2104dcd7bd3d160e8816c5989dd7b08244f2b516b0142f9115c520e305dd2a272bb9516&scene=126&sessionid=1795180877#rd\",\"description\":\"这是我在第二届 TCH·腾讯云黑客松智能渗透挑战赛 获得线上唯一 AK 成绩的线下决赛答辩 PPT，最终总成\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FUkaia78jfYMJ1zicyMhzJYNMWQeZoUgVbgAdguSqMbaMVpnpQutXdsToOWVdsWTr6ibk4KUOfLJZPtkKQgGzdzcca532oSITPJXfSftBCicC1Ns%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-27T04:38:57.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1550,
+      "elapsed_ms": 527,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -80,74 +75,69 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 4
+          "started_ms": 1,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 1543
+          "duration_ms": 521
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1549,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1549,
+          "name": "错误诊断收集",
+          "started_ms": 527,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1549,
-          "duration_ms": 1
+          "started_ms": 527,
+          "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1550,
+          "name": "失败后浏览器清理",
+          "started_ms": 527,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1550,
+          "started_ms": 527,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1538
+          "started_ms": 8,
+          "duration_ms": 518
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_987085f0f5ec",
     "name": "ChainReactor",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_987085f0f5ec.json",
-    "duration_ms": 1642
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 599
   }
 }

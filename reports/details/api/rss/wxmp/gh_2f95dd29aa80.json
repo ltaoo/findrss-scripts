@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:20:21.562Z",
+  "checked_at": "2026-11-20T21:23:39.112Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2543
+    "status": 502,
+    "duration_ms": 563
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2537,
+    "phase": "runtime",
+    "elapsed_ms": 559,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -60,86 +55,81 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 2525,
+        "duration_ms": 549,
         "timings": {
-          "response_ms": 1389,
-          "body_read_ms": 1135,
-          "decode_and_transfer_ms": 1
+          "response_ms": 549
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_2f95dd29aa80\",\"title\":\"火线安全平台\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494915&idx=1&sn=85176c9906d751813adde61034de1aed&chksm=fc5f55300f5646c0c187f009ba632b82bb93d3fb3782e10d3e0bcaef89bcdf2c059df21c1e48&scene=126&sessionid=1795180828#rd\",\"description\":\"火线安全致力于做客户身边的安全专家，以超过2万名实名可信赖的安全专家团队和高效的运营平台，为客户提供专业的实战安全评估和托管运营服务。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"火线安全平台\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7zKujvVhn4rKmFaeEcWxUMy5Ujx2bl0icQlex6c64aKmg%2F0\",\"updated\":\"2026-02-24T02:21:00.000Z\",\"items\":[{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494915:1\",\"title\":\"乐橙专属——2026新春佳节活动\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494915&idx=1&sn=85176c9906d751813adde61034de1aed&chksm=fc5f55300f5646c0c187f009ba632b82bb93d3fb3782e10d3e0bcaef89bcdf2c059df21c1e48&scene=126&sessionid=1795180828#rd\",\"description\":\"开工新年礼！\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/l9VcEDo5ZhuUz02d5cSSgqeqbPZVMyF1lbr5wdjbtg817FATficfLwOzT98L716LS52a3K0uHXDt57cQZvv8qvXclcTk9a012s1BtImY12iak/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-02-24T02:21:00.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494908:1\",\"title\":\"火线安全春节放假通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494908&idx=1&sn=68f0e5e67b6934f208cccff49f38b099&chksm=fc33917e5929bcf6585013a65239522cf78f5a6efaeb6d8e4090888fd18d675efdca3c4bcc26&scene=126&sessionid=1795180828#rd\",\"description\":\"2026，祝全体白帽“马”上发财！新春快乐！阖家团圆！\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/l9VcEDo5ZhuNicqN4zmQyz8rtQG11LiaTfAKwT7ZURMTyNSzGXLhFmwg3JrZHQPZvzwD2miaTM8Il64YEgmBwdpNC6ufz6CRcicv4NrXsMa5n4w/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-02-14T11:24:12.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494902:1\",\"title\":\"火线安全|2025分红惊喜派送\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494902&idx=1&sn=8c0c16a51937211592606557b2c87a5c&chksm=fc8e08eb89d4d5f984cec93aa7b607e2df37127e93c9f15dee9715e836f07bdf4868a6941dd7&scene=126&sessionid=1795180828#rd\",\"description\":\"马到成功迎元旦——感恩一路同行！时光悄然划过，我们已并肩走过数载春秋，岁末年终的暖心时刻如期而至！\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJicmT2DrUibcaiceibia4N85sqWRibS0OEgLWT5KaH6xFDmx4EiaGs4WGUkkeT74cmD4YzMO3ad7B14I4iaIA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-01-01T07:38:41.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494888:1\",\"title\":\"双旦狂欢预警｜2025年终收官，冲榜赢礼就等你！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494888&idx=1&sn=d5efee6aee45e43c423372e17a550cb9&chksm=fc64d31dc70738059671e583050b74f810d63cd3dd00ecdafb5e56bb091262b9c4c3bd8f9f87&scene=126&sessionid=1795180828#rd\",\"description\":\"叮～双旦限定快乐已加载ing！\\r\\n安全无小事，责任大于天，但守护安全也可以很有“元气”～\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJibZ3v4VjN4XxyULyFNnBNtWHZEa3YPbxiciabia0W7zF9xct72oNvJeLjdfQiadCibTia9yk6WWApgQdDEQ/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-12-18T09:52:15.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494867:1\",\"title\":\"挖洞挣钱，“双十一”买买买\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494867&idx=1&sn=57c006c727c4f65400559f11c6d9fcfa&chksm=fc8d37353da2bf46cd72ff6a4fd7d39138b171fdd7b115bcded217d22d12ae8f5f311ec286b4&scene=126&sessionid=1795180828#rd\",\"description\":\"火线安全平台为大家准备的“双十一” 福利已就位！查克拉翻倍、限时暴击、专属加码惊喜层层叠加！！\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJibfz1AHfqIHlicDVRuzvOFiav4cCbGLCIFOWLTWcVj40zsRY5EjUC8cgMKrjicE6mh8Se0Yw1t1JDa8w/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-11-03T07:59:29.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494847:1\",\"title\":\"火线安全霸榜大佬都有谁？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494847&idx=1&sn=1e09941869f9f981d32b6eb11089fa95&chksm=fcef932430915ccc3ed78b27aa58122b83e442b4c6eae2048b23cdfc1412526a8fb50f1e90e3&scene=126&sessionid=1795180828#rd\",\"description\":\"在这Q4的开端，不妨回顾一下：前三个季度的排行榜，你与大神之间的差距有多大？\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJicvylHSx0xI4gL4Qv3EVG9T2avOvJzJxyTfe5jUos3TROW9N175OWR7xofP2lib5LzibAgy25JqwdSg/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-10-15T03:16:10.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494828:1\",\"title\":\"双节同庆，网络安全不 “打烊”！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494828&idx=1&sn=baedbd0a14c845fc087fedd9ff9b912c&chksm=fcdf08976f9002bcf90059cd68885aafe4a7d864c6842cfb8d82f34bbcfea2c6db5f56e3bbbc&scene=126&sessionid=1795180828#rd\",\"description\":\"国庆，是家国同庆的喜悦；中秋，是阖家团圆的温馨。从网络防线到万家灯火，安全从不缺席。\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJ9bt7CuVkDFbZZkuooibJeq9kGM9JJcaYSrZ364GicY8OHLnt1uf8Iicr1gLQcTtdef3IlicNV1XXLibhA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-09-28T07:39:58.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494783:1\",\"title\":\"火线安全平台-白帽子“征兵”计划\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494783&idx=1&sn=e032865aeab3839717be9907e9bbfeda&chksm=fc7adef0596735547e2f2019acf13e70e33fd220603993ae1b7f5211b9bfa40356ab40cf0072&scene=126&sessionid=1795180828#rd\",\"description\":\"今年9月3日我们将迎来一场盛大的阅兵式，这是对我国国防力量的一次精彩展示，也是对历史的铭记和对先辈们的缅怀。\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJicFLfy0IGMbO9jEWBmKj92X7mO9N7RUbcMTNbDmEdiakZKTFPicPl8u0hsITbNKHg3WBLT9Q63Fms7w/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-09-01T09:51:00.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494770:1\",\"title\":\"火线陪你过七夕！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494770&idx=1&sn=35671d1178f8bd7f9912d81fb4f24e7e&chksm=fcbce37d39c76f95bac6329c5a41bff08b0a555bfeeaf412aaa751ac7be8eb7a3aedc537a46e&scene=126&sessionid=1795180828#rd\",\"description\":\"一年一度的七夕节又来啦！！本次活动赏金翻又翻！快来看看吧~\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJibTJPeET2fNREsllageK54Opnnuefib3xHSzh7TaxHAudwY4R1XldRahL784ibeMozxvaHKlVY2cUFA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-08-22T09:18:33.000Z\"},{\"id\":\"wxmp:MzU4MjEwNzMzMg%3D%3D:2247494760:1\",\"title\":\"Keep SRC双倍赏金它又来了！！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4MjEwNzMzMg==&mid=2247494760&idx=1&sn=1f8da045d705f151baf0caf5f9276e54&chksm=fcf596ed41fe012e56bdf501780d21c14bcf2c9af1f5af30a61a285f18d34ffb3ec992d55793&scene=126&sessionid=1795180828#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/MibgS41eXiaJ8ia7bn6tyBnts7bIuTCVCsKO9Oibc3hLSbYpBiaqdibrDterOyK5TwqFRWibryejyLpES3icYzuUTtaAiaA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-08-13T07:46:18.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2537,
+      "elapsed_ms": 559,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 5
+          "started_ms": 2,
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 2531
+          "duration_ms": 552
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2537,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2537,
+          "name": "错误诊断收集",
+          "started_ms": 558,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2537,
+          "started_ms": 558,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 2537,
-          "duration_ms": 0
+          "name": "失败后浏览器清理",
+          "started_ms": 558,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2537,
+          "started_ms": 559,
           "duration_ms": 0
         }
       ],
@@ -147,7 +137,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 2525
+          "duration_ms": 549
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_2f95dd29aa80",
     "name": "火线安全平台",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_2f95dd29aa80.json",
-    "duration_ms": 1681
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 533
   }
 }

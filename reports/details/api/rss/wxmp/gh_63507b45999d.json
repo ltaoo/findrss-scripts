@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-20T13:21:08.481Z",
+  "checked_at": "2026-11-20T21:23:55.041Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1819
+    "status": 502,
+    "duration_ms": 596
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,24 +34,19 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1813,
+    "phase": "runtime",
+    "elapsed_ms": 588,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
+    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 200,
+        "status": 503,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -59,18 +54,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 1800,
+        "started_ms": 13,
+        "duration_ms": 574,
         "timings": {
-          "response_ms": 1067,
-          "body_read_ms": 732,
-          "decode_and_transfer_ms": 1
+          "response_ms": 574
+        },
+        "rate_limit": {
+          "retry-after": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_63507b45999d\",\"title\":\"安全产品人的赛博空间\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484425&idx=1&sn=e4db52b404ce34d7eeea3e480a750b51&chksm=c171b080cace2aed465dfeddde3121feaf21ed108ad58f13ad16bcf0d7d8b7ff74259c0d062d&scene=126&sessionid=1795180875#rd\",\"description\":\"一个专门讲安全产品的公众号。分享对安全产品的认知、分析、思考、发展等关于安全产品的一切\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"安全产品人的赛博空间\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6Jkc2KG5FnFYz2ibhCrWp0BkUpdQ8XHm3wDoj9sTc5wfw%2F0\",\"updated\":\"2026-05-26T02:00:00.000Z\",\"items\":[{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484425:1\",\"title\":\"Claude Code Workflow 解析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484425&idx=1&sn=e4db52b404ce34d7eeea3e480a750b51&chksm=c171b080cace2aed465dfeddde3121feaf21ed108ad58f13ad16bcf0d7d8b7ff74259c0d062d&scene=126&sessionid=1795180875#rd\",\"description\":\"Claude Code 最近更新了一个大功能。这个功能叫 Workflow。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Ft9FpDdenMLW1pf3EVrVA4jj787Zdu675FMphBmlfaWGCsDMqyIuOZs3micOu65JyxMkKG6ekNpzkpQAm9HDf2XgVdfZuBiaYqhSicIX9ocF20k%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-26T02:00:00.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484420:1\",\"title\":\"做了两个 Claude Code 插件，把一些重复劳动省了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484420&idx=1&sn=bf9db144a80e7a1237fe3424bae40a1d&chksm=c13c4505a3a873a2828ffa5357a28e46f59dbfe51080befc5b21db99b3e862ca9cbe6e4a854b&scene=126&sessionid=1795180875#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Ft9FpDdenMLUL1ItiaQlue8ZhckQPngYYnwVtapA0icj7eKtOUxqDsCWRRgUbcn5NTl4JFYBKmOUKYT3DPsCcguzMK1Vb9Qaq8ayGpvycIqKia8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-16T00:30:00.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484410:1\",\"title\":\"Claude Code源码泄露！可直接build\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484410&idx=1&sn=7e1fb22c494b696f794d3c9613f0cae1&chksm=c1af3c1b4c1360fbdcb0ed0310770a295f1771d52d66eb536a09a5445183bf8eafd1cb3fe15c&scene=126&sessionid=1795180875#rd\",\"description\":\"字越少，事越大，如题先是npmjs上claude-code的.map文件被传上去了估计是ai coding出了\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Ft9FpDdenMLV7lPY6rg1duUKQchSReQ0qbwc6tADeyibylv3pmdVWcm8qgHqm3VwUfWL0LfsNopuxm8pfUdicBJHHtUnOImia0MdVYMChoSrAGw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-31T10:35:46.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484394:1\",\"title\":\"再推荐一次cc-connect\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484394&idx=1&sn=23e3ca22ce8c7b5a8b3de0ed377d139d&chksm=c18138ac27b078ba7d945dcae83a7ccfab39d1f2187bb8e105d0860366cd2112b5b53d62f759&scene=126&sessionid=1795180875#rd\",\"description\":\"我一直没有装龙虾，因为我最开始就用Claude code，所有的skills、subagent、mcp都是给Claude code，搞到龙虾里觉得麻烦。\\n\\n后来龙虾出来后，接聊天软件那个功能，确实还不错，于是找平替，找到cc-connect，用了半个月，着实提升了我不少工作效率\\n\\n开发者在群里解决问题和响应需求非常快，尊重用户，因此想帮着宣传下\\n\\n详细功能大家可以去readme看\\n\\n简单讲几个推荐理由\\n1.易上手：一边接了几乎全CLI式的AI coding工具，另一边接了几乎全聊天工具，也就是说你以前用哪个做生产力cc/codex/opencode，这玩意儿都能用起来\\n2.更新快！：微信刚发的ClawBot插件，今天下午cc-connect就集成了\\n3.用户需求真响应：我两周前刚用上的时候，发现还不能切目录，只能一个项目配一个机器人，有点傻，今天想着更新下接入微信，发现上周cc-connect就把多工作区、切换目录功能做上去了\\n\\n现在用起来很丝滑，基本解决了电脑不在手边的焦虑\\n项目地址：https://github.com/chenhg5/cc-connect/\",\"content\":\"<p>我一直没有装龙虾，因为我最开始就用Claude code，所有的skills、subagent、mcp都是给Claude code，搞到龙虾里觉得麻烦。<br /><br />后来龙虾出来后，接聊天软件那个功能，确实还不错，于是找平替，找到cc-connect，用了半个月，着实提升了我不少工作效率<br /><br />开发者在群里解决问题和响应需求非常快，尊重用户，因此想帮着宣传下<br /><br />详细功能大家可以去readme看<br /><br />简单讲几个推荐理由<br />1.易上手：一边接了几乎全CLI式的AI coding工具，另一边接了几乎全聊天工具，也就是说你以前用哪个做生产力cc/codex/opencode，这玩意儿都能用起来<br />2.更新快！：微信刚发的ClawBot插件，今天下午cc-connect就集成了<br />3.用户需求真响应：我两周前刚用上的时候，发现还不能切目录，只能一个项目配一个机器人，有点傻，今天想着更新下接入微信，发现上周cc-connect就把多工作区、切换目录功能做上去了<br /><br />现在用起来很丝滑，基本解决了电脑不在手边的焦虑<br />项目地址：https://github.com/chenhg5/cc-connect/</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2Ft9FpDdenMLUPMDrYJcm0SKtFYYz7KIKraXzKlQUxI7YWrlEkB8mNUMoSJZ5PhqTLzel0qGE3ib5ibgzpHFX25HFV90JlHYxiaCibxfmZosibKRlw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Ft9FpDdenMLVXKZp8cxR1gC5ZUHa1ZkWnKKPEDHQHswGQ9J0rSwYAON7HdJR1vush16VJGtFI0NQdz6obVDGy0TG3DI4ibDRBSBiaCSPmKia3as%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2Ft9FpDdenMLUPMDrYJcm0SKtFYYz7KIKraXzKlQUxI7YWrlEkB8mNUMoSJZ5PhqTLzel0qGE3ib5ibgzpHFX25HFV90JlHYxiaCibxfmZosibKRlw%2F0\"],\"type\":\"gallery\",\"published\":\"2026-03-23T13:19:25.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484337:1\",\"title\":\"Claude Code 转 OpenAI api\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484337&idx=1&sn=3b9c31e7c5241beb53ecc0e340747f53&chksm=c1ce557157f8b0c50f7bbbc972f435307e707fb603cc45b1d932533e675736c1e002db30c588&scene=126&sessionid=1795180875#rd\",\"description\":\"最近用Claude code做了不少东西，但是有个问题：如果我要共享我的智能体，那么我需要把我写的mcp，subagent，skills，hook，plugin共享出去，会用Claude的人可以用，不会用的就抓瞎了，门槛太高。\\n\\n我又不想去开发一个web，重复造轮子。\\n\\n于是给claude封装了一个openai格式的api，好处是任何一个大模型生态中的应用，都可以集成，例如聊天机器人，工作流，企业AI应用等等。\\n例如：\\n图2，是我集成到cherry 里的实例\\n图345，是我集成到dify里的实例\\n懂的同学应该一眼能看出来是Claude \\n\\n自用了一个多月，挺好，发出来看能不能解决一些大家的问题\\n\\n\\n链接：https://github.com/chengable/Claude-Code-OpenAI-API\",\"content\":\"<p>最近用Claude code做了不少东西，但是有个问题：如果我要共享我的智能体，那么我需要把我写的mcp，subagent，skills，hook，plugin共享出去，会用Claude的人可以用，不会用的就抓瞎了，门槛太高。<br /><br />我又不想去开发一个web，重复造轮子。<br /><br />于是给claude封装了一个openai格式的api，好处是任何一个大模型生态中的应用，都可以集成，例如聊天机器人，工作流，企业AI应用等等。<br />例如：<br />图2，是我集成到cherry 里的实例<br />图345，是我集成到dify里的实例<br />懂的同学应该一眼能看出来是Claude <br /><br />自用了一个多月，挺好，发出来看能不能解决一些大家的问题<br /><br /><br />链接：https://github.com/chengable/Claude-Code-OpenAI-API</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWQia77IwftfibupUrZqmsrXEtLRzJcLZ7qU2nQFLzok3ZX0AMjZlZNQ2w%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWZKDAGv8rBps7JgKOelAxX9Of102MuuiaNr7RMw9OksdF6q6MNiclUNIQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWCUN6TVL1CibbJ5emejMrehBKhSCGAa7BgDVvHWATiaSNmfKC0LPUMenQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWYHThWglvYJPbDtk1ZlIlnhJE2OzvyXw20YjsdcuY1r1hCzfYfKUwIw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWE84rt3tibU7SQjQ70anq0icC4BXpmmF5CiaVHs47YUcmIyPbzxxK1UVIw%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWwBjwYaok6QllGgdCThwZUA4eyrzNqJJkicmT4vJ5EMaibXSiaDNlEfFBg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWQia77IwftfibupUrZqmsrXEtLRzJcLZ7qU2nQFLzok3ZX0AMjZlZNQ2w%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWZKDAGv8rBps7JgKOelAxX9Of102MuuiaNr7RMw9OksdF6q6MNiclUNIQ%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWCUN6TVL1CibbJ5emejMrehBKhSCGAa7BgDVvHWATiaSNmfKC0LPUMenQ%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWYHThWglvYJPbDtk1ZlIlnhJE2OzvyXw20YjsdcuY1r1hCzfYfKUwIw%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF7qwLh1S1f499dFmac9jEIWE84rt3tibU7SQjQ70anq0icC4BXpmmF5CiaVHs47YUcmIyPbzxxK1UVIw%2F0\"],\"type\":\"gallery\",\"published\":\"2026-03-23T13:19:25.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484387:1\",\"title\":\"谈网安之前，得先谈谈软件行业\\n软件行业的未来会只剩AI Agent，软件公司的转型是赶紧做好自己所在领域的垂直agent，把自己深耕行业的经验转为agent的skills。\\n几个理由\\n1-现在的这种人操作的软件，在AI编程的背景下，可以小成本，批量生产\\n2-随着AI越来越强，肉眼可见的很快会走到人说需求，AI写出软件，一次性运行无bug的程度，这时，软件的价值无限缩小\\n\\n基于这个论断，再来说下网安\\n在国内，网安更偏向软件行业估值\\n在海外，网安更偏向科技行业估值\\n为何有这个区别？\\n\\n网安的科技属性，在对抗，在挖洞，在进攻手法和防御检测方案。\\n网安的软件属性，在用户操作安全产品的那个页面，那是个纯CURD业务。\\n\\n这代表咱国内更关注的，仅仅是CURD而已。厂商基于开源软件，AI coding个大屏，就能卖了，这还挺悲哀的\\n\\n实际工作中的感受，跟这个判断也差不多，国内外网安科技属性的差距，越来越大。\\n\\n举个亲身经历的例子，在某项目里，手搓了新webshell ，但是在10分钟内，被某国外主机安全上传到云上，被人工专家标记查杀了，而这个webshell依然随意过国内主机安全\\n那个时候我就在想，海外大部分企业接saas安全产品，那海外安全厂商实时收到全球客户遭受的最新攻击，最新样本，最新手法。这意味着，天天跟武林高手切磋\\n回看我们，全部私有化，全在自嗨，岂不是只能越差越多？\\n\\n未来呢，我判断先死后生\\n随着AI Coding，软件属性的价值越来越小，直到趋近于归零，一大批只提供CURD，不注重检测能力的厂商加速死去\\n\\n甲方也发现AI时代，还操作个p的安全产品啊，上面的综合管理平台，全部AI coding开发，又快又符合甲方特有流程，而且不需要安全厂商开发，软件公司也能接，AI coding嘛，啥业务写不了？\\n\\n理念更先进一点的甲方，要啥综合管理平台？平台不就是为了看数据，处理数据吗？直接上一个安全AI Agent，接数据源API，Agent自己看数据，分析数据出图表，自己处理告警，最后定期给我生成一个丰满带图表的汇报报告就行了。\\n\\n安全产品正式变为安全引擎、安全工具，只提供数据，没人去登录，没人去看那个炫酷的大屏\\n这个时候，网安行业才真正开始从谷底爬起。\\npoc逐渐变得只看检测能力，招标参数开始关注误报率，漏报率。甲方开始沉淀测评数据集，乙方开始卷规则，卷更新时效。\\n原来5%的检出率差距，真的可以值50w价格差距\\n\\n国内网安的春天，在软件属性归零的那一刻，才真正到来。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484387&idx=1&sn=59dc47eb79eb9b0b4101828145c8307a&chksm=c17df53a1b34164316be8c3ff682352f5a3fec23432ade8277e07624dec050c25996a0873c72&scene=126&sessionid=1795180875#rd\",\"description\":\"\",\"type\":\"article\",\"published\":\"2026-01-29T11:48:50.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484375:1\",\"title\":\"Claude的记忆系统是如何工作的？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484375&idx=1&sn=e7e0d453180dd08e89346a2a1fe7a206&chksm=c14e44d1f9056c18b1a615df5eb989f0be5665a9e8649e13bb936b6c4c84407e14a8c38b661b&scene=126&sessionid=1795180875#rd\",\"description\":\"就在昨天，Manthan Gupta这位老哥又逆了Claude，分析了Claude的记忆系统，发现了一些与ChatGPT不一样的地方\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF4mhTDVib5FFAPxIzHrEMFcD3rtygEUN0mibOSJnJ3r5VsZxhicwwIkUwKpZPjaGeZFr5FoyIVadWk8w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-15T04:10:34.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484364:1\",\"title\":\"超出想象的简单！ChatGPT的记忆方案\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484364&idx=1&sn=fbd7b71b60899703f2599c113f1e8650&chksm=c12c821aed3778c0d3bb29dd88ea3a2afd8c86246811b22774133b07c12704020f4ddc7565b5&scene=126&sessionid=1795180875#rd\",\"description\":\"国外一位老哥逆向了ChatGPT，分析它的记忆方案。当我们还在讨论向量数据库、复杂检索系统的时候，ChatGPT其实用了一个相当朴素的方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF5WnZhjQNQSMXkeu4W8PyLfsqFz3pn2S10loMSGgRAOd8iacfYMtnulibjoafXnH6e3SdeeaJrJHUsw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-12T06:07:34.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484359:1\",\"title\":\"Claude Code的自我迭代做法\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484359&idx=1&sn=d856a18efd469d87f364a7c02aa352ec&chksm=c17a830f95d67aef1e144ad896d0bf781c00480979f1df1702110ddf3fb6b0116268db35af6b&scene=126&sessionid=1795180875#rd\",\"description\":\"最近看AI资讯的时候看到 Claude Diary，觉得思路挺有意思。它尝试解决一个我们用智能体时很具体的问题：怎么让 Claude Code 真正“动态更新”我的偏好？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF4JrPYjWOX8WAe6icpM1Sf8RlDT8Ob3kEKy8o8YqtD4A8hCnCCkSVDx0F9yeNVogaiaZHicT62JLTpQA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-09T04:00:00.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484318:1\",\"title\":\"谈谈AI对产品的颠覆\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484318&idx=1&sn=9ae67006c57bfe054c31e2397969b0d9&chksm=c1900541d4577fec2b04843eb0e0323ca2d72a4ab9c755faf39b122d929c7b40fbcc22a0de88&scene=126&sessionid=1795180875#rd\",\"description\":\"好久没发文章，因为AI带来的冲击实在太大了，研究AI去了最近一段时间对AI的探索和思考，把一些对产品经理和产品\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF4fvJWiaGcHGXRVjZwYM4TJf5RYrGaGJnickrXgbEmFpNm2g44kMtwyicn4ZZPpNUQicdvzvKHJl8hVjA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-19T13:02:09.000Z\"},{\"id\":\"wxmp:Mzg5NTUzODkxMw%3D%3D:2247484312:1\",\"title\":\"【速览】全球网安巨头5款产品如何应用大模型\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg5NTUzODkxMw==&mid=2247484312&idx=1&sn=667afd712d69f14b432afdeb1a63d385&chksm=c1fd6deb8d6e004c91e27a64604bd6390e3719c6c51062ce3b40e357925fa80f475aea061f77&scene=126&sessionid=1795180875#rd\",\"description\":\"随着大模型的火热，大模型在安全产品中有哪些应用，我们今天来详细剖析\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8ZOMF5yvSF757oWliaha9XUoXdu1CApWodZkXSyXmd0r5b7kX78TNftdXzIibCZVXibr8BgLe4xe5qNu5iaI3pcyiaA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-04-11T03:57:49.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1813,
+      "elapsed_ms": 588,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,49 +100,44 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 1
+          "duration_ms": 4
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 5,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1805
+          "started_ms": 10,
+          "duration_ms": 578
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1812,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 1812,
+          "name": "错误诊断收集",
+          "started_ms": 588,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1812,
-          "duration_ms": 1
+          "started_ms": 588,
+          "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1813,
+          "name": "失败后浏览器清理",
+          "started_ms": 588,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1813,
+          "started_ms": 588,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 1800
+          "started_ms": 13,
+          "duration_ms": 574
         }
       ]
     }
@@ -158,12 +148,13 @@
     "example": "/api/rss/wxmp/gh_63507b45999d",
     "name": "安全产品人的赛博空间",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_63507b45999d.json",
-    "duration_ms": 3153
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 587
   }
 }
