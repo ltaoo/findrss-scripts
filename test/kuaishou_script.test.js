@@ -99,6 +99,21 @@ test('快手 HTTP 200 中的 result=50 明确报告签名失败，不误报为 C
   });
 });
 
+test('快手 HTTP 200 携带登录地址的 result=109 明确报告需要登录，不请求登录地址或泄露地址参数', async t => {
+  let calls = 0;
+  t.mock.method(globalThis, 'fetch', upstream(async () => {
+    calls++;
+    return Response.json({ result: 109, error_id: 'fixture', loginUrl: 'https://www.kuaishou.com/login?token=private-token' });
+  }));
+  await assert.rejects(run(), error => {
+    assert.equal(error.problem.code, 'UPSTREAM_AUTH_REQUIRED');
+    assert.match(error.message, /要求登录（result=109）.*重新同步登录 Cookie/);
+    assert.doesNotMatch(error.message, /private-token|https:/);
+    return true;
+  });
+  assert.equal(calls, 1);
+});
+
 test('快手明确提示操作太快时报告限流，保留业务码和原因，不误报 Cookie 失效', async t => {
   t.mock.method(globalThis, 'fetch', upstream(async () => Response.json({ result: 2, error_msg: '操作太快了，请稍微休息一下' })));
   await assert.rejects(run(), error => {

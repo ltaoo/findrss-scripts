@@ -26,6 +26,26 @@ test("巡检先发出 on_start，再为同一槽位发出 on_result", async () =
   assert.deepEqual(calls, [["start", 0, entry.example], ["result", 0, entry.example]]);
 });
 
+test("默认巡检使用脚本实例名称，同地址配置合并名称和校验规则且只请求一次", async () => {
+  const named = { ...entry, example_name: "默认作者" };
+  const options = { fetch_impl: async () => Response.json(value, { headers }) };
+  const report = await check_routes("https://scripts.example", [named], {}, options);
+  assert.equal(report.results[0].name, "默认作者");
+  const overridden = await check_routes("https://scripts.example", [named], {
+    [entry.format + " " + entry.path]: { name: "指定作者", example: entry.example },
+  }, options);
+  assert.equal(overridden.results[0].name, "指定作者");
+  const requested = [];
+  const merged = await check_routes("https://scripts.example", [named], {
+    [entry.format + " " + entry.path]: [{ example: "https://scripts.example" + entry.example, min_items: 2 }],
+  }, { fetch_impl: async url => { requested.push(url.href); return Response.json(value, { headers }); } });
+  assert.deepEqual(requested, ["https://scripts.example" + entry.example]);
+  assert.equal(merged.results[0].name, "默认作者");
+  assert.equal(merged.results[0].output_valid, false);
+  assert.match(merged.results[0].error, /条目数须 >= 2/);
+  assert.equal(merged.results[0].samples, undefined);
+});
+
 test("平台通用资源超限页不能断定 CPU 超限，普通 503 不误判", async () => {
   for (const [body, code] of [
     ["<title>Worker exceeded resource limits | scripts.example | Cloudflare</title>", "EXCEEDED_RESOURCES"],
@@ -111,13 +131,10 @@ test("2xx 原始回包按实际路径单独保存，校验失败也保留，HTTP
     ["hot", "/empty/", "", "application/json", "empty/index.json"],
   ];
   for (const [format, example, body, content_type, output_file] of cases) {
-    const report = await check_routes("https://scripts.example", [{ ...entry, format }], {
-      [format + " " + entry.path]: { example },
-    }, {
+    const result = await check_route("https://scripts.example", { ...entry, format, example }, {
       output_dir,
       fetch_impl: async () => new Response(body, { headers: { ...headers, "Content-Type": content_type } }),
     });
-    const result = report.results[0];
     assert.equal(result.output_file, output_file);
     assert.deepEqual(await readFile(join(output_dir, output_file)), Buffer.from(body));
     if (format === "rss" || example === "/empty/") assert.equal(result.output_valid, false);
@@ -131,7 +148,7 @@ test("2xx 原始回包按实际路径单独保存，校验失败也保留，HTTP
   assert.ok(!(await readdir(output_dir)).includes("failure"));
 });
 
-test("同一路由检查多个配置样本并聚合结果，未配置路由继续使用默认样本", async () => {
+test("配置样本追加到默认 example 并聚合结果，未配置路由继续使用默认样本", async () => {
   const requested = [];
   const completed = [];
   const report = await check_routes("https://scripts.example", [entry, { ...entry, path: "/default", example: "/default" }], {
@@ -145,14 +162,15 @@ test("同一路由检查多个配置样本并聚合结果，未配置路由继�
     },
     on_result: result => completed.push(result),
   });
-  assert.deepEqual(requested.sort(), ["/configured/failed", "/configured/passed", "/default"]);
-  assert.equal(completed.length, 3);
+  assert.deepEqual(requested.sort(), [entry.example, "/configured/failed", "/configured/passed", "/default"].sort());
+  assert.equal(completed.length, 4);
   assert.deepEqual([report.total, report.passed, report.failed], [2, 1, 1]);
   const result = report.results.find(result => result.path === entry.path);
-  assert.equal(result.samples.length, 2);
+  assert.equal(result.samples.length, 3);
   assert.deepEqual([result.request, result.response, result.format_valid, result.output_valid], [false, false, false, false]);
   assert.equal(result.error, "失败账号 /configured/failed: HTTP 503");
-  assert.deepEqual(result.samples.map(sample => sample.name), ["失败账号", "正常账号"]);
+  assert.deepEqual(result.samples.filter(sample => sample.name).map(sample => sample.name), ["失败账号", "正常账号"]);
+  assert.equal(result.samples.find(sample => sample.example === entry.example).output_valid, true);
   assert.ok(result.samples.some(sample => sample.output_valid));
   const passed = await check_routes("https://scripts.example", [entry], {
     [entry.format + " " + entry.path]: [{ example: "/a" }, { example: "/b" }],
@@ -167,6 +185,7 @@ test("配置错误或样本跨站时，开始请求之前拒绝整轮巡检", as
     { [key]: [{ min_items: -1 }] }, { [key]: [{ example: " " }] },
     { [key]: [{ name: " " }] }, { [key]: [{ name: 42 }] },
     { [key]: [{ example: "/valid" }, { example: "https://other.example/private" }] },
+    { [key]: [{ example: "https://other.example" + entry.example }] },
     { [key]: [{ example: "https://user:password@scripts.example/private" }] }];
   for (const config of invalid) {
     await assert.rejects(check_routes("https://scripts.example", [entry], config, {
@@ -183,7 +202,8 @@ test("多个样本仅查询参数不同时正文分别保存，不覆盖或暴�
   }, {
     output_dir, fetch_impl: async url => Response.json({ ...value, title: "Page " + url.searchParams.get("page") }, { headers }),
   });
-  const samples = report.results[0].samples;
+  assert.equal(report.results[0].samples.length, 3);
+  const samples = report.results[0].samples.filter(sample => sample.example.includes("?"));
   assert.equal(new Set(samples.map(sample => sample.output_file)).size, 2);
   for (const sample of samples) {
     assert.match(sample.output_file, /^api\/hot\/example\.[a-f0-9]{16}\.json$/);
@@ -192,14 +212,15 @@ test("多个样本仅查询参数不同时正文分别保存，不覆盖或暴�
   }
 });
 
-test("仓库配置覆盖社交平台的具名账号样本", async () => {
+test("仓库配置覆盖社交账号和剧集的具名样本", async () => {
   const config = JSON.parse(await readFile(new URL("../.github/route-checks.json", import.meta.url), "utf8"));
   const cases = JSON.parse(await readFile(new URL("../dist/routes.json", import.meta.url), "utf8"));
   const configured = cases.filter(entry => Object.hasOwn(config, entry.format + " " + entry.path));
-  assert.equal(configured.length, 11);
+  assert.equal(configured.length, 15);
   assert.deepEqual(new Set(configured.map(entry => entry.file)), new Set([
     "rss/wxmp.js", "rss/wxchannels.js", "rss/zhihu.js", "rss/youtube.js", "rss/instagram.js",
     "rss/weibo.js", "rss/xiaohongshu.js", "rss/x.js", "rss/bilibili.js",
+    "rss/youku.js", "rss/iqiyi.js", "rss/vqq.js", "rss/mgtv.js",
   ]));
   const account_routes = {
     "/api/rss/zhihu/people/:user/answers": /^\/api\/rss\/zhihu\/people\/[A-Za-z0-9_-]+\/answers$/,
@@ -214,7 +235,8 @@ test("仓库配置覆盖社交平台的具名账号样本", async () => {
   };
   for (const [path, pattern] of Object.entries(account_routes)) {
     const samples = config["rss_json " + path];
-    const expected_count = { "/api/rss/instagram/:username": 21, "/api/rss/zhihu/people/:user/answers": 19 }[path] ?? 20;
+    const expected_count = { "/api/rss/instagram/:username": 21, "/api/rss/zhihu/people/:user/answers": 19,
+      "/api/rss/bilibili/:userid/dynamic": 21, "/api/rss/bilibili/:userid/upload/video": 21 }[path] ?? 20;
     assert.equal(samples.length, expected_count, path);
     assert.equal(new Set(samples.map(sample => sample.example.toLowerCase())).size, expected_count, path);
     assert.ok(samples.every(sample => sample.name?.trim() && pattern.test(sample.example)), path);
@@ -223,19 +245,20 @@ test("仓库配置覆盖社交平台的具名账号样本", async () => {
   const report = await check_routes("https://scripts.example", configured, config, {
     fetch_impl: async url => { requested.push(url.pathname); return new Response("Unavailable", { status: 503 }); },
   });
-  const examples = Object.values(config).flat().map(sample => sample.example);
+  const examples = [...new Set([...configured.map(entry => entry.example), ...Object.values(config).flat().map(sample => sample.example)])];
   assert.deepEqual(requested.sort(), examples.sort());
   assert.equal(new Set(requested).size, examples.length);
-  assert.equal(requested.filter(path => path.startsWith("/api/rss/wxchannels/")).length, 16);
+  assert.equal(requested.filter(path => path.startsWith("/api/rss/wxchannels/")).length,
+    examples.filter(path => path.startsWith("/api/rss/wxchannels/")).length);
   assert.ok(requested.filter(path => path.startsWith("/api/rss/wxmp/")).length > 2);
   assert.ok(requested.every(path => /^\/api\/rss\/wxmp\/[A-Za-z0-9_-]+$/.test(path) || !path.startsWith("/api/rss/wxmp/")));
   assert.ok(requested.includes("/api/rss/wxmp/gh_2d5b35dfb4f3"));
-  assert.ok(requested.includes("/api/rss/wxmp/gh_240fbf8b33e4"));
+  assert.ok(!requested.includes("/api/rss/wxmp/gh_240fbf8b33e4"));
   assert.ok(requested.includes("/api/rss/wxmp/gh_e59ba9dfaa66"));
   assert.ok(config["rss_json /api/rss/wxmp/:account?"].every(sample => sample.name?.trim()));
   assert.ok(requested.includes("/api/rss/zhihu/people/li-hai-yang-14-43/answers"));
   assert.ok(requested.every(path => !path.includes("wxchannels:")));
-  assert.deepEqual([report.total, report.failed], [11, 11]);
+  assert.deepEqual([report.total, report.failed], [15, 15]);
   assert.equal(report.results.reduce((count, result) => count + (result.samples?.length ?? 1), 0), examples.length);
 });
 

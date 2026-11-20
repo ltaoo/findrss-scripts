@@ -105,7 +105,8 @@ export class IqiyiSeriesRSS extends RSSScript {
 const script = new IqiyiSeriesRSS();
 export const route = {
   name: "爱奇艺剧集", path: "/iqiyi/series/:album_id", url: "www.iqiyi.com", maintainers: ["findrss"],
-  example: "/iqiyi/series/3993682943621001", parameters: { album_id: "爱奇艺数字专辑 ID（albumId / qipu_id），不是 a_ 后的短码" },
+  example: "/iqiyi/series/3993682943621001",
+  example_name: "小城良方", parameters: { album_id: "爱奇艺数字专辑 ID（albumId / qipu_id），不是 a_ 后的短码" },
   description: "读取正片分集目录，按集序倒序输出官网播放链接；缺失时间不补造，付费集仍由官网验证播放权限。",
   handler: ctx => script.run(ctx),
 };

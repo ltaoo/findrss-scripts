@@ -8,6 +8,7 @@ import { ScriptCookieAccess } from "findrss-worker/server/infra/script_cookie_ac
 
 const { compile_script_module, execute_script } = await import("findrss-worker/server/infra/script_sandbox.js");
 const source = read_script("rss/zhihu.js");
+const collection_page = await readFile(new URL("./fixtures/zhihu_collection_header.html", import.meta.url), "utf8");
 const compiled = await compile_script_module(source);
 assert.equal(compiled.error, "");
 const author = { name: "测试用户", avatar_url: "https://pic.example/avatar.jpg" };
@@ -102,6 +103,12 @@ for (const [index, fixture] of cases.entries()) test("知乎 QuickJS：" + fixtu
   let entries = fixture.entries;
   globalThis.fetch = async (url, options) => {
     calls++;
+    if (index === 7 && url === "https://www.zhihu.com/collection/26444956") return new Response(collection_page);
+    if (index === 5 && url === "https://zhuanlan.zhihu.com/api/columns/googledevelopers") return Response.json({
+      title: "谷歌开发者社区", description: "专栏介绍", image_url: "https://pic.example/column.jpg",
+      author: { name: "专栏作者", url_token: "column-owner" },
+    });
+    if (url === "https://www.zhihu.com/people/example") return new Response('<div class="ProfileHeader"><span class="ProfileHeader-name">主页用户</span><img class="ProfileHeader-avatar" src="https://pic.example/profile.jpg"></div>');
     const parsed = new URL(url);
     assert.equal(parsed.origin + parsed.pathname, fixture.endpoint);
     assert.equal(parsed.searchParams.get("limit"), "20");
@@ -113,7 +120,7 @@ for (const [index, fixture] of cases.entries()) test("知乎 QuickJS：" + fixtu
     return new Response(JSON.stringify({ data: [...entries, ...entries] }));
   };
   const feed = JSON.parse((await run(index)).output);
-  assert.equal(calls, 1);
+  assert.equal(calls, index === 5 || index === 7 ? 2 : 1);
   assert.deepEqual(feed.items.map(item => item.id), fixture.ids);
   assert.equal(feed.kind, "rss");
   for (const format of ["rss", "atom"]) assert.ok(FeedModel.fromValue(feed).render(format).includes(fixture.ids[0]));
@@ -126,13 +133,52 @@ for (const [index, fixture] of cases.entries()) test("知乎 QuickJS：" + fixtu
     assert.equal(feed.items[0].enclosure, undefined);
   }
   if (index === 3) assert.equal(feed.items[0].link, "https://www.zhihu.com/question/123");
+  if (index === 5) {
+    assert.equal(feed.title, "谷歌开发者社区");
+    assert.equal(feed.description, "专栏介绍");
+    assert.deepEqual(feed.author, { name: "专栏作者", uri: "https://www.zhihu.com/people/column-owner" });
+    assert.equal(feed.image, "https://pic.example/column.jpg");
+  }
+  if (index === 7) {
+    assert.equal(feed.title, "总有一天能用到的资料");
+    assert.equal(feed.description, "不持续更新，感谢大家的关注。");
+    assert.deepEqual(feed.author, { name: "蔡先生", uri: "https://www.zhihu.com/people/64fc740b91f4bacefe9db5477b968570" });
+    assert.equal(feed.image, "https://picx.zhimg.com/50/e136cb3ad_l.jpg?source=0df5f383");
+    assert.equal(feed.items[0].author.name, "测试用户");
+  }
   if (index === 6 || index === 7) {
     assert.match(feed.items[0].content, /&lt;内容&gt;<br>第二行/);
     assert.doesNotMatch(feed.items[0].content, /javascript:/);
     assert.equal(feed.items[0].image, "https://pic.example/pin.jpg");
   }
   entries = [];
-  assert.deepEqual(JSON.parse((await run(index)).output).items, []);
+  const empty = JSON.parse((await run(index)).output);
+  assert.deepEqual(empty.items, []);
+  if (index !== 5 && index !== 7) assert.equal(empty.author.name, "主页用户");
+});
+
+test("知乎收藏夹不将登录页、缺失标题或错误创建者地址当作有效资料", async t => {
+  for (const html of [
+    "<html>请登录</html>",
+    collection_page.replace("CollectionDetailPageHeader-title", "missing-title"),
+    collection_page.replaceAll("//www.zhihu.com/people/64fc740b91f4bacefe9db5477b968570", "//untrusted.example/people/owner"),
+  ]) {
+    t.mock.method(globalThis, "fetch", async () => new Response(html));
+    await assert.rejects(run(7), error => error.problem.code === "UPSTREAM_INVALID_RESPONSE" && /创建者资料/.test(error.message));
+  }
+});
+
+test("知乎提问列表未携带作者时，从用户主页读取真实昵称和头像", async t => {
+  t.mock.method(globalThis, "fetch", async url => {
+    if (url === "https://www.zhihu.com/people/example") return new Response('<div><span class="ProfileHeader-name">木子白</span><img class="ProfileHeader-avatar" src="https://pic.example/owner.jpg"></div>');
+    assert.equal(new URL(url).pathname, "/api/v4/members/example/questions");
+    return Response.json({ data: [{ ...question, author: undefined }] });
+  });
+  const feed = JSON.parse((await run(3)).output);
+  assert.equal(feed.title, "木子白 的知乎提问");
+  assert.equal(feed.author.name, "木子白");
+  assert.equal(feed.image, "https://pic.example/owner.jpg");
+  assert.equal(feed.items[0].author.name, "木子白");
 });
 
 test("知乎参数在出站前校验，各路由固定类型并拒绝损坏响应", async t => {

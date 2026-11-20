@@ -360,6 +360,7 @@ export const routes = [
     url: "mp.weixin.qq.com",
     maintainers: ["findrss"],
     example: "/wxmp/wow36kr",
+    example_name: "36氪",
     parameters: {
       account:
         "公众号微信号（如 wow36kr、zhihuribao）或原始 ID（如 gh_0a171c96fdbb、图集号 phacct_…）；也可继续用 ?username= 参数",
@@ -374,6 +375,7 @@ export const routes = [
     public: true,
     path: "/img/wxmp",
     name: "微信公众号图片代理",
+    example_name: "公众号文章封面",
     allowed_hosts: ["mmbiz.qpic.cn", "wx.qlogo.cn"],
     example:
       "/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fo02wSnKAPeGMHexZclJTrcLKL2lHicsXib9Hqaj5eMaXHdCNgL3STm8jvzOrRnY0dChSL9OVmwld2BVkVicLctXtuXNqibkiceXibiclE7jyndFxWY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25",

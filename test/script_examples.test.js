@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { script_examples, example_key } from "../scripts/script_examples.js";
-import { route_request_model } from "../scripts/route_request_model.js";
+import { route_request_model, route_request_models } from "../scripts/route_request_model.js";
+import { compile_script_module } from "findrss-worker/server/infra/script_sandbox.js";
+import { read_script, script_names } from "./support/script_sources.js";
 import { route_report_model } from "../scripts/route_report_model.js";
 import { create_market_model } from "../scripts/script_market.js";
 import { render_report_html } from "../scripts/render_route_report.js";
@@ -17,6 +19,33 @@ const report = { results: [{ file, path, output_valid: false, samples: [
   { name: "第一位作者", example: configured[0].example, output_valid: true, output_file: "first.json", detail_file: "first.json" },
 ] }] };
 const route = () => route_request_model(file, path, { path: "/example/:id", example: "/api/rss/example/42?mode=default", parameters: { mode: "模式" } });
+
+test("所有 RSS 路由均声明可显示的默认实例名称，包括正文和媒体代理", async () => {
+  for (const name of script_names("rss")) {
+    const { error, metadata } = await compile_script_module(read_script("rss/" + name));
+    assert.equal(error, "", name);
+    for (const route of metadata.routes) assert.ok(route.example_name?.trim(), name + " " + route.path);
+  }
+});
+
+test("脚本默认实例名称经沙箱和路由模型保留，旧巡检名称不覆盖当前名称", async () => {
+  for (const [file, path, name] of [
+    ["rss/zhihu.js", "/api/rss/zhihu/people/:user", "木子白"],
+    ["rss/wxmp.js", "/api/rss/wxmp/:account?", "36氪"],
+    ["rss/wxchannels.js", "/api/rss/wxchannels/:account", "富贵姨姨"],
+  ]) {
+    const { error, metadata } = await compile_script_module(read_script(file));
+    assert.equal(error, "");
+    const request = route_request_models([{ file, metadata }]).find(route => route.path === path);
+    const examples = script_examples(request, [], [{ request_key: example_key(request.example), name: request.name, ok: true }]);
+    assert.equal(examples.length, 1);
+    assert.deepEqual([examples[0].source, examples[0].name, examples[0].ok], ["script", name, true]);
+  }
+  for (const example_name of [null, "", " ", 1, "a".repeat(129)]) {
+    const compiled = await compile_script_module(`export const route = { name: "示例", path: "/example", example_name: ${JSON.stringify(example_name)}, handler() {} };`);
+    assert.match(compiled.error, /route.example_name/);
+  }
+});
 
 test("ScriptExample 以请求匹配状态和产物，保留默认实例和同路径的不同 query，不按结果顺序关联", () => {
   const request = route();

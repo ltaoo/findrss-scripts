@@ -548,6 +548,7 @@ export const routes = [
     url: "fanqienovel.com",
     maintainers: ["findrss"],
     example: "/fanqienovel/book/7143038691944959011",
+    example_name: "十日终焉",
     parameters: {
       book_id: "小说详情页 /page/ 后的数字 ID",
     },
@@ -561,7 +562,8 @@ export const routes = [
     public: true,
     url: "fanqienovel.com",
     maintainers: ["findrss"],
-    example: "/fanqienovel/chapter/7143039277444481571",
+    example: "/fanqienovel/chapter/7173216089122439711",
+    example_name: "十日终焉 · 第1章 空屋",
     parameters: {
       chapter_id: "章节 /reader/ 后的数字 ID",
     },

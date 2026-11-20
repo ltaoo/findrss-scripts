@@ -52,7 +52,8 @@ export class MgtvSeriesRSS extends RSSScript {
 const script = new MgtvSeriesRSS();
 export const route = {
   name: "芒果TV剧集", path: "/mgtv/series/:collection_id/:video_id", url: "www.mgtv.com", maintainers: ["findrss"],
-  example: "/mgtv/series/914227/24771585", parameters: { collection_id: "官网 /b/<专辑 ID>/<视频 ID>.html 中的专辑 ID", video_id: "同一播放页中的视频 ID，用于定位完整分集目录" },
+  example: "/mgtv/series/914227/24771585",
+  example_name: "后会友期", parameters: { collection_id: "官网 /b/<专辑 ID>/<视频 ID>.html 中的专辑 ID", video_id: "同一播放页中的视频 ID，用于定位完整分集目录" },
   description: "分页读取已发布的完整视频目录，过滤预告与片花，保留封面、官网播放链接和上游提供的发行日期；VIP 正片保留官网权限要求。",
   handler: ctx => script.run(ctx),
 };

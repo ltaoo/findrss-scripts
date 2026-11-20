@@ -549,6 +549,7 @@ export const routes = ["videos", "shorts"].map(function (kind) {
     url: "www.youtube.com",
     maintainers: ["findrss"],
     example: shorts ? "/youtube/@Brookemonk/shorts" : "/youtube/@goldfishbrain",
+    example_name: shorts ? "Brooke Monk" : "金魚腦Goldfish Brain",
     parameters: {
       handle: "频道 handle，例如 @goldfishbrain（@ 可省略）",
     },

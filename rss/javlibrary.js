@@ -132,6 +132,7 @@ const script = new JavlibraryActorRSS();
 export const routes = [{
   path: "/javlibrary/star/:id", name: "JAVLibrary 演员作品",
   url: "www.javlibrary.com", example: "/javlibrary/star/abbds",
+  example_name: "山手梨愛",
   parameters: { id: "演员主页 vl_star.php?s= 后的本站 ID，各站 ID 不通用" },
   description: "读取演员全部作品模式的一页列表，?page=2 翻页；保留番号、标题及列表封面。列表没有发行日期时不补造时间，不逐部请求详情。优先复用宿主加密保存的验证 Cookie 和 User-Agent，失效时使用 BROWSER 刷新。",
   handler: (ctx) => script.run(ctx),

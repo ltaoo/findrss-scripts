@@ -217,3 +217,45 @@ test('小红书默认及关闭 full_content 时只请求主页，保留首屏标
     }
   }
 });
+
+test('小红书游客响应隐藏笔记 ID 或退回登录页时提示重新登录，不输出空订阅', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  const user = structuredClone(fixture.user);
+  user.loggedIn = false;
+  user.userInfo = { guest: true };
+  for (const entry of user.notes.flat()) {
+    entry.id = '';
+    entry.noteCard.noteId = '';
+  }
+  for (const state of [user, { loggedIn: false, userInfo: { guest: true }, notes: [], userPageData: {} }]) {
+    let calls = 0;
+    globalThis.fetch = async () => {
+      calls++;
+      return new Response(state_html({ user: state }));
+    };
+    await assert.rejects(run(), error => {
+      assert.equal(error.problem.code, 'UPSTREAM_AUTH_REQUIRED');
+      assert.match(error.problem.error, /重新登录.*同步/);
+      return true;
+    });
+    assert.equal(calls, 1);
+  }
+});
+
+test('小红书保留可用游客卡片，非游客响应的损坏 ID 仍报数据错误', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  const user = structuredClone(fixture.user);
+  user.loggedIn = false;
+  user.userInfo = { guest: true };
+  globalThis.fetch = async () => new Response(state_html({ user }));
+  assert.equal(JSON.parse((await run()).output).items.length, 30);
+  user.notes[0][0].id = '';
+  user.notes[0][0].noteCard.noteId = 'broken';
+  await assert.rejects(run(), error => error.problem.code === 'UPSTREAM_INVALID_RESPONSE');
+  user.loggedIn = true;
+  user.userInfo.guest = false;
+  user.notes[0][0].noteCard.noteId = '';
+  await assert.rejects(run(), error => error.problem.code === 'UPSTREAM_INVALID_RESPONSE');
+});

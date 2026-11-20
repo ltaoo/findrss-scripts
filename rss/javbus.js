@@ -211,6 +211,7 @@ export const routes = [
         name: "JavBus 演员作品",
         url: origin.replace("https://", ""),
         example: "/javbus/star/2jv",
+        example_name: "波多野結衣",
         parameters: { id: "演员主页 /star/ 后的本站 ID，各站 ID 不通用" },
         description:
             "读取演员一页作品，?page=2 翻页；保留番号、标题、封面和发行日期。不提供日期时不补造时间。JavBus 列表遵循本站 Cookie 的磁力筛选设置。",

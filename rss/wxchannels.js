@@ -305,6 +305,7 @@ const script = new WechatChannelsRSS();
 export const route = {
   path: "/wxchannels/:account",
   name: "微信视频号",
+  example_name: "富贵姨姨",
   url: "channels.weixin.qq.com",
   maintainers: ["findrss"],
   example:

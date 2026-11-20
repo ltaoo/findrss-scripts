@@ -686,6 +686,7 @@ export const routes = [
     url: "space.bilibili.com",
     maintainers: ["findrss"],
     example: "/bilibili/650898515/dynamic",
+    example_name: "果箱_Maggie",
     parameters: {
       userid: "UP 主数字 UID",
       offset: "下一页游标，默认读取最新一页",
@@ -700,6 +701,7 @@ export const routes = [
     url: "space.bilibili.com",
     maintainers: ["findrss"],
     example: "/bilibili/650898515/upload/video",
+    example_name: "果箱_Maggie",
     parameters: {
       userid: "UP 主数字 UID",
       pn: "页码，默认 1",

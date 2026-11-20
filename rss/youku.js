@@ -142,7 +142,8 @@ export class YoukuSeriesRSS extends RSSScript {
 const script = new YoukuSeriesRSS();
 export const route = {
   name: "优酷剧集", path: "/youku/series/:show_id", url: "v.youku.com", maintainers: ["findrss"],
-  example: "/youku/series/bcaa87c7834c46f99e7b", parameters: { show_id: "官网 /v_nextstage/id_<剧集 ID>.html 中的 ID，不是 X 开头的视频 ID" },
+  example: "/youku/series/bcaa87c7834c46f99e7b",
+  example_name: "嫁金钗", parameters: { show_id: "官网 /v_nextstage/id_<剧集 ID>.html 中的 ID，不是 X 开头的视频 ID" },
   description: "通过 HTTP 读取详情页及 MTOP 分页正片目录，自动获取匿名令牌，无需浏览器或登录 Cookie。按集序倒序输出官网播放链接，不补造发布时间。",
   handler: ctx => script.run(ctx),
 };

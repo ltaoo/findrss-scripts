@@ -346,6 +346,7 @@ export const route = {
   url: "www.instagram.com",
   maintainers: ["findrss"],
   example: "/instagram/katarinabluu",
+  example_name: "KARINA",
   parameters: {
     username: "账号用户名，@ 可省略",
   },

@@ -501,6 +501,7 @@ export const route = {
   url: "x.com",
   maintainers: ["findrss"],
   example: "/x/NTCGoK9jFQURsEu",
+  example_name: "K- GIF Archive",
   parameters: {
     username: "账号主页中的用户名，@ 可省略",
   },

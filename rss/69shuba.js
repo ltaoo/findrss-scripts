@@ -315,6 +315,7 @@ export const route = {
   url: "www.69shuba.com",
   maintainers: ["findrss"],
   example: "/69shuba/book/34567",
+  example_name: "坐忘长生",
   parameters: {
     book_id: "小说详情页 /book/<ID>.htm 中的数字 ID",
   },

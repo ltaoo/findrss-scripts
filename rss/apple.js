@@ -240,6 +240,7 @@ const app_route = {
   url: "apps.apple.com",
   maintainers: ["EkkoG", "nczitzk"],
   example: "/apple/apps/update/us/id408709785",
+  example_name: "GarageBand",
   parameters: {
     country: "App Store 地区代码，例如 us、cn",
     id: "应用 ID，例如 id408709785，也可只填数字",
@@ -258,6 +259,7 @@ export const routes = [
     public: true,
     path: "/img/apple",
     name: "Apple 应用图片代理",
+    example_name: "GarageBand 应用图标",
     allowed_hosts: [
       "is1-ssl.mzstatic.com",
       "is2-ssl.mzstatic.com",
@@ -266,7 +268,7 @@ export const routes = [
       "is5-ssl.mzstatic.com",
     ],
     example:
-      "/img/apple?url=https%3A%2F%2Fis1-ssl.mzstatic.com%2Fimage%2Fthumb%2Fexample%2F400x400bb.webp",
+      "/img/apple?url=https%3A%2F%2Fis1-ssl.mzstatic.com%2Fimage%2Fthumb%2FPurpleSource221%2Fv4%2F22%2F2f%2F5b%2F222f5bfa-879a-87d6-8842-6182e5e64f42%2FPlaceholder.mill%2F400x400bb.webp",
     parameters: { url: "Apple 图片 CDN 的完整 HTTPS 地址" },
     handler: (ctx) => ({
       url: ctx.query.url,

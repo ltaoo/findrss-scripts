@@ -110,6 +110,7 @@ export const route = {
   url: "www.qimao.com",
   maintainers: ["findrss"],
   example: "/qimao/book/13030701",
+  example_name: "夫人反差太大，司总沦陷了！",
   parameters: { book_id: "小说详情页 /shuku/ 后的数字 ID" },
   description: "读取完整章节目录，按更新时间倒序输出章节标题、字数和官网阅读链接，不抓取正文。可选授权七猫访问验证 Cookie：同步数据中没有授权名称时自动匿名重试；遇到验证页请手动完成官网验证后同步 Cookie。",
   handler: ctx => script.run(ctx),

@@ -90,7 +90,8 @@ export class VqqSeriesRSS extends RSSScript {
 const script = new VqqSeriesRSS();
 export const route = {
   name: "腾讯视频剧集", path: "/vqq/series/:cover_id", url: "v.qq.com", maintainers: ["findrss"],
-  example: "/vqq/series/mzc002001w361jz", parameters: { cover_id: "官网 /x/cover/<ID>.html 或 /detail/<首字母>/<ID>.html 中的剧集 ID" },
+  example: "/vqq/series/mzc002001w361jz",
+  example_name: "尚公主", parameters: { cover_id: "官网 /x/cover/<ID>.html 或 /detail/<首字母>/<ID>.html 中的剧集 ID" },
   description: "逐页读取正片选集，排除预告和片花，保留稳定 ID、封面与官网播放链接，按集序倒序排列；播放权限由官网处理。",
   handler: ctx => script.run(ctx),
 };

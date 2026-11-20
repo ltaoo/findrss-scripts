@@ -33,10 +33,11 @@ for (const { mode, base, args } of [
   const file = "hot/example.js";
   const icon = '<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z"/></svg>';
   await writeFile(join(root, "dist/scripts.js"), "export default " + JSON.stringify([
-    { file, source: "private-source", metadata: { version: "2.3.4", platform: { name: "Example", icon }, config: "private-config" } },
+    { file, source: "private-source", metadata: { kind: "hot", version: "2.3.4", platform: { name: "Example", icon }, config: "private-config",
+      routes: ["passed", "failed"].map((name, route_index) => ({ path: "/" + name, example: "/" + name, example_name: "默认 " + name, route_index })) } },
   ]));
-  await writeFile(join(root, "dist/routes.json"), JSON.stringify(["passed", "failed"].map(name => ({
-    file, format: "hot", path: "/api/hot/" + name, example: "/api/hot/" + name, route_index: 0,
+  await writeFile(join(root, "dist/routes.json"), JSON.stringify(["passed", "failed"].map((name, route_index) => ({
+    file, format: "hot", path: "/api/hot/" + name, example: "/api/hot/" + name, example_name: "默认 " + name, route_index,
   }))));
   await writeFile(join(root, "fetch.js"), `import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
@@ -48,7 +49,7 @@ globalThis.fetch = async url => {
     { status: url.pathname.endsWith("failed") ? 503 : 200 });
   return url.pathname.endsWith("failed")
     ? new Response("Unavailable", { status: 503 })
-    : !["/configured/one", "/configured/two"].includes(url.pathname) ? new Response("Unexpected request", { status: 400 })
+    : !["/api/hot/passed", "/configured/one", "/configured/two"].includes(url.pathname) ? new Response("Unexpected request", { status: 400 })
     : Response.json({ kind: "hot_rank", title: "Example", link: "https://example.com", entries: [
       { id: "1", title: "Article", link: "https://example.com/1", rank: null, pinned: false, heat: { value: null, unit: "", text: "" } }
     ] }, { headers: { "X-FindRSS-Script": "hot/example.js", "X-FindRSS-Route": "0" } });
@@ -62,10 +63,12 @@ globalThis.fetch = async url => {
   assert.equal(report.mode, mode);
   assert.deepEqual([report.total, report.passed, report.failed], [2, 1, 1]);
   const passed = report.results.find(result => result.output_valid);
-  assert.deepEqual(passed.samples.map(sample => sample.example), ["/configured/one", "/configured/two"]);
-  assert.deepEqual(passed.samples.map(sample => sample.name), ["账号一", "账号二"]);
-  assert.equal(report.results.find(result => !result.output_valid).name, "失败账号");
-  assert.equal(report.results.find(result => !result.output_valid).example, "/configured/failed");
+  assert.deepEqual(passed.samples.map(sample => sample.example), ["/api/hot/passed", "/configured/one", "/configured/two"]);
+  assert.deepEqual(passed.samples.map(sample => sample.name), ["默认 passed", "账号一", "账号二"]);
+  const failed = report.results.find(result => !result.output_valid);
+  assert.deepEqual(failed.samples.map(sample => [sample.name, sample.example]), [
+    ["默认 failed", "/api/hot/failed"], ["失败账号", "/configured/failed"],
+  ]);
   assert.deepEqual(report.scripts, [{ file, version: "2.3.4", platform: { name: "Example", icon } }]);
   assert.deepEqual(await readdir(join(root, "reports/icons")), ["script-0.svg"]);
   assert.equal(await readFile(join(root, "reports/icons/script-0.svg"), "utf8"), icon);
@@ -83,9 +86,12 @@ globalThis.fetch = async url => {
   assert.match(html, /data-n="open-example"[^>]*>失败账号<\/button>/);
   assert.doesNotMatch(html, /private-source/);
   assert.doesNotMatch(html, /private-config/);
-  assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 2);
-  assert.equal([...html.matchAll(/<a data-n="detail-link"/g)].length, 3);
-  for (const sample of [...passed.samples, report.results.find(result => !result.output_valid)]) {
+  assert.equal([...html.matchAll(/<a data-n="artifact-link"/g)].length, 3);
+  assert.equal([...html.matchAll(/<a data-n="detail-link"/g)].length, 5);
+  const page_data = JSON.parse(html.match(/<script data-n="market-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  const defaults = page_data.scripts[0].inspection_rows.map(row => row.request.examples.find(example => example.source === "script"));
+  assert.deepEqual(defaults.map(example => [example.name, example.ok]), [["默认 failed", false], ["默认 passed", true]]);
+  for (const sample of [...passed.samples, ...failed.samples]) {
     const detail = JSON.parse(await readFile(join(root, "reports/details", sample.detail_file), "utf8"));
     assert.equal(detail.debug.elapsed_ms, 10);
     assert.equal(detail.inspection.output_valid, sample.output_valid);
@@ -96,9 +102,10 @@ globalThis.fetch = async url => {
   assert.equal([...html.matchAll(/<tr data-n="example-result"/g)].length, 6);
   const prefix = mode === "dev" ? "./" : "https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/";
   const artifact = html.match(/<a data-n="artifact-link"[^>]*href="([^"]+)"/)[1];
-  assert.equal(artifact, prefix + "responses/configured/one.json");
+  assert.equal(artifact, prefix + "responses/api/hot/passed.json");
   const detail_links = [...html.matchAll(/<a data-n="detail-link"[^>]*href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(detail_links.sort(), ["failed", "one", "two"].map(name => prefix + "details/configured/" + name + ".json").sort());
+  assert.deepEqual(detail_links.sort(), ["api/hot/passed", "api/hot/failed", "configured/failed", "configured/one", "configured/two"]
+    .map(path => prefix + "details/" + path + ".json").sort());
   assert.ok(markdown.includes('src="' + prefix + 'icons/script-0.svg"'));
   if (mode === "dev") {
     assert.ok(await readFile(join(root, "reports", artifact), "utf8"));

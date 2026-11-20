@@ -89,6 +89,7 @@ export const routes = [
     url: "github.com",
     maintainers: ["findrss"],
     example: "/github/ltaoo/wx_channels_download/release",
+    example_name: "wx_channels_download",
     parameters: { org: "GitHub 用户或组织名", pro: "仓库名" },
     description:
       "读取公开仓库的 Releases Atom 订阅，保留版本标题、更新说明、链接和上游时间，无需 Cookie。",

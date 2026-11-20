@@ -23,7 +23,7 @@ export function route_request_model(file, path, route = {}) {
       required: name === "url" || /必填/.test(descriptions[name] || ""), value: example.searchParams.get(name) || "" });
   }
   return { key: JSON.stringify([file, path]), file, path, example: example.pathname + example.search, prefix: path.slice(0, path.length - (route.path || path).length),
-    name: route.name || path, segments, fields };
+    name: route.name || path, example_name: route.example_name || "", segments, fields };
 }
 
 export function route_request_models(catalog) {

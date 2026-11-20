@@ -269,6 +269,7 @@ export const route = {
   url: "t.me",
   maintainers: ["findrss"],
   example: "/telegram/channel/telegram",
+  example_name: "Telegram News",
   parameters: {
     username: "公开频道用户名，@ 可省略",
     before: "历史页消息 ID，默认读取最新一页",

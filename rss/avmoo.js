@@ -150,6 +150,7 @@ const script = new AvmooActorRSS();
 export const routes = [{
   path: "/avmoo/star/:id", name: "Avmoo 演员作品",
   url: origin.replace("https://", ""), example: "/avmoo/star/jkzqbvn",
+  example_name: "波多野結衣",
   parameters: { id: "演员主页 /actresses/ 后的本站 ID，各站 ID 不通用" },
   description: "读取演员已渲染的一批作品；?page=2 滚动到下一批，最多五批。需 BROWSER_ENABLED=true；保留番号、标题、封面和发行日期。",
   handler: (ctx) => script.run(ctx),

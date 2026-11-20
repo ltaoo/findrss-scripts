@@ -432,6 +432,7 @@ export const routes = [
     url: "m.qidian.com",
     maintainers: ["findrss"],
     example: "/qidian/book/1036526469",
+    example_name: "长生从炼丹宗师开始",
     parameters: {
       book_id: "小说详情页 /book/ 后的数字 ID",
     },
@@ -446,6 +447,7 @@ export const routes = [
     maintainers: ["findrss"],
     public: true,
     example: "/qidian/chapter/1036526469/745825165",
+    example_name: "长生从炼丹宗师开始 · 第一章 散修罗尘",
     parameters: {
       book_id: "小说数字 ID",
       chapter_id: "章节数字 ID",

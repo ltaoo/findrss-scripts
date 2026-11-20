@@ -313,6 +313,7 @@ export const route = {
   maintainers: ["findrss"],
   example:
     "/douyin/user/MS4wLjABAAAAOE57npukdzs0SH_Fk5RHB-qfUlnZ5jQT2R_KPH4Sd8s",
+  example_name: "一菲（南哥助理）",
   parameters: {
     sec_uid: "作者主页 /user/ 后的 sec_uid",
     count: "每页数量，默认 18，最多 30",

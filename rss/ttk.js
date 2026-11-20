@@ -263,6 +263,7 @@ export const route = {
   url: "ttks.tw",
   maintainers: ["findrss"],
   example: "/ttk/book/congzhanyaochumokaishichangshengbusi",
+  example_name: "從斬妖除魔開始長生不死",
   parameters: {
     book_id: "目录页 /novel/chapters/<ID>/index.html 中的 <ID>",
   },

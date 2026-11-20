@@ -1,7 +1,7 @@
 import { utils } from "@findrss/util";
 import { RSSScript, Result } from "@findrss/core";
 
-export const version = "1.1.0";
+export const version = "1.1.1";
 export const platform = {
   name: "知乎",
   icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-n="zhihu-platform-icon"><defs data-n="zhihu-icon-defs-1"><linearGradient id="zhihu-bg" x1="0" y1="1" x2="1" y2="0" data-n="zhihu-icon-linearGradient-2"><stop stop-color="#06f" data-n="zhihu-icon-stop-3" /><stop offset=".3" stop-color="#06f" data-n="zhihu-icon-stop-4" /><stop offset="1" stop-color="#00a5ff" data-n="zhihu-icon-stop-5" /></linearGradient></defs><rect width="24" height="24" rx="4.5" fill="url(#zhihu-bg)" data-n="zhihu-icon-rect-6" /><path fill="#fff" d="M7.685 4.078c-.271.73-.5 1.434-.68 2.11h4.587c.545-.006.445 1.168.445 1.171H9.384a58.104 58.104 0 0 1-.112 3.797h2.712c.388.023.393 1.251.393 1.266H9.183a9.223 9.223 0 0 1-.408 2.102l.757-.604c.452.456 1.512 1.712 1.906 2.177.473.681.063 2.081.063 2.081l-2.794-3.382c-.653 2.518-1.845 3.607-1.845 3.607-.523.468-1.58.82-2.64.516 2.218-1.73 3.44-3.917 3.667-6.497H4.491c0-.015.197-1.243.806-1.266h2.71c.024-.32.086-3.254.086-3.797H6.598c-.136.406-.158.447-.268.753-.594 1.095-1.603 1.122-1.907 1.155.906-1.821 1.416-3.6 1.591-4.064.425-1.124 1.671-1.125 1.671-1.125zM13.078 6h6.377v11.33h-2.573l-2.184 1.373-.401-1.373h-1.219zm1.313 1.219v8.86h.623l.263.937 1.455-.938h1.456v-8.86z" data-n="zhihu-icon-path-7" /></svg>',
@@ -73,6 +73,50 @@ export class ZhihuRSS extends RSSScript {
         limit: String(Number(limit)),
         offset: "0",
       };
+      let channel;
+      if (kind === "collection") {
+        const fetched = await ZhihuRSS.request_text(ctx, homepage, {
+          headers: ZhihuRSS.request_headers(homepage, false),
+        });
+        if (fetched.error) return fetched;
+        const parsed = utils.document_nodes(fetched.data);
+        if (parsed.error) return parsed;
+        const header = utils.first(parsed.data, ".CollectionDetailPageHeader");
+        const title = utils.field(header, ".CollectionDetailPageHeader-title");
+        const name = utils.attribute(header, 'meta[itemprop="name"]', "content") || utils.field(header, ".AuthorInfo-name");
+        const uri = utils.absolute_url(utils.attribute(header, ".AuthorInfo-name a", "href") || utils.attribute(header, ".AuthorInfo-avatarWrapper a", "href"), homepage);
+        if (!title || !name || uri.error || !/^https:\/\/www\.zhihu\.com\/people\/[A-Za-z0-9_-]{1,128}\/?$/.test(uri.data) || /\/undefined\/?$/.test(uri.data)) {
+          return Result.Err("知乎收藏夹页面缺少标题或创建者资料，请检查登录或验证状态", "UPSTREAM_INVALID_RESPONSE");
+        }
+        channel = {
+          title,
+          description: utils.field(header, ".CollectionDetailPageHeader-description"),
+          author: { name, uri: uri.data },
+          image: ZhihuRSS.public_url(utils.attribute(header, 'meta[itemprop="image"]', "content") || utils.attribute(header, ".AuthorInfo-avatarWrapper img", "src")),
+        };
+      }
+      if (kind === "column") {
+        const fetched = await ZhihuRSS.request_text(ctx, "https://zhuanlan.zhihu.com/api/columns/" + id, {
+          headers: ZhihuRSS.request_headers(homepage, false),
+        });
+        if (fetched.error) return fetched;
+        const parsed = parseJSON(fetched.data);
+        if (parsed.error) return parsed;
+        const column = parsed.data;
+        if (!column || typeof column.title !== "string" || !column.title.trim() || !column.author?.name) {
+          return Result.Err("知乎专栏接口缺少标题或作者资料", "UPSTREAM_INVALID_RESPONSE");
+        }
+        const uri = utils.absolute_url(column.author.url_token ? "/people/" + column.author.url_token : column.author.url, "https://www.zhihu.com");
+        if (uri.error || !/^https:\/\/www\.zhihu\.com\/people\/[A-Za-z0-9_-]{1,128}\/?$/.test(uri.data)) {
+          return Result.Err("知乎专栏作者主页地址无效", "UPSTREAM_INVALID_RESPONSE");
+        }
+        channel = {
+          title: utils.plain_text(column.title),
+          description: utils.plain_text(column.description || column.intro),
+          author: { name: String(column.author.name), uri: uri.data },
+          image: ZhihuRSS.public_url(column.image_url || column.author.avatar_url),
+        };
+      }
       if (kind === "answers") {
         query.sort_by = "created";
         query.include =
@@ -158,12 +202,22 @@ export class ZhihuRSS extends RSSScript {
           item?.content?.author
         );
       });
-      const author =
+      let author =
         account?.actor ||
         account?.author ||
         account?.target?.author ||
         account?.content?.author ||
         {};
+      if (!author.name && !channel) {
+        const fetched = await ZhihuRSS.request_text(ctx, homepage, { headers: ZhihuRSS.request_headers(homepage, false) });
+        if (fetched.error) return fetched;
+        const parsed = utils.document_nodes(fetched.data);
+        if (parsed.error) return parsed;
+        const name = utils.field(parsed.data, ".ProfileHeader-name");
+        if (!name) return Result.Err("知乎用户主页缺少用户名称，请检查登录或验证状态", "UPSTREAM_INVALID_RESPONSE");
+        author = { name, headline: utils.field(parsed.data, ".ProfileHeader-headline"),
+          avatar_url: utils.attribute(parsed.data, ".ProfileHeader-avatar img", "src") || utils.attribute(parsed.data, ".ProfileHeader-avatar", "src") };
+      }
       const name = String(author.name || id);
       const seen = new Set();
       const items = [];
@@ -186,7 +240,7 @@ export class ZhihuRSS extends RSSScript {
         id: ["column", "collection"].includes(kind)
           ? "zhihu:" + kind + ":" + id
           : "zhihu:user:" + id + ":" + kind,
-        title: ["column", "collection"].includes(kind)
+        title: channel ? channel.title : ["column", "collection"].includes(kind)
           ? "知乎" + (kind === "column" ? "专栏 " : "收藏夹 ") + id
           : name +
             " 的知乎" +
@@ -199,19 +253,19 @@ export class ZhihuRSS extends RSSScript {
               pins: "想法",
             }[kind],
         link,
-        description: String(
+        description: channel ? channel.description : String(
           author.headline ||
             (kind === "activities"
               ? author.description || "知乎用户 " + id + " 的动态"
               : ""),
         ),
         language: "zh-cn",
-        author: {
+        author: channel ? channel.author : {
           name,
           uri: homepage,
         },
         image:
-          ZhihuRSS.public_url(author.avatar_url) ||
+          (channel ? channel.image : ZhihuRSS.public_url(author.avatar_url)) ||
           (ctx.public_origin || "") + "/findrss-logo.png",
         updated: items[0]?.updated || items[0]?.published || null,
         items,
@@ -481,6 +535,11 @@ export const routes = [
     url: "www.zhihu.com",
     maintainers: [{ nickname: "findrss", url: "", avatar: "" }],
     example: "/zhihu" + example,
+    example_name: {
+      activities: "木子白", answers: "木子白", asks: "木子白",
+      zvideos: "潇湘夜雨", posts: "潇湘夜雨", pins: "潇湘夜雨",
+      column: "谷歌开发者社区", collection: "总有一天能用到的资料",
+    }[kind],
     parameters: {
       [parameter]: {
         user: "用户主页 /people/ 后的标识",

@@ -30,7 +30,7 @@ export function script_examples(route, configured = [], outputs = []) {
     return { id: example_key(example), name: name || Object.values(values).filter(Boolean).join(" · ") || "默认实例",
       source, values, ok: null };
   };
-  const builtin = create(route.example, "", "script");
+  const builtin = create(route.example, route.example_name, "script");
   examples.set(builtin.id, builtin);
   for (const entry of Array.isArray(configured) ? configured : [configured]) {
     const example = create(entry.example || route.example, entry.name, "config");
@@ -41,7 +41,7 @@ export function script_examples(route, configured = [], outputs = []) {
     const { request_key, example: path, ...inspection } = output;
     const id = request_key || builtin.id;
     const example = examples.get(id) || { ...create(path || route.example, inspection.name || path, "config"), id };
-    examples.set(id, { ...example, ...inspection, name: inspection.name || example.name });
+    examples.set(id, { ...example, ...inspection, name: (id === builtin.id && route.example_name ? example.name : inspection.name) || example.name });
   }
   return [...examples.values()];
 }

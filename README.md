@@ -126,7 +126,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | Instagram 用户作品 | [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) | `/instagram/katarinabluu` | 1.1.0 | Cookie 授权 |
 | JavBus 演员作品 | [rss/javbus.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javbus.js) | `/javbus/star/2jv` | 1.0.0 | 可选 Cookie；验证页需同步有效 Cookie 并启用 `use_cookies` |
 | JAVLibrary 演员作品 | [rss/javlibrary.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javlibrary.js) | `/javlibrary/star/abbds` | 1.2.0 | BROWSER_ENABLED=true；InstaBox 巡检支持 Python 浏览器验证 |
-| 快手用户作品 | [rss/kuaishou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/kuaishou.js) | `/kuaishou/profile/3xuxw5yhgr6f4um` | 1.1.0 | Cookie 授权 |
+| 快手用户作品 | [rss/kuaishou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/kuaishou.js) | `/kuaishou/profile/3xuxw5yhgr6f4um` | 1.1.2 | Cookie 授权 |
 | 起点中文网章节列表 | [rss/qidian.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qidian.js) | `/qidian/book/1036526469` | 1.1.0 | Cookie 授权 |
 | 七猫小说章节 | [rss/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/qimao.js) | `/qimao/book/13030701` | 1.0.2 | 可选 Cookie；章节链接指向官网；TCP 传输兼容折行响应头 |
 | 芒果TV剧集 | [rss/mgtv.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/mgtv.js) | `/mgtv/series/914227/24771585` | 1.0.0 | 公开分集目录；参数来自官网播放页 |
@@ -137,10 +137,10 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 微信视频号 | [rss/wxchannels.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxchannels.js) | `/wxchannels/v2_060000231003b20faec8c5e1811ac5d4c803ee35b077b115ba7f22bad44fca23255c1a271f23@finder` | 1.2.0 | 配置：`api_url`、`auth_token`、`PlayerHostname` |
 | 微信公众号 | [rss/wxmp.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxmp.js) | `/wxmp/wow36kr` | 1.2.0 | 配置：`api_url`、`auth_token` |
 | X 用户作品 | [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) | `/x/NTCGoK9jFQURsEu` | 1.1.0 | Cookie 授权 |
-| 小红书用户笔记 | [rss/xiaohongshu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xiaohongshu.js) | `/xiaohongshu/user/profile/5d2aec020000000012037401` | 1.1.0 | Cookie 授权 |
+| 小红书用户笔记 | [rss/xiaohongshu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xiaohongshu.js) | `/xiaohongshu/user/profile/5d2aec020000000012037401` | 1.1.1 | Cookie 授权 |
 | YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.2 | Cookie 授权 |
 | 优酷剧集 | [rss/youku.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youku.js) | `/youku/series/bcaa87c7834c46f99e7b` | 1.1.0 | HTTP 正片目录及范围分页，自动获取匿名令牌，无需浏览器或登录 Cookie |
-| 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.0 | Cookie 授权 |
+| 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.1 | Cookie 授权 |
 
 ### Hot（78 个）
 

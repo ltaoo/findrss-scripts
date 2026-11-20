@@ -476,6 +476,7 @@ export const routes = [
     url: "hongguoduanju.com",
     maintainers: ["findrss"],
     example: "/hongguo/series/7688352674999176254",
+    example_name: "总裁是我前女友",
     parameters: {
       series_id: "红果短剧 detail 页 series_id，数字编号",
     },
@@ -489,6 +490,7 @@ export const routes = [
     url: "hongguoduanju.com",
     maintainers: ["findrss"],
     example: "/hongguo/search/热播",
+    example_name: "热播短剧",
     parameters: {
       keyword: "搜索关键词，1 至 80 字",
       page: "结果页码，1 至 50，默认 1",
@@ -504,6 +506,7 @@ export const routes = [
     url: "hongguoduanju.com",
     maintainers: ["findrss"],
     example: "/hongguo/video/7688352674999176254/7688396347107445822",
+    example_name: "总裁是我前女友 · 第1集",
     parameters: {
       series_id: "红果短剧 series_id",
       vid: "分集 vid",

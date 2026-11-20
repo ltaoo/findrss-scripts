@@ -470,12 +470,14 @@ export async function check_routes(
       }
     }
   }
-  const queue = cases.flatMap((entry) =>
-    array(overrides[entry.format + " " + entry.path] ?? {}).map((fields) => ({
-      ...entry,
-      ...fields,
-    })),
-  );
+  const queue = cases.flatMap((entry) => {
+    const samples = new Map();
+    for (const fields of [{ name: entry.example_name || entry.name }, ...array(overrides[entry.format + " " + entry.path])]) {
+      const key = new URL(fields.example ?? entry.example, base).href;
+      samples.set(key, { ...entry, ...samples.get(key), ...fields });
+    }
+    return [...samples.values()];
+  });
   for (const entry of queue) {
     const url = new URL(entry.example, base);
     assert.equal(

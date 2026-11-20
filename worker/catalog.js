@@ -30,7 +30,8 @@ function auxiliary_format(kind, route) {
 export function route_cases(scripts) {
   return scripts.flatMap(({ file, metadata }) => metadata.routes.flatMap(route => {
     const kind = metadata.kind;
-    const base = { file, kind, source_host: route.url || "", name: route.name, route_index: route.route_index };
+    const base = { file, kind, source_host: route.url || "", name: route.name, route_index: route.route_index,
+      ...(route.example_name ? { example_name: route.example_name } : {}) };
     const auxiliary = auxiliary_format(kind, route);
     if (auxiliary) {
       return [{ ...base, format: auxiliary, path: route.path, example: route.example, api: false, display: true }];

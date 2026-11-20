@@ -1328,6 +1328,7 @@ export const routes = [
     url: "weibo.com",
     maintainers: ["findrss"],
     example: "/weibo/u/1992429663",
+    example_name: "这是邱天",
     parameters: {
       uid: "微博用户 UID，例如 1992429663",
     },
@@ -1339,6 +1340,7 @@ export const routes = [
     public: true,
     path: "/img/weibo",
     name: "微博图片代理",
+    example_name: "影视飓风MediaStorm 微博配图",
     allowed_hosts: [
       "wx1.sinaimg.cn",
       "wx2.sinaimg.cn",
@@ -1359,7 +1361,7 @@ export const routes = [
       "face.t.sinajs.cn",
     ],
     example:
-      "/img/weibo?url=https%3A%2F%2Fwx1.sinaimg.cn%2Flarge%2Fexample.jpg",
+      "/img/weibo?url=https%3A%2F%2Fwx2.sinaimg.cn%2Forj480%2F3e49243bly1ij588hbsivj20zk0k07m6.jpg",
     parameters: {
       url: "微博图片 CDN 的完整 HTTPS 地址",
     },

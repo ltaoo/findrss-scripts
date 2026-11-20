@@ -223,16 +223,15 @@ Worker 构建会将已有的 `reports/index.html`、`reports/icons/`、`reports/
 
 ### 检查样本与预期
 
-默认访问每条路由的 `example`，默认要求至少 1 个条目。部分示例的账号、章节可能失效，Apple/微博图片示例包含占位地址，需要用有效且在白名单内的图片 URL 覆盖。合法的空发布仓库可显式设 `min_items: 0`；仍会检查结构、标题、来源和 handler。
+默认访问每条路由的 `example`，默认要求至少 1 个条目。示例名称由各路由的 `example_name` 声明；账号、章节或图片随上游变化失效时，需要用有效且在白名单内的地址更新。合法的空发布仓库可显式设 `min_items: 0`；仍会检查结构、标题、来源和 handler。
 
 GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-checks.json)，由 `scripts/check_routes.js` 在执行巡检时读取，工作流通过 `ROUTE_CHECK_CONFIG` 指定文件路径，本地未指定时也读取该文件。配置不参与构建，不写入 `dist/`，Worker 不读取或导入它，修改后无需重新部署 CF。
 
-配置的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到；其中格式为 `rss_json`、`hot`、`clip` 或 `detect`，路径均以 `/api` 开头。每个键支持样本数组，也兼容原来的单个对象；有配置时替代该路由的默认样本，未配置的路由继续使用脚本 `example`。数组不能为空；未知路由、字段错误或跨站样本会在发请求前报错。GitHub Secret `ROUTE_CHECK_CASES` 使用相同格式，按配置键覆盖文件中的整组样本，不逐项合并。只允许覆盖 `example`、`name`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。可选的 `name` 必须为非空字符串，在终端日志、HTML、Markdown 和 JSON 中标识样本；公众号样本使用搜索响应的 `nickName` 作为名称、`userName` 作为路径中的账号。
+配置的键是 `格式 空格 完整路由模式`，可在 `dist/routes.json` 找到；其中格式为 `rss_json`、`hot`、`clip` 或 `detect`，路径均以 `/api` 开头。每个键支持样本数组，也兼容原来的单个对象；脚本 `example` 默认始终参与巡检，配置样本作为额外内容追加；同一请求地址只检查一次，配置中的名称和校验规则合并到该样本。数组不能为空；未知路由、字段错误或跨站样本会在发请求前报错。GitHub Secret `ROUTE_CHECK_CASES` 使用相同格式，按配置键覆盖文件中的整组样本，不逐项合并。只允许覆盖 `example`、`name`、`min_items`、`min_text_length`、`source_host`、`title_includes`，不能跳过检查项。`example` 必须指向当前 Worker，不允许跨站发送访问令牌。可选的 `name` 必须为非空字符串，在终端日志、HTML、Markdown 和 JSON 中标识样本；公众号样本使用搜索响应的 `nickName` 作为名称、`userName` 作为路径中的账号。
 
 ```json
 {
   "rss_json /api/rss/wxmp/:account?": [
-    { "name": "36氪", "example": "/api/rss/wxmp/gh_240fbf8b33e4" },
     { "name": "知乎日报", "example": "/api/rss/wxmp/gh_e59ba9dfaa66" }
   ],
   "rss_json /api/rss/github/:org/:pro/release": [
@@ -245,7 +244,7 @@ GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-chec
 }
 ```
 
-巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。仓库配置包含公众号、视频号，以及 YouTube、Instagram、微博、小红书、X（推特）、Bilibili 和知乎的 `/api/rss` JSON 样本；后七个平台中 Instagram 为 21 个账号、知乎为 19 个，其余平台各 20 个，YouTube 视频与 Shorts、Bilibili 动态与视频投稿分别检查同一组账号。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；Markdown、通知和 JSON 汇总计数仍以路由为单位，JSON 的 `samples` 保留逐样本详情。HTML 市场卡片按下述 ScriptExample 计数，表格逐实例显示状态。
+巡检只读取 `dist/routes.json` 中的 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 路由；`/rss`、`/atom`、`/hot`、`/clip`、`/detect` 及脚本声明路径是访问别名，不单独巡检。仓库配置包含公众号、视频号，以及 YouTube、Instagram、微博、小红书、X（推特）、Bilibili 和知乎的 `/api/rss` JSON 样本；后七个平台中 Instagram 和 Bilibili 各为 21 个账号、知乎为 19 个，其余平台各 20 个，YouTube 视频与 Shorts、Bilibili 动态与视频投稿分别检查同一组账号。每条已注册路由的所有样本通过才算成功，任一样本失败即为失败；Markdown、通知和 JSON 汇总计数仍以路由为单位，JSON 的 `samples` 保留逐样本详情。HTML 市场卡片按下述 ScriptExample 计数，表格逐实例显示状态。
 
 ### ScriptExample（脚本实例）
 
@@ -254,7 +253,7 @@ GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-chec
 | 字段 | 含义 |
 | --- | --- |
 | `id` | 路由内稳定标识；公开实例按请求路径和排序后的 query 散列匹配，忽略鉴权 `token` |
-| `name` | 实例名称；未命名时用参数值显示，没有参数时为「默认实例」 |
+| `name` | 实例名称；脚本可用路由的 `example_name` 声明默认名称，未命名时用参数值显示，没有参数时为「默认实例」 |
 | `source` | `script`（脚本默认）、`config`（巡检样本）、`manual`（本地保存） |
 | `values` | 路径和查询参数的字符串键值，不包含鉴权 `token` |
 | `ok` | `true` 成功、`false` 失败、`null` 未巡检 |
@@ -263,7 +262,7 @@ GitHub 巡检配置保存在 [`.github/route-checks.json`](../.github/route-chec
 
 每个实例在巡检表格中占一行；同路由的标题和路由单元格使用 `rowspan` 合并。「实例 / 产物」列表头的 Plus 添加实例；多路由脚本在表单内选择目标路由。实例内容不带卡片边框，首行名称可点击回填表单，名称右侧的 RSS 图标打开产物；结果列的成功或失败状态链接打开详情，失败原因显示在失败下方。配置实例按实际请求匹配结果，不按数组位置匹配。同请求的默认和配置实例合并，保留配置名称；不同 query 的实例分别匹配。
 
-脚本默认实例始终可见；当巡检配置替代默认请求时，未实际检查的默认实例显示「未巡检」。手动保存只写入 localStorage，不会执行巡检或自动加入 GitHub 配置；它们独立显示「未巡检」，计入卡片总数，不计入成功数。旧报告中未匹配公开配置的样本保留其名称、路径和结果，但不把私有 query 回填到表单。
+脚本默认实例始终可见并默认参与巡检，巡检配置仅追加额外样本；旧报告中未实际检查的默认实例仍显示「未巡检」，重新巡检后更新为实际结果。手动保存只写入 localStorage，不会执行巡检或自动加入 GitHub 配置；它们独立显示「未巡检」，计入卡片总数，不计入成功数。旧报告中未匹配公开配置的样本保留其名称、路径和结果，但不把私有 query 回填到表单。
 
 本地也可以运行同一巡检：
 
