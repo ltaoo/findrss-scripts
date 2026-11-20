@@ -1,31 +1,17 @@
 {
-  "checked_at": "2026-11-20T06:22:08.756Z",
-  "inspection": {
-    "file": "rss/zhihu.js",
-    "path": "/api/rss/zhihu/people/:user/asks",
-    "example": "/api/rss/zhihu/people/zhihu/asks",
-    "name": "知乎用户提问",
-    "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/zhihu/people/zhihu/asks.json",
-    "duration_ms": 490
-  },
+  "checked_at": "2026-11-20T13:26:33.147Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 483
+    "status": 502,
+    "duration_ms": 973
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_ACCESS_DENIED",
     "script": {
       "file": "rss/zhihu.js",
       "name": "知乎用户提问",
       "kind": "rss",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "path": "/zhihu/people/:user/asks",
       "request_path": "/api/rss/zhihu/people/:user/asks",
       "route_index": 3
@@ -48,21 +34,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 478,
+    "phase": "runtime",
+    "elapsed_ms": 964,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":1,\"missing_published\":0}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：脚本上游 www.zhihu.com 返回 HTTP 403",
+    "error_text": "脚本执行失败：脚本上游 www.zhihu.com 返回 HTTP 403\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.zhihu.com/api/v4/members/zhihu/questions?limit=20&offset=0",
@@ -77,97 +54,130 @@
             "Cookie"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 468,
+        "started_ms": 10,
+        "duration_ms": 568,
         "timings": {
-          "response_ms": 468,
-          "body_read_ms": 0,
+          "response_ms": 567,
+          "body_read_ms": 1,
           "decode_and_transfer_ms": 0
+        }
+      },
+      {
+        "url": "https://www.zhihu.com/people/zhihu",
+        "method": "GET",
+        "host": "www.zhihu.com",
+        "pathname": "/people/zhihu",
+        "status": 403,
+        "transport": "fetch",
+        "credentials": {
+          "source": "script_grant",
+          "headers_sent": [
+            "Cookie"
+          ]
+        },
+        "started_ms": 579,
+        "duration_ms": 384,
+        "timings": {
+          "response_ms": 384
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"zhihu:user:zhihu:asks\",\"title\":\"zhihu 的知乎提问\",\"link\":\"https://www.zhihu.com/people/zhihu/asks\",\"description\":\"\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"article\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.zhihu.com/\"},\"tags\":[\"知乎\"]},\"author\":{\"name\":\"zhihu\",\"uri\":\"https://www.zhihu.com/people/zhihu\"},\"image\":\"http://script.findrss.cloud/findrss-logo.png\",\"updated\":\"2011-03-06T22:47:38.000Z\",\"items\":[{\"id\":\"zhihu:question:19571072\",\"title\":\"知乎里现在有多少大庆的朋友？\",\"link\":\"https://www.zhihu.com/question/19571072\",\"description\":\"\",\"author\":{\"name\":\"zhihu\",\"uri\":\"https://www.zhihu.com/people/zhihu\"},\"published\":\"2011-03-06T22:47:38.000Z\",\"updated\":\"2011-03-06T22:47:38.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 478,
+      "elapsed_ms": 964,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 472
+          "started_ms": 7,
+          "duration_ms": 957
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 478,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 478,
+          "name": "错误诊断收集",
+          "started_ms": 964,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 478,
+          "started_ms": 964,
           "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 478,
+          "name": "失败后浏览器清理",
+          "started_ms": 964,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 478,
+          "started_ms": 964,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 468
+          "started_ms": 10,
+          "duration_ms": 568
+        },
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 578,
+          "duration_ms": 385
         }
       ]
     }
+  },
+  "inspection": {
+    "file": "rss/zhihu.js",
+    "path": "/api/rss/zhihu/people/:user/asks",
+    "example": "/api/rss/zhihu/people/zhihu/asks",
+    "name": "木子白",
+    "format": "rss_json",
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_ACCESS_DENIED",
+    "error": "HTTP 502: UPSTREAM_ACCESS_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证",
+    "duration_ms": 1016
   }
 }

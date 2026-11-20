@@ -1,26 +1,12 @@
 {
-  "checked_at": "2026-11-20T06:14:46.127Z",
-  "inspection": {
-    "file": "rss/wxmp.js",
-    "path": "/api/rss/wxmp/:account?",
-    "example": "/api/rss/wxmp/gh_e59ba9dfaa66",
-    "name": "知乎日报",
-    "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_e59ba9dfaa66.json",
-    "duration_ms": 2040
-  },
+  "checked_at": "2026-11-20T13:19:20.724Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 10016
+    "status": 200,
+    "duration_ms": 1244
   },
   "debug": {
-    "status": 502,
-    "code": "SCRIPT_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -48,12 +34,17 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 10011,
+    "phase": "ok",
+    "elapsed_ms": 1239,
     "invoked": false,
-    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：The operation was aborted due to timeout",
-    "error_text": "脚本执行失败：The operation was aborted due to timeout\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":19,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -69,15 +60,17 @@
           ]
         },
         "started_ms": 8,
-        "duration_ms": 10002,
+        "duration_ms": 1225,
         "timings": {
-          "response_ms": 996,
-          "body_read_ms": 9006
+          "response_ms": 1040,
+          "body_read_ms": 183,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_e59ba9dfaa66\",\"title\":\"知乎日报\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658660&idx=1&sn=35073856b843b18e1a97b985a0dae4c3&chksm=8a464c308f445cb464c416250744f4ee01b3bb815fd203a5da1c88018a86a59a5f129c10106f&scene=126&sessionid=1795180767#rd\",\"description\":\"知乎官方订阅号，每日精选知乎热门、有趣内容\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"知乎日报\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FUOCHvzUGAIWg6z2Qs1yTHicbpqJwAUFRtJ5nhXPMb35XhGb6OESOg9OianbhYibThkZQiclOv5GN4z8%2F0\",\"updated\":\"2026-11-20T12:11:14.000Z\",\"items\":[{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658660:1\",\"title\":\"瞎问丨给你 10 亿美元，但会有一只蜗牛永远追杀你，你干不干？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658660&idx=1&sn=35073856b843b18e1a97b985a0dae4c3&chksm=8a464c308f445cb464c416250744f4ee01b3bb815fd203a5da1c88018a86a59a5f129c10106f&scene=126&sessionid=1795180767#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEic9CAG5wjicSNcicWhO2Bd8UauvOFT8T7tvBCxUqM3CP77ZxguicaNKiczR2l1HiasmzaTpJIJmBYndiauPtQXbywnlw3BnW2QMd49s%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T12:11:14.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658660:2\",\"title\":\"科技丨一个扣子倒下了，无数个 Agent 正在赶来\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658660&idx=2&sn=6da0fa1818497e424a981e553d4c91e8&chksm=8a09177fa8da277d3561313d0f99e8910ff6f65ad824e373ee23575efe3f636b16af98715305&scene=126&sessionid=1795180767#rd\",\"description\":\"从扣子企业版下线，看工作流与 Agent 的下一步\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEC1cJypXDp11CMNJTrItAFB5DfNyomNPFrGuV7gKUicNsOZ4NEHBNgaaAx4ia3e7ThSIJFTzj19eLSLk1ywpr3jKxuGFnpFTj1E%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T12:11:14.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658636:1\",\"title\":\"📱趣味测试！你的灵魂属于哪一代邦德？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658636&idx=1&sn=974b0bcb5ace2bf35af39ba9eafa5665&chksm=8a2ccd0b313fb76fa99f17c8f33082d37b51246f22a51f290588e661cb6333ad33b471cfa96a&scene=126&sessionid=1795180767#rd\",\"description\":\"📰 MI6 最新情报：「罗伯特・帕丁森敲定，成为新一代 007 人选。」\\n\\n六代邦德，各有风骨，同是特工，锋芒各异。你的灵魂，更契合哪一代 007？\\n\\n倘若化身特工，置身邦德的危机场景，面对重重任务与两难抉择，你会做出怎样的选择？\\n\\n👉 欢迎扫描图中二维码开启测试，解锁专属你的 007 人格。\\n\\n测完可点「一键发布到知乎想法」分享你的结果✨\\n\\n也欢迎一起聊聊属于你的邦德回忆：你偏爱哪一代邦德、哪段剧情让你印象深刻，或是说说对新任 007 的期待~\",\"content\":\"<p>📰 MI6 最新情报：「罗伯特・帕丁森敲定，成为新一代 007 人选。」<br /><br />六代邦德，各有风骨，同是特工，锋芒各异。你的灵魂，更契合哪一代 007？<br /><br />倘若化身特工，置身邦德的危机场景，面对重重任务与两难抉择，你会做出怎样的选择？<br /><br />👉 欢迎扫描图中二维码开启测试，解锁专属你的 007 人格。<br /><br />测完可点「一键发布到知乎想法」分享你的结果✨<br /><br />也欢迎一起聊聊属于你的邦德回忆：你偏爱哪一代邦德、哪段剧情让你印象深刻，或是说说对新任 007 的期待~</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHVdaOdUVH5rYMzvtx51kQwpuqaTic0IweLGK7DKXzDPbic4sdMvKXnQzxsuHibwlRjQ5rvEQUFpnPEWcu9RxFu3JibrARkiavPVnn0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFApJKdSpkhTStof9J8RoLPztOe7rQG0gJz9OFP2RWFLeVDbyfDF28OoKnpUBZR0Zo7krTIVGrPw9WT04LMfF6nEGqNKQxP8Fw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHVdaOdUVH5rYMzvtx51kQwpuqaTic0IweLGK7DKXzDPbic4sdMvKXnQzxsuHibwlRjQ5rvEQUFpnPEWcu9RxFu3JibrARkiavPVnn0%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-20T08:47:40.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658626:1\",\"title\":\"AI 硬件是真需求，还是「万物皆可 AI」？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658626&idx=1&sn=83a866bdc06069efba4539b0e390223d&chksm=8acb152eca71c44bcef0039b378561a76a994d6dc749c71b9e5c935c5c0636f1b10bf3c3bd62&scene=126&sessionid=1795180767#rd\",\"description\":\"眼镜、耳机、录音笔、Pin、打印机……\\nAI 正在从手机和电脑里「长」出来，进入越来越多硬件。\\n但问题也随之而来：AI+硬件，难道就是给万物都接上大模型？\\n知乎答主们给出了几个挺有意思的判断。\\n\\n比如知乎答主@粉墨人生 举例，打印机加入 AI，原本按一下按钮就能调节的浓度，可能变成「帮我调低一点」「请问降低多少」的一轮对话。\\n当一次点击变成一次对话，AI 反而增加了交互成本。\\n所以，AI 硬件有没有价值，首先要问：它解决了什么手机做不了、或者做起来很别扭的事？\\n这也是 AI 眼镜、耳机、录音设备的机会。手机很难 Always On，而新的硬件形态可以占据第一视角和听觉入口，让 AI 持续「看见」和「听见」真实世界。\\n\\n@评者N大 将 AI 硬件分为采集型、感知型和交互型：有的已经找到明确需求，有的还在寻找自己的位置。\\n@Syunin 则给出了一套「伪需求」判断题：手机是不是做不了？有没有独立的硬件身份？用户愿不愿意为专用性买单？优势又能维持多久？\\n再往底层，@且慢Murphy 提到，AI 硬件背后还有芯片、端侧算力与基础设施，能否真正普及，同样取决于算力、存储和成本。\\n\\n所以，比「AI+万物」更值得问的是：\\n当 AI 离开屏幕，它究竟获得了什么以前没有的能力？\\n如果只是多一个聊天入口，可能只是又一层 AI 包装；如果它开始能看见、听见、理解真实世界，并进入手机覆盖不了的场景，AI 硬件才真正有了存在的理由。\\nAI 硬件是真需求，还是又一轮「万物皆可 AI」？\\n\\n📚 加入知乎「职人工位在进化」，聊聊你所在行业正在发生的工作流变化，也可以记录你此刻的工位。\\n\\n📅 活动持续至 12 月 20 日，在知乎搜索「职人工位在进化」查看参与方式。\",\"content\":\"<p>眼镜、耳机、录音笔、Pin、打印机……<br />AI 正在从手机和电脑里「长」出来，进入越来越多硬件。<br />但问题也随之而来：AI+硬件，难道就是给万物都接上大模型？<br />知乎答主们给出了几个挺有意思的判断。<br /><br />比如知乎答主@粉墨人生 举例，打印机加入 AI，原本按一下按钮就能调节的浓度，可能变成「帮我调低一点」「请问降低多少」的一轮对话。<br />当一次点击变成一次对话，AI 反而增加了交互成本。<br />所以，AI 硬件有没有价值，首先要问：它解决了什么手机做不了、或者做起来很别扭的事？<br />这也是 AI 眼镜、耳机、录音设备的机会。手机很难 Always On，而新的硬件形态可以占据第一视角和听觉入口，让 AI 持续「看见」和「听见」真实世界。<br /><br />@评者N大 将 AI 硬件分为采集型、感知型和交互型：有的已经找到明确需求，有的还在寻找自己的位置。<br />@Syunin 则给出了一套「伪需求」判断题：手机是不是做不了？有没有独立的硬件身份？用户愿不愿意为专用性买单？优势又能维持多久？<br />再往底层，@且慢Murphy 提到，AI 硬件背后还有芯片、端侧算力与基础设施，能否真正普及，同样取决于算力、存储和成本。<br /><br />所以，比「AI+万物」更值得问的是：<br />当 AI 离开屏幕，它究竟获得了什么以前没有的能力？<br />如果只是多一个聊天入口，可能只是又一层 AI 包装；如果它开始能看见、听见、理解真实世界，并进入手机覆盖不了的场景，AI 硬件才真正有了存在的理由。<br />AI 硬件是真需求，还是又一轮「万物皆可 AI」？<br /><br />📚 加入知乎「职人工位在进化」，聊聊你所在行业正在发生的工作流变化，也可以记录你此刻的工位。<br /><br />📅 活动持续至 12 月 20 日，在知乎搜索「职人工位在进化」查看参与方式。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlGhYPtRdb7wLay3DoJM1kYMzkEHiatToK4Nubx9GZiaTfJEC2QQQmia0w6lGgO5HEYuc9icwyomSqwVMgqvXTeaVjWpdKXFTPPNib14%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlEBibWPl4yxotY1qeSpDVNS0ibzDdicpz5kWCrIeZWhvopL96l3zCla3pHkJFVeiay0W3d9WzAcV9jSH1EAbFdtVtTAUfJY12iau6JA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlGNGgDM8ldicibwh44m7mhJPuWlvUPerTqiaz3dTH1YMIzicNUNrsUbJKMGkSEqVJz8DRZKOE6ibxIj0yZJv1f0hUBWDU1oQuQ1jiazM%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlGISKT3lwkia3UTWdcticjSgb1jicO4PtoO4WNDdCj0D2j6L40U5z7kQQ3icSxQCEUupAxVy4qQq0GG3Y8hjtuoAvrOwVyGyDVx5VA%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlGqBRmpyjFuXYqIziaqEvGXoPffucLRRUY5VIqTOaMn9H4Ufu2PlW9HDibpsJ9aMySo096OKia8G18licg3qDBqsBkeicLqc4eVN9oQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlEGvwPVR5J4ulOCeBcfFhCBz54PPQHuXQbzdMwPLficrtbfAeF9e5mKCbfmb96ulj6gHhk4JCMJWXQMwjKB4S4bqrO16hNXuria0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHqpdiaibPnyc4lic91sQzLxRVGs9Xv8d3Q1j5CkI4nXDGqhXxWVA5opM1Ym3luv5lTlp3sqTuzGQeNQvHtZslkHN4sAaltTOYmIU%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFib2Lw7Luu4icrkEDIEzib1uwDtosKUqGLdiapk6dS2dBxYvERx5rmYRj3GHGnAdPYZvHmqEXr7msJTJ6KHGdbrg1kAf8T6RTKJno%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlGhYPtRdb7wLay3DoJM1kYMzkEHiatToK4Nubx9GZiaTfJEC2QQQmia0w6lGgO5HEYuc9icwyomSqwVMgqvXTeaVjWpdKXFTPPNib14%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlEBibWPl4yxotY1qeSpDVNS0ibzDdicpz5kWCrIeZWhvopL96l3zCla3pHkJFVeiay0W3d9WzAcV9jSH1EAbFdtVtTAUfJY12iau6JA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FkrSqjDRWFlGNGgDM8ldicibwh44m7mhJPuWlvUPerTqiaz3dTH1YMIzicNUNrsUbJKMGkSEqVJz8DRZKOE6ibxIj0yZJv1f0hUBWDU1oQuQ1jiazM%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlGISKT3lwkia3UTWdcticjSgb1jicO4PtoO4WNDdCj0D2j6L40U5z7kQQ3icSxQCEUupAxVy4qQq0GG3Y8hjtuoAvrOwVyGyDVx5VA%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlGqBRmpyjFuXYqIziaqEvGXoPffucLRRUY5VIqTOaMn9H4Ufu2PlW9HDibpsJ9aMySo096OKia8G18licg3qDBqsBkeicLqc4eVN9oQ%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlEGvwPVR5J4ulOCeBcfFhCBz54PPQHuXQbzdMwPLficrtbfAeF9e5mKCbfmb96ulj6gHhk4JCMJWXQMwjKB4S4bqrO16hNXuria0%2F0\",\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_png%2FkrSqjDRWFlHqpdiaibPnyc4lic91sQzLxRVGs9Xv8d3Q1j5CkI4nXDGqhXxWVA5opM1Ym3luv5lTlp3sqTuzGQeNQvHtZslkHN4sAaltTOYmIU%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-20T08:47:40.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658614:1\",\"title\":\"经验丨有什么有趣的中国文化溢出？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658614&idx=1&sn=6fa849bee404e87e55e819615a15a962&chksm=8afd9340fc94baa5f4f97b962008b7913aa6f4a16566928ebb3a6092eeaad024ee87f5ab929e&scene=126&sessionid=1795180767#rd\",\"description\":\"超多意想不到的文化出圈方式。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHLjFnFsiaps2o6Uic8sGaZSh6LRTEMuJsJdNLicjnszrHy6f4sDRXFzCDicd7dwzUvpryhJaaGURFqbp0aa5u3JvIOyzU7YiaCt1I4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658614:2\",\"title\":\"科普丨哪些话一出现，你就知道是 AI 写的？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658614&idx=2&sn=369c32871e342176ad5574e45824a747&chksm=8abeb78efb5e53c9bf91962497a5f062aed8e2d4c06c31c5317631f001bc3818cf982790998e&scene=126&sessionid=1795180767#rd\",\"description\":\"什么是 AI 味？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH5MkQnribrQLJXGJx9r4NWvtxNRxzVqmeuJq4JayictO0KTMtzRtqnPdVd9icsUpjKRdhDBojU7IxxfpUDvN5SjiadjLmGt4l8sHo%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658566:1\",\"title\":\"脑洞丨东北那么冷，为什么没形成吃辣驱寒的习惯？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658566&idx=1&sn=9e64343ce4759c5a548e08c99fc63333&chksm=8ad18c95d89f3fcde563b7fd7d31a0528e2c043133b9422603cfb5f1f2577f9a67ae316e1ce9&scene=126&sessionid=1795180767#rd\",\"description\":\"要想在东北的西北风中活下去，只能靠牛羊猪肉？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFtbIRX3dwFmuGibf4HuxUW5kuG5RTiah5YHah2zOtKvrBp9nc9LANYBGnO1msZBFUL3yrZs0ZzW6od4ic0lAH8z5ibNLsYw6CYic88%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658566:2\",\"title\":\"影视丨对谈《善男信女》《像我这样的爱情》导演：拍下普通人的疲惫与爱情\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658566&idx=2&sn=06a59596fabcea70338cee3e7b17f642&chksm=8ab5d896c8388243a4eb040d868f36a1578f6332e494f857515645b1497616fb706656bcc672&scene=126&sessionid=1795180767#rd\",\"description\":\"来看创作镜头背后的故事。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlFzVkaFiaVnuNm4L7oibAiaKvTeAJYV1icSR63oBGojZlBVicIOlxmYdDjOMsfAm4Isuvh5ZCdhx9SSInP0nwK5hXibL3DueibhSxaVDg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658519:1\",\"title\":\"生活丨为什么虾皮里总有小螃蟹？你还翻出过哪些「隐藏款」？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658519&idx=1&sn=fd8d1806c61398c00c5b156ac835c697&chksm=8a813770370a79534b09ec33c7da8e11e439bb51851ac606a4187bf2a87810d84372a5972a1b&scene=126&sessionid=1795180767#rd\",\"description\":\"虾皮里不只有小螃蟹，简直「包罗万象」。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlHoZ23zutmdOVc6lAJaHOh3mzicmd5oktTRibtpoc60FFTPXTvTYKxrBEIehgyMqUkqOu44yv5jAibeMHdbVOVdnUUuuqCRp5KjCw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658519:2\",\"title\":\"影视丨从《中餐厅》到《后会友期》，为什么芒果总能把综艺做成全民话题？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658519&idx=2&sn=f9d48d385733e915657df2a827e9e753&chksm=8a87273c2073e1fccaa38b9a6ee510444f04a721e1383fe14c6d1d4b36b81d80dff3029b6a18&scene=126&sessionid=1795180767#rd\",\"description\":\"为什么都被全网称作「撕逼」节目了，艺人还敢上？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlG9qt806EWWfweXJKb1Iz7EDS7uud6Hybafn42KG1cLE9mzickOWP2O73Xg8Kxzd3Yn6mGBOkQzkV8DicLichGmmRZQIWAYLt0DZc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658468:1\",\"title\":\"所有人问丨如果去掉社会标签，你会如何介绍自己？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658468&idx=1&sn=a480288fe009dba9b655fbc05577b47e&chksm=8a644213f6ff30b287a04c200c6cd49ff839377ebebdc0a17d00301981ef9ef1e7099b0f6c1a&scene=126&sessionid=1795180767#rd\",\"description\":\"你会说些什么？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGpHHAytoZzeQGKH061MqiapFp03H96rCpZMWlibh95fE4q7VgSLqQY73oAdkmtpugMibe1ho1mvDScddU7YFP0pDN8lAsWicTbuv4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658468:2\",\"title\":\"科技丨知乎智能搜索服务上新后，答主们做出了哪些好用的 Skill？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658468&idx=2&sn=df630c2de8a1ea286d739d38696b1b8f&chksm=8ad26ea068a4630b13f66229f63d4b6616614d9d3fd15d5f8c4d787d530008c2874b3cd86b99&scene=126&sessionid=1795180767#rd\",\"description\":\"干货来袭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGHfMHgkPd1HEbMmVpxTqhoFnB7fmoRSEffoTLAAFhdvQvGNqQ5xxqq1yZRU2dAvNgf5urUZ3ibEIO2srrYER0v4NzOtneeOy70%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658380:1\",\"title\":\"瞎扯丨可以莫名其妙教我一个技能吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658380&idx=1&sn=ee45c04ac53f90e931aaa2ff5ca90ad5&chksm=8a357731848551a2a1131fc4b7b3ffcbbbdfe8cc87b58d70a0b8fbf31dd2da46e6e665736957&scene=126&sessionid=1795180767#rd\",\"description\":\"瞎扯一下，轻松一下～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlH2JOqEpb0u4iaGrNVSSMxV02gFMdv0lELQ4VzwVMGLayRTRAbXZjmIRPe0d3n1QmUTibBW0KCSf7HUWAaFINUTobeqrOTqQ94Ps%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-15T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658379:1\",\"title\":\"高赞丨为什么中餐很少用柠檬？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658379&idx=1&sn=fea10d05983558bb40f0b18db7b1107f&chksm=8a6dd398a4f6f3285e4c4b3b9dd89af2786da3e3ddb1d18d1bafaab0dea50f5b455f7c0b6d2f&scene=126&sessionid=1795180767#rd\",\"description\":\"感觉好像上了好几堂烹饪理论课程！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlEsaLuPoQ1KmiaKNhPTicYs7psibibtV4VpPKyvfjhpp8YDfaelWibXKxyySezKfhk38IN11BI7KQWxbTicGPOB0GSib0V6v7Hy6Gdu1g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-14T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658346:1\",\"title\":\"热议丨黄仁勋辞职，会带来哪些影响？英伟达的优势还能维持多久？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658346&idx=1&sn=f8f4b341c744208075b8022558fc2e5f&chksm=8ae34bca0dd75bb3fe18c72c1db6acf1d189bde6a6769351d3c6a2d84ec5403583acfda92dd9&scene=126&sessionid=1795180767#rd\",\"description\":\"「当一家四万亿美元的公司，失去了它的大脑。」\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlHJxIicKJJnqFIPdt1yxzqs1PDk7x69tWWcSibXyg6cibaq2ApPX8eNCicgbek30VjUC0RUG9lXnlneB2IeN8z7XUvgq6SoYSR0fjU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T16:41:48.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658311:1\",\"title\":\"经验丨为什么说「人不要长期待在家里」？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658311&idx=1&sn=93b48cb389aa017ce93e2256595da4cd&chksm=8a0ebebf46662d224e480896f9e10dce77d36af55e60e8d8f3e05e7b840b0764e9acaf666c12&scene=126&sessionid=1795180767#rd\",\"description\":\"出门，就现在！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlGUrBB8mk9sL3vNM7hYbafRD0l3lxribwn14uDlGrfSRUnbpFCdP9ySQLpZ82ER3ianWZKNKYbjqWWvMF5XS6DDkAaJvKba2icbyI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658311:2\",\"title\":\"科技丨大模型们在集体做知乎答主出的卷子？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658311&idx=2&sn=a9793d6a90c93a5e9b1aa84ade173d25&chksm=8a89b32f91aec7ef0f5bce92ca3eecc9a226180c0e2a89f69e735e36e4e35a08d36416b1d19e&scene=126&sessionid=1795180767#rd\",\"description\":\"知乎答主给 AI 出了什么题？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEGWQGhyy8aqeRUVhBDRv4f2g204T2j1sJIvckSdC49ukp2tdrYgnOKQc7y5msFwicibCKIsBt4Ug9xAWFaias9tRpFvA5M7T9r04%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:00:00.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:1\",\"title\":\"热议丨影帝影后实至名归，最佳导演爆冷？这届金鸡奖你满意吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=1&sn=00aaf0da68a2377195661205b30e794b&chksm=8afc616f2616bf3140cff05fceb966ac9a3dbc9143a69a1d36fc0dff39eff31baab0313ecb5d&scene=126&sessionid=1795180767#rd\",\"description\":\"为什么有人说影帝影后都选对了，最佳导演却选错了？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkrSqjDRWFlGuuUTOO80TCnFQElHxLic3bQ1trqGVlqliaicSWx3eSdBe6IeMZ6RebfCpyhntWgufdoGpOTBBfHSTMvouUWjf3VdKFTy1MPN4Mc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"},{\"id\":\"wxmp:MjM5MDM4MDExNQ%3D%3D:2832658207:2\",\"title\":\"科技丨DeepSeek Harness 有 3.5 万个第三方插件了，有哪些值得一试？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5MDM4MDExNQ==&mid=2832658207&idx=2&sn=a3530908cde97435dc81a4c8af35dcd9&chksm=8a8934581a64aa08c38629c33ed4bd50f12ce11b4ae4c58251c289ceb5e29ea45d56114f9f14&scene=126&sessionid=1795180767#rd\",\"description\":\"DeepSeek Harness 产品负责人& 热门插件作者齐聚知乎。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkrSqjDRWFlEHCcVKmNJ3Q4PIOhGwGCQ2HTp8GfhI2xYDc37Var25eFAz0sJvkBDO4icfYACVsJ8ibqjDOykHicOkIlh5FTKMrK8rtYmrYP6l9g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-11T12:00:54.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 10011,
+      "elapsed_ms": 1239,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -117,31 +110,36 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 5
+          "duration_ms": 4
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 10004
+          "started_ms": 5,
+          "duration_ms": 1233
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 10010,
+          "name": "输出读取与校验",
+          "started_ms": 1238,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1238,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 10010,
+          "started_ms": 1238,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 10011,
+          "name": "浏览器状态保存",
+          "started_ms": 1239,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 10011,
+          "started_ms": 1239,
           "duration_ms": 0
         }
       ],
@@ -149,9 +147,23 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 8,
-          "duration_ms": 10002
+          "duration_ms": 1225
         }
       ]
     }
+  },
+  "inspection": {
+    "file": "rss/wxmp.js",
+    "path": "/api/rss/wxmp/:account?",
+    "example": "/api/rss/wxmp/gh_e59ba9dfaa66",
+    "name": "知乎日报",
+    "format": "rss_json",
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_e59ba9dfaa66.json",
+    "duration_ms": 2946
   }
 }
