@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-21T11:30:46.007Z",
+  "checked_at": "2026-11-21T19:35:39.150Z",
   "debug_request": {
     "status": 502,
-    "duration_ms": 2296
+    "duration_ms": 1118
   },
   "debug": {
     "status": 502,
@@ -35,7 +35,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 2289,
+    "elapsed_ms": 1103,
     "invoked": false,
     "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
     "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
@@ -54,14 +54,14 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 603,
+        "started_ms": 9,
+        "duration_ms": 545,
         "timings": {
-          "connect_ms": 409,
-          "send_ms": 1,
-          "wait_headers_ms": 192,
+          "connect_ms": 369,
+          "send_ms": 0,
+          "wait_headers_ms": 176,
           "receive_body_ms": 0,
-          "response_ms": 602
+          "response_ms": 545
         },
         "rate_limit": {
           "retry-after": 1
@@ -80,14 +80,14 @@
             "authorization"
           ]
         },
-        "started_ms": 613,
-        "duration_ms": 1675,
+        "started_ms": 555,
+        "duration_ms": 546,
         "timings": {
-          "connect_ms": 1474,
+          "connect_ms": 369,
           "send_ms": 0,
-          "wait_headers_ms": 201,
+          "wait_headers_ms": 177,
           "receive_body_ms": 0,
-          "response_ms": 1675
+          "response_ms": 546
         },
         "rate_limit": {
           "retry-after": 1
@@ -95,84 +95,84 @@
       }
     ],
     "timing": {
-      "elapsed_ms": 2289,
+      "elapsed_ms": 1103,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 2281
+          "started_ms": 6,
+          "duration_ms": 1096
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 2288,
+          "started_ms": 1102,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2288,
-          "duration_ms": 1
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 2289,
+          "started_ms": 1102,
           "duration_ms": 0
         },
         {
+          "name": "失败后浏览器清理",
+          "started_ms": 1102,
+          "duration_ms": 1
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 2289,
+          "started_ms": 1103,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 603
+          "started_ms": 9,
+          "duration_ms": 545
         },
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 613,
-          "duration_ms": 1675
+          "started_ms": 555,
+          "duration_ms": 546
         }
       ]
     }
@@ -190,6 +190,6 @@
     "status": 502,
     "code": "UPSTREAM_FETCH_FAILED",
     "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1206
+    "duration_ms": 1034
   }
 }

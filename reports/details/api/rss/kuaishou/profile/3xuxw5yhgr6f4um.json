@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-21T11:30:51.618Z",
+  "checked_at": "2026-11-21T19:35:15.334Z",
   "debug_request": {
-    "status": 504,
-    "duration_ms": 30042
+    "status": 200,
+    "duration_ms": 13138
   },
   "debug": {
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/kuaishou.js",
       "name": "快手用户作品",
@@ -34,19 +34,28 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 30036,
+    "phase": "ok",
+    "elapsed_ms": 13126,
     "invoked": false,
-    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试",
-    "error_text": "脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:112:26)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_2c33abcecc1effb89ac6662304037355146667676766b8ffcbdd7db541d14228f252c666fc3159bd1c31598f67&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_ecf36b0e0cf9903c5806a63c00217e7a78a6a7a7a7a6783f0b1dbd7581119c47769006a63cf1997ddcf1994fa7&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -55,30 +64,33 @@
             "kww"
           ]
         },
-        "started_ms": 32,
-        "duration_ms": 30003,
+        "started_ms": 9439,
+        "duration_ms": 3680,
         "timings": {
-          "response_ms": 30003
+          "response_ms": 1511,
+          "body_read_ms": 2167,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"kuaishou:user:3xuxw5yhgr6f4um\",\"title\":\"中国新闻网 的快手作品\",\"link\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\",\"description\":\"\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"video\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.kuaishou.com/\"},\"tags\":[\"快手\"]},\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"image\":\"https://p22.a.yximgs.com/uhead/AB/2025/09/02/19/BMjAyNTA5MDIxOTQzNTlfMTMxMjExOTkyNV8yX2hkMjIyXzQ5_s.jpg\",\"updated\":\"2026-11-21T16:00:00.001Z\",\"items\":[{\"id\":\"kuaishou:photo:3x8sej3f7njwxzy\",\"title\":\"今日 #小雪  ，寒凝霜雪也生花，雪落无声润物华，愿你健康，愿你平安，愿你怀揣希望，温暖向前~ #二十四节气\",\"link\":\"https://www.kuaishou.com/short-video/3x8sej3f7njwxzy\",\"description\":\"今日 #小雪  ，寒凝霜雪也生花，雪落无声润物华，愿你健康，愿你平安，愿你怀揣希望，温暖向前~ #二十四节气\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/20/16/BMjAyNjExMjAxNjU5NTJfMTMxMjExOTkyNV8yMTYzOTE5ODA0NjRfMF8z_ccc_Baa0d55073c6d88b347ef702033dd4f79.jpg?tag=1-1795289726-xpcwebprofile-0-noq79pytl3-a67b21d44153aa8c&clientCacheKey=3x8sej3f7njwxzy_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/20/16/BMjAyNjExMjAxNjU5NTJfMTMxMjExOTkyNV8yMTYzOTE5ODA0NjRfMF8z_b_Bbd12cc7bfe1a430cfce950afb5b61ef6.mp4?pkey=AAVvYOmYOFYfBRGiu91W5LqSKsLjbFNMzJMWY5rPXQfZaIBo_rSQFvREitJvzAbnLPas76rWJRzUz90WVkNBbdcBsJaKwrpF10XwcQIGapYr7XlE6qiSR31HgioXabJbRJQ&tag=1-1795289726-unknown-0-svpsgocdom-070ce368baa53928&clientCacheKey=3x8sej3f7njwxzy_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T16:00:00.001Z\"},{\"id\":\"kuaishou:photo:3xh9vik75uk3q86\",\"title\":\"小孩姐跳敦煌舞 网友：不需要服饰 光是影子已经美得不可方物\",\"link\":\"https://www.kuaishou.com/short-video/3xh9vik75uk3q86\",\"description\":\"小孩姐跳敦煌舞 网友：不需要服饰 光是影子已经美得不可方物\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/21/BMjAyNjExMjEyMTA4NDFfMTMxMjExOTkyNV8yMTY1NjIxMzEzNjNfMF8z_ccc_B3a9021e59973e20a855df49c2b702715.jpg?tag=1-1795289726-xpcwebprofile-0-qq65ixjkow-bd279dc86cba3c43&clientCacheKey=3xh9vik75uk3q86_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/21/21/BMjAyNjExMjEyMTA4NDFfMTMxMjExOTkyNV8yMTY1NjIxMzEzNjNfMF8z_b_Bf2e40cfd39b26188bbbb3bd29c30e3fb.mp4?pkey=AAWJiZR7xnsM_OCtMoBIg2YGRTvUd2xGatT_J5p00eWkkPhmjXiEylGtl6k6FIN-E5SoFJPdQg2qAeIX563AHPGTmeZzbx-pcywxBpOLGSIhhOhzhOxtYEnbuclwNJuGUOk&tag=1-1795289726-unknown-0-8p9y1n3gxf-e8a1f4f38f58dc11&clientCacheKey=3xh9vik75uk3q86_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T13:10:01.635Z\"},{\"id\":\"kuaishou:photo:3x8rb326j3vx8jc\",\"title\":\"#张凌赫  给两岸粉丝“安利”新疆美景：当你真的置身于祖国的山河时 心胸都变宽广了\",\"link\":\"https://www.kuaishou.com/short-video/3x8rb326j3vx8jc\",\"description\":\"#张凌赫  给两岸粉丝“安利”新疆美景：当你真的置身于祖国的山河时 心胸都变宽广了\",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/21/20/BMjAyNjExMjEyMDU2NTZfMTMxMjExOTkyNV8yMTY1NjA0NTQ4ODVfMF8z_ccc_B6be0e4e87cd6660cbbd8df18ecdc9f48.jpg?tag=1-1795289726-xpcwebprofile-0-qmmjokdwhu-8a179727284e9c0e&clientCacheKey=3x8rb326j3vx8jc_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/NLjPiL3WBxmcJ6JFqAYekFFSjwr5on_LNF2C6ECK-SfYCBjv7lLRkybKDHC5kxiowb0jl56kd9vWfH4KA4jzdPtDsPZxBveom4btyhAbyndIqqmduI7dj-Ai2zU-iQIJVwcM-FUpX61vcg6Rviov3J_N8WgbWffscXqEPS56_DwupVs6S7HJ4h7bKvlBy51R.mp4?pkey=AAWVMtxMq0ooFCDTRdj7CBL-uk1BPDuHYoFs2_4aY3d0JYEbmUoHgQ-muKOp8wMPF6rLXRDHq2YKDLCdOfnDfOLuJKDQDp0IMlfT_0w9ZIns1Ezxg5Vzi5eKrFZLg3Nv0RQ&tag=1-1795289726-unknown-0-rcihc5ai5l-57ed8b243fdc0842&clientCacheKey=3x8rb326j3vx8jc_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T12:58:32.544Z\"},{\"id\":\"kuaishou:photo:3xqz8s354qfn32a\",\"title\":\"李高：中国将继续帮助其他发展中国家减缓和适应气候变化｜新闻会客厅\",\"link\":\"https://www.kuaishou.com/short-video/3xqz8s354qfn32a\",\"description\":\"李高：中国将继续帮助其他发展中国家减缓和适应气候变化｜新闻会客厅\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/20/BMjAyNjExMjEyMDUxMzFfMTMxMjExOTkyNV8yMTY1NTk3MDUyNTZfMF8z_ccc_Bd1ae927a89f134be2dffa5ad67801c36.jpg?tag=1-1795289726-xpcwebprofile-0-oz0kv5hja8-04be68429527e079&clientCacheKey=3xqz8s354qfn32a_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/5SwkAhaSYBoquPFc4ToL_LCsfq843okdKB_ELzKaejjsgTy7UDCgTd51cq7b-5DKPiQ5CQS6uuB8xD7fe7Y8g44x4jM-FhGRTZ_1wUjZCgGsIkZi88u1ujyYoVg1i06ARjt0qzMH9hnAlXPwHx6bZdOxK3VEOAKD3kS8P3ZmBWmvG3Yi2ckV1B1-DRU8Wivk.mp4?pkey=AAXqBX3dTao8KTeUIVqSCvaDfvKKowJFQBElNBYqHsx0mKNnPR1juXEkGGUIPiG0wz57ukflPYVvIk0C8Bm4xCgJPDt5sccp7SSyYEJBPcNf8xWncACUTjOEri3jIn05WDc&tag=1-1795289726-unknown-0-diwlk9fokc-364728637410d363&clientCacheKey=3xqz8s354qfn32a_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T12:55:35.667Z\"},{\"id\":\"kuaishou:photo:3xqxupm6276qzw9\",\"title\":\"#小雪  至，来一碗 #银耳雪梨汤  ，愿您整个冬日暖意不打烊，好运不重样~ #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xqxupm6276qzw9\",\"description\":\"#小雪  至，来一碗 #银耳雪梨汤  ，愿您整个冬日暖意不打烊，好运不重样~ #媒体原创 \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/20/16/BMjAyNjExMjAxNjUwNTNfMTMxMjExOTkyNV8yMTYzOTA5NjgwNTdfMF8z_ccc_B14e10e01775b7ad37ddb7337484c9c02.jpg?tag=1-1795289726-xpcwebprofile-0-ml7zjf1rgo-b97d86ccf297403a&clientCacheKey=3xqxupm6276qzw9_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/20/16/BMjAyNjExMjAxNjUwNTNfMTMxMjExOTkyNV8yMTYzOTA5NjgwNTdfMF8z_b_Bb9808ca6939800b80e596cbfce38caec.mp4?pkey=AAX1RK8MsFWnM1_EZrD5003mL6BA4nUI87F9SWZQd2G6Vvcspe82oj2z8duPT6jFW3TF8ZTsGBXgiZK71sCCjSUXF6FHrdrei8zUedro00JBF7SOPfTrwBDPk3b1ZtBxG2c&tag=1-1795289726-unknown-0-ugqaja5cax-fb7582f1c1b0df0a&clientCacheKey=3xqxupm6276qzw9_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T12:00:00.001Z\"},{\"id\":\"kuaishou:photo:3xyvh2fyazthrbu\",\"title\":\"他不懂战争但读懂了难过！幼儿园小朋友观看红色主题动画片，感动到抽泣！（来源：人民网）\",\"link\":\"https://www.kuaishou.com/short-video/3xyvh2fyazthrbu\",\"description\":\"他不懂战争但读懂了难过！幼儿园小朋友观看红色主题动画片，感动到抽泣！（来源：人民网）\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/19/BMjAyNjExMjExOTQyMjFfMTMxMjExOTkyNV8yMTY1NDkwOTIyMjFfMF8z_ccc_B5f1d2448df7c348382a47ac95e05c240.jpg?tag=1-1795289726-xpcwebprofile-0-zlimhe9uzj-2fc9745bdbbdc92c&clientCacheKey=3xyvh2fyazthrbu_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/srZ8Vc7dnPdbm_QtArJDvXyzErbZXO2Hl0K_Mky66b12dcFUmcub3KSIaRVxw7UYiQuL0SQ31bq6E5UNf28l_SUA8_xWQXVR3E0-Fi2iTnByoPJGzgponjNnjKrnyatTXXrBoHLFPOGOtGJi48rUHX5zojJLbOiGhDzzcUl7pr_yJpkYYv88yGuc5mO59S4X.mp4?pkey=AAW-co3ft6wdWlJb7wYnBcKXnAFsBc9C43v0gFdTI27O478VDBIwQ4g11W44iYrjUVnL2CYV3RJCgZpke1eW-ClhvTSWHwf75_dMOPjmQa-WF69HDV0RODV0_7dUQnH7Grw&tag=1-1795289726-unknown-0-q6cx4qlgo4-6aa1f761f28da064&clientCacheKey=3xyvh2fyazthrbu_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T11:42:55.079Z\"},{\"id\":\"kuaishou:photo:3xcc3rvuh8k8exk\",\"title\":\"铁甲钢拳 国产轻坦抵达珠海 火力猛擅打丛林巷战 #珠海航展  #坦克  #中国兵工\",\"link\":\"https://www.kuaishou.com/short-video/3xcc3rvuh8k8exk\",\"description\":\"铁甲钢拳 国产轻坦抵达珠海 火力猛擅打丛林巷战 #珠海航展  #坦克  #中国兵工\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/17/BMjAyNjExMjExNzI0MzhfMTMxMjExOTkyNV8yMTY1Mjg3ODUwNTNfMF8z_ccc_B6fbf20c491c92fd0e35fe1e50914031d.jpg?tag=1-1795289726-xpcwebprofile-0-pvuxxoi6yz-b2748095070a7f84&clientCacheKey=3xcc3rvuh8k8exk_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/21/17/BMjAyNjExMjExNzI0MzhfMTMxMjExOTkyNV8yMTY1Mjg3ODUwNTNfMF8z_b_Bbd213b78fe07947a12e66acdfac0147a.mp4?pkey=AAVB0-mBhsLx4J-xhBW8z-rrKd0Mo5xsaPnFLu931CflTNYSvHFLzV8gUcIYN7JQUzA2EY2O2_JJkbCDH7lX51gmtAtqcEO5_hY33h1ZHQ2AHsx-dDQl3Fc_FIEiQtzzo8E&tag=1-1795289726-unknown-0-kjyece7hgf-70d566f14bf54c07&clientCacheKey=3xcc3rvuh8k8exk_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T10:50:28.154Z\"},{\"id\":\"kuaishou:photo:3xcq7qhiwz7bism\",\"title\":\"特朗普：深圳这座城市一尘不染 而美国的城市很脏 到处都是坑洼\",\"link\":\"https://www.kuaishou.com/short-video/3xcq7qhiwz7bism\",\"description\":\"特朗普：深圳这座城市一尘不染 而美国的城市很脏 到处都是坑洼\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/18/BMjAyNjExMjExODQ1MzRfMTMxMjExOTkyNV8yMTY1NDA0MjY2NzJfMF8z_ccc_B2f5f29d779015b789a9ca0e5e325cdcc.jpg?tag=1-1795289726-xpcwebprofile-0-u13sll4aje-5dec6479e9703496&clientCacheKey=3xcq7qhiwz7bism_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/ppDLII-KpdbIdssELKVqO9ixTdkiRMZHYqkTKWOcogcFVOwrJkYQoGLo-XWawjFTjDClDHvvp9OMA7MEzhmd7s9Hz20XhSu46MrxMpbe2lrVKkaz0wrtfgcxWuu75QKNC8Tz7j3UtrZZHKE5OCFL5cUiDMp7KSpADl3kX5kAiCri9S8nOSDGRI17V3ZIUwHM.mp4?pkey=AAWzzvd5DQ-wqe2aKXWQVgW3RmsPzBFKpgKHQTvAEEhgaUAtzIWexc3UScO4Jvw1z98tACMe4y451yOMEw3IpI6bAz543OZf09v3BEYRyxnRmpNA9d_5tCFYvqOjdKN2ar4&tag=1-1795289726-unknown-0-kbnjakkcnx-a4b5d9711729ea76&clientCacheKey=3xcq7qhiwz7bism_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T10:46:53.852Z\"},{\"id\":\"kuaishou:photo:3x5my9gmawkvaeq\",\"title\":\"联合国环境规划署气候变化司适应与韧性处负责人：我们最需要的是行动，行动，行动！｜新闻会客厅\",\"link\":\"https://www.kuaishou.com/short-video/3x5my9gmawkvaeq\",\"description\":\"联合国环境规划署气候变化司适应与韧性处负责人：我们最需要的是行动，行动，行动！｜新闻会客厅\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/21/18/BMjAyNjExMjExODEwNDFfMTMxMjExOTkyNV8yMTY1MzUyOTczNjdfMF8z_ccc_B0e0bed079d84546bb60d2d76e2729de5.jpg?tag=1-1795289726-xpcwebprofile-0-dheej2ehdm-732800a23f456066&clientCacheKey=3x5my9gmawkvaeq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/PtnGTlo8AQvVFJYDJ6PPlCK-RYFTtdOWD-Q6ajkVwYCuXJkne3bNEjRiGn1XK4kQM5OSTY8sD7VSz0pf9_FhtBj-FoYVopTy8a5hlMKDGe9eJzdL3sTy4g1cEA8UNyqs5JHT_X4pjHo4intFoS2VKTNuZeEEGrUEamojv6HVzbMlpj5BOUNOSeV_71dukxfT.mp4?pkey=AAVNR-JobyUR8f9eEHPeN8Mp83QLWh6hn9UvQyV6Bc_RpF1YA3vhNkghaMlpYmVa2Pk0J1yio2j59PYpcuk1z_FOqax9a0YjrlPzo3WRiBWqUPI3SMmuV9TJHYRi23JjxOI&tag=1-1795289726-unknown-0-csyrp8uhmr-9ea036a3303178e8&clientCacheKey=3x5my9gmawkvaeq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T10:15:22.878Z\"},{\"id\":\"kuaishou:photo:3xyd8z37mkxiamq\",\"title\":\"远看是竹、近看是诗，古人的“画中藏诗”有多牛？西安碑林博物馆里一方清康熙年间的《关帝诗竹碑》里，错落有致的竹叶组成了一首五言绝句，表达了关羽对刘备的忠义之情。你认出竹叶上的字了吗？ #诗词里的千年文脉  #盛世中华何以中国\",\"link\":\"https://www.kuaishou.com/short-video/3xyd8z37mkxiamq\",\"description\":\"远看是竹、近看是诗，古人的“画中藏诗”有多牛？西安碑林博物馆里一方清康熙年间的《关帝诗竹碑》里，错落有致的竹叶组成了一首五言绝句，表达了关羽对刘备的忠义之情。你认出竹叶上的字了吗？ #诗词里的千年文脉  #盛世中华何以中国\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/21/17/BMjAyNjExMjExNzE2NTNfMTMxMjExOTkyNV8yMTY1Mjc2MzM5MDRfMF8z_ccc_Bff5906a88e5cca6560227427eae5b9ab.jpg?tag=1-1795289726-xpcwebprofile-0-2m7e9vzniv-e66898213022e6d5&clientCacheKey=3xyd8z37mkxiamq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/21/17/BMjAyNjExMjExNzE2NTNfMTMxMjExOTkyNV8yMTY1Mjc2MzM5MDRfMF8z_b_B14a94a1d9f4c323ec23256758878b5c8.mp4?pkey=AAVuWg_t_sEjWYNmyTrI-AEYM2iSjqsg8lK57IdtTL1AunFpMVn1HEPdBe-42p9FNmhPaOdeKAyG9n0BDfuNiERSjt30raP4Dvhjy0oel7TiUEWYZv5O92Jjq0jOlSk_4NE&tag=1-1795289726-unknown-0-fzmc7alvpu-b7d65420c1ed2218&clientCacheKey=3xyd8z37mkxiamq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T09:22:34.758Z\"},{\"id\":\"kuaishou:photo:3xmjdxdpmer9bcc\",\"title\":\"一直以为爆米花工厂是机械自动化，居然是老师傅扛着爆米花大炮开火（来源：洛视频）\",\"link\":\"https://www.kuaishou.com/short-video/3xmjdxdpmer9bcc\",\"description\":\"一直以为爆米花工厂是机械自动化，居然是老师傅扛着爆米花大炮开火（来源：洛视频）\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/17/BMjAyNjExMjExNzE1MzVfMTMxMjExOTkyNV8yMTY1Mjc1MDAzMzBfMF8z_ccc_B24d727dcd5c04fc056ac8da88b0d7044.jpg?tag=1-1795289726-xpcwebprofile-0-vodpprifs8-684a51aa457ad5f0&clientCacheKey=3xmjdxdpmer9bcc_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/jnLneVJefOfCV0DCh_dcHk_sxCnZCTeBycIJgY9GlqzDcPC-tezJX-oHyEr_uHdcjvtB0_AMnqaZIzIdxunkwEjExNSvOQjtj4p6TIAIZM1elAHpsijcr7_w8No2fHmi5EkCAwNOaAE07HaZWCl4u1Z7m_4cJP5nV7x3JQY2kD9-7FmLLy9SPl2MfZEp3o0S.mp4?pkey=AAUd77SCvtMrE7iOFAriSz5nDb0hGepDgF2KCHXjLvDThcxzfSQ7cgp7APzmQQCI96To--R5uUAdginx4zQN2QoMlHTAqlQS5jvXQSh8RHNhttYSq8q2ZV8kRGYn_X_VuP8&tag=1-1795289726-unknown-0-y0mrxys5ux-7fba26aad648e9e6&clientCacheKey=3xmjdxdpmer9bcc_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T09:16:09.967Z\"},{\"id\":\"kuaishou:photo:3x4tqwpntqb9aqe\",\"title\":\"来西安约不到兵马俑不要急，国宝亲自来机场接你了！西安咸阳国际机场的西部机场博物馆，有一尊来自秦始皇帝陵博物院的跪射俑正在展出，来西安坐飞机，记得看看这位2000多岁的“接机员”！ #诗词里的千年文脉  #盛世中华何以中国\",\"link\":\"https://www.kuaishou.com/short-video/3x4tqwpntqb9aqe\",\"description\":\"来西安约不到兵马俑不要急，国宝亲自来机场接你了！西安咸阳国际机场的西部机场博物馆，有一尊来自秦始皇帝陵博物院的跪射俑正在展出，来西安坐飞机，记得看看这位2000多岁的“接机员”！ #诗词里的千年文脉  #盛世中华何以中国\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/21/16/BMjAyNjExMjExNjQ1MDVfMTMxMjExOTkyNV8yMTY1MjMxOTM4MTVfMF8z_ccc_Bac494c1bf81f260beed84558d5eb888a.jpg?tag=1-1795289726-xpcwebprofile-0-bpsomerwom-76060fa2ae85f2e4&clientCacheKey=3x4tqwpntqb9aqe_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/JbsMk0N4qBbeIaspOVKVI9OA5SBNLFBtmSad4TRTbozFeUeW_6gGFlTe42uWWoateznKbHXmiHSM_PnI_Uoa0nfL5XJHodSRNzIEDLuI-BGSC6nSRx_lTF1JEX0wlhqMk6yD5V3moEBnsriUOj4QsTSFtYAd_NfO7pRfJMKXVoKvosv6NUXzM9hpUzUYH_tQ.mp4?pkey=AAVLZsGKbV4s6JHyuVwOKzZhMLX_BOh9NI-UWEos3i63UuknRrrkRQoCBW_ZBHck346z8QGipV4vN9_lZa0Dqj3My64FoJ47uapiLBxRuzCeEo53t7N7YaSWr_1P3RkE6u8&tag=1-1795289726-unknown-0-03y4agic9a-228adb3376cb759f&clientCacheKey=3x4tqwpntqb9aqe_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T08:55:21.329Z\"},{\"id\":\"kuaishou:photo:3xsxybdz8kpbjyy\",\"title\":\"国际电信联盟机构代表：中国在国际电联标准制定中扮演着重要角色｜新闻会客厅\",\"link\":\"https://www.kuaishou.com/short-video/3xsxybdz8kpbjyy\",\"description\":\"国际电信联盟机构代表：中国在国际电联标准制定中扮演着重要角色｜新闻会客厅\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/21/16/BMjAyNjExMjExNjMzNTlfMTMxMjExOTkyNV8yMTY1MjE2NDEyMzNfMF8z_ccc_Bd69051b17053b2b478ece0190af856b0.jpg?tag=1-1795289726-xpcwebprofile-0-cw78l4o8ef-f8861db0b5f92f74&clientCacheKey=3xsxybdz8kpbjyy_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/21/16/BMjAyNjExMjExNjMzNTlfMTMxMjExOTkyNV8yMTY1MjE2NDEyMzNfMF8z_b_Bea75c2e8f63343c591749d89d10676cb.mp4?pkey=AAWfVOvd14SxtYpuo5aqon7nz7UVvy3ODx495kiICPCkBvSrIJF9zrX3HCZnU3MplIggthmv1r89iOHreSbFfAz6nk9zYR1Znvd-SGWDw1-nzw0jaQhuiGnQdiSzqDNWass&tag=1-1795289726-unknown-0-wy7ljjixe4-7e5fa72e59729ca6&clientCacheKey=3xsxybdz8kpbjyy_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T08:38:07.025Z\"},{\"id\":\"kuaishou:photo:3x5nqsedm9djtjm\",\"title\":\"记者梳理发现，家校共育异化，学校责任向家长转嫁，主要集中在三类：一是教学责任转嫁；二是形式化打卡留痕转嫁；三是校园管理、后勤保障任务转嫁。家校共育，核心是育人，是双向协同，不是单向摊派！（来源：央视新闻）\",\"link\":\"https://www.kuaishou.com/short-video/3x5nqsedm9djtjm\",\"description\":\"记者梳理发现，家校共育异化，学校责任向家长转嫁，主要集中在三类：一是教学责任转嫁；二是形式化打卡留痕转嫁；三是校园管理、后勤保障任务转嫁。家校共育，核心是育人，是双向协同，不是单向摊派！（来源：央视新闻）\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/16/BMjAyNjExMjExNjI0MjZfMTMxMjExOTkyNV8yMTY1MjAzOTE4MDZfMF8z_ccc_B8fb95a2eab78f50dc78cffd4165fbba7.jpg?tag=1-1795289726-xpcwebprofile-0-ky8nzqsxyd-3d919ab29843d759&clientCacheKey=3x5nqsedm9djtjm_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/LlHKAcYE61aJAUU9sBC_PuHVLtXpszIxEeZLQWLUBPFoZtozocJQA345K6nGT1O-8Avvu11MZw1Y7j-dnGnKfdyPgxl2-uy5Y3X3UVJpLtMHhWA5dvRvvbJYOx8i_-I_s54weQ_HSfZTH7G_Fl27NhxEJZrL94QqI_YzyS55z6fePVX79kiHD3UgiyNHdtxd.mp4?pkey=AAW30ackLNikBieITAceHrAvuNx2LYFTTWL3xk8apg35nli9YSPnh9TQ1RWqTgkWwwqwBz5cNa_93u-j1hn49_1TwWHc2SV7qnQjI3usNmgh8DJ4jWh-Sn_4B_sOODE10J8&tag=1-1795289726-unknown-0-b2hdafrl12-9f8d3a3336493d27&clientCacheKey=3x5nqsedm9djtjm_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T08:25:14.438Z\"},{\"id\":\"kuaishou:photo:3xz5raduvrghruk\",\"title\":\"多位APEC成员经济体领导人明确表示，坚定恪守一个中国原则。\",\"link\":\"https://www.kuaishou.com/short-video/3xz5raduvrghruk\",\"description\":\"多位APEC成员经济体领导人明确表示，坚定恪守一个中国原则。\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/16/BMjAyNjExMjExNjA3MTRfMTMxMjExOTkyNV8yMTY1MTc5NjE4ODJfMF8z_ccc_B449586c9ff6b6348987b569e4323371d.jpg?tag=1-1795289726-xpcwebprofile-0-94nrfj4n7x-b12fd05b387ed240&clientCacheKey=3xz5raduvrghruk_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/21/16/BMjAyNjExMjExNjA3MTRfMTMxMjExOTkyNV8yMTY1MTc5NjE4ODJfMF8z_b_Ba36294d75818ea36968507870113670e.mp4?pkey=AAUtikyNXKHZqHbxpwGeSMmfDwk7ocpJs0M3P7ztre0Z70ecCten_9TLGFxgBxnHIfEUZzSwZBkhM1HIa45o1DbFRHuZZsaSJ9luUDuLuaz4zIg3FnwPaccpKjJkn1JPahE&tag=1-1795289726-unknown-0-oymcpxkyux-2c94922f49e524d1&clientCacheKey=3xz5raduvrghruk_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T08:08:35.962Z\"},{\"id\":\"kuaishou:photo:3xuqv9yc4uvvp92\",\"title\":\"台湾自媒体人翟翾感叹：何其有幸，我们是中国人！我们中国有个深圳！ #深圳APEC  #台湾自媒体人说有幸身为中国人  #燕新台\",\"link\":\"https://www.kuaishou.com/short-video/3xuqv9yc4uvvp92\",\"description\":\"台湾自媒体人翟翾感叹：何其有幸，我们是中国人！我们中国有个深圳！ #深圳APEC  #台湾自媒体人说有幸身为中国人  #燕新台\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/21/14/BMjAyNjExMjExNDE1MTlfMTMxMjExOTkyNV8yMTY1MDM3Mjc4NjhfMF8z_ccc_B28d375dc686c72ef6cf8de6f420ee21a.jpg?tag=1-1795289726-xpcwebprofile-0-e6bhkdaq7y-77b919a5d771d028&clientCacheKey=3xuqv9yc4uvvp92_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/Yud21kWRjLGqCi1aJtb0dAZExA5B3z069AJRUXkwx1YT6MNiBUC4R5Pg1k-s73wUn8wQFVdZpnKNiQWq5I2c1H_EArVyfqZZqw0PrqwhX17qbL5taCYkzZ_f-VVHlXP_e9RXcTZk9OzPldTSFNEjYT0zfDQH5TBJw7MPS7j-AB8YkHNCZo0OdDdHTPCxq87s.mp4?pkey=AAWShVFG0OQCGoGnHgJ7mNBUVd02gqg2rce6Q8CfcFSbmzvuxUMY6Z53IM-iOEaXe6zBZ-ebt3kqdCg9Da0S-_guyib2komWFGgqN4lZu0P7KNiiIlb-EcGg-mvrmZbUDSw&tag=1-1795289726-unknown-0-prmqtah7ta-c56133c5e7ea0437&clientCacheKey=3xuqv9yc4uvvp92_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T06:25:03.792Z\"},{\"id\":\"kuaishou:photo:3x97rsx4vmpqh9a\",\"title\":\"欧洲气候基金会观察员:中国的电动汽车、光伏太阳能 让我印象深刻｜新闻会客厅\",\"link\":\"https://www.kuaishou.com/short-video/3x97rsx4vmpqh9a\",\"description\":\"欧洲气候基金会观察员:中国的电动汽车、光伏太阳能 让我印象深刻｜新闻会客厅\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/21/14/BMjAyNjExMjExNDA1MTVfMTMxMjExOTkyNV8yMTY1MDI0NDYwOTZfMF8z_ccc_B107244e3877176fb1c745a4012632c8b.jpg?tag=1-1795289726-xpcwebprofile-0-pqn86ie7aw-4de3b47136aecef4&clientCacheKey=3x97rsx4vmpqh9a_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/21/14/BMjAyNjExMjExNDA1MTVfMTMxMjExOTkyNV8yMTY1MDI0NDYwOTZfMF8z_b_B7a6954dacd5907664c97a358f41de89a.mp4?pkey=AAUFDo_EcFfbc0-tCHCXQHvI_0hpftslJEhOtAt08FC38UQ6qfwHE-rpZZ9ivp6MbtMovZMJV_wUjXZLMqwTZXT4jdSMJ8-njuYyVvF2U6BJIbg3ygXChyqe9-ZHwhXYqC4&tag=1-1795289726-unknown-0-cn6baeullj-e63a5a68a36e799c&clientCacheKey=3x97rsx4vmpqh9a_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T06:14:40.619Z\"},{\"id\":\"kuaishou:photo:3xcj7ixbqmqtybk\",\"title\":\"“全妆”深圳的背后，是这群可爱的城市“化妆师”。为你们点赞👍🏻（来源：央视新闻）\",\"link\":\"https://www.kuaishou.com/short-video/3xcj7ixbqmqtybk\",\"description\":\"“全妆”深圳的背后，是这群可爱的城市“化妆师”。为你们点赞👍🏻（来源：央视新闻）\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/21/12/BMjAyNjExMjExMjUxMDlfMTMxMjExOTkyNV8yMTY0OTM4OTIyNTVfMF8z_ccc_Bdfd9205c6b9bce0c22789fcd0d6e7b25.jpg?tag=1-1795289726-xpcwebprofile-0-pcjhnsvuvl-674db1f6180e38ae&clientCacheKey=3xcj7ixbqmqtybk_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/ju5BVY93VO36Hk81OKI8eD7esdb2chJU_hkqKSICVYePTFFKMoLInrmYAUWt6tjeH1CuVrVq4ygJmjifsMv0LQZZSogxnzDZxEGn1iTWO4tV7UnglsmpWHppfmAHmOp0I-Joqh0mHBBzghPoflWX-El1KOf3ZLXwIJ9W0h43o_kSqVfAlQ2AMHlOUbgAI98Q.mp4?pkey=AAUMKi335puKFOYBYd4pHh4G_WIQerLn2fiARGd1xtCMqOY9067gBlhv8FGiNW8DlcwGtjPy9oafSKMW13MIJmvH6d-jrEAgOxfL8XsYUE0-lQZJ9PIFeP8dZvKNbDpwcSI&tag=1-1795289726-unknown-0-gznu6th8jn-7e944cfaf9b46098&clientCacheKey=3xcj7ixbqmqtybk_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T04:54:13.093Z\"},{\"id\":\"kuaishou:photo:3xy2ybuazbaqnz9\",\"title\":\"火光冲天！印尼无人看守铁路道口 列车顶着起火小巴飞驰而来\",\"link\":\"https://www.kuaishou.com/short-video/3xy2ybuazbaqnz9\",\"description\":\"火光冲天！印尼无人看守铁路道口 列车顶着起火小巴飞驰而来\",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/21/12/BMjAyNjExMjExMjMzNTZfMTMxMjExOTkyNV8yMTY0OTE5MzA0NDBfMF8z_ccc_B8560ed86da982f0496094bfd62cf5c97.jpg?tag=1-1795289726-xpcwebprofile-0-udjrxfijfg-26c6063f27384e1f&clientCacheKey=3xy2ybuazbaqnz9_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/QuMTwbyI3e5RzlJbc4GHnUKJiCpvLt73kSz9Ki0fGz2YHeQ0V3SiFZrn1bhV6D2BstClHKb1QOHc4C4qvALeWlVV1gXJ9xcF_wddWWhh-s6rfMne__tMaTBEgnrVY-DpxC-TT7IsV8t2s_YhaRgRB6uZ7gTSvdIeeOCyqSyavthEykw2-taToilvdsT5cAv-.mp4?pkey=AAWmI4GXVWE3xFcklo8ySjTHhM7SZ3iUxW9wRSDZXkaLin9CjUFgdOWPKZU8o9LqahSRUvOhOdA15oilcpQHrL3p8GlLCuBP_Tbo2b5sagIkUvUm9OYAFzuO6WFbMsMSK3A&tag=1-1795289726-unknown-0-k067r241hs-85c0eee6c90a9643&clientCacheKey=3xy2ybuazbaqnz9_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T04:34:42.697Z\"},{\"id\":\"kuaishou:photo:3xmxjm5j2gkhwgs\",\"title\":\"白宫记者发布视频 特朗普在APEC欢迎晚宴上跳起标志性舞蹈\",\"link\":\"https://www.kuaishou.com/short-video/3xmxjm5j2gkhwgs\",\"description\":\"白宫记者发布视频 特朗普在APEC欢迎晚宴上跳起标志性舞蹈\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/21/11/BMjAyNjExMjExMTUxMjFfMTMxMjExOTkyNV8yMTY0ODY5MTQ4NTlfMF8z_ccc_B1b90d7a37f68c7d5b8ba1469f4d3fd75.jpg?tag=1-1795289726-xpcwebprofile-0-6iiwhchvii-fdf88bd04f1386fb&clientCacheKey=3xmxjm5j2gkhwgs_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/21/11/BMjAyNjExMjExMTUxMjFfMTMxMjExOTkyNV8yMTY0ODY5MTQ4NTlfMF8z_b_B17416e2b05b2d44037385869a9e26c67.mp4?pkey=AAWCYGeQbgW2gYVxfoOjUJN3vqtl_18UdLM0Ua4rzMJ_ARCPT7c0HoD9g4VfoXHshkzGTBl9OHXmKPfnmofyp4GrURMND6-yx1O_eHcgojzuDl50uRUs7V-_BWq700vusoA&tag=1-1795289726-unknown-0-igoilcsl8o-3a65f84d07681e4f&clientCacheKey=3xmxjm5j2gkhwgs_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-21T03:52:24.854Z\"}]}",
     "timing": {
-      "elapsed_ms": 30036,
+      "elapsed_ms": 13126,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "宿主能力准备",
@@ -108,26 +120,31 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 8,
-          "duration_ms": 30027
+          "duration_ms": 13117
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 30035,
+          "name": "输出读取与校验",
+          "started_ms": 13125,
           "duration_ms": 1
         },
         {
-          "name": "沙箱释放",
-          "started_ms": 30036,
+          "name": "执行日志收集",
+          "started_ms": 13126,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 30036,
+          "name": "沙箱释放",
+          "started_ms": 13126,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 13126,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 30036,
+          "started_ms": 13126,
           "duration_ms": 0
         }
       ],
@@ -135,7 +152,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 11,
-          "duration_ms": 30024
+          "duration_ms": 13108
         }
       ]
     }
@@ -150,9 +167,9 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
-    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-    "duration_ms": 32571
+    "status": 502,
+    "code": "SCRIPT_FAILED",
+    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
+    "duration_ms": 10042
   }
 }

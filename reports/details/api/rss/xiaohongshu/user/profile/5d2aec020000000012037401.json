@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-21T11:32:16.597Z",
+  "checked_at": "2026-11-21T19:36:19.780Z",
   "debug_request": {
     "status": 502,
-    "duration_ms": 1325
+    "duration_ms": 1892
   },
   "debug": {
     "status": 502,
@@ -35,7 +35,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 1308,
+    "elapsed_ms": 1886,
     "invoked": false,
     "upstream_error": "UPSTREAM_AUTH_REQUIRED: 脚本执行失败：小红书上游返回游客数据，请重新登录并同步 xiaohongshu.com Cookie，完成风控验证后重试。",
     "error_text": "脚本执行失败：小红书上游返回游客数据，请重新登录并同步 xiaohongshu.com Cookie，完成风控验证后重试。\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:43:28)",
@@ -55,9 +55,9 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 569,
+        "duration_ms": 518,
         "timings": {
-          "response_ms": 569
+          "response_ms": 518
         }
       },
       {
@@ -71,10 +71,10 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 579,
-        "duration_ms": 319,
+        "started_ms": 528,
+        "duration_ms": 234,
         "timings": {
-          "response_ms": 319
+          "response_ms": 234
         }
       },
       {
@@ -88,17 +88,17 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 899,
-        "duration_ms": 400,
+        "started_ms": 762,
+        "duration_ms": 1115,
         "timings": {
-          "response_ms": 346,
-          "body_read_ms": 52,
-          "decode_and_transfer_ms": 2
+          "response_ms": 675,
+          "body_read_ms": 439,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 1308,
+      "elapsed_ms": 1886,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -113,27 +113,27 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -143,26 +143,26 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1300
+          "duration_ms": 1878
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 1307,
-          "duration_ms": 1
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1308,
+          "started_ms": 1885,
           "duration_ms": 0
         },
         {
+          "name": "沙箱释放",
+          "started_ms": 1885,
+          "duration_ms": 1
+        },
+        {
           "name": "失败后浏览器清理",
-          "started_ms": 1308,
+          "started_ms": 1886,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1308,
+          "started_ms": 1886,
           "duration_ms": 0
         }
       ],
@@ -170,7 +170,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 1289
+          "duration_ms": 1867
         }
       ]
     }
@@ -188,6 +188,6 @@
     "status": 502,
     "code": "UPSTREAM_AUTH_REQUIRED",
     "error": "HTTP 502: UPSTREAM_AUTH_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据",
-    "duration_ms": 1474
+    "duration_ms": 1394
   }
 }

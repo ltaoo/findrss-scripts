@@ -1,8 +1,8 @@
-# 脚本路由巡检：114/146 通过
+# 脚本路由巡检：116/146 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-21T11:38:53.104Z
+巡检时间：2026-11-21T19:42:52.406Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -20,7 +20,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-21/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
+| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-22/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/36kr/newsflashes<br>36氪 · 快讯 (/api/hot/36kr/newsflashes) | ✅ 成功 |  |
 
 ## hot/apple\_charts.js（0/1 通过）
@@ -157,15 +157,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/kuaishou/profile/:user\_id<br>中国新闻网 (/api/rss/kuaishou/profile/3xuxw5yhgr6f4um) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
-
-## rss/weibo.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-102.svg" alt="" width="24" height="24"> [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) · 版本：1.1.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/weibo/u/:uid<br>影视飓风MediaStorm (/api/rss/weibo/u/1044980795)<br>博物杂志 (/api/rss/weibo/u/1195054531)<br>天才小熊猫 (/api/rss/weibo/u/1563926367)<br>敖厂长 (/api/rss/weibo/u/1671959152)<br>雷军 (/api/rss/weibo/u/1749127163)<br>深夜徐老师 (/api/rss/weibo/u/1770418834)<br>指法芬芳张大仙 (/api/rss/weibo/u/1811893237)<br>果壳 (/api/rss/weibo/u/1850988623)<br>李佳琦Austin (/api/rss/weibo/u/1968758563)<br>这是邱天 (/api/rss/weibo/u/1992429663)<br>papi酱 (/api/rss/weibo/u/2714280233)<br>王尼玛 (/api/rss/weibo/u/2718604160)<br>李子柒 (/api/rss/weibo/u/2970452952)<br>手工耿 (/api/rss/weibo/u/3108949955)<br>我是李雪琴啊 (/api/rss/weibo/u/3210693695)<br>回忆专用小马甲 (/api/rss/weibo/u/3217179555)<br>摩登兄弟刘宇宁 (/api/rss/weibo/u/5456865382)<br>滇西小哥 (/api/rss/weibo/u/6061180654)<br>美食作家王刚 (/api/rss/weibo/u/6288254740)<br>老师好我叫何同学 (/api/rss/weibo/u/6529876887) | ❌ 失败 | 博物杂志 /api/rss/weibo/u/1195054531: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试；果壳 /api/rss/weibo/u/1850988623: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
+| /api/rss/kuaishou/profile/:user\_id<br>中国新闻网 (/api/rss/kuaishou/profile/3xuxw5yhgr6f4um) | ❌ 失败 | SCRIPT\_FAILED: HTTP 502: SCRIPT\_FAILED: 脚本执行失败，请结合 Worker 日志排查 |
 
 ## rss/wxchannels.js（0/1 通过）
 
@@ -198,21 +190,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/youku/series/:show\_id<br>嫁金钗 (/api/rss/youku/series/bcaa87c7834c46f99e7b) | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
-
-## rss/zhihu.js（7/8 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-109.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/zhihu/people/:user/answers<br>陈柏龄 (/api/rss/zhihu/people/chenbailing/answers)<br>chenqin (/api/rss/zhihu/people/chenqin/answers)<br>丁香医生 (/api/rss/zhihu/people/ding-xiang-yi-sheng/answers)<br>动机在杭州 (/api/rss/zhihu/people/dong-ji-zai-hang-zhou/answers)<br>尤雨溪 (/api/rss/zhihu/people/evanyou/answers)<br>李开复 (/api/rss/zhihu/people/kaifulee/answers)<br>KnowYourself (/api/rss/zhihu/people/knowyourself-1/answers)<br>老爸评测 (/api/rss/zhihu/people/lao-ba-ping-ce/answers)<br>工叔 (/api/rss/zhihu/people/li-hai-yang-14-43/answers)<br>李松蔚 (/api/rss/zhihu/people/lisongwei/answers)<br>马伯庸 (/api/rss/zhihu/people/ma-bo-yong/answers)<br>Raymond Wang (/api/rss/zhihu/people/raymond-wang/answers)<br>田吉顺 (/api/rss/zhihu/people/tian-ji-shun/answers)<br>warfalcon (/api/rss/zhihu/people/warfalcon/answers)<br>下厨房 (/api/rss/zhihu/people/xia-chu-fang/answers)<br>张佳玮 (/api/rss/zhihu/people/zhang-jia-wei/answers)<br>张小北 (/api/rss/zhihu/people/zhang-xiao-bei/answers)<br>真实故事计划 (/api/rss/zhihu/people/zhen-shi-gu-shi-ji-hua/answers)<br>木子白 (/api/rss/zhihu/people/zhihu/answers)<br>中国科普博览 (/api/rss/zhihu/people/zhong-guo-ke-pu-bo-lan/answers) | ❌ 失败 | 马伯庸 /api/rss/zhihu/people/ma-bo-yong/answers: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
-| /api/rss/zhihu/collection/:collection\_id<br>总有一天能用到的资料 (/api/rss/zhihu/collection/26444956) | ✅ 成功 |  |
-| /api/rss/zhihu/column/:column\_id<br>谷歌开发者社区 (/api/rss/zhihu/column/googledevelopers) | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user<br>木子白 (/api/rss/zhihu/people/zhihu) | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/asks<br>木子白 (/api/rss/zhihu/people/zhihu/asks) | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/pins<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/pins) | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/posts<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/posts) | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/zvideos<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/zvideos) | ✅ 成功 |  |
 
 ## clip/baidu\_weather.js（1/1 通过）
 
@@ -905,6 +882,14 @@
 | --- | --- | --- |
 | /api/rss/vqq/series/:cover\_id<br>尚公主 (/api/rss/vqq/series/mzc002001w361jz) | ✅ 成功 |  |
 
+## rss/weibo.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-102.svg" alt="" width="24" height="24"> [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) · 版本：1.1.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/weibo/u/:uid<br>影视飓风MediaStorm (/api/rss/weibo/u/1044980795)<br>博物杂志 (/api/rss/weibo/u/1195054531)<br>天才小熊猫 (/api/rss/weibo/u/1563926367)<br>敖厂长 (/api/rss/weibo/u/1671959152)<br>雷军 (/api/rss/weibo/u/1749127163)<br>深夜徐老师 (/api/rss/weibo/u/1770418834)<br>指法芬芳张大仙 (/api/rss/weibo/u/1811893237)<br>果壳 (/api/rss/weibo/u/1850988623)<br>李佳琦Austin (/api/rss/weibo/u/1968758563)<br>这是邱天 (/api/rss/weibo/u/1992429663)<br>papi酱 (/api/rss/weibo/u/2714280233)<br>王尼玛 (/api/rss/weibo/u/2718604160)<br>李子柒 (/api/rss/weibo/u/2970452952)<br>手工耿 (/api/rss/weibo/u/3108949955)<br>我是李雪琴啊 (/api/rss/weibo/u/3210693695)<br>回忆专用小马甲 (/api/rss/weibo/u/3217179555)<br>摩登兄弟刘宇宁 (/api/rss/weibo/u/5456865382)<br>滇西小哥 (/api/rss/weibo/u/6061180654)<br>美食作家王刚 (/api/rss/weibo/u/6288254740)<br>老师好我叫何同学 (/api/rss/weibo/u/6529876887) | ✅ 成功 |  |
+
 ## rss/x.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-105.svg" alt="" width="24" height="24"> [rss/x.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/x.js) · 版本：1.1.2
@@ -921,3 +906,18 @@
 | --- | --- | --- |
 | /api/rss/youtube/:handle<br>Airrack (/api/rss/youtube/@airrack)<br>Alan Chikin Chow (/api/rss/youtube/@AlanChikinChow)<br>Ben Azelart (/api/rss/youtube/@benazelart)<br>Brooke Monk (/api/rss/youtube/@Brookemonk)<br>Dude Perfect (/api/rss/youtube/@DudePerfect)<br>金魚腦 (/api/rss/youtube/@goldfishbrain)<br>iJustine (/api/rss/youtube/@iJustine)<br>Linus Tech Tips (/api/rss/youtube/@LinusTechTips)<br>Mark Rober (/api/rss/youtube/@markrober)<br>Max Fosh (/api/rss/youtube/@MaxFosh)<br>Marques Brownlee (/api/rss/youtube/@mkbhd)<br>MrBeast (/api/rss/youtube/@MrBeast)<br>Mrwhosetheboss (/api/rss/youtube/@Mrwhosetheboss)<br>Nick DiGiovanni (/api/rss/youtube/@NickDiGiovanni)<br>Ryan Trahan (/api/rss/youtube/@ryan)<br>Stokes Twins (/api/rss/youtube/@StokesTwins)<br>The Slow Mo Guys (/api/rss/youtube/@TheSlowMoGuys)<br>Veritasium (/api/rss/youtube/@veritasium)<br>Zach King (/api/rss/youtube/@ZachKing)<br>Zack D. Films (/api/rss/youtube/@zackdfilms) | ✅ 成功 |  |
 | /api/rss/youtube/:handle/shorts<br>Airrack (/api/rss/youtube/@airrack/shorts)<br>Alan Chikin Chow (/api/rss/youtube/@AlanChikinChow/shorts)<br>Ben Azelart (/api/rss/youtube/@benazelart/shorts)<br>Brooke Monk (/api/rss/youtube/@Brookemonk/shorts)<br>Dude Perfect (/api/rss/youtube/@DudePerfect/shorts)<br>金魚腦 (/api/rss/youtube/@goldfishbrain/shorts)<br>iJustine (/api/rss/youtube/@iJustine/shorts)<br>Linus Tech Tips (/api/rss/youtube/@LinusTechTips/shorts)<br>Mark Rober (/api/rss/youtube/@markrober/shorts)<br>Max Fosh (/api/rss/youtube/@MaxFosh/shorts)<br>Marques Brownlee (/api/rss/youtube/@mkbhd/shorts)<br>MrBeast (/api/rss/youtube/@MrBeast/shorts)<br>Mrwhosetheboss (/api/rss/youtube/@Mrwhosetheboss/shorts)<br>Nick DiGiovanni (/api/rss/youtube/@NickDiGiovanni/shorts)<br>Ryan Trahan (/api/rss/youtube/@ryan/shorts)<br>Stokes Twins (/api/rss/youtube/@StokesTwins/shorts)<br>The Slow Mo Guys (/api/rss/youtube/@TheSlowMoGuys/shorts)<br>Veritasium (/api/rss/youtube/@veritasium/shorts)<br>Zach King (/api/rss/youtube/@ZachKing/shorts)<br>Zack D. Films (/api/rss/youtube/@zackdfilms/shorts) | ✅ 成功 |  |
+
+## rss/zhihu.js（8/8 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-109.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/zhihu/collection/:collection\_id<br>总有一天能用到的资料 (/api/rss/zhihu/collection/26444956) | ✅ 成功 |  |
+| /api/rss/zhihu/column/:column\_id<br>谷歌开发者社区 (/api/rss/zhihu/column/googledevelopers) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/answers<br>陈柏龄 (/api/rss/zhihu/people/chenbailing/answers)<br>chenqin (/api/rss/zhihu/people/chenqin/answers)<br>丁香医生 (/api/rss/zhihu/people/ding-xiang-yi-sheng/answers)<br>动机在杭州 (/api/rss/zhihu/people/dong-ji-zai-hang-zhou/answers)<br>尤雨溪 (/api/rss/zhihu/people/evanyou/answers)<br>李开复 (/api/rss/zhihu/people/kaifulee/answers)<br>KnowYourself (/api/rss/zhihu/people/knowyourself-1/answers)<br>老爸评测 (/api/rss/zhihu/people/lao-ba-ping-ce/answers)<br>工叔 (/api/rss/zhihu/people/li-hai-yang-14-43/answers)<br>李松蔚 (/api/rss/zhihu/people/lisongwei/answers)<br>马伯庸 (/api/rss/zhihu/people/ma-bo-yong/answers)<br>Raymond Wang (/api/rss/zhihu/people/raymond-wang/answers)<br>田吉顺 (/api/rss/zhihu/people/tian-ji-shun/answers)<br>warfalcon (/api/rss/zhihu/people/warfalcon/answers)<br>下厨房 (/api/rss/zhihu/people/xia-chu-fang/answers)<br>张佳玮 (/api/rss/zhihu/people/zhang-jia-wei/answers)<br>张小北 (/api/rss/zhihu/people/zhang-xiao-bei/answers)<br>真实故事计划 (/api/rss/zhihu/people/zhen-shi-gu-shi-ji-hua/answers)<br>木子白 (/api/rss/zhihu/people/zhihu/answers)<br>中国科普博览 (/api/rss/zhihu/people/zhong-guo-ke-pu-bo-lan/answers) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user<br>木子白 (/api/rss/zhihu/people/zhihu) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/asks<br>木子白 (/api/rss/zhihu/people/zhihu/asks) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/pins<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/pins) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/posts<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/posts) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/zvideos<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/zvideos) | ✅ 成功 |  |
