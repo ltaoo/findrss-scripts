@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-22T08:19:55.509Z",
+  "checked_at": "2026-11-22T16:30:40.990Z",
   "debug_request": {
     "status": 502,
-    "duration_ms": 815
+    "duration_ms": 509
   },
   "debug": {
     "status": 502,
@@ -35,7 +35,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 810,
+    "elapsed_ms": 499,
     "invoked": false,
     "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
     "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
@@ -54,10 +54,10 @@
             "authorization"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 801,
+        "started_ms": 11,
+        "duration_ms": 486,
         "timings": {
-          "response_ms": 801
+          "response_ms": 486
         },
         "rate_limit": {
           "retry-after": 1
@@ -65,7 +65,7 @@
       }
     ],
     "timing": {
-      "elapsed_ms": 810,
+      "elapsed_ms": 499,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,39 +105,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 5
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 804
+          "started_ms": 8,
+          "duration_ms": 490
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 810,
+          "started_ms": 498,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 810,
+          "started_ms": 498,
           "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 810,
-          "duration_ms": 0
+          "started_ms": 498,
+          "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 810,
+          "started_ms": 499,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 801
+          "started_ms": 11,
+          "duration_ms": 486
         }
       ]
     }
@@ -155,6 +155,6 @@
     "status": 502,
     "code": "UPSTREAM_FETCH_FAILED",
     "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1880
+    "duration_ms": 1068
   }
 }

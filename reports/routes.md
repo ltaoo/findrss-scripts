@@ -1,8 +1,8 @@
-# 脚本路由巡检：115/146 通过
+# 脚本路由巡检：114/146 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-22T08:27:31.040Z
+巡检时间：2026-11-22T16:38:12.658Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -20,7 +20,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-22/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
+| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-23/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/36kr/newsflashes<br>36氪 · 快讯 (/api/hot/36kr/newsflashes) | ✅ 成功 |  |
 
 ## hot/apple\_charts.js（0/1 通过）
@@ -149,7 +149,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/instagram/:username<br>Addison Rae (/api/rss/instagram/addisonraee)<br>AuronPlay (/api/rss/instagram/auronplay)<br>Avneet Kaur (/api/rss/instagram/avneetkaur\_13)<br>Bella Poarch (/api/rss/instagram/bellapoarch)<br>Bretman Rock (/api/rss/instagram/bretmanrock)<br>Charli D’Amelio (/api/rss/instagram/charlidamelio)<br>Domelipa (/api/rss/instagram/domelipa)<br>Ibai Llanos (/api/rss/instagram/ibai)<br>Jannat Zubair (/api/rss/instagram/jannatzubair29)<br>Juanpa Zurita (/api/rss/instagram/juanpazurita)<br>KARINA (/api/rss/instagram/katarinabluu)<br>Khaby Lame (/api/rss/instagram/khaby00)<br>Kimberly Loaiza (/api/rss/instagram/kimberly.loaiza)<br>Lele Pons (/api/rss/instagram/lelepons)<br>Luisito Comunica (/api/rss/instagram/luisitocomunica)<br>Mark Rober (/api/rss/instagram/markrober)<br>Marques Brownlee (/api/rss/instagram/mkbhd)<br>MrBeast (/api/rss/instagram/mrbeast)<br>Nick DiGiovanni (/api/rss/instagram/nick.digiovanni)<br>Rubius (/api/rss/instagram/rubiuswtf)<br>Zach King (/api/rss/instagram/zachking) | ❌ 失败 | Addison Rae /api/rss/instagram/addisonraee: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；AuronPlay /api/rss/instagram/auronplay: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Avneet Kaur /api/rss/instagram/avneetkaur\_13: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Bella Poarch /api/rss/instagram/bellapoarch: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Bretman Rock /api/rss/instagram/bretmanrock: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Charli D’Amelio /api/rss/instagram/charlidamelio: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Domelipa /api/rss/instagram/domelipa: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Ibai Llanos /api/rss/instagram/ibai: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Jannat Zubair /api/rss/instagram/jannatzubair29: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Juanpa Zurita /api/rss/instagram/juanpazurita: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；KARINA /api/rss/instagram/katarinabluu: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Khaby Lame /api/rss/instagram/khaby00: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Kimberly Loaiza /api/rss/instagram/kimberly.loaiza: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Lele Pons /api/rss/instagram/lelepons: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Luisito Comunica /api/rss/instagram/luisitocomunica: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Mark Rober /api/rss/instagram/markrober: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Marques Brownlee /api/rss/instagram/mkbhd: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；MrBeast /api/rss/instagram/mrbeast: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Nick DiGiovanni /api/rss/instagram/nick.digiovanni: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Rubius /api/rss/instagram/rubiuswtf: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Zach King /api/rss/instagram/zachking: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
+| /api/rss/instagram/:username<br>Addison Rae (/api/rss/instagram/addisonraee)<br>AuronPlay (/api/rss/instagram/auronplay)<br>Avneet Kaur (/api/rss/instagram/avneetkaur\_13)<br>Bella Poarch (/api/rss/instagram/bellapoarch)<br>Bretman Rock (/api/rss/instagram/bretmanrock)<br>Charli D’Amelio (/api/rss/instagram/charlidamelio)<br>Domelipa (/api/rss/instagram/domelipa)<br>Ibai Llanos (/api/rss/instagram/ibai)<br>Jannat Zubair (/api/rss/instagram/jannatzubair29)<br>Juanpa Zurita (/api/rss/instagram/juanpazurita)<br>KARINA (/api/rss/instagram/katarinabluu)<br>Khaby Lame (/api/rss/instagram/khaby00)<br>Kimberly Loaiza (/api/rss/instagram/kimberly.loaiza)<br>Lele Pons (/api/rss/instagram/lelepons)<br>Luisito Comunica (/api/rss/instagram/luisitocomunica)<br>Mark Rober (/api/rss/instagram/markrober)<br>Marques Brownlee (/api/rss/instagram/mkbhd)<br>MrBeast (/api/rss/instagram/mrbeast)<br>Nick DiGiovanni (/api/rss/instagram/nick.digiovanni)<br>Rubius (/api/rss/instagram/rubiuswtf)<br>Zach King (/api/rss/instagram/zachking) | ❌ 失败 | Addison Rae /api/rss/instagram/addisonraee: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；AuronPlay /api/rss/instagram/auronplay: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Avneet Kaur /api/rss/instagram/avneetkaur\_13: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Bella Poarch /api/rss/instagram/bellapoarch: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Bretman Rock /api/rss/instagram/bretmanrock: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Charli D’Amelio /api/rss/instagram/charlidamelio: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Domelipa /api/rss/instagram/domelipa: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Ibai Llanos /api/rss/instagram/ibai: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Jannat Zubair /api/rss/instagram/jannatzubair29: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Juanpa Zurita /api/rss/instagram/juanpazurita: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；KARINA /api/rss/instagram/katarinabluu: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Khaby Lame /api/rss/instagram/khaby00: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Kimberly Loaiza /api/rss/instagram/kimberly.loaiza: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Lele Pons /api/rss/instagram/lelepons: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Luisito Comunica /api/rss/instagram/luisitocomunica: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Mark Rober /api/rss/instagram/markrober: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Marques Brownlee /api/rss/instagram/mkbhd: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；MrBeast /api/rss/instagram/mrbeast: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Nick DiGiovanni /api/rss/instagram/nick.digiovanni: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Rubius /api/rss/instagram/rubiuswtf: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据；Zach King /api/rss/instagram/zachking: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据 |
 
 ## rss/kuaishou.js（0/1 通过）
 
@@ -158,6 +158,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/kuaishou/profile/:user\_id<br>中国新闻网 (/api/rss/kuaishou/profile/3xuxw5yhgr6f4um) | ❌ 失败 | UPSTREAM\_AUTH\_REQUIRED: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据 |
+
+## rss/telegram.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-99.svg" alt="" width="24" height="24"> [rss/telegram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/telegram.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/telegram/channel/:username<br>Telegram News (/api/rss/telegram/channel/telegram) | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
 ## rss/wxchannels.js（0/1 通过）
 
@@ -872,14 +880,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/qimao/book/:book\_id<br>夫人反差太大，司总沦陷了！ (/api/rss/qimao/book/13030701) | ✅ 成功 |  |
-
-## rss/telegram.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-99.svg" alt="" width="24" height="24"> [rss/telegram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/telegram.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/telegram/channel/:username<br>Telegram News (/api/rss/telegram/channel/telegram) | ✅ 成功 |  |
 
 ## rss/ttk.js（1/1 通过）
 
