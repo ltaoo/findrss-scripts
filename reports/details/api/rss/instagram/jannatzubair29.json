@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-22T00:32:39.213Z",
+  "checked_at": "2026-11-22T08:19:20.303Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1361
+    "status": 503,
+    "duration_ms": 172
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
+    "status": 503,
+    "code": "UPSTREAM_RATE_LIMITED",
     "script": {
       "file": "rss/instagram.js",
       "name": "Instagram 用户作品",
@@ -35,10 +35,10 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 1308,
+    "elapsed_ms": 165,
     "invoked": false,
-    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：Instagram 作品查询失败，请同步有效登录 Cookie 并检查查询文档 ID",
-    "error_text": "脚本执行失败：Instagram 作品查询失败，请同步有效登录 Cookie 并检查查询文档 ID\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:147:26)",
+    "upstream_error": "UPSTREAM_RATE_LIMITED: 脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429",
+    "error_text": "脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429\nat fetchText (rss-context.js:618:45)",
     "lines": [],
     "upstream_requests": [
       {
@@ -46,7 +46,7 @@
         "method": "GET",
         "host": "www.instagram.com",
         "pathname": "/jannatzubair29/",
-        "status": 200,
+        "status": 302,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -54,54 +54,49 @@
             "Cookie"
           ]
         },
-        "started_ms": 15,
-        "duration_ms": 403,
+        "started_ms": 16,
+        "duration_ms": 81,
         "timings": {
-          "response_ms": 152,
-          "body_read_ms": 243,
-          "decode_and_transfer_ms": 8
+          "response_ms": 81
         }
       },
       {
-        "url": "https://www.instagram.com/graphql/query",
-        "method": "POST",
+        "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fjannatzubair29%2F&is_from_rle",
+        "method": "GET",
         "host": "www.instagram.com",
-        "pathname": "/graphql/query",
-        "status": 200,
+        "pathname": "/accounts/login/",
+        "status": 429,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
           "headers_sent": [
-            "Cookie",
-            "x-csrftoken"
+            "Cookie"
           ]
         },
-        "started_ms": 428,
-        "duration_ms": 834,
+        "started_ms": 97,
+        "duration_ms": 67,
         "timings": {
-          "response_ms": 597,
-          "body_read_ms": 222,
-          "decode_and_transfer_ms": 15
+          "response_ms": 67
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 1308,
+      "elapsed_ms": 165,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
@@ -121,49 +116,44 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 10
+          "started_ms": 2,
+          "duration_ms": 9
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 11,
-          "duration_ms": 1296
+          "duration_ms": 154
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 1307,
+          "started_ms": 165,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1307,
-          "duration_ms": 1
+          "started_ms": 165,
+          "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 1308,
+          "started_ms": 165,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1308,
+          "started_ms": 165,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 15,
-          "duration_ms": 404
-        },
-        {
-          "name": "上游 HTTP 请求",
-          "started_ms": 428,
-          "duration_ms": 834
+          "started_ms": 16,
+          "duration_ms": 148
         }
       ]
     }
@@ -178,9 +168,9 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 1361
+    "status": 503,
+    "code": "UPSTREAM_RATE_LIMITED",
+    "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
+    "duration_ms": 153
   }
 }
