@@ -115,6 +115,40 @@ test("X 永久错误不重试，持续限流至多两次且不按异常重置时
   }
 });
 
+test("Instagram 复用串行冷却队列，单次 Debug 校验产物且仅重试一次限流", async t => {
+  const details_dir = await mkdtemp(join(tmpdir(), "findrss-instagram-paced-"));
+  t.after(() => rm(details_dir, { recursive: true, force: true }));
+  let now = 1800000000000;
+  t.mock.method(Date, "now", () => now);
+  const instagram_entry = { ...x_entry, file: "rss/instagram.js", path: "/api/rss/instagram/:username", example: "/api/rss/instagram/mrbeast" };
+  const feed = { title: "Instagram", link: "https://www.instagram.com/mrbeast/", items: [
+    { id: "instagram:post:1", title: "Post", link: "https://www.instagram.com/p/example/" },
+  ] };
+  const debug = { ...x_debug, script: { file: instagram_entry.file, route_index: 0 }, output: JSON.stringify(feed) };
+  const calls = [], waits = [];
+  let active = 0, peak = 0;
+  const report = await check_routes("https://scripts.example", [instagram_entry], {
+    [instagram_entry.format + " " + instagram_entry.path]: [{ example: "/api/rss/instagram/katarinabluu" }],
+  }, {
+    details_dir,
+    sleep_impl: async milliseconds => { waits.push(milliseconds); now += milliseconds; },
+    fetch_impl: async url => {
+      calls.push(url.pathname);
+      active++; peak = Math.max(peak, active);
+      await new Promise(resolve => setImmediate(resolve)); active--;
+      return calls.length === 1 ? Response.json({ ...debug, status: 503, code: "UPSTREAM_RATE_LIMITED" }, { status: 503 }) : Response.json(debug);
+    },
+  });
+  assert.equal(peak, 1);
+  assert.deepEqual(calls, ["/debug/api/rss/instagram/mrbeast", "/debug/api/rss/instagram/mrbeast", "/debug/api/rss/instagram/katarinabluu"]);
+  assert.deepEqual(waits, [60000, 5000]);
+  assert.equal(report.failed, 0);
+  assert.ok(report.results[0].samples.every(sample => sample.execution === "debug" && sample.output_valid));
+  const first = report.results[0].samples.find(sample => sample.example === instagram_entry.example);
+  assert.equal(first.attempts.length, 2);
+  assert.equal(first.attempts[0].code, "UPSTREAM_RATE_LIMITED");
+});
+
 test("其他 503 只请求一次，不重试", async () => {
   let calls = 0;
   await run(async () => { calls++; return new Response("unavailable", { status: 503 }); });

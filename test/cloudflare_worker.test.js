@@ -163,7 +163,7 @@ test("Instagram 有 Cookie 时区分登录失效、响应不匹配及正常 RSS"
   ]) {
     globalThis.fetch = async (url, options) => {
       assert.equal(options.headers.Cookie, "sessionid=private-sessionid; csrftoken=private-csrftoken");
-      return new Response(url.endsWith("/api/graphql") ? body : page);
+      return new Response(url.endsWith("/graphql/query") ? body : page);
     };
     const response = await request("/rss/instagram/katarinabluu", env, { Authorization: "Bearer private-token" });
     assert.equal(response.status, code ? ERRORS[code][0] : 200);

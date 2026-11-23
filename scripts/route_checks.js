@@ -6,6 +6,7 @@ import { XMLParser, XMLValidator } from "fast-xml-parser";
 import { classify_platform_error } from "./platform_errors.js";
 
 const parser = new XMLParser({ ignoreAttributes: false, parseTagValue: false });
+const paced_scripts = new Set(["rss/x.js", "rss/instagram.js"]);
 const array = (value) =>
   value === undefined ? [] : Array.isArray(value) ? value : [value];
 const text = (value) => (typeof value === "string" ? value : value?.["#text"]);
@@ -348,7 +349,7 @@ export async function check_route(
     for (;;) {
       signal.throwIfAborted();
       let response;
-      if (entry.file === "rss/x.js" && details_dir) {
+      if (paced_scripts.has(entry.file) && details_dir) {
         result.execution = "debug";
         detail = await fetch_debug_details(base, entry, { fetch_impl, token, timeout_ms });
         const debug = detail.debug;
@@ -518,8 +519,8 @@ export async function check_routes(
     assert.ok(!url.username && !url.password, "检查地址不得包含用户名或密码");
   }
   const results = [];
-  const x_queue = queue.filter(entry => entry.file === "rss/x.js");
-  const ordinary_queue = queue.filter(entry => entry.file !== "rss/x.js");
+  const paced_queue = queue.filter(entry => paced_scripts.has(entry.file));
+  const ordinary_queue = queue.filter(entry => !paced_scripts.has(entry.file));
   const run_queue = async (pending, worker, paced = false) => {
     let next_at = 0;
     for (let entry; (entry = pending.shift()); ) {
@@ -540,8 +541,8 @@ export async function check_routes(
       on_result(result, worker);
     }
   };
-  await Promise.all([...Array.from({ length: ROUTE_CHECK_CONCURRENCY - Number(x_queue.length > 0) }, (_, worker) => run_queue(ordinary_queue, worker)),
-    run_queue(x_queue, ROUTE_CHECK_CONCURRENCY - 1, true)]);
+  await Promise.all([...Array.from({ length: ROUTE_CHECK_CONCURRENCY - Number(paced_queue.length > 0) }, (_, worker) => run_queue(ordinary_queue, worker)),
+    run_queue(paced_queue, ROUTE_CHECK_CONCURRENCY - 1, true)]);
   results.sort((a, b) =>
     (a.file + a.path + a.example).localeCompare(b.file + b.path + b.example),
   );

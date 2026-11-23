@@ -42,7 +42,7 @@ test('Instagram 查询 GraphQL taken_at，按真实发布时间排序并生成 R
       assert.equal(options.headers.referer, link);
       return new Response(profile);
     }
-    assert.equal(url, 'https://www.instagram.com/api/graphql');
+    assert.equal(url, 'https://www.instagram.com/graphql/query');
     assert.equal(options.method, 'POST');
     assert.equal(options.headers['x-csrftoken'], 'fixture-csrftoken');
     assert.equal(options.headers['x-ig-app-id'], '936619743392459');
@@ -107,7 +107,7 @@ test('Instagram 261016 列表的 7 个视频和 5 个完整图集直接生成 RS
   const calls = [];
   globalThis.fetch = async url => {
     calls.push(url);
-    assert.ok(url === link || url === 'https://www.instagram.com/api/graphql');
+    assert.ok(url === link || url === 'https://www.instagram.com/graphql/query');
     return url === link ? new Response(profile) : Response.json(media_fixture);
   };
   const feed = JSON.parse((await run()).output);
