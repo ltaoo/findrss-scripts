@@ -158,11 +158,12 @@ test("Instagram 有 Cookie 时区分登录失效、响应不匹配及正常 RSS"
     ["<html>Login</html>", "", "UPSTREAM_AUTH_REQUIRED"],
     [profile, "<html>Verification</html>", "UPSTREAM_INVALID_RESPONSE"],
     [profile, '{"data":{}}', "UPSTREAM_INVALID_RESPONSE"],
+    [profile, '{"errors":[{"message":"Rate limit exceeded","code":1675004}]}', "UPSTREAM_RATE_LIMITED"],
     [profile, fixture, null],
   ]) {
     globalThis.fetch = async (url, options) => {
       assert.equal(options.headers.Cookie, "sessionid=private-sessionid; csrftoken=private-csrftoken");
-      return new Response(url.endsWith("/graphql/query") ? body : page);
+      return new Response(url.endsWith("/api/graphql") ? body : page);
     };
     const response = await request("/rss/instagram/katarinabluu", env, { Authorization: "Bearer private-token" });
     assert.equal(response.status, code ? ERRORS[code][0] : 200);

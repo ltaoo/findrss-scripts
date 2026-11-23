@@ -83,7 +83,7 @@ test("dm AES 上传无需额外字段，KV 只存随机 IV 的密文，RSS 能�
   t.after(() => { globalThis.fetch = original; });
   globalThis.fetch = async (url, options) => {
     assert.equal(options.headers.Cookie, "sessionid=private-sessionid; csrftoken=private-csrftoken");
-    return new Response(url.endsWith("/graphql/query") ? fixture : profile);
+    return new Response(url.endsWith("/api/graphql") ? fixture : profile);
   };
   const denied = await worker.fetch(new Request(origin + "/rss/instagram/katarinabluu"), env);
   assert.equal(denied.status, 401);

@@ -123,7 +123,7 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | 番茄小说章节 | [rss/fanqienovel.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fanqienovel.js) | `/fanqienovel/book/7143038691944959011` | 1.1.0 | 公开来源 |
 | GitHub 发布列表 | [rss/github.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/github.js) | `/github/ltaoo/wx_channels_download/release` | 1.0.0 | 公开来源 |
 | 红果短剧分集 | [rss/hongguo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/hongguo.js) | `/hongguo/series/7688352674999176254`、`/hongguo/search/总裁` | 1.0.0 | 公开来源；播放走官网公开直链，付费集仅提供预览或不提供直链 |
-| Instagram 用户作品 | [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) | `/instagram/katarinabluu` | 1.1.0 | Cookie 授权 |
+| Instagram 用户作品 | [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) | `/instagram/katarinabluu` | 1.1.1 | Cookie 授权 |
 | JavBus 演员作品 | [rss/javbus.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javbus.js) | `/javbus/star/2jv` | 1.0.0 | 可选 Cookie；验证页需同步有效 Cookie 并启用 `use_cookies` |
 | JAVLibrary 演员作品 | [rss/javlibrary.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/javlibrary.js) | `/javlibrary/star/abbds` | 1.2.0 | BROWSER_ENABLED=true；InstaBox 巡检支持 Python 浏览器验证 |
 | 快手用户作品 | [rss/kuaishou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/kuaishou.js) | `/kuaishou/profile/3xuxw5yhgr6f4um` | 1.1.2 | Cookie 授权 |

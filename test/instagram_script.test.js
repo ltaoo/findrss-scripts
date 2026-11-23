@@ -27,6 +27,12 @@ test('Instagram 查询 GraphQL taken_at，按真实发布时间排序并生成 R
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   const calls = [];
+  const timeouts = [];
+  const timeout = AbortSignal.timeout;
+  t.mock.method(AbortSignal, 'timeout', milliseconds => {
+    timeouts.push(milliseconds);
+    return timeout(milliseconds);
+  });
   globalThis.fetch = async (url, options) => {
     calls.push({ url, options });
     assert.equal(options.headers.Cookie, 'sessionid=fixture-sessionid; csrftoken=fixture-csrftoken');
@@ -36,13 +42,13 @@ test('Instagram 查询 GraphQL taken_at，按真实发布时间排序并生成 R
       assert.equal(options.headers.referer, link);
       return new Response(profile);
     }
-    assert.equal(url, 'https://www.instagram.com/graphql/query');
+    assert.equal(url, 'https://www.instagram.com/api/graphql');
     assert.equal(options.method, 'POST');
     assert.equal(options.headers['x-csrftoken'], 'fixture-csrftoken');
     assert.equal(options.headers['x-ig-app-id'], '936619743392459');
     assert.equal(options.headers['x-fb-friendly-name'], 'PolarisProfilePostsQuery');
     const form = new URLSearchParams(options.body);
-    assert.equal(form.get('doc_id'), '28834890909485062');
+    assert.equal(form.get('doc_id'), '30543471925243353');
     assert.equal(form.get('fb_dtsg'), 'page-dtsg');
     assert.equal(form.get('lsd'), 'page-lsd');
     assert.equal(form.get('__a'), '1');
@@ -50,12 +56,15 @@ test('Instagram 查询 GraphQL taken_at，按真实发布时间排序并生成 R
     const variables = JSON.parse(form.get('variables'));
     assert.equal(variables.username, 'rachelc00k');
     assert.equal(variables.data.count, 12);
+    assert.equal(variables.__relay_internal__pv__PolarisSEOIsCrawlerrelayprovider, false);
+    assert.equal(variables.__relay_internal__pv__PolarisProductTagIndicatorEnabledrelayprovider, false);
     return Response.json(fixture);
   };
   const result = await run();
   const feed = JSON.parse(result.output);
   const expected = fixture.data[connection].edges.map(entry => entry.node).sort((a, b) => b.taken_at - a.taken_at);
   assert.equal(calls.length, 2);
+  assert.deepEqual(timeouts, [30000, 60000]);
   assert.equal(feed.kind, 'rss');
   assert.equal('entries' in feed, false);
   assert.deepEqual(feed.items.map(item => item.id), expected.map(node => 'instagram:post:' + node.pk));
@@ -98,7 +107,7 @@ test('Instagram 261016 列表的 7 个视频和 5 个完整图集直接生成 RS
   const calls = [];
   globalThis.fetch = async url => {
     calls.push(url);
-    assert.ok(url === link || url === 'https://www.instagram.com/graphql/query');
+    assert.ok(url === link || url === 'https://www.instagram.com/api/graphql');
     return url === link ? new Response(profile) : Response.json(media_fixture);
   };
   const feed = JSON.parse((await run()).output);
@@ -207,4 +216,58 @@ test('Instagram 校验参数及授权，保留 HTTP、GraphQL、登录页和页�
     globalThis.fetch = async url => url === link ? new Response(profile) : response();
     await assert.rejects(run(), /HTTP 429|作品查询失败|未返回 JSON/);
   }
+});
+
+test('Instagram 忽略未使用的地点头像错误，作品字段或根查询出错仍失败', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  const response = structuredClone(fixture);
+  const field_error = {
+    message: 'A server error field_exception occured. Check server logs for details.',
+    severity: 'ERROR',
+    path: [connection, 'edges', 0, 'node', 'location', 'profile_pic_url'],
+  };
+  response.errors = [field_error];
+  globalThis.fetch = async url => url === link ? new Response(profile) : Response.json(response);
+  const feed = JSON.parse((await run()).output);
+  assert.equal(feed.items.length, fixture.data[connection].edges.length);
+  for (const path of [
+    [connection],
+    [connection, 'edges', 0, 'node', 'caption', 'text'],
+    [connection, 'edges', 0, 'node', 'taken_at'],
+    [connection, 'edges', 0, 'node', 'image_versions2', 'candidates'],
+    [connection, 'edges', 0, 'node', 'user', 'profile_pic_url'],
+  ]) {
+    response.errors = [field_error, { ...field_error, path }];
+    await assert.rejects(run(), error => error.problem.code === 'UPSTREAM_INVALID_RESPONSE');
+  }
+  response.errors = [field_error];
+  response.data[connection] = null;
+  await assert.rejects(run(), error => error.problem.code === 'UPSTREAM_INVALID_RESPONSE');
+});
+
+test('Instagram 未登录主页不发送作品查询，HTTP 200 的 GraphQL 限流保留业务码', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  let calls = 0;
+  globalThis.fetch = async url => {
+    calls++;
+    assert.equal(url, link);
+    return new Response('<script>["DTSGInitialData",[],{}];["LSD",[],{"token":"page-lsd"}]</script>');
+  };
+  await assert.rejects(run(), error => {
+    assert.equal(error.problem.code, 'UPSTREAM_AUTH_REQUIRED');
+    assert.match(error.message, /同步源浏览器登录.*sessionid/);
+    return true;
+  });
+  assert.equal(calls, 1);
+  globalThis.fetch = async url => url === link ? new Response(profile) : Response.json({
+    errors: [{ message: 'Rate limit exceeded', severity: 'CRITICAL', code: 1675004 }],
+    extensions: { is_final: true },
+  });
+  await assert.rejects(run(), error => {
+    assert.equal(error.problem.code, 'UPSTREAM_RATE_LIMITED');
+    assert.match(error.message, /限流/);
+    return true;
+  });
 });
