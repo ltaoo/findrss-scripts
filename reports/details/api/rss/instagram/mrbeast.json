@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-23T04:31:47.661Z",
+  "checked_at": "2026-11-23T07:03:43.554Z",
   "debug_request": {
     "status": 503,
-    "duration_ms": 150
+    "duration_ms": 198
   },
   "debug": {
     "status": 503,
@@ -35,7 +35,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 142,
+    "elapsed_ms": 176,
     "invoked": false,
     "upstream_error": "UPSTREAM_RATE_LIMITED: 脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429",
     "error_text": "脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429\nat fetchText (rss-context.js:618:45)",
@@ -54,10 +54,10 @@
             "Cookie"
           ]
         },
-        "started_ms": 15,
-        "duration_ms": 63,
+        "started_ms": 16,
+        "duration_ms": 81,
         "timings": {
-          "response_ms": 63
+          "response_ms": 81
         }
       },
       {
@@ -73,30 +73,30 @@
             "Cookie"
           ]
         },
-        "started_ms": 79,
-        "duration_ms": 62,
+        "started_ms": 97,
+        "duration_ms": 78,
         "timings": {
-          "response_ms": 62
+          "response_ms": 78
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 142,
+      "elapsed_ms": 176,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
@@ -116,44 +116,44 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 10
+          "started_ms": 2,
+          "duration_ms": 9
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 11,
-          "duration_ms": 130
+          "duration_ms": 165
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 141,
+          "started_ms": 176,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 141,
-          "duration_ms": 1
+          "started_ms": 176,
+          "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 142,
+          "started_ms": 176,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 142,
+          "started_ms": 176,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 15,
-          "duration_ms": 126
+          "started_ms": 16,
+          "duration_ms": 159
         }
       ]
     }
@@ -171,6 +171,6 @@
     "status": 503,
     "code": "UPSTREAM_RATE_LIMITED",
     "error": "HTTP 503: UPSTREAM_RATE_LIMITED: 上游请求过于频繁，请降低频率后重试",
-    "duration_ms": 165
+    "duration_ms": 172
   }
 }
