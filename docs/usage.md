@@ -34,7 +34,7 @@
 | [Instagram](../rss/instagram.js) | `/instagram/:username` | 用户首屏图片、视频与多图作品，保留发布时间；需授权登录 Cookie |
 | [抖音](../rss/douyin.js) | `/douyin/user/:sec_uid` | 作者视频与图集；使用主页 `/user/` 后的 `sec_uid`，需授权 Cookie |
 | [快手](../rss/kuaishou.js) | `/kuaishou/profile/:user_id` | 作者最新一页作品；使用主页 `/profile/` 后的 ID，需授权完整登录与验证 Cookie |
-| [小红书](../rss/xiaohongshu.js) | `/xiaohongshu/user/profile/:uid` | 默认读取首屏笔记和封面；加 `?full_content=true`（或 `1`）逐条请求详情获取完整正文、图集和视频；`uid` 为 24 位十六进制 ID，需授权 Cookie |
+| [小红书](../rss/xiaohongshu.js) | `/xiaohongshu/user/profile/:uid` | 默认读取首屏笔记和封面，无可用 Cookie 时匿名访问 rednote.com；加 `?full_content=true`（或 `1`）逐条请求详情获取完整正文、图集和视频；`uid` 为 24 位十六进制 ID |
 | [Telegram](../rss/telegram.js) | `/telegram/channel/:username` | 公开频道文本、照片与视频；用户名的 `@` 可省略，无需 Bot Token |
 | [微信公众号](../rss/wxmp.js) | `/wxmp/:account?` | 文章与图集；使用公众号微信号或原始 ID，配置完整 `api_url=https://dhub.funzm.com/api/wxmp/biz/msg/list` 及 `auth_token`，直接 POST 到该地址 |
 | [微信视频号](../rss/wxchannels.js) | `/wxchannels/:account` | 视频、图集、Live Photo 与直播；使用视频号 `username`，配置完整 `api_url=https://dhub.funzm.com/api/wxchannels/contact/feed/list` 及 `auth_token`，直接 POST 到该地址 |
@@ -65,7 +65,7 @@
 
 登录 Cookie 只用于已授权作品接口，不发送给 SDK CDN，缓存键使用请求、Cookie 与 UA 的 SHA-256。指纹 Cookie 支持 `UIFID` 与新版 `UIFID_TEMP`，保持 Cookie 原名发送，并优先使用 `UIFID` 生成签名请求头。若 SDK 执行接口或网页初始化结构发生变化，会明确报错，需要更新兼容代码。已有部署需重新构建并部署运行时，仅替换 RSS 脚本无法更新宿主签名能力。
 
-YouTube 普通视频根据页面中英文相对时间估算发布时间，月、年分别按 30、365 天计算；Shorts 页面未提供时间时不估算。小红书的用户 ID 不是小红书号。快手通过作品接口读取数据，需同步完整的登录与验证 Cookie，包括 `kuaishou.server.webday7_st`、`kuaishou.server.webday7_ph` 和 `kwfv1`；主页能打开不代表作品接口可用。
+YouTube 普通视频根据页面中英文相对时间估算发布时间，月、年分别按 30、365 天计算；Shorts 页面未提供时间时不估算。小红书的用户 ID 不是小红书号。游客响应隐藏 noteId 时，小红书订阅以用户、发布时间和标题标识条目，链接指向 Rednote 用户主页；标题变化会产生新条目，此时完整正文需同步有效的 xiaohongshu.com 登录 Cookie。快手通过作品接口读取数据，需同步完整的登录与验证 Cookie，包括 `kuaishou.server.webday7_st`、`kuaishou.server.webday7_ph` 和 `kwfv1`；主页能打开不代表作品接口可用。
 
 番茄小说正文路径为 `/fanqienovel/chapter/:chapter_id`，起点正文路径为 `/qidian/chapter/:book_id/:chapter_id`，直接返回 HTML，无需加 `/rss` 或 `/atom` 前缀。
 

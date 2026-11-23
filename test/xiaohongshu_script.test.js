@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
 import { ScriptCookieAccess } from 'findrss-worker/server/infra/script_cookie_access.js';
+import { WorkerCookieAccess } from '../worker/cookies.js';
 import { FeedModel } from 'findrss-worker/server/domain/feed_format.js';
 import { XMLParser } from 'fast-xml-parser';
 
@@ -16,13 +17,101 @@ const uid = '5a13b53b4eacab190f3d0667';
 const link = 'https://www.xiaohongshu.com/user/profile/' + uid;
 const state_html = state => '<script>window.__INITIAL_STATE__=' + JSON.stringify(state).replace(/</g, '\\u003c') + ';</script>';
 const detail_html = note => state_html({ note: { noteDetailMap: { [note.noteId]: { note } } } });
-const run = (query = {}) => execute_script(source, compiled.metadata, null, {
-  method: 'GET', pathname: '/xiaohongshu/user/profile/' + uid,
-  params: { uid }, query,
-}, [], '', new ScriptCookieAccess({
+const run = (query = {}, access = new ScriptCookieAccess({
   permissions: compiled.metadata.permissions, assert_grant() {},
   cookies: () => [{ name: 'web_session', value: 'fixture-session', domain: '.xiaohongshu.com', path: '/', secure: true }],
-}));
+})) => execute_script(source, compiled.metadata, null, {
+  method: 'GET', pathname: '/xiaohongshu/user/profile/' + uid,
+  params: { uid }, query,
+}, [], '', access);
+
+test('小红书未授权、未同步或 Cookie 不可用时匿名访问 Rednote，隐藏 ID 的游客卡片仍输出订阅', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  const user = structuredClone(fixture.user);
+  user.loggedIn = false;
+  user.userInfo = { guest: true };
+  user.userPageData.basicInfo.nickname = 'undefined new Set([])';
+  for (const entry of user.notes.flat()) {
+    entry.id = '';
+    entry.noteCard.noteId = '';
+  }
+  user.notes.push([user.notes[0][0]]);
+  const calls = [];
+  globalThis.fetch = async (url, options) => {
+    calls.push(url);
+    assert.equal(url, link.replace('www.xiaohongshu.com', 'www.rednote.com'));
+    assert.equal(options.headers.Cookie, undefined);
+    assert.equal(options.headers.referer, 'https://www.rednote.com/');
+    return new Response(state_html({ user, note: { originalCommentIds: [] }, text: 'undefined new Set([])' })
+      .replace('"originalCommentIds":[]', '"originalCommentIds":new Set([])'));
+  };
+  const unusable = [[],
+    [{ name: 'web_session', value: 'expired', domain: '.xiaohongshu.com', expirationDate: 1 }],
+    [{ name: 'web_session', value: 'wrong-domain', domain: '.rednote.com' }],
+  ];
+  let expected_ids;
+  for (const access of [null, ...unusable.map(cookies => new WorkerCookieAccess({
+    permissions: compiled.metadata.permissions, assert_grant() {}, cookies: () => cookies,
+  }))]) {
+    calls.length = 0;
+    const feed = JSON.parse((await run({}, access)).output);
+    assert.equal(feed.title, 'undefined new Set([]) 的小红书笔记');
+    assert.equal(calls.length, 1);
+    assert.equal(feed.items.length, 30);
+    assert.equal(new Set(feed.items.map(item => item.id)).size, 30);
+    assert.ok(feed.items.every(item => item.link === calls[0] && item.image && item.published));
+    const ids = feed.items.map(item => item.id);
+    if (expected_ids) assert.deepEqual(ids, expected_ids);
+    expected_ids = ids;
+    for (const entry of user.notes.flat()) {
+      entry.xsecToken = 'rotated-token';
+      entry.noteCard.cover.urlDefault += '?changed=1';
+    }
+    assert.match(FeedModel(feed).render('rss'), /xiaohongshu:note:guest:/);
+    assert.match(FeedModel(feed).render('atom'), /xiaohongshu:note:guest:/);
+  }
+});
+
+test('小红书匿名响应有笔记 ID 时仍可读取完整正文，详情沿用 Rednote 来源', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  const note = fixture.details[0];
+  const calls = [];
+  globalThis.fetch = async (url, options) => {
+    calls.push(url);
+    assert.equal(options.headers.Cookie, undefined);
+    assert.equal(new URL(url).origin, 'https://www.rednote.com');
+    if (calls.length === 1) return new Response(state_html({ user: {
+      loggedIn: false, userPageData: { basicInfo: { nickname: '作者' } },
+      notes: [[{ noteCard: { noteId: note.noteId } }]],
+    } }));
+    assert.equal(options.headers.referer, link.replace('www.xiaohongshu.com', 'www.rednote.com'));
+    return new Response(detail_html(note));
+  };
+  const feed = JSON.parse((await run({ full_content: 'true' }, null)).output);
+  assert.equal(calls.length, 2);
+  assert.equal(feed.items[0].description, note.desc);
+  assert.equal(feed.items[0].id, 'xiaohongshu:note:' + note.noteId);
+});
+
+test('小红书游客缺少稳定标识时报错，同一时间的不同标题保留为独立条目', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  const card = { time: 1795350609000, displayTitle: '第一条' };
+  const user = { loggedIn: false, userPageData: { basicInfo: { nickname: '作者' } },
+    notes: [[{ noteCard: card }, { noteCard: { ...card, displayTitle: '第二条' } }]],
+  };
+  globalThis.fetch = async () => new Response(state_html({ user }));
+  const feed = JSON.parse((await run({}, null)).output);
+  assert.equal(feed.items.length, 2);
+  assert.notEqual(feed.items[0].id, feed.items[1].id);
+  for (const invalid of [{ ...card, time: undefined }, { ...card, time: -1 },
+    { ...card, time: 1.5 }, { ...card, displayTitle: '' }]) {
+    user.notes = [[{ noteCard: invalid }]];
+    await assert.rejects(run({}, null), error => error.problem.code === 'UPSTREAM_INVALID_RESPONSE');
+  }
+});
 
 test('小红书笔记将 time 毫秒时间戳输出为 RSS/Atom 发布时间，缺失时间不补日期', async t => {
   assert.equal(compiled.metadata.routes[0].path, '/xiaohongshu/user/profile/:uid');
@@ -218,7 +307,7 @@ test('小红书默认及关闭 full_content 时只请求主页，保留首屏标
   }
 });
 
-test('小红书游客响应隐藏笔记 ID 或退回登录页时提示重新登录，不输出空订阅', async t => {
+test('小红书游客完整正文缺少笔记 ID 或主页退回登录页时提示重新登录', async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   const user = structuredClone(fixture.user);
@@ -228,13 +317,14 @@ test('小红书游客响应隐藏笔记 ID 或退回登录页时提示重新登�
     entry.id = '';
     entry.noteCard.noteId = '';
   }
-  for (const state of [user, { loggedIn: false, userInfo: { guest: true }, notes: [], userPageData: {} }]) {
+  for (const [state, query] of [[user, { full_content: 'true' }],
+    [{ loggedIn: false, userInfo: { guest: true }, notes: [], userPageData: {} }, {}]]) {
     let calls = 0;
     globalThis.fetch = async () => {
       calls++;
       return new Response(state_html({ user: state }));
     };
-    await assert.rejects(run(), error => {
+    await assert.rejects(run(query), error => {
       assert.equal(error.problem.code, 'UPSTREAM_AUTH_REQUIRED');
       assert.match(error.problem.error, /重新登录.*同步/);
       return true;
