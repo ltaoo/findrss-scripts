@@ -1,8 +1,8 @@
-# 脚本路由巡检：110/146 通过
+# 脚本路由巡检：114/146 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-23T03:07:42.210Z
+巡检时间：2026-11-23T03:59:12.771Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -88,14 +88,6 @@
 | --- | --- | --- |
 | /api/hot/kaopu<br>靠谱新闻 (/api/hot/kaopu) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
-## hot/kuaishou\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-40.svg" alt="" width="24" height="24"> [hot/kuaishou\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuaishou_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/kuaishou/hot<br>快手 (/api/hot/kuaishou/hot) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
-
 ## hot/pcbeta\_windows11.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-53.svg" alt="" width="24" height="24"> [hot/pcbeta\_windows11.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/pcbeta_windows11.js) · 版本：1.0.1
@@ -118,14 +110,6 @@
 | /api/hot/qdmm/rec<br>起点 · 女频推荐榜 (/api/hot/qdmm/rec) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w\_tsfp），请求 https://www.qdmm.com/rank/recom/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/qdmm/update<br>起点 · 女频更新榜 (/api/hot/qdmm/update) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w\_tsfp），请求 https://www.qdmm.com/rank/vipup/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/qdmm/yuepiao<br>起点 · 女频月票榜 (/api/hot/qdmm/yuepiao) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://www.qdmm.com 的 Cookie 同步数据中没有权限 qdmm 允许的名称（w\_tsfp），请求 https://www.qdmm.com/rank/yuepiao/ 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
-
-## hot/qimao.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-58.svg" alt="" width="24" height="24"> [hot/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qimao.js) · 版本：1.0.4
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/qimao/paihang/:gender?/:type?/:period?<br>七猫小说排行榜 (/api/hot/qimao/paihang/boy/hot) | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
 ## hot/reddit.js（0/1 通过）
 
@@ -197,7 +181,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青 (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>董洁 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | 爱折腾的小冯同学 /api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7: 条目数须 &gt;= 1；丫丫Thea /api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612: 条目数须 &gt;= 1；琳达不呆 /api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e: 条目数须 &gt;= 1；董洁 /api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66: 条目数须 &gt;= 1；Nxy未央 /api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba: 条目数须 &gt;= 1 |
+| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青 (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>董洁 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | 董洁 /api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66: 条目数须 &gt;= 1 |
 
 ## rss/youku.js（0/1 通过）
 
@@ -207,17 +191,17 @@
 | --- | --- | --- |
 | /api/rss/youku/series/:show\_id<br>嫁金钗 (/api/rss/youku/series/bcaa87c7834c46f99e7b) | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
-## rss/zhihu.js（4/8 通过）
+## rss/zhihu.js（6/8 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-109.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/zhihu/column/:column\_id<br>谷歌开发者社区 (/api/rss/zhihu/column/googledevelopers) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
-| /api/rss/zhihu/people/:user/answers<br>陈柏龄 (/api/rss/zhihu/people/chenbailing/answers)<br>chenqin (/api/rss/zhihu/people/chenqin/answers)<br>丁香医生 (/api/rss/zhihu/people/ding-xiang-yi-sheng/answers)<br>动机在杭州 (/api/rss/zhihu/people/dong-ji-zai-hang-zhou/answers)<br>尤雨溪 (/api/rss/zhihu/people/evanyou/answers)<br>李开复 (/api/rss/zhihu/people/kaifulee/answers)<br>KnowYourself (/api/rss/zhihu/people/knowyourself-1/answers)<br>老爸评测 (/api/rss/zhihu/people/lao-ba-ping-ce/answers)<br>工叔 (/api/rss/zhihu/people/li-hai-yang-14-43/answers)<br>李松蔚 (/api/rss/zhihu/people/lisongwei/answers)<br>马伯庸 (/api/rss/zhihu/people/ma-bo-yong/answers)<br>Raymond Wang (/api/rss/zhihu/people/raymond-wang/answers)<br>田吉顺 (/api/rss/zhihu/people/tian-ji-shun/answers)<br>warfalcon (/api/rss/zhihu/people/warfalcon/answers)<br>下厨房 (/api/rss/zhihu/people/xia-chu-fang/answers)<br>张佳玮 (/api/rss/zhihu/people/zhang-jia-wei/answers)<br>张小北 (/api/rss/zhihu/people/zhang-xiao-bei/answers)<br>真实故事计划 (/api/rss/zhihu/people/zhen-shi-gu-shi-ji-hua/answers)<br>木子白 (/api/rss/zhihu/people/zhihu/answers)<br>中国科普博览 (/api/rss/zhihu/people/zhong-guo-ke-pu-bo-lan/answers) | ❌ 失败 | 木子白 /api/rss/zhihu/people/zhihu/answers: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
-| /api/rss/zhihu/people/:user<br>木子白 (/api/rss/zhihu/people/zhihu) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 | /api/rss/zhihu/people/:user/asks<br>木子白 (/api/rss/zhihu/people/zhihu/asks) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 | /api/rss/zhihu/collection/:collection\_id<br>总有一天能用到的资料 (/api/rss/zhihu/collection/26444956) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user/answers<br>陈柏龄 (/api/rss/zhihu/people/chenbailing/answers)<br>chenqin (/api/rss/zhihu/people/chenqin/answers)<br>丁香医生 (/api/rss/zhihu/people/ding-xiang-yi-sheng/answers)<br>动机在杭州 (/api/rss/zhihu/people/dong-ji-zai-hang-zhou/answers)<br>尤雨溪 (/api/rss/zhihu/people/evanyou/answers)<br>李开复 (/api/rss/zhihu/people/kaifulee/answers)<br>KnowYourself (/api/rss/zhihu/people/knowyourself-1/answers)<br>老爸评测 (/api/rss/zhihu/people/lao-ba-ping-ce/answers)<br>工叔 (/api/rss/zhihu/people/li-hai-yang-14-43/answers)<br>李松蔚 (/api/rss/zhihu/people/lisongwei/answers)<br>马伯庸 (/api/rss/zhihu/people/ma-bo-yong/answers)<br>Raymond Wang (/api/rss/zhihu/people/raymond-wang/answers)<br>田吉顺 (/api/rss/zhihu/people/tian-ji-shun/answers)<br>warfalcon (/api/rss/zhihu/people/warfalcon/answers)<br>下厨房 (/api/rss/zhihu/people/xia-chu-fang/answers)<br>张佳玮 (/api/rss/zhihu/people/zhang-jia-wei/answers)<br>张小北 (/api/rss/zhihu/people/zhang-xiao-bei/answers)<br>真实故事计划 (/api/rss/zhihu/people/zhen-shi-gu-shi-ji-hua/answers)<br>木子白 (/api/rss/zhihu/people/zhihu/answers)<br>中国科普博览 (/api/rss/zhihu/people/zhong-guo-ke-pu-bo-lan/answers) | ✅ 成功 |  |
+| /api/rss/zhihu/people/:user<br>木子白 (/api/rss/zhihu/people/zhihu) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/pins<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/pins) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/posts<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/posts) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/zvideos<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/zvideos) | ✅ 成功 |  |
@@ -468,6 +452,14 @@
 | --- | --- | --- |
 | /api/hot/kakuyomu/rankings/:genre?/:period?<br>カクヨム · 小说排行榜 (/api/hot/kakuyomu/rankings/all/daily) | ✅ 成功 |  |
 
+## hot/kuaishou\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-40.svg" alt="" width="24" height="24"> [hot/kuaishou\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuaishou_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/kuaishou/hot<br>快手 (/api/hot/kuaishou/hot) | ✅ 成功 |  |
+
 ## hot/kuan.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-41.svg" alt="" width="24" height="24"> [hot/kuan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuan.js) · 版本：1.0.1
@@ -595,6 +587,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/qiita/popular-items/feed<br>Qiita · 热门文章 (/api/hot/qiita/popular-items/feed) | ✅ 成功 |  |
+
+## hot/qimao.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-58.svg" alt="" width="24" height="24"> [hot/qimao.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/qimao.js) · 版本：1.0.4
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/qimao/paihang/:gender?/:type?/:period?<br>七猫小说排行榜 (/api/hot/qimao/paihang/boy/hot) | ✅ 成功 |  |
 
 ## hot/qqvideo\_hot.js（2/2 通过）
 
