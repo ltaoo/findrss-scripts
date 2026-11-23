@@ -522,20 +522,38 @@ export async function check_routes(
   const paced_queue = queue.filter(entry => paced_scripts.has(entry.file));
   const ordinary_queue = queue.filter(entry => !paced_scripts.has(entry.file));
   const run_queue = async (pending, worker, paced = false) => {
-    let next_at = 0;
+    const pacing = new Map();
     for (let entry; (entry = pending.shift()); ) {
       on_start(entry, worker);
+      const state = pacing.get(entry.file) || { next_at: 0 };
       let result;
       const attempts = [];
-      do {
-        const wait_ms = next_at - Date.now();
-        if (wait_ms > 0) { on_wait(entry, wait_ms); await sleep_impl(wait_ms); }
-        result = await check_route(base, entry, options);
-        if (!paced) break;
-        attempts.push({ status: result.status, code: result.code, error: result.error, duration_ms: result.duration_ms });
-        next_at = Math.max(Date.now() + 5000, result.retry_at ||
-          (result.code === "UPSTREAM_RATE_LIMITED" ? Date.now() + 60000 : 0));
-      } while (attempts.length < 2 && ["UPSTREAM_RATE_LIMITED", "UPSTREAM_TIMEOUT"].includes(result.code));
+      if (state.blocked_by) {
+        result = {
+          file: entry.file, path: entry.path, example: entry.example, format: entry.format,
+          ...(entry.name ? { name: entry.name } : {}),
+          request: false, response: false, format_valid: false, output_valid: false,
+          skipped: true, blocked_by: state.blocked_by, duration_ms: 0,
+          code: "INSPECTION_RATE_LIMITED",
+          error: `同脚本样本 ${state.blocked_by} 冷却重试后仍被上游限流，本轮未请求此样本`,
+        };
+      } else {
+        do {
+          const wait_ms = state.next_at - Date.now();
+          if (wait_ms > 0) { on_wait(entry, wait_ms); await sleep_impl(wait_ms); }
+          result = await check_route(base, entry, options);
+          if (!paced) break;
+          attempts.push({ status: result.status, code: result.code, error: result.error, duration_ms: result.duration_ms });
+          state.next_at = Math.max(Date.now() + 5000, result.retry_at ||
+            (result.code === "UPSTREAM_RATE_LIMITED" ? Date.now() + 60000 : 0));
+        } while (attempts.length < 2 && ["UPSTREAM_RATE_LIMITED", "UPSTREAM_TIMEOUT"].includes(result.code));
+        if (paced) {
+          if (attempts.length === 2 && attempts.every(attempt => attempt.code === "UPSTREAM_RATE_LIMITED")) {
+            state.blocked_by = entry.example;
+          }
+          pacing.set(entry.file, state);
+        }
+      }
       if (attempts.length > 1) result.attempts = attempts;
       results.push(result);
       on_result(result, worker);

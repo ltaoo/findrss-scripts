@@ -149,6 +149,93 @@ test("Instagram 复用串行冷却队列，单次 Debug 校验产物且仅重试
   assert.equal(first.attempts[0].code, "UPSTREAM_RATE_LIMITED");
 });
 
+test("持续限流只冷却重试一次，其余样本如实标记未检查，其他脚本继续执行", async t => {
+  for (const file of ["rss/instagram.js", "rss/x.js"]) for (const debug of [false, true]) {
+    await t.test(`${file} debug=${debug}`, async t => {
+      const details_dir = await mkdtemp(join(tmpdir(), "findrss-rate-limit-"));
+      t.after(() => rm(details_dir, { recursive: true, force: true }));
+      let now = 1800000000000;
+      t.mock.method(Date, "now", () => now);
+      const instagram = { ...x_entry, file: "rss/instagram.js", path: "/api/rss/instagram/:username", example: "/api/rss/instagram/example" };
+      const limited = file === instagram.file ? instagram : x_entry;
+      const other = file === instagram.file ? x_entry : instagram;
+      const calls = [], waits = [], starts = [], finishes = [];
+      const report = await check_routes("https://scripts.example", [limited, other, entry], {
+        [limited.format + " " + limited.path]: Array.from({ length: 21 }, (_, index) => ({
+          name: `Account ${index}`, example: limited.example + index,
+        })),
+        [other.format + " " + other.path]: [{ example: other.example + "second" }],
+      }, {
+        ...(debug ? { details_dir } : {}),
+        sleep_impl: async milliseconds => { waits.push(milliseconds); now += milliseconds; },
+        on_start: item => starts.push(item.example),
+        on_result: result => finishes.push(result),
+        fetch_impl: async url => {
+          calls.push(url.pathname);
+          const failed = url.pathname.includes(limited.example);
+          const requested = failed ? limited : url.pathname.includes(other.example) ? other : entry;
+          if (url.pathname.startsWith("/debug")) return Response.json({
+            ...x_debug, script: { file: requested.file, route_index: 0 },
+            ...(failed ? { status: 503, code: "UPSTREAM_RATE_LIMITED", upstream_error: "HTTP 429" } : {}),
+          }, { status: failed ? 503 : 200 });
+          return failed ? Response.json({ code: "UPSTREAM_RATE_LIMITED", message: "HTTP 429" }, { status: 503 })
+            : Response.json(requested === entry ? value : x_feed, { headers: { ...headers, "X-FindRSS-Script": requested.file } });
+        },
+      });
+      assert.deepEqual([report.total, report.passed, report.failed], [3, 2, 1]);
+      assert.deepEqual(waits, [60000, 5000]);
+      assert.deepEqual(calls.filter(path => path.includes(limited.example)), Array(2).fill((debug ? "/debug" : "") + limited.example));
+      assert.equal(calls.filter(path => path.includes(other.example)).length, 2);
+      const samples = report.results.find(result => result.file === limited.file).samples;
+      assert.equal(samples.length, 22);
+      const actual = samples.find(sample => sample.example === limited.example);
+      assert.equal(actual.code, "UPSTREAM_RATE_LIMITED");
+      assert.equal(actual.attempts.length, 2);
+      if (debug) {
+        const detail = JSON.parse(await readFile(join(details_dir, actual.detail_file), "utf8"));
+        assert.equal(detail.debug.status, 503);
+        assert.equal(detail.inspection.code, "UPSTREAM_RATE_LIMITED");
+      }
+      for (const sample of samples.filter(sample => sample !== actual)) {
+        assert.equal(sample.skipped, true);
+        assert.equal(sample.blocked_by, limited.example);
+        assert.equal(sample.code, "INSPECTION_RATE_LIMITED");
+        assert.match(sample.error, /本轮未请求此样本/);
+        assert.equal(sample.duration_ms, 0);
+        assert.ok(sample.name);
+        for (const phase of ["request", "response", "format_valid", "output_valid"]) assert.equal(sample[phase], false);
+        for (const field of ["status", "attempts", "detail_file", "output_file"]) assert.equal(sample[field], undefined);
+      }
+      assert.equal(starts.length, 25);
+      assert.deepEqual(starts.slice().sort(), finishes.map(result => result.example).sort());
+      assert.ok(finishes.every(result => report.results.some(row => (row.samples || [row]).includes(result))));
+    });
+  }
+});
+
+test("超时和限流交替不视为持续限流，后续样本仍请求", async t => {
+  for (const codes of [["UPSTREAM_RATE_LIMITED", "UPSTREAM_TIMEOUT"], ["UPSTREAM_TIMEOUT", "UPSTREAM_RATE_LIMITED"], ["UPSTREAM_TIMEOUT", "UPSTREAM_TIMEOUT"]]) {
+    await t.test(codes.join(" / "), async t => {
+      let now = 1800000000000;
+      t.mock.method(Date, "now", () => now);
+      let calls = 0;
+      const report = await check_routes("https://scripts.example", [x_entry], {
+        [x_entry.format + " " + x_entry.path]: [{ example: x_entry.example + "second" }],
+      }, {
+        sleep_impl: async milliseconds => { now += milliseconds; },
+        fetch_impl: async () => {
+          const code = codes[calls++];
+          return code ? Response.json({ code, message: code }, { status: 503 })
+            : Response.json(x_feed, { headers: { ...headers, "X-FindRSS-Script": x_entry.file } });
+        },
+      });
+      assert.equal(calls, 3);
+      assert.equal(report.results[0].samples.filter(sample => sample.output_valid).length, 1);
+      assert.ok(report.results[0].samples.every(sample => !sample.skipped));
+    });
+  }
+});
+
 test("其他 503 只请求一次，不重试", async () => {
   let calls = 0;
   await run(async () => { calls++; return new Response("unavailable", { status: 503 }); });
