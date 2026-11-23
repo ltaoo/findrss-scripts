@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T11:16:28.133Z",
+  "checked_at": "2026-11-23T15:03:45.749Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 2647
+    "status": 502,
+    "duration_ms": 279
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
     "script": {
       "file": "rss/kuaishou.js",
       "name": "快手用户作品",
@@ -34,24 +34,15 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 2615,
+    "phase": "runtime",
+    "elapsed_ms": 271,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
-      },
-      {
-        "level": "info",
-        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_AUTH_REQUIRED: 脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）",
+    "error_text": "脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:84:28)",
+    "lines": [],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_fde27a1f1d3695a9be14b77dcd25d7efeab7b6b6b6b7692e1a0cac6490006a42e37614b72de0886ccde0885eb6&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_99861e7b79a3e93dda70d3a40b9b9e0379d3d2d2d2d30d4a7e68c800f464fc3e771270d34984ec08a984ec3ad2&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
@@ -64,95 +55,89 @@
             "kww"
           ]
         },
-        "started_ms": 32,
-        "duration_ms": 2575,
+        "started_ms": 37,
+        "duration_ms": 232,
         "timings": {
-          "response_ms": 415,
-          "body_read_ms": 2158,
-          "decode_and_transfer_ms": 2
+          "response_ms": 232,
+          "body_read_ms": 0,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"kuaishou:user:3xuxw5yhgr6f4um\",\"title\":\"中国新闻网 的快手作品\",\"link\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\",\"description\":\"\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"video\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.kuaishou.com/\"},\"tags\":[\"快手\"]},\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"image\":\"https://p22.a.yximgs.com/uhead/AB/2025/09/02/19/BMjAyNTA5MDIxOTQzNTlfMTMxMjExOTkyNV8yX2hkMjIyXzQ5_s.jpg\",\"updated\":\"2026-11-23T10:34:26.417Z\",\"items\":[{\"id\":\"kuaishou:photo:3xepus2xmmj87u2\",\"title\":\"受贿1.93亿！浙江省人大常委会原副主任高兴夫一审被判死缓 #高兴夫一审被判死缓\",\"link\":\"https://www.kuaishou.com/short-video/3xepus2xmmj87u2\",\"description\":\"受贿1.93亿！浙江省人大常委会原副主任高兴夫一审被判死缓 #高兴夫一审被判死缓\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/18/BMjAyNjExMjMxODMzMTZfMTMxMjExOTkyNV8yMTY3NzY5NTg1NzlfMF8z_ccc_Bfbde8553869535ec2feba485270267fc.jpg?tag=1-1795432588-xpcwebprofile-0-qrhdfp9n0z-82577cd3f241fd16&clientCacheKey=3xepus2xmmj87u2_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/18/BMjAyNjExMjMxODMzMTZfMTMxMjExOTkyNV8yMTY3NzY5NTg1NzlfMF8z_b_Bdd41c35e276aa178b5d87116040ca023.mp4?pkey=AAXbK2mc70Oe1NPWwdFA0DSSw1igfi9KeIHs4HsJTmvb8NYm4aDTB2mo_s2SGJBU-ziVKcVYhAOumk_91I1XJ2Eo1_Zgh-O1tvMdQtHnxoqpTqRXa5UTgVw2chqQZPHOt-M&tag=1-1795432588-unknown-0-vbvgdmd7ka-b8cbce035f85a2a4&clientCacheKey=3xepus2xmmj87u2_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T10:34:26.417Z\"},{\"id\":\"kuaishou:photo:3x3qu2fmmiv782q\",\"title\":\"中国足协主席宋凯：中国足球不怕起步慢 就怕反复折腾“中国是一个大国 足球要踢出与大国地位相称的气势和胆魄”\",\"link\":\"https://www.kuaishou.com/short-video/3x3qu2fmmiv782q\",\"description\":\"中国足协主席宋凯：中国足球不怕起步慢 就怕反复折腾“中国是一个大国 足球要踢出与大国地位相称的气势和胆魄”\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/18/BMjAyNjExMjMxODE2NDNfMTMxMjExOTkyNV8yMTY3NzUxNzY0OTVfMF8z_ccc_Ba388af83e9b5da95e4c0981328958f1c.jpg?tag=1-1795432588-xpcwebprofile-0-5wzipkc2ay-1370b76035025ff3&clientCacheKey=3x3qu2fmmiv782q_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/TFqxsQVXMC_YbHiad8hvUCYXTL-Fc-b0JQq1rIU9tD2BbD3oqcB5j8wHnWvw2EDVT__HcW21l8AoN_ksDcjCSJ-rI1WD0jy5R0e21omPDdk99Ni4DeaIvhJbpOSvmuHC0MltP4WzbLjFMgQQHNFCgZXTg8wJmAtHqZo9SeFfFwKJLVz0G57XcKih-a9ycYZM.mp4?pkey=AAX2BVWcUaXWDKdyy1kfBqk-1sgu_M2k62kU6EI1gbt9iO9AdCbHOBABndhMUoUkM4ucVS4Hmz5Wptp1qcpsWnvDL6ZnESRKcmyHNHEkSbi_JCWfKTPbl07AnmZJZ8UmcrU&tag=1-1795432588-unknown-0-jiznwsppam-a5791623bea64190&clientCacheKey=3x3qu2fmmiv782q_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T10:19:04.924Z\"},{\"id\":\"kuaishou:photo:3xtb3k7akbtxskw\",\"title\":\"一城多面，北京向“新”生长 #发展新质生产力地方实践  #因地制宜向新求质  #三里河工作室\",\"link\":\"https://www.kuaishou.com/short-video/3xtb3k7akbtxskw\",\"description\":\"一城多面，北京向“新”生长 #发展新质生产力地方实践  #因地制宜向新求质  #三里河工作室\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/23/17/BMjAyNjExMjMxNzM4NTdfMTMxMjExOTkyNV8yMTY3NzEzMDA4NTZfMF8z_ccc_B437000aab44ede1dc20b15c8a951d73a.jpg?tag=1-1795432588-xpcwebprofile-0-zuaymfbnvu-292380bb215d7acb&clientCacheKey=3xtb3k7akbtxskw_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/evcxtBIEfMQj4hUaPixC1GT4T_xY6oGYxD0d90CDX_ixIXx5M8om4qmdt86Oj_pJfG9Ilcz99HxLv3g6zU2XK0JXxmBI45gXjybD6LKDq0z5TUkBKsfuZ4I531IkmZLXBrhZzUpZZPMgMvLHESqdn5WxTkG7-Ngy9MtnML56WT4UQqLOZvYUbKwX4J2OARXj.mp4?pkey=AAWMr9u5mN8YA2kh4keTKE9IN6I2n4-Uapjt-0_XCqE7WU3uIG2roltYN8BRgX6ZZCGMSBQ_MjuUA3JBfO9JX5_780JRYhLGFK2kSn2593b252kctY2vknlNvtbUiPN0srI&tag=1-1795432588-unknown-0-vclufyzknq-0b883b465db4aa49&clientCacheKey=3xtb3k7akbtxskw_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T09:59:05.725Z\"},{\"id\":\"kuaishou:photo:3x7884rr3nip99i\",\"title\":\"赖清德沈伯洋披日本服饰“造势”，被岛内舆论痛斥“汉奸”！无党籍台北市市长参选人林志成喊话：“回头是岸，不要认贼作父！” #沈伯洋  #赖清德  #燕新台\",\"link\":\"https://www.kuaishou.com/short-video/3x7884rr3nip99i\",\"description\":\"赖清德沈伯洋披日本服饰“造势”，被岛内舆论痛斥“汉奸”！无党籍台北市市长参选人林志成喊话：“回头是岸，不要认贼作父！” #沈伯洋  #赖清德  #燕新台\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjU4MzhfMTMxMjExOTkyNV8yMTY3NjcyNTIxNTNfMF8z_ccc_B9384c2375fe9b642e4559ba4c9e110df.jpg?tag=1-1795432588-xpcwebprofile-0-bwkkoxhvtx-d5b38ce620f54957&clientCacheKey=3x7884rr3nip99i_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/16/BMjAyNjExMjMxNjU4MzhfMTMxMjExOTkyNV8yMTY3NjcyNTIxNTNfMF8z_b_B604ce7ca5d3da76d6173b670f0e17d19.mp4?pkey=AAXUjggZB0Hoh_FJ7dhIH62IdURX--PUa1sjUI-SXYGcJ7XgQpmIglG1h40dOIj4KiaXprIPpbWk6OQz5y_mMSAX1K4Aj8SsQoFfFKcYQh3yW5Y0iwYTTqCelfmha-7eT78&tag=1-1795432588-unknown-0-u59afcf0ym-e32cf327ac39d53a&clientCacheKey=3x7884rr3nip99i_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T09:12:16.846Z\"},{\"id\":\"kuaishou:photo:3xjgs7avapcm3jq\",\"title\":\"特朗普称只想向中国出售相对落后的芯片，中方回应（记者：黄钰钦） #直通外交部\",\"link\":\"https://www.kuaishou.com/short-video/3xjgs7avapcm3jq\",\"description\":\"特朗普称只想向中国出售相对落后的芯片，中方回应（记者：黄钰钦） #直通外交部\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjUxNDJfMTMxMjExOTkyNV8yMTY3NjY1MDMyMDNfMF8z_ccc_Bb0e769918a8b8e8d48582c8e55fc6d22.jpg?tag=1-1795432588-xpcwebprofile-0-ogjw5vlgdg-aea976187b021a8f&clientCacheKey=3xjgs7avapcm3jq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/9aQohiBaZUWaETfVyvhDYePOJH5C4unX5krOx5ZZHRIHDn-vV1_C9FZrk11CbhmWLHRXQKpCsYqdmBO8bSm99NAbjV3m3-Yix3rh3sRsda_22GBGqgvrKsjq-OSJYqUwLnpboy-4HX8BPzHrEMf_j3AeU7CEv6WrC6yldsi9-bt7tqRLUr4A2aAMiI7gEDCG.mp4?pkey=AAWJgL0kE-CRx7KY2_RhSYjuiygn8MuswFx6a_RlTXMe0gfz9igi5uLy3aWBIO1WRfhQ0SldKu0rHvzaoxmcA6LGYhI8Ysvs7m7aFQhFzMKVCBdeIpONbhcc3E3nS_FpDNc&tag=1-1795432588-unknown-0-sce3b9mk5o-bccd8f7dd8a975c7&clientCacheKey=3xjgs7avapcm3jq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:52:34.012Z\"},{\"id\":\"kuaishou:photo:3x34vrciawzcqai\",\"title\":\"3岁到97岁，五代同堂接力喊妈妈，妈妈在就永远有做小孩的底气！ #妈妈  #母亲  #五代同堂 #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3x34vrciawzcqai\",\"description\":\"3岁到97岁，五代同堂接力喊妈妈，妈妈在就永远有做小孩的底气！ #妈妈  #母亲  #五代同堂 #媒体原创 \",\"image\":\"https://p3.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjM3NDZfMTMxMjExOTkyNV8yMTY3NjUyMzk3MjdfMF8z_ccc_Be29c7a30927c1e805e14d03a84a44e92.jpg?tag=1-1795432588-xpcwebprofile-0-rodcjyvo7e-2e0a48fc31535efc&clientCacheKey=3x34vrciawzcqai_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/K8m1wpvRaoY9WI9Vp7S6DyQCktydLdVdJfXxx90m9twmn6tRJuqXALky-D4ROtvf5UEcR48APhcp3VUGCNYgo0JZ3oKcpEBgrNCNcYphKNAleD9DCgIcNiI9jwFGdGb8SFTT7XFJd1yJcE_NciGCO75TdrDATrFqH8hrZUCmFtsqdGOHidX6ONKYSBFbhE4e.mp4?pkey=AAWykfVanTbylXW-lK05R7BS7901__njx0O2L-Fo2mA_LY44k3S8KaiWHAIeXt1SyXWpjZV2apJkgjvotlLPJAcXKEJymz_qApxRR_gmwN2Ae2fDG2jWwc322fCStn40ij0&tag=1-1795432588-unknown-0-puwa39pygl-30cd3028aa2c21c2&clientCacheKey=3x34vrciawzcqai_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:41:19.916Z\"},{\"id\":\"kuaishou:photo:3xk54gk9nhq7fvi\",\"title\":\"柯文哲与蒋万安同框：台北市长要选个正常人，“洋流”只是幻象 #燕新台  #柯文哲  #蒋万安\",\"link\":\"https://www.kuaishou.com/short-video/3xk54gk9nhq7fvi\",\"description\":\"柯文哲与蒋万安同框：台北市长要选个正常人，“洋流”只是幻象 #燕新台  #柯文哲  #蒋万安\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjM0MjdfMTMxMjExOTkyNV8yMTY3NjQ4NjIxNzZfMF8z_ccc_B81f16541de119118fbf399150ee5fc84.jpg?tag=1-1795432588-xpcwebprofile-0-r33xjkimut-c3b39465d5822249&clientCacheKey=3xk54gk9nhq7fvi_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/16/BMjAyNjExMjMxNjM0MjdfMTMxMjExOTkyNV8yMTY3NjQ4NjIxNzZfMF8z_b_Bd9181e51d2ac6a60156eb1ce1a3efe97.mp4?pkey=AAXA6wcMEbJHoRiQgDt-A-h0PdXBfczJydDnYdFmovRItsgRu4mZMd14ksv3GilOjhEYWuWRABTTHNEN6X2orfU2uZaRCdHmc4LaBuWYno00iWXo0-bT4HbjSqTuXNBDzt4&tag=1-1795432588-unknown-0-aowdrcjhji-f342cd20f09ef68d&clientCacheKey=3xk54gk9nhq7fvi_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:40:28.600Z\"},{\"id\":\"kuaishou:photo:3xiqna7y6ej789c\",\"title\":\"科技部原重大专项司司长刘敏被查\",\"link\":\"https://www.kuaishou.com/short-video/3xiqna7y6ej789c\",\"description\":\"科技部原重大专项司司长刘敏被查\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjA3NTFfMTMxMjExOTkyNV8yMTY3NjIzMjg3NzNfMF8z_ccc_Ba81b7b7102c9ea31144ac60fc40f63a2.jpg?tag=1-1795432588-xpcwebprofile-0-ojtszrcdjj-32a111d28193013d&clientCacheKey=3xiqna7y6ej789c_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/DJ5uvnybh5C1zywOUM02i_7JFMPwWFNWanPoaOhRmZR_lMikHK5LEtYKmOPzg_qsfi49RF7lE_0rbcYXIj3GEWX_3RCg-bDP8LBwfjZpHED7CigM0JRIHVLUKTpSEne-QbhZfPqXdBMkz7xe0F8eJ7tD_NVPeGFGtgVa55lrd3L-H-VkqDIVrp3fBW3-HlRC.mp4?pkey=AAW--7flzb8kyERUWugP6iCdKT96xtZwB0RVfcfQSoDOS8q-gjl_mqTQDMNL0CZ4MSQ7Ny04k2gO0m1CZ4hUwBUW_ekDW7w-Xu6YQqP3Vbbi48O-EKGiInIErTfqXpIKo7U&tag=1-1795432588-unknown-0-ifdzp2ukgy-c5297d36ddfa8420&clientCacheKey=3xiqna7y6ej789c_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:10:43.805Z\"},{\"id\":\"kuaishou:photo:3xx2xzx8xgu5fe2\",\"title\":\"快递员被骂 警察打电话教育收件人：“快递员没有错，这个社会要互相尊重。” #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xx2xzx8xgu5fe2\",\"description\":\"快递员被骂 警察打电话教育收件人：“快递员没有错，这个社会要互相尊重。” #媒体原创 \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjAyMTVfMTMxMjExOTkyNV8yMTY3NjE4MDA1MzZfMF8z_ccc_B89d1f1166abbc1013ce17bfdb6647a0b.jpg?tag=1-1795432588-xpcwebprofile-0-sullacigaz-75ec06de3f860379&clientCacheKey=3xx2xzx8xgu5fe2_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/gj6XfgwfAU8sqqHYU1nzxXVpTmNFQTC6VyYgQl1E96J-YZEwq7zaLCO3WnBNQVmfYDgO_qU82sdWQe3UaW2aMb50hmMOfE01lPVifb8FREQ6L8zzBZHyOSGaTzBig6KBKu_c5hdihNVX0rIlMwYbSznjS3JHrWVdhDLcGVIpg93cJqvoTQvy_BoULZtqIAmx.mp4?pkey=AAVmCCbI3GimV0bYYdWDZzHResElWrDZVkbuONctEnKQugFDxvkTq-4EeInAYbZXj3EgR0D4Ou1pAuao2tPrlLFymbphSfqApJSINbt024Zu_uYDbJtjbaZvdgDBGfJXiGo&tag=1-1795432588-unknown-0-tfx3leclxk-0f226ccc8c9c0523&clientCacheKey=3xx2xzx8xgu5fe2_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:09:13.797Z\"},{\"id\":\"kuaishou:photo:3xdp3xced6h6hfy\",\"title\":\"澳经济学家回应为何坚定看好中国经济 时间会站在采取长期规划的中国这边 #微观深圳APEC  #新闻会客厅  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xdp3xced6h6hfy\",\"description\":\"澳经济学家回应为何坚定看好中国经济 时间会站在采取长期规划的中国这边 #微观深圳APEC  #新闻会客厅  #媒体原创 \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/15/BMjAyNjExMjMxNTMzMzdfMTMxMjExOTkyNV8yMTY3NTkxMTc1MTdfMF8z_ccc_Badb2c2ee341769de79dafd9b2d1401cc.jpg?tag=1-1795432588-xpcwebprofile-0-vj3mzkqocf-fe22a5bb1703e1ea&clientCacheKey=3xdp3xced6h6hfy_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/EhKQMnEVmmLII9_cPp03aErWQTuAL0jMRb6WvG2TLD6AMyXGdcnpFnQEIWkGf8av4zeLrqb2E1adDWOTUHSo4To05n_Vj4EJj6_S3PWr3rAyGx2CelXodrvcBF3TjIvO2LkmCTvZ8GuPOgsH9Dnu5iQPR2x4OX4eX6O1-OusLcjg_Zoq7ONnVrghgIPpQjJ6.mp4?pkey=AAXWqE5Ye39eeXbyzg8Ud7U_B31M5RSuFA1qP_NiZ2_MDyCca0ZtWeug14RlRkLZV6FB-ii5uEYazD7DHkhcIivoWFfbAVf7kgkEPh3wEb7ygCtSR3EUZ1np0ZQzS6rKAeY&tag=1-1795432588-unknown-0-e2ce4uxtbz-d96470edc4a00ee7&clientCacheKey=3xdp3xced6h6hfy_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:06:48.454Z\"},{\"id\":\"kuaishou:photo:3x6kkr4kvytsmsq\",\"title\":\"#你关注的博主可能被换头了  #民生调查局 #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3x6kkr4kvytsmsq\",\"description\":\"#你关注的博主可能被换头了  #民生调查局 #媒体原创 \",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/23/15/BMjAyNjExMjMxNTM5NTBfMTMxMjExOTkyNV8yMTY3NTk2MzAwODhfMF8z_ccc_B4771b3543f69cf8d12d00c5acc59b49a.jpg?tag=1-1795432588-xpcwebprofile-0-my3wjb82pg-f3567af634d39f11&clientCacheKey=3x6kkr4kvytsmsq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/15/BMjAyNjExMjMxNTM5NTBfMTMxMjExOTkyNV8yMTY3NTk2MzAwODhfMF8z_b_Baef95a8ae234486d8d2cfe2a23e9cebe.mp4?pkey=AAWaL8fGH9GmEDYzNN_FTWVCBzuDvXBO0Bog_rpzL2h_DpcGCFf8uyh4lTvsPQlWqq2HFd435NwZ-aGfrpIvSrNsHMkr-n4yUCm0-oYDTSHJ8ndfHTUktOPYxNQfFosh3A4&tag=1-1795432588-unknown-0-wgtkfzknzx-c8b0dcfbad255af5&clientCacheKey=3x6kkr4kvytsmsq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:06:36.714Z\"},{\"id\":\"kuaishou:photo:3xrc5upz2xgqt9y\",\"title\":\"新加坡总理中文总结APEC会议：有很好的收获 很顺利\",\"link\":\"https://www.kuaishou.com/short-video/3xrc5upz2xgqt9y\",\"description\":\"新加坡总理中文总结APEC会议：有很好的收获 很顺利\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjAwMzFfMTMxMjExOTkyNV8yMTY3NjE2MzgxOTFfMF8z_ccc_B569a223245d3f04cf3201dda1f84d168.jpg?tag=1-1795432588-xpcwebprofile-0-nby06wjg87-2c367ff9809e3b78&clientCacheKey=3xrc5upz2xgqt9y_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/16/BMjAyNjExMjMxNjAwMzFfMTMxMjExOTkyNV8yMTY3NjE2MzgxOTFfMF8z_b_B677464fe39b0d32734719784cce28c76.mp4?pkey=AAXLdwqOsC_ejkSPPz0ycDlxupuMRfEGBt3D6AbOCsOJHal5H1tYw818d_lPPIhUwsOsydyPvba-wJyhjKQe7hJ5WfCv1OdLjdNXyOKYFemOjM0J7_Fdr5AU8sf-OiXJtzw&tag=1-1795432588-unknown-0-gcul0jq8ay-8502e181e20dddc2&clientCacheKey=3xrc5upz2xgqt9y_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:03:55.959Z\"},{\"id\":\"kuaishou:photo:3xxjst8vxa7tk9a\",\"title\":\"德康农牧董事长王德根：让农民成为扎根农业大地的一线产业工人 #用科技创新解决农民养殖痛点  #走进民企看发展 #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xxjst8vxa7tk9a\",\"description\":\"德康农牧董事长王德根：让农民成为扎根农业大地的一线产业工人 #用科技创新解决农民养殖痛点  #走进民企看发展 #媒体原创 \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/15/BMjAyNjExMjMxNTQ1MjRfMTMxMjExOTkyNV8yMTY3NjAyMTE3MjhfMF8z_ccc_B02a6af4b05b226f702fbd3a9a3ef1983.jpg?tag=1-1795432588-xpcwebprofile-0-opat8dp6b2-8473bf7a4aece045&clientCacheKey=3xxjst8vxa7tk9a_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/15/BMjAyNjExMjMxNTQ1MjRfMTMxMjExOTkyNV8yMTY3NjAyMTE3MjhfMF8z_b_B0e4918869feab392d153b89ce1dbf905.mp4?pkey=AAXMqhzKDfUZ3lhdn7k9i8iRBQwKeABCByGPkPgz3zevnix_6epMlR61zbcIf1yjwOCC5mFsiNf7As2GqIJ73LfOrFuwq9ECuwHeqbuvXLRjQdGHpFY7TfqoPKfyOxJg3aY&tag=1-1795432588-unknown-0-truztidxxb-85d9b63663a073c0&clientCacheKey=3xxjst8vxa7tk9a_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T08:02:43.698Z\"},{\"id\":\"kuaishou:photo:3xf6w6tjsueup3u\",\"title\":\"特朗普：希望英伟达董事会重新聘用黄仁勋，这对英伟达、对美国而言都将是最优选择\",\"link\":\"https://www.kuaishou.com/short-video/3xf6w6tjsueup3u\",\"description\":\"特朗普：希望英伟达董事会重新聘用黄仁勋，这对英伟达、对美国而言都将是最优选择\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/15/BMjAyNjExMjMxNTU2MjhfMTMxMjExOTkyNV8yMTY3NjEyOTUxMDdfMF8z_ccc_B42759b519d37417b2925b25ae6c18056.jpg?tag=1-1795432588-xpcwebprofile-0-gdk7pfbsn0-9baf56bbdea7125b&clientCacheKey=3xf6w6tjsueup3u_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/InltrTE6F5hTqojTVF6-ceLtTBGZNCwZJDA1qNAGIrA6EO2iR8ioqd0FRY7WWfVllRRb9t6aIeeiT9LZuD7lUvxviO1pQpED3I8bmQ0E3Dak5TUWPWQJN645ISzMbLykkpW9YIeBESM1u5fz4wZZOXZGhUjHQDUzDk6C1ExCw7PjYE0h-_KQ72BKfH4JASLi.mp4?pkey=AAW2as93rHEz_v35T32qMCHRnicnMPu77JU749VuRnI0sf2MYzxe4t89GUfA5klcr3DjWrXA4WudKy2qBa58zgiNsIvYxDXP5zagCZyLPuYgnXDYwp7NeANSvwZkBkepAlU&tag=1-1795432588-unknown-0-dayufj5oyv-d4f0831c98eed986&clientCacheKey=3xf6w6tjsueup3u_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T07:59:32.975Z\"},{\"id\":\"kuaishou:photo:3x3wskdpwumizva\",\"title\":\"墨西哥总统爱上中国气功 在社交平台分享APEC期间上八段锦课的视频\",\"link\":\"https://www.kuaishou.com/short-video/3x3wskdpwumizva\",\"description\":\"墨西哥总统爱上中国气功 在社交平台分享APEC期间上八段锦课的视频\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/15/BMjAyNjExMjMxNTA3NDBfMTMxMjExOTkyNV8yMTY3NTY2MDY5NjhfMF8z_ccc_B609766e4b16028f9efcea65c9d96bb3b.jpg?tag=1-1795432588-xpcwebprofile-0-8dxiwskt9z-f937916fc68e07d9&clientCacheKey=3x3wskdpwumizva_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/15/BMjAyNjExMjMxNTA3NDBfMTMxMjExOTkyNV8yMTY3NTY2MDY5NjhfMF8z_b_B5d4f09eb941d94f621eff7876977aee5.mp4?pkey=AAXD5kXMqmRIO8l-Ulvwdrkbklf7pi-cbxU4R72_GGz-JjcR8SfiAao3_ijbaqI8O4rIeLYpWUpSpA-GeLoT5tcwDZwL4pfSPlmb_wgfaugzYflSR_JZ7nYawjM8KlWlE9I&tag=1-1795432588-unknown-0-7820aja3iw-8ef77064a615179b&clientCacheKey=3x3wskdpwumizva_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T07:10:42.880Z\"},{\"id\":\"kuaishou:photo:3x42wws5wfjs6x2\",\"title\":\"京东原首席战略官廖建文去世，享年59岁\",\"link\":\"https://www.kuaishou.com/short-video/3x42wws5wfjs6x2\",\"description\":\"京东原首席战略官廖建文去世，享年59岁\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/14/BMjAyNjExMjMxNDI4MjlfMTMxMjExOTkyNV8yMTY3NTI5NTE3MDVfMF8z_ccc_B00d04bc4b72e99dd226c78ea05da5d84.jpg?tag=1-1795432588-xpcwebprofile-0-d3faystr2z-d1893ac2aae822d0&clientCacheKey=3x42wws5wfjs6x2_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/14/BMjAyNjExMjMxNDI4MjlfMTMxMjExOTkyNV8yMTY3NTI5NTE3MDVfMF8z_b_Bc28a7fa410c45132143467dc981be1ea.mp4?pkey=AAWjE2pJ_0qliTT4C-kqQs-H4Yy8e7JUmqLj-nVRjR3hMP6dHy3-oDax58MTFIIY3p2jmdD4zK9xZ2kq5EXhp09tssYoqcEyXlw0kHFsoIRzQ2-6v-H7OSLipbA9lVr_Pn8&tag=1-1795432588-unknown-0-cmdfr96w7p-90ddd19784ddfa80&clientCacheKey=3x42wws5wfjs6x2_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T06:29:10.508Z\"},{\"id\":\"kuaishou:photo:3x6xdymfzbng959\",\"title\":\"行动不便人员过马路，有人骑车一旁护行，有人停车等待。 #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3x6xdymfzbng959\",\"description\":\"行动不便人员过马路，有人骑车一旁护行，有人停车等待。 #媒体原创 \",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/23/13/BMjAyNjExMjMxMzIxMTBfMTMxMjExOTkyNV8yMTY3NDY5NjM1MTJfMF8z_ccc_B2550228c2f6d9d6c13aafeea5c1d61cb.jpg?tag=1-1795432588-xpcwebprofile-0-hv2ewduy85-340c0d036f61170b&clientCacheKey=3x6xdymfzbng959_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/-o3U2OKKL0WkNdkcx_8k-q59HqMl25hqQS20mxNRSP9bRjSiHCKXZO0j2SAdF1D-yTNHJyNqBSxy3-BkRE_YaYN1hvCKrs4H5kDXmzqL8-APWI7bSx5ATUMl5D9sxOr2dG7tWuK-DWuaD3CKPIjOXUTpX9eXCw5Y73mSOrTwGde5GkKdj_AT7rSh0vZscrTJ.mp4?pkey=AAUCFXptbz4T79C6oEQtsPErimDs_B53wvC7HFw246kcKDEuMZFKcxknUKRsk0SJ1kRicOIUPegUN5aXyP2_aSWNoR5k7BC4uhkD4YoI2p5Kj2H1iDoQwvUfo6ml5L-iFh4&tag=1-1795432588-unknown-0-vvzdt6vube-47899a53785b4c50&clientCacheKey=3x6xdymfzbng959_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T05:24:50.536Z\"},{\"id\":\"kuaishou:photo:3xdcbu4whf555gi\",\"title\":\"“回娘家” 阿飞行表演队受邀来华 将驾中国造战机亮相珠海​ #珠海航展 #阿联酋    #中国航空工业  #媒体原创\",\"link\":\"https://www.kuaishou.com/short-video/3xdcbu4whf555gi\",\"description\":\"“回娘家” 阿飞行表演队受邀来华 将驾中国造战机亮相珠海​ #珠海航展 #阿联酋    #中国航空工业  #媒体原创  \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/12/BMjAyNjExMjMxMjM3NTdfMTMxMjExOTkyNV8yMTY3NDMwOTUyODJfMF8z_ccc_B3e2295bcbd3105d33efceb9ceb04f78e.jpg?tag=1-1795432588-xpcwebprofile-0-fy07bmlh0q-569ffe0deda20979&clientCacheKey=3xdcbu4whf555gi_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/12/BMjAyNjExMjMxMjM3NTdfMTMxMjExOTkyNV8yMTY3NDMwOTUyODJfMF8z_b_Bd601b432f00579aff029d4b5ec5e0323.mp4?pkey=AAUsQWEKgclRF54k1vXesiNANq-rSP7ZlXskWS2DKJxsKhG5sZ6-sDhLzhwMfdWSZawhkRH7uGirRDnICBf9e1lEJNpD7DBx6QWQtYRdWWI458YTmrhi4pINHE2Nb0lM5Wk&tag=1-1795432588-unknown-0-ieg6nspoki-80c4bbc4c4acbeab&clientCacheKey=3xdcbu4whf555gi_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T05:04:49.571Z\"},{\"id\":\"kuaishou:photo:3xgynpdz4nxw4zi\",\"title\":\"事关“一老一小” 重磅方案发布！\",\"link\":\"https://www.kuaishou.com/short-video/3xgynpdz4nxw4zi\",\"description\":\"事关“一老一小” 重磅方案发布！\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/23/11/BMjAyNjExMjMxMTQwMzdfMTMxMjExOTkyNV8yMTY3Mzc3NzY2NTVfMF8z_ccc_Bab1b499d413ca216eca136dfc5fbfec9.jpg?tag=1-1795432588-xpcwebprofile-0-fznfaiqx8l-7ba1bccbd9db0385&clientCacheKey=3xgynpdz4nxw4zi_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/11/BMjAyNjExMjMxMTQwMzdfMTMxMjExOTkyNV8yMTY3Mzc3NzY2NTVfMF8z_b_Bb1bc52e3484be35576d4bb044a9807c7.mp4?pkey=AAUz9J18DctttmPYjnVirRYPnc1Y2jZvloKn3FrcI6dSlbfoeKpjGbz5noeLIvwbhAwj_PpVsI4uqZB1k6T59hAMXe7ZclSfwx5TzoZvcErHGGko4yPOaVanNQSI5lSnUz4&tag=1-1795432588-unknown-0-ung8dz52iv-12f17527020dde70&clientCacheKey=3xgynpdz4nxw4zi_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T03:41:39.701Z\"},{\"id\":\"kuaishou:photo:3xzhicyv4j3bjgk\",\"title\":\"期待值拉满了！万吨大驱、隐形战机等 海军多型现役装备将首次公开亮相第十六届中国航展\",\"link\":\"https://www.kuaishou.com/short-video/3xzhicyv4j3bjgk\",\"description\":\"期待值拉满了！万吨大驱、隐形战机等 海军多型现役装备将首次公开亮相第十六届中国航展 \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/11/BMjAyNjExMjMxMTM5MTFfMTMxMjExOTkyNV8yMTY3Mzc2Mjc3ODhfMF8z_ccc_Bba99937e4d8c666495ef7e8265ee9c31.jpg?tag=1-1795432588-xpcwebprofile-0-eitfvkrs6z-a18c31a11aa2dd15&clientCacheKey=3xzhicyv4j3bjgk_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/11/BMjAyNjExMjMxMTM5MTFfMTMxMjExOTkyNV8yMTY3Mzc2Mjc3ODhfMF8z_b_Bf512776ee9ad590015d73ef7eb6950d3.mp4?pkey=AAU5zmSPPQl0L2h_yCiQQoq6beExUuao24__h97EKeAI8xKJ4I_pYi0MTG_CQoWV2Nt2BpFfzstSeo9RuhMPkFpCukicQsxPNv6Ub6HohZnlS4GaKIqX851PQ9Bhfz6cM2w&tag=1-1795432588-unknown-0-i9y2refben-ae387b5cdc45bdc5&clientCacheKey=3xzhicyv4j3bjgk_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T03:41:01.169Z\"}]}",
     "timing": {
-      "elapsed_ms": 2615,
+      "elapsed_ms": 271,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 6
+          "started_ms": 1,
+          "duration_ms": 10
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 2606
+          "started_ms": 11,
+          "duration_ms": 259
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 2614,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 2614,
+          "name": "错误诊断收集",
+          "started_ms": 270,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2614,
-          "duration_ms": 1
-        },
-        {
-          "name": "浏览器状态保存",
-          "started_ms": 2615,
+          "started_ms": 270,
           "duration_ms": 0
         },
         {
+          "name": "失败后浏览器清理",
+          "started_ms": 270,
+          "duration_ms": 1
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 2615,
+          "started_ms": 271,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 12,
-          "duration_ms": 2595
+          "started_ms": 15,
+          "duration_ms": 254
         }
       ]
     }
@@ -163,12 +148,13 @@
     "example": "/api/rss/kuaishou/profile/3xuxw5yhgr6f4um",
     "name": "中国新闻网",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/kuaishou/profile/3xuxw5yhgr6f4um.json",
-    "duration_ms": 7193
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
+    "error": "HTTP 502: UPSTREAM_AUTH_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据",
+    "duration_ms": 4925
   }
 }
