@@ -1,8 +1,8 @@
-# 脚本路由巡检：114/146 通过
+# 脚本路由巡检：113/146 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-23T03:59:12.771Z
+巡检时间：2026-11-23T04:39:57.327Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -29,7 +29,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/apple-charts/api/v2/:country?/:type?<br>Apple · 播客/音乐榜 (/api/hot/apple-charts/api/v2/us/podcasts) | ❌ 失败 | 来源应为 rss.marketingtools.apple.com，实际为 podcasts.apple.com |
+| /api/hot/apple-charts/api/v2/:country?/:type?<br>Apple · 播客/音乐榜 (/api/hot/apple-charts/api/v2/us/podcasts) | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
 ## hot/bluesky.js（0/1 通过）
 
@@ -48,6 +48,16 @@
 | /api/hot/chongbuluo/forum.php/hot<br>虫部落 · 最热 (/api/hot/chongbuluo/forum.php/hot) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 | /api/hot/chongbuluo/forum.php/latest<br>虫部落 · 最新 (/api/hot/chongbuluo/forum.php/latest) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
+## hot/cls.js（2/3 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/cls/v3/depth/home/assembled/1000<br>财联社 · 深度 (/api/hot/cls/v3/depth/home/assembled/1000) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
+| /api/hot/cls/v1/roll/get\_roll\_list<br>财联社 · 电报 (/api/hot/cls/v1/roll/get\_roll\_list) | ✅ 成功 |  |
+| /api/hot/cls/v2/article/hot/list<br>财联社 · 热门 (/api/hot/cls/v2/article/hot/list) | ✅ 成功 |  |
+
 ## hot/deezer.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-17.svg" alt="" width="24" height="24"> [hot/deezer.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/deezer.js) · 版本：1.0.0
@@ -63,6 +73,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/freebuf/feed<br>Freebuf · 网络安全 (/api/hot/freebuf/feed) | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
+
+## hot/google\_news.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-27.svg" alt="" width="24" height="24"> [hot/google\_news.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/google_news.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/google-news/rss/:edition?/:topic?<br>Google News · 英语/日语头条 (/api/hot/google-news/rss/us/top) | ❌ 失败 | UPSTREAM\_RATE\_LIMITED: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
 
 ## hot/gutenberg.js（0/1 通过）
 
@@ -145,11 +163,11 @@
 
 ## rss/instagram.js（0/1 通过）
 
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-91.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.0
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-91.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/instagram/:username<br>Addison Rae (/api/rss/instagram/addisonraee)<br>AuronPlay (/api/rss/instagram/auronplay)<br>Avneet Kaur (/api/rss/instagram/avneetkaur\_13)<br>Bella Poarch (/api/rss/instagram/bellapoarch)<br>Bretman Rock (/api/rss/instagram/bretmanrock)<br>Charli D’Amelio (/api/rss/instagram/charlidamelio)<br>Domelipa (/api/rss/instagram/domelipa)<br>Ibai Llanos (/api/rss/instagram/ibai)<br>Jannat Zubair (/api/rss/instagram/jannatzubair29)<br>Juanpa Zurita (/api/rss/instagram/juanpazurita)<br>KARINA (/api/rss/instagram/katarinabluu)<br>Khaby Lame (/api/rss/instagram/khaby00)<br>Kimberly Loaiza (/api/rss/instagram/kimberly.loaiza)<br>Lele Pons (/api/rss/instagram/lelepons)<br>Luisito Comunica (/api/rss/instagram/luisitocomunica)<br>Mark Rober (/api/rss/instagram/markrober)<br>Marques Brownlee (/api/rss/instagram/mkbhd)<br>MrBeast (/api/rss/instagram/mrbeast)<br>Nick DiGiovanni (/api/rss/instagram/nick.digiovanni)<br>Rubius (/api/rss/instagram/rubiuswtf)<br>Zach King (/api/rss/instagram/zachking) | ❌ 失败 | Addison Rae /api/rss/instagram/addisonraee: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；AuronPlay /api/rss/instagram/auronplay: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Avneet Kaur /api/rss/instagram/avneetkaur\_13: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Bella Poarch /api/rss/instagram/bellapoarch: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Bretman Rock /api/rss/instagram/bretmanrock: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Charli D’Amelio /api/rss/instagram/charlidamelio: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Domelipa /api/rss/instagram/domelipa: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Ibai Llanos /api/rss/instagram/ibai: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Jannat Zubair /api/rss/instagram/jannatzubair29: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Juanpa Zurita /api/rss/instagram/juanpazurita: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；KARINA /api/rss/instagram/katarinabluu: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Khaby Lame /api/rss/instagram/khaby00: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Kimberly Loaiza /api/rss/instagram/kimberly.loaiza: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Lele Pons /api/rss/instagram/lelepons: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Luisito Comunica /api/rss/instagram/luisitocomunica: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Mark Rober /api/rss/instagram/markrober: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Marques Brownlee /api/rss/instagram/mkbhd: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；MrBeast /api/rss/instagram/mrbeast: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Nick DiGiovanni /api/rss/instagram/nick.digiovanni: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Rubius /api/rss/instagram/rubiuswtf: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Zach King /api/rss/instagram/zachking: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
+| /api/rss/instagram/:username<br>AuronPlay (/api/rss/instagram/auronplay)<br>Avneet Kaur (/api/rss/instagram/avneetkaur\_13)<br>Bella Poarch (/api/rss/instagram/bellapoarch)<br>Bretman Rock (/api/rss/instagram/bretmanrock)<br>Charli D’Amelio (/api/rss/instagram/charlidamelio)<br>Domelipa (/api/rss/instagram/domelipa)<br>Rubius (/api/rss/instagram/elrubiuswtf)<br>erciliamicarelli (/api/rss/instagram/erciliamicarelli)<br>Ibai Llanos (/api/rss/instagram/ibaillanos)<br>Jannat Zubair (/api/rss/instagram/jannatzubair29)<br>jiayiiii.moon (/api/rss/instagram/jiayiiii.moon)<br>Juanpa Zurita (/api/rss/instagram/juanpazurita)<br>KARINA (/api/rss/instagram/katarinabluu)<br>Khaby Lame (/api/rss/instagram/khaby00)<br>Kimberly Loaiza (/api/rss/instagram/kimberly.loaiza)<br>Lele Pons (/api/rss/instagram/lelepons)<br>Luisito Comunica (/api/rss/instagram/luisitocomunica)<br>Mark Rober (/api/rss/instagram/markrober)<br>Marques Brownlee (/api/rss/instagram/mkbhd)<br>MrBeast (/api/rss/instagram/mrbeast)<br>Nick DiGiovanni (/api/rss/instagram/nick.digiovanni)<br>Zach King (/api/rss/instagram/zachking) | ❌ 失败 | AuronPlay /api/rss/instagram/auronplay: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Avneet Kaur /api/rss/instagram/avneetkaur\_13: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Bella Poarch /api/rss/instagram/bellapoarch: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Bretman Rock /api/rss/instagram/bretmanrock: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Charli D’Amelio /api/rss/instagram/charlidamelio: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Domelipa /api/rss/instagram/domelipa: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Rubius /api/rss/instagram/elrubiuswtf: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；erciliamicarelli /api/rss/instagram/erciliamicarelli: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Ibai Llanos /api/rss/instagram/ibaillanos: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Jannat Zubair /api/rss/instagram/jannatzubair29: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；jiayiiii.moon /api/rss/instagram/jiayiiii.moon: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Juanpa Zurita /api/rss/instagram/juanpazurita: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；KARINA /api/rss/instagram/katarinabluu: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Khaby Lame /api/rss/instagram/khaby00: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Kimberly Loaiza /api/rss/instagram/kimberly.loaiza: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Lele Pons /api/rss/instagram/lelepons: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Luisito Comunica /api/rss/instagram/luisitocomunica: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Mark Rober /api/rss/instagram/markrober: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Marques Brownlee /api/rss/instagram/mkbhd: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；MrBeast /api/rss/instagram/mrbeast: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Nick DiGiovanni /api/rss/instagram/nick.digiovanni: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试；Zach King /api/rss/instagram/zachking: HTTP 503: UPSTREAM\_RATE\_LIMITED: 上游请求过于频繁，请降低频率后重试 |
 
 ## rss/kuaishou.js（0/1 通过）
 
@@ -157,7 +175,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/kuaishou/profile/:user\_id<br>中国新闻网 (/api/rss/kuaishou/profile/3xuxw5yhgr6f4um) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
+| /api/rss/kuaishou/profile/:user\_id<br>中国新闻网 (/api/rss/kuaishou/profile/3xuxw5yhgr6f4um) | ❌ 失败 | UPSTREAM\_AUTH\_REQUIRED: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据 |
 
 ## rss/wxchannels.js（0/1 通过）
 
@@ -181,7 +199,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青 (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>董洁 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | 董洁 /api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66: 条目数须 &gt;= 1 |
+| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青 (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>董洁 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | 琳达不呆 /api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e: 条目数须 &gt;= 1；董洁 /api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66: 条目数须 &gt;= 1 |
 
 ## rss/youku.js（0/1 通过）
 
@@ -189,17 +207,17 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/youku/series/:show\_id<br>嫁金钗 (/api/rss/youku/series/bcaa87c7834c46f99e7b) | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
+| /api/rss/youku/series/:show\_id<br>嫁金钗 (/api/rss/youku/series/bcaa87c7834c46f99e7b) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
 
-## rss/zhihu.js（6/8 通过）
+## rss/zhihu.js（7/8 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-109.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/zhihu/column/:column\_id<br>谷歌开发者社区 (/api/rss/zhihu/column/googledevelopers) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 | /api/rss/zhihu/people/:user/asks<br>木子白 (/api/rss/zhihu/people/zhihu/asks) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 | /api/rss/zhihu/collection/:collection\_id<br>总有一天能用到的资料 (/api/rss/zhihu/collection/26444956) | ✅ 成功 |  |
+| /api/rss/zhihu/column/:column\_id<br>谷歌开发者社区 (/api/rss/zhihu/column/googledevelopers) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/answers<br>陈柏龄 (/api/rss/zhihu/people/chenbailing/answers)<br>chenqin (/api/rss/zhihu/people/chenqin/answers)<br>丁香医生 (/api/rss/zhihu/people/ding-xiang-yi-sheng/answers)<br>动机在杭州 (/api/rss/zhihu/people/dong-ji-zai-hang-zhou/answers)<br>尤雨溪 (/api/rss/zhihu/people/evanyou/answers)<br>李开复 (/api/rss/zhihu/people/kaifulee/answers)<br>KnowYourself (/api/rss/zhihu/people/knowyourself-1/answers)<br>老爸评测 (/api/rss/zhihu/people/lao-ba-ping-ce/answers)<br>工叔 (/api/rss/zhihu/people/li-hai-yang-14-43/answers)<br>李松蔚 (/api/rss/zhihu/people/lisongwei/answers)<br>马伯庸 (/api/rss/zhihu/people/ma-bo-yong/answers)<br>Raymond Wang (/api/rss/zhihu/people/raymond-wang/answers)<br>田吉顺 (/api/rss/zhihu/people/tian-ji-shun/answers)<br>warfalcon (/api/rss/zhihu/people/warfalcon/answers)<br>下厨房 (/api/rss/zhihu/people/xia-chu-fang/answers)<br>张佳玮 (/api/rss/zhihu/people/zhang-jia-wei/answers)<br>张小北 (/api/rss/zhihu/people/zhang-xiao-bei/answers)<br>真实故事计划 (/api/rss/zhihu/people/zhen-shi-gu-shi-ji-hua/answers)<br>木子白 (/api/rss/zhihu/people/zhihu/answers)<br>中国科普博览 (/api/rss/zhihu/people/zhong-guo-ke-pu-bo-lan/answers) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user<br>木子白 (/api/rss/zhihu/people/zhihu) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/pins<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/pins) | ✅ 成功 |  |
@@ -288,16 +306,6 @@
 | --- | --- | --- |
 | /api/hot/cankaoxiaoxi/json/channel<br>参考消息 (/api/hot/cankaoxiaoxi/json/channel) | ✅ 成功 |  |
 
-## hot/cls.js（3/3 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-15.svg" alt="" width="24" height="24"> [hot/cls.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/cls.js) · 版本：1.0.2
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/cls/v1/roll/get\_roll\_list<br>财联社 · 电报 (/api/hot/cls/v1/roll/get\_roll\_list) | ✅ 成功 |  |
-| /api/hot/cls/v2/article/hot/list<br>财联社 · 热门 (/api/hot/cls/v2/article/hot/list) | ✅ 成功 |  |
-| /api/hot/cls/v3/depth/home/assembled/1000<br>财联社 · 深度 (/api/hot/cls/v3/depth/home/assembled/1000) | ✅ 成功 |  |
-
 ## hot/dailymotion.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-16.svg" alt="" width="24" height="24"> [hot/dailymotion.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/dailymotion.js) · 版本：1.0.0
@@ -370,14 +378,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/github/trending<br>Github · Today (/api/hot/github/trending) | ✅ 成功 |  |
-
-## hot/google\_news.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-27.svg" alt="" width="24" height="24"> [hot/google\_news.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/google_news.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/google-news/rss/:edition?/:topic?<br>Google News · 英语/日语头条 (/api/hot/google-news/rss/us/top) | ✅ 成功 |  |
 
 ## hot/hackernews.js（1/1 通过）
 
