@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-24T01:48:38.886Z",
+  "checked_at": "2026-11-24T02:14:29.435Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1070
+    "status": 200,
+    "duration_ms": 2074
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/kuaishou.js",
       "name": "快手用户作品",
@@ -34,19 +34,28 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1062,
+    "phase": "ok",
+    "elapsed_ms": 2065,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：快手作品读取失败：脚本上游连接失败，请稍后重试",
-    "error_text": "脚本执行失败：快手作品读取失败：脚本上游连接失败，请稍后重试\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:112:26)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_0d128aefedc6e27b4de447711148f7f152474646464799deeafc5c9460f09b353185e447dd10789c3d1078ae46&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_6c73eb8e8c7d6a722c852676d9231d9c7b2627272726f8bf8b9d3df5019121bd38e48526bc7119fd5c7119cf27&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -55,15 +64,18 @@
             "kww"
           ]
         },
-        "started_ms": 36,
-        "duration_ms": 1024,
+        "started_ms": 38,
+        "duration_ms": 2021,
         "timings": {
-          "response_ms": 1024
+          "response_ms": 391,
+          "body_read_ms": 1628,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"kuaishou:user:3xuxw5yhgr6f4um\",\"title\":\"中国新闻网 的快手作品\",\"link\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\",\"description\":\"\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"video\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.kuaishou.com/\"},\"tags\":[\"快手\"]},\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"image\":\"https://p22.a.yximgs.com/uhead/AB/2025/09/02/19/BMjAyNTA5MDIxOTQzNTlfMTMxMjExOTkyNV8yX2hkMjIyXzQ5_s.jpg\",\"updated\":\"2026-11-24T02:06:36.205Z\",\"items\":[{\"id\":\"kuaishou:photo:3xeq5s277cvpsdm\",\"title\":\"官宣！神二十四飞行任务期间 将通过构建血管芯片等 开展空间环境对血管衰老等影响的探索 为血管衰老防治等探索新策略\",\"link\":\"https://www.kuaishou.com/short-video/3xeq5s277cvpsdm\",\"description\":\"官宣！神二十四飞行任务期间 将通过构建血管芯片等 开展空间环境对血管衰老等影响的探索 为血管衰老防治等探索新策略\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/24/10/BMjAyNjExMjQxMDA1MDBfMTMxMjExOTkyNV8yMTY4MzgyMjgwNzRfMF8z_ccc_B88c2c43625f8f1ff96864726603aadd0.jpg?tag=1-1795486469-xpcwebprofile-0-yqcbx9ndxo-e764f06058c79937&clientCacheKey=3xeq5s277cvpsdm_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/10/BMjAyNjExMjQxMDA1MDBfMTMxMjExOTkyNV8yMTY4MzgyMjgwNzRfMF8z_b_B5c4e30233a26d5ad3ae7ae2ec7991102.mp4?pkey=AAVl4B4hzO0NcMUenS1_eYr4ahG6CQCxoFK-AZ_RNuJIm3qLHyyPgeGaQyrAXEWJyWVproU11On9LW-jtcrs8OYDqK0LpV82IZrn7Lh4S2tzkp8pfnTNZ_Si2tQGOEx-mZw&tag=1-1795486469-unknown-0-vhwmkqn5r5-f6adf959e5b2a235&clientCacheKey=3xeq5s277cvpsdm_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T02:06:36.205Z\"},{\"id\":\"kuaishou:photo:3xdnhvatr63nstm\",\"title\":\"【习言道｜跟随习近平主席推介 从四座城市感知千年中国】11月18日，在亚太经合组织第三十三次领导人非正式会议欢迎晚宴上，习近平主席指出，看千年的中国去西安，看五百年的中国去北京，看一百年的中国去上海，看五十年的中国来深圳。中国历史悠久、幅员辽阔，一起跟随习近平主席推介，通过四座城市感知千年中国。​ #和合共生\",\"link\":\"https://www.kuaishou.com/short-video/3xdnhvatr63nstm\",\"description\":\"【习言道｜跟随习近平主席推介 从四座城市感知千年中国】11月18日，在亚太经合组织第三十三次领导人非正式会议欢迎晚宴上，习近平主席指出，看千年的中国去西安，看五百年的中国去北京，看一百年的中国去上海，看五十年的中国来深圳。中国历史悠久、幅员辽阔，一起跟随习近平主席推介，通过四座城市感知千年中国。​ #和合共生   \",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/24/09/BMjAyNjExMjQwOTM1MDZfMTMxMjExOTkyNV8yMTY4MzU3Mjk1MjRfMF8z_ccc_B07d498a750ba6e9a11809d66b789696e.jpg?tag=1-1795486469-xpcwebprofile-0-c1nibdg6wo-a17241599a93ab6b&clientCacheKey=3xdnhvatr63nstm_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/1ngxaKTvdXV1y5EcMpyO3KZ9vCpwQV48faopXF9v9rlKIQn1bo0Z63rKiU0tnsGHDXEnWGZaT2G64L1YFAWgp6fFpy2_Xnq7jEcyDbu7n2ic6VQ6QKDbaJ-X_GRTckZ-PWFEaGtegTYZow8jxEBMoTmUcHl-1FwGbXQ6uabmrUeBkZbuoipt44DeEzMx4ddV.mp4?pkey=AAV8WOa9Mtp31a_ng2dq6uiXfy66myDX9R4rSLm8HZn6zBumy8NSpLosLb9rdYNz9FC_4_96_8vmriH37_nzUTlQnIKwmqX0gkGz1W9esMg5KRyuakphaBeLOS25HjpIwnY&tag=1-1795486469-unknown-0-fxtcxw940l-a8a7d1b7b3cb2a0a&clientCacheKey=3xdnhvatr63nstm_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T01:59:06.290Z\"},{\"id\":\"kuaishou:photo:3x7cgt9jrr8ig5y\",\"title\":\"神舟二十四号瞄准北京时间11月25日08时18分发射 #神舟二十四号\",\"link\":\"https://www.kuaishou.com/short-video/3x7cgt9jrr8ig5y\",\"description\":\"神舟二十四号瞄准北京时间11月25日08时18分发射 #神舟二十四号\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQ3MTBfMTMxMjExOTkyNV8yMTY4MzY3MzQ3ODhfMF8z_ccc_B79bbf1e30d6c3fca33239cd5219ee252.jpg?tag=1-1795486469-xpcwebprofile-0-zmcqzyfxqz-9ef37a4d98b0158c&clientCacheKey=3x7cgt9jrr8ig5y_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQ3MTBfMTMxMjExOTkyNV8yMTY4MzY3MzQ3ODhfMF8z_b_B3c514f342707bbffa4140ff36c4f13d7.mp4?pkey=AAU0W92iWR8kJPrahFHMD-QYUJro9IDjIgFG8OwpohBJM09QkBcA3gqZR_A7vJGSW6DNTtIAwzTc_xV9nEosSs1sfsb3m83oyb24eOFLR7zEImlreoEX4emYrofT1Z_26bU&tag=1-1795486469-unknown-0-xkjgikfurz-ecc8c5e2ff5babfa&clientCacheKey=3x7cgt9jrr8ig5y_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T01:50:49.436Z\"},{\"id\":\"kuaishou:photo:3xvfez6musfs6fw\",\"title\":\"训练画面曝光 中国空间站将迎来首位外籍航天员（来源：央视新闻）\",\"link\":\"https://www.kuaishou.com/short-video/3xvfez6musfs6fw\",\"description\":\"训练画面曝光 中国空间站将迎来首位外籍航天员（来源：央视新闻）\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQ0MDZfMTMxMjExOTkyNV8yMTY4MzY0NjQ5ODRfMF8z_ccc_B68c5aee1c346ef5ac6c7946f8a13bae7.jpg?tag=1-1795486469-xpcwebprofile-0-vbdbtmj9p2-eebc12b4a9d9ceb8&clientCacheKey=3xvfez6musfs6fw_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQ0MDZfMTMxMjExOTkyNV8yMTY4MzY0NjQ5ODRfMF8z_b_B1795e1c6b69a625c9d71176da759d75e.mp4?pkey=AAU0-hs58GVqQV1-B_3q6VS_eXE5ZEmX3Q0KpiWpGrgCPgMC4AV86a0lW6ZMt2OmJ-W0ul7wo7eO9H0SoQxtFp2ftPLG8uUnSKSydC7TQjn2_xliFW8BxrFNMk1vgxHaVqg&tag=1-1795486469-unknown-0-l1w9qeddz5-328ec86d134bb8c3&clientCacheKey=3xvfez6musfs6fw_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T01:50:37.261Z\"},{\"id\":\"kuaishou:photo:3xik5frxgx7seik\",\"title\":\"中国公民尽快撤离！中使馆紧急提醒\",\"link\":\"https://www.kuaishou.com/short-video/3xik5frxgx7seik\",\"description\":\"中国公民尽快撤离！中使馆紧急提醒\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQ3MTFfMTMxMjExOTkyNV8yMTY4MzY2Nzk4OTBfMF8z_ccc_Bf95f45676e8c1203b61aa77b67a5cc40.jpg?tag=1-1795486469-xpcwebprofile-0-shgxlgyhol-0d26f13e349a16f9&clientCacheKey=3xik5frxgx7seik_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQ3MTFfMTMxMjExOTkyNV8yMTY4MzY2Nzk4OTBfMF8z_b_B9853a17ed0c431a073a5f832e4b2a19b.mp4?pkey=AAXY3dCRpmp16dlCEvncA3lLQCpr26XrViFon7zKljKW8nzEZlImY3MAjgj-PLpQwOWjFTLHhUM8BCFics_ZPz6osS6BVuw8JCb-wXcuc2jRuyL3fR9UWjM04smWICrPDQY&tag=1-1795486469-unknown-0-lszjok6okn-5d9cce4369d488fb&clientCacheKey=3xik5frxgx7seik_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T01:48:32.158Z\"},{\"id\":\"kuaishou:photo:3x5mfkddimv5fwy\",\"title\":\"巴基斯坦航天员将随神舟二十三号飞船返回\",\"link\":\"https://www.kuaishou.com/short-video/3x5mfkddimv5fwy\",\"description\":\"巴基斯坦航天员将随神舟二十三号飞船返回\",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQwMDlfMTMxMjExOTkyNV8yMTY4MzYxMTg5NDdfMF8z_ccc_Bf3478f23213bd57316e3a5e966eba6d3.jpg?tag=1-1795486469-xpcwebprofile-0-gqunrj7mvx-9d391a4b37f90a47&clientCacheKey=3x5mfkddimv5fwy_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/09/BMjAyNjExMjQwOTQwMDlfMTMxMjExOTkyNV8yMTY4MzYxMTg5NDdfMF8z_b_B525632c7ac48057583091c7283dd7799.mp4?pkey=AAUhFRA1bPEdc2FWjpPPQOxVRA5xyjVEOHFWHLA6-k4l6ZJYQB33XqRsX7A2TwJiz-TVx4OQc9gL0aZzO56Vrrcl6Kc0H4iTsSLLdSgM4UxJvqLSy3VwiNWKfIO2NJbIYGY&tag=1-1795486469-unknown-0-3nwvjotek0-ed9cd2a6ca29adf7&clientCacheKey=3x5mfkddimv5fwy_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T01:41:50.787Z\"},{\"id\":\"kuaishou:photo:3x5sti9y2wzj889\",\"title\":\"“天宫”将迎来首位外籍航天员\",\"link\":\"https://www.kuaishou.com/short-video/3x5sti9y2wzj889\",\"description\":\"“天宫”将迎来首位外籍航天员\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/24/09/BMjAyNjExMjQwOTI3NDZfMTMxMjExOTkyNV8yMTY4MzUxMDg2OTNfMF8z_ccc_Bed03fc00648a9e97a3e7d182106c7a25.jpg?tag=1-1795486469-xpcwebprofile-0-kg1mg9qdc6-a3272dd2ae8a26c8&clientCacheKey=3x5sti9y2wzj889_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/09/BMjAyNjExMjQwOTI3NDZfMTMxMjExOTkyNV8yMTY4MzUxMDg2OTNfMF8z_b_B300699e73cbb92004388a279fcb021db.mp4?pkey=AAXqah0BWL8EdvdO14-w7o2klrtkeKZ0l7ts81AtwCO3Z8zkwx8HNbQ-xA3I5AFVQtaporCII3LL7I0XTX1WFgId4TJtJeVQxVq1q-9NDOUSmob-GwuDaxGJLyS5CC5Ek5s&tag=1-1795486469-unknown-0-v6okqomlf0-7dbed142efad64f8&clientCacheKey=3x5sti9y2wzj889_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T01:29:03.688Z\"},{\"id\":\"kuaishou:photo:3x3tgh2isae6jz4\",\"title\":\"马来西亚总理发布APEC混剪视频 多角度记录中国军人风采\",\"link\":\"https://www.kuaishou.com/short-video/3x3tgh2isae6jz4\",\"description\":\"马来西亚总理发布APEC混剪视频 多角度记录中国军人风采\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/24/09/BMjAyNjExMjQwOTAxMjVfMTMxMjExOTkyNV8yMTY4MzMyODQ2OTRfMF8z_ccc_B825b9a2412256546d296be569885ba59.jpg?tag=1-1795486469-xpcwebprofile-0-9xqngazxk6-0f38dfe27a963ac2&clientCacheKey=3x3tgh2isae6jz4_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/09/BMjAyNjExMjQwOTAxMjVfMTMxMjExOTkyNV8yMTY4MzMyODQ2OTRfMF8z_b_Babe7120f109f5c3650224113bbc36761.mp4?pkey=AAUqZBap6juEs2QNqXcKz1nJ8bV95F4M04RIKu_4PQM6QEMM3-FZcCwQlu8lXAof9yzUpTk7TuOnB0pE0cUdvcIlqICrT4F0IlDvD8qHURq026GBHHY5vHhFfKOek9a_juw&tag=1-1795486469-unknown-0-qrmxw0x0kx-6febf6bc5ebc6a41&clientCacheKey=3x3tgh2isae6jz4_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T01:03:02.878Z\"},{\"id\":\"kuaishou:photo:3xpdimxgmsum9c4\",\"title\":\"习近平向“声援巴勒斯坦人民国际日”纪念大会致贺电\",\"link\":\"https://www.kuaishou.com/short-video/3xpdimxgmsum9c4\",\"description\":\"习近平向“声援巴勒斯坦人民国际日”纪念大会致贺电\",\"image\":\"https://p23.a.yximgs.com/upic/2026/11/24/08/BMjAyNjExMjQwODE3NDNfMTMxMjExOTkyNV8yMTY4MzA3MDcwMzdfMF8z_ccc_Bfb7b56122d47e4570b7aca1290e82e18.jpg?tag=1-1795486469-xpcwebprofile-0-imbo4stfqr-ef0d728920e9bfa6&clientCacheKey=3xpdimxgmsum9c4_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/08/BMjAyNjExMjQwODE3NDNfMTMxMjExOTkyNV8yMTY4MzA3MDcwMzdfMF8z_b_B2bad7fc53b628d16552278751e3daa72.mp4?pkey=AAUM3_e2eNlgeIBzo_fsbYoT7aUCfgNzajoGo2TR2O7UlW7heGsXGUqde3veuFCLBedyhW446PvmGk9jIpgUaPBCvHS9AS0Kqr1o-SjG5uIUugMsI-id2Tuks85gxMK6A_M&tag=1-1795486469-unknown-0-5iflukntwn-89562dbd05c02e1b&clientCacheKey=3xpdimxgmsum9c4_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T00:25:33.310Z\"},{\"id\":\"kuaishou:photo:3xafnb5p6bjt7um\",\"title\":\"黄仁勋回到英伟达总部发言：这是我第一天上班 还没有电脑 并现场致歉\",\"link\":\"https://www.kuaishou.com/short-video/3xafnb5p6bjt7um\",\"description\":\"黄仁勋回到英伟达总部发言：这是我第一天上班 还没有电脑 并现场致歉\",\"image\":\"https://p3.a.yximgs.com/upic/2026/11/24/08/BMjAyNjExMjQwODA5NThfMTMxMjExOTkyNV8yMTY4MzAyNTU1MDlfMF8z_ccc_B6c512ae9a2525588291e99ad0e132c87.jpg?tag=1-1795486469-xpcwebprofile-0-wiskyikulo-dfde738a09fe4ad1&clientCacheKey=3xafnb5p6bjt7um_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/gRuTH1GbH72ZlPJ3tggwT0zMqYq8Ou7RQIwFVz3XiU8Z2X5ZwPticUYUa-Ngc3wfpYHYElE-MQvgtistm3cKwSsEo1ppm4_qu7VCyTNv0FenPnC8FF9OAa6-7rlcO63BiOgWSVoeWLF_i2RR2ZG3VBgy9AG34bb4dd9iWRtcRu1iwSxu0DekDim51xeoSrO1.mp4?pkey=AAUd_2OVAq8nXTV8qrwALblqli09pQiEVWKWmUfLZYTeb0s6pTDqY_yV3bGyu7OnPtS9y5UX7ATO7OZAqXvdd2g1K4FZErw6C5T7Ei9J7NtkwCsFyTtAtsNcxOlaJcYjCOc&tag=1-1795486469-unknown-0-n4ldttpept-6c6a093919f4a699&clientCacheKey=3xafnb5p6bjt7um_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-24T00:12:05.789Z\"},{\"id\":\"kuaishou:photo:3xmf34yxtqb552u\",\"title\":\"现场视频！黄仁勋重回英伟达 未穿标志性皮夹克\",\"link\":\"https://www.kuaishou.com/short-video/3xmf34yxtqb552u\",\"description\":\"现场视频！黄仁勋重回英伟达 未穿标志性皮夹克\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/24/07/BMjAyNjExMjQwNzQ0NTRfMTMxMjExOTkyNV8yMTY4Mjg5NzMxNzJfMF8z_ccc_B4dce477c243d94d94d0f19a1dbd46033.jpg?tag=1-1795486469-xpcwebprofile-0-ptixebot7v-3cc13c5a7c96a03d&clientCacheKey=3xmf34yxtqb552u_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/JxAF0IbTchQ0OuW6_hltcpB1vNR9uWrCa7OcPbOe0qdyLiRvfHuziFgwgI-J0ODQnC9c-pvvNFWn5J2PhghRONaWinzWb_jObvlB-OEQKEoyHtunaaWhUuFDUOIogZHzkoKvsRm8ZkS6ImxyOLv9_nrC4d7ZLwVPmntzjN7HZkFQ9UUftfjJ9OSRveCPfXFw.mp4?pkey=AAWYlkNN5bWay39gdVvQRD-cLXxVmrH_pWo7JxqbEvR1GhNe26__9lAh4_SXdlIwCWbmOkf_t5ADbpY-VGo1M2TN44iWnI2Iv1AfSVkB14IMzOQJAbt8CizwxtYVd-UgTuo&tag=1-1795486469-unknown-0-r1bapanme6-ae8af43acc867466&clientCacheKey=3xmf34yxtqb552u_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T23:48:47.229Z\"},{\"id\":\"kuaishou:photo:3xigm7kb6y8u8ja\",\"title\":\"黄仁勋重回英伟达 现场齐喊“Jensen”欢呼 有员工上前拥抱欢迎\",\"link\":\"https://www.kuaishou.com/short-video/3xigm7kb6y8u8ja\",\"description\":\"黄仁勋重回英伟达 现场齐喊“Jensen”欢呼 有员工上前拥抱欢迎\",\"image\":\"https://p4.a.yximgs.com/upic/2026/11/24/07/BMjAyNjExMjQwNzI3MzhfMTMxMjExOTkyNV8yMTY4MjgyNzAxODBfMF8z_ccc_Baee02a57cc0178625e37aaf5917320e3.jpg?tag=1-1795486469-xpcwebprofile-0-vcjez9ivib-7b0d920ddc9d96a8&clientCacheKey=3xigm7kb6y8u8ja_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/24/07/BMjAyNjExMjQwNzI3MzhfMTMxMjExOTkyNV8yMTY4MjgyNzAxODBfMF8z_b_B3c10cd9ae0366c77956a6794b475fe3b.mp4?pkey=AAXex50GJmZqbVTRrs9Btx7iJ49JV5GM1r8dhFrfe8qs4YE9QHuZgdg4VcPEBvT2bxbwGHzOgPf1MZmIG5XWonPVh6YWH09fgsk--JmNnSjjkQhpk9ISdOg7oWn3OEinMqU&tag=1-1795486469-unknown-0-2brlh3m89x-a33925ef503ccb6e&clientCacheKey=3xigm7kb6y8u8ja_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T23:29:38.651Z\"},{\"id\":\"kuaishou:photo:3x27x3p5vyj3nbu\",\"title\":\"今天是11月24日，农历十月十六，星期二 #早安  持续给自己加满电量，不多虑，不内耗。踏踏实实走好每一步，慢慢成长，悄悄出彩 #中新祝晨安\",\"link\":\"https://www.kuaishou.com/short-video/3x27x3p5vyj3nbu\",\"description\":\"今天是11月24日，农历十月十六，星期二 #早安  持续给自己加满电量，不多虑，不内耗。踏踏实实走好每一步，慢慢成长，悄悄出彩 #中新祝晨安\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/16/BMjAyNjExMjMxNjU2MjVfMTMxMjExOTkyNV8yMTY3NjcwNTc2MjhfMF8z_ccc_Bc5f9b9d4e4c41cbf0c96954658e44fda.jpg?tag=1-1795486469-xpcwebprofile-0-wwppiiyrwl-72d58ecd31b0bf1c&clientCacheKey=3x27x3p5vyj3nbu_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/16/BMjAyNjExMjMxNjU2MjVfMTMxMjExOTkyNV8yMTY3NjcwNTc2MjhfMF8z_b_Bee531edd969b3f5d9a07057fece42645.mp4?pkey=AAXADVXB-2FhlZuz1YDTi2IYlQ2PJ51exvmF6SRvxdPUsWjyGMJUOtUowP_nZxGnBFVLXiq7XTNjML-qgpzC98Ue5gaMqst2JVQ7bfP8VO8cz07iBPy3aqr6E9v-lEHvbO8&tag=1-1795486469-unknown-0-nehhyucmmf-9eaf67d1bd24a505&clientCacheKey=3x27x3p5vyj3nbu_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T20:00:00.000Z\"},{\"id\":\"kuaishou:photo:3xd9emqe87ddsa2\",\"title\":\"离任11天后黄仁勋复职 美财长贝森特此前表态：英伟达应从外部选帅 而黄仁勋现在就是外部人员（来源：财联社）\",\"link\":\"https://www.kuaishou.com/short-video/3xd9emqe87ddsa2\",\"description\":\"离任11天后黄仁勋复职 美财长贝森特此前表态：英伟达应从外部选帅 而黄仁勋现在就是外部人员（来源：财联社）\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/23/BMjAyNjExMjMyMzI1MTJfMTMxMjExOTkyNV8yMTY4MDk0MDYzNDRfMF8z_ccc_B6ea3141c15a1b9b94af5a79ea4506a09.jpg?tag=1-1795486469-xpcwebprofile-0-hf1a2ak9xw-4b914dc668defe49&clientCacheKey=3xd9emqe87ddsa2_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v1.kwaicdn.com/ksc2/-mJRIXrFcuZbh0kQjlro8gf0eqGR439xxC_40s2z_dE9S7Tc9dmQFFCOG_1F9HiDiWrTkEPlLe25OsgJrZkNEavz9-Z8_1KO51m-EupTaKxo1WTCzqjvrnt7dqE0fqZR-O13-un3aZpk3rLpRsgTU6LXEQUDE-D6CsPEmsP0TTwpK7v946q2-L98YUoZoSIf.mp4?pkey=AAV5Dnk5gX6oC2T61994MOAacGtGy3eZR7LZT6WBQFgDJt6kGot2ulqL4Vkxfq_7oMugYZIM6VEVrApZm4nv61KypcD7BHjvM3f1OSTv4z2X-nGi8S4etCtZHNTRO6hAygk&tag=1-1795486469-unknown-0-0tzne9phfw-ee74d4e703e12230&clientCacheKey=3xd9emqe87ddsa2_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T15:32:25.479Z\"},{\"id\":\"kuaishou:photo:3xbq7zyv4gae6jq\",\"title\":\"马斯克发帖回应黄仁勋复职：错误已经得到纠正\",\"link\":\"https://www.kuaishou.com/short-video/3xbq7zyv4gae6jq\",\"description\":\"马斯克发帖回应黄仁勋复职：错误已经得到纠正\",\"image\":\"https://p5.a.yximgs.com/upic/2026/11/23/23/BMjAyNjExMjMyMzA1MjdfMTMxMjExOTkyNV8yMTY4MDc5MTY2OTVfMF8z_ccc_Bd1a99a32ea95ad44effde251e7d08b19.jpg?tag=1-1795486469-xpcwebprofile-0-1ebssgubzy-ab3e9eca1b0dbc55&clientCacheKey=3xbq7zyv4gae6jq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/23/BMjAyNjExMjMyMzA1MjdfMTMxMjExOTkyNV8yMTY4MDc5MTY2OTVfMF8z_b_Ba34648e8e76b3d4bffae87986690f95e.mp4?pkey=AAUW3UdCdO3S6-pkvOYX2-2zzfpMXNyGLUC0H4SGhEyQjPlW2xR7bsDY9t5oz_6LhwFAKtvYUfIViIKRGwQLUamYeJDtsfcjEPaHa9rwqWGDJ5IchCkRIef0XJVyKEuVB2c&tag=1-1795486469-unknown-0-7dco7358kv-f2461e2f1bc48a5e&clientCacheKey=3xbq7zyv4gae6jq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T15:06:39.503Z\"},{\"id\":\"kuaishou:photo:3xj7ekyminabqrg\",\"title\":\"黄仁勋：很荣幸重返英伟达\",\"link\":\"https://www.kuaishou.com/short-video/3xj7ekyminabqrg\",\"description\":\"黄仁勋：很荣幸重返英伟达\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/22/BMjAyNjExMjMyMjUxMTFfMTMxMjExOTkyNV8yMTY4MDY3MTAyODdfMF8z_ccc_B93e3245000c1a8cc01949e8b471a1f91.jpg?tag=1-1795486469-xpcwebprofile-0-4umos8kney-98ba91fd1951fe10&clientCacheKey=3xj7ekyminabqrg_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/22/BMjAyNjExMjMyMjUxMTFfMTMxMjExOTkyNV8yMTY4MDY3MTAyODdfMF8z_b_Bfcde215619e2dc8cad1a45a10069196e.mp4?pkey=AAUFvhsrYI8yPXJaRhXe1oR2e8uwMh85T8vjwJM7EdoclKdnqcGF_aI4TWHv5G-ycfclktVJU4BrNN1hTQICl2VDtvcmcbAMHpLiMVdyISqO42UEnDGjDPDGS_6qFyo7hik&tag=1-1795486469-unknown-0-hqpvz9jvqg-2630bdf0f3d7f860&clientCacheKey=3xj7ekyminabqrg_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T14:52:05.392Z\"},{\"id\":\"kuaishou:photo:3xd386yr49bunum\",\"title\":\"特朗普评价让黄仁勋复职的决定“正确且恰当”\",\"link\":\"https://www.kuaishou.com/short-video/3xd386yr49bunum\",\"description\":\"特朗普评价让黄仁勋复职的决定“正确且恰当”\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/22/BMjAyNjExMjMyMjM2NDlfMTMxMjExOTkyNV8yMTY4MDU0MzMwODlfMF8z_ccc_B298a29b20b382bd686a42906cee8ee96.jpg?tag=1-1795486469-xpcwebprofile-0-netbylsa6u-18c335b548941ea2&clientCacheKey=3xd386yr49bunum_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/22/BMjAyNjExMjMyMjM2NDlfMTMxMjExOTkyNV8yMTY4MDU0MzMwODlfMF8z_b_Bab7b88deb07b5fa5d573f040d0e1286a.mp4?pkey=AAV5q8VKNKiWBj6Z8ioSlCHk7uXZJHsRtGZJ1T-Qjuqdcqbb3aPxhmqKCaZvPm0mJT-Cp2oVssQ-4mSOv4F7MHQwroaRuCFgdVJM5XPBuezZHPE4vgnygtHubdGEiU0RKFs&tag=1-1795486469-unknown-0-r83cuaflii-a195e8de6b8a57b3&clientCacheKey=3xd386yr49bunum_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T14:38:21.598Z\"},{\"id\":\"kuaishou:photo:3xxfwuixjpb9fxq\",\"title\":\"黄仁勋重新出任CEO 英伟达美股盘前一度涨超30%\",\"link\":\"https://www.kuaishou.com/short-video/3xxfwuixjpb9fxq\",\"description\":\"黄仁勋重新出任CEO 英伟达美股盘前一度涨超30%\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/22/BMjAyNjExMjMyMjIxNThfMTMxMjExOTkyNV8yMTY4MDQwNTc2MjZfMF8z_ccc_B2f6c757052f03884f2aaebe9806a249d.jpg?tag=1-1795486469-xpcwebprofile-0-o3jlqefanu-570747de559ae396&clientCacheKey=3xxfwuixjpb9fxq_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/22/BMjAyNjExMjMyMjIxNThfMTMxMjExOTkyNV8yMTY4MDQwNTc2MjZfMF8z_b_B1ecee185b90229ea75913fe1cf759a62.mp4?pkey=AAVWdxPk-yQOJ5-5wVXQWDUWjl6KtHtzBOWL8n8Hlsd762MYMHuqGdTRTMq3SK5R65wzITUYta7aSRcTJytL4S-gWlWFW-NtVgWM6ZQ1Ra4Z2qqHheCxBu60ewVLPdfiyRE&tag=1-1795486469-unknown-0-soglggbyig-dc69557905edf453&clientCacheKey=3xxfwuixjpb9fxq_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T14:22:54.134Z\"},{\"id\":\"kuaishou:photo:3xcck6yjhvig3z9\",\"title\":\"黄仁勋重新出任英伟达CEO\",\"link\":\"https://www.kuaishou.com/short-video/3xcck6yjhvig3z9\",\"description\":\"黄仁勋重新出任英伟达CEO\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/22/BMjAyNjExMjMyMjA3NDFfMTMxMjExOTkyNV8yMTY4MDI2MTk2MzhfMF8z_ccc_B659251a9c6d5e2cb96cf82ab09fec9ee.jpg?tag=1-1795486469-xpcwebprofile-0-ph255nmf9g-b728549ee7527f4c&clientCacheKey=3xcck6yjhvig3z9_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/22/BMjAyNjExMjMyMjA3NDFfMTMxMjExOTkyNV8yMTY4MDI2MTk2MzhfMF8z_b_Bad523a17d2e6cc4ece26e64d354d24cc.mp4?pkey=AAXCebp68h8gCgg0BLMfhXIDZQzhcLmB3bptEqYkPTy8wSNtKE7QN5HRuBDtS7qL3FGrUR_mWe06ZQBbUEIawbmZyVRcIVOmjlKOfqCF5Wv4ofLDEV64LwUUnmUpWnUApcc&tag=1-1795486469-unknown-0-4upafikzz5-1e48a8d1060e3b3d&clientCacheKey=3xcck6yjhvig3z9_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T14:08:50.937Z\"},{\"id\":\"kuaishou:photo:3xbtfezu5mxakv2\",\"title\":\"人民海军大方展示！海军多型舰机将亮相第十六届中国航展\",\"link\":\"https://www.kuaishou.com/short-video/3xbtfezu5mxakv2\",\"description\":\"人民海军大方展示！海军多型舰机将亮相第十六届中国航展\",\"image\":\"https://p2.a.yximgs.com/upic/2026/11/23/21/BMjAyNjExMjMyMTQ5MzZfMTMxMjExOTkyNV8yMTY4MDA2MjE4NzNfMF8z_ccc_B8ae2e0aaf2ac9e0c3420a6245982f9e8.jpg?tag=1-1795486469-xpcwebprofile-0-dv3klc1hha-9774630b457f9ac3&clientCacheKey=3xbtfezu5mxakv2_ccc.jpg&di=22d94927&bp=14734\",\"author\":{\"name\":\"中国新闻网\",\"uri\":\"https://www.kuaishou.com/profile/3xuxw5yhgr6f4um\"},\"enclosure\":{\"url\":\"https://v23-3.kwaicdn.com/upic/2026/11/23/21/BMjAyNjExMjMyMTQ5MzZfMTMxMjExOTkyNV8yMTY4MDA2MjE4NzNfMF8z_b_B22dbc15ee3446032588e6aa58445df51.mp4?pkey=AAVJR2LvMdAEygeroqaVpM2PYXqDxIBO-hV64TPYOV_4qItTLxwpphsgc4OXpL9g2O2x-ZAJ-0d-tmBRcimksxXPCdnhS1M8KGLXBCs36IRV6gljQxPTNULb0BylF6n6xzs&tag=1-1795486469-unknown-0-ovdmb82zs7-c4166f66e134192b&clientCacheKey=3xbtfezu5mxakv2_b.mp4&di=22d94927&bp=14734&kwai-not-alloc=35&tt=b&ss=vps\",\"type\":\"video/mp4\"},\"published\":\"2026-11-23T14:00:54.446Z\"}]}",
     "timing": {
-      "elapsed_ms": 1062,
+      "elapsed_ms": 2065,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -103,39 +115,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 8
+          "duration_ms": 11
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
-          "duration_ms": 1052
+          "started_ms": 12,
+          "duration_ms": 2052
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1061,
+          "name": "输出读取与校验",
+          "started_ms": 2064,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2065,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1061,
+          "started_ms": 2065,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1061,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 2065,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1062,
+          "started_ms": 2065,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 12,
-          "duration_ms": 1048
+          "started_ms": 15,
+          "duration_ms": 2044
         }
       ]
     }
@@ -146,13 +163,12 @@
     "example": "/api/rss/kuaishou/profile/3xuxw5yhgr6f4um",
     "name": "中国新闻网",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
-    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-    "duration_ms": 32904
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/kuaishou/profile/3xuxw5yhgr6f4um.json",
+    "duration_ms": 6489
   }
 }
