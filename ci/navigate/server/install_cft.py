@@ -128,8 +128,18 @@ def main(argv):
 
     chrome_bin = os.path.join(prefix, "chrome-linux64", "chrome")
     driver_bin = os.path.join(prefix, "chromedriver-linux64", "chromedriver")
-    os.chmod(chrome_bin, 0o755)
-    os.chmod(driver_bin, 0o755)
+    # zipfile.extractall() does not restore the executable bit. Chrome refuses
+    # to start when chrome_crashpad_handler is not executable ("Permission
+    # denied" spawning it), so mark every helper binary executable explicitly.
+    for path in (
+        chrome_bin,
+        driver_bin,
+        os.path.join(prefix, "chrome-linux64", "chrome_crashpad_handler"),
+        os.path.join(prefix, "chrome-linux64", "chrome_sandbox"),
+        os.path.join(prefix, "chrome-linux64", "chrome-wrapper"),
+    ):
+        if os.path.exists(path):
+            os.chmod(path, 0o755)
 
     # Point the canonical paths at CfT so ENV stays arch-independent.
     if os.path.lexists(CHROME_LINK):
