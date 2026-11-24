@@ -22,6 +22,19 @@ jobs:
             -t findrss-navigate:ci \
             ci/navigate
 
+      - name: Probe Chrome for Testing
+        run: |
+          docker run --rm --entrypoint /bin/sh findrss-navigate:ci -c '
+            echo "== version =="; /usr/bin/chromium --version
+            echo "== id/env =="; id; echo "HOME=$HOME"
+            echo "== headful dump-dom =="
+            timeout 40 xvfb-run -a --server-args="-screen 0 1440x900x24 -nolisten tcp" \
+              /usr/bin/chromium --no-sandbox --disable-dev-shm-usage \
+              --enable-unsafe-swiftshader --enable-logging=stderr --v=1 \
+              --dump-dom about:blank 2>&1 | head -50
+            echo "== rc=$? =="
+          ' || true
+
       - name: Start navigation service
         run: |
           docker run -d --name nav --init --shm-size=1g \
@@ -64,6 +77,10 @@ jobs:
         run: |
           echo "==== container logs ===="
           docker logs nav 2>&1 | tail -80 || true
+          echo "==== container env / X11 ===="
+          docker exec nav sh -c 'id; echo HOME=$HOME DISPLAY=$DISPLAY; ls -la /tmp/.X11-unix 2>&1' || true
+          echo "==== chrome stderr inside nav ===="
+          docker exec nav sh -c 'timeout 20 /usr/bin/chromium --no-sandbox --enable-unsafe-swiftshader --enable-logging=stderr --v=1 --dump-dom about:blank 2>&1 | head -40' || true
           echo "==== response (truncated) ===="
           head -c 1500 resp.json 2>/dev/null || true
 
