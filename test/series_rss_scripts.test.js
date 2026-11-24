@@ -131,10 +131,21 @@ function youku_row(order, extra = {}) {
 function youku_body(more = false, rows = [youku_row(2), youku_row(1), youku_row(2), youku_row(3, { videoType: "预告" })]) {
   return { pageMap: { extra: { showId: ids.youku.show_id, showName: "测试剧", episodeTotal: 2, episodeLast: 2, completed: true, showImgV: "https://m.ykimg.com/poster.jpg" } }, moduleList: [{ components: [{ type: 10013, more, itemList: rows }, { type: 20009, itemList: [{ type: 20010, desc: "剧集简介" }] }] }] };
 }
-const youku_page = body => "<script>window.__INITIAL_DATA__ =" + JSON.stringify(body) + ";</script>";
+function youku_page(body) {
+  return JSON.stringify({ ret: ["SUCCESS::调用成功"], data: { "2019030100": { success: true, data: {
+    type: 10001, data: { extra: body.pageMap?.extra }, nodes: body.moduleList.flatMap(module => module.components || []).map(({ type, more, itemList, ...data }) => ({
+      type, more, data, nodes: itemList?.map(({ type = 10013, ...data }) => ({ type, data })),
+    })),
+  } } } });
+}
+const youku_initial = url => JSON.parse(JSON.parse(new URL(url).searchParams.get("data")).params).scene === "web_page";
 
-test("优酷公开详情页正片目录无需浏览器，保留封面、简介及官网链接", async t => {
-  t.mock.method(globalThis, "fetch", async () => new Response(youku_page(youku_body())));
+test("优酷直接读取 MTOP 正片目录无需详情页或浏览器，保留封面、简介及官网链接", async t => {
+  t.mock.method(globalThis, "fetch", async url => {
+    assert.equal(new URL(url).hostname, "acs.youku.com", "不得访问被云 IP 拦截的详情页");
+    assert.equal(youku_initial(url), true);
+    return new Response(youku_page(youku_body()));
+  });
   const feed = await run("youku", ids.youku, () => assert.fail("完整目录不需要浏览器"));
   check_feed(feed, "youku:episode:", 2);
   assert.equal(feed.image, "https://m.ykimg.com/poster.jpg");
@@ -161,11 +172,29 @@ function youku_token(status = "FAIL_SYS_TOKEN_EMPTY", token = "fresh") {
   return new Response(JSON.stringify({ ret: [status + "::令牌刷新"], data: {} }), { headers });
 }
 
+test("优酷首屏获取匿名令牌，解析嵌套组件，分页复用首屏令牌", async t => {
+  let calls = 0;
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    assert.equal(new URL(url).hostname, "acs.youku.com");
+    if (++calls === 1) return youku_token();
+    assert.equal(new Headers(options.headers).get("cookie"), "_m_h5_tk=fresh_9999999999999; _m_h5_tk_enc=fresh-encoded");
+    const query = new URL(url).searchParams;
+    assert.equal(query.get("sign"), createHash("md5").update("fresh&" + query.get("t") + "&24679788&" + query.get("data")).digest("hex"));
+    if (!youku_initial(url)) return json(youku_mtop());
+    const response = JSON.parse(youku_page(youku_paged_body()));
+    const root = response.data["2019030100"].data;
+    root.nodes = [{ type: 10001, nodes: root.nodes }];
+    return json(response);
+  });
+  check_feed(await run("youku", ids.youku, () => assert.fail("不得调用浏览器")), "youku:episode:", 2);
+  assert.equal(calls, 3);
+});
+
 test("优酷无需浏览器完成 100 期范围分页，自动获取令牌并签名，允许边界重叠", async t => {
   let calls = 0;
   t.mock.method(globalThis, "fetch", async (url, options) => {
     const parsed = new URL(url);
-    if (parsed.hostname === "v.youku.com") return new Response(youku_page(youku_paged_body(100, 60)));
+    if (youku_initial(url)) return new Response(youku_page(youku_paged_body(100, 60)));
     calls++;
     assert.equal(parsed.origin + parsed.pathname, "https://acs.youku.com/h5/mtop.youku.columbus.gateway.new.execute/1.0/");
     const query = parsed.searchParams, data = JSON.parse(query.get("data")), params = JSON.parse(data.params);
@@ -194,7 +223,7 @@ test("优酷跨页复用匿名 Cookie，令牌过期替换旧值后重新签名�
   let calls = 0;
   t.mock.method(globalThis, "fetch", async (url, options) => {
     const parsed = new URL(url);
-    if (parsed.hostname === "v.youku.com") return new Response(youku_page(body));
+    if (youku_initial(url)) return new Response(youku_page(body));
     calls++;
     const token = calls === 1 ? "" : calls < 4 ? "fresh" : "renewed";
     const query = parsed.searchParams;
@@ -216,7 +245,7 @@ test("优酷令牌重试有上限，其他 MTOP 拒绝不重试，错误不暴�
   for (const [status, expected] of [["FAIL_SYS_TOKEN_EMPTY", 3], ["FAIL_SYS_TOKEN_EXPIRED", 3], ["FAIL_SYS_TOKEN_EXOIRED", 3], ["FAIL_SYS_USER_VALIDATE", 1]]) {
     let calls = 0;
     t.mock.method(globalThis, "fetch", async url => {
-      if (new URL(url).hostname === "v.youku.com") return new Response(youku_page(youku_paged_body()));
+      if (youku_initial(url)) return new Response(youku_page(youku_paged_body()));
       calls++;
       return json({ ret: [status + "::private-upstream-detail"], data: {} });
     });
@@ -249,7 +278,7 @@ test("优酷拒绝畸形选集范围、分页参数和重复范围", async t => 
   ]) {
     const body = youku_paged_body(); mutate(body.moduleList[0].components[0]);
     t.mock.method(globalThis, "fetch", async url => {
-      assert.equal(new URL(url).hostname, "v.youku.com", "无效分页不得请求 MTOP");
+      assert.equal(youku_initial(url), true, "无效分页不得继续请求");
       return new Response(youku_page(body));
     });
     await assert.rejects(run("youku"), invalid);
@@ -270,7 +299,7 @@ test("优酷分页拒绝重复首屏、错剧、缺集、集序冲突和畸形�
     { ret: [null], data: {} },
     null,
   ]) {
-    t.mock.method(globalThis, "fetch", async url => new URL(url).hostname === "v.youku.com"
+    t.mock.method(globalThis, "fetch", async url => youku_initial(url)
       ? new Response(youku_page(youku_paged_body())) : json(response));
     await assert.rejects(run("youku"), invalid);
   }
@@ -278,7 +307,7 @@ test("优酷分页拒绝重复首屏、错剧、缺集、集序冲突和畸形�
 
 test("优酷 HTTP 分页保留上游错误分类", async t => {
   for (const [status, code] of [[403, "UPSTREAM_ACCESS_DENIED"], [429, "UPSTREAM_RATE_LIMITED"], [504, "UPSTREAM_TIMEOUT"]]) {
-    t.mock.method(globalThis, "fetch", async url => new URL(url).hostname === "v.youku.com"
+    t.mock.method(globalThis, "fetch", async url => youku_initial(url)
       ? new Response(youku_page(youku_paged_body())) : new Response("unavailable", { status }));
     await assert.rejects(run("youku"), error => error.problem?.code === code);
   }

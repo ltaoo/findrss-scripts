@@ -48,12 +48,12 @@
 | [红果短剧](../rss/hongguo.js) | `/hongguo/series/:series_id`、`/hongguo/search/:keyword` | 按集数倒序的分集订阅与剧集搜索；`series_id` 来自官网详情页 `/detail?series_id=` 或播放页。条目附件指向 `/hongguo/video/:series_id/:vid` 媒体代理，转发官网公开的 360p MP4 并附带 Referer；付费/加密集官网只提供预览或不提供直链，播放会返回明确错误 |
 | [爱奇艺剧集](../rss/iqiyi.js) | `/iqiyi/series/:album_id` | 数字专辑 ID，来自接口的 `albumId` / `qipu_id`；自动展开惰性选集目录 |
 | [腾讯视频剧集](../rss/vqq.js) | `/vqq/series/:cover_id` | 官网 `/x/cover/<ID>.html` 中的剧集 ID；自动加载选集标签和后续分页 |
-| [优酷剧集](../rss/youku.js) | `/youku/series/:show_id` | 官网 `/v_nextstage/id_<ID>.html` 中的剧集 ID，或播放页 `s` 参数；通过 HTTP 加载正片目录和选集范围分页，无需浏览器或登录 Cookie |
+| [优酷剧集](../rss/youku.js) | `/youku/series/:show_id` | 官网 `/v_nextstage/id_<ID>.html` 中的剧集 ID，或播放页 `s` 参数；通过 HTTP 直接读取 MTOP 正片目录和选集范围分页，无需浏览器或登录 Cookie |
 | [芒果TV剧集](../rss/mgtv.js) | `/mgtv/series/:collection_id/:video_id` | 官网 `/b/<专辑 ID>/<视频 ID>.html` 中的两个 ID；自动加载已发布完整视频的分页目录 |
 
 抖音支持 `?count=18&max_cursor=0`（每页最多 30 条），Telegram 支持 `?before=<消息 ID>`，微信公众号和视频号支持 `?offset=<游标>`。微信公众号也可使用 `/rss/wxmp?username=wow36kr`，与 `/rss/wxmp/wow36kr` 等价；图片代理需配置 `FINDRSS_HOSTNAME`。
 
-优酷分页需要本仓库的运行时响应头补丁（`npm run build` 自动安装）；已有部署需同时更新运行时，仅替换脚本无法获取匿名 MTOP 令牌。选集范围来自官网标签，自动签名，令牌请求最多尝试三次，并校验缺集及分页是否推进。例如 `/api/rss/youku/series/befb7ad5604548a79b70` 可读取《中国十大王朝》100 期正片。目录可能包含 VIP、SVIP 和收官礼条目，官网列出不代表当前账号具备播放权限。
+优酷首屏及分页需要本仓库的运行时响应头补丁（`npm run build` 自动安装）；已有部署需同时更新运行时，仅替换脚本无法获取匿名 MTOP 令牌。选集范围来自官网标签，自动签名，令牌请求最多尝试三次，并校验缺集及分页是否推进。例如 `/api/rss/youku/series/befb7ad5604548a79b70` 可读取《中国十大王朝》100 期正片。目录可能包含 VIP、SVIP 和收官礼条目，官网列出不代表当前账号具备播放权限。
 
 抖音作者作品需要本仓库运行时补丁提供的动态 SDK 加载能力。宿主访问抖音首页，在隔离 QuickJS 模拟环境执行前置校验与 SDK 初始化，读取页面当前引用的 BDMS 和安全 SDK 后生成签名；无需启动 Chromium 或配置 `BROWSER`。相同请求参数、Cookie 和 User-Agent 复用完整的签名 URL、签名时间与请求头，缓存命中时跳过签名器初始化和 SDK 执行；作者、分页、数量或登录态变化时分别签名。签名与 SDK 持续缓存，收到明确的 Argus 签名拒绝或 HTTP 200 空回包时，清除对应签名、重新读取官网 SDK 并重签重试一次；登录错误、普通 403 和限流不会触发重签重试。签名生成失败后下次调用可重新加载 SDK。
 
@@ -73,7 +73,7 @@ YouTube 普通视频根据页面中英文相对时间估算发布时间，月、
 
 四个长视频平台的剧集订阅均返回官网分集链接，保留 VIP 正片；播放仍需在官网登录并具备相应权限。没有视频直链或媒体代理。目录按集序倒序排列，有真实发行日期时按日期排序；不使用采集时间补造发布日期。发现错剧、集序冲突、目录缺页或分页不推进时返回错误。
 
-例如订阅 `/rss/iqiyi/series/3993682943621001`、`/rss/vqq/series/mzc002001w361jz`、`/rss/youku/series/bcaa87c7834c46f99e7b`、`/rss/mgtv/series/914227/24771585`；同一路径将 `/rss` 换成 `/atom` 或 `/api/rss` 即可切换格式。爱奇艺参数是数字专辑 ID，不能直接填写 `a_` 后的短码；优酷参数是剧集 ID，不能填写 `X` 开头的视频 ID。脚本只读取公开目录，无需同步登录 Cookie；优酷分页通过 HTTP 自动获取匿名 MTOP 令牌并签名请求。
+例如订阅 `/rss/iqiyi/series/3993682943621001`、`/rss/vqq/series/mzc002001w361jz`、`/rss/youku/series/bcaa87c7834c46f99e7b`、`/rss/mgtv/series/914227/24771585`；同一路径将 `/rss` 换成 `/atom` 或 `/api/rss` 即可切换格式。爱奇艺参数是数字专辑 ID，不能直接填写 `a_` 后的短码；优酷参数是剧集 ID，不能填写 `X` 开头的视频 ID。脚本只读取公开目录，无需同步登录 Cookie；优酷首屏及分页通过 HTTP 自动获取匿名 MTOP 令牌并签名请求，不依赖可能拦截云服务器 IP 的详情页。
 
 `rss/github.js` 读取 GitHub 的 Releases Atom 订阅。例如 `/rss/github/ltaoo/wx_channels_download/release`，Atom 地址为 `/atom/github/ltaoo/wx_channels_download/release`；`org` 为用户或组织名，`pro` 为仓库名。返回上游订阅包含的最近发布，保留预发布条目、更新说明 HTML、代码缩进及原文链接；上游仅提供更新时间时保留 `updated`，不补造发布时间。只读取公开仓库，不需要导入 GitHub Cookie。
 
