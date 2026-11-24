@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-24T02:29:01.093Z",
+  "checked_at": "2026-11-24T02:54:20.486Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 2703
+    "status": 200,
+    "duration_ms": 2321
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/xiaohongshu.js",
       "name": "小红书用户笔记",
@@ -34,12 +34,21 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 2698,
+    "phase": "ok",
+    "elapsed_ms": 2304,
     "invoked": false,
-    "upstream_error": "UPSTREAM_INVALID_RESPONSE: 脚本执行失败：小红书笔记读取失败：小红书页面缺少 __INITIAL_STATE__，可能为登录或验证页面；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。",
-    "error_text": "脚本执行失败：小红书笔记读取失败：小红书页面缺少 __INITIAL_STATE__，可能为登录或验证页面；请同步有效的 xiaohongshu.com Cookie，风控验证需手动完成。\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:55:26)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":31,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937",
@@ -55,9 +64,9 @@
           ]
         },
         "started_ms": 9,
-        "duration_ms": 1456,
+        "duration_ms": 899,
         "timings": {
-          "response_ms": 1456
+          "response_ms": 899
         }
       },
       {
@@ -65,40 +74,24 @@
         "method": "GET",
         "host": "www.rednote.com",
         "pathname": "/user/profile/5b06174b11be106ed9f12937",
-        "status": 302,
-        "transport": "fetch",
-        "credentials": {
-          "source": "none",
-          "headers_sent": []
-        },
-        "started_ms": 1465,
-        "duration_ms": 492,
-        "timings": {
-          "response_ms": 492
-        }
-      },
-      {
-        "url": "https://www.rednote.com/website-login/captcha?redirectPath=http%3A%2F%2Fwww.rednote.com%2Fuser%2Fprofile%2F5b06174b11be106ed9f12937%3FexSource%3Dnull&verifyUuid=sg__69f6615e-7d90-459f-b346-5be1e244762d&verifyType=217&verifyBiz=461&verifyMsg=eyJ2ZXJpZnlSZXF1ZXN0SGVhZGVyIjp7IngtcmVkbm90ZS1kYXRhY3RyeSI6IlNHIiwieC1yZWRub3RlLWhvbGRlcmN0cnkiOiJTRyJ9fQ==",
-        "method": "GET",
-        "host": "www.rednote.com",
-        "pathname": "/website-login/captcha",
         "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 1957,
-        "duration_ms": 739,
+        "started_ms": 908,
+        "duration_ms": 1373,
         "timings": {
-          "response_ms": 691,
-          "body_read_ms": 48,
-          "decode_and_transfer_ms": 0
+          "response_ms": 1354,
+          "body_read_ms": 15,
+          "decode_and_transfer_ms": 4
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"xiaohongshu:user:5b06174b11be106ed9f12937\",\"title\":\"何香蓓Betty 的小红书笔记\",\"link\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"🎬想要一起去看遍书本里的世界！\\n原创系列《打开书本里的世界》持续更新中～\\n看过世界，更爱中国\\n商务：HeXiangbei88（备注品牌和来意）\\n团队成员：@蓓蓓国王小助理 （日常发疯朋友圈）\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.xiaohongshu.com/\"},\"tags\":[\"小红书\"]},\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"image\":\"https://sns-avatar-qc.rednotecdn.com/avatar/6153386ee2fbac2183577554.jpg?imageView2/2/w/540/format/webp\",\"updated\":\"2026-11-23T09:01:13.000Z\",\"items\":[{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1795424473000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%96%E7%95%8C%EF%BD%9C%E4%BA%BA%E7%B1%BB%E7%9A%84%E8%BF%9C%E6%88%BF%E4%BA%B2%E6%88%9A%E7%AB%9F%E6%98%AF%E5%AE%83%EF%BC%81\",\"title\":\"打开书本里的世界｜人类的远房亲戚竟是它！\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的世界｜人类的远房亲戚竟是它！\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/6167384fc584199c3458362ad516f832/spectrum/1040g34o327pnelkomg104a5jqubkma9ndj89epg!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-11-23T09:01:13.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1794130180000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%96%E7%95%8C%EF%BD%9C%E4%BA%BA%E7%B1%BB%E8%B5%B7%E6%BA%90%E4%BA%8E%E8%BF%99%E7%89%87%E5%9C%9F%E5%9C%B0%EF%BC%9F\",\"title\":\"打开书本里的世界｜人类起源于这片土地？\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的世界｜人类起源于这片土地？\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/3f258f16ce065588617038ca302cd28a/spectrum/1040g34o327a1hkk46c104a5jqubkma9n9kptnr8!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-11-08T09:29:40.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1793696458000:%E6%AC%A2%E8%BF%8E%E6%89%93%E5%BC%80%E4%B8%AD%E5%9B%BD%E5%94%AF%E4%B8%80%E5%90%88%E6%B3%95%E6%8C%81%E6%9E%AA%E7%9A%84%E9%83%A8%E8%90%BD%EF%BC%8C%E5%B2%9C%E6%B2%99%E8%8B%97%E5%AF%A8\",\"title\":\"欢迎打开中国唯一合法持枪的部落，岜沙苗寨\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"欢迎打开中国唯一合法持枪的部落，岜沙苗寨\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/bf8385105fe6b573ea2866ffca3d4857/spectrum/1040g34o32765cm6o6g004a5jqubkma9nrin7feo!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-11-03T09:00:58.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1791018056000:%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E6%9C%80%E6%97%A9%E7%9A%84%E6%B5%B7%E4%B8%8A%E6%97%A5%E5%87%BA%EF%BC%8C%E6%89%93%E5%BC%80%E5%A8%81%E6%B5%B7%E5%BC%80%E6%B5%B7%E5%AD%A3%EF%BC%81\",\"title\":\"中国大陆最早的海上日出，打开威海开海季！\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"中国大陆最早的海上日出，打开威海开海季！\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/32ca7109d4cc1658f454d7ea4345eca5/spectrum/1040g34o325qhr2ua58fg4a5jqubkma9n90dnal0!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-10-03T09:00:56.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1790931664000:%E5%9C%A8%E4%BA%91%E5%8D%97%E6%8A%9A%E4%BB%99%E6%B9%96%EF%BC%8C%E4%BD%93%E9%AA%8C%E9%AB%98%E5%8E%9F%E4%B8%8A%E7%9A%84%E6%B5%B7%E5%B2%9B%E5%BA%A6%E5%81%87%E4%B9%8B%E6%97%85~\",\"title\":\"在云南抚仙湖，体验高原上的海岛度假之旅~\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"在云南抚仙湖，体验高原上的海岛度假之旅~\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/b89b1e327a0bc01b9c115077d7c732f9/spectrum/1040g34o325pp7ivd4a204a5jqubkma9nd0d0l70!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-10-02T09:01:04.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1790326853000:%E5%9D%90%E2%80%9C%E4%B8%9C%E6%96%B9%E5%88%97%E8%BD%A6%E2%80%9D%E5%89%8D%E5%BE%80%E9%A9%AC%E4%B8%98%E6%AF%94%E4%B8%98%EF%BC%8C%E6%89%93%E5%BC%80%E5%8D%B0%E5%8A%A0%E6%96%87%E6%98%8E\",\"title\":\"坐“东方列车”前往马丘比丘，打开印加文明\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"坐“东方列车”前往马丘比丘，打开印加文明\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/093f6b0d8580640eaae378619215836f/spectrum/1040g34o325g5o9sc58104a5jqubkma9n0l27j1o!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-09-25T09:00:53.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1790071829000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E5%86%B0%E5%B2%9B%E7%9A%84%E5%86%B0%E4%B8%8E%E7%81%AB%E4%B9%8B%E6%AD%8C%EF%BC%8C%E6%84%BF%E6%AD%A4%E5%88%BB%E6%B2%BB%E6%84%88%E4%BD%A0\",\"title\":\"打开书本里冰岛的冰与火之歌，愿此刻治愈你\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里冰岛的冰与火之歌，愿此刻治愈你\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/9da7404b9e9bd21d419fd76794481121/spectrum/1040g34o325dlck9v44104a5jqubkma9nqhuqvlo!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-09-22T10:10:29.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1788771667000:%E4%B8%96%E7%95%8C%E5%8F%A6%E4%B8%80%E9%A1%B5%EF%BD%9C%E9%9D%9E%E6%B4%B2%E6%B2%99%E6%BC%A0%E9%BB%84%E9%87%91%E8%83%8C%E5%90%8E%E7%9A%84%E7%94%9F%E5%AD%98%E7%9C%9F%E7%9B%B8\",\"title\":\"世界另一页｜非洲沙漠黄金背后的生存真相\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"世界另一页｜非洲沙漠黄金背后的生存真相\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/363757576ff76a7c42198a3f470f4ff9/spectrum/1040g34o324qfqjss1q104a5jqubkma9nb1c93ig!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-09-07T09:01:07.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1788512414000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%96%E7%95%8C%EF%BD%9C%E4%B9%8C%E5%85%B0%E5%B7%B4%E6%89%98%E7%9A%84%E5%A4%9C%E8%97%8F%E7%9D%80%E4%BB%80%E4%B9%88%EF%BC%9F\",\"title\":\"打开书本里的世界｜乌兰巴托的夜藏着什么？\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的世界｜乌兰巴托的夜藏着什么？\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/8bf7060290d604ee63ce6ca68fe0c371/spectrum/1040g34o324mf2gmsn4104a5jqubkma9nhdoo8b8!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-09-04T09:00:14.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1788253225000:%E6%89%93%E5%BC%80%E5%B8%95%E7%B1%B3%E5%B0%94%E9%AB%98%E5%8E%9F%EF%BC%8C%E5%AF%BB%E6%89%BE%E5%BB%B6%E7%BB%AD%E5%8D%83%E5%B9%B4%E7%9A%84%E7%8C%8E%E9%B9%B0%E6%96%87%E5%8C%96\",\"title\":\"打开帕米尔高原，寻找延续千年的猎鹰文化\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开帕米尔高原，寻找延续千年的猎鹰文化\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/dfa0de849cf8c4fa5880ce63c232540d/spectrum/1040g34o324hiimq874104a5jqubkma9npvf771o!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-09-01T09:00:25.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1788081164000:%E4%B8%96%E7%95%8C%E6%9C%80%E8%B4%B5%E8%BF%90%E5%8A%A8%E9%A9%AC%E7%90%83%EF%BC%8C%E5%9C%A8%E5%B8%95%E7%B1%B3%E5%B0%94%E9%AB%98%E5%8E%9F%E5%8F%AA%E6%98%AF%E6%97%A5%E5%B8%B8%EF%BC%81\",\"title\":\"世界最贵运动马球，在帕米尔高原只是日常！\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"世界最贵运动马球，在帕米尔高原只是日常！\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/49d265fd7436e77a2ede7d22561eda15/spectrum/1040g34o324k5kk73gs104a5jqubkma9ndc5oa20!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-08-30T09:12:44.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1787147044000:%E5%9C%A8%E6%96%B0%E7%96%86%E4%BC%8A%E7%8A%81%EF%BC%8C%E6%89%93%E5%BC%80%E5%BB%B6%E7%BB%AD%E5%8D%83%E5%B9%B4%E7%9A%84%E5%93%88%E8%90%A8%E5%85%8B%E6%B8%B8%E7%89%A7%E7%94%9F%E6%B4%BB\",\"title\":\"在新疆伊犁，打开延续千年的哈萨克游牧生活\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"在新疆伊犁，打开延续千年的哈萨克游牧生活\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/caa7597267d6d3a8d7210d885b53bdd3/spectrum/1040g34o3241t2c4mgm004a5jqubkma9nh5dfac8!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-08-19T13:44:04.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1786874486000:%E6%89%93%E5%BC%80%E5%85%A8%E4%B8%96%E7%95%8C%E9%A5%AE%E9%85%92%E9%87%8F%E6%9C%80%E9%AB%98%E7%9A%84%E5%9B%BD%E5%AE%B6%E4%B9%8B%E4%B8%80%EF%BC%8C%E6%A0%BC%E9%B2%81%E5%90%89%E4%BA%9A\",\"title\":\"打开全世界饮酒量最高的国家之一，格鲁吉亚\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开全世界饮酒量最高的国家之一，格鲁吉亚\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/304ad0cf27e15f1eacad919e89339df2/spectrum/1040g34o323t44p5smu104a5jqubkma9nhs2g1gg!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-08-16T10:01:26.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1786356143000:%E6%89%93%E5%BC%80%E5%B0%A4%E5%8D%A1%E5%9D%A6%E5%8D%8A%E5%B2%9B%EF%BC%8C%E8%AF%BE%E6%9C%AC%E9%87%8C%E7%9A%84%E7%8E%9B%E9%9B%85%E4%BA%BA%E6%B2%A1%E6%9C%89%E6%B6%88%E5%A4%B1%EF%BC%81\",\"title\":\"打开尤卡坦半岛，课本里的玛雅人没有消失！\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开尤卡坦半岛，课本里的玛雅人没有消失！\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/6398c19386655e1facc5800255b81dec/spectrum/1040g0k0323m6lopm0m0g4a5jqubkma9n6h91ljg!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-08-10T10:02:23.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1784973702000:%E6%89%93%E5%BC%80%E4%B8%AD%E5%9B%BD%E6%9C%80%E4%BD%B3%E8%A7%82%E6%98%9F%E7%82%B9%E4%B9%8B%E4%B8%80%EF%BC%8C%E6%98%9F%E6%98%9F%E6%95%85%E4%B9%A1%E5%AE%81%E5%A4%8F%E4%B8%AD%E5%8D%AB\",\"title\":\"打开中国最佳观星点之一，星星故乡宁夏中卫\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开中国最佳观星点之一，星星故乡宁夏中卫\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/c7d53d81bd9dc7c6aeea73de9b3c2545/spectrum/1040g34o3230nihv4n4104a5jqubkma9ndrja7d0!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-07-25T10:01:42.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1784368897000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%96%E7%95%8C%EF%BD%9C%E6%90%AD%E4%B9%98%E6%9C%80%E9%95%BF%E7%81%AB%E8%BD%A6%E6%A8%AA%E7%A9%BF%E6%92%92%E5%93%88%E6%8B%89\",\"title\":\"打开书本里的世界｜搭乘最长火车横穿撒哈拉\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的世界｜搭乘最长火车横穿撒哈拉\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/d79b97f4a0be797683f8ea318887b7a0/spectrum/1040g34o322nh4b0gn0104a5jqubkma9nktovi8o!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-07-18T10:01:37.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1783678262000:%E5%94%AF%E4%B8%80%E4%B8%89%E6%AC%A1%E4%B8%BE%E5%8A%9E%E4%B8%96%E7%95%8C%E6%9D%AF%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%89%93%E5%BC%80%E5%A2%A8%E8%A5%BF%E5%93%A5\",\"title\":\"唯一三次举办世界杯的地方，欢迎打开墨西哥\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"唯一三次举办世界杯的地方，欢迎打开墨西哥\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/1d8cc423910d2fde18a761ddd39a3507/spectrum/1040g34o322ee21fgn0104a5jqubkma9n8645o2o!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-07-10T10:11:02.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1783245668000:%E6%89%93%E5%BC%80%E5%8E%86%E5%8F%B2%E8%AF%BE%E6%9C%AC%E9%87%8C%E7%9A%84%E6%96%87%E8%89%BA%E5%A4%8D%E5%85%B4%E5%8F%91%E6%BA%90%E5%9C%B0%EF%BC%8C%E4%BD%9B%E7%BD%97%E4%BC%A6%E8%90%A8\",\"title\":\"打开历史课本里的文艺复兴发源地，佛罗伦萨\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开历史课本里的文艺复兴发源地，佛罗伦萨\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/4f57120d4785b624f3e0e89a2aa63389/spectrum/1040g34o3225aj3ien4104a5jqubkma9n9h4fr9o!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-07-05T10:01:08.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1781863292000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%96%E7%95%8C%EF%BD%9C%E5%8E%86%E5%8F%B2%E8%AF%BE%E6%9C%AC%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BD%97%E9%A9%AC\",\"title\":\"打开书本里的世界｜历史课本之外的罗马\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的世界｜历史课本之外的罗马\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/a77d68a64e349958e271f00bc20c5e8d/spectrum/1040g34o321i3ci7j70204a5jqubkma9ne2cuqu0!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-06-19T10:01:32.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1781255531000:%E6%89%93%E5%BC%80%E6%84%8F%E5%A4%A7%E5%88%A9%E8%B4%B5%E6%97%8F%E2%80%9C%E8%80%81%E9%92%B1%E9%A3%8E%E2%80%9D%E5%8F%91%E6%BA%90%E5%9C%B0%EF%BC%8C%E6%89%98%E6%96%AF%E5%8D%A1%E7%BA%B3\",\"title\":\"打开意大利贵族“老钱风”发源地，托斯卡纳\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开意大利贵族“老钱风”发源地，托斯卡纳\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/35f66e8afce85e3133843c451c425412/spectrum/1040g0k0321ae3qnon0004a5jqubkma9ns6hvt88!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-06-12T09:12:11.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1778666528000:%E6%89%93%E5%BC%80%E9%AB%98%E5%8E%9F%E7%B2%BE%E7%81%B5%E6%A0%96%E6%81%AF%E5%9C%B0%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E5%85%AC%E5%9B%AD%E5%8F%AF%E5%8F%AF%E8%A5%BF%E9%87%8C\",\"title\":\"打开高原精灵栖息地，中国国家公园可可西里\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开高原精灵栖息地，中国国家公园可可西里\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/a0677b3c54c0e2ab56e2ae9833c6bc98/spectrum/1040g0k032167rbhdms004a5jqubkma9n3pnu7p8!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-05-13T10:02:08.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1777546369000:%E6%89%93%E5%BC%80%E5%8E%86%E5%8F%B2%E4%B9%A6%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9C%9F%E5%AE%9E%E5%8F%91%E7%94%9F%E5%9C%B0%EF%BC%8C%E4%BF%84%E5%9B%BD%E5%9C%A3%E5%BD%BC%E5%BE%97%E5%A0%A1\",\"title\":\"打开历史书知识点真实发生地，俄国圣彼得堡\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开历史书知识点真实发生地，俄国圣彼得堡\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/4bdedc26355e8ba127acebc7de0f8f76/spectrum/1040g0k032167rqlj72004a5jqubkma9nd6oi1i0!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-04-30T10:52:49.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1777453204000:%E6%89%93%E5%BC%80%E9%9D%92%E8%97%8F%E9%AB%98%E5%8E%9F%E5%9C%B0%E7%90%83%E6%9C%80%E5%8C%97%E7%83%AD%E5%B8%A6%E9%9B%A8%E6%9E%97%EF%BC%8C%E8%A5%BF%E8%97%8F%E5%A2%A8%E8%84%B1\",\"title\":\"打开青藏高原地球最北热带雨林，西藏墨脱\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开青藏高原地球最北热带雨林，西藏墨脱\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/f7a6054039eb4ea4b73ea258b11227c0/spectrum/1040g0k032157fcldn2004a5jqubkma9ndjo0ha0!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-04-29T09:00:04.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1775899824000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%96%E7%95%8C%EF%BD%9C%E5%9C%B0%E7%90%86%E4%B9%A6%E6%91%A9%E5%B0%94%E6%9B%BC%E6%96%AF%E5%85%8B%E4%BB%80%E4%B9%88%E6%A0%B7\",\"title\":\"打开书本里的世界｜地理书摩尔曼斯克什么样\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的世界｜地理书摩尔曼斯克什么样\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/708a49088841b5ec19ae0589f1eb6964/spectrum/1040g0k032114chdn74004a5jqubkma9n38fv500!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-04-11T09:30:24.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1773136901000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%96%E7%95%8C%EF%BD%9C%E9%AB%98%E5%BA%A6%E9%80%9A%E8%B4%A7%E8%86%A8%E8%83%80%E7%9A%84%E9%98%BF%E6%A0%B9%E5%BB%B7\",\"title\":\"打开书本里的世界｜高度通货膨胀的阿根廷\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的世界｜高度通货膨胀的阿根廷\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/6096cc9b0002b51975d35170018692f8/spectrum/1040g0k032114gr23n4004a5jqubkma9nvajvb20!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-03-10T10:01:41.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1769427491000:%E6%89%93%E5%BC%80%E4%B8%96%E7%95%8C%E7%9A%84%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3%EF%BC%8C%E7%88%B1%E7%8C%AB%E4%B9%8B%E5%9F%8E%E4%BC%8A%E6%96%AF%E5%9D%A6%E5%B8%83%E5%B0%94\",\"title\":\"打开世界的十字路口，爱猫之城伊斯坦布尔\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开世界的十字路口，爱猫之城伊斯坦布尔\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/7e3c6a70bf00281bdb276e29ef12a94b/spectrum/1040g0k032157pksfn2004a5jqubkma9na2ihot8!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-01-26T11:38:11.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1768105926000:2025%E5%B9%B4%E7%9A%84%E5%86%92%E9%99%A9%E6%95%85%E4%BA%8B%E7%BB%93%E6%9D%9F%E4%BA%86%EF%BC%81%E6%88%91%E4%BB%AC%E4%BE%9D%E6%97%A7%E9%9D%9E%E5%B8%B8%E5%B9%B4%E8%BD%BB\",\"title\":\"2025年的冒险故事结束了！我们依旧非常年轻\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"2025年的冒险故事结束了！我们依旧非常年轻\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/98dbc621623d504a396d51b127592fec/notes_pre_post/1040g3k831r6gf9dd7o704a5jqubkma9n0t212jg!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2026-01-11T04:32:06.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1765015321000:%E5%92%8C%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E5%9C%B0%E7%90%86%E4%B8%80%E8%B5%B7%EF%BC%8C%E6%89%93%E5%BC%80%E8%A5%BF%E5%8F%8C%E7%89%88%E7%BA%B3%E7%83%AD%E5%B8%A6%E9%9B%A8%E6%9E%97\",\"title\":\"和中国国家地理一起，打开西双版纳热带雨林\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"和中国国家地理一起，打开西双版纳热带雨林\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/09d6307cd2bee96814cb47be90ca05f2/spectrum/1040g34o31pne8a83jq104a5jqubkma9no7thbu8!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2025-12-06T10:02:01.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1764666665000:%E6%89%93%E5%BC%80%E5%9C%9F%E8%80%B3%E5%85%B6%E5%8D%A1%E5%B8%95%E5%A4%9A%E5%A5%87%E4%BA%9A%EF%BC%8C%E5%9B%A0%E7%83%AD%E6%B0%94%E7%90%83%E9%97%BB%E5%90%8D%E7%9A%84%E5%9F%8E%E5%B8%82\",\"title\":\"打开土耳其卡帕多奇亚，因热气球闻名的城市\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开土耳其卡帕多奇亚，因热气球闻名的城市\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/ceefe1f05bdcdad6538d4b3cd8e4a2e5/spectrum/1040g0k032157nqcp6s704a5jqubkma9nos0sp5g!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2025-12-02T09:11:05.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1763114534000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%EF%BC%8C%E4%B8%BA%E4%BD%A0%E7%A5%88%E7%A5%B7%E5%8D%83%E5%8D%83%E4%B8%87%E4%B8%87%E9%81%8D\",\"title\":\"打开书本里的香格里拉，为你祈祷千千万万遍\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的香格里拉，为你祈祷千千万万遍\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/73939a0ed110318fd19aab0e6577b680/spectrum/1040g0k032157os41n2004a5jqubkma9nea9u2ug!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2025-11-14T10:02:14.000Z\"},{\"id\":\"xiaohongshu:note:guest:5b06174b11be106ed9f12937:1762685082000:%E6%89%93%E5%BC%80%E4%B9%A6%E6%9C%AC%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD%E7%AC%AC%E4%B8%80%E6%9C%9F%20%7C%20%E7%9C%9F%E5%AE%9E%E7%9A%84%E9%A6%99%E6%B8%AF%E7%94%9F%E6%B4%BB\",\"title\":\"打开书本里的中国第一期 | 真实的香港生活\",\"link\":\"https://www.rednote.com/user/profile/5b06174b11be106ed9f12937\",\"description\":\"打开书本里的中国第一期 | 真实的香港生活\",\"image\":\"https://sns-web-i10.rednotecdn.com/202611241054/4c57cb4a42b3d31fab6143cc4956525a/1040g2sg31ololnu96gd04a5jqubkma9n4ngql18!nc_n_webp_mw_1\",\"images\":[],\"type\":\"article\",\"author\":{\"name\":\"何香蓓Betty\",\"uri\":\"https://www.xiaohongshu.com/user/profile/5b06174b11be106ed9f12937\"},\"published\":\"2025-11-09T10:44:42.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2698,
+      "elapsed_ms": 2304,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -113,27 +106,27 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -143,26 +136,31 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 6,
-          "duration_ms": 2691
+          "duration_ms": 2297
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 2697,
+          "name": "输出读取与校验",
+          "started_ms": 2303,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2304,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2697,
+          "started_ms": 2304,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 2697,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 2304,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2698,
+          "started_ms": 2304,
           "duration_ms": 0
         }
       ],
@@ -170,7 +168,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 2687
+          "duration_ms": 2272
         }
       ]
     }
@@ -181,13 +179,12 @@
     "example": "/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937",
     "name": "何香蓓Betty",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_INVALID_RESPONSE",
-    "error": "HTTP 502: UPSTREAM_INVALID_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段",
-    "duration_ms": 1338
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937.json",
+    "duration_ms": 2201
   }
 }

@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-24T02:33:36.271Z",
+  "checked_at": "2026-11-24T02:59:00.718Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 605
+    "status": 200,
+    "duration_ms": 2142
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_ACCESS_DENIED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/zhihu.js",
       "name": "知乎用户回答",
@@ -34,19 +34,28 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 597,
+    "phase": "ok",
+    "elapsed_ms": 2130,
     "invoked": false,
-    "upstream_error": "UPSTREAM_ACCESS_DENIED: 脚本执行失败：知乎作品读取失败：脚本上游 www.zhihu.com 返回 HTTP 403；请同步有效的 zhihu.com Cookie 并检查上游风控",
-    "error_text": "脚本执行失败：知乎作品读取失败：脚本上游 www.zhihu.com 返回 HTTP 403；请同步有效的 zhihu.com Cookie 并检查上游风控\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:190:26)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":20,\"missing_published\":0}"
+      },
+      {
+        "level": "info",
+        "text": "浏览器验证缓存：{\"cached_state\":false,\"browser_launches\":0,\"browser_reuses\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://www.zhihu.com/api/v4/members/knowyourself-1/answers?limit=20&offset=0&sort_by=created&include=data%5B*%5D.excerpt%2Ccomment_count%2Ccreated_time%2Cupdated_time%3Bdata%5B*%5D.question.title",
         "method": "GET",
         "host": "www.zhihu.com",
         "pathname": "/api/v4/members/knowyourself-1/answers",
-        "status": 403,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -54,15 +63,18 @@
             "Cookie"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 585,
+        "started_ms": 10,
+        "duration_ms": 2113,
         "timings": {
-          "response_ms": 585
+          "response_ms": 1923,
+          "body_read_ms": 188,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"zhihu:user:knowyourself-1:answers\",\"title\":\"KnowYourself 的知乎回答\",\"link\":\"https://www.zhihu.com/people/knowyourself-1/answers\",\"description\":\"是戳穿系，不是治愈系。KY带你「关注自我和内心」。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"article\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://www.zhihu.com/\"},\"tags\":[\"知乎\"]},\"author\":{\"name\":\"KnowYourself\",\"uri\":\"https://www.zhihu.com/people/knowyourself-1\"},\"image\":\"https://picx.zhimg.com/v2-efbee9a31c8cd45a623e06c36d398fe3_l.jpg?source=c8b7c179\",\"updated\":\"2026-11-19T10:14:53.000Z\",\"items\":[{\"id\":\"zhihu:answer:2106812712873366072\",\"title\":\"怎样把脸皮练厚？\",\"link\":\"https://www.zhihu.com/question/20089788/answer/2106812712873366072\",\"description\":\"想让脸皮练厚，首先得知道： 厚脸皮不完全是天生的，可以靠后天的习得、练习而强化。今天KY就来聊聊，世界为什么会奖励厚脸皮的人，厚脸皮是从哪来的，如何把自己的脸皮练「厚」一点。 [图片] 01「厚脸皮」最常见的 3 种特征，谁有谁快活！ 「厚脸皮」在心理学上没有完全对应的概念，但它在现实中会以这几种形态出现，并获得好结果—— 1.不「怵」被拒绝，于是获得更多原本「不属于」自己的机会谁能不羡慕那些 「我想要、我得到」的人：…\",\"image\":\"https://picx.zhimg.com/v2-07ac7298d78dbb781f3aea68b5153f08_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-11-19T10:14:53.000Z\",\"updated\":\"2026-11-19T10:14:53.000Z\"},{\"id\":\"zhihu:answer:2104254681031632860\",\"title\":\"一段正常且健康的恋爱应该是什么样子的呢？\",\"link\":\"https://www.zhihu.com/question/595051644/answer/2104254681031632860\",\"description\":\"一段正常且健康的恋爱应该是互相珍惜的。所以，当你遇到了能做到这26点的恋人，一定要紧紧把握！ 多做这些事！ 用最微小的行动去爱 1. 对方发来的消息、分享的日常，能够认真回应。哪怕只是一件不起眼的小事，也会顺着话题聊上几句，重要的事情更是能积极询问、表达关注。2. 能在细节处用心。对方随口说过的喜好、最近遇到的烦心事、或不经意提起的小愿望，会默默记在心里，适时传递关心或小惊喜。3.生活中看到有趣的东西、好听…\",\"image\":\"https://picx.zhimg.com/v2-3f2c3122f3b1080181308e107fc19e66_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-11-12T08:50:11.000Z\",\"updated\":\"2026-11-12T08:50:11.000Z\"},{\"id\":\"zhihu:answer:2101728121326135239\",\"title\":\"和好朋友渐行渐远是必然吗？\",\"link\":\"https://www.zhihu.com/question/376211653/answer/2101728121326135239\",\"description\":\"年龄越大，我们越会发现友谊在衰退，这并不是个例，也是个老话题。在新兴成年（emerging adulthood）时期，也就是 18 岁到 29 岁间，是我们最容易交到朋友的 10 年， 然而 25 岁以后，我们会开始失去朋友，直到 45 岁左右[1]。社交媒体的兴起同时还加剧了一种「怎么好像其他人都比我拥有更多、更好的朋友？」的 FOMO （fear of missing out，错失恐惧），放大了我们内心的羞耻与孤立感。 但 KY 想说： 请大家千万不要「被动地接…\",\"image\":\"https://pic1.zhimg.com/v2-bfda72e3eee8027b49beb54d773e5820_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-11-05T09:30:32.000Z\",\"updated\":\"2026-11-05T09:30:32.000Z\"},{\"id\":\"zhihu:answer:2096989617480378114\",\"title\":\"怎样最大程度延长自己的寿命？\",\"link\":\"https://www.zhihu.com/question/3536841621/answer/2096989617480378114\",\"description\":\"那当然是玩得越花，寿命越长！ 在运动上也是一样，相比前几年风靡的某种单一运动，现在流行的模式是一个人同时备战跑步、攀岩、游泳、滑雪… 这也是今天要和大家按头安利的，花样最多、对抗「活人微死」门槛最低、效果最强的运动—— 「多样化运动」最夯的作用： 玩得越花越长寿 多样化运动中的「多样化」，简单来说，不仅仅是「同时练有氧和力量」，而是进行多种类型的活动组合。这种「多样化」既可以是环境提供的特征，也可…\",\"image\":\"https://picx.zhimg.com/v2-146346dc6279d787cb5d761a760ddb40_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-10-23T07:41:25.000Z\",\"updated\":\"2026-10-23T07:41:25.000Z\"},{\"id\":\"zhihu:answer:2094461570692793255\",\"title\":\"你对于中年人保持身体健康有什么极简建议？\",\"link\":\"https://www.zhihu.com/question/1972569048832251491/answer/2094461570692793255\",\"description\":\"人到30岁后，一定要像存钱一样存肌肉。因为过了30岁，成年人的肌肉量会以每十年3%-5%的速度流失。甚至，由于长期久坐、熬夜等生活方式的影响，这一过程还在提前。 而肌肉含量又与上下楼梯、提重物这样的日常基本生存动作，乃至血糖代谢、骨骼健康等长期健康指标息息相关。 所以， 与其等到肌肉流失后再补回来，不如趁年轻尽快练起来！ [图片] 而目前最有效、证据最充分的增肌方式就是——抗阻运动（Resistance Training，RT）。顾名思义…\",\"image\":\"https://picx.zhimg.com/v2-b9f7c046438a309362d5c6f08c8c2d1f_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-10-16T08:15:51.000Z\",\"updated\":\"2026-10-16T08:15:51.000Z\"},{\"id\":\"zhihu:answer:2085309021813323715\",\"title\":\"失恋了 感觉自己熬不过来了 怎么办?\",\"link\":\"https://www.zhihu.com/question/364569015/answer/2085309021813323715\",\"description\":\"一次典型的失恋，会经历四个时期。其中最需要做的，就是允许自己哀悼。1）失恋后会经历“戒断期”神经科学研究表明，当人们处于一段恋爱关系中时，大脑的活动状态与处于药物上瘾的状态十分相近。而在失恋后，人们的状态也与戒毒的反应类似，大脑中被激活的区域与戒毒时被激活的区域相似（Winch, 2018）。 所以，如果爱是一种瘾，失恋就会是一次戒断。简单来说，当你处于一段甜蜜的爱情中时，大脑会把你的伴侣当作如海洛因一样的…\",\"image\":\"https://picx.zhimg.com/v2-14250d00b9e8249a5a46f82c09d8c394_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-09-21T02:06:53.000Z\",\"updated\":\"2026-09-21T02:06:53.000Z\"},{\"id\":\"zhihu:answer:2080967328662139350\",\"title\":\"有个高敏感的孩子是什么感受？请问各位高手都是怎么对待的？\",\"link\":\"https://www.zhihu.com/question/385446082/answer/2080967328662139350\",\"description\":\"最近经常在网上刷到一些父母的求助帖：「我家宝宝才一岁多，衣服鞋子不合 ta 的心意就不穿，饭菜没按照 ta 的要求摆放就一口不吃，怎么弄 ta 都不满意。」「积木倒了就嚎啕大哭，大人们讲话声音大一点 ta 也哭，还特别怕生。」「小小年纪就很会察言观色，怎么没有遗传到我大大咧咧的性格？」父母觉得自己的孩子像个现实版的「豌豆公主」，芝麻大点事儿都能让他们又哭又闹，这也常常让养育者觉得无比挫败—— 为什么别人家的孩子…\",\"image\":\"https://picx.zhimg.com/v2-49c5d89efdeec6506baa5637da881a55_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-09-09T02:34:33.000Z\",\"updated\":\"2026-09-09T02:34:33.000Z\"},{\"id\":\"zhihu:answer:2080303166034387216\",\"title\":\"可不可以莫名其妙地教我一个知识?\",\"link\":\"https://www.zhihu.com/question/2072260638768997299/answer/2080303166034387216\",\"description\":\"今天教给大家 8 个看似是怪癖，其实特别养脑子的小习惯——01玩俄罗斯方块我坚持最久的一项爱好，就是玩各种弱智（不是）小游戏。 随时随地，任何场合，都可以来一场酣畅淋漓的抓大鹅、消消乐、拧螺丝、拆毛线… 但你别说，这种看起来纯属浪费时间的小游戏，其实有意想不到的效果。 今年 3 月，一篇发表在《柳叶刀》的研究发现， 玩俄罗斯方块可以大幅减少 PTSD 后的创伤性闪回，改善焦虑、失眠和职业倦怠等问题[1]。那些经历…\",\"image\":\"https://picx.zhimg.com/v2-83ce21f885d12600ab7a4168e639caae_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-09-07T06:35:24.000Z\",\"updated\":\"2026-09-07T06:35:24.000Z\"},{\"id\":\"zhihu:answer:2078788560686265631\",\"title\":\"有哪些看似不起眼，但坚持下来会极大提升生活质量的小习惯？\",\"link\":\"https://www.zhihu.com/question/2032212893937181292/answer/2078788560686265631\",\"description\":\"人每天都要忍耐5种恼人的小事 1. 重复消耗型生活里 高频、低难度的固定任务，但可以通过一个举手之劳消灭。 比如，每天出门都要费好大劲弯腰提鞋，穿好鞋想起忘带口罩，又脱了鞋进屋去取。 而花 2 分钟下单一个 3 元的鞋拔子、在门口增加一个口罩的收纳点，就可以永久解决这个困扰。 2. 效率黑洞型 因 工具 / 流程缺陷导致的效率低下，会持续悄悄「吃掉」你的时间。 电脑桌面堆满文件、内存不足、网速很慢，每次接到紧急工作都因…\",\"image\":\"https://pic1.zhimg.com/v2-6da0a7bca1a155e63e5ce41af3fc11f1_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-09-03T02:16:54.000Z\",\"updated\":\"2026-09-03T02:16:54.000Z\"},{\"id\":\"zhihu:answer:2078068038679662943\",\"title\":\"如果让你重新再养一遍孩子，有什么是你一定要避坑的？\",\"link\":\"https://www.zhihu.com/question/1960844254462064019/answer/2078068038679662943\",\"description\":\"想要养好一个孩子，这6件事情，一定不要轻易和孩子分享。01过分谈论家庭的经济压力「你想买XXX，你看我像不像XXX？」「爸爸妈妈舍不得吃舍不得穿，都是为了你。」「我们每个月还有房贷、车贷要还，哪里有钱带你出去玩？」很多人的童年可能都听过父母说过类似的话。 对于父母而言，他们可能只是希望孩子理解生活的不易，也希望孩子由此能够建立节制和规划的意识。但对于年幼的孩子来说，家庭经济状况并不是一个简单的信息，会影响…\",\"image\":\"https://pica.zhimg.com/v2-32c12f9cd40c5db94f18f41bf43647ae_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-09-01T02:33:49.000Z\",\"updated\":\"2026-09-01T02:33:49.000Z\"},{\"id\":\"zhihu:answer:2076621627186533394\",\"title\":\"生活中有哪些可以降低皮质醇的好办法？\",\"link\":\"https://www.zhihu.com/question/653329848/answer/2076621627186533394\",\"description\":\"想要有效降低皮质醇，那一定要改掉这6个习惯！01设置多个起床闹钟有没有人和我一样这么设闹钟—— [图片] 又或者是，虽然只设置了一个闹钟，但被叫醒之后，按了好几次「稍后提醒」—— [图片] 使用「贪睡闹钟」的行为看似给自己争取了宝贵的睡眠时间，但结果很有可能是努力、努力、白努力。当我们被第一个闹钟唤醒的时候，身体其实已经进入了觉醒的过程。如果这时选择按下闹钟继续睡，我们又会重新进入一个短暂的睡眠阶段，但很快又会被新的闹…\",\"image\":\"https://picx.zhimg.com/v2-d2f4995dcda3a9b267e75daea6eddb26_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-08-28T02:46:17.000Z\",\"updated\":\"2026-08-28T02:46:17.000Z\"},{\"id\":\"zhihu:answer:2075950293401997584\",\"title\":\"人为何不要长期待在家里？\",\"link\":\"https://www.zhihu.com/question/2053800644537012873/answer/2075950293401997584\",\"description\":\"因为人在出门和不出门的时候，过的好像是两种人生。01迈出房门的那一刻，你的身体就会自动激活为：活人模式通常情况下，纠结要不要出门、反反复复想出门最终却失败的， 都是心理能量或情绪有点低的人，Ta 们很容易陷入一个无解的循环：太累了、太丧了想等状态好了再出门但越不出门、越宅，心情和状态越差这种时候尤其需要，停止纠结与思虑， 直接出门。这在心理学上叫行为激活（Behavioral Activation）， 不等到感觉好了才行动…\",\"image\":\"https://pic1.zhimg.com/v2-b85f3780ebad45fd25407621019c2734_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-08-26T06:18:39.000Z\",\"updated\":\"2026-08-26T06:18:39.000Z\"},{\"id\":\"zhihu:answer:2073425359526179508\",\"title\":\"低精力人群如何自救？\",\"link\":\"https://www.zhihu.com/question/1897077731667190934/answer/2073425359526179508\",\"description\":\"低精力人群想要自救，一定要注意这6件事！01信息过载与注意力残留，是现代人最大的精力消耗源最近看到一组很有趣的数据，形象地展示了人类每天接触的信息量如何暴涨： 2008 年，普通人平均每天消费 34 GB 的信息，相当于约 10.05 万个单词[1]；据预测，2017 年，这一数字上升到 74 GB，相当于观看 16 部电影[2]。到 2026 年，随着移动互联网和 AI 的发展与普及，这个数字可能早已翻了一倍不止。 人类的工作记忆容量有限，当人们…\",\"image\":\"https://pic1.zhimg.com/v2-dbe6e70687e2780b6fc48236fb6871ec_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-08-19T07:05:28.000Z\",\"updated\":\"2026-08-19T07:05:28.000Z\"},{\"id\":\"zhihu:answer:2071189302743246028\",\"title\":\"如果你有一个女儿，你觉得哪方面的教育最重要？\",\"link\":\"https://www.zhihu.com/question/1951980786367567861/answer/2071189302743246028\",\"description\":\"在这个科技高度发达、消费主义盛行、性观念日趋开放的世界，一个女孩想要勇敢、真诚地成为她自己，可能尤为困难。相比男孩，女孩更早发展出情绪识别和表达能力，也更容易体验悲伤、焦虑和同情这类内化情绪（internalizing emotions）[1]。这意味着，女孩的父母需要投入更细致的情绪回应和支持。 并且，女孩从 3 岁起就表现出更强的观察和模仿能力， 她们会密切关注周围的人，更准确地学习那些符合社会规范的行为[2]。所以很多父…\",\"image\":\"https://picx.zhimg.com/v2-141c253dbc7271a221173661d0b9c072_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-08-13T03:00:10.000Z\",\"updated\":\"2026-08-13T03:00:10.000Z\"},{\"id\":\"zhihu:answer:2070532646225164108\",\"title\":\"年轻的时候做什么事情对后半生有巨大的好处？\",\"link\":\"https://www.zhihu.com/question/346513004/answer/2070532646225164108\",\"description\":\"劝大家从现在开始，像存钱一样开始存肌肉，刻不容缓！毕竟很多人过了 30 岁后，虽然体重没怎么变，但明显感觉： 屁股变塌了，肚子变鼓了拧不动瓶盖了爬两层楼就喘半天生病恢复慢腰背痛、膝盖不舒服变频繁…其实，这些都和肌肉流失密切相关。 从 30 岁起，我们的肌肉就在加速流失了，到了 80 岁，肌肉可能仅剩年轻时的 30% ~ 50%。越来越多的研究告诉我们，肌肉，是身体里大大被低估的器官之一，它不光是能让我们显得紧致、年轻…\",\"image\":\"https://pica.zhimg.com/v2-4c6856e35a6c111ce58fc5e08f1a2ef1_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-08-11T07:30:51.000Z\",\"updated\":\"2026-08-11T07:30:51.000Z\"},{\"id\":\"zhihu:answer:2068666449045016998\",\"title\":\"年轻数学家王虹、邓煜的成长历程可以给现在的家长和学生什么样的启发？\",\"link\":\"https://www.zhihu.com/question/2062474715604725844/answer/2068666449045016998\",\"description\":\"在一系列闪亮的头衔之外，更值得学习的，是王虹所提供的对于天才的另一种想象： 关于「慢」，关于长时间的探索、迟来的反馈，和没有结果的投入。我相信，如果王虹愿意，她大可向我们展示数学界常见的「大神/大佬」叙事——展示自己从小表现出的非凡天赋、一路领先的成长轨迹，以及那些看起来毫不费力的成功瞬间。 但即使完成了「王的猜想」[1]，解决了困扰数学界百年的难题，王虹仍然坦率地描述了自己如何在反复的怀疑、迂回和挫…\",\"image\":\"https://picx.zhimg.com/v2-e430555f78e34994bb64be35e11ee978_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-08-06T03:55:15.000Z\",\"updated\":\"2026-08-06T03:55:15.000Z\"},{\"id\":\"zhihu:answer:2066484479917548046\",\"title\":\"你是从什么时候开始厌倦做一个老好人的？\",\"link\":\"https://www.zhihu.com/question/27480779/answer/2066484479917548046\",\"description\":\"当我发现习惯当「好人」不仅总要委屈自己的感受去迎合别人的需求，还会被人无底线地侵犯、攻击，却做不到有效反击和捍卫自己的利益的时候。所以我下定决心要成为一个边界清晰、有锋芒、能释放攻击性的 「坏人」，这样才能守住自己的边界，让「善良」成为一种不会受伤害的选择，而非一种被无限消耗的弱点。不过研究下来发现，普通人要迈出做「坏人」的第一步，往往需要攻克不少心理门槛。 为此，我们总结了 9 个帮人心安理得做「…\",\"image\":\"https://pic1.zhimg.com/v2-ea6b40981831f4e101d3a1f210e2c614_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-07-31T03:24:53.000Z\",\"updated\":\"2026-07-31T03:24:53.000Z\"},{\"id\":\"zhihu:answer:2065445153918260023\",\"title\":\"你在做什么时，觉得最快乐？\",\"link\":\"https://www.zhihu.com/question/660922011/answer/2065445153918260023\",\"description\":\"追剧、看电影、读书...都能带来快乐。但要说最快乐，还得是——输出型爱好01输出型爱好是内心感受的主动外化顾名思义， 输出型爱好，就是指个体通过主动表达或再创造信息来获得满足感与心理收益的一类兴趣活动。它的核心在于 外化——把头脑中的感受、知识或体验转化为某种可见、可被他人感知的形式。这不仅是一种记录方式，也是深度加工的过程。当你试图把复杂的想法写下来，或是把模糊的情绪转化为绘画、音乐时，大脑会被迫…\",\"image\":\"https://pica.zhimg.com/v2-61d2c7fe8fe8fa3bb39617cb05b344d1_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-07-28T06:34:58.000Z\",\"updated\":\"2026-07-28T06:34:58.000Z\"},{\"id\":\"zhihu:answer:2063626843886973479\",\"title\":\"你有什么比较准确的识人技巧？\",\"link\":\"https://www.zhihu.com/question/369993895/answer/2063626843886973479\",\"description\":\"真正判断一个人是否值得深交，要看你拒绝 ta 时、ta 情绪不好时，以及你的选择影响到 ta 的利益时，ta 会如何对待你。通过这些细节，ta 才慢慢看清 对方到底是什么人。今天的文章，我们一起从心理学视角来盘点，哪些细节能帮我们判断一个人是否值得深交。 Ta「失去控制」时的样子—— 1. 当 ta 情绪不好时，通常会怎么处理？ 如果ta一有情绪，就立刻找人倾诉或发泄，这可能意味着 ta 的情绪调节更多依赖外部承接，内在的自我调节…\",\"image\":\"https://pica.zhimg.com/v2-ec9761e3b35f309bb9e2bfd024d74b7e_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-07-23T06:09:39.000Z\",\"updated\":\"2026-07-23T06:09:39.000Z\"},{\"id\":\"zhihu:answer:2063219676411385258\",\"title\":\"人真的有运气这一说法吗？\",\"link\":\"https://www.zhihu.com/question/269918175/answer/2063219676411385258\",\"description\":\"当然啦，并且「好运气」远没有我们想的那样可望而不可及。长期研究运气的斯坦福大学教授 Tina Seelig 提出， 我们常说的「运气」其实是两种不同的东西：Fortune（命运），是发生在一个人身上的事大到一个人的出身、在人生不同阶段身处什么样的经济环境；小到某天的天气、买咖啡排队时会遇到什么人…这些事是人无法控制的； Luck（运气），是人对外部事件的回应方式是人们做出的选择和抓住的机会。当你开始思考如何应对遇到的事…\",\"image\":\"https://picx.zhimg.com/v2-ba8a8a3b70ff9960d0f6dc40741fcf70_qhd.jpg?source=c8b7c179\",\"author\":{\"name\":\"KnowYourself\",\"uri\":\"http://www.zhihu.com/api/v4/people/14f1982ee9fd4e9579b918b4676b8b44\"},\"published\":\"2026-07-22T03:11:43.000Z\",\"updated\":\"2026-07-22T03:11:43.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 597,
+      "elapsed_ms": 2130,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -77,27 +89,27 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 1
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
@@ -107,34 +119,39 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 590
+          "duration_ms": 2122
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 597,
+          "name": "输出读取与校验",
+          "started_ms": 2129,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2130,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 597,
+          "started_ms": 2130,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 597,
+          "name": "浏览器状态保存",
+          "started_ms": 2130,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 597,
+          "started_ms": 2130,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 585
+          "started_ms": 10,
+          "duration_ms": 2113
         }
       ]
     }
@@ -145,13 +162,12 @@
     "example": "/api/rss/zhihu/people/knowyourself-1/answers",
     "name": "KnowYourself",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 3028
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/zhihu/people/knowyourself-1/answers.json",
+    "duration_ms": 2131
   }
 }
