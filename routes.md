@@ -2,7 +2,7 @@
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-24T14:10:47.346Z
+巡检时间：2026-11-24T23:44:03.875Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -20,7 +20,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-24/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
+| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-25/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/36kr/newsflashes<br>36氪 · 快讯 (/api/hot/36kr/newsflashes) | ✅ 成功 |  |
 
 ## hot/apple\_charts.js（0/1 通过）
@@ -80,6 +80,14 @@
 | --- | --- | --- |
 | /api/hot/kaopu<br>靠谱新闻 (/api/hot/kaopu) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 
+## hot/kuaishou\_hot.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-40.svg" alt="" width="24" height="24"> [hot/kuaishou\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuaishou_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/kuaishou/hot<br>快手 (/api/hot/kuaishou/hot) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
+
 ## hot/pcbeta\_windows11.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-53.svg" alt="" width="24" height="24"> [hot/pcbeta\_windows11.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/pcbeta_windows11.js) · 版本：1.0.1
@@ -110,14 +118,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/reddit/r/:subreddit?/:sort?<br>Reddit · 社区热门 (/api/hot/reddit/r/popular/hot) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
-
-## hot/tencent\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-67.svg" alt="" width="24" height="24"> [hot/tencent\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tencent_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/tencent/web\_backend/v2/getTagInfo<br>腾讯新闻 · 综合早报 (/api/hot/tencent/web\_backend/v2/getTagInfo) | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
 ## hot/tiktok.js（0/1 通过）
 
@@ -175,7 +175,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青（孕期版） (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>Westca加拿大生活 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | 爱折腾的小冯同学 /api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7: 条目数须 &gt;= 1；丫丫Thea /api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612: 条目数须 &gt;= 1；Westca加拿大生活 /api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66: 条目数须 &gt;= 1 |
+| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青（孕期版） (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>Westca加拿大生活 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | 何香蓓Betty /api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937: 条目数须 &gt;= 1；房琪kiki /api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106: 条目数须 &gt;= 1；琳达不呆 /api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e: 条目数须 &gt;= 1 |
 
 ## rss/zhihu.js（7/8 通过）
 
@@ -446,14 +446,6 @@
 | --- | --- | --- |
 | /api/hot/kakuyomu/rankings/:genre?/:period?<br>カクヨム · 小说排行榜 (/api/hot/kakuyomu/rankings/all/daily) | ✅ 成功 |  |
 
-## hot/kuaishou\_hot.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-40.svg" alt="" width="24" height="24"> [hot/kuaishou\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuaishou_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/kuaishou/hot<br>快手 (/api/hot/kuaishou/hot) | ✅ 成功 |  |
-
 ## hot/kuan.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-41.svg" alt="" width="24" height="24"> [hot/kuan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/kuan.js) · 版本：1.0.1
@@ -646,6 +638,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/techmeme/feed.xml<br>Techmeme · 科技头条 (/api/hot/techmeme/feed.xml) | ✅ 成功 |  |
+
+## hot/tencent\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-67.svg" alt="" width="24" height="24"> [hot/tencent\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/tencent_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/tencent/web\_backend/v2/getTagInfo<br>腾讯新闻 · 综合早报 (/api/hot/tencent/web\_backend/v2/getTagInfo) | ✅ 成功 |  |
 
 ## hot/thepaper\_hot.js（1/1 通过）
 
