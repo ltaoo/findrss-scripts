@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:59.262Z",
+  "checked_at": "2026-11-24T01:49:35.295Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 610
+    "status": 200,
+    "duration_ms": 899
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 598,
+    "phase": "ok",
+    "elapsed_ms": 893,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,28 +59,28 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 586,
+        "started_ms": 10,
+        "duration_ms": 879,
         "timings": {
-          "response_ms": 585
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 692,
+          "body_read_ms": 186,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_42598d7147f6\",\"title\":\"NOVASEC\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490950&idx=1&sn=f73b63aac98a8bf31e5195ddce30ae91&chksm=fb0d78dc02e4d56da8db5bf4cc895bc5ac4ccba4556583012b44bf4ce39fc5525f9203221452&scene=126&sessionid=1795484978#rd\",\"description\":\"NOVASEC 安全团队公众号\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"NOVASEC\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2F574VdhMFwaGNLFHYicg6jT0micexfPDqW7qYkFDqaCjrZBdBvH7atJgvqdiaBpWOQekHwDUiaGicr1e4%2F0\",\"updated\":\"2026-11-10T02:33:48.000Z\",\"items\":[{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490950:1\",\"title\":\"【工具】netgap 网闸 循环检查网络出口\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490950&idx=1&sn=f73b63aac98a8bf31e5195ddce30ae91&chksm=fb0d78dc02e4d56da8db5bf4cc895bc5ac4ccba4556583012b44bf4ce39fc5525f9203221452&scene=126&sessionid=1795484978#rd\",\"description\":\"netgap 网闸 循环检查网络出口\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfL1TQ0l0Qw1H0NWh89JyzuCgn18icZYpT2vadIKdwkawJgSsHdfjia2zp0EHjUI5mTfD3ibfdmlic7CXCR7BsY0VVN2n8nQHSGa6ys5jpvRLBWY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T02:33:48.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490947:1\",\"title\":\"【工具】decipher 高性能hash碰撞解密\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490947&idx=1&sn=e87070a431ad921877e7790c989b2dc7&chksm=fb49cb2574287a0e9e4f7853652185abf72ba78373e93ebbd9c494ff4c5b594f0bec36349739&scene=126&sessionid=1795484978#rd\",\"description\":\"decipher 高性能本地哈希解密工具\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfL1TQ0l0Qw2D5ibaXpG40WqibhCuzE1JoiaxZEVmibrOhSeCohXAZNROdj5cgialm51OEe8e5WVd5uQLc0OqIRJu0LOCgxHVicRv1oPjjBdonLJow%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T16:00:00.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490937:1\",\"title\":\"间接性暂停更新\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490937&idx=1&sn=0e93d9cb35bccb69d0d9d9977c4ed207&chksm=fbce66c9d93d4e1b07cd4ce3171959d068f591727d2ea49c400f58fb8a8bc648d033a35fbab4&scene=126&sessionid=1795484978#rd\",\"description\":\"阶段性暂停更新通知\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfL1TQ0l0Qw2MoOmpfcNMaSFYf8rZia7QlJYlEiclWLXDsZ2ujSQxcdAcy124gGtxOFEcBjDNnYEEThy7GRzM1IdEfDsjKgWEW1ucsr9x6BTXE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-24T04:33:56.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490928:1\",\"title\":\"【抽奖】无影 TscanPlus License\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490928&idx=1&sn=66b73bc7d418f6e7e74de513d56df460&chksm=fbf27f2c0941eb495847ade28874b967c73a0de69da47b7a104b234df340dcb866d593392fcc&scene=126&sessionid=1795484978#rd\",\"description\":\"Tscan License 抽奖分享\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfL1TQ0l0Qw3mVibGOloJOsaJpLia9JUOVJB3FExOmeTeVZcdPTZU1W5Id1QYB1YnPw5UNRyknsR68TA7ZzAfdxaCzWCrTTK14acbD6N8HKyVU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-05T16:14:33.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490921:1\",\"title\":\"【工具】ocrapi和相关辅助工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490921&idx=1&sn=4861a443da08f97cf1fc36bd7a3583ca&chksm=fb65f45114c6f451869af1f4dbd9d8de3d8e3f118936330ef7cf999207e40d40d6ba1ad71123&scene=126&sessionid=1795484978#rd\",\"description\":\"OcrApi 轻量级 OCR API 服务聚合\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfL1TQ0l0Qw0KvVRHGADsvpFSTiahU6grTbHxZoyOEukr2nyjHgOtppezYVK8Zfz8JfXkxVaib6oBXiaiaDWpBzGnQ3rx1O4r8ItEpBFTm4aicwvw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-30T04:00:00.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490912:1\",\"title\":\"paseo-notifier 成为paseo ai agents 时间管理大师\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490912&idx=1&sn=ab0ade35d0779459dfb1d01a40c42c59&chksm=fbbe5deb5336fca8a90239a86566126ac2f7bfb0029f8738dbe64ff00bf360964f2f740ae3ac&scene=126&sessionid=1795484978#rd\",\"description\":\"解决paseo ai agents 通知不到位的问题。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfL1TQ0l0Qw11RxXiaOEZia4VuB6hkJaZKqF6HomDWw4FFpADQ4Se2iaomI6uzA09pFjOEu2HcwJTiaxcrRibpicMPh8WhVwBOuEk434wicHguh41icw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-03T05:27:46.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490906:1\",\"title\":\"【工具】zipany 跨平台目录压缩打包工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490906&idx=1&sn=625587bdaa3bddfe208e856ab3f1dd5c&chksm=fb867676e5aa5ddc38abb41bf656408f72b251e360aadfd53a9fea15da48b52f765b06ea9e7f&scene=126&sessionid=1795484978#rd\",\"description\":\"zipany 基于 Go 语言的跨平台目录打包压缩工具，支持 tar.gz 格式，提供灵活的文件过滤规则和预设配置。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfL1TQ0l0Qw0t32HAkzUNBe5hhYMicjlicLPSyN369mftrsA9nN5NmChwzFr9Cb4QCvhjxiaMR45JUhwRBMytRUrQwz7LSc8LYicznuUHWpfPZLY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-22T06:00:00.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490902:1\",\"title\":\"【工具】CodeCleaner - 开源代码文件统计和清理工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490902&idx=1&sn=d19df0988311e703aa792f1454296cf7&chksm=fbf467ed5becdf2528becbbf13238ede883c9aff801c0ef6ad227c3081d1c9c53843875d9601&scene=126&sessionid=1795484978#rd\",\"description\":\"【工具】CodeCleaner - 代码文件统计和清理工具\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfL1TQ0l0Qw1W8ffdg7X42Mfia2wPJ4JhfLVVlQZpKgHknIaMEpsmjGIFsZzoib5oxf0HncQz2NjACkzzKiaNgTMeQo9A84dUZxMlVvZDQ2MiaWM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-16T16:00:00.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490901:1\",\"title\":\"【工具】sqlichecker  - 开源sql注入过滤关键字检测demo\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490901&idx=1&sn=90daf33a14b4273f6347399917115144&chksm=fb63e2fd5b9a8d62db435003c09a01ad907019388a858507337f8b060848e34eb4a170394e30&scene=126&sessionid=1795484978#rd\",\"description\":\"【工具】sqlichecker  sql注入过滤关键字检测\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfL1TQ0l0Qw1ox7oP2iaIcDc1pCnSyj5AN4ru1lpxJEZWI72X2kkqYNTw9lTQRSTu64Fibj3X77q6UdibNiaCQCx7EAiaaT4k9kJw6D7Ysd3RHE4g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-15T00:00:00.000Z\"},{\"id\":\"wxmp:MzUzODU3ODA0MA%3D%3D:2247490900:1\",\"title\":\"【工具】CodeStatistics - 开源代码行数统计工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&mid=2247490900&idx=1&sn=80f5ce06eea8c27f0a8c4207c612bfc4&chksm=fbaf3f502256529931064b52444414eb8e336975530df0f40dacee3cfaf2ebbce98dbfaa8eb5&scene=126&sessionid=1795484978#rd\",\"description\":\"【工具】CodeStatistics - 开源代码行数统计工具\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfL1TQ0l0Qw0IGG5RCFXIU6iccrQ0CQIKcdZ1CRvYcrWQ3fIJNzDwicYBhxBgZvU2wqia4NpNZQA8Svxv5tZ2MdiaunUxWPEg3sZAP4yZqzJtVJE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-11T16:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 598,
+      "elapsed_ms": 893,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "Cookie 与浏览器状态读取",
@@ -105,39 +110,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 589
+          "started_ms": 7,
+          "duration_ms": 885
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 597,
+          "name": "输出读取与校验",
+          "started_ms": 892,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 892,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 597,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 597,
+          "started_ms": 892,
           "duration_ms": 1
         },
         {
+          "name": "浏览器状态保存",
+          "started_ms": 893,
+          "duration_ms": 0
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 598,
+          "started_ms": 893,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 587
+          "started_ms": 9,
+          "duration_ms": 880
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_42598d7147f6",
     "name": "NOVASEC",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 2412
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_42598d7147f6.json",
+    "duration_ms": 1620
   }
 }

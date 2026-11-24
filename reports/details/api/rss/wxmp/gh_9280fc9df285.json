@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:25.715Z",
+  "checked_at": "2026-11-24T01:50:08.897Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 475
+    "status": 200,
+    "duration_ms": 1283
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 469,
+    "phase": "ok",
+    "elapsed_ms": 1274,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,90 +59,95 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 457,
+        "started_ms": 11,
+        "duration_ms": 1259,
         "timings": {
-          "response_ms": 457
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 761,
+          "body_read_ms": 496,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_9280fc9df285\",\"title\":\"NOP Team\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503140&idx=1&sn=9778c5ee9ff40d93f87d7a8029776372&chksm=fab82b65e95d4068a3feb181d8c8db2557c7a434e42f95e776f66e9037d0f9b35de52c25d411&scene=126&sessionid=1795485012#rd\",\"description\":\"有态度，不苟同    No System Is Safe！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"NOP Team\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6K7BscJ2NDJk9qyHicAcWbGDib8p30BNlxspq0YjvQib3uQ%2F0\",\"updated\":\"2026-11-20T10:00:58.000Z\",\"items\":[{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247503140:1\",\"title\":\"为什么 AI 代码审计不敢信：一个审计 Harness 的死结、解法与哲学\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503140&idx=1&sn=9778c5ee9ff40d93f87d7a8029776372&chksm=fab82b65e95d4068a3feb181d8c8db2557c7a434e42f95e776f66e9037d0f9b35de52c25d411&scene=126&sessionid=1795485012#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7icpL221ib6YhYzaM0lajBhicsXXKgk4SNe9BG64aCtBFwxprvTLL00KqfkyCxMWZychFu3CH6oFdwkqob1VVcic4YxptFbibAJzws2Jxxr773FY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T10:00:58.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247503116:1\",\"title\":\"NSS 后门 | Linux 后门系列\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503116&idx=1&sn=f18024ce255f4f686a7d5a17e09dfcf4&chksm=fa6983bc269a023109633b13506015f43bc7ad0578b884aaa73134e1f8278730bc4be86bdf33&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7icpL221ib6YiasDPnknPmFW0nHMSP6JlphvoneeEhD9RLlLZricw5aPMmB589wooyIFW5pLQBRBuTVPNmnzx52gicbUcs1EOAywHciaVHJJEH8f8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-09T14:32:46.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247503055:1\",\"title\":\"Linux 内核用户管理剖析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503055&idx=1&sn=2a2f454352aa36a373a3d04b2bfe42c0&chksm=fa27c3629d1b4df53db3e497b5177d4306224807da6b4323f4881a20eb9c12ec2e23de003302&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7icpL221ib6YhvgULXdGMWvuIibeECQiaMAaj5rTZTZMRS2RzXyibsYKxqeMPJFCtQhaqTQCmc0GurlRAbwzRwkIwJR8ZA92MKYFTgadd0TKDF4E%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-22T17:05:16.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247503048:1\",\"title\":\"第一次遭到 AI 攻击 【文末有红包】\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503048&idx=1&sn=12c599be3cdce68796d335aa94caebc4&chksm=fa96b88ef475fda98befa37e9e01442d76db77efc54c2205dfc6f8b92a68dd7025943c33c8df&scene=126&sessionid=1795485012#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7icpL221ib6Yjwk3uWcibtp71r4Iser78NahT9B3C4MTz3UccgXchnF2I5WnibcZbHShCtoCNWCibRePm6FeN8IV6cMHUCf7hI569Lhf9EHMnypQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-17T16:15:52.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247503041:1\",\"title\":\"分享图片\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503041&idx=1&sn=656e4261b749744344d1a7e190419a9f&chksm=fa8cde987183e7020f9319a1280392f390e7cecff8f12078cd77f529adae6e4588cd1ddadf5b&scene=126&sessionid=1795485012#rd\",\"description\":\"\",\"content\":\"<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7icpL221ib6YjT2fm1IcfUzC0834XHnVOX1flGqnVdaJMBTMeMKTypJw5hywnZicQKLvMmoRdZxpKZXYPVqx92t3muCDxt0TjsgdB4ETtLibqkQ%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7icpL221ib6YiawOoNpKpotpVWg0GKic1K7bLLDEamEhicicbPlqUXSYWVJNFR4SN4gfDsana6PjfgrYhuqJic5ibwiae20jhJs9Aa7iaUVVURbd3kzIE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7icpL221ib6YjT2fm1IcfUzC0834XHnVOX1flGqnVdaJMBTMeMKTypJw5hywnZicQKLvMmoRdZxpKZXYPVqx92t3muCDxt0TjsgdB4ETtLibqkQ%2F0\"],\"type\":\"gallery\",\"published\":\"2026-02-17T11:59:48.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247503017:1\",\"title\":\"2025年值得赞赏的开源安全项目收集\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503017&idx=1&sn=dbab6deaa5d441031e062a8915da1ca6&chksm=fa63ef5a4da03b0f429e2b1e65017b2b1cba37e5ddce97d508923b7bbef7a1ab9523190a2fe3&scene=126&sessionid=1795485012#rd\",\"description\":\"\",\"content\":\"<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7icpL221ib6Yg95UmWickwMPicicLHyKOfQNRzicBFQibM2LV2vj0yFF0pVjOlsodFKNoBNwnwJWESAZwtteyicOY5icqmZXFGh6jDia8AZoiaqGuAmdSs%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F7icpL221ib6Yguw6e5ZhQcQREMQ6YZXuhRFyf4Xr6icZkGZaK9Nu791H86pzqeb7xO9SiaW0ZB1el7z1ft5ibC9tJIoSUYUw7qJG5LCTD1oLorx0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7icpL221ib6Yg95UmWickwMPicicLHyKOfQNRzicBFQibM2LV2vj0yFF0pVjOlsodFKNoBNwnwJWESAZwtteyicOY5icqmZXFGh6jDia8AZoiaqGuAmdSs%2F0\"],\"type\":\"gallery\",\"published\":\"2026-02-17T11:59:48.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247503022:1\",\"title\":\"2025年公众号赞赏计划公示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247503022&idx=1&sn=42898ef1e5c20670299f96b40322ae70&chksm=fab82754346d64d04f9d1149980fc5451c8eaf5509f7871d51285cb52ce2e454c80f9ce3f210&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F7icpL221ib6YgrQyTzb3qYMJIib9kcgZ2iaSPYDD5OIiaERTicEMTIvd9ujfHRtRy2LtbcictweGSdn4y19dZibLw77st2opibWnicoP1X15aFT4nyhjE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-08T10:10:46.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247502973:1\",\"title\":\"应急响应手册在线版来啦！ 彻底解决 PDF 版痛点！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247502973&idx=1&sn=7cc823a278c4787fd7f151fe75eee2e3&chksm=fa18380eb4e44c4c167d11a1c3f715aa5d433f8a9ab08123cd8ea22c48ffac55f179655550d0&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfZT30hrVgRewJB8ztCpqcILVqwduP2o31iajxlMpr0s7LgtdVC2CmByKzxydgQPy816btVfFzPZ7FqrG5XO4cibQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-21T00:00:00.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247502967:1\",\"title\":\"Windows 应急响应手册 v1.3 发布！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247502967&idx=1&sn=64d276c8878b4f1e2fa6f5773b2649ee&chksm=fa02787d958a968d45ee5d0811aac5ce850ae750349b39b71624a520e6fa79e3df06ea363adc&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfZT30hrVgReGqIdeibIxILdawFKAO0Y1icmOZzssXNp3uST12NArqFmZ8A7qqpYz1IicWAWb5n7feUicSGRwicdvI7Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-17T18:37:58.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247502961:1\",\"title\":\"NOPTrace-Configs Windows版 发布！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247502961&idx=1&sn=7401dfc783a580ecfd151e0d72a25acb&chksm=fa7b923f0bbb7281b28e547cc3bf0a7cf046a264402017622fdf0c3261a96c62c2650a4e80bb&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfZT30hrVgRe0pLlcktyXiciccPL1icB4T8Ywfb40EM28bITia0wPb0tROeMNCicqEpOV28Yuicb8XzW9ibK5kxGbiaBqCA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-09T07:49:00.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247502889:1\",\"title\":\"NOPTrace-Configs Linux版 发布！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247502889&idx=1&sn=c4a7e09b6b4123c47812e7666abefc77&chksm=fa64e51947130689e2793a2a05cc90f7dad34bf7ad7c1d0139622c91167dc9c738228f30cc50&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfZT30hrVgRdClBWE6RciavT4ghpdpORPOG2CYTQCW1H87V2rHzwVQy6dzicLomWcALysnuiciaPcc9EWDsKUMKxScw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-08T11:21:41.000Z\"},{\"id\":\"wxmp:MzU1NDkwMzAyMg%3D%3D:2247502852:1\",\"title\":\"NOPTrace-Collector 发布！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU1NDkwMzAyMg==&mid=2247502852&idx=1&sn=3d3f29e38705cbb244c6774bf883997a&chksm=fa79dc46939f2a898631c12bae1fa10f0a48b0b821feaf4dda98e3f612d22367f295e5227883&scene=126&sessionid=1795485012#rd\",\"description\":\"愿心中的火永不熄灭！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FfZT30hrVgRen4w1tPCLcATrich4PMQlMhyyTMuPhlNc3ggBnhVF3MPybR2w25kDaftUFKmupoKaBu7TGbe8Hbrg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-07-04T12:02:54.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 469,
+      "elapsed_ms": 1274,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 461
+          "started_ms": 8,
+          "duration_ms": 1266
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 468,
+          "name": "输出读取与校验",
+          "started_ms": 1274,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1274,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 468,
+          "started_ms": 1274,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 468,
+          "name": "浏览器状态保存",
+          "started_ms": 1274,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 468,
-          "duration_ms": 1
+          "started_ms": 1274,
+          "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 457
+          "started_ms": 11,
+          "duration_ms": 1259
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_9280fc9df285",
     "name": "NOP Team",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1502
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_9280fc9df285.json",
+    "duration_ms": 1291
   }
 }

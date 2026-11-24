@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:30.734Z",
+  "checked_at": "2026-11-24T01:50:17.631Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1357
+    "status": 200,
+    "duration_ms": 1477
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1351,
+    "phase": "ok",
+    "elapsed_ms": 1470,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":22,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,90 +59,95 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1339,
+        "started_ms": 9,
+        "duration_ms": 1452,
         "timings": {
-          "response_ms": 1339
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 922,
+          "body_read_ms": 527,
+          "decode_and_transfer_ms": 3
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_dbc0a5474692\",\"title\":\"机器之心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075790&idx=1&sn=44bf6d0170be0a33db7a2fe37a69d10b&chksm=853fe7dfaf127b9aa638b32df52cd0a3cdaa7d00a97e9aae82b3d829041daa6c3840b4223594&scene=126&sessionid=1795485021#rd\",\"description\":\"专业的人工智能媒体和产业服务平台\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"机器之心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM75UiawQgcdqOcmtYS7Jibug9J7dskxkNicGiadtdKl7mLyiaw%2F0\",\"updated\":\"2026-11-23T16:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075790:1\",\"title\":\"突发！黄仁勋重任英伟达CEO，恢复全部职位\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075790&idx=1&sn=44bf6d0170be0a33db7a2fe37a69d10b&chksm=853fe7dfaf127b9aa638b32df52cd0a3cdaa7d00a97e9aae82b3d829041daa6c3840b4223594&scene=126&sessionid=1795485021#rd\",\"description\":\"即刻生效。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqHFpgj5D7CuSgrh60S7CE3V76Z3SxpOlyiasU4Mpia4evWvp0xK7vFMlkaEKPfzg8mT2HE2ujtlL5wic1hiaNGJGwSyfpRF6DcdxO8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T16:00:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075790:2\",\"title\":\"北大开源PipeLink，让GPU算子优化成为可复用组件\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075790&idx=2&sn=1e23e6cfd1c0662d913fdf1a6a3772ec&chksm=8524987175bdcd09545ddfbe0b8e13e2436c614d868184607772d73a35689e50cfaaf0671cd7&scene=126&sessionid=1795485021#rd\",\"description\":\"无需重写整个内核，PipeLink 让 GPU 局部优化独立交付与替换。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFvIQxpOFPjnTB8So6zmoym1ZxbVeyMpicg5hhE6u1CY4SwVfVEy3PsC3uZicKf3vUlLDPX33JP1hWA4m20CfGKsfBXOybFia4GP8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T16:00:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075782:1\",\"title\":\"刚刚，GLM-5.4上线！全新的Loop Transformer架构亮相\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075782&idx=1&sn=f4c3b3dd98b87895ff160ce2dc18c0cc&chksm=857917ec7947b04723c8572034be2b3548f5f1338015546b1257c3d1b90975421f61a574e5ba&scene=126&sessionid=1795485021#rd\",\"description\":\"代码能力作为更广泛能力的基础。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqF0yLLUdy0KJfobKdoL7flddwOiaWY7ZOMuiaBTkIjVYX9UDxgvibbzg76w6aKDJ8VV0NhwePsGAyaoSsa619yLhUqETkMTbkYRBM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T10:40:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075782:2\",\"title\":\"微信新开源模型，试图打造面向端侧应用的瑞士军刀\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075782&idx=2&sn=d099258fe202bcd3cb9bdde9d2c89795&chksm=8531743a6d8befe057f292c9ade0a97879b7fe24cee365d7d481f8a30e7831e0fabc84b8ec5f&scene=126&sessionid=1795485021#rd\",\"description\":\"让能力合而为一，让应用不止于一\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqHu5rpFtFK5XrSicpMvBmfCibwx6icrZTE0giaHHHPc7znC9Sibw8LspQX9d75A6KnBVibCwTribjZwD5Jtpgj1rMwjUiaREydL37xibAc0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T10:40:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075779:1\",\"title\":\"为下一代智算系统搭建开放模拟实验室，清华、无问芯穹开源系统级仿真平台Uni3Sim\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075779&idx=1&sn=636885b17d34d106010c6d8fbe0fb5bb&chksm=856c62ad7344f46a40f3e63dba752ba7593ed20d98301ca19e7b69c13ae433cda684b41d6eef&scene=126&sessionid=1795485021#rd\",\"description\":\"从单卡到超节点，AI推理基础设施需要一座「数字实验室」\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqGnuhnl92MribYHQonPWibStAFwavtLIAAVI20WxPM5zDA8s0oiaYia57kRticOTGj3D9icMUmGtLQO1RRlodQiagvBYOyibzn1KynPLI4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T09:30:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075779:2\",\"title\":\"Meta亚历山大王：超级智能即将到来，AI将接管一切科学研究\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075779&idx=2&sn=db35c965e76c082820047067df9b866e&chksm=85f67184dece408c1af6299faf3913659a6a6b15127fd2e9058d2dac70c729d2ed0ebebaf0c1&scene=126&sessionid=1795485021#rd\",\"description\":\"「毫无疑问，超级智能已经到来。欢迎来到奇点。」\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqGmcAyYplib7A6NCic2vbccBDkylNVdxOglQZicJXeTBfUqRibRRibVicr8eDYqZkCvygaqRMJRXicgqdATzgicRmBJRj9BcvcMzIHpMdo%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T09:30:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075779:3\",\"title\":\"NeurIPS 26｜新国立提出PEEK：扩散生成采样「偷看」一步，相同步数下FID可压49点，即插即用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075779&idx=3&sn=ff8f20a1a0f4b849a0dbf430478343ba&chksm=85858c9e1c244a740b0b260982221504baf8806340e641703ecc4af3cd8bb59de624142f1c4b&scene=126&sessionid=1795485021#rd\",\"description\":\"FID最高下降49.3%\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqFdkBCpFDWSV0q3rM4wFribsSL68sE0pNdU3rj2AZSd016d3MFcjjCicpXJnbWxMt5jwnjnplLiaD0Ft2LU2qpnQ1W2KVWhQgiaGws%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T09:30:00.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075729:1\",\"title\":\"全球首次！DeepSeek与FlashAttention的多个生产级AI算子获得形式化验证\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075729&idx=1&sn=3bbce964e8603a17eec79c4690e0bbc7&chksm=8521a39f41ff3b9876e398a1b2779ee39e0d7fd5a035bf61a5154b60eadc29c72c46bad28e90&scene=126&sessionid=1795485021#rd\",\"description\":\"大模型底层运算迎来可靠性突破，打破Claude乱码困境\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqGh3RUoK1oC2SHneMAjc4swxRHQ6WhtNzIiaWfFSML32O4jv6MqV2nluXsXqpCItGzdL49ywb4fnWqG69EfjmxIibuZ2LFzYRJzU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T01:10:40.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075729:2\",\"title\":\"离散code能成为通用视觉表示吗？美团LongCat开源dNaViT\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075729&idx=2&sn=4a0a0769bff02732991b582524190b43&chksm=85edb8520616f2bb02a4a9bba05ddc37a895d0043a4d967f8d29d57d28fb402bc9f5558b75f4&scene=126&sessionid=1795485021#rd\",\"description\":\"这项工作也是过去一年围绕原生离散多模态建模的一次阶段性总结。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFzVibh3ypdFdRHzv6GsjhnDQuk1qlz7SBDNiahLdMHILOXpPXRyzY2O2vuibwS1g4xDZibicDS0Sib11GxXOzLMXpoEcwGEgY0aLta4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T01:10:40.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075728:1\",\"title\":\"刚刚，OpenAI首次公开预训练核心指标\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075728&idx=1&sn=8575a49ef5fa6f9c00a6c3527d4e2ac4&chksm=85d500e5de8ae4ef62dacdc9c6937aecbc2eb84a26a01641cf08036e39937ca517d95f980520&scene=126&sessionid=1795485021#rd\",\"description\":\"Sam Altman力挺\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqEZOjldgcDC1AqkibTrXgBiczvPrv06Dd6Kd3ibzLOlMMjKY3depUSfNn6gSzMYoN69clyEEyXCt9PQTPI0icSPWxkuqqDj6kvjnKc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T22:45:21.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075728:2\",\"title\":\"NeurIPS 2026｜不重构预训练VLA结构，ActionUNet用轻量多尺度微调提升机器人鲁棒性\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075728&idx=2&sn=4edb6f8f445a065c7c4f403238cb21f3&chksm=8542834374d53e09b65cd25a73e9fca4b2c8a30909df633e0a8a91c6144bdb364a48df9c8da0&scene=126&sessionid=1795485021#rd\",\"description\":\"一种面向预训练 VLA 的高效多尺度微调框架。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqHk2KWYrQGa1ibgZY9jrcp9T41iabmzZFagiaYxeuSeGyeNSibX81kiarAGIia3YGyEMy96bXdcib46qd6HNkVhMVxnlyBQBCj5TA9ubk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T22:45:21.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075704:1\",\"title\":\"VLA/WAM已死，基模当立？Mind2Act World通用基准用「知行合一」角度为具身模型诊断进化方向\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075704&idx=1&sn=dd36e17788a25d918f6fbc5c3c0907cb&chksm=850ede84854e259f1ef6bfb0cb335ec2601d64e4caac3e35ead38e88f866c652784824258405&scene=126&sessionid=1795485021#rd\",\"description\":\"知行合一\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqEENKuIA3pAOEB91CsZSLM73eCXQqKjMYfmLxGfD4Etvs8UBGqxVOR6tHnwujCQHC7u3rUhuGKZkSWbwSqbibBAePOY2BGwbWTE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T05:19:54.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075704:2\",\"title\":\"NeurIPS 2026 | F2G-Pose：一次前向预测物体位姿、尺寸与完整形状\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075704&idx=2&sn=3b3303aa11937d51386964ec70bf1eff&chksm=85e092313c18ef665d383353edc38c23edf41715ca522f8b64fbbecba57cdedfe01e8018bed2&scene=126&sessionid=1795485021#rd\",\"description\":\"一次前向推理，同时预测物体位姿、尺寸与完整三维形状。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqER0HCibWvIsKW9FwLqq8dOsLVZd7C35hnGjRSuaOjV2bRDoLhLBGRib1jd2fDIkGQSunISbUFWrIe95GOqHIicOmVBg4MV3LNQHM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T05:19:54.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075693:1\",\"title\":\"AI服务商焦虑算力时，手里的GPU用好了吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075693&idx=1&sn=4833a1a4b33ba0864c265ee4e77b50e2&chksm=85f7924f29f5d00d8c3a9243e0298737775a882a7cbce1c7ce1df4e512335f5a4fd56d2a298c&scene=126&sessionid=1795485021#rd\",\"description\":\"哪些架构限制让 GPU 的效能无法完全释放？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqGsibFicLIax7VHNIwooC18Rpt6Gw5J260MuqQfE1iaLqMdT20uhuo5TFJuELhibg8khQj79A3sLLjY0KwoiaibnyqiaBWOgRWSs9BsA0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T01:43:24.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075693:2\",\"title\":\"编程智能体指挥机器人，该怎么考？1156个任务、三种考法，把失败定位到每一步\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075693&idx=2&sn=a586602cfc77e3c5baddc9c109813945&chksm=8543f07874378cb7f62a8f45b9220c96629d7a9104292454cba411238b137ad99bf76a7a43da&scene=126&sessionid=1795485021#rd\",\"description\":\"Embodied First Exam（EFE，具身第一考）\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqEiaicUEtjaJahMmOqUrdIyshAP6Z9JU7IbyGKaoe1vickpc0oDSKLTse8ugibM12C0H1OOicribAIIymjItRpqdFZvMrKQmdqXe2whc%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T01:43:24.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075671:1\",\"title\":\"刚刚，Claude参与证明黎曼猜想，通过独立验证！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075671&idx=1&sn=c1e87c352028a2a97dbe2bac1e0fccfb&chksm=85ff09ada493ac8d6d5b12ef182b2743ba0288e1e37b157e288c7cf0968f2b5806bad3088c42&scene=126&sessionid=1795485021#rd\",\"description\":\"1700 万行代码通过验证。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqGTHfbx1g7jM51Xoia2oYxtCRLXtutThu8285Ll0T6y1qh4K6rluf1ItnXXM4sicictpic8PicgC4buZH9vV8ia3mIvycmwmdwJia4Sns%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T23:01:40.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075671:2\",\"title\":\"NeurIPS 2026 | 大模型抗遗忘新范式：「先微调，后矫正」实现无遗忘等价条件\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075671&idx=2&sn=7a5643ece9baba036b9f3fd9cfb351e3&chksm=85a8ec2aec9caac8fb5c1f5e5dec8e74c81bc970ebf24bcf31a51cf6e9da7fc31947c3fa56af&scene=126&sessionid=1795485021#rd\",\"description\":\"先微调再修复，清华JANUS让大模型学新知不忘旧知。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqFxrq9snKqXQxHz8JSlVcuC9RF2zvr2l9Dyd1b6I1icGYmBhPE5vLS3eWFKYIoicw0znzUibfzGy5cII9eicA21dclzDHl0SBvpaxw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T23:01:40.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075659:1\",\"title\":\"OpenAI与Anthropic围攻千禧年难题，七道题进展如何？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075659&idx=1&sn=2c9a56243c7b320a52c355bde30fed10&chksm=8512378e4fc23122526244433c9915e2630d358b8cf513215768d4b7ddd26b4559807becc844&scene=126&sessionid=1795485021#rd\",\"description\":\"黎曼猜想迎来完整证明声明，无外力纳维–斯托克斯出现新解答，杨–米尔斯存在性已有独立评估……\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqFsUOEUA9H0Ix0werW1380mRmPg6rZN6RmgYNLZWPwO07RsFrpVIktzJ3ibbyTPSX6jo6ZfPXJ385MMe3dYGjFkpjJyOAcUY3tc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T09:50:54.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075659:2\",\"title\":\"Claude Opus 5拿到45.7分，25个大模型视频记忆大考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075659&idx=2&sn=79fdac0d7eae241cf54b9edc20562d39&chksm=85fbe4135eaef1f72c0365d003a9066fbf37daddbf53f26f6d6b6ef676507f18c014f1fc398d&scene=126&sessionid=1795485021#rd\",\"description\":\"VideoMemBench 希望推动模型更充分地利用视频对话中已经建立的信息，使持续追问和跨场景讨论更加连贯、可靠。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqEajOslsxvbdpsDCdnPsSaFjbstmyPg4N7pXDDChekMSNOnxN1lGkXLa6HzuTwQLrJEb4FceK9VtXe8lmXa6nHrYtlOqLrm6bk%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T09:50:54.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075624:1\",\"title\":\"没有AI，12年潜心研究！人类数学家紧急公开广义黎曼猜想证明\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075624&idx=1&sn=03d16a0fc5490ccdb4b2d3151ef8b228&chksm=8503521302b356e63d51e4553ee0d0fc91d9634d4d5f38b5f24fbb7e25ea6f31347cb7d8c437&scene=126&sessionid=1795485021#rd\",\"description\":\"长达940页的「纯手搓」证明！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqEO7ib8FyK3fibgqKfLM34zziaUqibVMrib4VMguteTjztbMpjMZvDvVxZHUorNynTYk43S1v2GF1p5aBhqeazlD6BIuugev9u1zN0I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T04:09:45.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075624:2\",\"title\":\"TML开源新模型，循环Transformer架构，笔记本就能跑\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075624&idx=2&sn=b6e7e23d631dba7a952cbe5da8e77769&chksm=858738147efdb5ff3d8301f2b0e755bf10cc2c1dc9f855caf1688a8fb48cb9144c8d39ff275c&scene=126&sessionid=1795485021#rd\",\"description\":\"Inkling 2 Mini 是一个仅有 26B 参数的循环 Transformer，小到足以在你的笔记本电脑上运行，强大到足以胜任智能体任务，在 AA Index 上的得分为 20.1。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F5L8bhP5dIqG82kE39rStxMYI6YgZepnD7dToY8U6rib71d5icVltfZIqukibtYmYHTD5qCKMIGIk0W4YqKTWZQemYt3cibljiaIq8MIXRppOnRE8%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T04:09:45.000Z\"},{\"id\":\"wxmp:MzA3MzI4MjgzMw%3D%3D:2651075624:3\",\"title\":\"NeurIPS 2026 Spotlight | 西工大提出ROSE：多模态终身知识编辑新范式\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651075624&idx=3&sn=d08693456bc97db18084229852b76739&chksm=85132ac30067333f48fb7979b4c595a179c8651e7fb776de013282616ecb19158c3b5429ea4f&scene=126&sessionid=1795485021#rd\",\"description\":\"在新知识学习与原有能力保持之间实现更好的平衡\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F5L8bhP5dIqGMC5wnavIF7rgEqsG8icAKA6yWhcpDWePiaITYkR7RHagWnhsEibo1kdWQyDw7OibSqxcfO8qh5QJJsYMSUAn2jeWO59QY1fgNicQ4%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T04:09:45.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1351,
+      "elapsed_ms": 1470,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1343
+          "started_ms": 6,
+          "duration_ms": 1463
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1350,
+          "name": "输出读取与校验",
+          "started_ms": 1469,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1470,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1350,
+          "started_ms": 1470,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1350,
+          "name": "浏览器状态保存",
+          "started_ms": 1470,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1350,
-          "duration_ms": 1
+          "started_ms": 1470,
+          "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1339
+          "started_ms": 9,
+          "duration_ms": 1452
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_dbc0a5474692",
     "name": "机器之心",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 603
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_dbc0a5474692.json",
+    "duration_ms": 3666
   }
 }

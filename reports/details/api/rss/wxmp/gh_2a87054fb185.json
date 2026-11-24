@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:37.623Z",
+  "checked_at": "2026-11-24T01:49:06.570Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 581
+    "status": 200,
+    "duration_ms": 2713
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 573,
+    "phase": "ok",
+    "elapsed_ms": 2707,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 562,
+        "started_ms": 11,
+        "duration_ms": 2693,
         "timings": {
-          "response_ms": 561
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 911,
+          "body_read_ms": 1781,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_2a87054fb185\",\"title\":\"同程旅行安全应急响应中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485449&idx=1&sn=4e7c27be9c1927d38c415ef698cf0fff&chksm=eafda3932ccae7c09089b687923eb64fda3d5485c00be99e52b0aef271e2d1e42dc79d825009&scene=126&sessionid=1795484950#rd\",\"description\":\"欢迎提交漏洞 https://sec.ly.com\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"同程旅行安全应急响应中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4pW84RcEibSXRVMKPeMRKibsjSGnRiaqibVafwYu64PbJqug%2F0\",\"updated\":\"2026-09-14T11:17:24.000Z\",\"items\":[{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485449:1\",\"title\":\"关于LYSRC暂停接收漏洞公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485449&idx=1&sn=4e7c27be9c1927d38c415ef698cf0fff&chksm=eafda3932ccae7c09089b687923eb64fda3d5485c00be99e52b0aef271e2d1e42dc79d825009&scene=126&sessionid=1795484950#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/IgRibLICeXmnoK2kl08zic80yibdkWpWtgsXbKrVicKDb0uR9gMOL7eB34lowQEDRewuvLzXicoCt4vxSRxg6o5H92iaHnAYRuPP6cYxzJccwMGSE/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-09-14T11:17:24.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485444:1\",\"title\":\"2026端午节活动积分兑换公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485444&idx=1&sn=b3c7216b6edaf9c1b707085d74569825&chksm=ea726f5ac1cf20fdd4a414719a632de081a08b0caedca9e716a54557c994ff0b073fc860aada&scene=126&sessionid=1795484950#rd\",\"description\":\"LYSRC感谢大家在端午活动中倾注的热情与专业，每一份漏洞报告都是大家对lysrc安全生态最坚\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/IgRibLICeXmkEiaOxuCMqfR3iaqB2KCpv4F5Rzy0nDibN55a3mXZDrqKKDwJsrWiasb9IRdbzPUOxqqWtia1ckGhBtH8KDibIRLjnYow6fTpOIsKibE/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-07-15T09:20:12.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485439:1\",\"title\":\"关于暂停接收同程旅行旗下子公司业务漏洞公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485439&idx=1&sn=7519d22f53a5544d65e90a280e73a7a9&chksm=ea12ef1d6d1a5db76ec3b9de0ce76d4e43724f50435272361926eca11ceff966914de43e19cc&scene=126&sessionid=1795484950#rd\",\"description\":\"尊敬的各位安全研究员及合作伙伴：         感谢大家一直以来对同程旅行安全应急响应中心（LYSRC）的关\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/IgRibLICeXmntvWv6dGRHZ2luZg8Kv7183ia1wk9uZviac7IOuWvfe45cBibialZStvd9DiaPfgP4oZM0I9dBExdVee5IeibuRO7N20ETQACUaZUg4/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-07-10T08:16:14.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485432:1\",\"title\":\"【活动公告】端午安康｜LYSRC双倍积分活动正式开启\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485432&idx=1&sn=c4ccfba6c886a509ce74915c4860d648&chksm=eaae231dae4683d8ea91bd4ca314dcf160e474e9b1f506464b4b82c18b278d1b8cb08e61e692&scene=126&sessionid=1795484950#rd\",\"description\":\"限时双倍积分来袭！\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/IgRibLICeXmkotxncwdOby7Pr0ujTqJFozM3PBEh96IsvUibZafkx4aPmqyIGviaic9libps5yRrPDOB9m3QBdIvPOFcgxHXRdOCU0wEPNvEl5C0/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-06-05T09:57:37.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485342:1\",\"title\":\"LYSRC 关于AI辅助漏洞挖掘的报告提交规范\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485342&idx=1&sn=cb96cf0f429ba77e502a35a418d77023&chksm=eab349cca7174379111122f5a34b8ccd1021dca4d6859bf61da30d1246af15d385cf491ab14d&scene=126&sessionid=1795484950#rd\",\"description\":\"\",\"image\":\"https://mmecoa.qpic.cn/mmecoa_jpg/IgRibLICeXmlPmwdiaC0oJVh3ibPjFRprQPSFZW1dYmwkuy7C5pGFOwL0bXshYE9iaicGhb4aTJqiazuwGWVHqficSA9K11yyLUcpEk7RibBd4rz4s0/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2026-04-27T09:08:32.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485323:1\",\"title\":\"年终冲刺！LYSRC限时双倍奖励\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485323&idx=1&sn=0dbd47c044567927998e9b61fe34dedd&chksm=ea2dea9476b3cc0caaae81e014576c1d0f96b7b9e7cfafb2f318f07db3516053ae9ce4c05968&scene=126&sessionid=1795484950#rd\",\"description\":\"同程旅行SRC年终福利大放送！年底冲刺，奖励全面翻倍，邀你一起收官2025，挖洞赢好礼！\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/PAV8ewtdsKra2mPxLF4xrxGLX7rUCib5HFb9Rtpa49VnNn5n2CnL6dPLdPaX3gbjibf9iaf6L5fyEO2XpuoGYbFfA/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-12-12T01:25:34.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485309:1\",\"title\":\"【LYSRC大模型专项众测】探索AI安全边界，3倍奖励等你来拿！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485309&idx=1&sn=2949fa5ce5eaa12a188a060d4bade896&chksm=ead1390c7d930d346636b4b7aafea82f1a70b0b912fa18e01e3a5337b4f88d2083af51ca8af0&scene=126&sessionid=1795484950#rd\",\"description\":\"LYSRC正式启动大模型专项测试活动，诚邀白帽师傅们聚焦同程旅行体系AIGC服务安全，共同筑牢智能时代安全防线\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/PAV8ewtdsKribXNR4cic1ctGjFNHXZK651sWOzibxpJForgDaVD8iaV2rzvAqK19mNXK498CE7J3Nfry8B5wP6fUZw/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-09-19T10:50:25.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485300:1\",\"title\":\"【LYSRC漏洞挖掘大赛】夏日攻坚行动，双倍积分+现金奖励等你拿！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485300&idx=1&sn=12af35651ea2aa886ca0cb33d243f0b1&chksm=ea3e319208b2650637820d157ec6acea670482d0a0088b080f85c96ed6599ce761033fca0f6c&scene=126&sessionid=1795484950#rd\",\"description\":\"\\\"欢迎来到漏洞挖掘活动，这是一场代码世界的‘吃鸡’，最后的赢家，就是漏洞的终结者！\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/PAV8ewtdsKofbslHDN0rNh1b1ERYO30ib1KtrKicicic1bQtcLoFk2hp0XhKn3UC2bnkRRTxhxasREExUr1k4IOK7w/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-07-18T11:00:00.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485295:1\",\"title\":\"端午安康 | LYSRC双倍积分盛宴开启，师傅们速速集合！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485295&idx=1&sn=4fd83df09aded54c106976649c3ba31d&chksm=ea842d58c3d45da4b5157f0429ac9a0ef2180aec251ab9dda057e2b92330ac6a44268cbdff10&scene=126&sessionid=1795484950#rd\",\"description\":\"粽叶飘香龙舟竞，又是一年端午时同程旅行安全应急响应中心（LYSRC）特别推出【粽情挖洞】双倍积分活动。\",\"image\":\"https://mmecoa.qpic.cn/sz_mmecoa_jpg/PAV8ewtdsKouKvRbyibrx7zic6FpCkfR6kZN9H6DHzEIHvxJH89lPq5KFJ5RtTGQtV3mC2KGYOb6aIc0a9UEu5Tg/640?wxtype=jpeg&wxfrom=25\",\"type\":\"article\",\"published\":\"2025-05-15T12:01:08.000Z\"},{\"id\":\"wxmp:MzI4MzI4MDg1NA%3D%3D:2247485279:1\",\"title\":\"年末冲刺，重磅好礼等你来拿！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&mid=2247485279&idx=1&sn=e6749e5e579473de2e25b3b496fd3770&chksm=eae183540e0650b273a1d98b535be7040e8e4fadede18079a26b1dd28a9001e69854aefc5511&scene=126&sessionid=1795484950#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FPAV8ewtdsKq0ibH413EC3TkLuQ9FFr35w5tBLrrX40cqxZn7oUs6f7ibUI8rkIRClEdK53kJNgI8sfbjjcygP21w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-05T12:01:26.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 573,
+      "elapsed_ms": 2707,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -80,64 +85,69 @@
         {
           "name": "Cookie 与浏览器状态读取",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 565
+          "started_ms": 8,
+          "duration_ms": 2699
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 572,
+          "name": "输出读取与校验",
+          "started_ms": 2707,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2707,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 572,
-          "duration_ms": 1
+          "started_ms": 2707,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 573,
+          "name": "浏览器状态保存",
+          "started_ms": 2707,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 573,
+          "started_ms": 2707,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 563
+          "started_ms": 11,
+          "duration_ms": 2693
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_2a87054fb185",
     "name": "同程旅行安全应急响应中心",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 757
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_2a87054fb185.json",
+    "duration_ms": 5865
   }
 }

@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:07.324Z",
+  "checked_at": "2026-11-24T01:49:47.220Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 2289
+    "status": 200,
+    "duration_ms": 1043
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 2281,
+    "phase": "ok",
+    "elapsed_ms": 1037,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 2269,
+        "started_ms": 10,
+        "duration_ms": 1024,
         "timings": {
-          "response_ms": 2269
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 876,
+          "body_read_ms": 147,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_6410a4e28c9e\",\"title\":\"乐枕迭代日志\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519722&idx=1&sn=cc7fb93a2f3f786fbc14a305f9fc0620&chksm=85e9767b1b3bdfd550aaaf321d58292dc8e14a0882ab6ba90d8b6eeb9cf2f1e9e660eee4a6a3&scene=126&sessionid=1795484990#rd\",\"description\":\"创业者，founder@TrustAI。浪漫世界，一起折腾！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"乐枕迭代日志\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5VGGruCBVcIZebTDc1UBMiaOp0VGLdBaC5BgOEiblvZicicA%2F0\",\"updated\":\"2025-12-26T17:56:47.000Z\",\"items\":[{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519722:1\",\"title\":\"2025: 一个30岁的创业者pivot了一切\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519722&idx=1&sn=cc7fb93a2f3f786fbc14a305f9fc0620&chksm=85e9767b1b3bdfd550aaaf321d58292dc8e14a0882ab6ba90d8b6eeb9cf2f1e9e660eee4a6a3&scene=126&sessionid=1795484990#rd\",\"description\":\"在新加坡和Andy住了几个月红灯区，我感觉必须得从这地方走出去。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZxT8z4eTabgqeLrrX2SjA0eriasQAu6AJyNCuH2LDiazxEcS0GmfksRpDrgPCamjtIvYWpHnU9aYG3w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-26T17:56:47.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519698:1\",\"title\":\"出海创业这俩月\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519698&idx=1&sn=d948d039c8ebb3fe64a8fd26c7b1c1cf&chksm=85011efff1e9a1d45c25182d3cdfe4d43825bb7d26f00a14d20bfcd6c4c47497470129153e5c&scene=126&sessionid=1795484990#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZw8ODmf64fcFqkQGzicyVKm8pAiaiak2LKWm4BLIV5ibZ9I1hbkVt15Rg2o3sMyVeKp0BBdtlwqq6gdEw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-11-10T07:25:28.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519694:1\",\"title\":\"AI安全与SME市场升温 - 美国/以色列网安初创企业赛道统计\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519694&idx=1&sn=3b23cb81caa3ba543952cb27495af771&chksm=85558463782c3c8da018c111fc4d637ad9ef88b7c34e918d4cdef639527fb3b3eb857aa4a84a&scene=126&sessionid=1795484990#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZwGpwibgoFxsNZ5zqV3tfBSEfMB3U5GOpIr8zOUmlpcb2HCUrC7zXqqbibq6Cltj0NENduMLnEeZspg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-05-16T03:45:20.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519684:1\",\"title\":\"AI x Security创新者观察（一）：AI安全赛道厂商\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519684&idx=1&sn=0b3639c12135e41907b3b9ca61adfcd2&chksm=855643988af3f6a003b4114b6ab557aa85bee1156e8aa81e7ce52d34c167c782dd516f38aa83&scene=126&sessionid=1795484990#rd\",\"description\":\"对AI安全赛道进行细分，给出各领域创新厂商产品方向清单供研究。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZxIgVvNE3mIaWBm3TvILEXFQQpRgyhWKh7lNjTo95jD8lUwazCZEBfDcFnmnibs18DvrpJ2Bm92VCA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-04-05T09:44:57.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519663:1\",\"title\":\"战争中的以色列企业\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519663&idx=1&sn=ebc53f7c4bd0bb3090aa5d3e4b273ca4&chksm=85b8d1914b09ae98e407e66cd768000aabfc38ede9b519d16f05c30709c115b586f1a8ea965c&scene=126&sessionid=1795484990#rd\",\"description\":\"1985年，英特尔耗资2亿美元、历时4年、速度更快的386芯片研发成功，全世界台式电脑将因此增强。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZzJVsxribdHMxQtczyoImnrbBRPPBPygcKS92YSNOs3pFqQwN6YPicbvUDggFlCuMiaStzl9wXF9mJHg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-03-12T13:44:00.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519652:1\",\"title\":\"23年书单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519652&idx=1&sn=eb337e013dbb5dbcebd6eb9996f83828&chksm=85f1ea264ecee631397aee15f8f280e04c88cbe010f89f56021340d677bc688c50a974773e5a&scene=126&sessionid=1795484990#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZxGTrLYsy8zpF5Jgx1Pe7uksMDIp5qGK9l2csE3Gicia3RcPYa56wv552baPyYfw0OeQCaeQfeKZH4w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-12-28T12:03:00.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519641:1\",\"title\":\"褚时健时代的技术引进\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519641&idx=1&sn=187952338eb25d32e1c5433b6c051ac1&chksm=859da0c7a95ce8ad158e6d76df3f4fc027d7dde58d987311673acd1612dee2b89c833c18b245&scene=126&sessionid=1795484990#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZwU68hajdXD5k4BqPMOTU8eabhDVUWfr5UhDSGSwSTjoOTSeWdZXUx01xMQCky6h64VolrRicmIk4A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-12-17T15:37:02.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519637:1\",\"title\":\"冥河之水\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519637&idx=1&sn=64d053cab33f4e2163033c1bb3a7794f&chksm=85b2332a409a53c611bb66de3fb6ef92c76aa0c6b843f81c977f18cdba182c07f5061c10ca02&scene=126&sessionid=1795484990#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZys1d20lr9DojRMRIylnlhRoC2OFVuu2S3SsBBc7EOId2pFhAgVcsZdVGlVeCRiacyvbsyiaxhCxKrw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-12-09T03:33:00.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519629:1\",\"title\":\"练习时长两年半的API安全练习生\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519629&idx=1&sn=3c288ffde05b1c9a4bae26fa22cc9954&chksm=8531295f14f95e12c9d7169dee7852cbaaac168b7e6cf04ede3b47e27d6d0b1e12c911a07dcc&scene=126&sessionid=1795484990#rd\",\"description\":\"21年，很多人同时忙着一件事——从26个英文字母随机挑选几个拼成一个新词，并做出释义：趋势、价值、未来。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZz9zgAHPVeDqmnYhbBjcvicKd2kGPnjEqwHME262nEehTReGXwETORFbr5dicTiavFYhmwVfIBDX9KDw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-24T07:13:46.000Z\"},{\"id\":\"wxmp:MzA3NTMyNDg3OQ%3D%3D:2652519624:1\",\"title\":\"碎片 #202309\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA3NTMyNDg3OQ==&mid=2652519624&idx=1&sn=73da449e2bf5bcc4a286d587873d5187&chksm=85b7945d69bc32f94f0cbf0afe727ce1c5bb253cfc6992d681b4f255939616473f6e88597199&scene=126&sessionid=1795484990#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FWdJky8oWwZwdG8NFCT76EmSMhIC3jc1ibFEhUcMU4esqjHfycsW6Xu1KibYThXwuBoyd1w28X8Xe6kApDiaFWagrQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-10-08T11:47:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2281,
+      "elapsed_ms": 1037,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -75,69 +80,74 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
-          "duration_ms": 3
+          "started_ms": 1,
+          "duration_ms": 0
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 3,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 2273
+          "started_ms": 7,
+          "duration_ms": 1030
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 2281,
+          "name": "输出读取与校验",
+          "started_ms": 1037,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1037,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2281,
+          "started_ms": 1037,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 2281,
+          "name": "浏览器状态保存",
+          "started_ms": 1037,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2281,
+          "started_ms": 1037,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 2269
+          "started_ms": 10,
+          "duration_ms": 1024
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_6410a4e28c9e",
     "name": "乐枕迭代日志",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 582
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_6410a4e28c9e.json",
+    "duration_ms": 1102
   }
 }

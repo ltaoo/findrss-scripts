@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:47.773Z",
+  "checked_at": "2026-11-24T01:50:31.334Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1738
+    "status": 200,
+    "duration_ms": 1140
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1731,
+    "phase": "ok",
+    "elapsed_ms": 1134,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1719,
+        "started_ms": 9,
+        "duration_ms": 1122,
         "timings": {
-          "response_ms": 1719
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 787,
+          "body_read_ms": 334,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_9bd170629475\",\"title\":\"夕小瑶科技说\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623669&idx=1&sn=b80ab2f22ad78ca56547bc79ede0ec87&chksm=96adb3907caafad1c1b50295e9270a3e8208137d5f638ca992a6f2f79ea87bf66f57fac0f6ad&scene=126&sessionid=1795485034#rd\",\"description\":\"低负担解码AI世界，硬核也可爱！\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"夕小瑶科技说\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7mib7yjqnAgq5L1h8OWoUOcxl4bQglNqBttImia4Duyfpw%2F0\",\"updated\":\"2026-11-24T01:01:46.000Z\",\"items\":[{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623669:1\",\"title\":\"DeepSeek 估值或超 6000 亿！新股东名单曝光\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623669&idx=1&sn=b80ab2f22ad78ca56547bc79ede0ec87&chksm=96adb3907caafad1c1b50295e9270a3e8208137d5f638ca992a6f2f79ea87bf66f57fac0f6ad&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHO4bLQIdUzuibPbfhmHkJNItxCTvPef8CCSDYUibwczaPfeeFeBz2tx1L68Wt4tytHOrqQzsWSUrEn9TDLN4JLW6RC8FtnC3iawHs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T01:01:46.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623655:1\",\"title\":\"老黄又回来当CEO了！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623655&idx=1&sn=6442c783d187fe2ab8fc8ca57b893712&chksm=96aef6e9c267ec17927444e9a97dbfbc515c840791f704c84a95e321c0955e36e7a0ab39b675&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHMROR8Wbz45U5rdScHK9VYorEAwEpvlAHia8I5ahoP5DRyMM837lueiaq3SIpXkAZgUtF5dVFHgibjIg6j1YorIUdicc8ntP7PZ7NM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T14:26:31.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623643:1\",\"title\":\"上手实测GLM-5.4，国模出了个手感顶级的Coding旗舰\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623643&idx=1&sn=823a1a530eca4789c05138007017724b&chksm=96c50aa04081694b0bf65f9053cc160a1b3f4fb5d4c6d80606362fb9bbbaf770f44465839576&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHNkGkYuzBw3JL1ib4TzpAwXfFic7V36R5esPPLN9RGFj7siaJomTAaH8X5QqMbLnzotNuGWcJRicyHStibyvBH6AUsmicucdjPibgCFFU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T05:57:45.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623636:1\",\"title\":\"OpenAI 首席科学家预警，2027 年 AI 研发可能迎来突破潮\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623636&idx=1&sn=fbe7ac11180cff2c943498aed186914b&chksm=965b55ca259479cb31d4d8a4586931fa0c1b40757ee8b2205d4e7b58797f1cf48d4bb9a11ae7&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHNqJX5tskZbVZ0034SeNYIEyZEeGGrcBtl0zklrYuKwlguiauIyHvpow7AiaGaOibtiatTFH7A8uIVa0rrnjHf4xwhoOrNlPMA9KTc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T01:04:59.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623565:1\",\"title\":\"Anthropic正式敲钟上市！超越马斯克SpaceX，创史上最大 IPO\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623565&idx=1&sn=30615c2bc21d1307c702fb700550da46&chksm=96a05d5de31bb3aafd282786a6ecb7fc54905c25f69fae0e5e89b27de295d6f7f246a7f97f8d&scene=126&sessionid=1795485034#rd\",\"description\":\"Anthropic 开盘暴涨 34%\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHNWXwFMJDwVwFicvSvrjibNS3L8vqL1pS4wGiaicicEAnsg7uL5PmjFFLKsTibSeE1n0XmkbGJO5YzEJb4OO7YAMXP98ic5x3ibKN2XxJk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T20:22:41.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623545:1\",\"title\":\"斯坦福Agent工程课开源：教你从零搭 Agent\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623545&idx=1&sn=d27c9653f0a6252229a5c1c5bb200e0f&chksm=961238552667f13c16cb0dbbf8016c589acd9bffaa5e42c91de51d7d88cf131c637d201055cb&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHOv11ezzicY8J4KK69ibU8hsRkmByfJsm8rtyORUiaVX7jPlKnAbIrAjy8DibiaMdIeFPRGBTqhO3wu7DIJozMy4km1RDu3DrbFJCrY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T07:05:36.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623533:1\",\"title\":\"芯片版 RSI 来了？OpenAI 帮 AMD 改芯片\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623533&idx=1&sn=f86dd66e4fb624e6e888f5eee7662929&chksm=964e797dc87060361e864bafbd420f4487f775f31b29e2da81674595dadba54fcda836d421e4&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHMrY6KeVu92bmo0kksy6V9bmT2gJcIcOLGTJZ1P87VIlwp9gCUMk5lXWGha2KN95rMQDzDQG4IjwR7xa0veUzBibQo1PGiaSEkV4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T00:54:57.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623508:1\",\"title\":\"DeepSeek 限额冲上热搜，网友喊话：收点钱吧\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623508&idx=1&sn=e607130aa1362d303db00f49ff67be5b&chksm=9652d06c7bb7c95178f1ee8cc538907a17fcf88387b8bba6bfa19bc8c63f7b23289977d3c38d&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHPPKogZib1qOBY78VyiaAwx1LbBRp3Wwz2U4yZXl5GFXJqMF3KYwZJFIAwyrQjuROUkRMriaaSTauwEiabbiaYoR5Ep3BVt8ic8lIoC0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:29:23.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623486:1\",\"title\":\"Anthropic 官方架构指南：如何构建 7×24 小时常驻 Agent\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623486&idx=1&sn=02e8225b6a07707d4dfa990f3971ee86&chksm=9667ad8f8d9b8f3fca20b96cc55cee6650dd5e6b35c124ea880ecaa1e9c54c8415eb7cdebfe3&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F0hd8MxUumHNj87qWd6ibYQvDXFfuH1qrvm9icibkLO4d0NAch6jKDFT1T9OU4XkUEibqqky8NfI7oAFgnwUFh1blsPibx9bLz1oORcH2tO4IZIl8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T06:51:15.000Z\"},{\"id\":\"wxmp:MzIwNzc2NTk0NQ%3D%3D:2247623485:1\",\"title\":\"GPT-6.2 Astra 和 Sol 正式发布，Astra 降价了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623485&idx=1&sn=a3f36a2369f9c0a490fa6f8013c6917f&chksm=96363956ab689d090088b063b9b7f4a09de94365495af34b8e345fef158669cc555569307126&scene=126&sessionid=1795485034#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F0hd8MxUumHN2oHjqNF9V0Pibicyw2WGTG1OFzBdbsmtE8lZJdiaN7UXh24jUfkoMomAiaHAzjDV0ntiby48bqvSEu6zJOfze6ZmsdnlITtlibmicX0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:09:58.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1731,
+      "elapsed_ms": 1134,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,39 +110,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1723
+          "started_ms": 6,
+          "duration_ms": 1128
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1730,
+          "name": "输出读取与校验",
+          "started_ms": 1134,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1134,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1730,
+          "started_ms": 1134,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1730,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 1134,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1731,
+          "started_ms": 1134,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1719
+          "started_ms": 9,
+          "duration_ms": 1122
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_9bd170629475",
     "name": "夕小瑶科技说",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 6903
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_9bd170629475.json",
+    "duration_ms": 1199
   }
 }

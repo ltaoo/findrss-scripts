@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:20.604Z",
+  "checked_at": "2026-11-24T01:50:02.401Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1775
+    "status": 200,
+    "duration_ms": 858
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1753,
+    "phase": "ok",
+    "elapsed_ms": 851,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -55,17 +60,17 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 1742,
+        "duration_ms": 837,
         "timings": {
-          "response_ms": 1742
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 651,
+          "body_read_ms": 185,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_8ab0e346e1df\",\"title\":\"OnionSec\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486605&idx=1&sn=e0efb8c1e0bf62326bce51441f9b9bc4&chksm=f8cda0f8ce9a49becf33139cdcdce0f7e1da245034a038d697a4f8296d199f09e2dd774b0650&scene=126&sessionid=1795485005#rd\",\"description\":\"赛博郎中；\\n接触写作；\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"OnionSec\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5rTIy4VqIdE8nWuhb03D0ndDg8iaicGibvTK2AMicID9e7Wg%2F0\",\"updated\":\"2026-11-23T06:10:52.000Z\",\"items\":[{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486605:1\",\"title\":\"读一篇随笔有感，翻译由 GPT-6 提供。\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486605&idx=1&sn=e0efb8c1e0bf62326bce51441f9b9bc4&chksm=f8cda0f8ce9a49becf33139cdcdce0f7e1da245034a038d697a4f8296d199f09e2dd774b0650&scene=126&sessionid=1795485005#rd\",\"description\":\"作者不是在证明人类永远比机器强，而是在讨论：当机器越来越强大时，我们应该如何对待知识、他人，以及自己所承担的责任。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T06:10:52.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486602:1\",\"title\":\"当 AI 开始解决数学难题，我们还需要怎样的自己？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486602&idx=1&sn=a0c968645d6735f55fde10f29100e9bb&chksm=f8651bf694e63172efe22742b5410381f340c41b54c9e45716cdfa2619c9590e3a6a06728c73&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T03:14:21.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486600:1\",\"title\":\"可口可乐香港版\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486600&idx=1&sn=efb75daf8f7f4071ae7f3b079134a585&chksm=f8fe939f9156d6c9b712bbe0c6dacb0fbe92d4f182d0dec1171cbd2121b8c68fc85f19ac6abb&scene=126&sessionid=1795485005#rd\",\"description\":\"纯人手写，非 AI 版。🌚\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T15:27:32.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486598:1\",\"title\":\"Mini-TPU 工程日志（二）：从一个 INT8 MAC 到 2×2 脉动阵列\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486598&idx=1&sn=6ad52ae96c56853520b2c60dfebdd242&chksm=f899cd1323e4c72be38046cda8adfaae2f95784b753fd8abe0d13a15f1140e8f66f118610263&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T11:40:45.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486596:1\",\"title\":\"我好像已经习惯了机器翻译\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486596&idx=1&sn=5a34d35cfabca3d57973702e064bc9c7&chksm=f84f37df9d631d8392125751d2514c7871e507cc4bd421182ed590333a41a371cf4955426c63&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T03:32:07.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486594:1\",\"title\":\"黎曼猜想的 Lean 形式化验证：数学证明如何接受机器审查\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486594&idx=1&sn=120cd8e0826586e14db00da95b40baec&chksm=f8668c34a5e956534ee3cb8b75c4f241a6c47013d3fbe0740512317ade860ce58bbbccde12b1&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T16:22:41.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486566:1\",\"title\":\"从正整数到素数，再到圆周率\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486566&idx=1&sn=d76581e7d239ef504a9c1f618c7d1845&chksm=f8c99007500ceee0e80dc009b7141d3d4c3e154ba5e9b5335c5423d86ef57b362b7f9c55ba02&scene=126&sessionid=1795485005#rd\",\"description\":\"一堂关于黎曼 ζ 函数与欧拉乘积的苏格拉底式数学课今天我们从一个看起来很简单的问题开始：为什么素数会出现在一个\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T15:48:28.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486354:1\",\"title\":\"我开始理解二平方和定理，是因为有人没有急着告诉我答案\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486354&idx=1&sn=bf04b8d3f8f8c0b0b615c07fa906e7ee&chksm=f860684755e6af1a4ec2c227d7fa6f6626ebbfbbd310b6528c0728ab703a843776dfba0b2f79&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-21T06:08:27.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486350:1\",\"title\":\"最近，我开始喜欢数学了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486350&idx=1&sn=cde0eaed7554cd124624a8c69b78206c&chksm=f851273a6708d171e0ecabeb72634082dd7eaae3242023fbf19a849e4b08ea2d9758709f0b68&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T09:22:04.000Z\"},{\"id\":\"wxmp:MzUyMTUwMzI3Ng%3D%3D:2247486348:1\",\"title\":\"从有限算术证书开始：对 Euler 1747 猜想论文 Section 7 的独立复现\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUyMTUwMzI3Ng==&mid=2247486348&idx=1&sn=0f7f5f32974f1cb62ff70cdc5389b8b7&chksm=f89297a86853e44751833a1ed88583988f0ba17b9a14721dfeb8b3cc8480dd4ba1099a35f501&scene=126&sessionid=1795485005#rd\",\"description\":\"前几天该研究级数学论文独立审查完成了，本文记录自己最初的审查切入点。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfNR1ygo0YuUpqTgGSiaF9QmmzTCF9wc7kTdZssEXbFvs9icKTIOUicjgqiaDRbDy9ibVic51SBthaLkHSx4CfhneFpuKjzmhHPzjw4Y8aJuKVE6fc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T05:59:11.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1753,
+      "elapsed_ms": 851,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -110,26 +115,31 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1746
+          "duration_ms": 843
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1753,
+          "name": "输出读取与校验",
+          "started_ms": 850,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 850,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1753,
-          "duration_ms": 0
+          "started_ms": 850,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1753,
+          "name": "浏览器状态保存",
+          "started_ms": 851,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1753,
+          "started_ms": 851,
           "duration_ms": 0
         }
       ],
@@ -137,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 1742
+          "duration_ms": 837
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_8ab0e346e1df",
     "name": "OnionSec",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1084
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_8ab0e346e1df.json",
+    "duration_ms": 1560
   }
 }

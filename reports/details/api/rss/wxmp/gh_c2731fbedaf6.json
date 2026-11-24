@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:50.807Z",
+  "checked_at": "2026-11-24T01:49:22.877Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1224
+    "status": 200,
+    "duration_ms": 1701
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1216,
+    "phase": "ok",
+    "elapsed_ms": 1693,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":34,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 1204,
+        "started_ms": 10,
+        "duration_ms": 1675,
         "timings": {
-          "response_ms": 1204
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 775,
+          "body_read_ms": 896,
+          "decode_and_transfer_ms": 4
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_c2731fbedaf6\",\"title\":\"关键基础设施安全应急响应中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545718&idx=1&sn=3c7ac8a2a7e58d7b610328130bdcad74&chksm=c075fb2115b74e345a76d0e66d79b164b9693c13af3c378ce7a5a295188777d8e26e2b065cef&scene=126&sessionid=1795484966#rd\",\"description\":\"国家互联网应急中心下属机构，专门致力于国家关键信息基础设施的网络安全应急保障工作，开展相关领域的关键技术研究、安全事件通报与应急响应。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"关键基础设施安全应急响应中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4nSr98RdQiaFAg0CWic499TllCOv672728DXw0vzovib3qQ%2F0\",\"updated\":\"2024-09-09T08:41:11.000Z\",\"items\":[{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545718:1\",\"title\":\"关键基础设施安全资讯周报20240909期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545718&idx=1&sn=3c7ac8a2a7e58d7b610328130bdcad74&chksm=c075fb2115b74e345a76d0e66d79b164b9693c13af3c378ce7a5a295188777d8e26e2b065cef&scene=126&sessionid=1795484966#rd\",\"description\":\"本期关键基础设施安全资讯周报共收录安全资讯29篇。点击文章，快速阅读最新资讯。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguWwHVes7qFjvRfF8YWP2jjia0kEfPmXQOBZjYXu2GQVSEWkLaU7elYIlhJiaYH0jHg9ibiasgsffaolg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-09T08:41:11.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545718:2\",\"title\":\"从部署到运维：全球安全机构联手打造AI安全部署指南 | 英美安全机构《AI系统安全部署指南》全文翻译\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545718&idx=2&sn=f29e1fbc5b68a8488d8146fca3a8e26d&chksm=c0a435719df4428b51001fa9f0c5810ec1481234b5910a4240871ffba4c2e3deb4c2f86132c7&scene=126&sessionid=1795484966#rd\",\"description\":\"英美多国安全机构发布安全部署指南，细化了部署和运维阶段AI实践要求\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguWwHVes7qFjvRfF8YWP2jjBNMAld69N3SucUve9fwmGXtIZ0GvDVTKpWBQ5TAIzSiaeianAA2RrQNw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-09T08:41:11.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545718:3\",\"title\":\"加强网络安全体制建设 以网络安全体系和能力现代化保障中国式现代化\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545718&idx=3&sn=0f03eb905db256e28c7874dd3c7e8a67&chksm=c00d4df8e2b56178662ca4f4c6b0bdc1a542639a143c864176d43916ff709df575c97b955f36&scene=126&sessionid=1795484966#rd\",\"description\":\"党的二十届三中全会胜利召开，习近平总书记发表重要讲话。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguWwHVes7qFjvRfF8YWP2jjIGVRnPLxC3elMoS9A7JSq37vVccgW3UT2f0zglJWTasA02BdBicGbiag%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-09T08:41:11.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545718:4\",\"title\":\"黑客通过 PWA 应用窃取 iOS、Android 用户的银行凭证\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545718&idx=4&sn=e7e6095f757729b1a5577a56ddf635cb&chksm=c0b12617a963ccd550d6da9a94735124e59906e21eed774e99b36cdbc49c8f44a20a46ce29eb&scene=126&sessionid=1795484966#rd\",\"description\":\"近期，安全研究人员发现威胁者开始使用渐进式 Web 应用程序冒充银行应用程序并窃取 Android 和 iOS 用户的凭据。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguWwHVes7qFjvRfF8YWP2jjKicSCS79Ixu9o2FE9DnjAJZZjY1JGibsRmczm8nr3wCSlxTiawdzJyCBA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-09T08:41:11.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545669:1\",\"title\":\"全球数据跨境流动合规 半月观察（第三十五期）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545669&idx=1&sn=74c9282913c33b48747ed726604b0ab8&chksm=c01810eacd4fbe831c652b60215c7a03710fce1d6b3e13ee9ef2cfac4a55d294821d7de17f43&scene=126&sessionid=1795484966#rd\",\"description\":\"全球数据跨境流动合规 半月观察（第三十五期）\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtZ17otShtbHTC4iccVibXHVR4RibGaEKFbw05UbuzPAtjH83Tia2roYLG3SM90zqNomu2AqjMgLkkrBg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-06T07:08:29.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545669:2\",\"title\":\"韩国政府：Telegram已删除韩国Deepfake色情内容\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545669&idx=2&sn=ae4ea985cff5b7d4bb2b7aae9d631943&chksm=c070004c90c76fc9880187f5de03d6ea9387e1437bb5a9afb7814712f0badca93ede85be062f&scene=126&sessionid=1795484966#rd\",\"description\":\"韩国政府9月3日表示，Telegram已经按照他们的要求，从平台删除了Deepfake色情内容。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtZ17otShtbHTC4iccVibXHVRx8de3AJagYZHVAsicGrJLnKaAkRVFKFIT4hEWclGibWZcqbEoUmLGsFQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-06T07:08:29.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545669:3\",\"title\":\"红队工具MacroPack已被攻击者滥用\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545669&idx=3&sn=6fa39436a79a19e80944ad5a7cdc1ac1&chksm=c0ef8efdd9067c94338bc3787b1327a88f31815e340b7aba31bbfc2745e4063619c7bd8ea078&scene=126&sessionid=1795484966#rd\",\"description\":\"据BleepingComputer消息，一款最初被设计为红队演练之用的工具MacroPack近来正被攻击者滥用。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtZ17otShtbHTC4iccVibXHVRSKIibpiceyRibfiao1aiabSlIKfC3tBibGhl8VWa5yzrz9ZLQ4v9rtsSqpLA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-06T07:08:29.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545669:4\",\"title\":\"根治BGP！美国发布互联网路由安全路线图\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545669&idx=4&sn=f34ae6052088fdfc551f7cf8fe50f201&chksm=c016a6633a8adc65f00a28f6bac538589624e0933743f178bb1e35961baa29ffaedcea12bc47&scene=126&sessionid=1795484966#rd\",\"description\":\"为加固互联网路由安全的薄弱环节，美国国家网络安全办公室近日发布了一个提升互联网路由安全的路线图，主要针对边界网关协议相关漏洞进行改进。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtZ17otShtbHTC4iccVibXHVRdP11xMUPLEsbzwNwTlia9pQSeWgxlu6Nrg2rafCGCAwTToXEfr2pyZA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-06T07:08:29.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545648:1\",\"title\":\"法律如何应对人工智能的发展\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545648&idx=1&sn=3158c723a5378902745345d6d06b75ee&chksm=c0a9f64771e183c7aacf88f3fde93ee1534963567f8239e024314b551a41885e96dce2e5da1f&scene=126&sessionid=1795484966#rd\",\"description\":\"随着自动驾驶汽车、ChatGPT、人形机器人等人工智能应用的爆发，人工智能对于现行法律的挑战逐渐受到重视。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogs5EOBPdibhPaSrPmwxaxIBWEia4U462Eq02jdljg5MMicOt23lpSiaqUJroTbwEfqBJIibnxDIXT2oOBQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-05T07:42:32.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545648:2\",\"title\":\"战略转向！勒索软件正在肆虐东南亚地区\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545648&idx=2&sn=292d2a1d64948315248542bddf922d2c&chksm=c0a76a2d4c549ec8af0263812d0f1843db309a3ad06ca60cd15ad68ab00ed6c206f9bd197371&scene=126&sessionid=1795484966#rd\",\"description\":\"继去年一系列重大数据泄露事件后，2024年针对东南亚组织成功实施的勒索软件攻击持续保持高位水平。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogs5EOBPdibhPaSrPmwxaxIBWNWLSpO5LoiadQJ8yuu33s8OH4Cx7M7Rf4JLA4MRrhI57JZDZEYarjyQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-05T07:42:32.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545648:3\",\"title\":\"黑客HikkI-Chan，今年以来已攻击美国、俄罗斯、以色列等\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545648&idx=3&sn=fe7b1dcded47a40163f6eb400f67e1ed&chksm=c041fbdf1fdaa94059b9563315b2db65366047dfc06e0448b891d0ffd41d659d73c5d30e4f80&scene=126&sessionid=1795484966#rd\",\"description\":\"Hackread研究人员对黑客HikkI-Chan行径进行了梳理。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogs5EOBPdibhPaSrPmwxaxIBWrPVpMRH0ta8jDBAwmQdiaNSDYcPyZia2INHAWHIV321BoNlLy3HWqfKA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-05T07:42:32.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545632:1\",\"title\":\"针对中国公务人员的大规模网络钓鱼活动\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545632&idx=1&sn=146ad7b919a5c263d0f96b22fee84bda&chksm=c011145da9ccb4817589a9204a71463645fc338abfb29fdd8f68acfadfe2c39ebe38f06ce754&scene=126&sessionid=1795484966#rd\",\"description\":\"近日，一场针对中国公务员的大规模网络钓鱼活动引起了国际安全专家的关注。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguCkXImNTlibL0iaEiax1hnkkA99B1pVDZOWdsV7P9r6BNT1XaAUvV0xsrJk2Hsj5zBjzPGVjPiavKmCg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-04T08:20:22.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545632:2\",\"title\":\"系统被黑致使客户摄像头遭未授权访问，这家安防公司被罚超2000万元\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545632&idx=2&sn=2774d58efc2d4ee12e972a83384399dd&chksm=c02230c3dd830e881128f2787a851a3914dd59c051141c6d7b576a4a2f2d0f4d4bf6c2ef4938&scene=126&sessionid=1795484966#rd\",\"description\":\"9月3日消息，美国加州安防公司Verkada已同意支付295万美元（约合人民币2099万元）的民事罚款，并将实施一项全面的安全计划。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguCkXImNTlibL0iaEiax1hnkkAQm6c0cwMasKQjspT3YfQuXhR6YFtujsRjZhjytB3nkicZO5T5ZG7sSA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-04T08:20:22.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545632:3\",\"title\":\"恶意软件利用零日漏洞感染报废的AVTECH IP 摄像机\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545632&idx=3&sn=1a5b5a9455da06cb57832c3cacf88afe&chksm=c06cad3c3242404927d9428dff32d77e96f06850099de2b42a67270638b3002d2028d4cfce17&scene=126&sessionid=1795484966#rd\",\"description\":\"基于 Corona Mirai 的恶意软件僵尸网络通过 AVTECH IP 摄像机中存在 5 年之久的远程代码执行 (RCE) 零日漏洞进行传播，目前这些摄像机已停产多年，不会收到补丁。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguCkXImNTlibL0iaEiax1hnkkAadp8b1xK7nldjQ7Q0w2J5ZibFSHOSzafIiatDGqSxDuRjTFleRX18Miaw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-04T08:20:22.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545632:4\",\"title\":\"航空安全系统曝严重漏洞，黑客可绕过安检进入驾驶舱\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545632&idx=4&sn=56bb16ab43e5ed769e22fb7332101b6d&chksm=c0928ef29be21d7df0d2033cf3bf08004f710a694bef70d249b424bc831f1cb500434e42d544&scene=126&sessionid=1795484966#rd\",\"description\":\"近日，安全研究人员在航空运输安全系统中发现一个严重漏洞，可允许未经授权人员（例如恐怖分子）绕过机场安检，获得进入飞机驾驶舱的权限。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGoguCkXImNTlibL0iaEiax1hnkkAUBmjxW3gfTZUJorqcEkTcMPV64cclosOrFdr3ib4PCfkocibzt3QlTXA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-04T08:20:22.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545609:1\",\"title\":\"保障人工智能健康发展 推进人工智能治理法治化\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545609&idx=1&sn=5f138ef3226ea1482ff1ea38ad245f61&chksm=c096bfcdb0df22e78ba6fe39ea00d4f2fdafaa375b76b3ad1ee47aae81a6eb6d01f186ba600a&scene=126&sessionid=1795484966#rd\",\"description\":\"人工智能是引领未来的战略性技术，是新一轮科技革命和产业变革的重要驱动力量，是必须抢占的科技制高点。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtCj9cSiczkQq23j86cY1h6bMb1hl9aSRcicGcRXExu6nAHDH4hlNqor4nJEPdHnhU6AkA6jB7Ik6ag%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-03T08:08:41.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545609:2\",\"title\":\"人工智能应用的网络安全风险解读\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545609&idx=2&sn=99d8c2d8e18e6ed296243c089dc540fa&chksm=c03907fdd5372f2a5a399520ae94cf619921060abdbf66d1345ec7fa0e7190d01f44ed214d28&scene=126&sessionid=1795484966#rd\",\"description\":\"OpenAI ChatGPT的推出是人工智能（AI）领域的一个转折点，甚至可以说是历史上的一个分水岭。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtCj9cSiczkQq23j86cY1h6bcWoRiaic7yj1jQZr707iaq3Hd9wH3t2gUHN9aSiaISichCKqamLC0hzYa4g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-03T08:08:41.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545609:3\",\"title\":\"为什么所有账户（甚至测试账户）都需要强密码\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545609&idx=3&sn=450137047127e7a40d28fe2e12cce84e&chksm=c02e19ce7d42e39ca2214850db678b2490e102c6ffe4246b2af2ecff7bec9dd60cd78fb5b37b&scene=126&sessionid=1795484966#rd\",\"description\":\"强密码是保护用户帐户的关键——即使是已经忘记的帐户。黑客也会寻找任何方法来访问用户的环境或窃取数据，甚至利用早已被遗忘的陈旧或不活跃的帐户。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtCj9cSiczkQq23j86cY1h6bXdicgVel5wtsmx3PshvcsBfOp0vGxrGjCkHvfdJK2c3ibYtgAibrSp2Qw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-03T08:08:41.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545587:1\",\"title\":\"关键基础设施安全资讯周报20240902期\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545587&idx=1&sn=d4bb23dc1f2469f88a145ee104899225&chksm=c04a93f7958f6cce2aa1a93bfb0fc4eafcc757a0ba76f36d2374f3714ec84e9abc3e569f1290&scene=126&sessionid=1795484966#rd\",\"description\":\"本期关键基础设施安全资讯周报共收录安全资讯29篇。点击文章，快速阅读最新资讯。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogumOXCway7qLh8uSxEPmIPQtDzHoPfwstnIu3UBmFhzsNq7cH7tpEgHicQhSdBRqTqf1Zl9K8IVuCg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-02T08:23:27.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545587:2\",\"title\":\"大模型的安全挑战及应对建议\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545587&idx=2&sn=8d54882533b0c47ffed944ffee883a94&chksm=c0d8e6f5302613b2d8e5c4a1a8977123a34c079f05f715b6202e5049bd0e90212fa66d00b5b7&scene=126&sessionid=1795484966#rd\",\"description\":\"当前，大模型技术在多个领域显著提升工作效率、改变了生产模式，并创造了巨大经济价值。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogumOXCway7qLh8uSxEPmIPQ9Bt3N8HFDlp11ictul15dFmccu0jgwfXcUoRnkXK4Q2hXDYx0ffSK8A%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-02T08:23:27.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545587:3\",\"title\":\"马来西亚国家基建遭勒索攻击疑泄露超300GB数据\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545587&idx=3&sn=7dcac37de2d1f97dda466e8d09facb14&chksm=c0f7b54d66175b5d35353aa3a83cd3e6e9c2071db12e124f4a3723602f6fab5cc7c248119192&scene=126&sessionid=1795484966#rd\",\"description\":\"8月30日消息，马来西亚公共交通运营商国家基建公司（Prasarana Malaysia Bhd）确认，社交媒体上关于其内部系统部分被未经授权访问的网络安全事件的报道属实。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogumOXCway7qLh8uSxEPmIPQEZwgAz4icLEzkTR4uOjYQfe4kdUibqdb7n5af9MEqppzjBiaxt2mIJjnA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-09-02T08:23:27.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545566:1\",\"title\":\"谷歌再提高 Chrome 漏洞赏金数额，最高可达25万美元\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545566&idx=1&sn=7b488e10e38c4af21db3afd7d9a6ec55&chksm=c0561eeaaef193e3380d73378ce4e7f1ecea361fe0d9e04ef653989fa832521d9fcf5fac5b58&scene=126&sessionid=1795484966#rd\",\"description\":\"近日，谷歌公司宣布通过其漏洞奖励计划报告的Google Chrome单一漏洞的最高奖励金额已超过25万美元。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtibGOGiaItSByup4R76icOTCUoaY9fbmrobRTyE46kmPmnLicnYDDYZoxQVPZx82N2mVlY21ZFnj4Vkw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-30T07:42:34.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545566:2\",\"title\":\"PoorTry Windows 驱动程序进化为功能齐全的 EDR 擦除器\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545566&idx=2&sn=371e5f73aa4b934790c43a21a773dfc0&chksm=c093da3f675dac0e7b2840359fb3bc9df974ef50fa022f945ad5e44235d391d0e56813ec6b69&scene=126&sessionid=1795484966#rd\",\"description\":\"多个勒索软件团伙用来关闭端点检测和响应 (EDR) 解决方案的恶意 PoorTry 内核模式 Windows 驱动程序已演变为 EDR 擦除器，删除了对安全解决方案的运行至关重要的文件，并使恢复变得更加困难。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtibGOGiaItSByup4R76icOTCUAlJKuF2uBNRAh6sPxyMltGQIeAjibmyTSmSJsaFQ6NP1RyZY4KQiaE5g%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-30T07:42:34.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545566:3\",\"title\":\"俄导弹袭击致使乌克兰关基设施瘫痪，水电网中断近12小时\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545566&idx=3&sn=409216b89fba94961d59bf209cc8994e&chksm=c0612c63d58ed130a1f515c2ae29a376205aa98a20ffca1480f23125036bbf2c03da83cb8a75&scene=126&sessionid=1795484966#rd\",\"description\":\"8月29日消息，最近几天，由于俄罗斯导弹和无人机袭击全国关键基础设施，数百万乌克兰人经历了互联网中断。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtibGOGiaItSByup4R76icOTCUntKbU5aYFwSxUMXK83ib5XUNR0yxv5XnKicUbW9bLzKF2qy9J41mRbEA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-30T07:42:34.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545541:1\",\"title\":\"WPS用户警惕！APT-C-60利用WPS Office漏洞部署SpyGlace后门\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545541&idx=1&sn=3e287b0b3ad08f9b440684d7eb685583&chksm=c04d3d0fa690ebf89fb19cb4455af0ca77a04c90b00371107ed8ae565bd810877250e0596d5a&scene=126&sessionid=1795484966#rd\",\"description\":\"与韩国有关的网络间谍组织APT-C-60利用金山WPS Office软件中的一个关键远程代码执行漏洞（CVE-2024-7262），CVSS评分为9.3，部署了名为SpyGlace的独特后门。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogs6TibDytX0iaBjw9aSGGiaPiasdVVia0pEZhWTdUhAkMPHWibHvBKYyaDG2N3oYtp3t5eYkibFNXZOblrBw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-29T07:27:02.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545541:2\",\"title\":\"新型 Styx 窃取程序攻击用户登录密码\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545541&idx=2&sn=0e9efa827cf85a95b9324c9f3975b8b5&chksm=c062bb863e38e98eaf4c86ca5054d19a17c8529e688104447174e0f7e37c9576c7435ddfa5df&scene=126&sessionid=1795484966#rd\",\"description\":\"一种名为 Styx Stealer 的新网络安全威胁已经出现。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogs6TibDytX0iaBjw9aSGGiaPiasXTgxfYwHAZMia415dok19UIZOZGibYfroG5MhPZV8CNCGbShkhr1q6uA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-29T07:27:02.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545541:3\",\"title\":\"“伏特台风”黑客利用Versa零日漏洞攻击美国服务商\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545541&idx=3&sn=2ffde667d54880ea7961dafc7249ce12&chksm=c03d6c8e96ed9476b6d09eba028a5332b8b52798ef5a0b1be91336d2660347a2af11451f911b&scene=126&sessionid=1795484966#rd\",\"description\":\"8月27日，外媒BleepingComputer报道，黑客组织Volt Typhoon（伏特台风）利用Versa Director零日漏洞上传自定义Webshell，窃取凭据并破坏美国公司网络。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogs6TibDytX0iaBjw9aSGGiaPiasoltpedxP1ngWpn8KZzyPdEJy5ylpIQ12woiaqCBSRAkib9ABeUxwM6Dw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-29T07:27:02.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545525:1\",\"title\":\"全球石油巨头因网络攻击被迫关闭系统\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545525&idx=1&sn=1440c50f944bb222a56dc2292e3b8c9e&chksm=c0859e44a5ef204682c2a5c280048806ffea93aaac8a08c2b85968d1ba9eda65ceb20e697891&scene=126&sessionid=1795484966#rd\",\"description\":\"8月27日消息，美国油田巨头哈里伯顿（Halliburton）日前向监管机构提供了关于最近一次网络攻击的新细节，这次攻击迫使其关闭了部分系统。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogv4nsnxkj3icF47kAr8fBgaRj3icaqQHhxHibzFLMyeQLzIflgJrEDnf04ib5kp1wV0puKSGBMx1l4PgQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-28T07:24:03.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545525:2\",\"title\":\"开源GPS系统曝出两个高危漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545525&idx=2&sn=2561e9c960843541f48a7c0485262341&chksm=c093ec4525fe4ec40777b68597dbfaafb12d93d57a99b17ecec7c7f115228f15ced691af7c32&scene=126&sessionid=1795484966#rd\",\"description\":\"开源GPS跟踪系统Traccar近日曝出两个高危漏洞，可被黑客利用远程执行代码。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogv4nsnxkj3icF47kAr8fBgaRXpXf6Bibf6ougEJ8qS8DKURcgniaIOUSgSOW4bHsMIsAZE9FzftVgDgg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-28T07:24:03.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545525:3\",\"title\":\"美国情报机构将扩大与私营部门合作建立更紧密的伙伴关系\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545525&idx=3&sn=7367340c1beafaf92f4fb47df00014ed&chksm=c0c18b410b7a516b817f6106d4b364131a7f0bb31710816d4048e5311e044d128a4a17990955&scene=126&sessionid=1795484966#rd\",\"description\":\"当地时间2024年8月27日，美国国家情报总监艾薇儿·海恩斯宣布，情报界将通过一系列新举措加强与私营部门的合作，以提升政府与业界的伙伴关系。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogv4nsnxkj3icF47kAr8fBgaR7V1GHDasUiaiac4Op0oVpyv6ibuI3WozAaY6BolfrMF4Jicl0wopgeL4dg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-28T07:24:03.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545505:1\",\"title\":\"全球数据跨境流动合规 半月观察（第三十三期）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545505&idx=1&sn=cfbc369422217de12f1ef5bd75179039&chksm=c01adb0a6e645d680d10c776b572016b375b5a9b31f466a36ca8b14ff504d2a4e9cfc0107414&scene=126&sessionid=1795484966#rd\",\"description\":\"全球数据跨境流动合规 半月观察（第三十三期）\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtoRgvg1DLickxH8b5rrBaJ9v5YK9Oz9cNTUJmicSuhkL7F56ibnDhYjZnEZib18jaePwdJsQiaBMHcwjw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-27T07:36:56.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545505:2\",\"title\":\"人工智能的意识形态风险审视\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545505&idx=2&sn=cbbeec6881fabbd839796713966b9912&chksm=c0b971c9c6e351aca98b9772490e13054a598dd9be3d243810d931511562e3938b0e209da7cf&scene=126&sessionid=1795484966#rd\",\"description\":\"当今社会，以大模型、生成式人工智能为代表的新一代人工智能正在全球范围内蓬勃兴起，掀起了新一轮数字智能化浪潮。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtoRgvg1DLickxH8b5rrBaJ9cXsxibDw91jVicic6f6ZViaR7J5MZTxIVvic3b3tlBaonh999dFJFyic0ibIg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-27T07:36:56.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545505:3\",\"title\":\"Telegram创始人在法国被捕，涉平台监管问题\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545505&idx=3&sn=acd5b3d3822c57a9dbcd503b2977862a&chksm=c080cff71d227bafffcec98beea7fa718a55eb304ef7510e43092f020a3abdcaa9fe922093e7&scene=126&sessionid=1795484966#rd\",\"description\":\"Telegram创始人帕维尔·杜罗夫（Pavel Durov）在法国被捕。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtoRgvg1DLickxH8b5rrBaJ9Cebz5ACII1kzljhkR2JAyibSKD3N11pagTuswGkLCQIzxX9y89zGJPQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-27T07:36:56.000Z\"},{\"id\":\"wxmp:MzkyMzAwMDEyNg%3D%3D:2247545505:4\",\"title\":\"审计发现FBI的数据存储管理存在重大漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkyMzAwMDEyNg==&mid=2247545505&idx=4&sn=444b44d00f2b4c15a7a757ca7343eaec&chksm=c072a2257108dd0317cbf4ce9c840aa50bff34771c248488c526e35241b9e68016e3934cbb07&scene=126&sessionid=1795484966#rd\",\"description\":\"据The Hacker News消息，美国司法部监察长办公室 （OIG） 的一项审计发现， FBI 在库存管理和处置涉及机密数据的电子存储媒体方面存在「重大漏洞」。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fiaz5iaQYxGogtoRgvg1DLickxH8b5rrBaJ9DvvzIh3M0QceoRNd3AfEJM4E680jwyK17UxAibzpgraVyibeEYylveQQ%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-27T07:36:56.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1216,
+      "elapsed_ms": 1693,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -75,69 +80,74 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1209
+          "duration_ms": 1685
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1216,
+          "name": "输出读取与校验",
+          "started_ms": 1692,
           "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1692,
+          "duration_ms": 1
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1216,
+          "started_ms": 1693,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1216,
+          "name": "浏览器状态保存",
+          "started_ms": 1693,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1216,
+          "started_ms": 1693,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 1204
+          "started_ms": 10,
+          "duration_ms": 1675
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_c2731fbedaf6",
     "name": "关键基础设施安全应急响应中心",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 2004
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_c2731fbedaf6.json",
+    "duration_ms": 2649
   }
 }

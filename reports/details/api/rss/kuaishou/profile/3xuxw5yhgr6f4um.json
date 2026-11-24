@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:03:45.749Z",
+  "checked_at": "2026-11-24T01:48:38.886Z",
   "debug_request": {
     "status": 502,
-    "duration_ms": 279
+    "duration_ms": 1070
   },
   "debug": {
     "status": 502,
-    "code": "UPSTREAM_AUTH_REQUIRED",
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "rss/kuaishou.js",
       "name": "快手用户作品",
@@ -35,18 +35,18 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 271,
+    "elapsed_ms": 1062,
     "invoked": false,
-    "upstream_error": "UPSTREAM_AUTH_REQUIRED: 脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）",
-    "error_text": "脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:84:28)",
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：快手作品读取失败：脚本上游连接失败，请稍后重试",
+    "error_text": "脚本执行失败：快手作品读取失败：脚本上游连接失败，请稍后重试\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:112:26)",
     "lines": [],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_99861e7b79a3e93dda70d3a40b9b9e0379d3d2d2d2d30d4a7e68c800f464fc3e771270d34984ec08a984ec3ad2&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_0d128aefedc6e27b4de447711148f7f152474646464799deeafc5c9460f09b353185e447dd10789c3d1078ae46&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -55,17 +55,15 @@
             "kww"
           ]
         },
-        "started_ms": 37,
-        "duration_ms": 232,
+        "started_ms": 36,
+        "duration_ms": 1024,
         "timings": {
-          "response_ms": 232,
-          "body_read_ms": 0,
-          "decode_and_transfer_ms": 0
+          "response_ms": 1024
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 271,
+      "elapsed_ms": 1062,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,39 +103,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 10
+          "duration_ms": 8
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 11,
-          "duration_ms": 259
+          "started_ms": 9,
+          "duration_ms": 1052
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 270,
+          "started_ms": 1061,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 270,
+          "started_ms": 1061,
           "duration_ms": 0
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 270,
+          "started_ms": 1061,
           "duration_ms": 1
         },
         {
           "name": "调试信息整理",
-          "started_ms": 271,
+          "started_ms": 1062,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 15,
-          "duration_ms": 254
+          "started_ms": 12,
+          "duration_ms": 1048
         }
       ]
     }
@@ -152,9 +150,9 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_AUTH_REQUIRED",
-    "error": "HTTP 502: UPSTREAM_AUTH_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据",
-    "duration_ms": 4925
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
+    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
+    "duration_ms": 32904
   }
 }

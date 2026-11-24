@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:43.385Z",
+  "checked_at": "2026-11-24T01:49:13.681Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 560
+    "status": 200,
+    "duration_ms": 715
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 551,
+    "phase": "ok",
+    "elapsed_ms": 710,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -55,17 +60,17 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 540,
+        "duration_ms": 696,
         "timings": {
-          "response_ms": 540
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 695,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_13514a1511d5\",\"title\":\"58安全应急响应中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490229&idx=1&sn=696bd2ad9a15556c378f0dbc10ab4f74&chksm=fc44a3d79f0e61209d25dae9a153968c782a1b648a508218e0c9a75729ada1dbd21dad477d7d&scene=126&sessionid=1795484957#rd\",\"description\":\"58安全应急响应中心\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"58安全应急响应中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5dpkKe1fUYBhibunB8Xt6oJs3Ys4usXbxmCz5ubCwf8Yw%2F0\",\"updated\":\"2026-10-26T09:28:41.000Z\",\"items\":[{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490229:1\",\"title\":\"关于调整中危、低危漏洞奖励标准的公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490229&idx=1&sn=696bd2ad9a15556c378f0dbc10ab4f74&chksm=fc44a3d79f0e61209d25dae9a153968c782a1b648a508218e0c9a75729ada1dbd21dad477d7d&scene=126&sessionid=1795484957#rd\",\"description\":\"2026年10月27日起提交的中危、低危有效漏洞，金币及积分按现行规则核算结果的50%发放；高危、严重漏洞奖励不变，此前已提交的漏洞不受影响。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fvw18Wbhjbfa9vSbw0PEb4yYQiclgQb640X59zicnGiac6NNNOcyEuD0kHOFPeNg084SMvFjlpsyajo0ouKybMQrcxvE5v7P9RuRws6LoF10Fkk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-26T09:28:41.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490220:1\",\"title\":\"关于设置待审核漏洞队列的公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490220&idx=1&sn=134f462e7fd5061db69579973f451579&chksm=fcb668a79fb9a129d4169b5ca351f35a79f81a50528e6e613adf725d86dc57bd92e809740236&scene=126&sessionid=1795484957#rd\",\"description\":\"58SRC 待审核漏洞队列即日起启用：每账号最多同时待审核 3 条漏洞。队列满后，需待已有漏洞完成评分、释放名额，方可继续提交。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fvw18WbhjbfaX6KvytoTic2e47SicDFzWiaV77vCKQhdJcw8sqcOOxy9BrGqlyRMHpug4Ff81SSCp4pImyVT6ib6q2pHht3ICxXialFYKrk5USnL0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-14T07:21:43.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490210:1\",\"title\":\"【58SRC助力】全网诚邀AI高手应战！\\\"Agent+\\\"攻防挑战赛正式开启！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490210&idx=1&sn=1b9f389294a92979d7bf22443fb47316&chksm=fcfcc90d28ba56277b6f23f361b5598fec39dbc795de89a3bb63851e0493267f94c5615b160d&scene=126&sessionid=1795484957#rd\",\"description\":\"当 AI 成为这个时代最锋利的矛谁来铸造最坚固的盾？🛡️奔赴赛场为智能时代的安全新篇章写下你的答案\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fvw18WbhjbfZJKwt3doRrHSic37oCGAfWohiaG5Ipgoa3gzq4PtpEEyrE8VKHmjbf3ZMLzKOM7EeuHvuhQI85Xf57U5f0o1aA1BGdsicmQNGKicM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-14T03:22:56.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490196:1\",\"title\":\"58集团|春节放假通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490196&idx=1&sn=680a076984fb1b05fd1bf5c2e006024d&chksm=fca2fdd312687d600050d2648e4cfbd958b39ae2422b23cc5d6fd4bf816743a5b1b8751a838d&scene=126&sessionid=1795484957#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fvw18WbhjbfZKzrGWXTel74y6w8bMHGxJxV374Uan8ljia6NI7LB1xmiajsqK85gEDibiaJAGC7Q0l8Fibjok69YxQSTlYjPU9OPMBsaJ5qdnAWDY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-06T04:00:00.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490191:1\",\"title\":\"58SRC 2025 年度 年终奖励\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490191&idx=1&sn=a23dc8911afd8facd9135e9c42c1ecb2&chksm=fc811983a11b4c928182fd37a4a30dce61b618f848944178fbf9e019a3dba981f28dd8dd34b0&scene=126&sessionid=1795484957#rd\",\"description\":\"你收到了一个红包，请在58SRC上查看\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F6b7G0YdALRzmH70y4FzymFaqSZ4ut3oPeJoM12W5GowSKRHHqrqcJMamlIryrqbMiabJ1m6uKzvO1AFjYhC5LHQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-31T10:00:19.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490167:1\",\"title\":\"58集团|春节放假通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490167&idx=1&sn=74d119b85e31259bf2ce342602ce9d4f&chksm=fcfc04956de9de5f8e1882b93325e6c9937bb362bd1ba1a759fee0750b70d9b5b9d2e694f56a&scene=126&sessionid=1795484957#rd\",\"description\":\"过年啦~\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F6b7G0YdALRwMliaqj3cW8EhlcnTXWpAyuZargSNJ07Jokia6VCviaJpsgYib4NkqD7kbvqrUm8J60Se6KuxkaTxVFA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-16T09:38:45.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490161:1\",\"title\":\"58SRC 2024年度 年终奖励\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490161&idx=1&sn=3ae2ec0736ec31c643fb9d9cadd40332&chksm=fcbf07ab4861a3148612318163b28ae01e57fb9d1446f9031c021e3e7ccb606ba7eef90c5d3d&scene=126&sessionid=1795484957#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F6b7G0YdALRz6uXXibTwyHSSM3aOjPLsaQ1AdIh3araicS1cI9H58lhvHiaKj5edgz7LibVEbSXf5Wy8dPJGC09S2hA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-08T12:07:28.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490144:1\",\"title\":\"来挖转转漏洞啦！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490144&idx=1&sn=d5906664dff8e3fba57963cc6e7203b2&chksm=fc0a956587d7bf3e010c7bcd1e843baee71e168f7b5e7d5bb83731eb79fc672d4be12af76c9a&scene=126&sessionid=1795484957#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F6b7G0YdALRzhtqCJdhNqoWl6b4zmTeSibd5HCMxpm1BLJJdr9FXLtVfhj5oj8wJIFVib24KHM2QVjhnS9qXmdBvw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-03-18T10:01:48.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490136:1\",\"title\":\"58集团|春节放假通知\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490136&idx=1&sn=0d897c0bbc370f6d65647fc61d0fac81&chksm=fc2ebb3330aa5cba71ac07daa88985323c9831708dd8c56b291369f55564a7d767f9c0e28f1d&scene=126&sessionid=1795484957#rd\",\"description\":\"放假啦~\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F6b7G0YdALRwtvQBaI5C6UsPA99bLxd7ylOusxXS2oBzbOh5FOviaYSagCX6kAgqticfn5wxZ0wW5s4hhxXWY7fpA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-02-02T02:44:02.000Z\"},{\"id\":\"wxmp:MzU4NTMzNjU4Mw%3D%3D:2247490129:1\",\"title\":\"58SRC 2023年度 年终奖励\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU4NTMzNjU4Mw==&mid=2247490129&idx=1&sn=5d9f6b6d0069509873c906ef195655e1&chksm=fc44beaaeab9c214ce660aa95dda2a227fb03c02072f5ad5d02e73346c6c142072ce013a6356&scene=126&sessionid=1795484957#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2F6b7G0YdALRxKp1BC6djhdLlicQrZUxkffjyU7CxDEADuskErK46V9bYVZVEBc3LMTPbsxwCYjSMGSD8JejGXMKg%2F640%3Fwxtype%3Dpng%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-01-02T10:00:52.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 551,
+      "elapsed_ms": 710,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -75,69 +80,74 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 544
+          "duration_ms": 702
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 551,
+          "name": "输出读取与校验",
+          "started_ms": 709,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 709,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 551,
+          "started_ms": 709,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 551,
+          "name": "浏览器状态保存",
+          "started_ms": 709,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 551,
-          "duration_ms": 0
+          "started_ms": 709,
+          "duration_ms": 1
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 540
+          "duration_ms": 696
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_13514a1511d5",
     "name": "58安全应急响应中心",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 603
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_13514a1511d5.json",
+    "duration_ms": 1810
   }
 }

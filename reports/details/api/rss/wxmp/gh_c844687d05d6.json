@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:30.423Z",
+  "checked_at": "2026-11-24T01:48:54.732Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 2644
+    "status": 200,
+    "duration_ms": 1919
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 2633,
+    "phase": "ok",
+    "elapsed_ms": 1912,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 9,
-        "duration_ms": 2622,
+        "started_ms": 10,
+        "duration_ms": 1899,
         "timings": {
-          "response_ms": 2622
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 853,
+          "body_read_ms": 1045,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_c844687d05d6\",\"title\":\"安全客\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790864&idx=1&sn=b2cc0de4487cc99defd3bbcfeffab918&chksm=8923125be148d074156c774c16b849996ff1085eba56e257b21fce2c4deb4fa59cd170cbfba1&scene=126&sessionid=1795484938#rd\",\"description\":\"安全KER致力于搭建国内安全人才学习、工具、淘金、资讯一体化开放平台，推动数字安全社区文化的普及推广与人才生态的链接融合。目前，安全KER已整合全国数千位白帽资源，与数个中大型品牌达成合作。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"安全客\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2Fdx4Y70y9XcvjAvKOWvJcH70CSrEDniblAK7OjjaQdZEmdfJiciauVibfOaBHM0KzZZFY3OkzbsIpc5g%2F0\",\"updated\":\"2026-11-24T01:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790864:1\",\"title\":\"德国把网络威胁拉到最高档，理由就四个字：智能体 AI\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790864&idx=1&sn=b2cc0de4487cc99defd3bbcfeffab918&chksm=8923125be148d074156c774c16b849996ff1085eba56e257b21fce2c4deb4fa59cd170cbfba1&scene=126&sessionid=1795484938#rd\",\"description\":\"欧洲国家的网络安全报告，一般是给政策圈看的，语气克制、措辞谨慎，很少出现“最高级别”这种词。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fg5KiabmYVDH37eOVUCbLys2TFr7icyejflvQJXW6mqrKuKXicoBOiaybepuLRBiaPicatMsnkYYNC1czupn8vgE92oP2ymuOibOXh5wrrtLwZ881Og%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T01:00:00.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790860:1\",\"title\":\"全球第九的超算被黑，丢的是 4224 把 SSH 私钥\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790860&idx=1&sn=7439910e1832c12dbfc98438a80759ec&chksm=8951b42658267eb32750899ee86cdb4808ce3ec05ba99efe567863965a0e6b7f5113d94e6562&scene=126&sessionid=1795484938#rd\",\"description\":\"做应急响应的同行都经历过这种时刻：告警说“有异常通信”，你第一反应是查流量、查日志、查进程，查了一圈发现对方根\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fg5KiabmYVDH3kHcAJk18EYRYvlAOI05OJwflgqvE8GwiaW4Q4Af1VndN9UOmbPSIzfrdKlrV1xujDazGiaOlibtticIj8ymQANSiaQFDic6nnhBj8U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T01:22:40.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790765:1\",\"title\":\"一句“永远别放弃”，40 个 AI 智能体真的去打了一家真实网站\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790765&idx=1&sn=b6e549209e17e035dfb16fd7103f06f5&chksm=89901aacd513a3b8a7efb8082d5cb6f93619f3eaf4242ed7288865bf6eeabe2962ba26c54d56&scene=126&sessionid=1795484938#rd\",\"description\":\"我们花了二十年，才让“上线前做渗透测试”变成常识。智能体这一轮，可能没有二十年可以等。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fg5KiabmYVDH3KtRUYp1HfysBLOX3caHT3CYdPlZXnDoEQfnsjgbW0jhXvicH5ArazbzkgUjicAtAyXbuwI0RDuIIUMNcDicjq3vbibjEyu8XLh74%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T00:00:00.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790834:1\",\"title\":\"谷歌给出倒计时：半年内，AI 会自己找洞、自己打进来\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790834&idx=1&sn=52f0bbe57180d99ba254128dd883f79b&chksm=89ddccef461c088ecb578a1522f4d8ebca6f3bc495d71acc0348aa74075efb2fa7bad01c131e&scene=126&sessionid=1795484938#rd\",\"description\":\"凌晨两点被叫起来看告警，这事儿安全工程师都熟。但这次不太一样：不是人打进来了，是一套系统自己看完你的软件更新日志、自己找出洞、自己写利用、自己打进来，全程没有人插手。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fg5KiabmYVDH2T3bxIPYFou9sgnfppxwM7NlDn53sD7Lq3V0OjbIeQvdp2F89tXCfSV7cXibOVXJADBpwowsgfHDhDw3v8ZUyic52m4qd20dl0U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T01:32:54.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790834:2\",\"title\":\"内核全版本中招，AI帮着补上了利用链\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790834&idx=2&sn=8667d7b19d2c257f6a6e86ce71dcdd15&chksm=89ae73abe5ccb1c051d027d34939da003c72342d1689b95ddcd18984f6e48ccd668fd0f906f1&scene=126&sessionid=1795484938#rd\",\"description\":\"做运维的最怕两种通知：一种是\\\"影响范围很小\\\"，一种是\\\"影响几乎所有版本\\\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fg5KiabmYVDH0MPPmHVoWuZOfqqfn3QFAkiaVZuQdzVkh42kkFIfypsumSY8UxkgvEgicz992PNqfiaAPdTWHOQzIYxFAXEb8S9VzDxTYDEtt6AE%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T01:32:54.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790757:1\",\"title\":\"用AI做安全的人，正在丢掉吃饭的本事\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790757&idx=1&sn=4464e33c730470da316d904c54bfe16f&chksm=89ae30a24120ba600855d1bc845942a963c755e470b541d4b5efd592ea40866dbae5d7aa2582&scene=126&sessionid=1795484938#rd\",\"description\":\"F5前US-CERT分析主管直言：过度依赖AI正在削弱安全团队的创造力、沟通与批判性思维，从业者该警惕了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fg5KiabmYVDH1lz9ulCaRM4zIfDQRSsalVwgSNF6wFicGOTiaNaPF7znlKxr6QdH0lvjg4JDEng6Neex95KTP8XfhJczHiaPicLZBGzRI48ljkm1o%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T00:00:00.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790741:1\",\"title\":\"一个被越狱的AI智能体，自己打了两周才被人发现\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790741&idx=1&sn=b34893346c90f6f185f4fd2dcb29c89a&chksm=8955c54648779de9579ae1423ebcf14e4eb20dfc006cbfc4b2c43a399df3ff30c48500ef03d5&scene=126&sessionid=1795484938#rd\",\"description\":\"Malbear Labs 披露 Operation Snowball：被越狱的 DeepSeek 智能体自主攻击欧洲电信与13家机构两周，攻防边界问题浮出水面。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fg5KiabmYVDH01bNQfGCjyE27t1NxiazRRjUdPJQeunRc4vZEFgBDRNjmicH3bvZrr8A2KHF8jCnxDF5mLaEqwFnAgMX2OC9Jhjznm69NRScqao%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T00:00:00.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790720:1\",\"title\":\"3.5万个Grok应用不用登录就能打开，泄露的是马斯克自己公司的工资表\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790720&idx=1&sn=068b39797378b3971a3978c676f35304&chksm=89d627c9d3626f8a8719e6370f0bf08a3c270c014e7911027610676364e33468438413f4fdd7&scene=126&sessionid=1795484938#rd\",\"description\":\"Grok 这次泄露的，不是马斯克公司的工资表。它泄露的是整个行业的一个共识盲区——我们把 AI 当成了生产力工具，却还没把它当成一个会产生发布动作的系统。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fg5KiabmYVDH1ueRjYH7gFcSq4uP7dB5B1LbyVjJFviaLYZqsP4TxIatrQMQ2HjDwIE1pCQ3JhfGx9b1ryuxw0zoYKb29uTwrpUt0Il2ibtz9rY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T04:09:06.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790713:1\",\"title\":\"2000元算力免费领 | 只招100名，用AI跑真实安全测试\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790713&idx=1&sn=068e3f936bd33cb35a3b72ba5586a616&chksm=89d50fb2b3affe89717ddfe28e13a33ae3dddec9bce664c993b4ab8cb421a7ddaf802888e3e4&scene=126&sessionid=1795484938#rd\",\"description\":\"首期开放4个方向、100个名额，每人2000元等值Token额度。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fg5KiabmYVDH3BicexIGypCN5aluBy2aPph7MIbVEE8Ug9WdbH8VtgaRuDxlaVOSgpKvpDIukOMjph7wVeb6N07904rEaWd0H4Rbqa4OqSNdU4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T00:30:00.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790708:1\",\"title\":\"一个月内十几家AI平台被扒，黑客要的不是数据，是你的API密钥\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790708&idx=1&sn=7da1b66daf2243c89e4ca903b90e4a25&chksm=89bf979ed7a31bdf3e7300b784f19c7c89cb6988757208a8d4d6ec7f64ae2d10928f0e407e14&scene=126&sessionid=1795484938#rd\",\"description\":\"9 月底到 11 月初，一个多月时间里，至少十几家 AI 开发者平台被同一类攻击打穿。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fg5KiabmYVDH0UiacibBR1aXZm4BACZSz0KibdqO5n1r92Gp515e36ZIHmKUMbYMXgBIgst8hbocKichbibC0LNBqUtbNTwlOmEDIVYVtWVX1ur1ZI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-10T08:51:06.000Z\"},{\"id\":\"wxmp:MzA5ODA0NDE2MA%3D%3D:2649790700:1\",\"title\":\"杀毒软件成了后门：cPGuard更新通道被投毒\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&mid=2649790700&idx=1&sn=dbe2f4e03b49c7edbc36dc198972d05c&chksm=89fd28e443c5cda56b1630335e5db6e12494178961e0100a962fe052e6f62f3ec21c2686bddf&scene=126&sessionid=1795484938#rd\",\"description\":\"cPGuard更新通道被劫持，后门随官方更新推送到服务器。11月2日凌晨2点06分，有人登录了OPSSHIELD的更新分发网络。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fg5KiabmYVDH3s7xPYmMEwmzZqd2CnacOia2vVbc42ibw8iclZH5YF1b8kdpeHH1EbiaM7xdlKyibxNuPlT48G1W1Menf61m335Diaw4hu3GWc9CNOI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T00:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 2633,
+      "elapsed_ms": 1912,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -110,34 +115,39 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 2625
+          "duration_ms": 1905
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 2632,
+          "name": "输出读取与校验",
+          "started_ms": 1912,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1912,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 2632,
+          "started_ms": 1912,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 2632,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 1912,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 2633,
+          "started_ms": 1912,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 2622
+          "started_ms": 10,
+          "duration_ms": 1899
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_c844687d05d6",
     "name": "安全客",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 2407
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_c844687d05d6.json",
+    "duration_ms": 3892
   }
 }

@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:42.207Z",
+  "checked_at": "2026-11-24T01:50:31.306Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 558
+    "status": 200,
+    "duration_ms": 890
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 551,
+    "phase": "ok",
+    "elapsed_ms": 884,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":9,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 539,
+        "started_ms": 9,
+        "duration_ms": 871,
         "timings": {
-          "response_ms": 539
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 691,
+          "body_read_ms": 179,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_228524cee8a6\",\"title\":\"呦呦鹿鸣\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895705&idx=1&sn=44a953617297ba32388f472351e0d0bf&chksm=bcbd4cbf5e9ea00aa64bd8164d42d580620bd1646b1ae9590b1f7691d0c7cfa299826eede96d&scene=126&sessionid=1795485034#rd\",\"description\":\"日拱一卒，进一寸有一寸的欢喜。黄志杰的实名原创文章账号。只为苍生说人话，说真话。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"呦呦鹿鸣\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5mkYGqKlBkU3F8Wvib3LNlKHR5835cll9sJonGW7t2WXw%2F0\",\"updated\":\"2026-10-28T14:01:20.000Z\",\"items\":[{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895705:1\",\"title\":\"当银行存款多了一个0    |   银行“离柜概不负责”告示牌早该撤销了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895705&idx=1&sn=44a953617297ba32388f472351e0d0bf&chksm=bcbd4cbf5e9ea00aa64bd8164d42d580620bd1646b1ae9590b1f7691d0c7cfa299826eede96d&scene=126&sessionid=1795485034#rd\",\"description\":\"留着过年？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkydLtIKuSNumToXWAvv7RZE2wicqhQrBXud4plD54k653DW3YbHU4Km7KGq6xIuFTOrJFQ7IlbWibevvc1nGnKpexxG2EIicjicjZvkgUBzJn7U%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-28T14:01:20.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895665:1\",\"title\":\"好人林加宏：如此烂尾楼，如此烂尾新闻\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895665&idx=1&sn=dee50cdfb9306bee14cebea36c671b61&chksm=bc18cc7a4747040f2a7a11cf0c063d6dc913ebdb4e8357aa0ee8c3420b06d3ce8f7e66b20ff1&scene=126&sessionid=1795485034#rd\",\"description\":\"他在这件事上的坚持，已到令我意外的程度。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkydLtIKuSNsEwhia6MBJVDRGe35vvDG2fmCIt2r49xiafdCJqEGgjvZHsmXGcXKcWl8MESEgia0VDxc1Gj6WyYeFLYIXUDyqHdibJpv4cWsULg4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-06T13:04:11.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895648:1\",\"title\":\"贵州晴隆再发通报，即日起“二十四道拐”停收门票：管理会滑坡吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895648&idx=1&sn=e34322b7fb9837fa8838d571147db890&chksm=bcbe314bfc7e9debe8e5b154f087f4a8549f5db0cfca892f2e4178e3c402ed9493871a5c99dc&scene=126&sessionid=1795485034#rd\",\"description\":\"取消门票不是事件的终点，而是重新分配责任的起点\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkydLtIKuSNtelrCXskJ079ZqDfuicT5Lg7LukMrPQjym6gvNIyIHxOUmvlpJRfU914z3ibWaEGbXJoXjxQ8dEmNbA1f8qRle8YDor31wIliaFA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-04T14:38:26.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895624:1\",\"title\":\"贪天之功，据为己有？回应贵州晴隆对抗战公路收费的深夜回应\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895624&idx=1&sn=96184670f5b00fa037afa9219aa4be5c&chksm=bcd34b7171a965d0a3382fb5c3065ae3e14811ec4c08d88582c4cf3e2103dab104961a71a8f6&scene=126&sessionid=1795485034#rd\",\"description\":\"惟愿先辈的牺牲不被辜负，山河无恙、人民幸福。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkydLtIKuSNuG6QEzb98Fcw561oxd9hFayGXQqGdP9QRJiaKZNJJjExbUicYBkuv4VN8TS5ibf7aZ5Xwl35L6Q28aKndUicAB220VcJdbUAmToqY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-03T08:12:42.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895610:1\",\"title\":\"从抗战遗迹“二十四道拐”公路收费谈起\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895610&idx=1&sn=9fc2d2d97a87512ffcb46979db2da611&chksm=bc9a2b5e5a91b96b8666d489d0174f58fdf72abcc799ca756e93e26887e54358a668bb99c6df&scene=126&sessionid=1795485034#rd\",\"description\":\"一片国民权利受侵犯的山河，即便表面完整，终究是破碎的\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkydLtIKuSNsJjC9Le0wliaBwSEcz5oiaAsC0Q5cteFibDliaKAzlHkscMiavkdIjmKL6f5bUogNlibBoyoTx8vDELYnSrHibCy9tt9IVRClhWxxPIY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-02T12:16:46.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895574:1\",\"title\":\"喋血航班、真人真事：一个普通人可以勇敢冷静到何种程度？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895574&idx=1&sn=2fcda28fe8a8c36bcf060f0b1c3f7f36&chksm=bc185766ea096e4754ab1b7a7b2c5bccfb12583a510ba8bcee4ab1fb1efaac31938a2e50a036&scene=126&sessionid=1795485034#rd\",\"description\":\"今天，有一则振奋人心的新闻。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FkydLtIKuSNs9SgPu9WUh9yL5icc0XGpOcyHTOFS97R2Zricht2KRHBAoP0y1XMiaib6QpDQz8G9wYw3yric6fA4JVNekDTd1a7BgicfgQD2gb2vLs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-01T07:13:06.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895515:1\",\"title\":\"那英演唱会后，“举报式采访”诞生\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895515&idx=1&sn=9d400db525403f618f481a349c2d989f&chksm=bc6940f639978fc5d58b7696b3956c94ef48367b64dca06020477a2656c9173f418b19e1f80d&scene=126&sessionid=1795485034#rd\",\"description\":\"今天有一则莫名其妙的新闻，足以载入史册。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkydLtIKuSNuLIpjjhU6Siczm1sicUMlgNB81icuaz9X5iaZfQ9iah8jBkWiaFEPzAqA8TCyBtefRF9OhASssUYpibHQsWkwI1JSxA8gGT4b4Iofrx8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-29T13:00:27.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895504:1\",\"title\":\"从头再来？并没有那么容易\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895504&idx=1&sn=5b873671ec506dcdfb4df2e9533a6bc8&chksm=bc7343714ece31e30c2a77994357c43926cc3f5b8119fd8b07a52ab216ed1022a3ac091300b0&scene=126&sessionid=1795485034#rd\",\"description\":\"这世间，有千千万万垂头丧气的勇士\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkydLtIKuSNsGdWgzNehPedDiba6jHkAmY5OrZkcS25iaeWkE6vkI8yk9jPfKoib0bibtYicica9PRbbJK5XB9KfZv09cDiazzf1jYkpiapxvM5XKaLc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-28T12:32:36.000Z\"},{\"id\":\"wxmp:MjM5ODAzNTc2NA%3D%3D:2652895476:1\",\"title\":\"我读《我的女友景甜》：玩弄女人之后，玩弄文字\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MjM5ODAzNTc2NA==&mid=2652895476&idx=1&sn=90d1befd320864f26d5b8f3945c7bed8&chksm=bcf5388bcc73d973e42ee2fe71d6379da1138a19a791006c36bfe8830f4d44b776f631ff281b&scene=126&sessionid=1795485034#rd\",\"description\":\"别上它的当\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FkydLtIKuSNu85KYRHXV1Ol1iaIxXSZHkv3IUkpCv7FFibQsAO8iciaZwJbSMqEl1IxqB0HL1C2EYyo2PibbnibRclE2FkdsaQqPicmrJy07koojWwY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-28T12:36:20.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 551,
+      "elapsed_ms": 884,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -75,69 +80,74 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 542
+          "started_ms": 7,
+          "duration_ms": 876
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 550,
+          "name": "输出读取与校验",
+          "started_ms": 883,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 883,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 550,
-          "duration_ms": 0
-        },
-        {
-          "name": "失败后浏览器清理",
-          "started_ms": 550,
+          "started_ms": 883,
           "duration_ms": 1
         },
         {
+          "name": "浏览器状态保存",
+          "started_ms": 884,
+          "duration_ms": 0
+        },
+        {
           "name": "调试信息整理",
-          "started_ms": 551,
+          "started_ms": 884,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 540
+          "started_ms": 9,
+          "duration_ms": 871
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_228524cee8a6",
     "name": "呦呦鹿鸣",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 521
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_228524cee8a6.json",
+    "duration_ms": 1130
   }
 }

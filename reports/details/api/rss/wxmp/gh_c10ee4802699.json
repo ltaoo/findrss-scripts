@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:59.524Z",
+  "checked_at": "2026-11-24T01:49:36.300Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 519
+    "status": 200,
+    "duration_ms": 1011
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 506,
+    "phase": "ok",
+    "elapsed_ms": 1003,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 494,
+        "started_ms": 10,
+        "duration_ms": 990,
         "timings": {
-          "response_ms": 494
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 823,
+          "body_read_ms": 166,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_c10ee4802699\",\"title\":\"落水轩\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483902&idx=1&sn=1ef57a7a4a2cc85063ea4340abbf3f9e&chksm=e8588fcab2995fdf545067680170eed7db3ae9c98ed3898ad28f2c26a77e0c71d16007e2fc81&scene=126&sessionid=1795484979#rd\",\"description\":\"不谈技术，只说故事。喝完这杯，还有三杯\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"落水轩\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5z19DiccIAMexOuswPYDIeUOSuNlP3VfRlbibl5sd4TU1A%2F0\",\"updated\":\"2026-07-01T12:48:08.000Z\",\"items\":[{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483902:1\",\"title\":\"Claude谈Agent安全：AI Agent零信任架构与权限模型\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483902&idx=1&sn=1ef57a7a4a2cc85063ea4340abbf3f9e&chksm=e8588fcab2995fdf545067680170eed7db3ae9c98ed3898ad28f2c26a77e0c71d16007e2fc81&scene=126&sessionid=1795484979#rd\",\"description\":\"这篇文章核心内容均来自于claude的官方博客。对于Agent安全，Anthropic认为有上中下三策。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FYuBibjKRq0Lf3I1EFA3kw3YAOHYQ4HNk4icXeIt8iazxj49tXdyaJYcPg0B5crqEhf0FGYQicmicQBaiawIux8ybl0lGV3SxXf9HPzPrQT6Z0EJAA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-01T12:48:08.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483896:1\",\"title\":\"AI时代我们需要成为怎样的人？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483896&idx=1&sn=879a11c3db736cefae0bb1213a28af65&chksm=e8c15cd829ef8c91c09d2d14b725252378322fad4c6e8df92cef1aa0c13b917286fde2272d2b&scene=126&sessionid=1795484979#rd\",\"description\":\"我们清楚的知道，我们处在一个变革的时点。但这个变革，跟之前时代完全不一样。以前，多出很多公司，招了很多人。北京3W咖啡每天人满为患，大家的薪资都水涨船高。现在呢？各大公司不断传出来的裁员消息。每家公司都说自己因为AI的提效，要减少20%的人力\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FYuBibjKRq0LflaOx2NBS1VicjpibaXfSrc1f1OQic9MqdIa8rPtIydGZMI4alaicfuAG746Pib0f5X0JFaVj23g5RX3Zb1vauvUN1IUkHQGZibicntw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-06-09T12:18:00.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483886:1\",\"title\":\"微软CEO眼中AI Agent商业模式和安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483886&idx=1&sn=4babd4b0b9d2cbbb3073bf7a9fbb80c8&chksm=e864dbd46d35e5e89518320c7f93f5333cc8768f82a56b59742e052d7670c016848a0c75060c&scene=126&sessionid=1795484979#rd\",\"description\":\"传统的To C场景的商业模式往往通过广告和流量方式变现的。但在AI Agent世界中，这些方式可能会发生变化。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1WMXia4ZYkyg1TCjsDxY3eiaJPuorYL1FVMaEQ82Hh5b2SWAmqrlZapT5YTCWOmNOttoRyicbwWCXrjw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-12-20T09:39:20.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483879:1\",\"title\":\"生成式AI威胁与安全应用——微软年度情报报告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483879&idx=1&sn=27d58bd5bfd95d12aad509c063553df9&chksm=e8e698762d5c6019e4331ed16370f0f9aff5c2fee733233eacaee6b543474546a01c5fa20b7b&scene=126&sessionid=1795484979#rd\",\"description\":\"微软介绍了它认为大模型存在的安全问题，基于AI赋能的攻击手法演变和AI赋能防守，包括检测和​响应，并给出了自身的应用案例。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1VORibDl8PiaoUUrdkibicibviaRLUYCqhWWSV93x9OboYC3Al7qmHjh5N9XNbKuEicTfxwCvyxAjQBbPXwA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-10-31T13:49:51.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483874:1\",\"title\":\"Google前CEO的海盗逻辑\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483874&idx=1&sn=076ec8eed0113270ba40e96e2440806c&chksm=e88d62f3bde6d0b7529796b441b25eadcd2e7e80aa73c9b8e48512384ae43275a8f7be601fea&scene=126&sessionid=1795484979#rd\",\"description\":\"全球化逆潮，AI技术浪潮，未来会怎样？谁也不知道。\\r\\n我们且行且看。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1XVdaU6vZSoYicufXExXzUyWcnQuERpficJGzicHJZ84QF9aqAXEDglribk1YCblPx7iakoX5IHsJ06NUg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-17T01:35:24.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483866:1\",\"title\":\"自研大模型与开源大模型的应用思考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483866&idx=1&sn=e27587a573d4cb1f24a11580291f5c08&chksm=e80f49148d3b521eac01d5cc40e399bc0f771b7bf500727d33d46403169490e0bbba6162decf&scene=126&sessionid=1795484979#rd\",\"description\":\"一个大模型应用成功的标志是什么？\\r\\n首先，这个大模型应用要能完整的解决用户真实的问题。\\r\\n其次，你要能PK掉New Bing和GPT4。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1UD2VRxsOXm30yJUhmQCJ3gmn5aHibWnWHz68wmibF8hm71ek6TpcWia3yKZhTHULSpFQ1IvuXBtWOPg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-15T12:08:52.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483860:1\",\"title\":\"供应链后门检测方式以xz xz-utils为例（CVE-2024-3094）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483860&idx=1&sn=3de40d5aa7f864b87631eff73283563d&chksm=e82d7b0c98d2f2017d491d1dee28f31d6a23662dfcc4bbc45ffd62205126dd0a05f4cffff121&scene=126&sessionid=1795484979#rd\",\"description\":\"人类唯一能从历史中吸取的教训就是，人类从不会从历史中吸取到教训\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1VvKr7ibtQZmoPXicichclFpmIhHlrKHWVb7qXrxcOg936IITVIe9DysicxZqFcPCxVD3D2UDicoDoxicoQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-04-18T03:22:45.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483855:1\",\"title\":\"xz xz-utils供应链攻击CVE-2024-3094初步分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483855&idx=1&sn=13a48a1e2c31decad06367213547f917&chksm=e8a7c82ffc5dad281b6f298411b198bfd1ecde7cbf62c78fb0a517549cf459a1c0bded4f8f45&scene=126&sessionid=1795484979#rd\",\"description\":\"xz xz-utils不是说v5.6.0 v.5.6.1这个版本的包，就受影响。请不要听风就是雨。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1UibeEJibVKMmRgyCkW6l1u9LaA5riaIoMCtumOiaqm4ZblToyL6XCOuiaOxfd3P3icibQDaib4wH1PzD1jYQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-03-30T07:28:11.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483848:1\",\"title\":\"一起APT对抗中的深度智能入侵检测算法\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483848&idx=1&sn=908e96a80792f809da54b99aab8d3889&chksm=e8e3a3cdd78e4fc208055776495bb2f4d18e76871955d02d47978cf4c6941e08b289a2d3bdf5&scene=126&sessionid=1795484979#rd\",\"description\":\"最牛逼的APT攻击如何才能被发现？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1VLYYdVproDOqjvAW0a4JUaK9z9tuWNUGCnZvxHLm66PlCdlEXvQpMiaL1dfFScobCtZ9NJibtv6XYQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-07-16T01:36:10.000Z\"},{\"id\":\"wxmp:MzI1MjQwMTAyOQ%3D%3D:2247483843:1\",\"title\":\"BH ASIA 2023内鬼数据安全解决方案\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI1MjQwMTAyOQ==&mid=2247483843&idx=1&sn=fd50e70cd51be92585ce8d1e3962f9da&chksm=e897622c1c8a2b65ce8118fc23023d5a9d74c95bcdc7ccb83b4c8d9d06e1a7e8effc37bac1b9&scene=126&sessionid=1795484979#rd\",\"description\":\"作者从三个方面定义一个数据外发的异常信号。\\r\\n\\r\\n数据量。哪个员工比平常更多的上传和下载\\r\\n\\r\\n文件性质。哪些文件包含敏感数据\\r\\n\\r\\n方向。哪些员工把数据存到了他们的个人云盘\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZrnQ9cTzz1WHyJlSBuIxbmg6BNCiaIMW0kj2IcGlicpZkPAKxVYLzsVsbIkImmfyoicTNt8xgJlWGDBu3YHlCh2DQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-06-04T13:21:59.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 506,
+      "elapsed_ms": 1003,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,39 +110,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 7
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 497
+          "started_ms": 7,
+          "duration_ms": 996
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 505,
+          "name": "输出读取与校验",
+          "started_ms": 1003,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1003,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 505,
-          "duration_ms": 1
+          "started_ms": 1003,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 506,
+          "name": "浏览器状态保存",
+          "started_ms": 1003,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 506,
+          "started_ms": 1003,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 494
+          "started_ms": 10,
+          "duration_ms": 990
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_c10ee4802699",
     "name": "落水轩",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 569
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_c10ee4802699.json",
+    "duration_ms": 1095
   }
 }

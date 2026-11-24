@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:04.285Z",
+  "checked_at": "2026-11-24T01:49:42.200Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1510
+    "status": 200,
+    "duration_ms": 2319
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1500,
+    "phase": "ok",
+    "elapsed_ms": 2311,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -55,81 +60,86 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 1489,
+        "duration_ms": 2298,
         "timings": {
-          "response_ms": 1489
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 695,
+          "body_read_ms": 1602,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_0b0b1747bf15\",\"title\":\"天融信阿尔法实验室\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497129&idx=1&sn=a37fd4951cee3b1d6140328ecf1159ad&chksm=cfd79667caa5f56e11f937c506429380d50a09e3bbf5590a14c29f0c03216241b7ca7da2b749&scene=126&sessionid=1795484985#rd\",\"description\":\"天融信阿尔法实验室将不定期推出技术研究新方向成果，专注安全攻防前沿技术\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"天融信阿尔法实验室\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7BcpbVhdGzLaXuSfCBg1ibBPaUxKfWoowOeEI1kibicrpHw%2F0\",\"updated\":\"2026-11-20T04:09:20.000Z\",\"items\":[{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497129:1\",\"title\":\"【风险提示-已复现】天融信关于PHP反序列化远程代码执行漏洞phpAfterShell（CVE-2026-126714）的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497129&idx=1&sn=a37fd4951cee3b1d6140328ecf1159ad&chksm=cfd79667caa5f56e11f937c506429380d50a09e3bbf5590a14c29f0c03216241b7ca7da2b749&scene=126&sessionid=1795484985#rd\",\"description\":\"近日，阿尔法实验室监测到PHP官方发布安全更新，修复一处文件session处理器非原子写导致的反序列化漏洞（CVE-2026-126714）。写操作中途被打断时，session文件可残留新旧两段数据的拼接；有合适反序列化gadget链的应用可被远程代码执行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTWq54w4h0qT3OE1hTzJpaMF0TlxIhZ9HZsapMqeTU3EXne5IruoH8zOfQEAwrKyXYKpibHnhmHcT53AIOJFOkeNYxUst0ibiaRS1TTj1JkpAak%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T04:09:20.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497123:1\",\"title\":\"【风险提示-已复现】天融信关于nginx多个远程代码执行漏洞(nginx2root)的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497123&idx=1&sn=cfd39d346153ede80330af078230b598&chksm=cf2cf7128955a351f3784f2c0d875be24c6d98f8e97f725920b1dad4ab51271e6d3e7c4cd3f1&scene=126&sessionid=1795484985#rd\",\"description\":\"近日，天融信阿尔法实验室监测到F5/NGINX官方发布了NGINX Plus和NGINX开源版（NGINX Open Source）的安全更新，修复了5个未经身份验证的远程攻击者可触发的工作进程内存破坏漏洞，可导致敏感信息泄露、拒绝服务或远程代码执行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTWq54w4h0qTgiawm0ib2KZHHGUJYzEAErOXUfiaFicvgfVuvOUWhibTM7VCjqYHzGFUm7arFNVwApZvfA4OeiadfOctjLfIGlzyNO2SV1OUZXHBMo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T05:29:06.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497113:1\",\"title\":\"【风险提示-已复现】天融信关于OpenJDK Base64解码器远程代码执行漏洞CVE-2026-114938(Java4Shell)的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497113&idx=1&sn=c0de90433b6d9fccf882b656fa96f850&chksm=cf8019083f32b9c3f9322f0a38a5d6a39221a905638189f6b749f5e3fb22f3649015ed5d8c01&scene=126&sessionid=1795484985#rd\",\"description\":\"近日，天融信阿尔法实验室监测到OpenJDK修复了一个远程代码执行漏洞CVE-2026-114938，该漏洞被称为Java4Shell。未经身份验证的远程攻击者可通过向OpenJDK Base64解码器提交特制输入，触发整数下溢及堆越界写，从而实现敏感信息泄露、拒绝服务或远程代码执行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTWq54w4h0qTNMFmCeq28SuwvzF1XYAZVHIoGOHMH6DiceVPpeibTDiboDvXSLPEGkibwnK1kLHP7YiaqUACOOiblgKibiczKDiczzPVbOvx5srYdIHWE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T04:28:30.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497107:1\",\"title\":\"【风险提示-已复现】天融信关于Apache HTTP Server远程代码执行漏洞CVE-2026-119618的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497107&idx=1&sn=e7b5c4e9dd5120cb748b91ebfe1bea70&chksm=cfcc14dd0495a6ebee3ab6f1b959f445f9c7e36e7f835f8da45cb71520025542545e30d5c990&scene=126&sessionid=1795484985#rd\",\"description\":\"近日，阿尔法实验室监测到Apache HTTP Server的HTTP/2模块（mod_http2）存在一处严重的堆破坏漏洞（CVE-2026-119618）。攻击者通过构造并发HTTP/2请求，触发assign_headers()竞态条件，造成堆破坏；Apache与Red Hat将其定为远程代码执行漏洞。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTWq54w4h0qTIFWUOsJgJbfOVBZKR8aM2z0smuLRSlbnuicekzL6otXbHDSpKrU4T0hHArc0Pu2A87M0J5OYzia9Gq5ia1mqOQTedt9I7T0TicrI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T09:08:33.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497101:1\",\"title\":\"【风险提示-已复现】天融信关于OpenSSH musl密码认证绕过漏洞CVE-2026-123158的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497101&idx=1&sn=e98d607078b3d6b45215bf751074226a&chksm=cfe572a90eda0fcb7d3e197893f8dfc71fc6b8fe15779e109eb3917116db0b99c54b4c21c3f0&scene=126&sessionid=1795484985#rd\",\"description\":\"天融信阿尔法实验室监测到OpenSSH修复了一个密码认证绕过漏洞CVE-2026-123158，该漏洞被称为sshole。影响由musl libc编译的OpenSSH，远程未授权攻击者无需任何有效凭据即可通过SSH密码认证登录仅允许密钥登录或已锁定密码的账户。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTWq54w4h0qRHGwhL7ztSlibng9KbOw1e5UWkNOp8mpia1TjtHs7WBmTUwibFEf6dLFYedKs7hwzdLQjtWOYNM9jqTmPrHYx1IOV2mmXYcbuVJQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T06:52:03.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497101:2\",\"title\":\"【风险提示-已复现】天融信关于WordPress核心远程代码执行漏洞CVE-2026-119977的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497101&idx=2&sn=3ee499d893b2da26087356d16e89ce51&chksm=cf775c4997ac87343950d4a20a7e1c1383a42e5fbbb956b51cb58ee0b0c159728556246f0abe&scene=126&sessionid=1795484985#rd\",\"description\":\"CVE-2026-119977是WordPress核心中的一个远程代码执行漏洞，无需身份认证、无需用户交互。且已有在野利用证据，风险较高。请所有WordPress用户立即开展排查和处置。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTWq54w4h0qTia8mLkUo4B5ILj5gNkUqxtcer2VZAoDWAOhBgFJNmtjibvNTGyza0uwjmNyxQ0Z6qnctQNuPR2ZJbVe7THHQLUNMpDB7jwTpwY%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T06:52:03.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497092:1\",\"title\":\"【风险提示-已复现】天融信关于Linux Kernel IPv4 TCP远程代码执行漏洞(CVE-2026-98432)的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497092&idx=1&sn=bd09620dcce63ddc5f2d75b1b8cdb027&chksm=cfc3ede23ceaecbfc2ca37091d25253db511c9f90448798c4dd065fa730f770e738345b8a339&scene=126&sessionid=1795484985#rd\",\"description\":\"Linux 内核 CVE-2026-98432 远程代码执行漏洞中攻击者可发送特制数据包，无权限获取 root 权限；该漏洞源于 IPv4 TCP 三次握手的竞态条件，利用竞争条件难度较高，目前漏洞细节与 PoC 已公开，部分主流发行版放出补丁，仍建议受影响用户及时做好防御。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTWq54w4h0qR89XoMgTTxibicibA26K62KOyqjkH0JOKHV4FaxRJnUpxEkAKFqibs3I5KkcfWtPpIspRVEVGmvDQMyJWEF0foYcwtkyGaJeKSbMM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T13:36:59.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497087:1\",\"title\":\"【风险提示】天融信关于Node.js Brotli解码器远程代码执行漏洞(CVE-2026-111497)的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497087&idx=1&sn=8dcdf5d20033d43ab0ae6337b7ae0905&chksm=cf07b65c34b5b69b62672848d8c8e4c7c7b1ca6ecc9b399f20824561aa11899d17e4a06e42f1&scene=126&sessionid=1795484985#rd\",\"description\":\"Node.js内置的 Brotli 解码器存在一个缺陷，在处理格式错误的压缩数据时，可能向内部缓冲区边界之外写入数据。建议所有受漏洞影响版本的用户，立即启动针对该漏洞的防御工作。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTWq54w4h0qSvnaiaUxZJNicwuOnbKrTha5iaKBHySKukARwwc0icFBaS0YQ66SHUy1Squib7wMOHf75Q6EofbI73e2FxPjAwvHXOFcVliakWy9Niao%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-23T15:53:19.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497078:1\",\"title\":\"【风险提示】天融信关于PHP远程代码执行漏洞CVE-2026-109618/CVE-2026-109619(PHP2Shell)的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497078&idx=1&sn=b27d53a738e6e7375ed18aa65f60a4a0&chksm=cf20eee3018928504d7690676b22f169170b5a67e6a98d54b497e720b0b985e79768dfac3d96&scene=126&sessionid=1795484985#rd\",\"description\":\"近日，天融信阿尔法实验室监测到PHP官方发布紧急安全发布预告，PHP核心存在两个严重远程代码执行漏洞CVE-2026-109618、CVE-2026-109619（社区称PHP2Shell），PHP安全团队对两个漏洞的CVSS v4.0评分均为9.2。请相关用户清查资产，并在补丁发布后第一时间升级。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTWq54w4h0qSF1B3ibua0GwfG3wngicfxII11xwMb34b8UgJGjuQgl4Z3cKwxYxxU48xFq94zvM6tQRKzxqh7pDRhRhN6YCwwuCGE1ZhaHGBTQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-21T11:14:03.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497072:1\",\"title\":\"【风险提示】天融信关于 Fastjson 1.2.83 默认配置下远程代码执行漏洞的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497072&idx=1&sn=8fca263a9a6d7154f01c872f45eeda83&chksm=cfb4078bd45cbd09411820e8cab1ba441f802f9aa86c3e2bffd2dfe9b9f6950a920655ab0aff&scene=126&sessionid=1795484985#rd\",\"description\":\"近日，阿尔法实验室监测到安全研究员 Kirill Firsov (@k_firsov) 公开披露 Fastjson 1.x 末代版本存在一处严重的远程代码执行漏洞。该漏洞影响面极大，建议受影响用户尽快开展资产排查并采取升级修复或临时缓解措施。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FTWq54w4h0qR7FnLmKibhatWmicEoCCuPdMuF2D7kmBVP6Ou8wdrKe4AekvTLqvDJammPpP8zNyUiabNglr8CzMwbGrPiciauaxFySibwT0W86w2HQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-21T10:27:07.000Z\"},{\"id\":\"wxmp:Mzg3MDAzMDQxNw%3D%3D:2247497065:1\",\"title\":\"【风险提示】天融信关于WordPress Core预认证远程代码执行漏洞链wp2shell（CVE-2026-63030）的风险提示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&mid=2247497065&idx=1&sn=96b10823e37a18659b50ab9166138d92&chksm=cfae9b3303c95e4fab6e7f232beec0a14b797785adf07a23dbbeff64e9d561048fb771787b67&scene=126&sessionid=1795484985#rd\",\"description\":\"近日，WordPress 官方修复了 WordPress Core 中存在的预认证远程代码执行漏洞链，该漏洞链被安全研究人员命名为“wp2shell”，由CVE-2026-63030和CVE-2026-60137两个独立漏洞组合形成，可被串联利用以实现针对WordPress站点的预认证远程代码执行。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FTWq54w4h0qTPKib9VQuHfPf1366AAFAb3MHpk5nEhF9dfYoz9GawZThngFm3wGI5gHOiaRzicab038hBl5hsahooLTNsUujZLwx1pnKVyr2Oic0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-07-20T07:22:39.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1500,
+      "elapsed_ms": 2311,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
-          "duration_ms": 6
+          "started_ms": 2,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1492
+          "duration_ms": 2304
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1499,
-          "duration_ms": 1
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1500,
+          "name": "输出读取与校验",
+          "started_ms": 2311,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1500,
+          "name": "执行日志收集",
+          "started_ms": 2311,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 2311,
+          "duration_ms": 0
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 2311,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1500,
+          "started_ms": 2311,
           "duration_ms": 0
         }
       ],
@@ -137,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 1489
+          "duration_ms": 2298
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_0b0b1747bf15",
     "name": "天融信阿尔法实验室",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1103
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_0b0b1747bf15.json",
+    "duration_ms": 1182
   }
 }

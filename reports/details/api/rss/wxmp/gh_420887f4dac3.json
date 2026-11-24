@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:03.458Z",
+  "checked_at": "2026-11-24T01:49:43.197Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 516
+    "status": 200,
+    "duration_ms": 830
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 506,
+    "phase": "ok",
+    "elapsed_ms": 825,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -55,17 +60,17 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 495,
+        "duration_ms": 812,
         "timings": {
-          "response_ms": 495
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 631,
+          "body_read_ms": 180,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_420887f4dac3\",\"title\":\"喜马拉雅安全响应平台\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247484508&idx=1&sn=311d8655c6e6876ec3be5337649ac87b&chksm=eaaaf987d1539d7105f201f990e898c5b59dbf9008a1bc13ae83dc24e45212a1af14b249165e&scene=126&sessionid=1795484986#rd\",\"description\":\"喜马拉雅安全响应中心\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"喜马拉雅安全响应平台\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM4XBg1kZ6PwhKnibkNeabCoyYAo3xM1BLP7P8Xoh4umjkA%2F0\",\"updated\":\"2026-02-10T10:39:40.000Z\",\"items\":[{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247484508:1\",\"title\":\"XMSRC 2025年度年终致谢公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247484508&idx=1&sn=311d8655c6e6876ec3be5337649ac87b&chksm=eaaaf987d1539d7105f201f990e898c5b59dbf9008a1bc13ae83dc24e45212a1af14b249165e&scene=126&sessionid=1795484986#rd\",\"description\":\"XMSRC 2025年终奖励公告\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FV78icxJPuG7IvJw7YOBibgkW3Ff68UhHb8G4YOIyDHklSV4DFJLHf9yicrm828hjSTkBxo28jGybYtw8PYNXFlRAwwkjf8JocTEby4pJJE2UKg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-10T10:39:40.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247484499:1\",\"title\":\"XMSRC 2025年中致谢公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247484499&idx=1&sn=1f589f10a523e26854c36e2b698d21ea&chksm=eac0481e50549d9414b0c2508b3a40ede6d4dfc1c1ddebf46b3bcac70988f3bac01227922058&scene=126&sessionid=1795484986#rd\",\"description\":\"XMSRC 2025年中致谢公告\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ib91baOjKw4HLibBua0KryXs0P0QnMXezIvr3nhg5U2T3lHq2I3WOcj17RsyNRQ3UULQXVzOZ518QibA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-06-17T03:51:43.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247484489:1\",\"title\":\"【春日双倍活动】专项众测-高危漏洞突击战\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247484489&idx=1&sn=5dfebcfd86fb7f56331edd5f8e9805cb&chksm=ea5ffb9107b43149656463f1d63ae42e01ac129f702410802d15c0daa7d01028978de999c69e&scene=126&sessionid=1795484986#rd\",\"description\":\"春归万物生，漏洞无处藏！值此安全焕新季，SRC平台开启「春日双倍活动」，诚邀白帽子聚焦服务器、数据泄漏高危漏洞，提交有效漏洞即可享双倍奖励！用技术唤醒安全生机，让挖洞更有“春意”！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ib9J4rSQRdTia3JxE0cU3g2bE1vSE2ibRqwKUzIkxhfL2pYpL9bt7dZlsotB61NDy0FM8qN0JovcCQUw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-03-10T08:21:14.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247484482:1\",\"title\":\"XMSRC  2024年度年终致谢公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247484482&idx=1&sn=548860af551769c3564afd2a601a3197&chksm=ea160c30f96e771fe7d2f56b82e8fdc68d81f0adff3b912e2223d888a729e75c7f260a3764c9&scene=126&sessionid=1795484986#rd\",\"description\":\"2024年终奖和新年礼盒来啦，快来查收～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ibic0thQgHIgRay7lEic1cVMJ6WbDlgN5n1z8vo7NqecDZ7vpqOpMXq1Qew8D3rRx5PqUGia5lxqvYy7w%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-01-17T06:14:42.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247484473:1\",\"title\":\"秋日福利大放送，挖洞奖励享翻倍！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247484473&idx=1&sn=9437b5f82c3f258681261e2972002e66&chksm=ea689b21cbea5f59bc131f99394bc1bac9d7b1c9b434479e7ed1a2953cce5dc6aed970d9c0ef&scene=126&sessionid=1795484986#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ib9xyN8dKcWJ25CiaQKiaLYXfr4T4ic7TdOMp8Ey5PHufN7WB0Q9R8XqPS0s0rwrR76ZOic9emCiaG3FIfg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-10-21T08:14:39.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247483878:1\",\"title\":\"春日迎好运，奖励翻倍大派送\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247483878&idx=1&sn=5d9fccdc608e67d9547fbf1015f1e212&chksm=eadc6dca58bb270ca65d007e982f502eed8c82476e597d219082a9f6a65be50e376902f2e590&scene=126&sessionid=1795484986#rd\",\"description\":\"春日专项众测活动重磅来袭，诚邀各位师傅参加～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ib8HaE7Zlz6mtUNdTZjSxa5IWEHyMlVQp23eibro13NPTDyKrQed3XXf6EoIhs6ZKWRHcSPCgDx2Jwg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-04-01T07:13:30.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247483859:1\",\"title\":\"2023年度XMSRC年终致谢公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247483859&idx=1&sn=70ce17d4a88a361c49d54219f7c459e7&chksm=eacc39afa0ce6b3b3a1d2bdffd9d2205d2d69b5dc28a6de6b839eac428cb5bc7d27bf6f9f622&scene=126&sessionid=1795484986#rd\",\"description\":\"叮！您有一份年终奖请查收～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ibiczXHnfMvMGc1zjIM6zEbPctOUTEpQIib6WLY0JcKYSAFn2yicD23HvjXMlrniaLbSCAibdBMtqx8NJug%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-02-08T11:18:47.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247483821:1\",\"title\":\"升级奖励规则还翻1.5倍？尊嘟假嘟\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247483821&idx=1&sn=53c9295bc78e7c0e756f52d870ba7a8f&chksm=ea33586d3808b123185bb4feb2b20db3a0eadca43541a568eb43a77ad645cfbcadf638c16f1c&scene=126&sessionid=1795484986#rd\",\"description\":\"新规则奖励升级，叠加1.5倍奖励活动，单个漏洞最高至4500元！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ib9LO9WguNtfSk41U10b3IpEDX6fqSEpV91wHaiaZqM53WiaJpvTurhaWI3LTPicSREQzVVtXqFPsAhhg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-11-15T09:12:15.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247483805:1\",\"title\":\"「七夕专项众测」我们在一起挖～\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247483805&idx=1&sn=1eeef9583d287fa161aeed727a8236e7&chksm=eaa1795bd499099a61813877e67d2d21ee565e719d586033cf3153f48c3dfa060ba5dc76c9e7&scene=126&sessionid=1795484986#rd\",\"description\":\"​七夕就要到了，师傅们快来和喜马君一起过节挖！限时一月，最高双倍奖励等你来拿～\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ib9d7XLjCIhWmI7Fibw0kBNBvzAxdeEC70NnSQoIkgN1RrmADk3KgbQfzWo3SlnUv9HmQbk1M7fXLbA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-08-18T09:47:27.000Z\"},{\"id\":\"wxmp:MzI3Mzk4MDQ5NQ%3D%3D:2247483790:1\",\"title\":\"1.5倍奖励｜XMSRC邀你一起踏春啦！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3Mzk4MDQ5NQ==&mid=2247483790&idx=1&sn=38cdfe0582f6de07146be0a6239c08fb&chksm=ea80604bc3fdf238f0cf2f9d68f93f124e3740f6c0fe9a3ac4a7849f3ceedb6d24381635ae67&scene=126&sessionid=1795484986#rd\",\"description\":\"【春日活动】限时1个月，赢1.5倍奖励！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FbNibSwNU98ibibm2ic1mkTXibxanl0TYjSYWAnqg3fml0ibcTPMWjJhMicYXPFAv6iavOMibpTHLQy0xl3cdwDVxBMfssSQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-04-04T07:53:28.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 506,
+      "elapsed_ms": 825,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -110,26 +115,31 @@
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 499
+          "duration_ms": 817
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 506,
+          "name": "输出读取与校验",
+          "started_ms": 824,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 824,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 506,
-          "duration_ms": 0
+          "started_ms": 824,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 506,
+          "name": "浏览器状态保存",
+          "started_ms": 825,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 506,
+          "started_ms": 825,
           "duration_ms": 0
         }
       ],
@@ -137,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 495
+          "duration_ms": 812
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_420887f4dac3",
     "name": "喜马拉雅安全响应平台",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1139
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_420887f4dac3.json",
+    "duration_ms": 2781
   }
 }

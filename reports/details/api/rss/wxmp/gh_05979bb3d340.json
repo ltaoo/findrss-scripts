@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:32.698Z",
+  "checked_at": "2026-11-24T01:50:16.780Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1108
+    "status": 200,
+    "duration_ms": 2850
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1101,
+    "phase": "ok",
+    "elapsed_ms": 2842,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":8,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,90 +59,95 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 1089,
+        "started_ms": 12,
+        "duration_ms": 2827,
         "timings": {
-          "response_ms": 1089
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 1214,
+          "body_read_ms": 1612,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_05979bb3d340\",\"title\":\"老高的互联网杂谈\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484289&idx=1&sn=e370acdb6516ebf43526bd1e2b028e11&chksm=9edbb1db3b0c21791a3f8676611757f629343bab1661f08caf5f5a3a3da16b3665ab3f5bf3d3&scene=126&sessionid=1795485020#rd\",\"description\":\"我个人发表文章以及吐槽的地方，涉及面也许很广，不喜请勿喷～\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"老高的互联网杂谈\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6hialkl0lOMcuPbDVsQEUMl3CTJ1uhmjR3vXODuqsqr4A%2F0\",\"updated\":\"2025-12-19T03:35:00.000Z\",\"items\":[{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484289:1\",\"title\":\"论不靠谱的融合 IP 库~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484289&idx=1&sn=e370acdb6516ebf43526bd1e2b028e11&chksm=9edbb1db3b0c21791a3f8676611757f629343bab1661f08caf5f5a3a3da16b3665ab3f5bf3d3&scene=126&sessionid=1795485020#rd\",\"description\":\"我们跟朋友讲，IP 库五字诀，数据变化快，应用场景多，维护成本高，保护起来难，IPv6 难上难。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT391cbH7W5OfcosF3viaMPQFib90L40tDZQIBjSGdmGtUGwicIJVibcEzxPTZ4uDlNANwbY0Bp0ofibTZA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-19T03:35:00.000Z\"},{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484251:1\",\"title\":\"从真实网络空间的角度评价一下《从网络空间看伊朗断网事件》~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484251&idx=1&sn=65f5de6f9a148783d336feb590980070&chksm=9ee2173bc74bdf169b5240bdd09a7358587ffcde04646404dcf86541e4f63707400405325a66&scene=126&sessionid=1795485020#rd\",\"description\":\"六月底的一天，我在下班回家的路上正闭目养神的时候，一个朋友发来了一个公众号文章，问我，你看他们的说法对吗？我怎么觉很奇怪呢？我看了一眼，我就跟他说，如果我的记忆没有错的话，应该是伊朗的 IP 被劫持滥用了，这么写是不对的。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT1pXibkd5oxVRYbia63LAMABOXsVFSKBJn4azQLiaiaD7nuuJ0bQAfPzYrYYhTXBIYkmTIjWYhyhIZyyg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-02T11:30:00.000Z\"},{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484245:1\",\"title\":\"有关骨干网络的杂谈~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484245&idx=1&sn=c081179ae15bc4e2e7e632f97711f6bd&chksm=9e6b342b3f33aca054b18344785ed4861ad556ae4bca3ba1b2487f2cf02dd03c19679d77bc9c&scene=126&sessionid=1795485020#rd\",\"description\":\"IP 在使用上，我们一般分为人在使用，比如家庭宽带、基站网络等等，还有就是给机器用的，比如服务器，当然还有一个小分支就是给网络设备使用，比如路由器、交换机等等，这些设备支撑了整个互联网流量的转发。我们在应用场景数据里的对应标签叫基础设施。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT08Z1SAtqaNw23pHFMkicJIzTic3wb80nAKo9RubxOfks5czpn3tEIyV8b7adyhxUHibZY8j3rR1IYqQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-03-27T03:40:00.000Z\"},{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484235:1\",\"title\":\"说明一下，以后不会在这里发布国家变更数据了~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484235&idx=1&sn=11be0c541a9e90fa20e9c8e257fd3e0b&chksm=9e171a8a8f2fb0a64ebec9a9f1b184896b6b6a85d11a11f2c4dee3aee80468d66995d1ccca88&scene=126&sessionid=1795485020#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT2OqFUA67FBRcNEMrMJjdwRd94IyptUcyBZgMp18WcktSnUOdbRF31gpfvDsqHn3WftveZG9iaG2Xg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-02-14T03:59:00.000Z\"},{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484229:1\",\"title\":\"赋予数据灵魂？有关网络空间数据如何解读的个人看法~\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484229&idx=1&sn=c7c72b9a0d496bbe4d1b59a081273906&chksm=9e2a66f933bf478c1e6901455250fb38abc66187aac9f920addb7bcd524df178c8fecbf45df1&scene=126&sessionid=1795485020#rd\",\"description\":\"如果观察的不够仔细，又如何做到洞察数据来“赋予数据灵魂”呢？更何况 AI 都知道。。。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT0BZY0pyWWb3kUSYicgJSu4zxZ1tF6TgicgStVXLemdDfpZY7g5Vng3axYYdNogVfDL8m9EvRzPMBWA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-10-08T11:30:00.000Z\"},{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484215:1\",\"title\":\"今年的第一篇文章，献给我们的“友商”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484215&idx=1&sn=603fb8a890cf7e826e38114765f86e21&chksm=9e2f61997e6982b9a71a9fa9ee40c85a86c0ac412e0d8e8497768d76c1f77b908dc2df0c7c38&scene=126&sessionid=1795485020#rd\",\"description\":\"最有意思的是在法庭上，他们列了一堆问题，逐项质问我们，比如为什么起诉前一家“友商”是在北京，但起诉他们却不在北京，诸如此类，如果有人中途来旁听，可能会觉得我们像被告了，我们的律师最后也跟法官抗议了，法官也批评他们了，并且让他们请个律师来。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT15PCvdUlOXSsRFQndkHzYrTvAcicm7OGxKKIrDIowG0u3GeRGwcQD8ic98SIAWnbR7NqicuNkbicR5GQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2024-08-23T12:00:00.000Z\"},{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484209:1\",\"title\":\"从 IP 的拥有量角度看中国的经济情况 2023Q2 版\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484209&idx=1&sn=f89fc20b8733c89e5951b80a20162233&chksm=9e5ce47df48598b2d64fa9e03415e72b65dce14a463e5a5ef8cdc33d5c8380939cdba175be6b&scene=126&sessionid=1795485020#rd\",\"description\":\"最近休假了几天，所以这个报告晚了一些。趋势其实跟之前没有太大变化。我也不多说了，上数据自行解读吧。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT3mgAVgObmTFlA2E28JSibicKBoibgOrjiaJggXLcWwpChJuAyFsXpoZht3SrenKbOZgtIRY4lAV5FsvQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-07-17T03:50:00.000Z\"},{\"id\":\"wxmp:MzA4NDMzODY1MQ%3D%3D:2247484204:1\",\"title\":\"案子相关二三事～\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzA4NDMzODY1MQ==&mid=2247484204&idx=1&sn=1166251dfea36a8fb051af9e253bb3af&chksm=9e16e586c2fbf01716347cc825de4b3a8ae6bb55e1182a84ba756e01d155c417671fdd3ef1cd&scene=126&sessionid=1795485020#rd\",\"description\":\"同行面对这个事情，只有两个选择，要么你数据错了，到现在（截止到最近）还不知道自己错了，要么你直接抄袭了某个同行（当然，未必是我们）的数据，到现在还不知道自己错了。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FGT0dyocJYT3Hic7vGvrQanmEvwvzdMiaBQSiao7KyCIIERWiasUGX2fn0JqCVyNQcE2hAyPSCZ2vqXselhgWxPuUWA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2023-07-06T03:45:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1101,
+      "elapsed_ms": 2842,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 1
+          "started_ms": 0,
+          "duration_ms": 2
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 7
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1094
+          "started_ms": 9,
+          "duration_ms": 2832
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1101,
+          "name": "输出读取与校验",
+          "started_ms": 2841,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 2841,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1101,
-          "duration_ms": 0
+          "started_ms": 2841,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1101,
+          "name": "浏览器状态保存",
+          "started_ms": 2842,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1101,
+          "started_ms": 2842,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1090
+          "started_ms": 12,
+          "duration_ms": 2827
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_05979bb3d340",
     "name": "老高的互联网杂谈",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1359
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_05979bb3d340.json",
+    "duration_ms": 1203
   }
 }

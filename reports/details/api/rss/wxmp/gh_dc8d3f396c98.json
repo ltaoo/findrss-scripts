@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:57.504Z",
+  "checked_at": "2026-11-24T01:49:34.756Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1765
+    "status": 200,
+    "duration_ms": 910
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1756,
+    "phase": "ok",
+    "elapsed_ms": 902,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":12,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -55,81 +60,86 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 1745,
+        "duration_ms": 888,
         "timings": {
-          "response_ms": 1744
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 737,
+          "body_read_ms": 151,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_dc8d3f396c98\",\"title\":\"MS509\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935805&idx=1&sn=2cbf8c1e0138f801d92ffbaa44015c52&chksm=809f994ab7e8105c3296305d1b62fe84c30bb9ccbe80204f0b67a904e7dd65e863500cce0c04&scene=126&sessionid=1795484978#rd\",\"description\":\"MS509为中国网安开展互联网攻防技术研究的专业团队，当前主攻方向包括WEB安全、移动安全、二进制安全等。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"MS509\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM64YB4UT5wClsvQEzLyEHXshqpHicxVX77FmySvdhZkz9A%2F0\",\"updated\":\"2020-08-20T08:20:59.000Z\",\"items\":[{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935805:1\",\"title\":\"冰蝎3.0-分析系列 1-beta3-php\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935805&idx=1&sn=2cbf8c1e0138f801d92ffbaa44015c52&chksm=809f994ab7e8105c3296305d1b62fe84c30bb9ccbe80204f0b67a904e7dd65e863500cce0c04&scene=126&sessionid=1795484978#rd\",\"description\":\"本文主要针对冰蝎3.0beta3版本在php环境下进行分析。分析内容包括：beta3版本建立连接开始过程以及可能特征分析。\\n备注：由于beta2版本很多bug，因此估计不太可能被使用，因此这里分析beta3版本。作者的更新挺快的，明显的特征\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD2GhURTCzOwm3DPCBAXSc12PNZC8b0Yz6fKHbLdauctXpqd1BWg7012ZTvN71qtfsLyicyH5a0HWUg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-08-20T08:20:59.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935805:2\",\"title\":\"冰蝎3.0-分析系列 1-beta2-php\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935805&idx=2&sn=c455e366f3d387c00b3efdf183020262&chksm=809f994ab7e8105c40239b3f7b4675cfde4c823a2c417f89efffc14ff1e32b6081549f10f0d1&scene=126&sessionid=1795484978#rd\",\"description\":\"本文主要针对冰蝎3.0beta2版本在php环境下进行分析。分析内容包括：建立连接开始过程以及可能特征分析提取。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD2GhURTCzOwm3DPCBAXSc126yQOJ8icPBGb5zRNGG8U7oMEKLLQkqcIXsiadBOgmbXkWag7q7UwibOIg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-08-20T08:20:59.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935625:1\",\"title\":\"DSMall的那些洞，你能发现吗？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935625&idx=1&sn=ce33c88b54ef0a799db818410a2ba34d&chksm=809f99feb7e810e8b3e369fa74a6bf50cc04b6acaaf2661d22921a9c93848e0a73bc43b001c8&scene=126&sessionid=1795484978#rd\",\"description\":\"最近一段时间专门在研究php 反序列化漏洞的挖掘和利用，这篇文章可以算做是研究成果的一个实践输出，文中所有的漏洞本来是提交到cnvd和补天的，被驳回了几次有点心态爆炸，浪费那些宝贵的时间何必呢？该公司开发的这几款web app 几乎都存在文\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD1eV02w7dKIHrX2ng8YLiaMLolowGZ4nAeB8og8BibgibSfpUpWMr5ibqjB318ppYVO1JHibzax8Nv29Gg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-07-15T01:01:54.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935504:1\",\"title\":\"【工具开源】MysqlSql语句监控工具——MysqlLogMonitor\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935504&idx=1&sn=3903f181601834e2d8f716c21d6115d6&chksm=809f9867b7e81171ebb5b95bf3a671bd30adc89bee0364471c818eabe45567e62d4f74802f73&scene=126&sessionid=1795484978#rd\",\"description\":\"网上其实有很多类似的MysqlSql语句监控工具，肯定有人问为什么要造轮子。很简单，因为在平时的代码审计中，需要一个跨平台友好、功能简单实用、并且可以支持监控错误SQL语句的小工具。拒绝臃肿，拒绝依赖多余的工具(比如tail.exe)。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD1eV02w7dKIHrX2ng8YLiaML4MaOGCZU6W8fMaPQYP4ibuTq0QIyNicFInQ8jibic4ia1kFh5iazBEcw1zew%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-07-13T08:48:28.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935480:1\",\"title\":\"WAF绕过奇技淫巧之SQL注入\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935480&idx=1&sn=d42196a72a7c1819745384371d58063b&chksm=809f980fb7e811191a44d976ab82e064fd9fff28290bef818eb26377488ec7390c0c6d5e9fa4&scene=126&sessionid=1795484978#rd\",\"description\":\"WAF(Web Application Firewall)对于从事信息安全领域的工作者来说并不陌生，在渗透测试一个目标的时候常常作为拦路虎让人头痛不已，笔者这段时间花了些精力对国内外比较常见的WAF进行了绕过研究，这只拦路虎其实也并没有想象\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD134sEATIvibryYxd5nmM0vQ8dIhfVPWRMtvzIPSpPrsubB3zlLsjaIqH2icJz5pcq2jeDo71aibuvJw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-06-24T10:07:14.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935401:1\",\"title\":\"linux后渗透之收集登录凭证\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935401&idx=1&sn=1479fdbbe9e2779477b2fe764bffb2c2&chksm=809f98deb7e811c8a5a448b520c1b889f0ed2414d433565b495051dce624dfa94a94a7473ddc&scene=126&sessionid=1795484978#rd\",\"description\":\"当渗透测试人员拿到shell后，如果要进一步渗透，信息收集是重中之重，内网渗透的深入程度取决于信息收集的深度，内网渗透的本质就是信息收集，而登录凭证的收集是信息收集的重点方向。关于linux系统下登录凭证收集的文章多为翻查文件。本文将研究\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD03tPia69426S6PavLUicDbovA0rZv4Xx8eUUk8AAlaBMib0Mn2EOUkGbJ75ib2oMhU4I6JSOEqdjWdJA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-06-22T04:45:10.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935384:1\",\"title\":\"内网渗透之内网穿透\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935384&idx=1&sn=55e74a81e3e15267eb2bfe91f8f38300&chksm=809f98efb7e811f9a91231e5ba63efb7536ccdcffb4d1e3c71efa037f421fa6a925a72390fe0&scene=126&sessionid=1795484978#rd\",\"description\":\"0x0 前言网络上关于内网穿透的文章很多，但大部分都是侧重于工具的使用，原理提及较少。本文将从内网穿透的原理\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD2KJ5nD02NOEpRa8ia8ZZ9f1UbDicYxXVpqkRpibtkqBWvKVIVk6FYWOBybclEGfOQxjo0TN1O3UmgwQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-06-19T16:17:45.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935346:1\",\"title\":\"Subrion CMS 代码审计\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935346&idx=1&sn=c9e735be24524b951e26f96008d4b87b&chksm=809f9885b7e81193896cfc2a2a684897fc879b0c91e6a5afd9f1e8182fb962ae4e7cc58082f1&scene=126&sessionid=1795484978#rd\",\"description\":\"Subrion cms 是一款国外的开源cms，使用php 开发，最新版本是4.2.1，目前正在开发的4.2.2 版本尚未发布。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD0DWypAQu0Jyp97b6e99GnVtv55dckZeibePDPEv2W4We37I5mh5WnEI2bOLa0ssR0d17UXdETPOpg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2020-06-17T17:18:20.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935298:1\",\"title\":\"中国网安MS509团队发声韩国POC安全大会 带去唯一一个安卓“奥密”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935298&idx=1&sn=e1712a8b1cf75408f8cccc17c0a2c7b7&chksm=809f98b5b7e811a3baaf8e7156607c47bb112d36913e561ef63ed3fe3686fc4dcfc3862ec2fc&scene=126&sessionid=1795484978#rd\",\"description\":\"本文转载自“中国网安”微信公众号中国网安发声POC安全大会  分享安全“奥密”获得广泛关注 近日，国际安全大\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD0ZKQyBIGKBgP9nnsCROYdHFgORWXAnGqapp0mmYHY1bEBaYMJNcTqTatsCJkGcwIMAaT56j1jictA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2018-12-05T15:26:14.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935285:1\",\"title\":\"Android蓝牙远程命令执行漏洞利用实践:从PoC到Exploit\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935285&idx=1&sn=27996763818173f3e24684d7a85403e4&chksm=809f8742b7e80e546291237d503d9eb07ad915781725cf2f038ad1087cfe151e0bbb5f7258f5&scene=126&sessionid=1795484978#rd\",\"description\":\"本文由MS509团队成员“thor@MS509 Team”原创，转载请注明来源。\\n本文已于2017-10-30 发布于“先知安全技术社区”。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FfwNqC4xHXIr9ANoZSYJOxKtz5snhbf4MSK1f4Vp5LqvCr4zqkBGDwqGX7ScQYrIsicTb2gZfoicQ2ypFMj7f4MBg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2017-10-30T15:30:09.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935285:2\",\"title\":\"关注 | 起航在即！中央企业网络安全产业联盟发起单位筹备会在京召开\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935285&idx=2&sn=0bb766d2cf3a6af9183c522c6eff9e6f&chksm=809f8742b7e80e548c62636711eabfe65c191ff6ed729cf15cf191888a0ed753b4d2b4cb5081&scene=126&sessionid=1795484978#rd\",\"description\":\"本文转载自“中国网安”微信公众号\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FaE2cYq7AtD2VXyOoRfgQb30PKgIur8SViaK6mhPG77TnYqoT0ck5sqZcFI8iatmOHib0rqrnJcTRzeCibXrojkPdHg%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2017-10-30T15:30:09.000Z\"},{\"id\":\"wxmp:MzAwODgxNTA2NA%3D%3D:2650935280:1\",\"title\":\"首发 | Wannacry勒索软件母体主程序逆向分析（含临时解决方案自动化工具\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwODgxNTA2NA==&mid=2650935280&idx=1&sn=ec15f1ca2436814fdb6172469fa74337&chksm=809f8747b7e80e51c9df477624f55db7ba79bb28b4af50bb7833037b4e2539008856503e1d73&scene=126&sessionid=1795484978#rd\",\"description\":\"声明：本文由expsky@MS509Team原创，仅用于技术交流分享    挺长时间没做逆向分析了，以前做逆\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FaE2cYq7AtD0K6nDMS3DusRsURP8UUhGxrz7D4J7I4ibIPicuAky9eoicyibNJTs6O1qjqnajiaAESicwicoQqOEd6ria1g%2F640%3Fwxtype%3Dpng%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2017-05-14T02:01:39.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1756,
+      "elapsed_ms": 902,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1748
+          "duration_ms": 894
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1755,
+          "name": "输出读取与校验",
+          "started_ms": 901,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 901,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1755,
+          "started_ms": 901,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1756,
+          "name": "浏览器状态保存",
+          "started_ms": 902,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1756,
+          "started_ms": 902,
           "duration_ms": 0
         }
       ],
@@ -137,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 1745
+          "duration_ms": 888
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_dc8d3f396c98",
     "name": "MS509",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 587
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_dc8d3f396c98.json",
+    "duration_ms": 806
   }
 }

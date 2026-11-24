@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:20.264Z",
+  "checked_at": "2026-11-24T01:50:01.944Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1112
+    "status": 200,
+    "duration_ms": 839
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1101,
+    "phase": "ok",
+    "elapsed_ms": 832,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,90 +59,95 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1090,
+        "started_ms": 9,
+        "duration_ms": 816,
         "timings": {
-          "response_ms": 1090
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 632,
+          "body_read_ms": 183,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_8363d15b68bd\",\"title\":\"纽创信安\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242346&idx=1&sn=c71679e40b8310fea93abf04aca62401&chksm=82c99a263e26078e7a94e11cdd61e6b5810c5d00cc00c4a05c06a7a1d163dd672a54f79f4af9&scene=126&sessionid=1795485005#rd\",\"description\":\"纽创信安业务涵盖密码算法设计和工程实现，芯片IP与解决方案，安全测试设备，密码产品和服务，商用密码应用整体解决方案，密码安全综合解决方案等，致力于成为全球领先的全栈密码安全技术企业。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"纽创信安\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FOU2rqvx645uwFYrcggiauqITgGlLgzUnQboibwe0SQncMSCEqF8g2BUAErPf0zgsnmNQ1fibZWx0SQ%2F0\",\"updated\":\"2026-11-23T02:23:42.000Z\",\"items\":[{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242346:1\",\"title\":\"首破悬置15年挑战：「天问」密码分析智能体，开启「许愿式密码分析」新时代\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242346&idx=1&sn=c71679e40b8310fea93abf04aca62401&chksm=82c99a263e26078e7a94e11cdd61e6b5810c5d00cc00c4a05c06a7a1d163dd672a54f79f4af9&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fcs09Tz2jcrfOmAC5KA6P9IDc7fxRyiaDcAGz9Qd7qAkLneia0quJaPd6zLicCVafPDjpGlicbkcgkvGZduCQunpErOMibYFSKVsbXUVKV2XUtia8A%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T02:23:42.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242320:1\",\"title\":\"直击 ICCAD2026 | 胡逸众：具身智能风险升维，安全必须从硅根基底兜底\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242320&idx=1&sn=80245de15fe6720f99e285f348bbbb93&chksm=829e460ede0fabe063b05980f6b38e6da14352d13722bf4bc46a718f7c91365a24ce4570386e&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fcs09Tz2jcrensRwYiaCae35Kp57qlXH71EJicjcQnwG24svuDtkA6VagicoaesDG0pbFA43wXrQdib1h1k5SMMsJfuticLGv3YElmhfHDX0Vymqk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T07:00:00.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242314:1\",\"title\":\"直击 ICCAD2026 | 樊俊锋博士：AI 时代攻击能力跃迁，重构芯片安全边界\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242314&idx=1&sn=5051b5feb7a5346b4438c42061207f9e&chksm=822b4befee8eb3bdb732864b8d80834ea25a1f7cc7838e3120157cd7571ff818dc5a917c4f4a&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fcs09Tz2jcrdibl64SiaIzqhwI3euyCBcVXp5TOJTujsapF5tFlOCra9brFbOoj3fOvkibGVmKVb2Cnh7v3T3fFOBtyUgOn9TcEJickvglqALVEY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T10:35:07.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242259:1\",\"title\":\"OSR产品速递｜纽创信安“密界”机密AI服务正式发布，让机密Token保护企业AI应用数据安全\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242259&idx=1&sn=9ddd94ae9c0c454f75d7844b14205c3e&chksm=82f4799b7e1702200d93aef347a1f5ba891db157d11c2630e033f0190cd107f7e8328614f50f&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fcs09Tz2jcrdPZEWCQGuDsqPSefIJd6zlAFicGiaXDxg8fv8CKZNzfXTb6f763DXFdQgITsJQFrDARz5vHgSloicuRteCWpdu4mByjK9kT2ZLhY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T02:37:12.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242240:1\",\"title\":\"OSR产品速递 | 可重构后量子密码算法硬件 IP：算子复用、数据通路与演进边界\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242240&idx=1&sn=1e94f69c9a5c1e7c4ba91cb45fde4b4c&chksm=82451ffdc6eab54012b949ed9d93ba759a7c6071e849c0679d65a552518401401e405437dcd0&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fcs09Tz2jcrcdaGagTdkfs0zdBykrEFbFSXFsrib5haibOgfiaCT23gNib7CAvXkJu90rNBpjNH8AojiafqE2W3bN3HZxiaoxzpaLmWWEYbSfHplFY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T02:00:00.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242222:1\",\"title\":\"纽创信安2026 ICCAD全攻略：相约北京，共话AI时代的芯片安全基石\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242222&idx=1&sn=bab7a8858c3aa3477742f3ec880a7916&chksm=8288c732869a943ba7996e3fd12e5b86d7df6b73b0dcb3ca1a9eb23f8f8a75ca6674bba6ad77&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fcs09Tz2jcrcFHqjT5RBf4sDAeFdZsYguXOcjbhYiaydzDEsApk6TQakibWqaE47P18qEvibQsEozB4LicmBiajYnrn3vyoA1YRYjxav2M3XP5BvU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:29:48.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242159:1\",\"title\":\"OSR产品速递 | AI 机密计算：CPU 和 GPU 联合执勤，守好数据的每一程\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242159&idx=1&sn=6ab0d46359d26b675aa05af993422eb4&chksm=82364afc03da32f6d9fdec03d2e77ef1fcc94298dbe4322f67c17f6bbdf42a18ee4ea47f4ee8&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fcs09Tz2jcrcYjlXhrvpaicHe4UXykfWQic1pnhI6wUK449rfXLyY9sQGMCjA3ldSJFOicXw1q9Nt7wDrkXqUyGlCV5SqCKrbkHCYb57UI7YIgM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T10:00:00.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242151:1\",\"title\":\"OSR产品速递｜纽创信安产线级密钥发行管理系统（KPMS）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242151&idx=1&sn=6c3a775a73915ef5a7089b278d8e5eb6&chksm=828c087f654f1372d49eb741446290fcdf0fd9a94783e1dfe67e870cfada67695d014acc65b4&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fcs09Tz2jcrdOxWWRZDCGOeukEUVicpgtdibFbI29EcmMcWW6HWWuNJwpcHUBI8jLLdLaCXZxniauB0y6icm2668VDb71KuuWgibtZYR0f6LiaWNh4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T10:00:00.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242103:1\",\"title\":\"喜报 | 纽创信安入选国家级专精特新重点 “小巨人” 企业\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242103&idx=1&sn=9e1f3ee7cd6db24358dd9a2de0981527&chksm=82644e2c84c88c6f59bedfb0e032aad6860aa96703e6d5cd95c6502b93c399a30cb22b21f27b&scene=126&sessionid=1795485005#rd\",\"description\":\"近日，深圳市中小企业服务局公示 ，纽创信安成功入选国家级专精特新重点 “小巨人” 企业。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2Fcs09Tz2jcrfHK6IOvRrvGJZhEBibVWLibrl6UDbIrMfHdcbBcqEj4mSRzrHCAxBhicrQsHPAAqTzMmGTzFOnW6iab0ewgsVZgKViaS4tnDcicvQrM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-02T10:00:00.000Z\"},{\"id\":\"wxmp:MzAwNTczMjAzMg%3D%3D:2650242080:1\",\"title\":\"芯软协同，筑牢车安全底座｜纽创信安与普华基础软件达成汽车基础软件战略合作\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzAwNTczMjAzMg==&mid=2650242080&idx=1&sn=c8fb4a4c2436c879c71f23246e4441f3&chksm=82d0bbf180dcff51ac8478e50ce72920f7efda5a925e4ab0a44e85565921298b1b5414131984&scene=126&sessionid=1795485005#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2Fcs09Tz2jcreGAamkyk5wgj4ummHt0FBgicflhhicHEEtUaEEm7BTqAM6WwWpv3dKBeOvE36PWeZLm1yR6usdlaTicgzV3aOdnlwp1MP6WDfh9k%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T10:00:58.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1101,
+      "elapsed_ms": 832,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 5
+          "started_ms": 1,
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
           "started_ms": 7,
-          "duration_ms": 1094
+          "duration_ms": 823
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1101,
+          "name": "输出读取与校验",
+          "started_ms": 830,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 831,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1101,
-          "duration_ms": 0
+          "started_ms": 831,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1101,
+          "name": "浏览器状态保存",
+          "started_ms": 832,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1101,
+          "started_ms": 832,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1090
+          "started_ms": 9,
+          "duration_ms": 816
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_8363d15b68bd",
     "name": "纽创信安",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 530
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_8363d15b68bd.json",
+    "duration_ms": 945
   }
 }

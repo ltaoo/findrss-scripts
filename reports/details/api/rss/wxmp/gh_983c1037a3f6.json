@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:51.142Z",
+  "checked_at": "2026-11-24T01:49:24.601Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 582
+    "status": 200,
+    "duration_ms": 1271
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 574,
+    "phase": "ok",
+    "elapsed_ms": 1266,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 563,
+        "started_ms": 11,
+        "duration_ms": 1252,
         "timings": {
-          "response_ms": 563
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 714,
+          "body_read_ms": 537,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_983c1037a3f6\",\"title\":\"安全攻防团队\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485145&idx=1&sn=a715bdf057310c8fa51676cfd6976a84&chksm=c3fcc3aa8013064179341e9a00f9110530724b900bd5a83ad193f61393ae4c2e477fced647f9&scene=126&sessionid=1795484968#rd\",\"description\":\"Tencent A&D Team 关注安全前沿攻防技术研究。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"安全攻防团队\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7BohDQNp3wiazvlgepp6vs0rsHe7Fbf2knIAIpPFYHIBA%2F0\",\"updated\":\"2026-04-03T09:33:22.000Z\",\"items\":[{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485145:1\",\"title\":\"「AI开源组件安全风险」系列二：VulnAgent发现 NVIDIA 3个AI基础设施漏洞，并获官方致谢\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485145&idx=1&sn=a715bdf057310c8fa51676cfd6976a84&chksm=c3fcc3aa8013064179341e9a00f9110530724b900bd5a83ad193f61393ae4c2e477fced647f9&scene=126&sessionid=1795484968#rd\",\"description\":\"一、 引言：当AI基础设施成为攻击目标随着大语言模型（LLM）的爆发式发展，AI 训练和推理框架已成为支撑整\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skiafQQuicfXU3COZBfr4PJgAJYn3YJwNxX6tKhBysNIbPVjguBt4NWZGS8Ojf84kbJRPVxiaTWtlqA8DB5Tn9TV85R2Yazca4QvcQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-04-03T09:33:22.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485143:1\",\"title\":\"「AI开源组件安全风险」系列一：配置缺陷，让你的GPU沦为矿机\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485143&idx=1&sn=27a9c05f556f2aa6aaba628a2c0a45d1&chksm=c30d6d5494d4694f987c7aaa30da0830e48301b7a0873ee2810a8d50b192ce7d9c4d2f4ac006&scene=126&sessionid=1795484968#rd\",\"description\":\"AI开源组件的 Web 安全水位可能偏低，而其背后的高性能算力资源却成为黑产眼中的\\\"香饽饽\\\"。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FuzMNlw2o2BLUGsGAibtrRSpoqzxEdU9Ik1G7bM6zn7Dm7TobGibHqEGRicYAwNicPks6cCqKwiaTy9ES28wO4eGVhdZqCWRrqevib50VAYcOiajZHQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-17T08:45:14.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485138:1\",\"title\":\"OpenClaw 新型绕过漏洞，上榜企业必修安全漏洞清单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485138&idx=1&sn=6bfe45e19c28b9fc48036f9ef09fb8e6&chksm=c38a8ed9b90107c869c1e9598a6efbfe69febd74bddb620e37f3b00036b941f54f41f838e1cf&scene=126&sessionid=1795484968#rd\",\"description\":\"必修漏洞是指影响范围广、危害程度高、技术细节已公开或存在在野利用的安全漏洞。此类漏洞被攻击者利用后，可能导致\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FVL7Qr6N3skg6tm9gqlwic0Dvh1OglzwDD0YlnSOliaZUvaCvYxibR6c78SS7CHBZrjTW36SKWXL1FFGmf3K8j4jibVMNRKRPX4HJ4biafIPGHF2Q%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-16T06:39:25.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485136:1\",\"title\":\"2026年1月企业必修安全漏洞清单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485136&idx=1&sn=99db518f5db0321868f0810a424375b8&chksm=c32f60f742812934fc9f5673bd0ff83fa84f485cb6447226b200e0bb34e3c443df08baeb5ff7&scene=126&sessionid=1795484968#rd\",\"description\":\"所谓必修漏洞，就是运维人员必须修复、不可拖延、影响范围较广的漏洞，被黑客利用并发生入侵事件后，会造成十分严重\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FVL7Qr6N3skhiaY7LeqWQCynS6nBXLm1mPlvg3KkQUtuyISkpWVqg8mE6LFUKxyDNgQftyzqK10ibvLKOWlicjtvl3xRWtxG2YS1hjuLq9agfgQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-06T10:46:24.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485134:1\",\"title\":\"招人啦！腾讯云安全运营岗位（深圳/武汉）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485134&idx=1&sn=ee7c2c8857e71f243a6741a21fb69d94&chksm=c3c60491c3f5421ae9e32affc392ef4e02096e916efcd137d0b499edd13475039ec2de42fac0&scene=126&sessionid=1795484968#rd\",\"description\":\"腾讯云安全运营岗位（深圳/武汉）期待您的加入！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FC47afWcpnua4IOBPiax7ED37WEh1FNs37DWYf4aBbqEZrN2qX8uSA2oIyqJtichKHYsbykj1RMlw6XwhCnt4ulRA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-04T03:13:18.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485128:1\",\"title\":\"2025年12月企业必修安全漏洞清单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485128&idx=1&sn=1fbc1ceef8a90709e3d5644a809a5c12&chksm=c38290468b8baa8542d2c2ed70e1f188b90e93a7c1f5aacd5aa9f6250d9e2f1f77e0e2aebec7&scene=126&sessionid=1795484968#rd\",\"description\":\"所谓必修漏洞，就是运维人员必须修复、不可拖延、影响范围较广的漏洞，被黑客利用并发生入侵事件后，会造成十分严重的后果\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FNNSr7XSrt0nVIv1ZRpAkIGRVQsw9wsYMvWLxwiaCjtQn95mcIo92YM27YfgrAqStnadmh0PS6P5Q9WoR3vZyuJg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-08T08:34:50.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485126:1\",\"title\":\"2025年11月企业必修安全漏洞清单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485126&idx=1&sn=9725c8d9c998e8d681b2254469fa44d1&chksm=c321b3776dbfe7f810e106683f597b797eca5006ca66c97d76b8c2f120ec8b67d5ca27d7b52f&scene=126&sessionid=1795484968#rd\",\"description\":\"所谓必修漏洞，就是运维人员必须修复、不可拖延、影响范围较广的漏洞，被黑客利用并发生入侵事件后，会造成十分严重的后果。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FC47afWcpnuY0tGZTZVmz60aNQoL1yYYZJbrfcbCF1kwS5Wia3hDffTeb2EicrwmtlfCKFBH38ExEqHmCcIZUWkOg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-12-12T02:17:02.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485122:1\",\"title\":\"2025年10月企业必修安全漏洞清单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485122&idx=1&sn=9629a1d89e3ed5b977dbd806305e38e1&chksm=c31a0335da3d09119a8e0a54af8828084afa81eb6bb27046ae3e709c9e4ad3464766178a0fea&scene=126&sessionid=1795484968#rd\",\"description\":\"腾讯云安全公布近期安全漏洞清单,建议自查更新,防入侵保业务安全!\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FNNSr7XSrt0l1bZia8sPRMSdwHDSISm1koFPb4WFUeTaLEIS8WNqWHYBEMbgVqu08dw3iaP9hVic1XSsmM7OUfh4TA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-11-14T11:03:02.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485090:1\",\"title\":\"2025年9月企业必修安全漏洞清单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485090&idx=1&sn=e32957c82555e74c010cc5b7439e268c&chksm=c38dbc5f20f2a6d8e236cdc2075b83013f0481389d9d9b00cd88977a9c39885c6e8ec9ff6f4f&scene=126&sessionid=1795484968#rd\",\"description\":\"所谓必修漏洞，就是运维人员必须修复、不可拖延、影响范围较广的漏洞，被黑客利用并发生入侵事件后，会造成十分严重\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FNNSr7XSrt0lq5OEK3LXfY78Hc8jicn15nhCmmAYFAbibWoiawumypFfo8eXm8z8d1xZOwjrsbVtom3SOZpmY53ogw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-10-24T01:56:01.000Z\"},{\"id\":\"wxmp:MzkzNTI4NjU1Mw%3D%3D:2247485088:1\",\"title\":\"2025年8月企业必修安全漏洞清单\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzkzNTI4NjU1Mw==&mid=2247485088&idx=1&sn=726d198b93728d5b4637883929f3d6db&chksm=c3e1bedc1ad92b9e023b1e3122d9dd42f65338e7a6d381421bdae0bfe16c6363d4765641944f&scene=126&sessionid=1795484968#rd\",\"description\":\"所谓必修漏洞，就是运维人员必须修复、不可拖延、影响范围较广的漏洞，被黑客利用并发生入侵事件后，会造成十分严重\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FNNSr7XSrt0kbRd1HHQVVvTkNVGgb9NFic90Y2xfriamAXe4fFbd0ia89lq30ibjwUHbuabHmc6HXKKACfCtJVu1mPA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2025-09-17T10:01:20.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 574,
+      "elapsed_ms": 1266,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,39 +110,44 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 5
+          "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 567
+          "started_ms": 8,
+          "duration_ms": 1257
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 574,
+          "name": "输出读取与校验",
+          "started_ms": 1265,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1265,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 574,
-          "duration_ms": 0
+          "started_ms": 1265,
+          "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 574,
+          "name": "浏览器状态保存",
+          "started_ms": 1266,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 574,
+          "started_ms": 1266,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 563
+          "started_ms": 11,
+          "duration_ms": 1252
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_983c1037a3f6",
     "name": "安全攻防团队",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 1258
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_983c1037a3f6.json",
+    "duration_ms": 2802
   }
 }

@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:44.538Z",
+  "checked_at": "2026-11-24T01:49:14.889Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 836
+    "status": 200,
+    "duration_ms": 1175
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 827,
+    "phase": "ok",
+    "elapsed_ms": 1168,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,82 +59,87 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 816,
+        "started_ms": 11,
+        "duration_ms": 1154,
         "timings": {
-          "response_ms": 816
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 820,
+          "body_read_ms": 333,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_cbda1fb027bf\",\"title\":\"安全学术圈\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496205&idx=1&sn=3c9915e0e58b42e2b880bbf5d8f67b7d&chksm=ffb293e43986af04afb694d1bda83235ea11273d3a742b83b44a2af1d7143d7d30c9e024811e&scene=126&sessionid=1795484958#rd\",\"description\":\"分享安全方面的论文写作、会议发表、基金申请方面的资料。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"安全学术圈\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5QdYXnIyaJT9H4VVHz2DKKQYEU5B9ZalqRslFPN3kCmw%2F0\",\"updated\":\"2026-11-23T13:30:18.000Z\",\"items\":[{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496205:1\",\"title\":\"2025年度北京市科学技术奖获奖名单（网络空间安全领域）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496205&idx=1&sn=3c9915e0e58b42e2b880bbf5d8f67b7d&chksm=ffb293e43986af04afb694d1bda83235ea11273d3a742b83b44a2af1d7143d7d30c9e024811e&scene=126&sessionid=1795484958#rd\",\"description\":\"网络空间安全相关成果共7项，涵盖技术发明奖二等奖1项、科学技术进步奖一等奖1项和二等奖5项\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F8dQ2T4EPrnx8ABxa4qodmBfRwujcOty5SOrt7mUBZX0fyzTAomo6k4TMiamPbgu66eE6ZD28eyLBEnu8AsIJzE3b6icRW83Bt6YicZiafzRNB6Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T13:30:18.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496199:1\",\"title\":\"Palisade Research | LLM 智能体蜜罐：现网环境下的 AI 攻击智能体监测\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496199&idx=1&sn=89b6ec8324919d057f511eb86b1a8fcb&chksm=ffee5c96bd467ef1bbd8800472b6961c9d175ba968288cfb81bd6735ca8cbcf509c7520a60e8&scene=126&sessionid=1795484958#rd\",\"description\":\"这篇论文的做法很直接：往蜜罐里埋提示词注入，把能不能看懂语义和反应有多快当成两道筛子，从真实攻击流量里把智能体挑出来。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F8dQ2T4EPrnz2QIpgbPP0RGXP3BbtRQqf7FmKnPhuibia4yCTZc9PqLnno7PPGwtP2CPSez8u16OEBu9CPpe7ryf14lmLvIqa5xorJ1UF1W1OE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T10:30:00.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496188:1\",\"title\":\"抗量子计算密码北京市重点实验室首批开放课题评审结果公示\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496188&idx=1&sn=0de6dd1c3a8fc969dbc33c8426285897&chksm=ff963898bea020f7dcd31f8f26f8e85e5f7ca309ef1b5a9b19056ec0979c15c5cbe8e67b81f9&scene=126&sessionid=1795484958#rd\",\"description\":\"抗量子计算密码北京市重点实验室开放课题（第一批）申请指南于2026年8月4日正式发布。截至2026年9月20日，共收到47份申报书。经初审、会审和专家综合讨论，评选出15份申报书。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F8dQ2T4EPrnyXJ7l7ic3RLGcJbKDlZibMVl1xBowibkoebh0Z7DsRRUHOicZ0icUXM5iaAPKLAtNOw63WH98bV1a58RHdsiaYNTpZkicra2uibZRbo2ZI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T08:53:00.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496184:1\",\"title\":\"行业会议 | 第四届CCF网络大会\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496184&idx=1&sn=d512bddec80e169e4b0840893d9af5d0&chksm=ffc137e89e6a423c9033d0f8cf47676492b67255362b91c5a40e255605af3021c5422e065328&scene=126&sessionid=1795484958#rd\",\"description\":\"第四届 CCF 网络大会（CCF ChinaNet 2026）定于 2026 年 11 月 20 日—22 日在福建省厦门市召开，主题为“算网融合，智联未来”。大会由中国计算机学会主办，厦门大学、CCF 网络与数据通信专委会、CCF 互联网专委会承办。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8dQ2T4EPrnxCrypqmqy9nMg5ib2I01Mh5uzJNK9bANPG1KbzQNFwyLBLhE8t259Wp5dPA63pib22oOhlpFfgz20kL0tBOA0a4uO9FJH9UzHDE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-16T06:43:19.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496180:1\",\"title\":\"阿里巴巴等 | 安全大模型走到哪、往哪走（超长综述全面剖析）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496180&idx=1&sn=3ef463344ec47fa905cdaeabf1831d94&chksm=ffba2025611ad3cf9b893d77fac7585c5600f8cec047c9d7c6a0fa598016efa0bb33ef11c083&scene=126&sessionid=1795484958#rd\",\"description\":\"从数据怎么造、模型怎么训，到 Agent 怎么跑、评测怎么做、漏洞怎么修，全部收进同一个坐标系。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8dQ2T4EPrnzoPU0ehDVbIHRia08NiaXJ1ImI3ribvFbEy2TwiatxTeLFCOeWzskexk88RibwDNUMUk6zhmnZCjic8ZRBaYjibic7Zs46gU84ByFNpYQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T12:22:36.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496167:1\",\"title\":\"天津大学、南洋理工大学  | 用状态化反馈欺骗把自主渗透智能体引进蜜罐\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496167&idx=1&sn=c927694bf8b4dc727654b1279cd240f4&chksm=ff76d94ee354d6452330596fa645b6ab3cfa6a2e332bc13e0a233278f0533dc080116f17f401&scene=126&sessionid=1795484958#rd\",\"description\":\"论文的出发点只有一句：智能体只能从运行时反馈去推断目标状态，所以反馈可以被操纵。防守方控制着目标返回什么，就控制了智能体看到的世界。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8dQ2T4EPrnzLdZtibrddmicyFHYOHPDrCQ30F0hNzJxJEBSmRwXtYqTVG2mZlqryOcia8GgK6mqtdHAALnVsqzUdYk2qBRJkI0OAm4g8nVs3fU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T10:30:00.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496158:1\",\"title\":\"北京邮电大学 | 低语智能体：面向智能体互联网的事件驱动隐蔽通信协议\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496158&idx=1&sn=09b0c23a8f59bfb30ffb51c9c177ca46&chksm=ff1abc5846e043b9f5d20f620c34a7d67aee2966e767ac9436678f40fd87ebe63cb979d49d05&scene=126&sessionid=1795484958#rd\",\"description\":\"结论是：ΠCCAP 展示了多轮智能体对话承载可靠隐蔽通信的可行性，并在所测检测设置下表现出较强隐蔽性。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8dQ2T4EPrnyXGpZk3FyPkqx04gDmxHj67d6gWTxmJcwaIaawsg20AdzJoXGf1cwVTq5b3xUqJdMY8FAZgUGdUC5DMTxs9Slu0jNjibOESuQ0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-07T10:00:00.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496148:1\",\"title\":\"浙江工业大学 | Trident: 图结构与TTP序列双路并行，让APT归因跟上威胁情报的更新节奏\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496148&idx=1&sn=c0ad0d81dd796b63f88b4688b801356a&chksm=ff9aa05858982f84227c178c6af020ea1c2839194e1c3d1f7429a09fd1303ab5befc5a27d8ff&scene=126&sessionid=1795484958#rd\",\"description\":\"Trident 把长篇 CTI 的抽取、异构威胁知识图谱的增量维护、图结构与 TTP 序列的双路归因串成了一条完整的流水线。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F8dQ2T4EPrny33JXVjjOCicF0NhnPHCxicP3R2IibWK9NIVf0dLTf2FUlEHddLAFg7gUmkiadHYzenVsSgxNJPCee2xcJDricoKMibq443BrkqYnw0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-06T10:30:00.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496129:1\",\"title\":\"浙江大学 | 用轨迹自适应诱饵拖住、引开并化解自主渗透智能体\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496129&idx=1&sn=784ba8c5fa279f56b4fdbb627e916fd3&chksm=ffdfb504bb60ac33a7bd1642fca260ad6bd8686ac68173d5397b19d4e21f792e6a2fa35304a8&scene=126&sessionid=1795484958#rd\",\"description\":\"把这三个案例和 AgentSnare 的做法对照着看，差别就很清楚了：静态工件是在环境里扔一个点，AgentSnare 是沿着攻击者的动作把一张网织出来。前者只能寄希望于攻击者恰好踩上去，后者是在它每走一步时都把下一步的路铺好。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F8dQ2T4EPrnxA78D0Onog3hlCXqPptk4X5GpDGwqTbWiblLeWu4ZEwLMelxictFjqTQgtSuNOun7NPh0T24RDcica3lNtjFRicczBaFkl4smgenk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-05T10:30:00.000Z\"},{\"id\":\"wxmp:MzU5MTM5MTQ2MA%3D%3D:2247496128:1\",\"title\":\"行业会议 | 第六届全国开源情报技术大会（COSINT 2026）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&mid=2247496128&idx=1&sn=1dc959cd6595697baaed8cb9cac9ef68&chksm=fff7781836dcf551f99a02a704eb69be97f2e47f8d2c3dd48bb90917aabb429628507071a58c&scene=126&sessionid=1795484958#rd\",\"description\":\"第六届全国开源情报技术大会（COSINT 2026）于2026 年11月13—15日在贵州 · 贵阳召开。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F8dQ2T4EPrnxUgTWZWP6ecZOChXkUf67dKtTysjWH4hjDwaxPTU8RumR5rmR2dQIRib43fMNxTC8zqzqFJuGkkemwtqSQVKw2ezvo8yOgiaFT4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-04T06:13:03.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 827,
+      "elapsed_ms": 1168,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 819
+          "started_ms": 8,
+          "duration_ms": 1160
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 826,
+          "name": "输出读取与校验",
+          "started_ms": 1168,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1168,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 826,
-          "duration_ms": 1
+          "started_ms": 1168,
+          "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 827,
+          "name": "浏览器状态保存",
+          "started_ms": 1168,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 827,
+          "started_ms": 1168,
           "duration_ms": 0
         }
       ],
@@ -137,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 816
+          "duration_ms": 1155
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_cbda1fb027bf",
     "name": "安全学术圈",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 593
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_cbda1fb027bf.json",
+    "duration_ms": 1287
   }
 }

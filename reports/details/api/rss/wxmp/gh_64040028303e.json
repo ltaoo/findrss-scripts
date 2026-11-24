@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:46.218Z",
+  "checked_at": "2026-11-24T01:49:14.786Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1333
+    "status": 200,
+    "duration_ms": 1656
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1326,
+    "phase": "ok",
+    "elapsed_ms": 1630,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":11,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,90 +59,95 @@
             "authorization"
           ]
         },
-        "started_ms": 11,
-        "duration_ms": 1314,
+        "started_ms": 10,
+        "duration_ms": 1617,
         "timings": {
-          "response_ms": 1313
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 1264,
+          "body_read_ms": 352,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_64040028303e\",\"title\":\"奇安信 CERT\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508224&idx=1&sn=2ab11be61822d4389080836c4f6663af&chksm=ff03b6d57e244950a71cd9b611564e6d58f06d8a4af2a226b5b551f049674b47c69a2584b4f4&scene=126&sessionid=1795484958#rd\",\"description\":\"为企业级用户提供高危漏洞、重大安全事件安全风险通告和相关产品解决方案。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"奇安信 CERT\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM6XPxB5kkgQy0RWNKZLKRRmvVAb4XjaNGHgJxezpMHdibg%2F0\",\"updated\":\"2026-11-22T04:42:30.000Z\",\"items\":[{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508224:1\",\"title\":\"【已复现】Artifex Ghostscript -dSAFER 沙箱绕过漏洞(CVE-2026-125396)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508224&idx=1&sn=2ab11be61822d4389080836c4f6663af&chksm=ff03b6d57e244950a71cd9b611564e6d58f06d8a4af2a226b5b551f049674b47c69a2584b4f4&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555sJ0INXHpiafhZEIJUvevqnf01lYxhh0aAunzVBM0EJ3tc1YoX4nvZmrIAhtcvl5SR6NaBa2OO1M5c1E1DS3qmXmObIMxrnlNmg%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T04:42:30.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508210:1\",\"title\":\"安全热点周报：黑客利用 Puppet 严重 RCE 漏洞，波及企业管理服务器\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508210&idx=1&sn=b55f212d64f03e18a5b83b85ea88555c&chksm=ff8cae8b07e0cddd61092053306a1bbb73d0be14f120c92d7cececb5690b5de42a9076609350&scene=126&sessionid=1795484958#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555umFEJJjVXEy6wsjcH8doiar5h3mjgReRVTFZczQ9RC5XA6icicVyyTqaTcuSATvKIgOtjNiamBtIjTqfwWe6p2MUsXDJvaasI6ljU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T09:08:04.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508205:1\",\"title\":\"【在野利用】VMware vCenter 目录服务身份认证绕过漏洞(CVE-2026-123890)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508205&idx=1&sn=c64c6c41e9d946745d3280f323c705e0&chksm=ff8aed8e8c739ec557c1cee30f8481d288ff1bf3916e80b2d714feb343bdfd78eafd52f315f8&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRwAbCjh555u60elc0YN8GkehIMrLouRQRZU7jFABpiaHiaLT1HUkSCYcT91JQbgNib2Uum7Shibozy69Jf9Wt8awHGKJibIiaX4c3ibZ13HpDxSstQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-20T03:10:30.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508191:1\",\"title\":\"phpAfterShell：PHP 反序列化远程代码执行漏洞(CVE-2026-126714)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508191&idx=1&sn=81fa4f829d3bd2e4d52b367892eecc42&chksm=ff7a4acd9c84031775a1b229c25b7aecef2c1abf2d89285754d9c80dff1b45d7c1cc77398c6f&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555ticO9rOu5J1dv8JSf9doqicvSNlclDZTjM0Q2icsRBicPSXQoPib9Er2n0UoJ758YZ2lSw86VHewdq48jBibWz9NiczE0S5R53bB2UXE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T17:23:53.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508176:1\",\"title\":\"【已复现】Vite 远程代码执行漏洞(QVD-2026-112681)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508176&idx=1&sn=775517fa2f0efaad0deb2d63d7d69c50&chksm=ff74044436fdb40677fa5dfa04a2f7ec8b02f82f9ec0144c9e2f9144c2503e7dbc4f9e61fa6f&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555ub86NQr5k0zmIrLuEsSibicxGqzckmXiarDSmXeictZM6O7A8HzdqA1lEOzgvx56bfPpLpWnVgQibZ33MShb3FHv8m6dJR8eArtfOw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-19T07:04:37.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508164:1\",\"title\":\"【已复现】nginx2root nginx 多个远程代码执行漏洞安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508164&idx=1&sn=d43f6cd52bc411189b19efb581b897ec&chksm=ff006db1a227681b72a37ebaa389b1bd159934aada8725e6f0d9eeafebb8100ce79ec17920a6&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRwAbCjh555uu6htWW8zSAUDcDrnqXAmZVawgdEOQOOMqcnyTP28hl7RJU9Hq99q72dcmB6ohEVSZr3M3YQunKPpvzG7mVCwmUIjxGA0jG2Y%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T23:39:11.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508147:1\",\"title\":\"【已复现】OpenJDK Base64 解码器远程代码执行漏洞(CVE-2026-114938)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508147&idx=1&sn=a380d08925c7f4a6ad99f7f72e36bb34&chksm=ffb1fc79b008b86ead06bd04d6e5c78f5437d6fe614272af74c715a1d380abf327a02fa04a4a&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555sA02JpleqJ0jz2MCF8tmGmnJazbelkdSdNfWLNMIRkJ2dlUNt3qibb0UYibjN1TI0IBzmmjI8qj12yzKajzVuCyYpiatxibnjzLJQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-18T01:57:04.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508132:1\",\"title\":\"【已复现】LibreOffice 远程代码执行漏洞(CVE-2026-104692、CVE-2026-104007)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508132&idx=1&sn=765cffd533b8087793a59834cabdc0dd&chksm=ff51862e0f5992223897f7c1e1a6c2d187cd04f47124b4d5171ca91190c5a98adff140df884e&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRwAbCjh555uAQM0kLyUJxPmK3sLYNUEmHicbuaaFicgQwEKTUyz53zesX2Dc2kqnGkSKfVBJHkpciaqu9laUia2dhe8wf8IpYZy8pPt3ogreLVM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-17T09:04:24.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508122:1\",\"title\":\"【已复现】Windows 服务堆栈更新权限提升漏洞(CVE-2026-88235)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508122&idx=1&sn=4a7517fe634c26214a7a8a8428299b03&chksm=ffa75e4c983a7b2cb90a7431c55315e5e60ed29b8d7bf0c2200113154f306c494ca7d8616f9e&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555ubib7kp2GuBOXEI6X9DEJPsBfx1wOic723CzGTkS0P9dqtdYjYZPiaAPpLoPibmFohnUw6ACo3wbHMZE7hzl8URBIooia70ec6O1wM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T09:32:31.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508122:2\",\"title\":\"安全热点周报：谷歌修复了今年第八个被利用于攻击的 Chrome 零日漏洞\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508122&idx=2&sn=2d96aa77715b3a0f70de75b24144ed00&chksm=ff88b19991503b2f0a21c6eb8c1f4fa5902b8bd508fa54a9d1d58fac38ea107bcebed5ef55bc&scene=126&sessionid=1795484958#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555ujFXvCBpfQKcycGwqTvSXExMVJnaLuEqZyZrTb0AziaNeicPtwDS2WFHuguPHK18Aw6rREjOu8cMWlpUXD08VIs3YtiaHAibzMciaw%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T09:32:31.000Z\"},{\"id\":\"wxmp:MzU5NDgxODU1MQ%3D%3D:2247508110:1\",\"title\":\"【已复现】Apache HTTP/2 远程代码执行漏洞(CVE-2026-119618)安全风险通告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247508110&idx=1&sn=a17f6b379b7e554d96a77c11e8ccbe90&chksm=ffda58c3fc7d2fc0296e16d53a3fcc99b3dd60e651c3d5e552ac1cc4cd943053f5e92d520f45&scene=126&sessionid=1795484958#rd\",\"description\":\"致力于第一时间为企业级用户提供权威漏洞情报和有效解决方案。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRwAbCjh555sYWIEWpDP9VGn3KDtTbPuOicM2tibaN9H0YmhQzicuia9z9iaVJGPmKKr4tD0vczKfCxU2icdY4xzn6OtlLbtge4icibB5joXYbmDOhzE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T07:39:31.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1326,
+      "elapsed_ms": 1630,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 6
+          "started_ms": 1,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 1317
+          "started_ms": 6,
+          "duration_ms": 1623
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1325,
+          "name": "输出读取与校验",
+          "started_ms": 1629,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1630,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1325,
+          "started_ms": 1630,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1325,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 1630,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1326,
+          "started_ms": 1630,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 10,
-          "duration_ms": 1315
+          "started_ms": 9,
+          "duration_ms": 1618
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_64040028303e",
     "name": "奇安信 CERT",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 2272
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_64040028303e.json",
+    "duration_ms": 1035
   }
 }

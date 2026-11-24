@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:05:00.076Z",
+  "checked_at": "2026-11-24T01:49:37.574Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 518
+    "status": 200,
+    "duration_ms": 1139
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 513,
+    "phase": "ok",
+    "elapsed_ms": 1134,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -55,17 +60,17 @@
           ]
         },
         "started_ms": 10,
-        "duration_ms": 502,
+        "duration_ms": 1117,
         "timings": {
-          "response_ms": 502
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 954,
+          "body_read_ms": 161,
+          "decode_and_transfer_ms": 2
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_840004fd466e\",\"title\":\"字节跳动安全中心\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496433&idx=1&sn=94cf18ea502fdb70d6a89e34afc9b861&chksm=fb5365c8526279d1f1f4cbca6333f9d7f1a37d2fd981f8679a75c81c2ea667cd4f3572e4188e&scene=126&sessionid=1795484981#rd\",\"description\":\"字节跳动安全中心\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"字节跳动安全中心\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7IiahB7YO7QhKXBZiaMJedB6G5znNjasm880T1AS17r2Gg%2F0\",\"updated\":\"2026-11-13T09:00:00.000Z\",\"items\":[{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496433:1\",\"title\":\"火山智能体安全攻防挑战赛开启报名！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496433&idx=1&sn=94cf18ea502fdb70d6a89e34afc9b861&chksm=fb5365c8526279d1f1f4cbca6333f9d7f1a37d2fd981f8679a75c81c2ea667cd4f3572e4188e&scene=126&sessionid=1795484981#rd\",\"description\":\"欢迎参加火山智能体 AI 安全挑战赛，在真实攻防中定义更锋利、更精准的攻防智能体！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F00RfPoENAcY2gMlBldGOicZcPu75419es2bJD97GGGznZILGbte3WJgRib3Q9e3EScpibTCAwIUK3GBmoJGa91qpayMKW5l0M70SiaUmGFrLStA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-13T09:00:00.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496405:1\",\"title\":\"ByteSRC发布《AI 辅助安全测试 AGENTS.md》指引及违规白帽处罚公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496405&idx=1&sn=b989bdc2a075e3a46abfda036a16bb1f&chksm=fb88404ee87ddd1099e8d59f7c237b49d4eb8c99796131d43bb84d3b4af156f1906ef171720c&scene=126&sessionid=1795484981#rd\",\"description\":\"手工测试与 AI Agent 测试适用同一准则：仅在授权范围内开展测试，坚持最小必要验证，发现漏洞而不是利用漏洞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F00RfPoENAcYNsPWWJIklHGfWkTAMuqkvQjHgUQb1ZROXjEPp1pQKsmHt9fq0dTxTia52M5dcjs355LljW6JSKnWdrsVJbkmmAYKq0oqYkABs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-12T11:50:37.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496398:1\",\"title\":\"金秋护航，来字节跳动安全与风控收获你的专属 Offer！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496398&idx=1&sn=9e334a6f0e34d5ba23744a46e2c63877&chksm=fbfd97007c9c01634e135afdb5f52d464672335ca9263f7dd13638ba6bd43ddfbe6f4a25901e&scene=126&sessionid=1795484981#rd\",\"description\":\"金秋护航，来字节跳动安全与风控收获你的专属 Offer！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F00RfPoENAcYEtvxNQliaG9YoWzJgUVribZnas6DCic1YvRY8kFqtQqibtwicXsEJka4f4KFuPtURNEGU83uSQfOBSKvgFyXk2DuIlPATIjQ6VNQs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-23T10:00:00.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496388:1\",\"title\":\"TWIST 入选 ACM CCS 2026：面向云上大模型服务的隐私保护新方案\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496388&idx=1&sn=0091694c8514d609e619f61895bc492a&chksm=fbd6b07a92e9db862192ebe01be7741bb4f2e1c60261900eb35a999768119b18bcbfcbb38dfb&scene=126&sessionid=1795484981#rd\",\"description\":\"随着大模型在智能客服、代码助手、知识问答、办公协同等场景中加速落地，越来越多企业开始将模型以 MaaS 形式\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9Fee70O1Qjca2ZQArA8X3kkqicA21s672Qyg2UzbFQlaPk7H9tZ7yEfryhgOT20RjaYHvgvEt31GKrehHLfS8W3ibBBCXr4m4P0tdU%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-24T03:00:00.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496386:1\",\"title\":\"特别奖励发布！ByteSRC邀你参加双11安全保卫战！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496386&idx=1&sn=588106c459bf13d8002fbb12746929b4&chksm=fbff2c731c46b0236921a7c9b56e622fe14c7879c909e124e10d0da558ff18855545599fbbe2&scene=126&sessionid=1795484981#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F00RfPoENAcYYg4KXg3c0ibw0jTibnzPwELsdwhBFoSPsDbwmp1SicvUa9dTxpCAWkQBiafOLR5lsXrsOf0qLf4KeMib6oJ1VdCeqvdotKwa9HOu0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-22T03:11:22.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496381:1\",\"title\":\"一文了解｜SkillScan 智能体技能安全扫描最佳实践\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496381&idx=1&sn=012b12d8082f3763f8311722ac1f2e57&chksm=fbdee6b36b15485a37f5e5079a324ed8bb4415412fa017008f048f8b928d2141c0ec767f8cca&scene=126&sessionid=1795484981#rd\",\"description\":\"SkillScan 致力于为智能体技能生态提供全方位的安全保障。通过多层检测能力和持续的安全运营，已为火山 SkillHub、字节云 SkillHub 等多个业务场景提供安全准入支撑。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FFGB4hYw9FefULysNfU1TgV999FS3VwJONAAjz9XgJUlxAcxSJ3p3eUVIPDHHmicmJMA6ew3skaBXBKMBQASN9SeHoF1ibI5Fib0qTKMXmurDWA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-20T04:05:00.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496379:1\",\"title\":\"Mythos 对企业安全架构影响的思考\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496379&idx=1&sn=6e86473c1f1fc30edfbb2cc00d263b34&chksm=fb775fdba2af1fb3aa857142f0e435c7662e32191aa63aa4d319e67ea097667ec72a6abc4555&scene=126&sessionid=1795484981#rd\",\"description\":\"核心观点：运营和处置要更快 - Claude Mythos 第一次将 “自主发现并武器化漏洞”的能力，提升到\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FFGB4hYw9Fef6Hp2X58NsgMncHT3FD9CSzqk6Sz2B2UXmc0A8Q49h0joH8SvficUbhqqvVpIKagpxXfjjKMQWeztne8weoaORIHQCaNoV5sL8%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-18T04:30:00.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496377:1\",\"title\":\"ByteSRC发布《测试红线10条》及违规白帽处罚公告\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496377&idx=1&sn=657d9a329e2dd6cdb7eadfd615067497&chksm=fb94975438fe13da0ed58c6d44c76a577401ebbc9b272cdb6d1ff0c7de524f682a6fb6831bcd&scene=126&sessionid=1795484981#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F00RfPoENAcY7JlRBIf4ib6RvPKLYwiakq83teMdd4vGcxGricic2K3M6O4oATvvhWuJl0VdVUfLLdWlTBMTAxL8yseb0TGujf6SK47HtFpAlmmw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-09T08:11:18.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496368:1\",\"title\":\"火山引擎 AI 安全新升级：AgentSentry 让企业放心用 AI\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496368&idx=1&sn=e83495f8c8d5b3d08c68185d319b4047&chksm=fbb74876bc44ee7dc4d790e94f957631a52b966cd99d7f1148c3c292a00dd9280872c993175e&scene=126&sessionid=1795484981#rd\",\"description\":\"随着智能体深入企业生产系统，如何安全管控多元、异构的智能体集群，成为企业面临的新问题。近日，火山引擎 Ag\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FZXrBSBL6PTzscCzIxsuml2mU8arWtytTiaRFMRmxjquumiaApbic3FItEoAzh14dw1Xd8WMqJVowOHKmAkm33Z5iaib8CavolugqJsA6XeWcYFQ4%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-07T04:05:02.000Z\"},{\"id\":\"wxmp:MzUzMzcyMDYzMw%3D%3D:2247496366:1\",\"title\":\"顶配赏金｜抖音电商反爬专测上线！众包情报开放收录！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzUzMzcyMDYzMw==&mid=2247496366&idx=1&sn=6406f68d091b1252c47ac47dc3b3515b&chksm=fbeedf27380200e21d3205596a8928baa6e002369f60ac0d3f25bb3b6e6a47bf3403af8f799d&scene=126&sessionid=1795484981#rd\",\"description\":\"ByteSRC反爬专测重磅开启！\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2F00RfPoENAcaapFmnTicYYONnFiaw6Yiattb8G6cMOZknYhy3wLyKGLR0Ov1hWyjSPCAfic5XxdkXqkxXJAfX8SibDD7tUb9vffmj8AEibicsXKqa8c%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-04T03:30:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 513,
+      "elapsed_ms": 1134,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,31 +110,36 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 504
+          "started_ms": 7,
+          "duration_ms": 1126
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 512,
+          "name": "输出读取与校验",
+          "started_ms": 1133,
+          "duration_ms": 0
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 1133,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 512,
+          "started_ms": 1133,
           "duration_ms": 1
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 513,
+          "name": "浏览器状态保存",
+          "started_ms": 1134,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 513,
+          "started_ms": 1134,
           "duration_ms": 0
         }
       ],
@@ -137,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 10,
-          "duration_ms": 502
+          "duration_ms": 1117
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_840004fd466e",
     "name": "字节跳动安全中心",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 545
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_840004fd466e.json",
+    "duration_ms": 1420
   }
 }

@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-23T15:04:34.778Z",
+  "checked_at": "2026-11-24T01:48:55.946Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 1082
+    "status": 200,
+    "duration_ms": 842
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,19 +34,24 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 1070,
+    "phase": "ok",
+    "elapsed_ms": 836,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503",
-    "error_text": "脚本执行失败：脚本上游 dhub.funzm.com 返回 HTTP 503\nat fetchText (rss-context.js:618:45)",
-    "lines": [],
+    "upstream_error": "",
+    "error_text": "",
+    "lines": [
+      {
+        "level": "info",
+        "text": "RSS 内容完成 {\"count\":10,\"missing_published\":0}"
+      }
+    ],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
         "method": "POST",
         "host": "dhub.funzm.com",
         "pathname": "/api/wxmp/biz/msg/list",
-        "status": 503,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "none",
@@ -54,18 +59,18 @@
             "authorization"
           ]
         },
-        "started_ms": 10,
-        "duration_ms": 1059,
+        "started_ms": 9,
+        "duration_ms": 824,
         "timings": {
-          "response_ms": 1059
-        },
-        "rate_limit": {
-          "retry-after": 1
+          "response_ms": 654,
+          "body_read_ms": 169,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_edb85f9e73b5\",\"title\":\"ChaMd5安全团队\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514530&idx=1&sn=bd4e63b0125aac2a232fdb261e684c20&chksm=e946dbdb9654efc834f5490a3c3a9a41acd140e77fc7256e406f03255bb4183cbdcc02dafc3c&scene=126&sessionid=1795484939#rd\",\"description\":\"一群不正经的老司机组成的史上最牛逼的安全团队。小二，来杯优乐美。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"ChaMd5安全团队\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5ByMRSk2QPEOVqf9N3orRLVdRBQUTx1LPiagDgGOk9sKg%2F0\",\"updated\":\"2026-11-09T00:23:00.000Z\",\"items\":[{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514530:1\",\"title\":\"SNOWLIGHT恶意软件分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514530&idx=1&sn=bd4e63b0125aac2a232fdb261e684c20&chksm=e946dbdb9654efc834f5490a3c3a9a41acd140e77fc7256e406f03255bb4183cbdcc02dafc3c&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjvwqHfehg2M8r7YtBMBicQjkvIxfBJqjhCEfScCtHl0CdThwcI1Ju3cXRx9TVraK7ZgzpMvHs5XD3CiatlKDxHyicuG64hibuOtuFlNhoQ0cH7M%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-09T00:23:00.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514511:1\",\"title\":\"GEEKCON 2026 上海站闭幕丨荣誉榜单·年度GEEK榜公布\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514511&idx=1&sn=298ae1f47e9fb57169b7e68a4ff227b9&chksm=e9af9c9f86f2a022578c58397dc1422bd4103f6792d4ebffcb53330d689e4baa807f36b32931&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FR5j52okPbe9VqEh8hoSaWZmibyibVDFG4b7S7Bksia7AURMgefXyjsIs5E9jSslVyLy6nEDKbDYy2CR0JWKTO97dl7vx5LNLGtkaRC2JhNus0I%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-30T00:00:00.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514508:1\",\"title\":\"EtherHiding 后门样本分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514508&idx=1&sn=c952b8745658e3d90d1192430e48fc67&chksm=e918f755ef2ab0942ac9a05d7e15b79e8fe332cbd3ff99fee5fd06324ec9120227ac28fda78c&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjvwqHfehg2PfHM1pJuYmicgoic11SmgibRxSdwzMxjIQQ8Nr5wYMySibRpeJ6qPW9I0ujIaibGcHkhFvzRv3LD93cMRu7GQH4vpCoOejFsiaicW8eI%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-22T00:00:00.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514492:1\",\"title\":\"REA驱动的某川PLC私有协议-逆向分析实战\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514492&idx=1&sn=9453c9e53edc8efff5888b2d75581185&chksm=e9557b1cf682e6543d2da256ee9b444cc5e3ecaf84bd9039b1f154954c2e97479dc245dc1103&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjvwqHfehg2P6ICfCMQf1GkZqeva4yKyaZhjQKTEUzPsodNR47Bt4xHEsG7ic1RviaPYMD8GXTbocnsNysSue8nxyDA8QaMfso4dROus6fv2Vo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T00:00:00.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514481:1\",\"title\":\"喜报 | ChaMd5荣获第六届“长城杯”网络安全大赛决赛“二等奖”\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514481&idx=1&sn=917acf1c02a024abc702081424c199d8&chksm=e9297c8186f69f0596a851a830e60bb1e9f93cf7f70f540b0417c73ac2b582479b59dac5ec10&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjvwqHfehg2O5Vg9nCI49X4odN2C7lP3ZREaMuB5Oa86p6fR0ltvIlWpOpsqPW3yaXKcPDUMZia7FEXAK502y5wj582sGzL8DgIiczIcsL2GJ0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-19T04:39:26.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514464:1\",\"title\":\"喜报 | ChaMd5荣获2026年人工智能大模型安全众测\\\"优秀测试团队\\\"\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514464&idx=1&sn=5a4569793e867afff3e2e9e57cd02163&chksm=e91d90af791c156ca7c000739312a4b64ec0b1bd8113a3c1cf12fd499893bfc9bec763c317ec&scene=126&sessionid=1795484939#rd\",\"description\":\"9月15日，2026年人工智能大模型安全众测结果在国家网络安全宣传周人工智能安全治理论坛重磅揭\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjvwqHfehg2NmAJHa4zreeqojIjuDX8olwJwkgxEwApwPj2vHbBzsSib3WmN4n1ibfCcWGWJ708cGibtH8m8D8snOHMSNwKa5tXicE5oHVwXAQOY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-17T06:11:04.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514454:1\",\"title\":\"复现与修复指南：Linux内核本地提权漏洞OVSwrap（CVE-2026-64531）\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514454&idx=1&sn=e4f7d8f8545d414742d06d79a0b87c87&chksm=e93bdf06426c875008e5db69dba78262f7e48f941228f1b9d177c2f54e6d308c82cd81ca7b35&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjvwqHfehg2ML70VicmbCPwdria7Q67gaSWJNO9BDkDgmZyCPRrrl8PJeYPbIdz8hX40RTvabRWvM625UpeicP2uXGLjCiaCibdU7bAd3tSTQuuGo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-28T03:07:15.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514453:1\",\"title\":\"某国产PLC固件安全分析研究\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514453&idx=1&sn=620c8da5e32a1fc8c142be0092a5e0a6&chksm=e94dfd0590c9c6d50d18eb19534fc67b1e50c31ed74e0512210942c907a3e0e9578ad2e748cf&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjvwqHfehg2MeUFOJvELK0IccTZUJOns1JY68YLCzI8mBVLf9SRvVygZz0RyvQGS02micV60HC5zEjlLGb4YwhT1u1jmYHMz8ynvUs5EqJm9g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-27T00:00:00.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514400:1\",\"title\":\"新型 PLC 编程软件架构演进、安全风险分析\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514400&idx=1&sn=1d9e162dc68cee74825ccc93053b6351&chksm=e98224a40e467e3ba3396b74d2a4da3de9ae44b5b33bf31980377457448befbd3d71f3858a46&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FjvwqHfehg2NiapZqAKoXjWpRDDB6qTo9ZfdnxMdtPtwzASHgJs0VCbshg3toWRibIn5rTR54RLJ1BT8ibWfuCJhvIRs7lKmia2U8YiajUBh83wfw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-20T00:00:00.000Z\"},{\"id\":\"wxmp:MzIzMTc1MjExOQ%3D%3D:2247514392:1\",\"title\":\"插件、沙箱与一个总钥匙:DeepSeek Harness 四个安全漏洞的发现与利用实录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&mid=2247514392&idx=1&sn=51cd8c0619898d0e068bbd42db067118&chksm=e9b5ce72d0d7e7b7562c85dc6a29d4237429276b00aaa2fa1235eb59b4097f71b91f27b276f5&scene=126&sessionid=1795484939#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FjvwqHfehg2MxqchIS9lxux5ockicgG9cOebpqMvvmlonLuJnWQ7I2anSsAJeQm4ib7sYp7DicNL5icbWZib8KIzAvz8HXCibcakK4MCu3ukibBgmCk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-08-14T00:00:00.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1070,
+      "elapsed_ms": 836,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -85,51 +90,56 @@
         {
           "name": "宿主能力准备",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 1062
+          "started_ms": 6,
+          "duration_ms": 829
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 1069,
-          "duration_ms": 1
-        },
-        {
-          "name": "沙箱释放",
-          "started_ms": 1070,
+          "name": "输出读取与校验",
+          "started_ms": 835,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 1070,
+          "name": "执行日志收集",
+          "started_ms": 835,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 835,
+          "duration_ms": 1
+        },
+        {
+          "name": "浏览器状态保存",
+          "started_ms": 836,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1070,
+          "started_ms": 836,
           "duration_ms": 0
         }
       ],
@@ -137,7 +147,7 @@
         {
           "name": "上游 HTTP 请求",
           "started_ms": 9,
-          "duration_ms": 1060
+          "duration_ms": 824
         }
       ]
     }
@@ -148,13 +158,12 @@
     "example": "/api/rss/wxmp/gh_edb85f9e73b5",
     "name": "ChaMd5安全团队",
     "format": "rss_json",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 3812
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/rss/wxmp/gh_edb85f9e73b5.json",
+    "duration_ms": 2190
   }
 }
