@@ -1,0 +1,76 @@
+name: navigate-acceptance
+
+# Builds the Chromium navigation image with real Google Chrome (amd64) and
+# verifies it clears Cloudflare on javlibrary via the /navigate API.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ci/navigate-acceptance
+
+jobs:
+  javlibrary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build navigation image (amd64 + Chrome for Testing)
+        run: |
+          docker build \
+            --build-arg CHROME_FOR_TESTING=1 \
+            -t findrss-navigate:ci \
+            ci/navigate
+
+      - name: Start navigation service
+        run: |
+          docker run -d --name nav --init --shm-size=1g \
+            -p 127.0.0.1:8802:8000 \
+            -e TOKEN=ci-token -e HEADLESS=0 -e ENABLE_CLICK=1 -e WARMUP=1 \
+            -e ALLOW_ANY_HTTPS=1 -e NO_SANDBOX=1 \
+            findrss-navigate:ci
+
+      - name: Wait for health
+        run: |
+          for i in $(seq 1 40); do
+            if curl -fsS -m 4 http://127.0.0.1:8802/health >/dev/null 2>&1; then
+              echo "healthy after ${i} polls"; exit 0
+            fi
+            sleep 3
+          done
+          echo "service did not become healthy"
+          docker logs nav
+          exit 1
+
+      - name: Navigate javlibrary via API
+        run: |
+          curl -sS -m 160 \
+            -H 'x-auth-token: ci-token' \
+            -H 'content-type: application/json' \
+            -d '{"url":"https://www.javlibrary.com/","timeout_ms":100000,"capture":{"source":true,"headers":true,"cookies":true,"har":false}}' \
+            http://127.0.0.1:8802/navigate -o resp.json
+          python3 ci/navigate/assert_response.py resp.json
+
+      - name: /html adapter (worker contract)
+        run: |
+          code=$(curl -sS -m 160 -o /dev/null -w '%{http_code}' \
+            -H 'x-auth-token: ci-token' \
+            "http://127.0.0.1:8802/html?url=https://www.javlibrary.com/")
+          echo "/html -> $code"
+          test "$code" = "200"
+
+      - name: Diagnostics
+        if: always()
+        run: |
+          echo "==== container logs ===="
+          docker logs nav 2>&1 | tail -80 || true
+          echo "==== response (truncated) ===="
+          head -c 1500 resp.json 2>/dev/null || true
+
+      - name: Upload response
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: navigate-javlibrary
+          path: resp.json
+          if-no-files-found: ignore
