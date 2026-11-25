@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-24T23:42:13.732Z",
+  "checked_at": "2026-11-25T09:05:21.529Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 42
+    "status": 502,
+    "duration_ms": 49
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
     "script": {
       "file": "detect/website_text.js",
       "name": "网页正文内容检测",
@@ -35,11 +35,11 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 34,
+    "phase": "runtime",
+    "elapsed_ms": 32,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游连接失败，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游连接失败，请稍后重试\nat fetchText (rss-context.js:618:45)",
     "lines": [],
     "upstream_requests": [
       {
@@ -47,101 +47,93 @@
         "method": "GET",
         "host": "example.com",
         "pathname": "/",
-        "status": 200,
+        "status": null,
         "transport": "fetch",
         "credentials": {
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 11,
-        "duration_ms": 21,
+        "started_ms": 8,
+        "duration_ms": 23,
         "timings": {
-          "response_ms": 20,
-          "body_read_ms": 1,
-          "decode_and_transfer_ms": 0
+          "response_ms": 23
         }
       }
     ],
-    "output": "{\"kind\":\"detect\",\"schema_version\":1,\"title\":\"网页正文检测\",\"link\":\"https://example.com/\",\"status\":\"initialized\",\"previous_id\":null,\"observed_at\":\"2026-11-24T23:42:13.770Z\",\"snapshot\":{\"body\":{\"type\":\"content\",\"present\":true,\"format\":\"text\",\"value\":\"This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.\"}},\"changes\":[],\"matches\":[],\"issues\":[]}",
     "timing": {
-      "elapsed_ms": 34,
+      "elapsed_ms": 32,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
-          "duration_ms": 7
+          "started_ms": 1,
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
+          "started_ms": 6,
           "duration_ms": 25
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 34,
-          "duration_ms": 0
-        },
-        {
-          "name": "执行日志收集",
-          "started_ms": 34,
+          "name": "错误诊断收集",
+          "started_ms": 31,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 34,
-          "duration_ms": 0
+          "started_ms": 31,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 34,
+          "name": "失败后浏览器清理",
+          "started_ms": 32,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 34,
+          "started_ms": 32,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 21
+          "started_ms": 8,
+          "duration_ms": 23
         }
       ]
     }
@@ -152,12 +144,13 @@
     "example": "/api/detect/web/text/detect",
     "name": "网页正文内容检测",
     "format": "detect",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/detect/web/text/detect.5204cf87dc2a69fc.json",
-    "duration_ms": 152
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 102
   }
 }

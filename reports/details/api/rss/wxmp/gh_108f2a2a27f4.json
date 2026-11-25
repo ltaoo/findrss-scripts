@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-24T23:37:20.839Z",
+  "checked_at": "2026-11-25T09:04:29.591Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1283
+    "status": 504,
+    "duration_ms": 30021
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
     "script": {
       "file": "rss/wxmp.js",
       "name": "微信公众号",
@@ -34,17 +34,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1270,
+    "phase": "runtime",
+    "elapsed_ms": 30013,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "RSS 内容完成 {\"count\":21,\"missing_published\":0}"
-      }
-    ],
+    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：脚本上游正文读取超时，请稍后重试",
+    "error_text": "脚本执行失败：脚本上游正文读取超时，请稍后重试\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://dhub.funzm.com/api/wxmp/biz/msg/list",
@@ -59,18 +54,16 @@
             "authorization"
           ]
         },
-        "started_ms": 12,
-        "duration_ms": 1244,
+        "started_ms": 10,
+        "duration_ms": 30002,
         "timings": {
-          "response_ms": 881,
-          "body_read_ms": 357,
-          "decode_and_transfer_ms": 6
+          "response_ms": 2268,
+          "body_read_ms": 27733
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_108f2a2a27f4\",\"title\":\"新智元\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744943&idx=1&sn=1e00017c9d0415625c2d87d698958db0&chksm=f09b5f59d8e12a3337088cf8030e08e4c3bea3fb9f06c6f8b21773323891d13e0c1075bff1d5&scene=126&sessionid=1795563441#rd\",\"description\":\"新天终启 万象智生 All in ASI\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"新智元\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM5Ge0ZibsJqTzd6HdTSHcydlic4TnsmpJicUrIlicD1L9ficFw%2F0\",\"updated\":\"2026-11-24T12:19:04.000Z\",\"items\":[{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744943:1\",\"title\":\"Karpathy预言成真！横扫8项全球最高分，硅谷这个LLM新风口落地中国\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744943&idx=1&sn=1e00017c9d0415625c2d87d698958db0&chksm=f09b5f59d8e12a3337088cf8030e08e4c3bea3fb9f06c6f8b21773323891d13e0c1075bff1d5&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYWyAbBjc4ibwygPlAxTCU21lI60zA9HARRescO658C4KFIadMtGY5gAEicIiaRUuAX1JicnNUibt0W5osPOy2nJPRhUNtg6vz9U5yEM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T12:19:04.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744943:2\",\"title\":\"Gemini 4包揽前三！能打败谷歌的只有谷歌\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744943&idx=2&sn=544696fb4503b887ca5e85a0a4f225b5&chksm=f0342a8ae4a437bc3dda6e7aa790fa290e1475a263ac426902bc40a958443aca92d9b1ff7aa7&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYUfKPS2TDEm9pkibJHthnibZN6tLLNZWkVa1ibOrsjsj3WNk3FnG3YticibD8Pgvq3lfLjlaBAloWa3kk53BkcjhbbaZtR1llicNTsiaM%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T12:19:04.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744885:1\",\"title\":\"美国「创世纪」一周年，「人类拓界计划」全球引燃！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744885&idx=1&sn=5cfe654891c0cdaa5b049ac0680ad1ef&chksm=f011cbc3a346d16ed506be24f591ee6422790a8d11ac00718d778cc9e28efc22e0e07ed69063&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYWUPjoKW2ORaY8BU8h9J0fvbU4TVaKkW93kOBJuU4RmMFKCky1Dw4icDGBgjqHFZibbXyibiclonQsKTTXqe4bC2CYbdIzciaickASibk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T04:33:00.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744885:2\",\"title\":\"谷歌Gemini 4破解量子计算「天书」！核聚变进度条拉满了\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744885&idx=2&sn=2c75654f6c12f33d3ac39ee5f7cf84fa&chksm=f0eeb5a8da5da837bd0b0048530177ff0a7a6f1c2b7a0e28df6364a834dee81a677a8c02ea33&scene=126&sessionid=1795563441#rd\",\"description\":\"量子计算的天书开始有了译本\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYWzqKl4wiayiaoZPvxesBzAXKjibtoIvJeRmSNicCicQjOhEZpM64THrfh3icXYyuUJjyVpzSs8VPZWukefPIiaHsCwqUTuRVatYOx290%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T04:33:00.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744860:1\",\"title\":\"国产AI黑马迎来大爆发！单季业绩三项破纪录，股价暴涨22%\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744860&idx=1&sn=7c02536b54e86523ba38503e8db10b0a&chksm=f0f767e4f755f4be1ef4929f19c39bf3948eeab0cd995cba71033f5a922e945d175549eb438e&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYWNPGMOfqoy5u2f4MwuicshfvjkChKRM7EM1jaLImRSLMLdgm75I8RfCokqFt5t8duUQu0IKYeLNCPOnVAo3NXnxcKGNswsRKa0%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T02:07:10.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744860:2\",\"title\":\"Claude证出「代数版P≠NP」！73000行Lean代码通过验证\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744860&idx=2&sn=70bef4b64297b541c7daa283d848930e&chksm=f0d753f9b3df44e0601b156a044196cb29fc3e7cf19f822fecbcd6ceec07ecb5a22b996e5b9d&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYUjXsLfAgXxP2RaibficSt4CgYFnFkwtF09aLaarSibL8Dv9G6ryqiaNND6dgYZRXHwQ4zzpTQWw4kXge10exViclguia8JJ2yWsJQ8M%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T02:07:10.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744860:3\",\"title\":\"答对全靠背，Agent只是假装搜索！仅24%准确率 | EMNLP'26 Oral\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744860&idx=3&sn=bfe63b458cde528011c151e4c0e9fdb1&chksm=f041b3a72a8e7b201652c723e9d37b19bc337fc2148aa35a62caa80680bd43cc76df7d566ccd&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYXbyFoDiaHMckar3ic6viaictWJMibhD5KDNrgVz6tkIzITQLOavaXCFfNVYEU4W5POiazojtBjQWxfco35R7aAibbDicEhCibLsEk8Twko%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-24T02:07:10.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744799:1\",\"title\":\"老黄2.0版王者归来！黄仁勋全票再任英伟达CEO\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744799&idx=1&sn=f95eb28414564cddb78e6076a8a8f9ee&chksm=f0467b9665660e8e7bb9e3f5ef4a4ee9f443d990c3e4c2d732d066b06fba6a0b4292dba6fced&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYU2oNbIsJBwfZrRDwkptFibMRzafK2XBROBXYVOUPuicRXcg1HPycYYf4MFNDQKp7LUspdKQzByZjapNMhbY5ejYe0SNqVB7VvKc%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T16:02:34.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744693:1\",\"title\":\"AI巨头CEO惊人暴论：人类被AI抢饭碗后，可以用沉浸式游戏安抚\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744693&idx=1&sn=81a57ca0f49d554de33caf031a2ae0a1&chksm=f0f0b48b08421c24769f4749fe695e0301bee3efaf7d7438b66841097104c5eee1b7d82e6ece&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYVY01L3vN6fXGwsKeXWiaTibrsKc6OLibCw88lAExwdhKRC5OfRMibDzPZlXpvwvK0iaSmhWtXqicFyGwlulkbs2tUf9tC8ZibcC1XtHs%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T11:47:03.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744693:2\",\"title\":\"斯坦福博士零AI苦研黎曼猜想12年，公开8小时反遭AI挑错！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744693&idx=2&sn=d1308737cc1c2eefe4bfb8bc21b58665&chksm=f05bfe5df548ae30ce164c65b0164043e41412232db1cd719676e64d88d885a08c3cde29c9ff&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYWO9rm2nLOTiaYLjmwZIHJA20UVQ4DW4JsIbu05uVhpRPibkmkLPmqapgbQSCusiaf6zn1E7tdRLdicC9zjv3LJcqAPgJRbB0h7FK0%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T11:47:03.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744670:1\",\"title\":\"马斯克把GTA 6搬上特斯拉！FSD端到端实时生世界，一脚油开进3A游戏\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744670&idx=1&sn=9b2115d6b2b59fec9d5056cb9b7bfabc&chksm=f0fe9dfe86b60eeaaac0a07ea33b3c762899dbcc885b64d39a8cdc1c9c436782caa23d57eb9e&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYW0gZVVcS6AbYqPicSCf7ntS3JRhkMPW13M4YicFFgiaLkgdWHS5PWbg1yKVKRK9eDp4RwqlFbnicmicCEwoIntMLJ41HCrpYhI6tHo%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T03:46:44.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744670:2\",\"title\":\"Dario内部备忘录：AGI有两三成概率毁灭人类！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744670&idx=2&sn=ec45fe372a6a35064768319d8dc370c1&chksm=f0ece9dfdefe8fa9c90306042795823ea2660cbc5ee0d92cd887e366066f648a98eb435e0eb1&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYWHAnvvydRbQaPAqRLr3ybPm9jodxvm3eia4LqD4EOJjJe2teasDoLcSm4Aib59bHmanJ3qqyW63vOeTRl0zZF4mhMxF2wuYa0oA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T03:46:44.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744596:1\",\"title\":\"OpenAI预训练指标曝光：27年AI将雪崩式爆发！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744596&idx=1&sn=7dd8dd602e0402a651a618e3eb5bd5b3&chksm=f019b71effdfbb2afc83f4f7fa7a9e72ac37dce4e25e96ea7e5911fadadd28739aa3faacc7e3&scene=126&sessionid=1795563441#rd\",\"description\":\"当预训练逼近悬崖谁来踩下刹车\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYUA0BJ0iciatoq69dLemXsricTBXTgl8f5NrnFKJT33eWCPu347rExCY7JkSpoRQtQ3kwysicFyWCicsULFpBlzXeBkibrYUCs6KYwoY%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T01:24:32.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744596:2\",\"title\":\"GPT-6.2刚登顶游戏榜，Claude反手空降抢走第一！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744596&idx=2&sn=0a04a59e4936bc2a891e29931040e4e3&chksm=f0ce2c63e2be611ec108dcb3004f98280558fe72476401f3ce838a1123fd0580ed12e06526ba&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYWrYLNS9cctGbgnj4k6sKxLrWvqiaVe25n6ElrDQTHicn7ge3thFmOA3iaNPkthODhPeUn05NaE3iaLzABjqREdlQgTBOgicAD3tiakI%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-23T01:24:32.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744575:1\",\"title\":\"中国AI刷爆全球纪录！比Claude快四万倍，多个密码学难题被破解\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744575&idx=1&sn=9c64fe2395b7111545ac8b42cd6dbca8&chksm=f0b17ca34e5b5636c8fb3e617084719d80919e349d8ba9188d57f6bd366100391068d98cda97&scene=126&sessionid=1795563441#rd\",\"description\":\"Anthropic工程师火速转发点赞\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYVDKXFOcNeQp7ZKnJmEoI9drLwN485tDMxCFZnyWJMm2sGwq6yY1ibd7FfDMQlyHGXWLmwyicfawtzBZt4nBzq3JjbMscKzlZjwE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T23:02:00.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744575:2\",\"title\":\"揭秘Anthropic的「暴利」真相：缓存税！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744575&idx=2&sn=b75f90f8b28a74c124a393514f08e8bd&chksm=f01cb15b2faaabbdf77d62d0e07353bff0bbe89dcbe33218648e593fcfaf9043fadfcb11a837&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYUKciayjnycO61TjAS5YUiceiakWm4z4BC3ib5VtBnFyibNpyzCADSy8eGoFVibcxQdoRiaWEzkNz8nnRYibIjibMr17xu93ydTyxbnNl2w%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T23:02:00.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744575:3\",\"title\":\"智能体复杂记忆甚至跑不过原始RAG？UIUC等首提「记忆税」\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744575&idx=3&sn=30dd0cb196f30092f2c09b3c8552c0f5&chksm=f0c2c80e12ed0f4987728d84436391355d054e841aa1659ba3eca524d04bcfe0fc6c3332b033&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYVpOKicCwyGP5wv3iaaicG3LMKwWzdSEkqVQcLa7m25egaI7VLlO2SbMmdjXrRNhLxAaSB8AgHqHic6lPkRsJ75wmP0MK1uKNxmv6c%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T23:02:00.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744538:1\",\"title\":\"黎曼猜想为何偏偏被Levent Alpöge证明了？\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744538&idx=1&sn=059eb7a82fd11ba4679cd5a90f5ca575&chksm=f0d5667bca298c6743a80f191d35de6728d62863d848c0af5f72b401685a73c677fc704593e3&scene=126&sessionid=1795563441#rd\",\"description\":\"Levent Alpöge 小传：AI 数学第一人，是如何炼成的？\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYVRWDkZkuaMWHbibHzrx0SicEHCNYRib6LzKDDwKtLibn86YtORJ0k15OuOPW9y02UdA2OtOp8FKSADnIx7SD3VXbnoNDC5WwK5uWE%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T10:53:51.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744538:2\",\"title\":\"黎曼200周年大会首日猜想告破！丘成桐：数学进入新纪元\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744538&idx=2&sn=ed5c0754cc9c2a64df176121be8efc32&chksm=f08a4794cbf77226f7d243534c79d16b58f01d1cf516b661964a7958bf6ffcfca526f074ad1f&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYVJJynHBNmfhZFO7KeKSsGuID0GRwSHf9pBqG8GMA1b9p0iaXVcyank2vqArmQOwGDhI3eApiaicWGlTFqGInS1V4xez76FOTgm7I%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T10:53:51.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744489:1\",\"title\":\"Anthropic开出2.7亿天价疯抢CS本科生！OpenAI迎史上最惨一周\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744489&idx=1&sn=6839042e41ccd663103d0b7244f12a6a&chksm=f0a6884dcc7f3d6bfae26a602decee3ac7d480bab4df126da15d4ff4b931a7049d709107c20a&scene=126&sessionid=1795563441#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRvq8Ow69CYWgtYwAjKicc6LgcOg5ooykqdFp5SZpIPF7DicNXQIwic1uCibwMtw8mU9MicEPeujwicMV6meErDOpJw89FURaPZUictljNeugnuNMMM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T06:56:50.000Z\"},{\"id\":\"wxmp:MzI3MTA0MTk1MA%3D%3D:2652744489:2\",\"title\":\"「外星智能」降临，AI联手人类砸碎了百年数学圣杯\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652744489&idx=2&sn=b482c7b0f4913567db40b665942a52ad&chksm=f05e80a4755e990dd8826c8f565bdcf9e17f9e1028dc1dea6b8ac6fe9fd03a8a464dc795985a&scene=126&sessionid=1795563441#rd\",\"description\":\"从三千亿到二十六人机联手破数学极限\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FRvq8Ow69CYXicDFDzDA3gAjXTW3ZyXQbmOQhS2TBA2iaPWPdp5QgZ6w95T0hx5C7s1IHxwlxMTJ59dG4vKGfnPAPZrhTDLABdM9ZKRATBezhA%2F300%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-22T06:56:50.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 1270,
+      "elapsed_ms": 30013,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -105,49 +98,44 @@
         {
           "name": "QuickJS/Wasm 初始化",
           "started_ms": 1,
-          "duration_ms": 2
-        },
-        {
-          "name": "沙箱上下文与工具初始化",
-          "started_ms": 3,
-          "duration_ms": 6
-        },
-        {
-          "name": "脚本执行（含外部调用等待）",
-          "started_ms": 9,
-          "duration_ms": 1259
-        },
-        {
-          "name": "输出读取与校验",
-          "started_ms": 1268,
           "duration_ms": 1
         },
         {
-          "name": "执行日志收集",
-          "started_ms": 1269,
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 5
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 7,
+          "duration_ms": 30005
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 30012,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 1269,
-          "duration_ms": 0
+          "started_ms": 30012,
+          "duration_ms": 1
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1269,
+          "name": "失败后浏览器清理",
+          "started_ms": 30013,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1269,
-          "duration_ms": 1
+          "started_ms": 30013,
+          "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 12,
-          "duration_ms": 1244
+          "started_ms": 10,
+          "duration_ms": 30002
         }
       ]
     }
@@ -158,12 +146,13 @@
     "example": "/api/rss/wxmp/gh_108f2a2a27f4",
     "name": "新智元",
     "format": "rss_json",
-    "request": true,
-    "response": true,
-    "format_valid": true,
-    "output_valid": true,
-    "status": 200,
-    "output_file": "api/rss/wxmp/gh_108f2a2a27f4.json",
-    "duration_ms": 1436
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 504,
+    "code": "UPSTREAM_TIMEOUT",
+    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
+    "duration_ms": 30019
   }
 }
