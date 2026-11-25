@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-25T09:05:21.491Z",
+  "checked_at": "2026-11-25T19:36:42.046Z",
   "debug_request": {
-    "status": 502,
-    "duration_ms": 66
+    "status": 200,
+    "duration_ms": 3485
   },
   "debug": {
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
+    "status": 200,
+    "code": null,
     "script": {
       "file": "clip/baidu_weather.js",
       "name": "百度天气",
@@ -34,11 +34,11 @@
         "authenticated": true
       }
     },
-    "phase": "runtime",
-    "elapsed_ms": 44,
+    "phase": "ok",
+    "elapsed_ms": 3452,
     "invoked": false,
-    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游连接失败，请稍后重试",
-    "error_text": "脚本执行失败：脚本上游连接失败，请稍后重试\nat fetchText (rss-context.js:618:45)",
+    "upstream_error": "",
+    "error_text": "",
     "lines": [],
     "upstream_requests": [
       {
@@ -46,7 +46,7 @@
         "method": "GET",
         "host": "www.baidu.com",
         "pathname": "/s",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_inline",
@@ -54,15 +54,18 @@
             "Cookie"
           ]
         },
-        "started_ms": 8,
-        "duration_ms": 35,
+        "started_ms": 7,
+        "duration_ms": 3365,
         "timings": {
-          "response_ms": 35
+          "response_ms": 714,
+          "body_read_ms": 2641,
+          "decode_and_transfer_ms": 10
         }
       }
     ],
+    "output": "{\"kind\":\"clip\",\"title\":\"上海天气\",\"link\":\"https://www.baidu.com/s?ie=UTF-8&wd=%E4%B8%8A%E6%B5%B7%E5%A4%A9%E6%B0%94\",\"html\":\"<section data-n=\\\"baidu-weather\\\" style=\\\"box-sizing:border-box;max-width:640px;padding:24px;border:1px solid #dce5f0;border-radius:18px;background:#f4f8fd;color:#21334c;font:15px/1.6 system-ui,sans-serif\\\">\\n    <header data-n=\\\"weather-header\\\" style=\\\"display:flex;justify-content:space-between;align-items:center;gap:16px\\\"><h1 data-n=\\\"weather-city\\\" style=\\\"margin:0;font-size:22px\\\">上海天气</h1><span data-n=\\\"weather-provider\\\" style=\\\"color:#596b82;font-size:13px\\\">百度天气</span></header>\\n    <div data-n=\\\"current-weather\\\" style=\\\"display:flex;align-items:center;gap:20px;margin:24px 0\\\"><span data-n=\\\"weather-symbol\\\" aria-hidden=\\\"true\\\" style=\\\"font-size:54px\\\">☁</span><div data-n=\\\"current-conditions\\\"><p data-n=\\\"current-temperature\\\" style=\\\"margin:0;font-size:52px;line-height:1.15;font-weight:650\\\">10°</p><p data-n=\\\"current-condition\\\" style=\\\"margin:6px 0 0\\\">阴</p></div></div>\\n    <dl data-n=\\\"weather-details\\\" style=\\\"display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 24px\\\"><div data-n=\\\"apparent-detail\\\"><dt data-n=\\\"apparent-label\\\" style=\\\"color:#596b82;font-size:13px\\\">体感</dt><dd data-n=\\\"apparent-value\\\" style=\\\"margin:4px 0 0;overflow-wrap:anywhere\\\">9°</dd></div><div data-n=\\\"humidity-detail\\\"><dt data-n=\\\"humidity-label\\\" style=\\\"color:#596b82;font-size:13px\\\">湿度</dt><dd data-n=\\\"humidity-value\\\" style=\\\"margin:4px 0 0;overflow-wrap:anywhere\\\">60%</dd></div><div data-n=\\\"wind-detail\\\"><dt data-n=\\\"wind-label\\\" style=\\\"color:#596b82;font-size:13px\\\">风</dt><dd data-n=\\\"wind-value\\\" style=\\\"margin:4px 0 0;overflow-wrap:anywhere\\\">东风 1级</dd></div></dl>\\n    <section data-n=\\\"weather-forecast\\\" aria-label=\\\"未来三天天气\\\" style=\\\"display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px\\\"><article data-n=\\\"forecast-day\\\" style=\\\"min-width:0;padding:14px 10px;border-radius:12px;background:#fff;text-align:center\\\"><strong data-n=\\\"forecast-label\\\">今天</strong><p data-n=\\\"forecast-date\\\" style=\\\"margin:2px 0;color:#596b82;font-size:12px\\\">11/26</p><span data-n=\\\"forecast-symbol\\\" aria-hidden=\\\"true\\\" style=\\\"font-size:30px\\\">☀</span><p data-n=\\\"forecast-condition\\\" style=\\\"margin:4px 0\\\">晴</p><p data-n=\\\"forecast-temperature\\\" style=\\\"margin:0\\\"><strong data-n=\\\"forecast-high\\\">19°</strong><span data-n=\\\"forecast-low\\\" style=\\\"margin-left:8px;color:#596b82\\\">10°</span></p></article><article data-n=\\\"forecast-day\\\" style=\\\"min-width:0;padding:14px 10px;border-radius:12px;background:#fff;text-align:center\\\"><strong data-n=\\\"forecast-label\\\">明天</strong><p data-n=\\\"forecast-date\\\" style=\\\"margin:2px 0;color:#596b82;font-size:12px\\\">11/27</p><span data-n=\\\"forecast-symbol\\\" aria-hidden=\\\"true\\\" style=\\\"font-size:30px\\\">☀</span><p data-n=\\\"forecast-condition\\\" style=\\\"margin:4px 0\\\">晴</p><p data-n=\\\"forecast-temperature\\\" style=\\\"margin:0\\\"><strong data-n=\\\"forecast-high\\\">20°</strong><span data-n=\\\"forecast-low\\\" style=\\\"margin-left:8px;color:#596b82\\\">10°</span></p></article><article data-n=\\\"forecast-day\\\" style=\\\"min-width:0;padding:14px 10px;border-radius:12px;background:#fff;text-align:center\\\"><strong data-n=\\\"forecast-label\\\">周六</strong><p data-n=\\\"forecast-date\\\" style=\\\"margin:2px 0;color:#596b82;font-size:12px\\\">11/28</p><span data-n=\\\"forecast-symbol\\\" aria-hidden=\\\"true\\\" style=\\\"font-size:30px\\\">☀</span><p data-n=\\\"forecast-condition\\\" style=\\\"margin:4px 0\\\">晴</p><p data-n=\\\"forecast-temperature\\\" style=\\\"margin:0\\\"><strong data-n=\\\"forecast-high\\\">16°</strong><span data-n=\\\"forecast-low\\\" style=\\\"margin-left:8px;color:#596b82\\\">6°</span></p></article></section>\\n    <footer data-n=\\\"weather-updated\\\" style=\\\"margin-top:18px;color:#596b82;font-size:12px\\\">更新 2026-11-26 03:36（北京时间）</footer>\\n  </section>\",\"captured_at\":\"2026-11-25T19:36:45.527Z\"}",
     "timing": {
-      "elapsed_ms": 44,
+      "elapsed_ms": 3452,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -82,59 +85,64 @@
         {
           "name": "宿主能力准备",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 36
+          "started_ms": 6,
+          "duration_ms": 3445
         },
         {
-          "name": "错误诊断收集",
-          "started_ms": 43,
+          "name": "输出读取与校验",
+          "started_ms": 3451,
+          "duration_ms": 1
+        },
+        {
+          "name": "执行日志收集",
+          "started_ms": 3452,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 43,
+          "started_ms": 3452,
           "duration_ms": 0
         },
         {
-          "name": "失败后浏览器清理",
-          "started_ms": 43,
-          "duration_ms": 1
+          "name": "浏览器状态保存",
+          "started_ms": 3452,
+          "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 44,
+          "started_ms": 3452,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 35
+          "started_ms": 7,
+          "duration_ms": 3365
         }
       ]
     }
@@ -145,13 +153,12 @@
     "example": "/api/clip/baidu/s/weather/%E4%B8%8A%E6%B5%B7",
     "name": "百度天气",
     "format": "clip",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "UPSTREAM_FETCH_FAILED",
-    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
-    "duration_ms": 460
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/clip/baidu/s/weather/%E4%B8%8A%E6%B5%B7.json",
+    "duration_ms": 2436
   }
 }
