@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-25T19:29:01.659Z",
+  "checked_at": "2026-11-26T02:56:51.513Z",
   "debug_request": {
-    "status": 200,
-    "duration_ms": 1586
+    "status": 502,
+    "duration_ms": 882
   },
   "debug": {
-    "status": 200,
-    "code": null,
+    "status": 502,
+    "code": "SCRIPT_FAILED",
     "script": {
       "file": "hot/fastbull.js",
       "name": "法布财经 · 快讯",
@@ -32,21 +32,12 @@
         "authenticated": true
       }
     },
-    "phase": "ok",
-    "elapsed_ms": 1571,
+    "phase": "runtime",
+    "elapsed_ms": 791,
     "invoked": false,
-    "upstream_error": "",
-    "error_text": "",
-    "lines": [
-      {
-        "level": "info",
-        "text": "榜单解析完成 {\"source\":\"fastbull-express\",\"count\":50,\"missing_rank\":50}"
-      },
-      {
-        "level": "info",
-        "text": "热榜快照完成 {\"count\":50}"
-      }
-    ],
+    "upstream_error": "SCRIPT_FAILED: 脚本执行失败：Network connection lost.",
+    "error_text": "脚本执行失败：Network connection lost.\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
     "upstream_requests": [
       {
         "url": "https://www.fastbull.com/cn/express-news",
@@ -59,95 +50,88 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 8,
-        "duration_ms": 1125,
+        "started_ms": 9,
+        "duration_ms": 781,
         "timings": {
-          "response_ms": 539,
-          "body_read_ms": 581,
-          "decode_and_transfer_ms": 5
+          "response_ms": 766,
+          "body_read_ms": 15
         }
       }
     ],
-    "output": "{\"kind\":\"hot_rank\",\"title\":\"法布财经 · 快讯\",\"link\":\"https://www.fastbull.cn\",\"category\":\"财经\",\"observed_at\":\"2026-11-25T19:29:03.235Z\",\"entries\":[{\"id\":\"fastbull-express:/cn/fastshort/4365008_1_1\",\"title\":\"SpaceX：向每个“特朗普账户”赠送一股A类股票。马斯克还将个人追加捐赠与SpaceX相同数量的股票。此外，SpaceX总裁兼首席运营官格温·肖特韦尔也宣布，将以个人名义捐赠超过200万股SpaceX股票。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4365008_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4365006_204_1\",\"title\":\"SpaceX将向每个“特朗普账户”赠送一股A类股票。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4365006_204_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4365002_1_1\",\"title\":\"美国国务院批准可能向乌克兰进行对外军售，用于购买F-16战机维护保障及相关设备，估计费用为6.219亿美元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4365002_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4365000_212_1\",\"title\":\"美联储褐皮书：总体而言，多数地区预计将出现轻微至温和增长。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4365000_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364999_212_1\",\"title\":\"美联储褐皮书：就业水平总体略有上升，许多企业报告员工人数保持稳定，招聘主要是为了填补离职空缺，仅少数企业表示有实质性增长。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364999_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364998_204_1\",\"title\":\"美联储褐皮书指出，美国整体物价温和上涨，与上一报告期相同。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364998_204_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364996_212_1\",\"title\":\"墨西哥央行将官方比索汇率定为19.7040比索兑1美元。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364996_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364991_1_1\",\"title\":\"标普全球评级：打算与英伟达董事会和管理层会面，讨论他们为解决潜在缺陷而制定的计划。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364991_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364990_212_1\",\"title\":\"标普：预计英伟达的潜在评级下调幅度仅限于一档，除非调查或信息披露损害公司声誉或未来业务前景。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364990_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364987_1_1\",\"title\":\"也门胡塞武装：袭击了吉达和吉赞港。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364987_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364986_212_1\",\"title\":\"标普可能下调英伟达信用评级。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364986_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364985_212_1\",\"title\":\"标普将英伟达“AA”评级列入负面信用观察名单。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364985_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364977_212_1\",\"title\":\"美国副总统万斯：黄仁勋将非常认真地对待出口管制。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364977_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364976_212_1\",\"title\":\"美国副总统万斯谈英伟达：这是该公司遵守出口管制的一个机会。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364976_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364974_212_1\",\"title\":\"上期所原油期货夜盘收涨2.01%，报589.50元人民币/桶。沪金夜盘收跌1.02%，沪银收跌2.62%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364974_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364973_212_1\",\"title\":\"美国参议员布克致信英伟达董事会主席琼斯，就美国总统特朗普的干预一事向英伟达提出询问。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364973_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364964_212_1\",\"title\":\"比特币升破60000美元，日内涨0.29%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364964_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364963_204_1\",\"title\":\"日本石油勘探公司（JAPEX）已同意从Equinor手中收购挪威Goliat油田8%的权益，目标是在2030年代在挪威的日产量超过1万桶油当量。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364963_204_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364962_212_1\",\"title\":\"初步计划显示，尼日利亚四种主要原油品级的1月出口量预计平均为91.1万桶/日，而12月为88.8万桶/日。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364962_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364960_1_1\",\"title\":\"布伦特原油向上触及94美元/桶，日内涨3.21%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364960_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364958_212_1\",\"title\":\"贝克休斯：截至11月25日当周，美国石油钻井平台数量增加1个，至470个。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364958_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364951_1_1\",\"title\":\"据以色列媒体：反对派领袖埃森科特与利伯曼达成协议，司法部将由‘以色列是我们的家园’党执掌。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364951_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364950_1_1\",\"title\":\"俄罗斯国防部称，防空系统一天内在俄罗斯各地区击落20架乌克兰无人机。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364950_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364948_212_1\",\"title\":\"惠誉评级：全球汽车行业盈利能力承压，可负担性制约需求。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364948_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364946_1_1\",\"title\":\"欧洲央行：计划于2030年2月完成迁移。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364946_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364945_1_1\",\"title\":\"欧洲央行：该协议为使用T2以瑞典克朗结算大额支付铺平道路。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364945_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364943_212_1\",\"title\":\"胡塞武装：过去24小时内，沙特战机对首都萨那及焦夫省、塔伊兹省、阿姆兰省、哈杰省、萨达省、荷台达省、达利省、伊卜省、拉赫季省、荷台达省和贝达省的民用目标实施了105次空袭和导弹打击。袭击由从哈米斯穆谢特和塔伊夫空军基地起飞的F-15和台风战机实施，导弹袭击来自奈季兰。这些袭击造成平民伤亡，包括死伤。自冲突升级以来，沙特领导的联军空袭和导弹打击总数已达5825次。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364943_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364940_1_1\",\"title\":\"也门胡塞武装：在过去24小时内，沙特阿拉伯空军对首都萨那以及阿尔乔夫、塔伊兹、阿姆兰、哈杰、萨达、霍代达、达拉、伊布、拉赫和白银等省份进行了105次空袭和导弹攻击，目标是民用设施。这些攻击使用了从哈梅斯穆谢特和塔伊夫基地起飞的“F-15”和“台风”战斗机，以及来自纳杰兰的导弹袭击，造成了平民的伤亡。自从对我国的升级行动开始以来，沙特的空袭和导弹攻击总计已达到5825次。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364940_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364939_1_1\",\"title\":\"惠誉评级：2027年拉美主权信用展望仍为“中性”。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364939_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364938_1_1\",\"title\":\"欧洲央行：欧洲央行与瑞典央行达成协议，瑞典将加入T2支付系统。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364938_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364937_212_1\",\"title\":\"俄罗斯总统普京解除摩尔曼斯克州州长奇比斯职务。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364937_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364936_1_1\",\"title\":\"印度政府：印方一贯立场是，任何与贸易相关的关切都应在双边谈判框架内加以解决。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364936_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364933_212_1\",\"title\":\"LME伦铜日内涨超2.00%，现报11884.580美元/吨。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364933_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364932_212_1\",\"title\":\"印度：美国称印度不存在行业性结构性产能过剩。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364932_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364930_212_1\",\"title\":\"特朗普：美股大幅下跌，根源在于11月3日的选举结果。这次选票上没有我的名字，但如果我参选，选举结果会和此前三次一样大不一样，股市以及大家的401(k)退休金账户都会一片红火。我早就跟你们说过。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364930_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364928_212_1\",\"title\":\"巴西航空工业公司：目前巴西航空工业公司出口到美国的产品不适用任何关税，公司强烈主张航空航天行业实行零关税制度。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364928_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364922_212_1\",\"title\":\"美国能源信息署称，上周美国天然气库存减少240亿立方英尺。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364922_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364918_1_1\",\"title\":\"以色列总理内塔尼亚胡抨击政治对手，称他们在针对他的案件逐渐瓦解之际，急于推动一项允许以候选人受到刑事起诉为由取消其竞选总理资格的法案。内塔尼亚胡同时要求立即结束对他的审判，并终止与之相关的一切措施，包括各种抵制行动。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364918_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364917_212_1\",\"title\":\"哈萨克斯坦国家石油天然气公司与阿塞拜疆国家石油公司就降低哈萨克斯坦石油过境费进行谈判。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364917_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364916_212_1\",\"title\":\"以色列总理内塔尼亚胡：就在今天，我的对手们正急于通过一项法律，允许因对总理候选人提出起诉而取消其资格。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364916_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364914_212_1\",\"title\":\"英国首相伯纳姆：希望尽一切努力确保英国折扣零售连锁企业Poundland破产处置完成，将努力确保实现尽可能最好的结果。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364914_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364913_204_1\",\"title\":\"美国7年期国债中标收益率为4.708%，发行前预发行收益率为4.698%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364913_204_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364912_1_1\",\"title\":\"沙特联军：发射物造成轻微损坏；无平民受伤。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364912_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364911_212_1\",\"title\":\"日本政府预计将提供支持，以覆盖（半导体产品）采购调整所需的部分成本，目标是在2027财年逐步启动。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364911_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364910_212_1\",\"title\":\"440亿美元美债拍卖前，美国国债7年期收益率为4.698%。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364910_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364909_212_1\",\"title\":\"日本将考虑要求使用半导体等的企业实现供应链多元化，以减少对特定国家和供应商的过度依赖。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364909_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364908_1_1\",\"title\":\"据日经新闻：日本寻求为芯片及其他关键商品建立供应链授权。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364908_1_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364906_212_1\",\"title\":\"俄罗斯联邦安全会议副主席梅德韦杰夫：英国前首相鲍里斯·约翰逊是少见的挑衅者，倘若俄罗斯与北约爆发直接战争，他应当因煽动行为在特拉法加广场被处以绞刑。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364906_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364905_212_1\",\"title\":\"欧洲央行：欧元区商店、餐馆和加油站，银行卡支付首次超过现金支付。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364905_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}},{\"id\":\"fastbull-express:/cn/fastshort/4364903_212_1\",\"title\":\"也门政府军称，在塔伊兹轴线阿格鲁德区遭炮击后，胡塞武装有5人死伤。\",\"link\":\"https://www.fastbull.com/cn/fastshort/4364903_212_1\",\"rank\":null,\"pinned\":false,\"heat\":{\"value\":null,\"unit\":\"热度\",\"text\":\"\"}}]}",
     "timing": {
-      "elapsed_ms": 1571,
+      "elapsed_ms": 791,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 0
+          "duration_ms": 1
         },
         {
           "name": "参数与配置",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 0,
+          "started_ms": 1,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 1,
+          "started_ms": 2,
           "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 6,
-          "duration_ms": 1559
+          "started_ms": 7,
+          "duration_ms": 784
         },
         {
-          "name": "输出读取与校验",
-          "started_ms": 1565,
+          "name": "错误诊断收集",
+          "started_ms": 791,
           "duration_ms": 0
         },
         {
-          "name": "执行日志收集",
-          "started_ms": 1565,
-          "duration_ms": 1
-        },
-        {
           "name": "沙箱释放",
-          "started_ms": 1566,
-          "duration_ms": 5
+          "started_ms": 791,
+          "duration_ms": 0
         },
         {
-          "name": "浏览器状态保存",
-          "started_ms": 1571,
+          "name": "失败后浏览器清理",
+          "started_ms": 791,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 1571,
+          "started_ms": 791,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 8,
-          "duration_ms": 1125
+          "started_ms": 9,
+          "duration_ms": 781
         }
       ]
     }
@@ -158,13 +142,12 @@
     "example": "/api/hot/fastbull/cn/express-news",
     "name": "法布财经 · 快讯",
     "format": "hot",
-    "request": false,
-    "response": false,
-    "format_valid": false,
-    "output_valid": false,
-    "status": 502,
-    "code": "SCRIPT_FAILED",
-    "error": "HTTP 502: SCRIPT_FAILED: 脚本执行失败，请结合 Worker 日志排查",
-    "duration_ms": 795
+    "request": true,
+    "response": true,
+    "format_valid": true,
+    "output_valid": true,
+    "status": 200,
+    "output_file": "api/hot/fastbull/cn/express-news.json",
+    "duration_ms": 1432
   }
 }

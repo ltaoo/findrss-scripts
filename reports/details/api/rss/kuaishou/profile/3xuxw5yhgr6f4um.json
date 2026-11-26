@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-25T19:29:32.762Z",
+  "checked_at": "2026-11-26T02:57:26.589Z",
   "debug_request": {
     "status": 502,
-    "duration_ms": 432
+    "duration_ms": 338
   },
   "debug": {
     "status": 502,
@@ -35,14 +35,14 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 223,
+    "elapsed_ms": 254,
     "invoked": false,
     "upstream_error": "UPSTREAM_AUTH_REQUIRED: 脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）",
     "error_text": "脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:84:28)",
     "lines": [],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_4659c1a4a635442219af0c5190af3da3ca0c0d0d0d0cd295a1b717df2bbb699368d1af0c965b33d7765b33e50d&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_001f87e2e0d513825ee94a27cfdaa673ee4a4b4b4b4a94d3e7f151996dfdb0c4c896e94ad01d7591301d75a34b&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
@@ -55,17 +55,17 @@
             "kww"
           ]
         },
-        "started_ms": 26,
-        "duration_ms": 196,
+        "started_ms": 32,
+        "duration_ms": 221,
         "timings": {
-          "response_ms": 196,
-          "body_read_ms": 0,
+          "response_ms": 219,
+          "body_read_ms": 2,
           "decode_and_transfer_ms": 0
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 223,
+      "elapsed_ms": 254,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -75,69 +75,69 @@
         {
           "name": "参数与配置",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
-          "duration_ms": 0
+          "started_ms": 0,
+          "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 1,
-          "duration_ms": 6
+          "duration_ms": 8
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 7,
-          "duration_ms": 216
+          "started_ms": 9,
+          "duration_ms": 244
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 223,
+          "started_ms": 253,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 223,
-          "duration_ms": 0
+          "started_ms": 253,
+          "duration_ms": 1
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 223,
+          "started_ms": 254,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 223,
+          "started_ms": 254,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 9,
-          "duration_ms": 213
+          "started_ms": 12,
+          "duration_ms": 241
         }
       ]
     }
@@ -155,6 +155,6 @@
     "status": 502,
     "code": "UPSTREAM_AUTH_REQUIRED",
     "error": "HTTP 502: UPSTREAM_AUTH_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据",
-    "duration_ms": 3576
+    "duration_ms": 4963
   }
 }
