@@ -450,8 +450,8 @@ test("仓库配置覆盖社交账号和剧集的具名样本", async () => {
   ]));
   const account_routes = {
     "/api/rss/zhihu/people/:user/answers": /^\/api\/rss\/zhihu\/people\/[A-Za-z0-9_-]+\/answers$/,
-    "/api/rss/youtube/:handle": /^\/api\/rss\/youtube\/@[A-Za-z0-9_.-]+$/,
-    "/api/rss/youtube/:handle/shorts": /^\/api\/rss\/youtube\/@[A-Za-z0-9_.-]+\/shorts$/,
+    "/api/rss/youtube/:handle": /^\/api\/rss\/youtube\/@[A-Za-z0-9_.-]+\?detail=1$/,
+    "/api/rss/youtube/:handle/shorts": /^\/api\/rss\/youtube\/@[A-Za-z0-9_.-]+\/shorts\?detail=1$/,
     "/api/rss/instagram/:username": /^\/api\/rss\/instagram\/[A-Za-z0-9_.]+$/,
     "/api/rss/weibo/u/:uid": /^\/api\/rss\/weibo\/u\/[0-9]+$/,
     "/api/rss/xiaohongshu/user/profile/:uid": /^\/api\/rss\/xiaohongshu\/user\/profile\/[a-f0-9]{24}$/,
@@ -470,7 +470,7 @@ test("仓库配置覆盖社交账号和剧集的具名样本", async () => {
   const requested = [];
   const report = await check_routes("https://scripts.example", configured, config, {
     sleep_impl: async () => {},
-    fetch_impl: async url => { requested.push(url.pathname); return new Response("Unavailable", { status: 503 }); },
+    fetch_impl: async url => { requested.push(url.pathname + url.search); return new Response("Unavailable", { status: 503 }); },
   });
   const examples = [...new Set([...configured.map(entry => entry.example), ...Object.values(config).flat().map(sample => sample.example)])];
   assert.deepEqual(requested.sort(), examples.sort());

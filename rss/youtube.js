@@ -45,6 +45,7 @@ export class YoutubeRSS extends RSSScript {
   async fetch(ctx) {
     try {
       const shorts = this.kind === "shorts";
+      const detail = String(ctx.query?.detail ?? "") === "1";
       const handle = String(ctx.params?.handle || "").replace(/^@/, "");
       if (!/^[\p{L}\p{N}_.·-]{1,100}$/u.test(handle) || /^\.+$/.test(handle)) {
         return Result.Err(
@@ -198,13 +199,13 @@ export class YoutubeRSS extends RSSScript {
         }
       };
       walk(tab.content);
-      if (shorts) {
+      if (detail) {
         const client_version = /"INNERTUBE_CLIENT_VERSION"\s*:\s*"([0-9.]+)"/.exec(result_1.data)?.[1];
         const metadata_deadline = Date.now() + 60000;
         // 日期补查不能拖垮整个订阅；优先读取轻量元数据，缺少页面客户端信息时兼容旧详情页。
         for (let index = 0; index < items.length; index += 4) {
           if (Date.now() >= metadata_deadline) {
-            ctx.log("YouTube Shorts 日期补查达到时间预算，保留未补齐日期的条目");
+            ctx.log("YouTube 日期补查达到时间预算，保留未补齐日期的条目");
             break;
           }
           await Promise.all(
@@ -221,7 +222,7 @@ export class YoutubeRSS extends RSSScript {
                 }) } : {}),
               });
               if (page.error) {
-                ctx.log("YouTube Shorts 发布时间获取失败", {
+                ctx.log("YouTube 发布时间获取失败", {
                   link: item.link,
                   error: page.error,
                 });
@@ -231,7 +232,7 @@ export class YoutubeRSS extends RSSScript {
                 const parsed = parseJSON(page.data);
                 const metadata = parsed.data?.microformat?.playerMicroformatRenderer;
                 if (parsed.error || parsed.data?.videoDetails?.videoId !== id || (metadata?.externalVideoId && metadata.externalVideoId !== id)) {
-                  ctx.log("YouTube Shorts 元数据无效", { link: item.link });
+                  ctx.log("YouTube 元数据无效", { link: item.link });
                   return;
                 }
                 for (const value of [metadata?.publishDate, metadata?.uploadDate]) {
@@ -265,7 +266,7 @@ export class YoutubeRSS extends RSSScript {
               }
               const parsed = utils.document_nodes(metadata.join(""));
               if (parsed.error) {
-                ctx.log("YouTube Shorts 发布时间解析失败", {
+                ctx.log("YouTube 发布时间解析失败", {
                   link: item.link,
                   error: parsed.error,
                 });
@@ -548,14 +549,15 @@ export const routes = ["videos", "shorts"].map(function (kind) {
     name: shorts ? "YouTube 频道 Shorts" : "YouTube 频道视频",
     url: "www.youtube.com",
     maintainers: ["findrss"],
-    example: shorts ? "/youtube/@Brookemonk/shorts" : "/youtube/@goldfishbrain",
+    example: shorts ? "/youtube/@Brookemonk/shorts?detail=1" : "/youtube/@goldfishbrain?detail=1",
     example_name: shorts ? "Brooke Monk" : "金魚腦Goldfish Brain",
     parameters: {
       handle: "频道 handle，例如 @goldfishbrain（@ 可省略）",
+      detail: "查询参数：1 时逐条补查缺失的条目发布时间，默认不补查",
     },
     description: shorts
-      ? "解析频道 /shorts 页面内嵌的短视频首屏列表，包含标题、封面、观看量及内嵌播放器；优先通过轻量元数据补齐发布时间，缺少客户端信息时兼容详情页。日期补查限制并发与总耗时，失败时保留条目，不估算日期。"
-      : "解析频道 /videos 页面内嵌的视频首屏列表，包含标题、封面、作者、YouTube 播放地址及 content 内嵌播放器。发布时间根据页面中英文相对时间估算，月、年按 30、365 天计算。",
+      ? "解析频道 /shorts 页面内嵌的短视频首屏列表，包含标题、封面、观看量及内嵌播放器。默认不补查发布时间；添加 ?detail=1 时优先通过轻量元数据补齐发布时间，缺少客户端信息时兼容详情页，补查限制并发与总耗时，失败时保留条目，不估算日期。"
+      : "解析频道 /videos 页面内嵌的视频首屏列表，包含标题、封面、作者、YouTube 播放地址及 content 内嵌播放器。发布时间根据页面中英文相对时间估算，月、年按 30、365 天计算；添加 ?detail=1 时对缺少发布时间的条目逐条补查真实日期，补查限制并发与总耗时，失败时保留条目。",
     handler: (ctx) => script.run(ctx),
   };
 });

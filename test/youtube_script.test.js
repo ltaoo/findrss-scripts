@@ -10,7 +10,7 @@ const source = read_script("rss/youtube.js");
 const compiled = await compile_script_module(source);
 assert.equal(compiled.error, "");
 
-async function run_html(t, html, cookies = [], route_index = 0, script_source = source) {
+async function run_html(t, html, cookies = [], route_index = 0, script_source = source, query = {}) {
   const original_fetch = globalThis.fetch;
   t.after(() => { globalThis.fetch = original_fetch; });
   globalThis.fetch = typeof html === "function" ? html : async () => new Response(html);
@@ -20,7 +20,7 @@ async function run_html(t, html, cookies = [], route_index = 0, script_source = 
   const route = compiled.metadata.routes[route_index];
   const before = Date.now();
   const result = await execute_script(script_source, { ...compiled.metadata, ...route }, null,
-    { method: "GET", pathname: route.path.replace(":handle", "example"), params: { handle: "example" }, query: {} }, [], "", access);
+    { method: "GET", pathname: route.path.replace(":handle", "example"), params: { handle: "example" }, query }, [], "", access);
   return { feed: JSON.parse(result.output), before, after: Date.now() };
 }
 
@@ -192,7 +192,39 @@ test("YouTube Cookie 未授权时在请求前失败", async t => {
 
 test("YouTube 保留视频路由并注册独立的 Shorts 路由", () => {
   assert.deepEqual(compiled.metadata.routes.map(route => route.path), ["/youtube/:handle", "/youtube/:handle/shorts"]);
-  assert.equal(compiled.metadata.routes[1].example, "/youtube/@Brookemonk/shorts");
+  assert.equal(compiled.metadata.routes[1].example, "/youtube/@Brookemonk/shorts?detail=1");
+  assert.ok(compiled.metadata.routes.every(route => route.parameters.detail && /detail=1/.test(route.description)));
+});
+
+test("YouTube 视频路由默认不补查，?detail=1 时补齐缺失的发布时间", async t => {
+  const data = {
+    metadata: { channelMetadataRenderer: { title: "测试频道" } },
+    contents: { twoColumnBrowseResultsRenderer: { tabs: [{ tabRenderer: {
+      selected: true, content: { richGridRenderer: { contents: [
+        modern_video(0, [{ text: { content: "1 day ago" } }]),
+        modern_video(1, []),
+      ] } },
+    } }] } },
+  };
+  const html = "<script>var ytInitialData = " + JSON.stringify(data) + ";</script>";
+  const calls = [];
+  const { feed } = await run_html(t, async url => {
+    calls.push(url);
+    if (url.includes("/@example/")) return new Response(html);
+    assert.equal(url, "https://www.youtube.com/watch?v=" + video_id(1));
+    return new Response('<meta itemprop="datePublished" content="2026-10-15T18:00:32-07:00">');
+  }, [], 0, source, { detail: "1" });
+  assert.deepEqual(calls, ["https://www.youtube.com/@example/videos", "https://www.youtube.com/watch?v=" + video_id(1)]);
+  const estimated = feed.items.find(item => item.id === "youtube:video:" + video_id(0));
+  assert.ok(estimated.published, "已有相对时间的条目保留估算时间");
+  assert.equal(feed.items.find(item => item.id === "youtube:video:" + video_id(1)).published, "2026-10-16T01:00:32.000Z");
+
+  const plain_calls = [];
+  await run_html(t, async url => {
+    plain_calls.push(url);
+    return new Response(html);
+  });
+  assert.deepEqual(plain_calls, ["https://www.youtube.com/@example/videos"], "默认不请求详情页");
 });
 
 test("YouTube Shorts 解析真实页面样本，保留顺序、去重且不伪造发布时间", async t => {
@@ -205,15 +237,18 @@ test("YouTube Shorts 解析真实页面样本，保留顺序、去重且不伪�
   entries.push(invalid);
   tabs.unshift({ tabRenderer: { content: { richGridRenderer: { contents: [modern_video(0, [])] } } } });
   const cookies = [{ name: "SID", value: "fixture-sid", domain: ".youtube.com", path: "/", secure: true }];
+  const detail_calls = [];
   const { feed } = await run_html(t, async (url, options) => {
     assert.equal(options.headers.Cookie, "SID=fixture-sid");
     assert.equal(options.headers.referer, "https://www.youtube.com/@example/shorts");
     if (url !== "https://www.youtube.com/@example/shorts") {
+      detail_calls.push(url);
       assert.match(url, /^https:\/\/www\.youtube\.com\/shorts\/[\w-]{11}$/);
       return new Response("<html>没有发布日期</html>");
     }
     return new Response("<script>var ytInitialData = " + JSON.stringify(data) + ";</script>");
   }, cookies, 1);
+  assert.deepEqual(detail_calls, [], "默认不请求详情页");
   assert.equal(feed.id, "youtube:channel:UC73sF-7Ihcs1HpnXEEXZ2ew:shorts");
   assert.equal(feed.title, "Brooke Monk 的 YouTube Shorts");
   assert.equal(feed.link, "https://www.youtube.com/@example/shorts");
@@ -255,7 +290,7 @@ test("YouTube Shorts 从详情页补齐带时区的发布日期，兼容 uploadD
     const id = url.split("/").at(-1);
     assert.ok(Object.hasOwn(pages, id), url);
     return new Response("<html><head>" + pages[id] + "</head></html>");
-  }, cookies, 1);
+  }, cookies, 1, source, { detail: "1" });
   assert.equal(calls.length, 4, "去重后每条短视频只补查一次");
   assert.deepEqual(feed.items.map(item => item.id), ["bi6ptD31Uxc", "VwYzTp6BpqY", "1K95o_PUYJM"].map(id => "youtube:video:" + id));
   assert.deepEqual(feed.items.map(item => item.published), ["2026-10-16T04:00:00.000Z", "2026-10-16T01:00:32.000Z", "2026-10-15T00:00:00.000Z"]);
@@ -288,7 +323,7 @@ test("YouTube Shorts 限制详情补查并发，保留失败条目且不覆盖�
       [video_id(5)]: '<meta itemprop="datePublished" content="invalid"><meta itemprop="uploadDate" content="2020-01-01T08:00:00+08:00">',
       [video_id(6)]: '<meta itemprop="datePublished" content="1970-01-01T00:00:00Z">',
     }[id]);
-  }, [], 1);
+  }, [], 1, source, { detail: "1" });
   assert.equal(calls.length, 6);
   assert.ok(!calls.includes(video_id(0)), "已有时间不补查");
   assert.ok(max_active > 1 && max_active <= 4, "补查并发不超过 4");
@@ -318,7 +353,7 @@ const utils = { ...original_utils, document_nodes(html) {
 } };
 `);
   const { feed } = await run_html(t, async url => new Response(url.includes("/@example/")
-    ? "<script>var ytInitialData = " + JSON.stringify(data) + ";</script>" : page), [], 1, guarded_source);
+    ? "<script>var ytInitialData = " + JSON.stringify(data) + ";</script>" : page), [], 1, guarded_source, { detail: "1" });
   assert.equal(feed.items.length, 3);
   assert.ok(feed.items.every(item => item.published === "2026-10-16T04:00:00.000Z"));
   assert.equal(feed.updated, feed.items[0].published);
@@ -344,7 +379,7 @@ test("YouTube Shorts 优先使用页面客户端版本请求轻量元数据，�
     assert.deepEqual(body.context.client, { clientName: "WEB", clientVersion: "2.20261118.01.00", hl: "zh-CN" });
     return Response.json({ playabilityStatus: { status: "UNPLAYABLE" }, videoDetails: { videoId: body.videoId },
       microformat: { playerMicroformatRenderer: { externalVideoId: body.videoId, publishDate: "2026-11-18T18:00:35-08:00" } } });
-  }, cookies, 1);
+  }, cookies, 1, source, { detail: "1" });
   assert.equal(calls, 48);
   assert.equal(feed.items.length, 48);
   assert.ok(feed.items.every(item => item.published === "2026-11-19T02:00:35.000Z"));
@@ -364,7 +399,7 @@ test("YouTube Shorts 元数据失败、错配或缺失日期时保留所有条�
     if (id === "VwYzTp6BpqY") return new Response("Unavailable", { status: 503 });
     return Response.json({ videoDetails: { videoId: id === "bi6ptD31Uxc" ? video_id(0) : id },
       microformat: { playerMicroformatRenderer: { publishDate: id === "bi6ptD31Uxc" ? "2026-11-18" : "invalid" } } });
-  }, [], 1);
+  }, [], 1, source, { detail: "1" });
   assert.equal(calls.length, 3);
   assert.equal(feed.items.length, 3);
   assert.ok(feed.items.every(item => item.published === undefined));
@@ -386,7 +421,7 @@ test("YouTube Shorts 元数据超时只影响日期，不让完整订阅等待�
         reject(options.signal.reason);
       }, { once: true });
     });
-  }, [], 1);
+  }, [], 1, source, { detail: "1" });
   assert.equal(aborted, 3);
   assert.ok(Date.now() - started < 15000);
   assert.equal(feed.items.length, 3);
