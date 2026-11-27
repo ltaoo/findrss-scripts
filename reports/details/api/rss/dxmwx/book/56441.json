@@ -1,0 +1,155 @@
+{
+  "checked_at": "2026-11-27T09:04:19.558Z",
+  "debug_request": {
+    "status": 502,
+    "duration_ms": 3005
+  },
+  "debug": {
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "script": {
+      "file": "rss/dxmwx.js",
+      "name": "大熊猫文学小说章节",
+      "kind": "rss",
+      "version": "1.0.0",
+      "path": "/dxmwx/book/:book_id",
+      "request_path": "/api/rss/dxmwx/book/:book_id",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/dxmwx/book/56441",
+      "params": {
+        "book_id": "56441"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 2992,
+    "invoked": false,
+    "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 www.dxmwx.org 返回 HTTP 523",
+    "error_text": "脚本执行失败：脚本上游 www.dxmwx.org 返回 HTTP 523\nat fetchText (rss-context.js:618:45)",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://www.dxmwx.org/book/56441.html",
+        "method": "GET",
+        "host": "www.dxmwx.org",
+        "pathname": "/book/56441.html",
+        "status": 523,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 14,
+        "duration_ms": 2976,
+        "timings": {
+          "response_ms": 2976
+        }
+      }
+    ],
+    "timing": {
+      "elapsed_ms": 2992,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 1,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 1,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 2,
+          "duration_ms": 9
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 11,
+          "duration_ms": 2980
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 2991,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 2991,
+          "duration_ms": 0
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 2991,
+          "duration_ms": 1
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 2992,
+          "duration_ms": 0
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 14,
+          "duration_ms": 2976
+        }
+      ]
+    }
+  },
+  "inspection": {
+    "file": "rss/dxmwx.js",
+    "path": "/api/rss/dxmwx/book/:book_id",
+    "example": "/api/rss/dxmwx/book/56441",
+    "name": "大熊猫文学 · 56441",
+    "format": "rss_json",
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 1245
+  }
+}

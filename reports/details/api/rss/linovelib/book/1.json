@@ -1,0 +1,160 @@
+{
+  "checked_at": "2026-11-27T09:04:29.828Z",
+  "debug_request": {
+    "status": 502,
+    "duration_ms": 4836
+  },
+  "debug": {
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
+    "script": {
+      "file": "rss/linovelib.js",
+      "name": "哔哩轻小说小说章节",
+      "kind": "rss",
+      "version": "1.0.0",
+      "path": "/linovelib/book/:book_id",
+      "request_path": "/api/rss/linovelib/book/:book_id",
+      "route_index": 0
+    },
+    "request": {
+      "method": "GET",
+      "pathname": "/debug/api/rss/linovelib/book/1",
+      "params": {
+        "book_id": "1"
+      },
+      "query": {},
+      "public_origin": "http://script.findrss.cloud",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "node"
+      },
+      "authentication": {
+        "required": true,
+        "credential_present": true,
+        "authenticated": true
+      }
+    },
+    "phase": "runtime",
+    "elapsed_ms": 4817,
+    "invoked": false,
+    "upstream_error": "UPSTREAM_AUTH_REQUIRED: 脚本执行失败：哔哩轻小说需要完成访问验证，请启用 BROWSER_ENABLED",
+    "error_text": "脚本执行失败：哔哩轻小说需要完成访问验证，请启用 BROWSER_ENABLED\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at document (script-source.js:151:56)",
+    "lines": [],
+    "upstream_requests": [
+      {
+        "url": "https://www.linovelib.com/novel/1.html",
+        "method": "GET",
+        "host": "www.linovelib.com",
+        "pathname": "/novel/1.html",
+        "status": 403,
+        "transport": "fetch",
+        "credentials": {
+          "source": "none",
+          "headers_sent": []
+        },
+        "started_ms": 12,
+        "duration_ms": 1086,
+        "timings": {
+          "response_ms": 1086
+        }
+      }
+    ],
+    "timing": {
+      "elapsed_ms": 4817,
+      "stages": [
+        {
+          "name": "鉴权与路由",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "参数与配置",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "Cookie 与浏览器状态读取",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "宿主能力准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱排队",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱参数准备",
+          "started_ms": 0,
+          "duration_ms": 0
+        },
+        {
+          "name": "QuickJS/Wasm 初始化",
+          "started_ms": 0,
+          "duration_ms": 1
+        },
+        {
+          "name": "沙箱上下文与工具初始化",
+          "started_ms": 1,
+          "duration_ms": 7
+        },
+        {
+          "name": "脚本执行（含外部调用等待）",
+          "started_ms": 8,
+          "duration_ms": 4802
+        },
+        {
+          "name": "错误诊断收集",
+          "started_ms": 4810,
+          "duration_ms": 0
+        },
+        {
+          "name": "沙箱释放",
+          "started_ms": 4810,
+          "duration_ms": 1
+        },
+        {
+          "name": "失败后浏览器清理",
+          "started_ms": 4811,
+          "duration_ms": 5
+        },
+        {
+          "name": "调试信息整理",
+          "started_ms": 4816,
+          "duration_ms": 1
+        }
+      ],
+      "operations": [
+        {
+          "name": "上游 HTTP 请求",
+          "started_ms": 11,
+          "duration_ms": 1087
+        },
+        {
+          "name": "浏览器页面获取",
+          "started_ms": 1099,
+          "duration_ms": 3711
+        }
+      ]
+    }
+  },
+  "inspection": {
+    "file": "rss/linovelib.js",
+    "path": "/api/rss/linovelib/book/:book_id",
+    "example": "/api/rss/linovelib/book/1",
+    "name": "哔哩轻小说 · 1",
+    "format": "rss_json",
+    "request": false,
+    "response": false,
+    "format_valid": false,
+    "output_valid": false,
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
+    "error": "HTTP 502: UPSTREAM_AUTH_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据",
+    "duration_ms": 4677
+  }
+}

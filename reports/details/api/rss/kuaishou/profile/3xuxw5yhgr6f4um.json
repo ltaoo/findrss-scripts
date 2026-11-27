@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-27T07:58:22.511Z",
+  "checked_at": "2026-11-27T09:04:26.673Z",
   "debug_request": {
-    "status": 504,
-    "duration_ms": 30088
+    "status": 502,
+    "duration_ms": 261
   },
   "debug": {
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
     "script": {
       "file": "rss/kuaishou.js",
       "name": "快手用户作品",
@@ -35,18 +35,18 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 30065,
+    "elapsed_ms": 245,
     "invoked": false,
-    "upstream_error": "UPSTREAM_TIMEOUT: 脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试",
-    "error_text": "脚本执行失败：快手作品读取失败：脚本上游请求超时，请稍后重试\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:112:26)",
+    "upstream_error": "UPSTREAM_AUTH_REQUIRED: 脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）",
+    "error_text": "脚本执行失败：快手作品接口要求登录（result=109）；请在 Cookie 同步源浏览器登录快手并重新同步登录 Cookie（web_st 或 webday7_st）\nat BizError (script-globals.js:4:10)\n    at Err (script-globals.js:15:73)\n    at fetch (script-source.js:84:28)",
     "lines": [],
     "upstream_requests": [
       {
-        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_5f40d8bdbf58231708b6152a8426eae3b71514141415cb8cb8ae0ec632a21df45dc0b6158f422ace6f422afc14&caver=2",
+        "url": "https://www.kuaishou.com/rest/v/profile/feed?__NS_hxfalcon=HUDR_sFnX-DtsAUFXsbDPT3TMP-sk5CtpU-cT7lJRz6yWux2jeNFMcmKl6JnSDqaDlstw6VSSbC9sWqQsUF8u6O2nkMw5lcMSkhU1MxrBUUT935ixhhqwO7B8dTJ5zoZkXXdaQetBKVKw2djVDzhi%24HE_d3cc543133d62ca7843a991a85ec4a684b999898989947003422824abe2e93fbed4c3a9903cea642e3cea67098&caver=2",
         "method": "POST",
         "host": "www.kuaishou.com",
         "pathname": "/rest/v/profile/feed",
-        "status": null,
+        "status": 200,
         "transport": "fetch",
         "credentials": {
           "source": "script_grant",
@@ -55,15 +55,17 @@
             "kww"
           ]
         },
-        "started_ms": 39,
-        "duration_ms": 30025,
+        "started_ms": 43,
+        "duration_ms": 196,
         "timings": {
-          "response_ms": 30025
+          "response_ms": 195,
+          "body_read_ms": 1,
+          "decode_and_transfer_ms": 0
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 30065,
+      "elapsed_ms": 245,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -103,39 +105,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 10
+          "duration_ms": 8
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 12,
-          "duration_ms": 30052
+          "started_ms": 10,
+          "duration_ms": 229
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 30064,
+          "started_ms": 239,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 30064,
+          "started_ms": 239,
           "duration_ms": 1
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 30065,
-          "duration_ms": 0
+          "started_ms": 240,
+          "duration_ms": 5
         },
         {
           "name": "调试信息整理",
-          "started_ms": 30065,
+          "started_ms": 245,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 16,
-          "duration_ms": 30048
+          "started_ms": 13,
+          "duration_ms": 226
         }
       ]
     }
@@ -150,9 +152,9 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
-    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-    "duration_ms": 32807
+    "status": 502,
+    "code": "UPSTREAM_AUTH_REQUIRED",
+    "error": "HTTP 502: UPSTREAM_AUTH_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据",
+    "duration_ms": 3171
   }
 }
