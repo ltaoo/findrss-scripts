@@ -122,32 +122,42 @@ test("Detect 路由初始化快照，凭据配置必须经令牌保护且不会�
   assert.doesNotMatch(await response.text(), /private-token|secret-key/);
 });
 
-test("Instagram 缺少、过期或不匹配的 Cookie 在出网前返回明确业务码", async t => {
+test("Instagram 缺少、过期或不匹配的 Cookie 时匿名获取公开列表", async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
-  globalThis.fetch = () => assert.fail("Cookie 不可用时不得出网");
+  const fixture = await readFile(new URL("./fixtures/instagram_profile.json", import.meta.url), "utf8");
   const cookie = { name: "sessionid", value: "private-cookie", domain: ".instagram.com", path: "/", secure: true };
-  for (const [cookies, pattern] of [
-    [undefined, /没有权限 account_0 允许的名称/],
-    [[], /没有权限 account_0 允许的名称/],
-    [[{ ...cookie, expirationDate: 1 }], /sessionid（已过期）/],
-    [[{ ...cookie, domain: ".example.com" }], /sessionid（域名不匹配）/],
-    [[{ ...cookie, path: "/other" }], /sessionid（路径不匹配）/],
+  for (const cookies of [
+    undefined,
+    [],
+    [{ ...cookie, expirationDate: 1 }],
+    [{ ...cookie, domain: ".example.com" }],
+    [{ ...cookie, path: "/other" }],
   ]) {
+    const calls = [];
+    globalThis.fetch = async (url, options) => {
+      calls.push(url);
+      assert.equal(options.headers.Cookie, undefined);
+      assert.equal(options.headers["x-csrftoken"], undefined);
+      if (url.endsWith("/graphql/query")) {
+        const form = new URLSearchParams(options.body);
+        assert.equal(form.get("lsd"), "anonymous-lsd");
+        assert.equal(form.has("fb_dtsg"), false);
+        assert.equal(form.has("jazoest"), false);
+        return new Response(fixture);
+      }
+      return new Response('["LSD",[],{"token":"anonymous-lsd"}]');
+    };
     const env = cookies === undefined ? {} : { ACCESS_TOKEN: "private-token", SCRIPT_COOKIES: JSON.stringify(cookies) };
     const response = await request("/rss/instagram/katarinabluu", env, { Authorization: "Bearer private-token" });
-    assert.equal(response.status, 503);
-    const body = await response.json();
-    assert.equal(body.error, "COOKIE_REQUIRED");
-    assert.equal(body.code, "COOKIE_REQUIRED");
-    assert.equal(body.file, "rss/instagram.js");
-    assert.match(body.message, pattern);
-    assert.doesNotMatch(body.message, /private-cookie/);
+    assert.equal(response.status, 200);
+    assert.match(await response.text(), /<rss\b/);
+    assert.equal(calls.length, 2);
     assert.equal(response.headers.get("X-FindRSS-Script"), "rss/instagram.js");
   }
 });
 
-test("Instagram 有 Cookie 时区分登录失效、响应不匹配及正常 RSS", async t => {
+test("Instagram 有 Cookie 时保留凭据并区分页面参数缺失、响应不匹配及正常 RSS", async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   const cookies = ["sessionid", "csrftoken"].map(name => ({ name, value: "private-" + name, domain: ".instagram.com", path: "/", secure: true }));
@@ -155,7 +165,7 @@ test("Instagram 有 Cookie 时区分登录失效、响应不匹配及正常 RSS"
   const profile = '["DTSGInitialData",[],{"token":"private-dtsg"}];["LSD",[],{"token":"private-lsd"}]';
   const fixture = await readFile(new URL("./fixtures/instagram_profile.json", import.meta.url), "utf8");
   for (const [page, body, code] of [
-    ["<html>Login</html>", "", "UPSTREAM_AUTH_REQUIRED"],
+    ["<html>Login</html>", "", "UPSTREAM_INVALID_RESPONSE"],
     [profile, "<html>Verification</html>", "UPSTREAM_INVALID_RESPONSE"],
     [profile, '{"data":{}}', "UPSTREAM_INVALID_RESPONSE"],
     [profile, '{"errors":[{"message":"Rate limit exceeded","code":1675004}]}', "UPSTREAM_RATE_LIMITED"],

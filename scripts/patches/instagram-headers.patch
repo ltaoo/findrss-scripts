@@ -1,0 +1,20 @@
+--- a/server/infra/rss_fetch_headers.js
++++ b/server/infra/rss_fetch_headers.js
+@@ -7,7 +7,7 @@
+   "sec-fetch-mode", "sec-fetch-site", "sec-fetch-user", "upgrade-insecure-requests",
+   "x-requested-with", "priority", "cookie",
+   "content-type", "origin", "authorization", "x-csrf-token", "x-csrftoken",
+-  "x-ig-app-id", "x-fb-friendly-name",
++  "x-ig-app-id", "x-fb-friendly-name", "x-fb-lsd",
+   "x-twitter-active-user", "x-twitter-auth-type", "x-twitter-client-language",
+   "kww", "profile_referer",
+   "x-app-id", "x-app-token", "x-sdk-int", "x-sdk-locale",
+@@ -15,7 +15,7 @@
+   "client-version", "server-version", "x-xsrf-token",
+   "x-goog-api-key", "access-token",
+ ]);
+-export const RSS_FETCH_CREDENTIAL_HEADERS = ["authorization", "x-csrf-token", "x-csrftoken", "kww", "x-app-token", "x-xsrf-token", "x-goog-api-key", "access-token"];
++export const RSS_FETCH_CREDENTIAL_HEADERS = ["authorization", "x-csrf-token", "x-csrftoken", "x-fb-lsd", "kww", "x-app-token", "x-xsrf-token", "x-goog-api-key", "access-token"];
+ const cookie_header_names = new Map([["uifid", "UIFID"], ["kww", "kwfv1"], ["x-csrf-token", "ct0"], ["x-csrftoken", "csrftoken"], ["x-xsrf-token", "XSRF-TOKEN"]]);
+ export function rss_fetch_timeout(options) {
+   const timeout_ms = options?.timeout_ms === undefined ? SCRIPT_FETCH_TIMEOUT_MS : options.timeout_ms;

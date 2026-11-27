@@ -48,3 +48,19 @@ test("fetchText 拒绝非法响应头选项及读取托管 Cookie 响应头，�
   for (const include_headers of [null, "true", 1, {}]) await assert.rejects(request({ include_headers }), /include_headers 必须为布尔值/);
   await assert.rejects(request({ include_headers: true, cookies: "managed-cookie-handle" }), /include_headers 不支持 Cookie 句柄/);
 });
+
+test("fetchText 支持页面 LSD 请求头，跨站重定向移除且诊断不泄露值", async t => {
+  let calls = 0;
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    const headers = new Headers(options.headers);
+    assert.equal(headers.get("x-fb-lsd"), calls === 0 ? "private-page-lsd" : null);
+    return ++calls === 1
+      ? new Response("", { status: 302, headers: { Location: "https://other.example/" } })
+      : new Response("final");
+  });
+  const { result } = await request({ headers: { "X-FB-LSD": "private-page-lsd" } });
+  assert.equal(calls, 2);
+  assert.ok(result.upstream_requests[0].credentials.headers_sent.includes("x-fb-lsd"));
+  assert.ok(!result.upstream_requests[1].credentials.headers_sent.includes("x-fb-lsd"));
+  assert.doesNotMatch(JSON.stringify(result), /private-page-lsd/);
+});

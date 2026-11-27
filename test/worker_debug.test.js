@@ -204,7 +204,7 @@ test("Cookie、浏览器能力、参数和网络失败均展示对应阶段与�
   t.after(() => { globalThis.fetch = original; });
   globalThis.fetch = async () => { throw new Error("network offline"); };
   for (const [path, code, status] of [
-    ["/debug/instagram/katarinabluu", "COOKIE_REQUIRED", 503],
+    ["/debug/instagram/katarinabluu", "UPSTREAM_FETCH_FAILED", 502],
     ["/debug/github/example/repo", "SOURCE_UNAVAILABLE", 503],
     ["/debug/fanqienovel/chapter/bad", "INVALID_PARAMETER", 400],
     ["/debug/github/example/repo/release", "UPSTREAM_FETCH_FAILED", 502],

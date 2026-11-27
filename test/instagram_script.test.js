@@ -47,6 +47,10 @@ test('Instagram 查询 GraphQL taken_at，按真实发布时间排序并生成 R
     assert.equal(options.headers['x-csrftoken'], 'fixture-csrftoken');
     assert.equal(options.headers['x-ig-app-id'], '936619743392459');
     assert.equal(options.headers['x-fb-friendly-name'], 'PolarisProfilePostsQuery');
+    assert.equal(options.headers['x-fb-lsd'], 'page-lsd');
+    assert.equal(options.headers['sec-fetch-site'], 'same-origin');
+    assert.equal(options.headers['sec-fetch-mode'], 'cors');
+    assert.equal(options.headers['sec-fetch-dest'], 'empty');
     const form = new URLSearchParams(options.body);
     assert.equal(form.get('doc_id'), '30543471925243353');
     assert.equal(form.get('fb_dtsg'), 'page-dtsg');
@@ -198,15 +202,14 @@ test('Instagram 混合图集保留图片与多个视频顺序，选择有效高�
   assert.ok(!item.content.includes('javascript:'));
 });
 
-test('Instagram 校验参数及授权，保留 HTTP、GraphQL、登录页和页面参数错误', async t => {
+test('Instagram 校验参数，保留 HTTP、GraphQL、登录页和页面参数错误', async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   let calls = 0;
   globalThis.fetch = async () => { calls++; return new Response(''); };
   await assert.rejects(run({ ...context, params: { username: '../accounts' } }), /username 必须/);
-  await assert.rejects(run(context, null), /Cookie 权限/);
   assert.equal(calls, 0);
-  await assert.rejects(run(), /缺少查询参数/);
+  await assert.rejects(run(), /缺少 LSD 查询参数/);
   for (const response of [
     () => new Response('', { status: 429 }),
     () => Response.json({ errors: [{ message: 'Login required' }] }),
@@ -246,21 +249,58 @@ test('Instagram 忽略未使用的地点头像错误，作品字段或根查询�
   await assert.rejects(run(), error => error.problem.code === 'UPSTREAM_INVALID_RESPONSE');
 });
 
-test('Instagram 未登录主页不发送作品查询，HTTP 200 的 GraphQL 限流保留业务码', async t => {
+test('Instagram 未登录且无 DTSG 时使用 LSD 查询，不要求 Cookie 授权', async t => {
+  const original = globalThis.fetch;
+  t.after(() => { globalThis.fetch = original; });
+  for (const dtsg of ['', '["DTSGInitialData",[],{}];']) {
+    for (const grant of [null, new ScriptCookieAccess({ permissions: compiled.metadata.permissions, assert_grant() {}, cookies: () => [] })]) {
+      const calls = [];
+      globalThis.fetch = async (url, options) => {
+        calls.push(url);
+        assert.equal(options.headers.Cookie, undefined);
+        assert.equal(options.headers['x-csrftoken'], undefined);
+        if (url === link) return new Response(dtsg + '["LSD",[],{"token":"anonymous-lsd"}]');
+        assert.equal(url, 'https://www.instagram.com/graphql/query');
+        const form = new URLSearchParams(options.body);
+        assert.equal(form.get('lsd'), 'anonymous-lsd');
+        assert.equal(options.headers['x-fb-lsd'], 'anonymous-lsd');
+        assert.equal(options.headers['sec-fetch-site'], 'same-origin');
+        assert.equal(options.headers['sec-fetch-mode'], 'cors');
+        assert.equal(options.headers['sec-fetch-dest'], 'empty');
+        assert.equal(form.has('fb_dtsg'), false);
+        assert.equal(form.has('jazoest'), false);
+        return Response.json(fixture);
+      };
+      const feed = JSON.parse((await run(context, grant)).output);
+      assert.equal(feed.items.length, fixture.data[connection].edges.length);
+      assert.deepEqual(calls, [link, 'https://www.instagram.com/graphql/query']);
+    }
+  }
+});
+
+test('Instagram 缺少 LSD 时不发送作品查询，HTTP 200 的 GraphQL 限流保留业务码', async t => {
   const original = globalThis.fetch;
   t.after(() => { globalThis.fetch = original; });
   let calls = 0;
   globalThis.fetch = async url => {
     calls++;
     assert.equal(url, link);
-    return new Response('<script>["DTSGInitialData",[],{}];["LSD",[],{"token":"page-lsd"}]</script>');
+    return new Response('<script>["DTSGInitialData",[],{"token":"page-dtsg"}];["LSD",[],{}]</script>');
   };
   await assert.rejects(run(), error => {
-    assert.equal(error.problem.code, 'UPSTREAM_AUTH_REQUIRED');
-    assert.match(error.message, /同步源浏览器登录.*sessionid/);
+    assert.equal(error.problem.code, 'UPSTREAM_INVALID_RESPONSE');
+    assert.match(error.message, /缺少 LSD/);
     return true;
   });
   assert.equal(calls, 1);
+  globalThis.fetch = async url => url === link ? new Response(profile) : Response.json({
+    __ar: 1, error: 1357054, payload: null,
+  });
+  await assert.rejects(run(), error => {
+    assert.equal(error.problem.code, 'UPSTREAM_INVALID_RESPONSE');
+    assert.match(error.message, /1357054/);
+    return true;
+  });
   globalThis.fetch = async url => url === link ? new Response(profile) : Response.json({
     errors: [{ message: 'Rate limit exceeded', severity: 'CRITICAL', code: 1675004 }],
     extensions: { is_final: true },
