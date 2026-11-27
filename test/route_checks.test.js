@@ -461,7 +461,7 @@ test("仓库配置覆盖社交账号和剧集的具名样本", async () => {
   };
   for (const [path, pattern] of Object.entries(account_routes)) {
     const samples = config["rss_json " + path];
-    const expected_count = { "/api/rss/instagram/:username": 22, "/api/rss/zhihu/people/:user/answers": 19,
+    const expected_count = { "/api/rss/instagram/:username": 22, "/api/rss/zhihu/people/:user/answers": 21,
       "/api/rss/bilibili/:userid/dynamic": 21, "/api/rss/bilibili/:userid/upload/video": 21 }[path] ?? 20;
     assert.equal(samples.length, expected_count, path);
     assert.equal(new Set(samples.map(sample => sample.example.toLowerCase())).size, expected_count, path);
