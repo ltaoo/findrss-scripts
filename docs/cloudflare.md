@@ -69,7 +69,7 @@ npm run deploy
 
 脚本路由同时支持 GET 和 POST。POST 使用 `Content-Type: application/json`，JSON 对象中的字符串、数字或布尔值作为查询参数传入脚本（覆盖同名 query；null 忽略），路径参数仍写在 URL 中。请求体最多 2MB，不接受嵌套对象或数组；请求体中的 `token` 不用于授权，也不会传入脚本。建议 POST 使用 `Authorization: Bearer <token>`；管理入口与 Debug 仍仅支持 GET。
 
-所有脚本默认注册，不需要后台导入、发布或数据库。当前 110 个脚本生成 146 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。RSS/Atom/订阅 JSON 与其它入口一样在请求内同步执行；Detect 为无状态采样，不保存历史基线。没有管理后台或订阅管理。
+所有脚本默认注册，不需要后台导入、发布或数据库。当前 140 个脚本生成 176 个检查项，巡检仅覆盖 `/api/rss`、`/api/hot`、`/api/clip` 和 `/api/detect` 四个规范前缀。RSS/Atom/订阅 JSON 与其它入口一样在请求内同步执行；Detect 为无状态采样，不保存历史基线。没有管理后台或订阅管理。
 
 `npm run dev` 启动本地 Workers 运行时。GitHub README 和通用网页剪藏需要 Cloudflare Browser Rendering，Avmoo、JAVLibrary、天天看书和 69书吧在 `BROWSER_ENABLED=true` 时允许验证失败后调用浏览器；配置已声明 `BROWSER` 绑定。该开关默认关闭，InstaBox 巡检固定开启；本地可运行 `npm run dev -- --var BROWSER_ENABLED:true`。开关只作为布尔值传入 `ctx.env.BROWSER_ENABLED`，不向脚本公开其他环境变量。69书吧和 JAVLibrary 继续优先复用已保存的验证状态。Wrangler 本地开发通过 Miniflare 启动本机 Chrome，首次调用可能需要下载浏览器；使用 `X_BROWSER_HEADFUL=true npm run dev` 可显示浏览器窗口。若要让本地服务调用云端浏览器，可在 `browser` 配置中添加 `"remote": true`，这会使用 Cloudflare 账号的浏览器额度。只有声明 Cookie 权限的站点会恢复已授权 Cookie 和匹配的 User-Agent，其他页面仍为匿名会话；本地浏览器的网络环境和风控结果可能与云端不同。百度天气剪藏通过 `fetchText` 生成天气卡片，使用脚本内置 Cookie，无需浏览器绑定；示例 `/api/clip/baidu/s/weather/上海`，省略城市时使用百度定位。图片与正文代理使用当前访问域名生成地址；自定义公开域名可设置 `FINDRSS_HOSTNAME=https://feeds.example.com`。
 

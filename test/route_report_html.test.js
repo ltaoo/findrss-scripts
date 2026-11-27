@@ -23,6 +23,20 @@ const report = { checked_at: "2026-10-28T06:00:00.000Z", scripts: [
   ...["atom", "clip", "detect", "html", "image"].map(format => ({ ...passed, format, file: "rss/example.js", path: "/" + format + "/example" })),
 ] };
 
+test("SSR 按来源分组，成人影视的三个来源默认收起，按钮关联对应列表", () => {
+  const files = ["avmoo", "javbus", "javlibrary", "wxchannels", "douyin", "kuaishou", "mgtv", "iqiyi"];
+  const html = render_report_html({ results: files.map(name => ({ ...passed, file: "rss/" + name + ".js", path: "/" + name, format: "rss" })) });
+  const markup = html.split('<script data-n="market-data"')[0];
+  assert.equal([...markup.matchAll(/<section data-n="source-group"/g)].length, 3);
+  const adult = markup.match(/<section data-n="source-group"[^>]*data-group="adult"[\s\S]*?<\/section>/)[0];
+  assert.match(adult, /aria-controls="group-scripts-adult" aria-expanded="false"/);
+  assert.match(adult, /id="group-scripts-adult" hidden="true"/);
+  assert.equal([...adult.matchAll(/<article data-n="script-card"/g)].length, 3);
+  assert.match(adult, /成人影视/);
+  assert.match(markup, /aria-controls="group-scripts-short-video" aria-expanded="true"/);
+  assert.match(markup, /aria-controls="group-scripts-long-video" aria-expanded="true"/);
+});
+
 test("HTML 页头 Logo 和 favicon 内嵌复制的品牌素材，单文件页面也能显示", async () => {
   const html = render_report_html(report);
   const logo = html.match(/<img data-n="project-logo"[^>]*src="data:image\/svg\+xml;base64,([^"]+)"/)[1];

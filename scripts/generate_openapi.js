@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { writeFile } from "node:fs/promises";
 import { api_route_cases } from "../worker/catalog.js";
+import novel_sources from "./novel_sources.json" with { type: "json" };
 import { RssRoutePatternModel } from "../.runtime/findrss-worker/server/domain/rss_route.js";
 
 const parameter_pattern = /^:([A-Za-z_][A-Za-z0-9_]*)(?:\{([\s\S]+)\})?(\?)?$/;
@@ -9,7 +10,7 @@ const media_types = { rss: "application/rss+xml", atom: "application/atom+xml", 
   debug: "text/html" };
 // 当前运行时只保留 Hot 的 category，其余脚本在文档中补充分组。
 const script_categories = new Map([
-  ["小说", ["rss/69shuba.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/qimao.js", "rss/ttk.js"]],
+  ["小说", ["rss/69shuba.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/qimao.js", "rss/ttk.js", ...novel_sources.map(source => "rss/" + source.key + ".js")]],
   ["科技", ["rss/apple.js", "rss/github.js", "clip/github.js", "detect/github_releases.js"]],
   ["视频", ["rss/bilibili.js", "rss/douyin.js", "rss/hongguo.js", "rss/iqiyi.js", "rss/kuaishou.js", "rss/mgtv.js", "rss/vqq.js", "rss/wxchannels.js", "rss/youku.js", "rss/youtube.js"]],
   ["影视", ["rss/avmoo.js", "rss/javbus.js", "rss/javlibrary.js"]],

@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { create_market_model } from "../scripts/script_market.js";
+import { group_scripts } from "../scripts/script_groups.js";
+import { readFile } from "node:fs/promises";
 import { route_request_model, route_request_models } from "../scripts/route_request_model.js";
 import { execFileSync } from "node:child_process";
 
@@ -10,6 +12,51 @@ const scripts = [
   { id: "hot", title: "热榜", kind: "hot", raw_url: "https://raw.githubusercontent.com/example/hot.js",
     search_text: "热榜 hot/example.js hot /api/hot/example" },
 ];
+
+test("按来源类型聚合，短视频、长视频和全部新增小说书源各在同一组", async () => {
+  const novels = JSON.parse(await readFile(new URL("../scripts/novel_sources.json", import.meta.url), "utf8"));
+  const files = ["rss/wxchannels.js", "rss/douyin.js", "hot/douyin_hot.js", "rss/kuaishou.js",
+    "rss/mgtv.js", "rss/iqiyi.js", "hot/iqiyi_hot.js", "rss/vqq.js", "rss/youku.js",
+    "rss/avmoo.js", "rss/javbus.js", "rss/javlibrary.js", ...novels.map(source => "rss/" + source.key + ".js")];
+  const grouped = group_scripts(files.map(file => ({ file })));
+  assert.deepEqual(grouped.map(group => [group.id, group.scripts.length]), [["short-video", 4], ["long-video", 5], ["novels", 30], ["adult", 3]]);
+  assert.deepEqual(group_scripts([{ file: "rss/unknown.js" }]).map(group => group.id), ["other"]);
+});
+
+test("组内按来源清单排序，小说优先起点、番茄、七猫，同来源与未知来源保留原顺序", () => {
+  const files = ["rss/qimao.js", "rss/shuhaige.js", "rss/fanqienovel.js", "rss/qidian.js", "rss/69shuba.js",
+    "rss/douyin.js", "hot/douyin_hot.js", "rss/kuaishou.js", "rss/wxchannels.js",
+    "rss/youku.js", "rss/iqiyi.js", "rss/mgtv.js", "rss/javlibrary.js", "rss/javbus.js", "rss/avmoo.js",
+    "rss/unknown-z.js", "rss/unknown-a.js"];
+  const scripts = files.map(file => ({ file }));
+  const grouped = new Map(group_scripts(scripts).map(group => [group.id, group.scripts.map(script => script.file)]));
+  assert.deepEqual(grouped.get("short-video"), ["rss/wxchannels.js", "rss/douyin.js", "hot/douyin_hot.js", "rss/kuaishou.js"]);
+  assert.deepEqual(grouped.get("long-video"), ["rss/mgtv.js", "rss/iqiyi.js", "rss/youku.js"]);
+  assert.deepEqual(grouped.get("novels"), ["rss/qidian.js", "rss/fanqienovel.js", "rss/qimao.js", "rss/69shuba.js", "rss/shuhaige.js"]);
+  assert.deepEqual(grouped.get("adult"), ["rss/avmoo.js", "rss/javbus.js", "rss/javlibrary.js"]);
+  assert.deepEqual(grouped.get("other"), ["rss/unknown-z.js", "rss/unknown-a.js"]);
+  assert.deepEqual(scripts.map(script => script.file), files);
+});
+
+test("成人影视默认收起，手动展开后切换类型和搜索仍保留状态，空分组隐藏", () => {
+  const model = create_market_model(["avmoo", "javbus", "javlibrary", "douyin"].map(id => ({
+    id, file: "rss/" + id + ".js", kind: "rss", search_text: id,
+  })));
+  assert.deepEqual(model.group_state("adult"), { count: 3, hidden: false, expanded: false });
+  assert.equal(model.group_state("short-video").expanded, true);
+  model.toggle_group("adult");
+  model.search("javbus");
+  assert.deepEqual(model.group_state("adult"), { count: 1, hidden: false, expanded: true });
+  assert.equal(model.group_state("short-video").hidden, true);
+  model.select_kind("hot");
+  assert.deepEqual(model.group_state("adult"), { count: 0, hidden: true, expanded: true });
+  model.select_kind("rss");
+  model.toggle_group("adult");
+  model.search("");
+  assert.deepEqual(model.group_state("adult"), { count: 3, hidden: false, expanded: false });
+  model.toggle_group("missing");
+  assert.equal(model.collapsed_groups.has("missing"), false);
+});
 
 test("市场搜索忽略大小写及首尾空白，支持名称、类型、文件、路由和多个关键词", () => {
   const model = create_market_model(scripts);

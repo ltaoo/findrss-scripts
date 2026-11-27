@@ -235,7 +235,22 @@ export function MarketPage(vm) {
       ]),
       element("main", "script-catalog", { id: "scripts" }, [
         element("div", "script-panel", { id: "script-panel", role: "tabpanel", "aria-labelledby": watch(() => "tab-" + model.kind), tabindex: 0 }, [
-          element("div", "script-list", { class: "catalog" }, model.scripts.map(script => card(vm, script, visible))),
+          ...model.groups.map(group => {
+            const state = watch(() => model.group_state(group.id));
+            return element("section", "source-group", { class: "source-group", "data-group": group.id,
+              "aria-labelledby": "group-heading-" + group.id, hidden: computed(state, value => value.hidden) }, [
+              element("h2", "source-group-heading", { class: "group-heading", id: "group-heading-" + group.id }, [
+                element("button", "toggle-source-group", { class: "group-toggle", "aria-controls": "group-scripts-" + group.id,
+                  "aria-expanded": computed(state, value => String(value.expanded)) }, [
+                  element("span", "source-group-chevron", { class: "group-chevron", "aria-hidden": "true" }, ["›"]),
+                  element("span", "source-group-title", {}, [group.title]),
+                  element("span", "source-group-count", { class: "kind" }, [computed(state, value => String(value.count))]),
+                ], { onClick: () => model.toggle_group(group.id) }),
+              ]),
+              element("div", "script-list", { class: "catalog", id: "group-scripts-" + group.id,
+                hidden: computed(state, value => !value.expanded) }, group.scripts.map(script => card(vm, script, visible))),
+            ]);
+          }),
           element("p", "empty-search", { class: "empty-state", hidden: computed(visible, ids => ids.length > 0) }, ["当前分类没有匹配的脚本，请切换分类、尝试其他关键词或清空搜索。"]),
         ]),
       ]),

@@ -1,3 +1,5 @@
+import { group_scripts } from "./script_groups.js";
+
 export function create_market_model(scripts, write_clipboard, storage) {
   const routes = new Map(scripts.flatMap(script => script.routes || []).map(route => [route.key, route]));
   const read_saved = key => {
@@ -19,6 +21,7 @@ export function create_market_model(scripts, write_clipboard, storage) {
   };
   const model = {
     scripts, kinds: ["rss", "hot", "clip", "detect"], kind: "rss", query: "", message: "", message_timer: null, copying: false, inspection: null,
+    groups: group_scripts(scripts), collapsed_groups: new Set(["adult"]),
     settings: { baseURL: "", token: "" }, settings_draft: { baseURL: "", token: "" }, settings_open: false, settings_error: "",
     saved_parameters: {}, request: null, example_id: null, example_name: "", route_values: {}, request_status: "", inspection_status: "",
     on_change() {},
@@ -191,6 +194,17 @@ export function create_market_model(scripts, write_clipboard, storage) {
     },
     get kind_scripts() {
       return this.scripts.filter(script => script.kind === this.kind);
+    },
+    group_state(id) {
+      const visible = new Set(this.visible_ids);
+      const count = this.groups.find(group => group.id === id)?.scripts.filter(script => visible.has(script.id)).length || 0;
+      return { count, hidden: count === 0, expanded: !this.collapsed_groups.has(id) };
+    },
+    toggle_group(id) {
+      if (!this.groups.some(group => group.id === id)) return;
+      if (this.collapsed_groups.has(id)) this.collapsed_groups.delete(id);
+      else this.collapsed_groups.add(id);
+      this.on_change();
     },
     get visible_ids() {
       const terms = this.query.trim().toLowerCase().split(/\s+/).filter(Boolean);

@@ -51,6 +51,8 @@
 | [优酷剧集](../rss/youku.js) | `/youku/series/:show_id` | 官网 `/v_nextstage/id_<ID>.html` 中的剧集 ID，或播放页 `s` 参数；通过 HTTP 直接读取 MTOP 正片目录和选集范围分页，无需浏览器或登录 Cookie |
 | [芒果TV剧集](../rss/mgtv.js) | `/mgtv/series/:collection_id/:video_id` | 官网 `/b/<专辑 ID>/<视频 ID>.html` 中的两个 ID；自动加载已发布完整视频的分页目录 |
 
+参考 so-novel 增加的 30 个小说书源及已支持的 69书吧，见 [小说章节订阅](novel-sources.md)。新脚本读取全部目录分页，只输出章节标题与原站链接。
+
 抖音支持 `?count=18&max_cursor=0`（每页最多 30 条），Telegram 支持 `?before=<消息 ID>`，微信公众号和视频号支持 `?offset=<游标>`。微信公众号也可使用 `/rss/wxmp?username=wow36kr`，与 `/rss/wxmp/wow36kr` 等价；图片代理需配置 `FINDRSS_HOSTNAME`。
 
 优酷首屏及分页需要本仓库的运行时响应头补丁（`npm run build` 自动安装）；已有部署需同时更新运行时，仅替换脚本无法获取匿名 MTOP 令牌。选集范围来自官网标签，自动签名，令牌请求最多尝试三次，并校验缺集及分页是否推进。例如 `/api/rss/youku/series/befb7ad5604548a79b70` 可读取《中国十大王朝》100 期正片。目录可能包含 VIP、SVIP 和收官礼条目，官网列出不代表当前账号具备播放权限。

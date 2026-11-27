@@ -14,7 +14,7 @@
   <a data-n="documentation-link" href="#更多文档">更多文档</a>
 </p>
 
-本仓库集中维护 [FindRSS](https://github.com/ltaoo/findrss-worker) 的 **110 个采集脚本**，覆盖文章、视频、作者动态、小说章节、排行榜、网页剪藏与内容变化检测。
+本仓库集中维护 [FindRSS](https://github.com/ltaoo/findrss-worker) 的 **140 个采集脚本**，覆盖文章、视频、作者动态、小说章节、排行榜、网页剪藏与内容变化检测。
 
 **已有 FindRSS 站点，复制脚本到后台调试、发布即可使用；需要直接通过 HTTP 调用，可将本仓库独立部署为 Worker。** 独立部署自动加载全部脚本，不包含管理后台、订阅管理或检测历史存储。
 
@@ -22,7 +22,7 @@
 
 | 类型 | 数量 | 用途 | 请求路径前缀 |
 | --- | --- | --- | --- |
-| [RSS](#rss27-个) | 27 | 将文章、视频、动态、章节等转换为订阅源 | `/rss`、`/atom`、`/api/rss`（JSON） |
+| [RSS](#rss57-个) | 57 | 将文章、视频、动态、章节等转换为订阅源 | `/rss`、`/atom`、`/api/rss`（JSON） |
 | [Hot](#hot78-个) | 78 | 获取排行榜、热点、快讯与最新资讯 JSON | `/api/hot`、`/hot` |
 | [Clip 剪藏](#clip-剪藏3-个) | 3 | 提取网页区域或生成卡片，返回包含静态 HTML 的 JSON | `/api/clip`、`/clip` |
 | [Detect 内容检测](#detect-内容检测2-个) | 2 | 采集内容快照，供后台检测任务持续比较变化 | `/api/detect`、`/detect` |
@@ -50,6 +50,8 @@ Hot 示例：`/google-news/rss/jp/top` 对应 `/api/hot/google-news/rss/jp/top`�
 Cookie 权限声明不代表每条路由都必须登录。YouTube Hot 需要自己的 YouTube Data API Key；TikTok Hot 需要授权广告账户和具有 Discovery API 权限的令牌；微信脚本需配置接口地址和令牌。配置表单的 `writeOnly` 仅遮挡输入，配置按脚本元数据保存，请勿提交真实凭据。
 
 ### 查找脚本与巡检结果
+
+每个类型页签下按短视频、长视频、小说、社交与社区等来源分组，组标题显示当前搜索匹配的脚本数量，点击可展开或收起。AVMOO、JavBus、JAVLibrary 归入「成人影视」，每次打开页面默认收起；其他分组默认展开。切换页签或搜索时保留本次页面中的展开状态。
 
 [脚本市场（Script Market）](https://ltaoo.github.io/findrss-scripts/)支持 RSS、Hot、Clip、Detect 分类，以及按名称、文件路径或路由搜索。点击文件路径查看 Raw 源码，使用旁边图标复制地址；卡片按 ScriptExample（脚本实例）显示「实例 成功数/总数 成功」，点击查看巡检结果。每个实例独占一行，相同路由的标题、路径纵向合并；实例名称可点击回填表单，名称右侧的 RSS 图标打开产物；点击结果列的成功或失败状态查看详情，错误原因位于失败状态下方。页面展示最近一次成功发布的巡检快照，实际可用性仍需在自己的环境运行 Debug 确认。
 
@@ -110,7 +112,7 @@ RSS、Atom、`/api/rss` 与其它入口一样在请求内同步执行脚本，�
 
 Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在一个文件，通过 `routes` 导出。每个文件只列一次。没有明确数字排名的内容保留上游顺序，`rank` 为 `null`；新闻、最新资讯及精选源按实际用途命名。热榜详细字段见 [hot/README.md](hot/README.md)。
 
-### RSS（27 个）
+### RSS（57 个）
 
 | 脚本 | 文件 | 路由示例 | 版本 | 使用要求 |
 | --- | --- | --- | --- | --- |
@@ -141,6 +143,38 @@ Hot、Clip 和 Detect 在各自目录内按来源组织，同源路由集中在�
 | YouTube 频道视频 | [rss/youtube.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youtube.js) | `/youtube/@goldfishbrain` | 1.1.2 | Cookie 授权 |
 | 优酷剧集 | [rss/youku.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/youku.js) | `/youku/series/bcaa87c7834c46f99e7b` | 1.1.1 | HTTP MTOP 正片目录及范围分页，自动获取匿名令牌，无需浏览器或登录 Cookie |
 | 知乎用户动态 | [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) | `/zhihu/people/zhihu` | 1.1.1 | Cookie 授权 |
+| 香书小说章节 | [rss/ibiqugu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ibiqugu.js) | `/ibiqugu/book/130/130509` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 书海阁小说网章节 | [rss/shuhaige.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/shuhaige.js) | `/shuhaige/book/70475` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 梦书中文章节 | [rss/mcxs.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/mcxs.js) | `/mcxs/book/145_145199` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 鸟书网章节 | [rss/99wx.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/99wx.js) | `/99wx/book/129_129843` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 笔尖中文章节 | [rss/xbiquwk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xbiquwk.js) | `/xbiquwk/book/10_10233` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 悠久小说网章节 | [rss/ujxsw.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ujxsw.js) | `/ujxsw/book/107612` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 阅读库章节 | [rss/yeudusk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/yeudusk.js) | `/yeudusk/book/1322535` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 笔趣阁365章节 | [rss/biquge365.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/biquge365.js) | `/biquge365/book/95601` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 第八中文网章节 | [rss/d8zw.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/d8zw.js) | `/d8zw/book/134/134526` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 笔趣阁52章节 | [rss/52bqg.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/52bqg.js) | `/52bqg/book/266271` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 少年小说网章节 | [rss/snxsw.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/snxsw.js) | `/snxsw/book/76366` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 新笔趣阁小说网章节 | [rss/xbiquge_info.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xbiquge_info.js) | `/xbiquge_info/book/17/17937` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 笔趣阁info章节 | [rss/bqg_info.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/bqg_info.js) | `/bqg_info/book/172` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 全本小说网章节 | [rss/quanben5.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/quanben5.js) | `/quanben5/book/henchunhenaimei` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 大熊猫文学章节 | [rss/dxmwx.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/dxmwx.js) | `/dxmwx/book/56441` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 101看书章节 | [rss/101kks.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/101kks.js) | `/101kks/book/48273` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 笔趣屋章节 | [rss/fsshu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/fsshu.js) | `/fsshu/book/17/17937` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 新天禧小说章节 | [rss/xtxxs9.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xtxxs9.js) | `/xtxxs9/book/66120` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 零点小说章节 | [rss/0xs.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/0xs.js) | `/0xs/book/68398` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 速读谷章节 | [rss/suduguu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/suduguu.js) | `/suduguu/book/3415` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 笔趣阁中文网章节 | [rss/xbiquge_cc.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xbiquge_cc.js) | `/xbiquge_cc/book/3558` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 小说虎章节 | [rss/xiaoshuohu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xiaoshuohu.js) | `/xiaoshuohu/book/14/14654` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 天天看小说章节 | [rss/ttkan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ttkan.js) | `/ttkan/book/congzhanyaochumokaishichangshengbusi` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 小说之家章节 | [rss/xszj.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xszj.js) | `/xszj/book/1` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 顶点小说章节 | [rss/wxsy.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/wxsy.js) | `/wxsy/book/1803` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 黄易天地章节 | [rss/xhytd.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/xhytd.js) | `/xhytd/book/170/170581` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 96读书章节 | [rss/96dushu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/96dushu.js) | `/96dushu/book/448209` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 东滩小说章节 | [rss/dongtanxs.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/dongtanxs.js) | `/dongtanxs/book/49371` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 和图书章节 | [rss/hetushu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/hetushu.js) | `/hetushu/book/5763` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+| 哔哩轻小说章节 | [rss/linovelib.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/linovelib.js) | `/linovelib/book/1` | 1.0.0 | 完整目录；验证页可启用 BROWSER_ENABLED |
+
+小说书源覆盖范围、参数和分页限制见 [小说章节订阅](docs/novel-sources.md)。
 
 ### Hot（78 个）
 
