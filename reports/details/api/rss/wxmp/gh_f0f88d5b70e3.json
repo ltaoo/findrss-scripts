@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-27T09:06:13.064Z",
+  "checked_at": "2026-11-27T09:57:33.292Z",
   "debug_request": {
     "status": 200,
-    "duration_ms": 3907
+    "duration_ms": 15837
   },
   "debug": {
     "status": 200,
@@ -35,7 +35,7 @@
       }
     },
     "phase": "ok",
-    "elapsed_ms": 3885,
+    "elapsed_ms": 15830,
     "invoked": false,
     "upstream_error": "",
     "error_text": "",
@@ -59,95 +59,95 @@
             "authorization"
           ]
         },
-        "started_ms": 12,
-        "duration_ms": 3867,
+        "started_ms": 9,
+        "duration_ms": 15816,
         "timings": {
-          "response_ms": 741,
-          "body_read_ms": 3124,
-          "decode_and_transfer_ms": 2
+          "response_ms": 1049,
+          "body_read_ms": 14766,
+          "decode_and_transfer_ms": 1
         }
       }
     ],
-    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_f0f88d5b70e3\",\"title\":\"二道情报贩子\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490119&idx=1&sn=25c70232b5ad7725de1e9b6ea3ccc00d&chksm=ffa7d4dc02aadb7328e1c47317bc015c2e8d65340baf13d8f796e95202dd31fdca59d458d87d&scene=126&sessionid=1795770376#rd\",\"description\":\"二道情报贩子，专注任何情报领域。上知天文,下知地理,中晓人和,明阴阳,懂八卦,晓奇门,知遁甲,运筹帷幄之中,决胜千里之外,自比管仲乐毅之贤,抱膝危坐,笑傲风月,未出茅庐,先定三分天下。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"二道情报贩子\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7GQMJ9CibgskXDWcTgwAKKN7NLial3xhokk8mpicJuMASMA%2F0\",\"updated\":\"2026-11-26T03:07:29.000Z\",\"items\":[{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490119:1\",\"title\":\"1Password披露后端安全事件，部分账户信息泄露\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490119&idx=1&sn=25c70232b5ad7725de1e9b6ea3ccc00d&chksm=ffa7d4dc02aadb7328e1c47317bc015c2e8d65340baf13d8f796e95202dd31fdca59d458d87d&scene=126&sessionid=1795770376#rd\",\"description\":\"图1 1Password本次安全事件公告配图2026年11月25日，密码管理服务1Password发布公告，披\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibSp3l8qfQHlwobdHaFG21XedpxRticRp780iasaIGmicCcjLugCrea5BriclmKbsHgf89HFTt7oWibCXgSfIan1FcIRaEaskQnZTuk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-26T03:07:29.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490110:1\",\"title\":\"OpenSSH十年漏洞：257 字符密码竟能登录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490110&idx=1&sn=2de9902932e4c9773ff9f8e25db52d53&chksm=ff1708bb1ff4cd0469bb3ba2811f6188d6fabcac44507ae1f6e9c7447882e6362b267eda137a&scene=126&sessionid=1795770376#rd\",\"description\":\"OpenSSH 10.6p2 已发布，旨在应对一个关键漏洞的临时修复方案。如果你正在运行使用 musl libc 且未启用 PAM 的 Linux 系统（例如 Alpine Linux），请立即设置 PasswordAuthentication=no 或禁用 SSH，切勿继续阅读。\\n该漏洞仅存在于特定 Linux 环境中，非 Linux 系统、Linux/glibc 系统以及使用 PAM 进行密码验证的系统均不受影响。虽然根本原因不在 OpenSSH 本身，但团队选择快速发布缓解措施，因为近期观察到 AI 代理在数小时内多次重新发现漏洞，长期保密期反而可能助长攻击者。感谢 Wakefield 的 Özgün Kültekin 报告此问题，以及 Alpine Linux 开发团队迅速提供更新。\\n\\n在基于 musl libc 的系统（如 Alpine Linux）上，若未启用 PAM，任何密码长度超过 256 字符的输入都能绕过验证，登录那些本应禁止密码登录的账户（如 root 或密钥用户）。问题源于 musl 的 crypt() 函数在失败时返回星号，而 OpenSSH 的修复逻辑恰好将其误判为有效。这个漏洞让大量 Docker 镜像和云主机暴露在风险中，只需更新到 OpenSSH 10.6p2 或禁用密码认证即可修复。\",\"content\":\"<p>OpenSSH 10.6p2 已发布，旨在应对一个关键漏洞的临时修复方案。如果你正在运行使用 musl libc 且未启用 PAM 的 Linux 系统（例如 Alpine Linux），请立即设置 PasswordAuthentication=no 或禁用 SSH，切勿继续阅读。<br />该漏洞仅存在于特定 Linux 环境中，非 Linux 系统、Linux/glibc 系统以及使用 PAM 进行密码验证的系统均不受影响。虽然根本原因不在 OpenSSH 本身，但团队选择快速发布缓解措施，因为近期观察到 AI 代理在数小时内多次重新发现漏洞，长期保密期反而可能助长攻击者。感谢 Wakefield 的 Özgün Kültekin 报告此问题，以及 Alpine Linux 开发团队迅速提供更新。<br /><br />在基于 musl libc 的系统（如 Alpine Linux）上，若未启用 PAM，任何密码长度超过 256 字符的输入都能绕过验证，登录那些本应禁止密码登录的账户（如 root 或密钥用户）。问题源于 musl 的 crypt() 函数在失败时返回星号，而 OpenSSH 的修复逻辑恰好将其误判为有效。这个漏洞让大量 Docker 镜像和云主机暴露在风险中，只需更新到 OpenSSH 10.6p2 或禁用密码认证即可修复。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz19EENumbx7YoNE9SwbuJpHQVLdDFxuSqZOyQ6cpA8Vyhlr5qy70fk3rx9rAwJ14VmAOASc5NdEQsLftaeUO0JNI0gGaTT5G4q0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibEfqTfPruF1D4IkibTIFQSu72reNsE8PA6DXjdvJwcicPwQy2eK4L7rNOHSedjXVeTehw0ABPkKsTFVIJsRKia64Tpb3n6h9InSw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz19EENumbx7YoNE9SwbuJpHQVLdDFxuSqZOyQ6cpA8Vyhlr5qy70fk3rx9rAwJ14VmAOASc5NdEQsLftaeUO0JNI0gGaTT5G4q0%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-05T16:10:44.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490086:1\",\"title\":\"Claude 共享链接遭搜索引擎索引\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490086&idx=1&sn=821fcd390ccc95853b8692050e245c37&chksm=fffdbd2ad02c4b463efd2e4173414d7463973d834fa41586eaf29b75c26a065c24128776e4a8&scene=126&sessionid=1795770376#rd\",\"description\":\"Claude 共享对话功能曝出高危隐私安全漏洞。用户通过该功能生成的公开分享链接未配置搜索引擎禁止抓取标识，致使大量对话内容被谷歌等搜索引擎收录索引，任意网民只需检索关键词，就能完整浏览对话全文。\\n此次泄露内容覆盖多类高敏感数据，包括接口密钥、加密货币钱包地址、个人求职简历、法律咨询记录、企业内部项目文档、社保身份编号等。约一年前 ChatGPT 曾出现完全一致的共享链接爬虫泄露问题，当时 OpenAI 迅速完成漏洞修复。反观开发 Claude 的 Anthropic，截至目前仍未推出修复方案。安全人员提醒所有用户，尽快进入账号设置内的「共享对话」管理页面，手动删除包含个人隐私、财务信息的聊天会话，规避信息持续外泄风险。\",\"content\":\"<p>Claude 共享对话功能曝出高危隐私安全漏洞。用户通过该功能生成的公开分享链接未配置搜索引擎禁止抓取标识，致使大量对话内容被谷歌等搜索引擎收录索引，任意网民只需检索关键词，就能完整浏览对话全文。<br />此次泄露内容覆盖多类高敏感数据，包括接口密钥、加密货币钱包地址、个人求职简历、法律咨询记录、企业内部项目文档、社保身份编号等。约一年前 ChatGPT 曾出现完全一致的共享链接爬虫泄露问题，当时 OpenAI 迅速完成漏洞修复。反观开发 Claude 的 Anthropic，截至目前仍未推出修复方案。安全人员提醒所有用户，尽快进入账号设置内的「共享对话」管理页面，手动删除包含个人隐私、财务信息的聊天会话，规避信息持续外泄风险。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz18F0rgKuqH4q8olbUNCnkicibIRh8e1WhlansEhtKONcSib70GjBiclIHxA5anAhs1UsicM95Ef7eGPGThDBAoEBHCMicow11HiaARU5I%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz19blEExdlC12QUibA0KkOKXAjCLS9ax6BSAZkiatibk2cDaoEkcSzUxGws38G8ib2qUzexf7ar3nBwU6Jw5dopOm8tsoPjC6Srt6eM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz18F0rgKuqH4q8olbUNCnkicibIRh8e1WhlansEhtKONcSib70GjBiclIHxA5anAhs1UsicM95Ef7eGPGThDBAoEBHCMicow11HiaARU5I%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-05T16:10:44.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490096:1\",\"title\":\"涉嫌秘密窃听高管会议，OpenAI沙特籍工程师遭FBI逮捕起诉\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490096&idx=1&sn=c5add30e885632556d540b211d563f85&chksm=ff6715a4eb23e8642bd287db19731ac060d9344809a16806363275e8f3de8f44f575e4e6cea5&scene=126&sessionid=1795770376#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibd15DmppSGjpSp6icMafPtFtTcyHCOx2DwlqRvib69BJOyEnH6geibEZdO2T8bYZicNBZHxibCrqZ6mDTIjmzoqX9pSiccuV9bZ9xmk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T02:12:29.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490092:1\",\"title\":\"炸锅！Anthropic被曝已成AI邪教，员工奉Claude为神！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490092&idx=1&sn=66a8fd33dce06696f84166db0f149c10&chksm=ff9737206aecd2e61fc004b98c834b253e8b1df5f6d14264e26f2d842fa6894c83961b058950&scene=126&sessionid=1795770376#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz1ibfXokgyqCB9wov8jwpcXDGPQcmYQ7GCm3uVof0pMiaibzPfMDWD6XkPrp93zbATuyOLgiasjNlNDBenk4GmV60cibUUWpwbsat5hM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-17T00:11:00.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490046:1\",\"title\":\"在日本被捕后的拘留所经历\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490046&idx=1&sn=85b219d65cf670ee916bf9b0e03270e2&chksm=ff277b7cd343c311923295ca06818e6df434abfa5bfa097a59cccb55561efcd3a1922cac3574&scene=126&sessionid=1795770376#rd\",\"description\":\"如果你不幸被捕，或者只是出于好奇，这里有一份关于日本拘留制度的第一手资料：你会遇到什么情况，它是如何运作的，以\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz18cm5PQftdndRpibia4yYIiaMnoaIVglL67ZtxELdsO4Exy1FkWTRf4IfkVpA92aLj75sAeXZZsawUwFP6ceyYj8NzVVlER0Wyd64%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-10T15:07:42.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490039:1\",\"title\":\"npm 热门库 axios 遭遇供应链攻击\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490039&idx=1&sn=4530e1790c54b9980a65a327780b2dd9&chksm=fffc415fe1047559e0a664ad589e5d7a7126b000722ba9750920b3af7d61f3739c678923df53&scene=126&sessionid=1795770376#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz186Qic45RZtOdz9Z7WYdj4RPWO2euSiccyWJEhMTfOFHhhDr9TiaVl1wqJ1pibZ6KguSrhBWcclrVLwHGMvaEdqGTakJQE8KksialwM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-31T05:50:04.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490028:1\",\"title\":\"你的手机 GPS 位置，运营商其实早就能精准获取\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490028&idx=1&sn=2ff1b6c4bbde488fd23639d3f88cc2ca&chksm=ffeab18b3406037efbe33933a67a937c201a04323c9ce2d10704b8f57c3483ca6341f434d669&scene=126&sessionid=1795770376#rd\",\"description\":\"2026 年 1 月，苹果在 iOS 26.3 版本中推出了一项新隐私功能 —— 限制蜂窝网络获取设备的 “精\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibibx5hWIFD8AysCFxCToWXHvUhqtJvGMkN1tbDUCrcLxx1UeFDlB4lZ8OibibcGZRicT9IWBk85o1tteP5LDfGUjKK7z6mh3a2KmQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-04T09:32:12.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490023:1\",\"title\":\".ai域名狂潮：人口1.5万的安圭拉，靠AI赚得盆满钵满\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490023&idx=1&sn=95a3c7763fa79d6af7a5aaeed87c29bf&chksm=ff1ea240db8ac395e0ea0a19337f692fa71a2d8f4588094c045b9366cd1cad5884d038a77402&scene=126&sessionid=1795770376#rd\",\"description\":\"人工智能技术的爆发式发展，正在全球范围内重塑财富格局。有人借此实现资本跃迁，也有人在技术迭代中被淘汰。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2h5rlurjpHhiahuV3V1W34d4CDvZyPiavV5jGtqDxQDtRCFicWw2xjgga7Y2IViaocDAKy1XktfWkh5BQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-26T09:20:45.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490018:1\",\"title\":\"微软给FBI解锁疑犯笔记本\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490018&idx=1&sn=f34cce5cbdfa929ffadda64f2aa89f1b&chksm=ff1fc9007ac435394ec6c5be502b7d3b86af375618869132f03305fa8d6694fc2db4a629f633&scene=126&sessionid=1795770376#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2jMiciaYaEcONhqM5G8IqkIJM5diarJ36jrlibIEbUIRH1TIyw8wxrtIXsUdou2TnTqmhsks5S3OcgS5g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-24T12:20:26.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490014:1\",\"title\":\"逆天漏洞：《明日方舟：终末地》海外首日公测上线就遭遇T0级事故\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490014&idx=1&sn=a246acbc4b5b17bf95fbafb43ff17b83&chksm=ff0adfe6c3a5a9b07d360fa84a3f555010a269e621501459022a02ec040b16ff99176f5b314a&scene=126&sessionid=1795770376#rd\",\"description\":\"1月22日，《明日方舟：终末地》海外服上线首日即爆发严重支付安全事故。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2ianDeFqI4Ql8VWiao5H1egnCm1lOEW39hbA9My3xVxVSXZy67CMLNOrHicDyGrzg1bgrAyo7iaiaGFfkw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-22T15:01:45.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490004:1\",\"title\":\"揭露：欧洲领导人们之间有个小群，每当特朗普做出“疯狂”举动时集体发泄\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490004&idx=1&sn=c8ba944a096af274919e126857fe5fbd&chksm=ff54aa1e791265ac9018294a769b8960d385c6996c0556bc0a664a516982a76d03c30f3dc55c&scene=126&sessionid=1795770376#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2h1iacUgibxyOESvS3kUklHGc8ORWZ7tA14eMpl2fbEIibI9OaOsY35NEYEFuCLh6hZOViaMsuIhqGodA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-21T06:03:26.000Z\"}]}",
+    "output": "{\"kind\":\"rss\",\"id\":\"wxmp:channel:gh_f0f88d5b70e3\",\"title\":\"二道情报贩子\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490119&idx=1&sn=25c70232b5ad7725de1e9b6ea3ccc00d&chksm=ff1e8970f4c63daa825c2be23509a13356708285167e8f9deca803ed57ec9be362eebb0fd3df&scene=126&sessionid=1795773457#rd\",\"description\":\"二道情报贩子，专注任何情报领域。上知天文,下知地理,中晓人和,明阴阳,懂八卦,晓奇门,知遁甲,运筹帷幄之中,决胜千里之外,自比管仲乐毅之贤,抱膝危坐,笑傲风月,未出茅庐,先定三分天下。\",\"language\":\"zh-cn\",\"extra\":{\"view\":\"timeline\",\"show_thumbnails\":true,\"proxy_images\":true,\"headers\":{\"referer\":\"https://mp.weixin.qq.com/\"},\"tags\":[\"微信公众号\"]},\"author\":{\"name\":\"二道情报贩子\",\"uri\":\"https://mp.weixin.qq.com/\"},\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fwx.qlogo.cn%2Fmmhead%2FQ3auHgzwzM7GQMJ9CibgskXDWcTgwAKKN7NLial3xhokk8mpicJuMASMA%2F0\",\"updated\":\"2026-11-26T03:07:29.000Z\",\"items\":[{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490119:1\",\"title\":\"1Password披露后端安全事件，部分账户信息泄露\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490119&idx=1&sn=25c70232b5ad7725de1e9b6ea3ccc00d&chksm=ff1e8970f4c63daa825c2be23509a13356708285167e8f9deca803ed57ec9be362eebb0fd3df&scene=126&sessionid=1795773457#rd\",\"description\":\"图1 1Password本次安全事件公告配图2026年11月25日，密码管理服务1Password发布公告，披\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibSp3l8qfQHlwobdHaFG21XedpxRticRp780iasaIGmicCcjLugCrea5BriclmKbsHgf89HFTt7oWibCXgSfIan1FcIRaEaskQnZTuk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-11-26T03:07:29.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490110:1\",\"title\":\"OpenSSH十年漏洞：257 字符密码竟能登录\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490110&idx=1&sn=2de9902932e4c9773ff9f8e25db52d53&chksm=fffbc56aa488b43926320fce759d863a98ec1af10683b558a1d6015f39faf9544e591f7c096b&scene=126&sessionid=1795773457#rd\",\"description\":\"OpenSSH 10.6p2 已发布，旨在应对一个关键漏洞的临时修复方案。如果你正在运行使用 musl libc 且未启用 PAM 的 Linux 系统（例如 Alpine Linux），请立即设置 PasswordAuthentication=no 或禁用 SSH，切勿继续阅读。\\n该漏洞仅存在于特定 Linux 环境中，非 Linux 系统、Linux/glibc 系统以及使用 PAM 进行密码验证的系统均不受影响。虽然根本原因不在 OpenSSH 本身，但团队选择快速发布缓解措施，因为近期观察到 AI 代理在数小时内多次重新发现漏洞，长期保密期反而可能助长攻击者。感谢 Wakefield 的 Özgün Kültekin 报告此问题，以及 Alpine Linux 开发团队迅速提供更新。\\n\\n在基于 musl libc 的系统（如 Alpine Linux）上，若未启用 PAM，任何密码长度超过 256 字符的输入都能绕过验证，登录那些本应禁止密码登录的账户（如 root 或密钥用户）。问题源于 musl 的 crypt() 函数在失败时返回星号，而 OpenSSH 的修复逻辑恰好将其误判为有效。这个漏洞让大量 Docker 镜像和云主机暴露在风险中，只需更新到 OpenSSH 10.6p2 或禁用密码认证即可修复。\",\"content\":\"<p>OpenSSH 10.6p2 已发布，旨在应对一个关键漏洞的临时修复方案。如果你正在运行使用 musl libc 且未启用 PAM 的 Linux 系统（例如 Alpine Linux），请立即设置 PasswordAuthentication=no 或禁用 SSH，切勿继续阅读。<br />该漏洞仅存在于特定 Linux 环境中，非 Linux 系统、Linux/glibc 系统以及使用 PAM 进行密码验证的系统均不受影响。虽然根本原因不在 OpenSSH 本身，但团队选择快速发布缓解措施，因为近期观察到 AI 代理在数小时内多次重新发现漏洞，长期保密期反而可能助长攻击者。感谢 Wakefield 的 Özgün Kültekin 报告此问题，以及 Alpine Linux 开发团队迅速提供更新。<br /><br />在基于 musl libc 的系统（如 Alpine Linux）上，若未启用 PAM，任何密码长度超过 256 字符的输入都能绕过验证，登录那些本应禁止密码登录的账户（如 root 或密钥用户）。问题源于 musl 的 crypt() 函数在失败时返回星号，而 OpenSSH 的修复逻辑恰好将其误判为有效。这个漏洞让大量 Docker 镜像和云主机暴露在风险中，只需更新到 OpenSSH 10.6p2 或禁用密码认证即可修复。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz19EENumbx7YoNE9SwbuJpHQVLdDFxuSqZOyQ6cpA8Vyhlr5qy70fk3rx9rAwJ14VmAOASc5NdEQsLftaeUO0JNI0gGaTT5G4q0%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibEfqTfPruF1D4IkibTIFQSu72reNsE8PA6DXjdvJwcicPwQy2eK4L7rNOHSedjXVeTehw0ABPkKsTFVIJsRKia64Tpb3n6h9InSw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz19EENumbx7YoNE9SwbuJpHQVLdDFxuSqZOyQ6cpA8Vyhlr5qy70fk3rx9rAwJ14VmAOASc5NdEQsLftaeUO0JNI0gGaTT5G4q0%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-05T16:10:44.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490086:1\",\"title\":\"Claude 共享链接遭搜索引擎索引\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490086&idx=1&sn=821fcd390ccc95853b8692050e245c37&chksm=ff595439920131c456e5cf79017d0ee6638a63cb65a03fc675d3b97c84f259d9aea973bbaf9c&scene=126&sessionid=1795773457#rd\",\"description\":\"Claude 共享对话功能曝出高危隐私安全漏洞。用户通过该功能生成的公开分享链接未配置搜索引擎禁止抓取标识，致使大量对话内容被谷歌等搜索引擎收录索引，任意网民只需检索关键词，就能完整浏览对话全文。\\n此次泄露内容覆盖多类高敏感数据，包括接口密钥、加密货币钱包地址、个人求职简历、法律咨询记录、企业内部项目文档、社保身份编号等。约一年前 ChatGPT 曾出现完全一致的共享链接爬虫泄露问题，当时 OpenAI 迅速完成漏洞修复。反观开发 Claude 的 Anthropic，截至目前仍未推出修复方案。安全人员提醒所有用户，尽快进入账号设置内的「共享对话」管理页面，手动删除包含个人隐私、财务信息的聊天会话，规避信息持续外泄风险。\",\"content\":\"<p>Claude 共享对话功能曝出高危隐私安全漏洞。用户通过该功能生成的公开分享链接未配置搜索引擎禁止抓取标识，致使大量对话内容被谷歌等搜索引擎收录索引，任意网民只需检索关键词，就能完整浏览对话全文。<br />此次泄露内容覆盖多类高敏感数据，包括接口密钥、加密货币钱包地址、个人求职简历、法律咨询记录、企业内部项目文档、社保身份编号等。约一年前 ChatGPT 曾出现完全一致的共享链接爬虫泄露问题，当时 OpenAI 迅速完成漏洞修复。反观开发 Claude 的 Anthropic，截至目前仍未推出修复方案。安全人员提醒所有用户，尽快进入账号设置内的「共享对话」管理页面，手动删除包含个人隐私、财务信息的聊天会话，规避信息持续外泄风险。</p>\\n<img src=\\\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz18F0rgKuqH4q8olbUNCnkicibIRh8e1WhlansEhtKONcSib70GjBiclIHxA5anAhs1UsicM95Ef7eGPGThDBAoEBHCMicow11HiaARU5I%2F0\\\" style=\\\"max-width:100%;height:auto;\\\" />\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz19blEExdlC12QUibA0KkOKXAjCLS9ax6BSAZkiatibk2cDaoEkcSzUxGws38G8ib2qUzexf7ar3nBwU6Jw5dopOm8tsoPjC6Srt6eM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"images\":[\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz18F0rgKuqH4q8olbUNCnkicibIRh8e1WhlansEhtKONcSib70GjBiclIHxA5anAhs1UsicM95Ef7eGPGThDBAoEBHCMicow11HiaARU5I%2F0\"],\"type\":\"gallery\",\"published\":\"2026-11-05T16:10:44.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490096:1\",\"title\":\"涉嫌秘密窃听高管会议，OpenAI沙特籍工程师遭FBI逮捕起诉\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490096&idx=1&sn=c5add30e885632556d540b211d563f85&chksm=ffe76f61e5c82d1df0a3b0a8e1972d1d6d8017e6b803c71266691c1d887d0ec9c8a9096dca8c&scene=126&sessionid=1795773457#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibd15DmppSGjpSp6icMafPtFtTcyHCOx2DwlqRvib69BJOyEnH6geibEZdO2T8bYZicNBZHxibCrqZ6mDTIjmzoqX9pSiccuV9bZ9xmk%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-10-14T02:12:29.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490092:1\",\"title\":\"炸锅！Anthropic被曝已成AI邪教，员工奉Claude为神！\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490092&idx=1&sn=66a8fd33dce06696f84166db0f149c10&chksm=fff28ed631edc7f0a36cf5721e2707d01cce1ed339dbbcb48fa0772551ab3fe2228943466220&scene=126&sessionid=1795773457#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz1ibfXokgyqCB9wov8jwpcXDGPQcmYQ7GCm3uVof0pMiaibzPfMDWD6XkPrp93zbATuyOLgiasjNlNDBenk4GmV60cibUUWpwbsat5hM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-09-17T00:11:00.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490046:1\",\"title\":\"在日本被捕后的拘留所经历\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490046&idx=1&sn=85b219d65cf670ee916bf9b0e03270e2&chksm=ffaa4419ab618415647af7194ddd4189bd6669b4ed5c4ce72ca1b8058290056cdd123a486ca3&scene=126&sessionid=1795773457#rd\",\"description\":\"如果你不幸被捕，或者只是出于好奇，这里有一份关于日本拘留制度的第一手资料：你会遇到什么情况，它是如何运作的，以\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz18cm5PQftdndRpibia4yYIiaMnoaIVglL67ZtxELdsO4Exy1FkWTRf4IfkVpA92aLj75sAeXZZsawUwFP6ceyYj8NzVVlER0Wyd64%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-05-10T15:07:42.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490039:1\",\"title\":\"npm 热门库 axios 遭遇供应链攻击\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490039&idx=1&sn=4530e1790c54b9980a65a327780b2dd9&chksm=ff2c2ac10e34f93344e2e59b9422d3effe8824dff880fa2607fc78e84841e45566f84c230189&scene=126&sessionid=1795773457#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FadyybAFkz186Qic45RZtOdz9Z7WYdj4RPWO2euSiccyWJEhMTfOFHhhDr9TiaVl1wqJ1pibZ6KguSrhBWcclrVLwHGMvaEdqGTakJQE8KksialwM%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-03-31T05:50:04.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490028:1\",\"title\":\"你的手机 GPS 位置，运营商其实早就能精准获取\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490028&idx=1&sn=2ff1b6c4bbde488fd23639d3f88cc2ca&chksm=ff5da5e384affccab3f35d0831cfe1947e18e53032a97b483d08991a34afb493764520f435dc&scene=126&sessionid=1795773457#rd\",\"description\":\"2026 年 1 月，苹果在 iOS 26.3 版本中推出了一项新隐私功能 —— 限制蜂窝网络获取设备的 “精\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FadyybAFkz1ibibx5hWIFD8AysCFxCToWXHvUhqtJvGMkN1tbDUCrcLxx1UeFDlB4lZ8OibibcGZRicT9IWBk85o1tteP5LDfGUjKK7z6mh3a2KmQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-02-04T09:32:12.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490023:1\",\"title\":\".ai域名狂潮：人口1.5万的安圭拉，靠AI赚得盆满钵满\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490023&idx=1&sn=95a3c7763fa79d6af7a5aaeed87c29bf&chksm=ffb549b1466fbc639c5adb5ba47006f52451fb8ef6e0611ccc1f66d18510be8189639225f11d&scene=126&sessionid=1795773457#rd\",\"description\":\"人工智能技术的爆发式发展，正在全球范围内重塑财富格局。有人借此实现资本跃迁，也有人在技术迭代中被淘汰。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2h5rlurjpHhiahuV3V1W34d4CDvZyPiavV5jGtqDxQDtRCFicWw2xjgga7Y2IViaocDAKy1XktfWkh5BQ%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-26T09:20:45.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490018:1\",\"title\":\"微软给FBI解锁疑犯笔记本\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490018&idx=1&sn=f34cce5cbdfa929ffadda64f2aa89f1b&chksm=ffc93756ba9742b64840c8fbb08f12cf50bb3539ef6790fa0c0516511cb67ea9f98b52022e3c&scene=126&sessionid=1795773457#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2jMiciaYaEcONhqM5G8IqkIJM5diarJ36jrlibIEbUIRH1TIyw8wxrtIXsUdou2TnTqmhsks5S3OcgS5g%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-24T12:20:26.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490014:1\",\"title\":\"逆天漏洞：《明日方舟：终末地》海外首日公测上线就遭遇T0级事故\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490014&idx=1&sn=a246acbc4b5b17bf95fbafb43ff17b83&chksm=ff249008737f2631175109c5abb60ce1414cb60de91ed8384cf31eb98af7b85a6aa31059b8dc&scene=126&sessionid=1795773457#rd\",\"description\":\"1月22日，《明日方舟：终末地》海外服上线首日即爆发严重支付安全事故。\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2ianDeFqI4Ql8VWiao5H1egnCm1lOEW39hbA9My3xVxVSXZy67CMLNOrHicDyGrzg1bgrAyo7iaiaGFfkw%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-22T15:01:45.000Z\"},{\"id\":\"wxmp:MzU5NTA3MTk5Ng%3D%3D:2247490004:1\",\"title\":\"揭露：欧洲领导人们之间有个小群，每当特朗普做出“疯狂”举动时集体发泄\",\"link\":\"http://mp.weixin.qq.com/s?__biz=MzU5NTA3MTk5Ng==&mid=2247490004&idx=1&sn=c8ba944a096af274919e126857fe5fbd&chksm=ff7ad0ed5450b45a833981f8faec965b26851b0f4d8dffbe3985405b6fc8d673a43c805a95d1&scene=126&sessionid=1795773457#rd\",\"description\":\"\",\"image\":\"http://script.findrss.cloud/img/wxmp?url=https%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FsY7YiaX0Dh2h1iacUgibxyOESvS3kUklHGc8ORWZ7tA14eMpl2fbEIibI9OaOsY35NEYEFuCLh6hZOViaMsuIhqGodA%2F640%3Fwxtype%3Djpeg%26wxfrom%3D25\",\"type\":\"article\",\"published\":\"2026-01-21T06:03:26.000Z\"}]}",
     "timing": {
-      "elapsed_ms": 3885,
+      "elapsed_ms": 15830,
       "stages": [
         {
           "name": "鉴权与路由",
           "started_ms": 0,
-          "duration_ms": 1
+          "duration_ms": 0
         },
         {
           "name": "参数与配置",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "Cookie 与浏览器状态读取",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "宿主能力准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱排队",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "沙箱参数准备",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 0
         },
         {
           "name": "QuickJS/Wasm 初始化",
-          "started_ms": 1,
+          "started_ms": 0,
           "duration_ms": 1
         },
         {
           "name": "沙箱上下文与工具初始化",
-          "started_ms": 2,
+          "started_ms": 1,
           "duration_ms": 6
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 3876
+          "started_ms": 7,
+          "duration_ms": 15823
         },
         {
           "name": "输出读取与校验",
-          "started_ms": 3884,
+          "started_ms": 15830,
           "duration_ms": 0
         },
         {
           "name": "执行日志收集",
-          "started_ms": 3884,
+          "started_ms": 15830,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 3884,
-          "duration_ms": 1
+          "started_ms": 15830,
+          "duration_ms": 0
         },
         {
           "name": "浏览器状态保存",
-          "started_ms": 3885,
+          "started_ms": 15830,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 3885,
+          "started_ms": 15830,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 3868
+          "started_ms": 9,
+          "duration_ms": 15816
         }
       ]
     }
@@ -164,6 +164,6 @@
     "output_valid": true,
     "status": 200,
     "output_file": "api/rss/wxmp/gh_f0f88d5b70e3.json",
-    "duration_ms": 8400
+    "duration_ms": 20398
   }
 }

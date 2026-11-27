@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-27T09:05:22.312Z",
+  "checked_at": "2026-11-27T09:52:22.299Z",
   "debug_request": {
     "status": 502,
-    "duration_ms": 445
+    "duration_ms": 461
   },
   "debug": {
     "status": 502,
@@ -35,7 +35,7 @@
       }
     },
     "phase": "runtime",
-    "elapsed_ms": 392,
+    "elapsed_ms": 434,
     "invoked": false,
     "upstream_error": "UPSTREAM_FETCH_FAILED: 脚本执行失败：脚本上游 www.52bqg.com 返回 HTTP 502",
     "error_text": "脚本执行失败：脚本上游 www.52bqg.com 返回 HTTP 502\nat fetchText (rss-context.js:618:45)",
@@ -52,15 +52,15 @@
           "source": "none",
           "headers_sent": []
         },
-        "started_ms": 11,
-        "duration_ms": 380,
+        "started_ms": 9,
+        "duration_ms": 424,
         "timings": {
-          "response_ms": 380
+          "response_ms": 424
         }
       }
     ],
     "timing": {
-      "elapsed_ms": 392,
+      "elapsed_ms": 434,
       "stages": [
         {
           "name": "鉴权与路由",
@@ -100,39 +100,39 @@
         {
           "name": "沙箱上下文与工具初始化",
           "started_ms": 2,
-          "duration_ms": 6
+          "duration_ms": 5
         },
         {
           "name": "脚本执行（含外部调用等待）",
-          "started_ms": 8,
-          "duration_ms": 384
+          "started_ms": 7,
+          "duration_ms": 426
         },
         {
           "name": "错误诊断收集",
-          "started_ms": 392,
+          "started_ms": 433,
           "duration_ms": 0
         },
         {
           "name": "沙箱释放",
-          "started_ms": 392,
-          "duration_ms": 0
+          "started_ms": 433,
+          "duration_ms": 1
         },
         {
           "name": "失败后浏览器清理",
-          "started_ms": 392,
+          "started_ms": 434,
           "duration_ms": 0
         },
         {
           "name": "调试信息整理",
-          "started_ms": 392,
+          "started_ms": 434,
           "duration_ms": 0
         }
       ],
       "operations": [
         {
           "name": "上游 HTTP 请求",
-          "started_ms": 11,
-          "duration_ms": 380
+          "started_ms": 9,
+          "duration_ms": 424
         }
       ]
     }
@@ -147,9 +147,9 @@
     "response": false,
     "format_valid": false,
     "output_valid": false,
-    "status": 504,
-    "code": "UPSTREAM_TIMEOUT",
-    "error": "HTTP 504: UPSTREAM_TIMEOUT: 上游请求或采集任务超时，请稍后重试",
-    "duration_ms": 88259
+    "status": 502,
+    "code": "UPSTREAM_FETCH_FAILED",
+    "error": "HTTP 502: UPSTREAM_FETCH_FAILED: 访问上游网页或接口失败，请稍后重试",
+    "duration_ms": 530
   }
 }
