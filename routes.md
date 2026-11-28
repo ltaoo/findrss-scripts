@@ -1,8 +1,8 @@
-# 脚本路由巡检：121/176 通过
+# 脚本路由巡检：120/176 通过
 
 <img data-n="project-logo" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/assets/brand/logo.svg" alt="FindRSS" width="64" height="64">
 
-巡检时间：2026-11-28T08:21:39.374Z
+巡检时间：2026-11-28T17:07:32.401Z
 
 点击脚本路径打开 master 分支的 Raw 源码。结果按脚本聚合，每条路由显示成功或失败及失败原因，失败项优先显示。
 
@@ -20,7 +20,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-28/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
+| /api/hot/36kr/hot-list/renqi<br>36氪 · 人气榜 (/api/hot/36kr/hot-list/renqi) | ❌ 失败 | COOKIE\_REQUIRED: HTTP 503: COOKIE\_REQUIRED: 站点 https://36kr.com 的 Cookie 同步数据中没有权限 kr36 允许的名称（\_waf\_verification\_proof、\_wafchallengeid），请求 https://36kr.com/hot-list/renqi/2026-11-29/1 无法携带 Cookie。请在 Cookie 同步中勾选该站点后重新上传 |
 | /api/hot/36kr/newsflashes<br>36氪 · 快讯 (/api/hot/36kr/newsflashes) | ✅ 成功 |  |
 
 ## hot/apple\_charts.js（0/1 通过）
@@ -47,14 +47,6 @@
 | --- | --- | --- |
 | /api/hot/chongbuluo/forum.php/hot<br>虫部落 · 最热 (/api/hot/chongbuluo/forum.php/hot) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 | /api/hot/chongbuluo/forum.php/latest<br>虫部落 · 最新 (/api/hot/chongbuluo/forum.php/latest) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
-
-## hot/douban\_hot.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-20.svg" alt="" width="24" height="24"> [hot/douban\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/douban_hot.js) · 版本：1.0.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/hot/douban/rexxar/api/v2/subject/recent\_hot/movie<br>豆瓣 · 热门电影 (/api/hot/douban/rexxar/api/v2/subject/recent\_hot/movie) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
 
 ## hot/freebuf.js（0/1 通过）
 
@@ -177,14 +169,6 @@
 | --- | --- | --- |
 | /api/rss/101kks/book/:book\_id<br>101看书 · 48273 (/api/rss/101kks/book/48273) | ❌ 失败 | UPSTREAM\_AUTH\_REQUIRED: HTTP 502: UPSTREAM\_AUTH\_REQUIRED: 上游要求登录，Cookie 可能已失效或不完整，请更新登录凭据 |
 
-## rss/52bqg.js（0/1 通过）
-
-[rss/52bqg.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/52bqg.js) · 版本：1.0.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/52bqg/book/:book\_id<br>笔趣阁52 · 266271 (/api/rss/52bqg/book/266271) | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
-
 ## rss/99wx.js（0/1 通过）
 
 [rss/99wx.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/99wx.js) · 版本：1.0.0
@@ -234,6 +218,14 @@
 | --- | --- | --- |
 | /api/rss/ibiqugu/book/:category/:book\_id<br>香书小说 · 130/130509 (/api/rss/ibiqugu/book/130/130509) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
 
+## rss/instagram.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-104.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.4
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/instagram/:username<br>Auron (/api/rss/instagram/auronplay)<br>Avneet Kaur (/api/rss/instagram/avneetkaur\_13)<br>Bella Poarch (/api/rss/instagram/bellapoarch)<br>Bretman Rock (/api/rss/instagram/bretmanrock)<br>charli (/api/rss/instagram/charlidamelio)<br>DOME (/api/rss/instagram/domelipa)<br>el rubius WTF (/api/rss/instagram/elrubiuswtf)<br>Ercilia Micarelli (/api/rss/instagram/erciliamicarelli)<br>Ibai (/api/rss/instagram/ibaillanos)<br>Jannat Zubair Rahmani (/api/rss/instagram/jannatzubair29)<br>Jia Yiiii (/api/rss/instagram/jiayiiii.moon)<br>Juanpa Zurita (/api/rss/instagram/juanpazurita)<br>KARINA (/api/rss/instagram/katarinabluu)<br>Khabane Lame (/api/rss/instagram/khaby00)<br>KIM LOAIZA 🇲🇽 (/api/rss/instagram/kimberly.loaiza)<br>Lele Pons (/api/rss/instagram/lelepons)<br>Pillanosaurio Rex (/api/rss/instagram/luisitocomunica)<br>Mark Rober (/api/rss/instagram/markrober)<br>Marques Brownlee (/api/rss/instagram/mkbhd)<br>MrBeast (/api/rss/instagram/mrbeast)<br>Nick DiGiovanni (/api/rss/instagram/nick.digiovanni)<br>Zach King (/api/rss/instagram/zachking) | ❌ 失败 | Auron /api/rss/instagram/auronplay: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Avneet Kaur /api/rss/instagram/avneetkaur\_13: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Bella Poarch /api/rss/instagram/bellapoarch: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Bretman Rock /api/rss/instagram/bretmanrock: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；charli /api/rss/instagram/charlidamelio: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；DOME /api/rss/instagram/domelipa: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；el rubius WTF /api/rss/instagram/elrubiuswtf: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Ercilia Micarelli /api/rss/instagram/erciliamicarelli: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Ibai /api/rss/instagram/ibaillanos: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Jannat Zubair Rahmani /api/rss/instagram/jannatzubair29: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Jia Yiiii /api/rss/instagram/jiayiiii.moon: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Juanpa Zurita /api/rss/instagram/juanpazurita: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；KARINA /api/rss/instagram/katarinabluu: HTTP 503: UPSTREAM\_RATE\_LIMITED: UPSTREAM\_RATE\_LIMITED: 脚本执行失败：脚本上游 www.instagram.com 返回 HTTP 429；Khabane Lame /api/rss/instagram/khaby00: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；KIM LOAIZA 🇲🇽 /api/rss/instagram/kimberly.loaiza: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Lele Pons /api/rss/instagram/lelepons: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Pillanosaurio Rex /api/rss/instagram/luisitocomunica: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Mark Rober /api/rss/instagram/markrober: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Marques Brownlee /api/rss/instagram/mkbhd: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；MrBeast /api/rss/instagram/mrbeast: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Nick DiGiovanni /api/rss/instagram/nick.digiovanni: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本；Zach King /api/rss/instagram/zachking: 同脚本样本 /api/rss/instagram/katarinabluu 冷却重试后仍被上游限流，本轮未请求此样本 |
+
 ## rss/kuaishou.js（0/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-108.svg" alt="" width="24" height="24"> [rss/kuaishou.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/kuaishou.js) · 版本：1.1.2
@@ -274,14 +266,6 @@
 | --- | --- | --- |
 | /api/rss/snxsw/book/:book\_id<br>少年小说网 · 76366 (/api/rss/snxsw/book/76366) | ❌ 失败 | UPSTREAM\_INVALID\_RESPONSE: HTTP 502: UPSTREAM\_INVALID\_RESPONSE: 上游响应不符合要求，可能返回登录页、验证页、错误格式或缺少必要字段 |
 
-## rss/telegram.js（0/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-118.svg" alt="" width="24" height="24"> [rss/telegram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/telegram.js) · 版本：1.1.0
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/telegram/channel/:username<br>Telegram News (/api/rss/telegram/channel/telegram) | ❌ 失败 | UPSTREAM\_FETCH\_FAILED: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
-
 ## rss/ttkan.js（0/1 通过）
 
 [rss/ttkan.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ttkan.js) · 版本：1.0.0
@@ -297,6 +281,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/ujxsw/book/:book\_id<br>悠久小说网 · 107612 (/api/rss/ujxsw/book/107612) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
+
+## rss/weibo.js（0/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-123.svg" alt="" width="24" height="24"> [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) · 版本：1.1.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/weibo/u/:uid<br>影视飓风MediaStorm (/api/rss/weibo/u/1044980795)<br>博物杂志 (/api/rss/weibo/u/1195054531)<br>天才小熊猫 (/api/rss/weibo/u/1563926367)<br>敖厂长 (/api/rss/weibo/u/1671959152)<br>雷军 (/api/rss/weibo/u/1749127163)<br>深夜徐老师 (/api/rss/weibo/u/1770418834)<br>指法芬芳张大仙 (/api/rss/weibo/u/1811893237)<br>果壳 (/api/rss/weibo/u/1850988623)<br>李佳琦Austin (/api/rss/weibo/u/1968758563)<br>这是邱天 (/api/rss/weibo/u/1992429663)<br>papi酱 (/api/rss/weibo/u/2714280233)<br>王尼玛 (/api/rss/weibo/u/2718604160)<br>李子柒 (/api/rss/weibo/u/2970452952)<br>手工耿 (/api/rss/weibo/u/3108949955)<br>我是李雪琴啊 (/api/rss/weibo/u/3210693695)<br>回忆专用小马甲 (/api/rss/weibo/u/3217179555)<br>摩登兄弟刘宇宁 (/api/rss/weibo/u/5456865382)<br>滇西小哥 (/api/rss/weibo/u/6061180654)<br>美食作家王刚 (/api/rss/weibo/u/6288254740)<br>老师好我叫何同学 (/api/rss/weibo/u/6529876887) | ❌ 失败 | 果壳 /api/rss/weibo/u/1850988623: HTTP 502: UPSTREAM\_FETCH\_FAILED: 访问上游网页或接口失败，请稍后重试 |
 
 ## rss/wxsy.js（0/1 通过）
 
@@ -336,7 +328,7 @@
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青（孕期版） (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>Westca加拿大生活 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | 爱折腾的小冯同学 /api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7: 条目数须 &gt;= 1；丫丫Thea /api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612: 条目数须 &gt;= 1；元正熙YUAN /api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc: 条目数须 &gt;= 1；琳达不呆 /api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e: 条目数须 &gt;= 1；Westca加拿大生活 /api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66: 条目数须 &gt;= 1 |
+| /api/rss/xiaohongshu/user/profile/:uid<br>冬冬崽\_ (/api/rss/xiaohongshu/user/profile/55fe12fcb7ba2261a9a45975)<br>爱折腾的小冯同学 (/api/rss/xiaohongshu/user/profile/5611be4c8a75e16b44cb8bf7)<br>李蠕蠕 (/api/rss/xiaohongshu/user/profile/587913e05e87e76d57a7ba24)<br>徐听雨 (/api/rss/xiaohongshu/user/profile/5a17b91a11be102c626e7358)<br>ElenaLin\_青青（孕期版） (/api/rss/xiaohongshu/user/profile/5a99b3064eacab11e034abc1)<br>丫丫Thea (/api/rss/xiaohongshu/user/profile/5ac596fe4eacab7d642dc612)<br>周小闹 (/api/rss/xiaohongshu/user/profile/5aeab9b8e8ac2b7fd2732a56)<br>侯绿萝 (/api/rss/xiaohongshu/user/profile/5afe2295e8ac2b64c31f7be7)<br>何香蓓Betty (/api/rss/xiaohongshu/user/profile/5b06174b11be106ed9f12937)<br>张天琪 (/api/rss/xiaohongshu/user/profile/5b3284b24eacab4b32ae6d00)<br>脑洞少女T (/api/rss/xiaohongshu/user/profile/5b4b77ff4eacab0e6f9d4b88)<br>元正熙YUAN (/api/rss/xiaohongshu/user/profile/5b8f9b1e498efc00015643cc)<br>房琪kiki (/api/rss/xiaohongshu/user/profile/5bf9ff7e999837000189d106)<br>叔贵 (/api/rss/xiaohongshu/user/profile/5c24e9d90000000005010b7e)<br>雪糍 (/api/rss/xiaohongshu/user/profile/5d2aec020000000012037401)<br>琳达不呆 (/api/rss/xiaohongshu/user/profile/5e5e19e7000000000100373e)<br>请叫我陈书书 (/api/rss/xiaohongshu/user/profile/5e7ffb130000000001007afa)<br>玲子Reiko (/api/rss/xiaohongshu/user/profile/5f24043e00000000010029fc)<br>幻想家姜时一 (/api/rss/xiaohongshu/user/profile/5f413e160000000001009af8)<br>Westca加拿大生活 (/api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66)<br>Nxy未央 (/api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba) | ❌ 失败 | Westca加拿大生活 /api/rss/xiaohongshu/user/profile/61d3efa3000000001000be66: 条目数须 &gt;= 1；Nxy未央 /api/rss/xiaohongshu/user/profile/6520d1c300000000230279ba: 条目数须 &gt;= 1 |
 
 ## rss/xiaoshuohu.js（0/1 通过）
 
@@ -370,17 +362,17 @@
 | --- | --- | --- |
 | /api/rss/yeudusk/book/:book\_id<br>阅读库 · 1322535 (/api/rss/yeudusk/book/1322535) | ❌ 失败 | UPSTREAM\_TIMEOUT: HTTP 504: UPSTREAM\_TIMEOUT: 上游请求或采集任务超时，请稍后重试 |
 
-## rss/zhihu.js（7/8 通过）
+## rss/zhihu.js（5/8 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-139.svg" alt="" width="24" height="24"> [rss/zhihu.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/zhihu.js) · 版本：1.1.1
 
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
-| /api/rss/zhihu/people/:user/answers<br>陈柏龄 (/api/rss/zhihu/people/chenbailing/answers)<br>chenqin (/api/rss/zhihu/people/chenqin/answers)<br>丁香医生 (/api/rss/zhihu/people/ding-xiang-yi-sheng/answers)<br>陈海贤 (/api/rss/zhihu/people/dong-ji-zai-hang-zhou/answers)<br>尤雨溪 (/api/rss/zhihu/people/evanyou/answers)<br>李开复 (/api/rss/zhihu/people/kaifulee/answers)<br>KnowYourself (/api/rss/zhihu/people/knowyourself-1/answers)<br>老爸评测 (/api/rss/zhihu/people/lao-ba-ping-ce/answers)<br>工叔 (/api/rss/zhihu/people/li-hai-yang-14-43/answers)<br>李松蔚 (/api/rss/zhihu/people/lisongwei/answers)<br>马伯庸 (/api/rss/zhihu/people/ma-bo-yong/answers)<br>Raymond Wang (/api/rss/zhihu/people/raymond-wang/answers)<br>san-chen-8 (/api/rss/zhihu/people/san-chen-8/answers)<br>田吉顺 (/api/rss/zhihu/people/tian-ji-shun/answers)<br>warfalcon (/api/rss/zhihu/people/warfalcon/answers)<br>下厨房 (/api/rss/zhihu/people/xia-chu-fang/answers)<br>yang-yang-82-40 (/api/rss/zhihu/people/yang-yang-82-40/answers)<br>张佳玮 (/api/rss/zhihu/people/zhang-jia-wei/answers)<br>张小北 (/api/rss/zhihu/people/zhang-xiao-bei/answers)<br>真实故事计划 (/api/rss/zhihu/people/zhen-shi-gu-shi-ji-hua/answers)<br>木子白 (/api/rss/zhihu/people/zhihu/answers)<br>中国科普博览 (/api/rss/zhihu/people/zhong-guo-ke-pu-bo-lan/answers) | ❌ 失败 | san-chen-8 /api/rss/zhihu/people/san-chen-8/answers: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/rss/zhihu/column/:column\_id<br>谷歌开发者社区 (/api/rss/zhihu/column/googledevelopers) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/rss/zhihu/people/:user/answers<br>陈柏龄 (/api/rss/zhihu/people/chenbailing/answers)<br>chenqin (/api/rss/zhihu/people/chenqin/answers)<br>丁香医生 (/api/rss/zhihu/people/ding-xiang-yi-sheng/answers)<br>陈海贤 (/api/rss/zhihu/people/dong-ji-zai-hang-zhou/answers)<br>尤雨溪 (/api/rss/zhihu/people/evanyou/answers)<br>李开复 (/api/rss/zhihu/people/kaifulee/answers)<br>KnowYourself (/api/rss/zhihu/people/knowyourself-1/answers)<br>老爸评测 (/api/rss/zhihu/people/lao-ba-ping-ce/answers)<br>工叔 (/api/rss/zhihu/people/li-hai-yang-14-43/answers)<br>李松蔚 (/api/rss/zhihu/people/lisongwei/answers)<br>马伯庸 (/api/rss/zhihu/people/ma-bo-yong/answers)<br>Raymond Wang (/api/rss/zhihu/people/raymond-wang/answers)<br>san-chen-8 (/api/rss/zhihu/people/san-chen-8/answers)<br>田吉顺 (/api/rss/zhihu/people/tian-ji-shun/answers)<br>warfalcon (/api/rss/zhihu/people/warfalcon/answers)<br>下厨房 (/api/rss/zhihu/people/xia-chu-fang/answers)<br>yang-yang-82-40 (/api/rss/zhihu/people/yang-yang-82-40/answers)<br>张佳玮 (/api/rss/zhihu/people/zhang-jia-wei/answers)<br>张小北 (/api/rss/zhihu/people/zhang-xiao-bei/answers)<br>真实故事计划 (/api/rss/zhihu/people/zhen-shi-gu-shi-ji-hua/answers)<br>木子白 (/api/rss/zhihu/people/zhihu/answers)<br>中国科普博览 (/api/rss/zhihu/people/zhong-guo-ke-pu-bo-lan/answers) | ❌ 失败 | 马伯庸 /api/rss/zhihu/people/ma-bo-yong/answers: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
+| /api/rss/zhihu/people/:user/asks<br>木子白 (/api/rss/zhihu/people/zhihu/asks) | ❌ 失败 | UPSTREAM\_ACCESS\_DENIED: HTTP 502: UPSTREAM\_ACCESS\_DENIED: 上游拒绝访问，可能需要额外权限或完成站点验证 |
 | /api/rss/zhihu/collection/:collection\_id<br>总有一天能用到的资料 (/api/rss/zhihu/collection/26444956) | ✅ 成功 |  |
-| /api/rss/zhihu/column/:column\_id<br>谷歌开发者社区 (/api/rss/zhihu/column/googledevelopers) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user<br>木子白 (/api/rss/zhihu/people/zhihu) | ✅ 成功 |  |
-| /api/rss/zhihu/people/:user/asks<br>木子白 (/api/rss/zhihu/people/zhihu/asks) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/pins<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/pins) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/posts<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/posts) | ✅ 成功 |  |
 | /api/rss/zhihu/people/:user/zvideos<br>潇湘夜雨 (/api/rss/zhihu/people/TonyVolcano/zvideos) | ✅ 成功 |  |
@@ -508,6 +500,14 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/hot/dongqiudi/app/tabs/web/1.json<br>懂球帝 · 头条 (/api/hot/dongqiudi/app/tabs/web/1.json) | ✅ 成功 |  |
+
+## hot/douban\_hot.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-20.svg" alt="" width="24" height="24"> [hot/douban\_hot.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/hot/douban_hot.js) · 版本：1.0.1
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/hot/douban/rexxar/api/v2/subject/recent\_hot/movie<br>豆瓣 · 热门电影 (/api/hot/douban/rexxar/api/v2/subject/recent\_hot/movie) | ✅ 成功 |  |
 
 ## hot/douyin\_hot.js（1/1 通过）
 
@@ -920,6 +920,14 @@
 | --- | --- | --- |
 | /api/hot/zhihu/api/v3/feed/topstory/hot-list-web<br>知乎 (/api/hot/zhihu/api/v3/feed/topstory/hot-list-web) | ✅ 成功 |  |
 
+## rss/52bqg.js（1/1 通过）
+
+[rss/52bqg.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/52bqg.js) · 版本：1.0.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/52bqg/book/:book\_id<br>笔趣阁52 · 266271 (/api/rss/52bqg/book/266271) | ✅ 成功 |  |
+
 ## rss/69shuba.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-86.svg" alt="" width="24" height="24"> [rss/69shuba.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/69shuba.js) · 版本：1.3.0
@@ -1017,14 +1025,6 @@
 | --- | --- | --- |
 | /api/rss/hetushu/book/:book\_id<br>和图书 · 5763 (/api/rss/hetushu/book/5763) | ✅ 成功 |  |
 
-## rss/instagram.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-104.svg" alt="" width="24" height="24"> [rss/instagram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/instagram.js) · 版本：1.1.4
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/instagram/:username<br>Auron (/api/rss/instagram/auronplay)<br>Avneet Kaur (/api/rss/instagram/avneetkaur\_13)<br>Bella Poarch (/api/rss/instagram/bellapoarch)<br>Bretman Rock (/api/rss/instagram/bretmanrock)<br>charli (/api/rss/instagram/charlidamelio)<br>DOME (/api/rss/instagram/domelipa)<br>el rubius WTF (/api/rss/instagram/elrubiuswtf)<br>Ercilia Micarelli (/api/rss/instagram/erciliamicarelli)<br>Ibai (/api/rss/instagram/ibaillanos)<br>Jannat Zubair Rahmani (/api/rss/instagram/jannatzubair29)<br>Jia Yiiii (/api/rss/instagram/jiayiiii.moon)<br>Juanpa Zurita (/api/rss/instagram/juanpazurita)<br>KARINA (/api/rss/instagram/katarinabluu)<br>Khabane Lame (/api/rss/instagram/khaby00)<br>KIM LOAIZA 🇲🇽 (/api/rss/instagram/kimberly.loaiza)<br>Lele Pons (/api/rss/instagram/lelepons)<br>Pillanosaurio Rex (/api/rss/instagram/luisitocomunica)<br>Mark Rober (/api/rss/instagram/markrober)<br>Marques Brownlee (/api/rss/instagram/mkbhd)<br>MrBeast (/api/rss/instagram/mrbeast)<br>Nick DiGiovanni (/api/rss/instagram/nick.digiovanni)<br>Zach King (/api/rss/instagram/zachking) | ✅ 成功 |  |
-
 ## rss/iqiyi.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-105.svg" alt="" width="24" height="24"> [rss/iqiyi.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/iqiyi.js) · 版本：1.0.0
@@ -1089,6 +1089,14 @@
 | --- | --- | --- |
 | /api/rss/suduguu/book/:book\_id<br>速读谷 · 3415 (/api/rss/suduguu/book/3415) | ✅ 成功 |  |
 
+## rss/telegram.js（1/1 通过）
+
+<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-118.svg" alt="" width="24" height="24"> [rss/telegram.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/telegram.js) · 版本：1.1.0
+
+| 路由 | 结果 | 失败原因 |
+| --- | --- | --- |
+| /api/rss/telegram/channel/:username<br>Telegram News (/api/rss/telegram/channel/telegram) | ✅ 成功 |  |
+
 ## rss/ttk.js（1/1 通过）
 
 <img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-119.svg" alt="" width="24" height="24"> [rss/ttk.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/ttk.js) · 版本：1.2.0
@@ -1104,14 +1112,6 @@
 | 路由 | 结果 | 失败原因 |
 | --- | --- | --- |
 | /api/rss/vqq/series/:cover\_id<br>尚公主 (/api/rss/vqq/series/mzc002001w361jz) | ✅ 成功 |  |
-
-## rss/weibo.js（1/1 通过）
-
-<img data-n="script-icon" src="https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/route-reports/reports/icons/script-123.svg" alt="" width="24" height="24"> [rss/weibo.js](https://raw.githubusercontent.com/ltaoo/findrss-scripts/refs/heads/master/rss/weibo.js) · 版本：1.1.1
-
-| 路由 | 结果 | 失败原因 |
-| --- | --- | --- |
-| /api/rss/weibo/u/:uid<br>影视飓风MediaStorm (/api/rss/weibo/u/1044980795)<br>博物杂志 (/api/rss/weibo/u/1195054531)<br>天才小熊猫 (/api/rss/weibo/u/1563926367)<br>敖厂长 (/api/rss/weibo/u/1671959152)<br>雷军 (/api/rss/weibo/u/1749127163)<br>深夜徐老师 (/api/rss/weibo/u/1770418834)<br>指法芬芳张大仙 (/api/rss/weibo/u/1811893237)<br>果壳 (/api/rss/weibo/u/1850988623)<br>李佳琦Austin (/api/rss/weibo/u/1968758563)<br>这是邱天 (/api/rss/weibo/u/1992429663)<br>papi酱 (/api/rss/weibo/u/2714280233)<br>王尼玛 (/api/rss/weibo/u/2718604160)<br>李子柒 (/api/rss/weibo/u/2970452952)<br>手工耿 (/api/rss/weibo/u/3108949955)<br>我是李雪琴啊 (/api/rss/weibo/u/3210693695)<br>回忆专用小马甲 (/api/rss/weibo/u/3217179555)<br>摩登兄弟刘宇宁 (/api/rss/weibo/u/5456865382)<br>滇西小哥 (/api/rss/weibo/u/6061180654)<br>美食作家王刚 (/api/rss/weibo/u/6288254740)<br>老师好我叫何同学 (/api/rss/weibo/u/6529876887) | ✅ 成功 |  |
 
 ## rss/wxchannels.js（1/1 通过）
 
